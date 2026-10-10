@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IPCC Literature Database</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="dot"></span>
+    <h1 data-i18n="app.title">IPCC Literature Database</h1>
+    <span class="sub" data-i18n="app.subtitle">Reference explorer</span>
+  </div>
+  <nav id="tabs">
+    <button data-view="overview"  data-i18n="nav.overview">Overview</button>
+    <button data-view="reports"   data-i18n="nav.reports">Assessment Reports</button>
+    <button data-view="literature" data-i18n="nav.literature">Literature</button>
+    <button data-view="bi"        data-i18n="nav.bi">BI Explorer</button>
+    <button data-view="analytics" data-i18n="nav.analytics">Analytics</button>
+    <button data-view="insights"  data-i18n="nav.insights">Automated Insights</button>
+    <button data-view="networks"  data-i18n="nav.networks">Networks</button>
+    <button data-view="quality"   data-i18n="nav.quality">Data Quality</button>
+    <button data-view="unresolved" data-i18n="nav.unresolved">Unresolved</button>
+    <button data-view="progress"  data-i18n="nav.progress">Progress</button>
+    <button data-view="ai"        data-i18n="nav.ai">AI Analysis</button>
+    <button data-view="settings"  data-i18n="nav.settings">Settings</button>
+  </nav>
+  <div class="tools">
+    <select id="theme" title="Theme">
+      <option value="light" data-i18n="settings.theme.light">Light</option>
+      <option value="dark" data-i18n="settings.theme.dark">Dark</option>
+      <option value="system" data-i18n="settings.theme.system">System</option>
+    </select>
+    <span class="meta" id="buildmeta">—</span>
+  </div>
+</header>
+
+<main>
+  <div id="error" class="error hidden"></div>
+
+  <section id="view-overview" class="view active">
+    <div id="kpis" class="kpis"></div>
+    <div class="grid2">
+      <div class="card"><h3 data-i18n="chart.by_report">References by Assessment Report</h3><div id="chart-reports" class="chart"></div></div>
+      <div class="card"><h3 data-i18n="chart.by_wg">References by Working Group</h3><div id="chart-wg" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h3 data-i18n="chart.by_year">Papers by publication year</h3><div id="chart-year" class="chart"></div></div>
+      <div class="card">
+        <h3 data-i18n="chart.completeness">Metadata completeness</h3><div id="chart-completeness" class="chart"></div>
+        <h4 data-i18n="chart.match">Matching completion</h4><div id="chart-match" class="chart"></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3 data-i18n="chart.top_multi">Most widely cited papers across IPCC reports</h3>
+      <div class="tblwrap"><table class="tbl" id="tbl-multireport"></table></div>
+    </div>
+  </section>
+
+  <section id="view-reports" class="view">
+    <div class="card">
+      <h3 data-i18n="page.reports">Assessment Report Explorer</h3>
+      <p class="hint" data-i18n="page.reports.hint"></p>
+      <div id="tree-reports" class="tree"></div>
+    </div>
+    <div class="card hidden" id="card-chapter-refs">
+      <h3 id="chapter-refs-title">References</h3>
+      <div id="chapter-refs"></div>
+    </div>
+  </section>
+
+  <section id="view-literature" class="view">
+    <div class="card">
+      <h3 data-i18n="page.literature">Literature Explorer</h3>
+      <div class="filters">
+        <input id="f-q" data-i18n-ph="filter.keyword">
+        <input id="f-doi" data-i18n-ph="filter.doi">
+        <select id="f-report"></select>
+        <select id="f-wg"></select>
+        <input id="f-year-from" data-i18n-ph="filter.year_from" size="9">
+        <input id="f-year-to" data-i18n-ph="filter.year_to" size="9">
+        <select id="f-status">
+          <option value="" data-i18n="filter.any_status"></option>
+          <option value="wos_matched" data-i18n="status.wos_matched"></option>
+          <option value="doi_verified" data-i18n="status.doi_verified"></option>
+          <option value="unresolved" data-i18n="status.unresolved"></option>
+        </select>
+        <select id="f-minreports">
+          <option value="" data-i18n="filter.any_reports"></option>
+          <option value="1" data-i18n="filter.cited_2plus"></option>
+          <option value="2" data-i18n="filter.cited_3plus"></option>
+          <option value="4" data-i18n="filter.cited_5plus"></option>
+        </select>
+        <select id="f-sort">
+          <option value="n_reports" data-i18n="filter.sort_reports"></option>
+          <option value="occurrences" data-i18n="filter.sort_occurrences"></option>
+          <option value="year" data-i18n="filter.sort_year"></option>
+          <option value="title" data-i18n="filter.sort_title"></option>
+        </select>
+        <button id="btn-search" class="primary" data-i18n="filter.search"></button>
+        <button id="btn-reset" data-i18n="filter.reset"></button>
+      </div>
+      <div class="filters">
+        <span class="hint" style="margin:0" data-i18n="btn.export_csv"></span>
+        <button data-export="papers.csv">CSV</button>
+        <button data-export="papers.xlsx">XLSX</button>
+        <button data-export="papers.json">JSON</button>
+        <button data-export="papers.bibtex">BibTeX</button>
+        <button data-export="papers.ris">RIS</button>
+      </div>
+      <div id="lit-summary" class="hint"></div>
+      <div id="lit-export-status" class="hint export-status" role="status" data-i18n="export.limit"></div>
+      <div class="tblwrap"><table class="tbl" id="tbl-papers"></table></div>
+      <div class="pager" id="pager-papers"></div>
+    </div>
+  </section>
+
+  <section id="view-bi" class="view">
+    <div class="card">
+      <h3 data-i18n="page.bi">BI Explorer</h3>
+      <p class="hint" data-i18n="page.bi.hint"></p>
+      <div class="filters">
+        <select id="bi-metric"></select>
+        <select id="bi-dim"></select>
+        <select id="bi-report"></select>
+        <select id="bi-wg"></select>
+        <select id="bi-status">
+          <option value="" data-i18n="filter.any_status"></option>
+          <option value="matched_doi">matched_doi</option>
+          <option value="matched_title">matched_title</option>
+          <option value="unmatched">unmatched</option>
+        </select>
+        <button id="bi-run" class="primary" data-i18n="filter.run"></button>
+      </div>
+      <div id="bi-desc" class="hint"></div>
+      <div id="bi-result"></div>
+    </div>
+  </section>
+
+  <section id="view-analytics" class="view">
+    <div class="card"><h3 data-i18n="nav.analytics">Analytics</h3>
+      <p class="hint" data-i18n="page.insights.hint"></p>
+      <div id="analytics-index"></div>
+    </div>
+    <div class="card hidden" id="card-analysis">
+      <h3 id="analysis-title">Analysis</h3>
+      <div id="analysis-body"></div>
+    </div>
+  </section>
+
+  <section id="view-insights" class="view">
+    <div class="card">
+      <h3 data-i18n="page.insights">Automated Insights</h3>
+      <p class="hint" data-i18n="page.insights.hint"></p>
+      <div id="insight-feed"></div>
+    </div>
+  </section>
+
+  <section id="view-networks" class="view">
+    <div class="card">
+      <h3 data-i18n="page.networks">Networks</h3>
+      <p class="hint" data-i18n="page.networks.hint"></p>
+      <div class="filters">
+        <select id="net-kind"></select>
+        <label class="chk"><span data-i18n="net.threshold"></span>
+          <input type="range" id="net-threshold" min="0" max="0.8" step="0.01" value="0.25" style="min-width:130px">
+          <code id="net-threshold-val">0.25</code></label>
+        <button id="net-fit" data-i18n="net.reset"></button>
+        <button id="net-export-png" data-network-download="png" disabled title="Download network image">PNG</button>
+        <button id="net-export-json" data-network-download="json" disabled title="Download network data and provenance">JSON</button>
+      </div>
+      <div id="net-stats" class="hint"></div>
+      <div class="netwrap" id="net-wrap">
+        <div id="net-svg" class="netcanvas"></div>
+        <div class="nettip" id="net-tip"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-quality" class="view">
+    <div class="card">
+      <h3 data-i18n="page.quality">Data Quality</h3>
+      <p class="hint" data-i18n="page.quality.hint"></p>
+      <div id="quality-score" class="hint"></div>
+      <div id="quality-cards" class="kpis"></div>
+    </div>
+    <div class="card"><h3 data-i18n="table.flag">Flag</h3>
+      <div class="tblwrap"><table class="tbl" id="tbl-flags"></table></div>
+    </div>
+    <div class="card hidden" id="card-flag-records">
+      <h3 id="flag-records-title">Records</h3>
+      <div class="tblwrap"><table class="tbl" id="tbl-flag-records"></table></div>
+      <div class="pager" id="pager-flag-records"></div>
+    </div>
+    <div class="card"><h3 id="dup-title">Duplicate candidates</h3>
+      <p class="hint" id="dup-hint"></p>
+      <div id="dup-list"></div>
+    </div>
+  </section>
+
+  <section id="view-unresolved" class="view">
+    <div class="card">
+      <h3 data-i18n="page.unresolved">Unresolved references</h3>
+      <p class="hint" data-i18n="page.unresolved.hint"></p>
+      <div class="filters">
+        <select id="u-report"></select>
+        <label class="chk"><input type="checkbox" id="u-dionly"> <span data-i18n="filter.no_doi_only"></span></label>
+        <button id="btn-u-search" class="primary" data-i18n="filter.apply"></button>
+        <span class="hint" style="margin:0">Export:</span>
+        <button data-export="unresolved.csv">CSV</button>
+        <button data-export="unresolved.xlsx">XLSX</button>
+        <button data-export="unresolved.bibtex">BibTeX</button>
+      </div>
+      <div id="u-summary" class="hint"></div>
+      <div id="u-export-status" class="hint export-status" role="status" data-i18n="export.limit"></div>
+      <div class="tblwrap"><table class="tbl" id="tbl-unresolved"></table></div>
+      <div class="pager" id="pager-unresolved"></div>
+    </div>
+  </section>
+
+  <section id="view-progress" class="view">
+    <div class="card">
+      <h3 data-i18n="page.progress">Collection Progress</h3>
+      <div id="progress-note" class="notice"></div>
+      <div class="tblwrap"><table class="tbl" id="tbl-progress"></table></div>
+    </div>
+  </section>
+
+  <section id="view-ai" class="view">
+    <div class="card">
+      <h3 data-i18n="page.ai">AI Analysis</h3>
+      <p class="hint" data-i18n="page.ai.hint"></p>
+      <div id="ai-status"></div>
+      <div class="filters" id="ai-controls">
+        <input id="ai-q" style="min-width:440px" data-i18n-ph="ai.placeholder">
+        <button id="ai-ask" class="primary" data-i18n="ai.ask"></button>
+      </div>
+      <div id="ai-out"></div>
+    </div>
+  </section>
+
+  <section id="view-settings" class="view">
+    <div class="card">
+      <h3 data-i18n="page.settings">Settings</h3>
+      <div class="kv" style="max-width:560px">
+        <div class="k" data-i18n="settings.language"></div>
+        <div>English</div>
+        <div class="k" data-i18n="settings.theme"></div>
+        <div><select id="set-theme">
+          <option value="light" data-i18n="settings.theme.light"></option>
+          <option value="dark" data-i18n="settings.theme.dark"></option>
+          <option value="system" data-i18n="settings.theme.system"></option>
+        </select></div>
+        <div class="k" data-i18n="settings.analysis_runs"></div>
+        <div id="set-runs"></div>
+        <div class="k" data-i18n="settings.about"></div>
+        <div id="set-about"></div>
+      </div>
+      <h4 data-i18n="ai.status">AI configuration</h4>
+      <pre class="sql" id="set-ai"></pre>
+    </div>
+  </section>
+</main>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-box">
+    <button class="close" id="modal-close">×</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<!-- Vendored browser libraries.
+     Apache ECharts 6.1.0 - Apache-2.0 - https://github.com/apache/echarts
+     Cytoscape.js 3.34.3 - MIT - https://github.com/cytoscape/cytoscape.js
+     See README.md#third-party-licenses -->
+<script src="/static/vendor/echarts.min.js"></script>
+<script src="/static/vendor/cytoscape.min.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>

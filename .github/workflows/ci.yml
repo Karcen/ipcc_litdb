@@ -1,0 +1,51 @@
+name: Checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: |
+            backend/requirements.txt
+            requirements-dev.txt
+      - name: Install dependencies and restore snapshot
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          bash scripts/install.sh --dev
+      - name: Check syntax and package
+        run: |
+          source .venv/bin/activate
+          bash scripts/lint.sh
+          python scripts/verify_project.py
+      - name: Check API and run tests
+        run: |
+          source .venv/bin/activate
+          bash scripts/dev.sh > /tmp/ipcc-api.log 2>&1 &
+          api_pid=$!
+          trap 'kill "$api_pid" 2>/dev/null || true' EXIT
+          python - <<'PY'
+          import time
+          import urllib.request
+          for attempt in range(30):
+              try:
+                  urllib.request.urlopen('http://127.0.0.1:8077/api/health', timeout=2)
+                  break
+              except OSError:
+                  time.sleep(1)
+          else:
+              raise SystemExit('API did not start')
+          PY
+          python scripts/verify_project.py --require-api
+          bash scripts/test.sh --ignore=tests/test_frontend_smoke.py

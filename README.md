@@ -1,0 +1,440 @@
+# IPCC Literature Database
+
+A searchable database of the works cited in IPCC reports, with a local dashboard for literature search, coverage analysis, citation networks, and reference review. The October 2026 snapshot contains 113,591 papers and 160,029 reference occurrences.
+
+This is the second project alongside [IPCC References Toolkit](https://github.com/Karcen/ipcc_refs_toolkit). The toolkit collects and processes references; this repository provides the database and the interface for studying them across reports.
+
+## Quick start
+
+Use Python 3.10 or later:
+
+```bash
+git clone https://github.com/Karcen/ipcc_litdb.git
+cd ipcc_litdb
+python3 -m venv .venv
+source .venv/bin/activate
+bash scripts/install.sh
+bash scripts/dev.sh
+```
+
+These commands work in macOS and Linux shells. Windows users can run the same commands through WSL. In Git Bash with native Windows Python, activate the environment with `source .venv/Scripts/activate`.
+
+Open [the dashboard](http://127.0.0.1:8077/) or [the API documentation](http://127.0.0.1:8077/docs). Press Ctrl+C to stop the server.
+
+Installation restores `database/ipcc_litdb.sqlite` from the bundled compressed snapshot and verifies its SHA-256 digest. The dashboard runs from this data without API keys or the original PDF collection.
+
+The application uses English throughout. Paper titles, author names, and printed references retain their source spelling.
+
+### Docker
+
+```bash
+docker compose up --build -d
+```
+
+Open [the dashboard](http://127.0.0.1:8077/). Docker uses SQLite in a persistent volume and restores the snapshot on first start. The service listens on the host's loopback address.
+
+```bash
+docker compose logs -f api
+docker compose down
+```
+
+Stopping the containers preserves the database volume, including review history.
+
+## Contents
+
+- [Data and coverage](#data-and-coverage)
+- [Dashboard](#dashboard)
+- [Repository layout](#repository-layout)
+- [Configuration](#configuration)
+- [Database model](#database-model)
+- [Analysis](#analysis)
+- [Exports and API](#exports-and-api)
+- [Sources and provenance](#sources-and-provenance)
+- [Data quality and review](#data-quality-and-review)
+- [PostgreSQL](#postgresql)
+- [Tests](#tests)
+- [GitHub distribution](#github-distribution)
+- [Troubleshooting](#troubleshooting)
+- [Attribution and contact](#attribution-and-contact)
+
+## Data and coverage
+
+The bibliographic snapshot was built on 6 October 2026. Derived analyses and English insights were refreshed on 11 October 2026. Counts below describe that snapshot; the dashboard queries the working database for current values.
+
+| Measure | Count |
+|---|---:|
+| Report entries | 36 |
+| Working-group entries | 43 |
+| Chapters and other citable units | 677 |
+| Units with reference occurrences | 451 |
+| Source PDFs registered | 438 |
+| Papers | 113,591 |
+| Reference occurrences | 160,029 |
+| Occurrences matched to Web of Science | 91,832 |
+| Unmatched occurrences | 68,197 |
+| Web of Science metadata records | 61,264 |
+| Papers cited in multiple chapters | 24,065 |
+| Papers cited in multiple reports | 12,884 |
+| Data-quality flags | 33,571 |
+
+The occurrence-level Web of Science match rate is 57.38%. At paper level, 91,401 works have a Web of Science match or a verified DOI, giving a traceability rate of 80.47%. These measures use different denominators.
+
+| Report | Matched occurrences | Total occurrences | Match rate |
+|---|---:|---:|---:|
+| AR6 | 47,053 | 63,027 | 74.7% |
+| AR5 | 17,604 | 27,851 | 63.2% |
+| AR4 | 5,855 | 16,193 | 36.2% |
+| AR3 | 1,537 | 8,292 | 18.5% |
+| AR2 | 43 | 8,250 | 0.5% |
+| AR1 | 2 | 1,551 | 0.1% |
+| SROCC | 4,957 | 6,309 | 78.6% |
+| SRCCL | 5,098 | 6,712 | 76.0% |
+| SR15 | 3,977 | 5,262 | 75.6% |
+| SREX | 1,955 | 4,816 | 40.6% |
+| SRREN | 1,484 | 3,995 | 37.1% |
+| 2019REF | 1,205 | 2,626 | 45.9% |
+| 2006GL | 310 | 1,338 | 23.2% |
+| WETLANDS | 545 | 1,026 | 53.1% |
+| SRCCS | 186 | 1,016 | 18.3% |
+| SRES | 8 | 325 | 2.5% |
+
+The collection covers assessment reports AR1 through AR6, synthesis reports, special reports, and greenhouse-gas inventory guidelines and supplements. Report entries with no extracted references remain in the catalogue.
+
+## Dashboard
+
+| Page | Use |
+|---|---|
+| Overview | Inspect totals, citation distributions, publication years, and widely cited works. |
+| Assessment reports | Browse the report hierarchy; inspect printed references and source pages. |
+| Literature | Search by title, DOI, report, working group, year, and verification status. |
+| BI explorer | Compare a metric across a dimension and inspect the SQL behind the result. |
+| Analytics | Open stored analysis results, parameters, and queries. |
+| Automated insights | Read findings with their supporting data. |
+| Networks | Explore shared papers, chapter overlap, report overlap, journals, and co-authorship. |
+| Data quality | Inspect missing fields, suspicious years, and duplicate candidates. |
+| Unresolved | Review unmatched references and record decisions. |
+| Collection progress | Inspect extraction coverage by chapter. |
+| AI analysis | Ask database questions through an optional model endpoint. |
+| Settings | Change the theme and inspect recent analysis runs. |
+
+FastAPI serves the static frontend and the API. ECharts and Cytoscape.js are bundled locally; the dashboard requires no frontend build or CDN.
+
+Overview and BI charts provide CSV, PNG, SVG, and JSON downloads. Figures include their title, units, filters, source, and retrieval time. BI JSON files retain the executed SQL and returned rows. Network downloads include a PNG and JSON with nodes, edges, parameters, and rendered positions.
+
+![Overview with citation counts and report coverage](screenshots/01-overview.png)
+
+![BI explorer with a chart, result table, and query](screenshots/02-bi-explorer.png)
+
+![Paper details and the IPCC chapters citing the work](screenshots/03-paper-detail.png)
+
+## Repository layout
+
+```text
+ipcc_litdb/
+├── README.md
+├── .env.example
+├── Dockerfile
+├── docker-compose.yml
+├── backend/                 # API, configuration, exports, optional model adapter
+├── analytics/               # Metric definitions, analyses, network builders
+├── frontend/                # English interface and local chart libraries
+│   └── vendor/licenses/     # Upstream license texts and notices
+├── database/
+│   ├── ipcc_litdb.sqlite.gz # Compressed snapshot tracked by Git
+│   ├── snapshot.json       # File sizes, hashes, and snapshot counts
+│   ├── export_for_postgres.py
+│   ├── schema/
+│   └── migrations/
+├── data/
+│   ├── raw/                # Manifest of upstream inputs
+│   └── processed/          # Audit statistics and deduplication summary
+├── scripts/                # Install, restore, serve, analyse, test, export, migrate
+├── screenshots/
+├── tests/
+└── .github/workflows/      # Automated checks
+```
+
+The working SQLite file, virtual environment, credentials, caches, and macOS sidecar files are excluded from Git. Project documentation lives in this README. Third-party license texts remain separate text files.
+
+## Configuration
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` before starting the service. The launcher reads this file; exported environment variables take precedence.
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `DATABASE_URL` | Repository's SQLite database | API database connection. |
+| `API_HOST` | `127.0.0.1` | Server bind address. |
+| `API_PORT` | `8077` | Local server port. |
+| `ALLOW_WRITES` | `true` | Enable reference edits and review actions. |
+| `CHANGED_BY` | `dashboard-user` | Actor recorded with review changes. |
+| `MAX_PAGE_SIZE` | `200` | Pagination limit. |
+| `AI_ENABLED` | `true` (example: `false`) | Enable the optional model adapter. |
+| `AI_BASE_URL` | `https://api.openai.com/v1` | OpenAI-compatible endpoint. |
+| `AI_API_KEY` | Empty | Endpoint credential. |
+| `AI_MODEL` | `gpt-4o-mini` | Model name accepted by the endpoint. |
+| `SQL_ROW_LIMIT` | `500` | Maximum rows returned by model-generated queries. |
+| `SQL_TIMEOUT_SECONDS` | `15` | Model-query execution timeout. |
+
+For a read-only dashboard or another port:
+
+```bash
+ALLOW_WRITES=false bash scripts/dev.sh
+API_PORT=8090 bash scripts/dev.sh
+```
+
+Shared hosting requires an authentication gateway or reverse proxy. The application records the configured review actor; it does not authenticate individual users.
+
+### Optional AI queries
+
+The adapter sends the question and database schema to the configured endpoint, validates the proposed SQL, executes it, then requests an explanation of the returned rows. Questions and query results therefore leave the local machine when a remote endpoint is configured.
+
+Queries use a SQLite read-only connection, an allowed-table list, a row limit, and a timeout. The API returns the executed SQL with the answer. This feature uses SQLite. The dashboard and deterministic analyses run without an AI credential.
+
+## Database model
+
+A paper is one cited work. A reference occurrence records that work's appearance in an IPCC chapter, with its source page and printed citation. One paper can have many occurrences.
+
+```text
+assessment_reports -> working_groups -> chapters -> references_occurrence
+                                           ^                 |
+                                           |                 v
+                                         sources           papers
+                                                             |
+                                                       paper_authors -> authors
+```
+
+| Tables | Role |
+|---|---|
+| `assessment_reports`, `working_groups`, `chapters` | Report hierarchy. |
+| `sources` | Source URLs, hashes, and extraction metadata. |
+| `papers` | Deduplicated works and preferred bibliographic fields. |
+| `references_occurrence` | Printed citations linked to chapters and papers. |
+| `authors`, `paper_authors` | Authors and their ordered links to papers. |
+| `wos_records`, `metadata_sources` | Retained metadata and verification sources. |
+| `data_quality_flags` | Record-level quality checks. |
+| `manual_review`, `change_log` | Review decisions and edit history. |
+| `collection_tasks` | Assignment records, empty in this snapshot. |
+| `analysis_runs`, `analysis_results`, `insights` | Stored analyses and findings. |
+| `build_info` | Snapshot build metadata. |
+| `chapter_references` | Chapter-to-paper associations used by analysis. |
+
+Paper identity follows exact normalized DOI, then normalized title and year. DOI-less occurrences can attach to an existing DOI paper when the title matches and the publication years differ by at most one. Similar titles become candidates for review. The `identity_method` field records the rule used for each paper.
+
+After restoring the snapshot, any SQLite client can query it directly:
+
+```bash
+sqlite3 database/ipcc_litdb.sqlite \
+  "SELECT report_id, COUNT(*) AS chapters FROM chapters GROUP BY report_id;"
+
+sqlite3 database/ipcc_litdb.sqlite \
+  "SELECT title_best, year_best, n_reports, n_chapters
+   FROM papers ORDER BY n_reports DESC LIMIT 20;"
+```
+
+## Analysis
+
+`analytics/metrics.py` defines eight metrics and nine dimensions with their SQL. Filters cover report, working group, chapter, match status, and publication year.
+
+BI queries return up to 200 aggregate groups by default. The API's `limit` parameter sets that number; the returned SQL records it. BI downloads contain those returned rows.
+
+| Analysis | Calculation |
+|---|---|
+| `coverage_by_report` | Reference counts and match rates by report. |
+| `metadata_completeness` | Completeness of title, author, journal, year, and DOI. |
+| `chapter_unresolved_outliers` | Chapters whose unresolved rates differ from the corpus baseline. |
+| `reference_age_by_report` | Source publication year minus cited-work year, weighted by reference occurrence; includes ages from 0 to 60 years and exclusion counts. |
+| `cross_generation_persistence` | Works appearing in multiple reports. |
+| `working_group_crossover` | Works cited across working-group labels. |
+| `chapter_overlap_jaccard` | Intersection divided by union of distinct paper sets. |
+| `journal_concentration` | Sum of squared journal shares. |
+| `duplicate_detection` | DOI, title, token-overlap, and author/year candidate checks. |
+| `year_outliers` | Implausible years and publication-year spikes. |
+| `duplicate_units` | Chapter pairs with highly overlapping paper sets. |
+
+```bash
+bash scripts/analysis.sh
+python -m analytics.cli list
+python -m analytics.cli show reference_age_by_report
+```
+
+Refreshing analyses writes a new run to the local SQLite database. The bundled snapshot remains unchanged. Stored results include SQL, parameters, input version, and software version.
+
+Reference ages use each source file's publication year. AR5 WG1 uses 2013; AR6 WG1 uses 2021 and WG2/WG3 use 2022. A documented report year supplies the fallback when a source date is absent or ambiguous. Results retain the number of citations excluded for missing, future, or older-than-60-year dates.
+
+Network responses define their node population, edge weights, ranking, threshold, and display limit. Graph filters run before the edge limit. The response records eligible and omitted edges, isolated nodes, and connected nodes omitted from the display; the JSON download retains these definitions.
+
+## Exports and API
+
+The literature page exports CSV, XLSX, JSON, BibTeX, and RIS using the applied filters and sorting. Each format records the total matching records, export limit, and truncation state. Paper exports contain one row per work. The export script requires a running server:
+
+```bash
+bash scripts/export.sh papers csv AR6
+bash scripts/export.sh unresolved xlsx AR2
+```
+
+| Endpoint | Result |
+|---|---|
+| `GET /api/health` | Service status. |
+| `GET /api/statistics` | Database totals and coverage. |
+| `GET /api/reports` | Report catalogue. |
+| `GET /api/chapters?report_id=AR6` | Chapters in a report. |
+| `GET /api/papers?q=emissions` | Paginated literature search. |
+| `GET /api/papers/{paper_id}/citations` | Citation history for a work. |
+| `GET /api/bi/query?metric=reference_count&dimension=report` | Metric values and SQL. |
+| `GET /api/insights` | Stored findings. |
+| `GET /api/unresolved` | Unmatched references and review status. |
+| `GET /api/export/papers.csv?report_id=AR6` | Filtered export. |
+
+The [interactive API documentation](http://127.0.0.1:8077/docs) describes parameters and review endpoints.
+
+## Sources and provenance
+
+The collection uses PDFs from [IPCC report pages](https://www.ipcc.ch/reports/) and the [IPCC inventory programme](https://www.ipcc-nggip.iges.or.jp/). Each occurrence retains its report, working group, chapter, page, and printed reference. The source registry records URLs, SHA-256 hashes, page counts, and extraction status.
+
+`data/raw/manifest.csv` records the size and SHA-256 digest of upstream inputs:
+
+| Input | Use |
+|---|---|
+| `refs_occurrence.csv` | Extracted citation occurrences. |
+| `sources.csv` | Source PDF registry. |
+| `units.csv` | Chapters and other citable units. |
+| `occurrence_record.csv` | Links between occurrences and matched records. |
+| `Record_by_occurrence.csv` | Matched metadata joined to occurrences. |
+| `Unrecord_ALL.csv` | Unmatched-reference table. |
+| `unit_label_map.csv` | Chapter-label mapping. |
+| `ipcc_refs.sqlite` | Upstream collection database. |
+| `screening_summary_ALL.xlsx` | Screening summary, listed with an English filename alias. |
+
+The upstream inputs and extraction environment remain in the original project workspace. This repository distributes the finished database, its provenance manifest, and the application. `scripts/import_data.sh` restores a missing snapshot. Run `scripts/analysis.sh` separately to refresh analyses. Rebuilding the collection from PDFs uses the upstream pipeline.
+
+The retained `wos_records` fields are record ID, DOI, article title, source title, publication year, document type, and Web of Science UID. Subscription payloads such as abstracts and cited-reference lists were removed from the delivery database.
+
+Snapshot provenance paths are relative to the source workspace. Citation text and bibliographic identifiers retain their original values. `database/snapshot.json` records the packaged file hashes.
+
+### Manual Web of Science export convention
+
+Upstream exports use names such as `AR6WG1CH1T1.txt`, `AR6WG1CH1T1.xlsx`, and `AR6WG1CH1T1Z.txt`. `AR6`, `WG1`, and `CH1` identify the report, working group, and chapter; `T1` identifies the first export batch.
+
+The collection workflow searches by title through institutional Web of Science access, adds matching works to a marked list, and exports batches in plain text, Excel, and tab-delimited formats. Plain text and tab-delimited exports use the full record with cited references; Excel uses the full record. Keep export batches with the upstream collection files.
+
+## Data quality and review
+
+Match rates describe the collection run and its bibliographic coverage. Older assessments have fewer matched references. The collection's Starter API probes also returned fewer records for publication years before 1998; those probes identify a coverage issue to investigate with additional metadata sources. Unmatched records include books, government reports, and other works requiring manual verification.
+
+| Flag | Count |
+|---|---:|
+| Missing DOI | 26,236 |
+| Missing journal | 5,457 |
+| Possible duplicate title | 974 |
+| Missing title | 379 |
+| Missing author | 284 |
+| Missing year | 114 |
+| Invalid DOI | 103 |
+| Suspicious year | 24 |
+
+These are stored flags from the collection run. Live completeness counts both NULL and blank fields: 4,169 reference occurrences lack a publication year, giving 97.39% year completeness.
+
+The flag table and the broader duplicate analysis use different candidate rules. The stored duplicate analysis identifies 976 title groups for inspection.
+
+Two extractions of AR6 WG2 Annex I share 35 papers. The stored duplicate-unit analysis also identifies overlapping AR4 synthesis-report extractions. Both sets remain available for source comparison. Forty-eight units carry `qc_warn` extraction status.
+
+The deduplication audit records 756 papers with publication-year conflicts and 1,054 with title variants. Compare the printed citations and source pages when reviewing these works.
+
+The unresolved queue records review status, assignee, and notes. Reference edits require a reason and create a change-log entry with the actor, timestamp, previous value, and new value. Back up the working database before replacing it: review history and later analysis runs are stored there.
+
+The quality score is mean title, author, year, journal, and DOI completeness minus half the unresolved rate. Check component rates and flagged records when interpreting it.
+
+Further collection work includes source-level duplicate review, publication-year checks, metadata verification for early reports, and recording researcher assignments. Shared deployment also needs a hosting location and an access-control arrangement.
+
+## PostgreSQL
+
+SQLite is the default for the dashboard and analysis engine. The PostgreSQL schema and export script support transferring the snapshot to a server:
+
+```bash
+python database/export_for_postgres.py --strip-nul > /tmp/ipcc_litdb.sql
+psql "$POSTGRES_URL" -v ON_ERROR_STOP=1 -f database/schema/schema_postgres.sql
+psql "$POSTGRES_URL" -v ON_ERROR_STOP=1 -f /tmp/ipcc_litdb.sql
+```
+
+`POSTGRES_URL` is a libpq URL such as `postgresql://user:password@host:5432/ipcc_litdb`. Import into an empty database. The exporter reads SQLite without changing it, writes PostgreSQL `COPY` sections, and restores sequence values. `--strip-nul` removes 12 NUL characters from this snapshot's PostgreSQL output, because PostgreSQL text fields cannot store them. The default export stops on those characters; the SQLite snapshot retains them.
+
+The API connection uses the SQLAlchemy form:
+
+```bash
+DATABASE_URL='postgresql+psycopg://user:password@host:5432/ipcc_litdb' \
+  bash scripts/dev.sh
+```
+
+Networks, the analysis CLI, and the AI query executor use SQLite. PostgreSQL deployment requires a separate server and integration check.
+
+## Tests
+
+```bash
+bash scripts/install.sh --dev
+bash scripts/test.sh
+bash scripts/lint.sh
+```
+
+Tests cover database integrity, paper/occurrence relationships, metrics, exports, API responses, SQL guards, and snapshot restoration. The bundled data is required for database and API tests.
+
+For live checks, keep the dashboard running in another terminal:
+
+```bash
+API_BASE=http://127.0.0.1:8077 python scripts/verify_project.py
+python -m pip install playwright
+python -m playwright install chromium
+API_BASE=http://127.0.0.1:8077 python -m pytest tests/test_frontend_smoke.py -q
+```
+
+Browser tests exercise the English interface and theme controls. GitHub Actions runs the database, API, and script checks.
+
+The 11 October 2026 package passed 202 tests with Python 3.12, including browser downloads and the twelve dashboard pages, plus 48 project checks. Docker checks covered verified snapshot restoration, API exports, network views, and persistent state.
+
+## GitHub distribution
+
+The source repository is [Karcen/ipcc_litdb](https://github.com/Karcen/ipcc_litdb). Clone it or extract a source ZIP, then follow the Quick start commands.
+
+The compressed snapshot is about 70 MiB; the restored database is about 235 MiB and is ignored by Git. Use Git to publish a fork with the snapshot because [GitHub's browser uploader accepts files up to 25 MiB, while regular Git blocks files larger than 100 MiB](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github).
+
+## Troubleshooting
+
+| Symptom | Action |
+|---|---|
+| Python is older than 3.10 | Install a newer Python and recreate `.venv`. |
+| The port is occupied | Use `API_PORT=8090 bash scripts/dev.sh`. |
+| Snapshot verification fails | Restore `database/ipcc_litdb.sqlite.gz` and `database/snapshot.json` together from the repository, then rerun installation. |
+| The page uses cached assets | Refresh with Ctrl+Shift+R or Cmd+Shift+R. |
+| AI analysis is unconfigured | Set `AI_ENABLED=true`, `AI_API_KEY`, `AI_BASE_URL`, and `AI_MODEL` in `.env`, then restart. |
+| Review writes are disabled | Set `ALLOW_WRITES=true` and restart. |
+| Browser tests skip | Start the dashboard and install Playwright's Chromium browser. |
+
+To restore a missing database without installing dependencies:
+
+```bash
+python3 scripts/restore_database.py
+```
+
+An existing database is preserved. To replace it with the packaged snapshot, first copy it to a backup, then run `python3 scripts/restore_database.py --force`.
+
+## Attribution and contact
+
+Jiacheng Zheng, Ma Yinchu School of Economics, Tianjin University.
+
+Contact: [karcenzheng@yeah.net](mailto:karcenzheng@yeah.net) or [karcenzheng@tju.edu.cn](mailto:karcenzheng@tju.edu.cn).
+
+For permission to reuse the original project code, contact the author. Bibliographic records and source documents retain their source terms.
+
+### Third-party licenses
+
+| Bundled component | Version | License | Files |
+|---|---|---|---|
+| [Apache ECharts](https://github.com/apache/echarts) | 6.1.0 | Apache-2.0 | `frontend/vendor/echarts.min.js`, [license](frontend/vendor/licenses/echarts-LICENSE.txt), [notice](frontend/vendor/licenses/echarts-NOTICE.txt) |
+| [Cytoscape.js](https://github.com/cytoscape/cytoscape.js) | 3.34.3 | MIT | `frontend/vendor/cytoscape.min.js`, [license](frontend/vendor/licenses/cytoscape-LICENSE.txt) |
+
+The bundled JavaScript files retain their upstream headers. Check versions and notices when replacing a library.
+
+Network-method review used the [NetworkX guidance in Scientific Agent Skills](https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/networkx). Reference: Kassis, T., Agarwal, V., He, Y., Patel, D., and Brueckner, A. M. (2026). [Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents](https://doi.org/10.48550/arXiv.2609.00065).

@@ -1,0 +1,39 @@
+# Local configuration and environments
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+
+# Python and test output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+playwright-report/
+test-results/
+
+# Working databases and generated exports; the gzip snapshot is tracked
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite-journal
+*.restore.lock
+*.db
+*.dump.sql
+ipcc_*.csv
+ipcc_*.json
+ipcc_*.xlsx
+
+# Operating-system metadata
+._*
+.DS_Store
+.Spotlight-V100/
+.Trashes/
+
+# Editors
+.idea/
+.vscode/
+*.swp

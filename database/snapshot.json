@@ -1,0 +1,29 @@
+{
+  "snapshot_date": "2026-10-06",
+  "packaged_date": "2026-10-11",
+  "compressed": {
+    "file": "ipcc_litdb.sqlite.gz",
+    "bytes": 73537356,
+    "sha256": "133e91c7b27c78142b15b363e65823e2c217f8940b87e08ad3163b30427d4830"
+  },
+  "uncompressed": {
+    "file": "ipcc_litdb.sqlite",
+    "bytes": 246738944,
+    "sha256": "faa7fc711ae4607acfa9833739ec8f202f8aefd6d929b474a12fceb589c5b85d"
+  },
+  "counts": {
+    "reports": 36,
+    "working_groups": 43,
+    "chapters": 677,
+    "papers": 113591,
+    "reference_occurrences": 160029,
+    "wos_matched_occurrences": 91832,
+    "unmatched_occurrences": 68197
+  },
+  "packaging_changes": [
+    "Application-generated insight translations replaced with English.",
+    "Source machine paths changed to upstream-relative paths.",
+    "Derived analyses and English insights regenerated with analytics-1.1.0."
+  ],
+  "analysis_refresh_date": "2026-10-11"
+}

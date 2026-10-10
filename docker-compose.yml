@@ -1,0 +1,27 @@
+# Start with: docker compose up --build -d
+services:
+  api:
+    build: .
+    environment:
+      DATABASE_URL: sqlite:////app/state/ipcc_litdb.sqlite
+      API_HOST: 0.0.0.0
+      API_PORT: 8077
+      ALLOW_WRITES: ${ALLOW_WRITES:-true}
+      CHANGED_BY: ${CHANGED_BY:-dashboard-user}
+      AI_ENABLED: ${AI_ENABLED:-false}
+      AI_API_KEY: ${AI_API_KEY:-}
+      AI_BASE_URL: ${AI_BASE_URL:-https://api.openai.com/v1}
+      AI_MODEL: ${AI_MODEL:-gpt-4o-mini}
+    ports:
+      - "127.0.0.1:${API_PORT:-8077}:8077"
+    volumes:
+      - sqlite_data:/app/state
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8077/api/health', timeout=5)"]
+      interval: 10s
+      timeout: 5s
+      start_period: 60s
+      retries: 6
+
+volumes:
+  sqlite_data:

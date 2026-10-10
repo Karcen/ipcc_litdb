@@ -1,0 +1,250 @@
+"""Browser smoke tests for every dashboard page and the English interface.
+
+Requires playwright and a running server: ./scripts/dev.sh
+"""
+import os
+import csv
+import io
+import json
+import struct
+import urllib.error
+import urllib.request
+import xml.etree.ElementTree as ET
+from pathlib import Path
+
+import pytest
+
+playwright_api = pytest.importorskip("playwright.sync_api")
+from playwright.sync_api import sync_playwright  # noqa: E402
+
+BASE = os.environ.get("API_BASE", "http://127.0.0.1:8077").rstrip("/")
+
+TABS = {
+    "overview": "#kpis .kpi", "reports": "#tree-reports .trow",
+    "literature": "#tbl-papers tbody tr", "bi": "#bi-result table tbody tr",
+    "analytics": "#analytics-index table tbody tr", "insights": "#insight-feed .insight",
+    "networks": "#net-svg canvas",  # rendered by Cytoscape.js
+    "quality": "#quality-cards .kpi",
+    "unresolved": "#tbl-unresolved tbody tr", "progress": "#tbl-progress tbody tr",
+    "ai": "#ai-status", "settings": "#set-ai",
+}
+
+
+@pytest.fixture(scope="module")
+def page():
+    try:
+        with urllib.request.urlopen(BASE + "/api/health", timeout=5) as response:
+            assert response.status == 200
+    except urllib.error.HTTPError:
+        raise
+    except urllib.error.URLError:
+        pytest.skip("API server not running: ./scripts/dev.sh")
+    with sync_playwright() as pw:
+        try:
+            b = pw.chromium.launch(headless=True)
+        except playwright_api.Error as error:
+            if "Executable doesn't exist" in str(error):
+                pytest.skip("Chromium not installed: python -m playwright install chromium")
+            raise
+        pg = b.new_page(viewport={"width": 1700, "height": 1050}, locale="zh-CN")
+        errors = []
+        pg.on("pageerror", lambda e: errors.append(str(e)))
+        pg.on("console", lambda m: errors.append(m.text) if m.type == "error" else None)
+        pg.goto(BASE + "/", wait_until="networkidle", timeout=120000)
+        pg.wait_for_selector("#kpis .kpi", timeout=60000)
+        pg.errors = errors
+        yield pg
+        b.close()
+
+
+@pytest.mark.parametrize("tab,selector", TABS.items())
+def test_tab_renders(page, tab, selector):
+    page.click(f'#tabs button[data-view="{tab}"]')
+    page.wait_for_selector(selector, timeout=120000)
+    assert page.eval_on_selector_all(selector, "e=>e.length") > 0
+
+
+def test_english_interface_ignores_legacy_language_preference(page):
+    page.evaluate("localStorage.setItem('ipcc.lang', 'zh-CN')")
+    page.goto(BASE + "/", wait_until="networkidle")
+    page.wait_for_selector("#kpis .kpi")
+    assert page.evaluate("document.documentElement.lang") == "en"
+    assert page.evaluate("LOCALE") == "en"
+    assert page.inner_text(".brand h1") == "IPCC Literature Database"
+    assert page.inner_text("#tabs button[data-view=overview]") == "Overview"
+    assert page.evaluate("nf(160029)") == "160,029"
+    assert page.locator("#lang, #set-lang").count() == 0
+
+
+def test_theme_switching(page):
+    page.select_option("#theme", "light")
+    page.wait_for_function("document.documentElement.dataset.theme === 'light'")
+    assert page.evaluate("document.documentElement.dataset.theme") == "light"
+    page.select_option("#theme", "dark")
+    page.wait_for_function("document.documentElement.dataset.theme === 'dark'")
+    assert page.evaluate("document.documentElement.dataset.theme") == "dark"
+    assert page.evaluate("localStorage.getItem('ipcc.theme')") == "dark"
+
+
+def test_menu_has_english_labels(page):
+    labels = page.locator("#tabs button").all_text_contents()
+    assert labels == [
+        "Overview", "Assessment Reports", "Literature", "BI Explorer", "Analytics",
+        "Automated Insights", "Networks", "Data Quality", "Unresolved", "Progress",
+        "AI Analysis", "Settings",
+    ]
+
+
+def downloaded_bytes(page, selector):
+    with page.expect_download() as event:
+        page.click(selector)
+    return Path(event.value.path()).read_bytes()
+
+
+@pytest.mark.parametrize("chart", ["chart-reports", "chart-wg", "chart-year", "chart-completeness"])
+def test_overview_chart_csv_matches_source_data(page, chart):
+    page.click('#tabs button[data-view="overview"]')
+    page.wait_for_function("id => CHART_EXPORTS.has(id)", arg=chart)
+    text = downloaded_bytes(page, f'#{chart} [data-chart-download="csv"]').decode("utf-8-sig")
+    provenance_line, body = text.split("\n", 1)
+    provenance = json.loads(provenance_line.removeprefix("# provenance: "))
+    expected = page.evaluate("id => CHART_EXPORTS.get(id).rows", chart)
+    rows = list(csv.DictReader(io.StringIO(body)))
+    assert len(rows) == len(expected) == provenance["row_count"]
+    assert provenance["source"] == "/api/statistics"
+    assert provenance["title"] and provenance["unit"] and provenance["source_generated_at"]
+    for exported, source in zip(rows, expected):
+        assert exported == {key: "" if value is None else str(value) for key, value in source.items()}
+
+
+@pytest.mark.parametrize("theme", ["light", "dark"])
+def test_standalone_svg_has_styles_caption_and_provenance(page, theme):
+    page.click('#tabs button[data-view="overview"]')
+    page.select_option("#theme", theme)
+    page.wait_for_function("document.documentElement.dataset.theme === '" + theme + "'")
+    contents = downloaded_bytes(page, '#chart-reports [data-chart-download="svg"]').decode()
+    root = ET.fromstring(contents)
+    namespace = {"svg": "http://www.w3.org/2000/svg"}
+    assert root.tag == "{http://www.w3.org/2000/svg}svg"
+    assert root.find("svg:title", namespace).text == "References by Assessment Report"
+    assert "Reference occurrences" in root.find("svg:desc", namespace).text
+    provenance = json.loads(root.find("svg:metadata", namespace).text)
+    assert provenance["source"] == "/api/statistics"
+    assert "var(" not in contents
+    assert "font-family" in contents
+    assert float(root.attrib["width"]) > 300
+    assert float(root.attrib["height"]) > 100
+    assert page.eval_on_selector_all("#chart-reports .bar-label, #chart-wg .bar-label", "labels => labels.every(label => label.getBBox().x >= 0)")
+
+
+def assert_png(contents):
+    assert contents.startswith(b"\x89PNG\r\n\x1a\n")
+    width, height = struct.unpack(">II", contents[16:24])
+    assert width > 300 and height > 100
+    assert b"IEND" in contents
+
+
+def test_overview_png_download_is_an_image(page):
+    page.click('#tabs button[data-view="overview"]')
+    assert_png(downloaded_bytes(page, '#chart-year [data-chart-download="png"]'))
+
+
+def test_bi_downloads_keep_query_filters_and_results(page):
+    page.click('#tabs button[data-view="bi"]')
+    page.wait_for_selector("#bi-result table tbody tr")
+    page.select_option("#bi-metric", "match_rate")
+    page.select_option("#bi-dim", "report")
+    page.select_option("#bi-report", "AR2")
+    with page.expect_response(lambda response: "/api/bi/query?" in response.url) as event:
+        page.click("#bi-run")
+    expected = event.value.json()
+    page.wait_for_function("BI_RESULT?.metric === 'match_rate' && BI_RESULT?.filters.report === 'AR2'")
+    payload = json.loads(downloaded_bytes(page, '#bi-chart [data-chart-download="json"]'))
+    assert payload["rows"] == expected["rows"]
+    assert payload["provenance"]["sql"] == expected["sql"]
+    assert payload["provenance"]["filters"]["report"] == "AR2"
+    assert payload["provenance"]["metric"] == "match_rate"
+    assert payload["provenance"]["axis_min"] == 0 and payload["provenance"]["axis_max"] == 100
+    assert page.eval_on_selector("#bi-chart rect[data-tip]", "bar => Number(bar.getAttribute('width'))") < 20
+    contents = downloaded_bytes(page, '#bi-chart [data-chart-download="svg"]').decode()
+    root = ET.fromstring(contents)
+    provenance = json.loads(root.find("{http://www.w3.org/2000/svg}metadata").text)
+    assert provenance["sql"] == expected["sql"]
+    assert "report=AR2" in contents
+    assert_png(downloaded_bytes(page, '#bi-chart [data-chart-download="png"]'))
+
+
+def test_bi_line_follows_chronological_year_order(page):
+    page.click('#tabs button[data-view="bi"]')
+    page.select_option("#bi-metric", "reference_count")
+    page.select_option("#bi-dim", "publication_year")
+    page.select_option("#bi-report", "")
+    page.click("#bi-run")
+    page.wait_for_function("BI_RESULT?.metric === 'reference_count' && BI_RESULT?.dimension === 'publication_year'")
+    years = page.eval_on_selector_all("#bi-chart circle[data-tip]", "nodes => nodes.map(node => Number(node.dataset.tip.split(':')[0]))")
+    assert len(years) > 10
+    assert years == sorted(years)
+    assert page.evaluate("valueLabel(null, '%')") == "—"
+    assert page.evaluate("valueLabel(0, '%')") == "0%"
+
+
+def test_network_downloads_include_visible_payload_and_image(page):
+    page.click('#tabs button[data-view="networks"]')
+    page.wait_for_selector("#net-svg canvas")
+    page.wait_for_function("NET?.nodes.length > 0 && !document.querySelector('#net-export-json').disabled")
+    payload = json.loads(downloaded_bytes(page, "#net-export-json"))
+    expected = page.evaluate("NET")
+    for key in ("nodes", "edges", "parameters", "node_count", "edge_count"):
+        assert payload[key] == expected[key]
+    for key, value in expected.get("provenance", {}).items():
+        assert payload["provenance"][key] == value
+    assert len(payload["positions"]) == len(payload["nodes"])
+    assert payload["provenance"]["source"].startswith("/api/networks/")
+    assert_png(downloaded_bytes(page, "#net-export-png"))
+
+
+def test_network_caption_explains_truncated_view(page):
+    caption = page.evaluate("""networkCaption({node_count: 18, edge_count: 300, parameters: {
+        min_weight: 0.25, limit: 300, eligible_edge_count: 1234, truncated: true,
+        omitted_edge_count: 934, node_population: 91, isolates_after_filters: 2,
+        omitted_connected_nodes: 71
+    }})""")
+    assert "18 displayed nodes" in caption and "300 displayed edges" in caption
+    assert "minimum overlap 0.25" in caption and "1,234 eligible edges" in caption
+    assert "edge limit 300" in caption and "Truncated view: 934 eligible edges omitted" in caption
+    assert "node_population" not in caption and "isolates_after_filters" not in caption
+
+
+def test_record_downloads_use_applied_filters(page):
+    page.click('#tabs button[data-view="literature"]')
+    page.wait_for_selector("#tbl-papers tbody tr")
+    page.select_option("#f-report", "AR6")
+    page.select_option("#f-wg", "WG1")
+    page.fill("#f-year-from", "2018")
+    page.fill("#f-year-to", "2018")
+    page.select_option("#f-minreports", "1")
+    page.select_option("#f-sort", "title")
+    with page.expect_response(lambda response: "/api/papers?" in response.url) as event:
+        page.click("#btn-search")
+    expected = event.value.json()
+    page.wait_for_function("PAPER_QUERY?.includes('year_from=2018')")
+    # Editing a control without applying it should not change the displayed export.
+    page.fill("#f-year-from", "2020")
+    payload = json.loads(downloaded_bytes(page, '[data-export="papers.json"]'))
+    assert payload["rows"]
+    assert [row["paper_id"] for row in payload["rows"][:25]] == [row["paper_id"] for row in expected["items"]]
+    assert all(str(row["year_best"]) == "2018" and row["n_reports"] >= 2 for row in payload["rows"])
+    assert len({row["paper_id"] for row in payload["rows"]}) == len(payload["rows"])
+    page.click('#tabs button[data-view="unresolved"]')
+    page.wait_for_selector("#tbl-unresolved tbody tr")
+    page.select_option("#u-report", "AR2")
+    page.check("#u-dionly")
+    page.click("#btn-u-search")
+    page.wait_for_function("UNRESOLVED_QUERY?.includes('report_id=AR2') && UNRESOLVED_QUERY?.includes('only_doi_less=true')")
+    text = downloaded_bytes(page, '[data-export="unresolved.csv"]').decode("utf-8-sig")
+    rows = list(csv.DictReader(io.StringIO(text.split("\n", 1)[1])))
+    assert rows and all(row["report_id"] == "AR2" and not row["doi_norm"] for row in rows)
+
+
+def test_no_console_errors(page):
+    assert page.errors == [], page.errors
