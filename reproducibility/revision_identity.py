@@ -43,6 +43,137 @@ LEFT JOIN papers p ON p.paper_id=r.paper_id
 WHERE c.report_id IN ('AR1','AR2','AR3','AR4','AR5','AR6')
 ORDER BY c.report_id,r.occurrence_id
 """
+SHARED_MEMBERSHIP_SQL = """
+SELECT r.paper_id
+FROM references_occurrence r
+JOIN chapters c ON c.chapter_id=r.chapter_id
+WHERE c.report_id IN (?,?)
+  AND r.match_status IN ('matched_doi','matched_title')
+  AND r.paper_id IS NOT NULL
+GROUP BY r.paper_id
+HAVING COUNT(DISTINCT c.report_id)=2
+"""
+OPEN_REVIEW_SQL = """
+SELECT review_id,occurrence_id,status,reason
+FROM manual_review
+WHERE status IN ('open','in_progress')
+  AND reason='matched_doi_chronology_review'
+ORDER BY occurrence_id,review_id
+"""
+CHRONOLOGY_FLAGS_SQL = """
+SELECT f.flag_id,f.detail AS flag_detail,
+       r.occurrence_id,r.paper_id,r.chapter_id,r.match_status,
+       r.raw_reference,r.doi_norm AS occurrence_doi,r.doi_source,
+       c.report_id,c.chapter_label,c.chapter_title,w.wg_label,
+       s.publication_year AS source_year,
+       p.year_best AS preferred_year,p.doi_norm AS paper_doi,p.title_best
+FROM data_quality_flags f
+JOIN references_occurrence r ON r.occurrence_id=f.entity_id
+JOIN chapters c ON c.chapter_id=r.chapter_id
+LEFT JOIN working_groups w ON w.wg_id=c.wg_id
+LEFT JOIN sources s ON s.source_id=c.source_id
+JOIN papers p ON p.paper_id=r.paper_id
+WHERE f.entity_type='occurrence'
+  AND f.flag_type='matched_doi_chronology_review'
+ORDER BY r.paper_id,r.occurrence_id,f.flag_id
+"""
+CHRONOLOGY_SCOPE = (
+    "Distinct occurrences with an occurrence-level matched_doi_chronology_review "
+    "flag and at least one manual_review row in open or in_progress status "
+    "with reason matched_doi_chronology_review. "
+    "Their paper IDs must have a matched_doi or matched_title occurrence in both "
+    "AR5 and AR6. Flagged occurrences may belong to any report in the snapshot, "
+    "including reports outside AR5 and AR6. Duplicate flag and review rows do "
+    "not add occurrences or paper IDs."
+)
+
+
+def select_open_shared_chronology(connection, earlier="AR5", later="AR6", cutoff=2013):
+    """Return one row per open flagged occurrence of a shared matched ID.
+
+    Paper-set membership uses only the transition pair. Flag occurrence scope
+    covers every report in the snapshot. Only open/in_progress reviews with
+    reason matched_doi_chronology_review enter this selector. These rows are collected before
+    the many-to-one occurrence joins, so repeated review rows cannot multiply
+    the unit of analysis. Flags remain review candidates, with no error label.
+    """
+    if earlier == later:
+        raise ValueError("A transition requires two different reports")
+    shared = {row[0] for row in connection.execute(SHARED_MEMBERSHIP_SQL, (earlier, later))}
+    reviews = defaultdict(list)
+    for row in connection.execute(OPEN_REVIEW_SQL):
+        reviews[row["occurrence_id"]].append(dict(row))
+    selected = {}
+    for row in connection.execute(CHRONOLOGY_FLAGS_SQL):
+        oid = row["occurrence_id"]
+        if row["paper_id"] not in shared or oid not in reviews:
+            continue
+        if oid not in selected:
+            detail = dict(row)
+            detail.pop("flag_id")
+            detail.pop("flag_detail")
+            preferred = year(detail["preferred_year"])
+            lead = re.search(r"\b(1[6-9]\d{2}|20\d{2})[a-z]?\b", str(detail["raw_reference"] or "")[:300])
+            detail.update({
+                "raw_leading_year": int(lead.group(1)) if lead else None,
+                "flag_occurrence_within_transition": detail["report_id"] in (earlier, later),
+                "eligibility_cutoff_year": cutoff,
+                "preferred_year_eligible": preferred is not None and preferred <= cutoff,
+                "flag_ids": [], "flag_details": [],
+                "open_review_ids": " | ".join(str(r["review_id"]) for r in reviews[oid]),
+                "open_review_statuses": " | ".join(sorted({r["status"] for r in reviews[oid]})),
+                "open_review_reasons": " | ".join(sorted({str(r["reason"] or "") for r in reviews[oid]})),
+            })
+            selected[oid] = detail
+        selected[oid]["flag_ids"].append(str(row["flag_id"]))
+        selected[oid]["flag_details"].append(str(row["flag_detail"] or ""))
+    details = []
+    for detail in selected.values():
+        detail["flag_ids"] = " | ".join(detail["flag_ids"])
+        detail["flag_details"] = " | ".join(sorted(set(detail["flag_details"])))
+        details.append(detail)
+    return details
+
+
+def fixed_denominator_chronology_stress(a, b, papers, details, *, scenario, flag_scope, cutoff=2013):
+    """Subtract candidate shared IDs from numerators; preserve denominators.
+
+    This calculation changes no record links or report memberships. It asks
+    what the recurrence rates would be if every selected shared ID ceased to
+    contribute to the shared numerator. Unknown and post-cutoff preferred
+    years do not contribute to the eligible numerator adjustment. Exclusive
+    set counts and Jaccard are left blank because no replacement crosswalk or
+    corrected union is constructed.
+    """
+    shared = a & b
+    affected = {row["paper_id"] for row in details}
+    if not affected <= shared:
+        raise ValueError("Stress candidates must belong to both matched report sets")
+    eligible = {i for i in b if (y := year(papers[i]["year_best"])) is not None and y <= cutoff}
+    shared_eligible = shared & eligible
+    affected_eligible = affected & eligible
+    stress_shared = len(shared - affected)
+    stress_eligible = len(shared_eligible - affected_eligible)
+    return {
+        "scenario": scenario, "excluded_union_ids": 0,
+        "papers_a": len(a), "papers_b": len(b), "shared": stress_shared,
+        "only_a": None, "only_b": None,
+        "retention": stress_shared/len(a) if a else None,
+        "reuse": stress_shared/len(b) if b else None,
+        "jaccard": None,
+        "interpretation": "Numerator stress calculation; candidates are not adjudicated errors; no database correction or error-rate estimate",
+        "denominator_policy": "Original matched report memberships and preferred-year-eligible later membership fixed",
+        "flag_scope": flag_scope,
+        "review_flag_type": "matched_doi_chronology_review",
+        "review_statuses": "open | in_progress",
+        "flagged_occurrences": len({row["occurrence_id"] for row in details}),
+        "flagged_shared_ids": len(affected), "stress_removed_shared_ids": len(affected),
+        "eligibility_cutoff_year": cutoff, "eligible_denominator": len(eligible),
+        "baseline_shared_eligible_ids": len(shared_eligible),
+        "affected_eligible_shared_ids": len(affected_eligible),
+        "stress_shared_eligible_ids": stress_eligible,
+        "conditional_reuse": stress_eligible/len(eligible) if eligible else None,
+    }
 
 
 def json_write(path, value):
@@ -141,6 +272,7 @@ def run(database, output=ROOT, pipeline_root=None, seed=20261011, per_stratum=12
     c.row_factory = sqlite3.Row
     try:
         rows = [dict(r) for r in c.execute(SQL)]
+        open_chronology_details = select_open_shared_chronology(c)
         build_info = dict(c.execute("SELECT key,value FROM build_info"))
         wos = {r["record_id"]:dict(r) for r in c.execute("SELECT * FROM wos_records")}
         retrieval = dict(c.execute("SELECT MIN(retrieved_date) AS first,MAX(retrieved_date) AS last FROM sources").fetchone())
@@ -407,7 +539,48 @@ def run(database, output=ROOT, pipeline_root=None, seed=20261011, per_stratum=12
     for name,excluded in [("exclude_all_shared_later_than_2013",later_shared)]:
         aa,bb=a-excluded,b-excluded
         sensitivities.append({"scenario":name,"excluded_union_ids":len((a|b)&excluded),
-                              **compare(aa,bb),"interpretation":"Stress test; no corrected-identity or error-rate claim"})
+            **compare(aa,bb),"interpretation":"Stress test; no corrected-identity or error-rate claim",
+            "denominator_policy":"Remove selected IDs from both matched report sets",
+            "flag_scope":"Shared IDs with a preferred year after 2013, irrespective of review-queue status",
+            "review_flag_type":None,"review_statuses":None,"flagged_occurrences":None,"flagged_shared_ids":None,
+            "stress_removed_shared_ids":len(excluded),"eligibility_cutoff_year":2013,
+            "eligible_denominator":len(old(bb)),"baseline_shared_eligible_ids":len(old(reused)),
+            "affected_eligible_shared_ids":len(old(excluded)),"stress_shared_eligible_ids":len(old(aa&bb)),
+            "conditional_reuse":len(old(aa&bb))/len(old(bb)) if old(bb) else None})
+    observed = fixed_denominator_chronology_stress(a,b,papers,[],
+        scenario="observed_matched_baseline",flag_scope="No candidate removal")
+    observed.update(compare(a,b))
+    observed.update({"interpretation":"Observed snapshot memberships; no candidate removal",
+                     "review_flag_type":None,"review_statuses":None})
+    sensitivities.append(observed)
+    pair_details = [r for r in open_chronology_details if r["flag_occurrence_within_transition"]]
+    for name,detail,scope in [
+        ("fixed_denominator_open_chronology_all_reports",open_chronology_details,"All reports in snapshot"),
+        ("fixed_denominator_open_chronology_AR5_AR6_only",pair_details,"Flagged occurrences in AR5 or AR6 only"),
+    ]:
+        sensitivities.append(fixed_denominator_chronology_stress(a,b,papers,detail,scenario=name,flag_scope=scope))
+    chronology_ids = {r["paper_id"] for r in open_chronology_details}
+    check("open chronology occurrence uniqueness",len({r["occurrence_id"] for r in open_chronology_details}),len(open_chronology_details))
+    check("open chronology candidate shared membership",len(chronology_ids&reused),len(chronology_ids))
+    open_chronology = {
+        "selection":CHRONOLOGY_SCOPE,
+        "unit_of_detail_export":"One distinct occurrence_id; flag IDs and open review rows aggregated within occurrence",
+        "transition_membership_reports":["AR5","AR6"],
+        "transition_membership_statuses":sorted(MATCHED),
+        "flag_occurrence_report_scope":"All reports in the database, without an AR1–AR6 restriction",
+        "flag_type":"matched_doi_chronology_review", "review_statuses":["open","in_progress"],
+        "review_reason":"matched_doi_chronology_review",
+        "flagged_occurrences":len(open_chronology_details), "flagged_shared_ids":len(chronology_ids),
+        "flagged_shared_paper_ids":sorted(chronology_ids),
+        "flagged_shared_eligible_ids":len(old(chronology_ids)), "eligibility_cutoff_year":2013,
+        "transition_only_flagged_occurrences":len(pair_details),
+        "transition_only_flagged_shared_ids":len({r["paper_id"] for r in pair_details}),
+        "by_flag_occurrence_report":[{
+            "report":report,"flagged_occurrences":sum(r["report_id"]==report for r in open_chronology_details),
+            "flagged_shared_ids":len({r["paper_id"] for r in open_chronology_details if r["report_id"]==report}),
+        } for report in sorted({r["report_id"] for r in open_chronology_details})],
+        "stress_definition":"Subtract each selected shared paper ID once from the shared numerator. Keep original AR5, AR6 and preferred-year-eligible AR6 denominators fixed. Subtract only eligible candidate IDs from the conditional numerator. Do not edit the database or construct a corrected crosswalk; exclusive set counts and Jaccard are not computed for these stress rows.",
+    }
     srcrows=[{"report":r,"working_group":wg,"source_year_label":sy,"occurrences":n}
              for (r,wg,sy),n in sorted(source_count.items())]
     pipeline=inspect_pipeline(Path(pipeline_root).expanduser().resolve() if pipeline_root else ROOT.parents[1],
@@ -421,12 +594,17 @@ def run(database, output=ROOT, pipeline_root=None, seed=20261011, per_stratum=12
       "eligible_reuse":eligibility,"same_vintage_profiles":profiles,"same_vintage_groups":group_profiles,
       "anomalous_entries":anomalies,"audit_sample_papers":sample_papers,"audit_sample_entries":sample_rows,
       "audit_strata":strata,"audit_sample_summary":sample_stats,"raw_consistency_census":consistency,
-      "flagged_sensitivity":sensitivities,"source_years":srcrows}
+      "flagged_sensitivity":sensitivities,"source_years":srcrows,
+      "open_shared_chronology_details":open_chronology_details}
     for name,data in files.items():write_csv(result_dir/f"revision_identity_{name}.csv",data)
     end_hash=digest(database);check("database unchanged",end_hash,start_hash)
     summary={
       "provenance":{"database_sha256":start_hash,"database_bytes":database.stat().st_size,
-        "database_read_only":True,"database_unchanged":True,"script_sha256":digest(Path(__file__)),"query":SQL.strip()},
+        "database_read_only":True,"database_unchanged":True,"script_sha256":digest(Path(__file__)),"query":SQL.strip(),
+        "open_shared_chronology_queries":{"shared_membership":SHARED_MEMBERSHIP_SQL.strip(),
+          "shared_membership_parameters":["AR5","AR6"],"open_reviews":OPEN_REVIEW_SQL.strip(),
+          "occurrence_flags":CHRONOLOGY_FLAGS_SQL.strip(),
+          "selection_after_queries":"Keep chronology occurrence rows whose paper ID is in shared membership and whose occurrence ID has an open/in_progress review with reason matched_doi_chronology_review; aggregate repeated flags and matching reviews per occurrence"}},
       "definitions":{"unit_of_analysis":"Unique reference occurrence; report-specific paper ID set; stratified sample paper ID",
         "link_cardinality":"references_occurrence many-to-one chapters, papers and sources; validated unique occurrence IDs and invariant paper metadata",
         "null_paper_id_exclusions_by_report":dict(drops),"source_population_occurrences":len(rows),
@@ -459,6 +637,7 @@ def run(database, output=ROOT, pipeline_root=None, seed=20261011, per_stratum=12
       "raw_DOI_crosswalk_conflicts":{"report_DOI_keys":len(raw_doi_crosswalk),"keys_assigned_to_multiple_paper_IDs":sum(r["distinct_assigned_paper_ids"]>1 for r in raw_doi_crosswalk)},
       "conditional_reuse":eligibility,"same_vintage_profiles":profiles,"same_vintage_groups":group_profiles,
       "flagged_case_sensitivities":sensitivities,
+      "open_shared_chronology":open_chronology,
       "sample":{"seed":seed,"ranking":"SHA256(seed|stratum|paper_id), smallest hashes within each mutually exclusive stratum",
         "target_per_stratum":per_stratum,"strata":strata,"frame_size":len(a|b),
         "probability_sample_ids":len(sampled_probability),"targeted_supplement_ids":len(sample_ids-sampled_probability),
@@ -479,7 +658,9 @@ def run(database, output=ROOT, pipeline_root=None, seed=20261011, per_stratum=12
     json_write(qc_dir/"revision_identity_output_manifest.json",{"script_sha256":digest(Path(__file__)),
        "files":[{"path":str(p.relative_to(output)),"bytes":p.stat().st_size,"sha256":digest(p)} for p in produced]})
     print(json.dumps({"quality_checks":len(checks),"all_passed":True,"files":len(produced)+1,
-       "main_counts":summary["main_counts"],"sample":summary["sample"]["all_sample_ids"]}))
+       "main_counts":summary["main_counts"],"sample":summary["sample"]["all_sample_ids"],
+       "open_shared_chronology":{"flagged_occurrences":len(open_chronology_details),
+          "flagged_shared_ids":len(chronology_ids),"flagged_shared_eligible_ids":len(old(chronology_ids))}}))
     return summary
 
 

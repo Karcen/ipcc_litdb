@@ -35,5 +35,30 @@
     "commit": "6676e496f30975ec95fdde514816639458de1cfe",
     "sha256": "faa7fc711ae4607acfa9833739ec8f202f8aefd6d929b474a12fceb589c5b85d",
     "ledger": "reproducibility/corrections/2026-10-11.json"
+  },
+  "correction_executor": {
+    "tool": "Codex",
+    "model_label": "ChatGPT 6.1 Sol",
+    "method": "AI-assisted comparisons of original references with primary bibliographic sources and application of versioned identity and metadata corrections.",
+    "change_log_actor": "Codex: targeted primary-source inspection",
+    "author_source_verification_record": {
+      "status": "Authors report checking the primary sources for all eleven nominated cases.",
+      "source": "Direct user confirmation in this chat on 11 October 2026.",
+      "nominated_original_ids": [
+        26271,
+        26560,
+        28296,
+        28347,
+        29105,
+        31985,
+        32928,
+        33835,
+        35229,
+        35431,
+        35438
+      ],
+      "separate_adjudication_file_received": false,
+      "probability_sample_human_labels": "Unreviewed"
+    }
   }
 }

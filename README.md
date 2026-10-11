@@ -372,6 +372,8 @@ Use fresh output directories. Substitute `analysis-reproduction/results` for the
 | AR5–AR6 matched-ID overlap | 1,657 shared IDs among 13,503 AR5 and 34,869 AR6 IDs; AR5 retention 12.27%, AR6 reuse 4.75%. |
 | Symmetric earlier-report presence | 1,658 AR6 matched IDs appear anywhere in AR5. Of 4,160 IDs published by 2013 and absent from the AR5 matched cohort, one is present in its unmatched cohort. |
 | Publication-year-eligible reuse | 34.16%, 28.40%, and 20.47% at cutoffs 2012, 2013, and 2014. |
+| Unresolved chronology flags among shared IDs | 38 AR5–AR6 shared matched IDs have 85 open flagged occurrences across all reports. All 38 have preferred years through 2013. |
+| Fixed-denominator chronology stress | Treating all 38 flagged IDs as false shared identities gives retention 11.99%, reuse 4.64%, and conditional reuse through 2013 of 27.75%. Original cohort denominators remain fixed. |
 | Occurrence-weighted age | Median 4 years in both reports; mean increases from 4.434 to 5.139 years. The 0–5-year fraction decreases from 71.21% to 62.79%. |
 | Equal-ID age | Median increases from 4 to 5 years; mean increases from 4.513 to 5.306 years. |
 
@@ -379,7 +381,7 @@ Age uncertainty tables describe stability under chapter resampling within this f
 
 Outlet sensitivities compare the preferred labels, conservative punctuation aliases, and registered WoS source titles. The local snapshot and upstream exports lack usable ISSNs. The alias crosswalk records exactly which strings were combined. Named-outlet concentration and richness have separate results; outlet labels do not assign disciplines.
 
-The corrected review worksheet contains 331 IDs and 801 printed entries: 319 probability-sampled IDs and 12 additional targeted anomaly IDs. Mechanical title, DOI, year, and author flags accompany the raw entries. Human adjudication fields remain unreviewed. The separate correction ledger records AI-assisted comparisons with original citations and primary bibliographic sources. Informal spot checks were performed during the original collection. Population linkage accuracy remains unestimated.
+The corrected review worksheet contains 331 IDs and 801 printed entries: 319 probability-sampled IDs and 12 additional targeted anomaly IDs. Mechanical title, DOI, year, and author flags accompany the raw entries. Human adjudication fields remain unreviewed. The separate correction ledger records AI-assisted comparisons by Codex (ChatGPT 6.1 Sol) with original citations and primary bibliographic sources. The authors report that they checked the primary sources for all eleven nominated cases. Informal spot checks were performed during the original collection. Population linkage accuracy remains unestimated.
 
 ## Exports and API
 
@@ -481,7 +483,7 @@ Further collection work includes source-level duplicate review, publication-year
 
 ## Snapshot corrections
 
-Version v1.2.0 follows a targeted comparison of the original references with publisher and institutional records. The [field ledger](reproducibility/corrections/2026-10-11.json) lists each old and new value, affected occurrence and evidence URL. The [original occurrence export](reproducibility/corrections/original_occurrences.csv) retains the inspected entries. The database records 46 resolved source-inspection decisions with the actor `Codex`.
+The v1.2.0 snapshot follows AI-assisted source inspection and identity correction by Codex (ChatGPT 6.1 Sol). It compared the original references with publisher and institutional records. The [field ledger](reproducibility/corrections/2026-10-11.json) lists each old and new value, affected occurrence and evidence URL. The [original occurrence export](reproducibility/corrections/original_occurrences.csv) retains the inspected entries. The database records 46 resolved source-inspection decisions. Its 372 field changes retain the actor `Codex: targeted primary-source inspection`. The authors report that they checked the primary sources for all eleven nominated cases. The historical ledger retains the original Codex execution records.
 
 The 11 nominated shared IDs cover five false mergers (`26271`, `26560`, `28296`, `31985`, `35229`), two valid shared identities with incorrect metadata (`28347`, `29105`), one wrong enrichment and duplicate identity (`35431`), and three valid advance-online articles (`32928`, `33835`, `35438`). The three advance-online articles were available in 2013 and printed in 2015. Their identities remain linked. The original AMPERE article assigned to `35431` joins existing ID `70675`; its verified online date is 11 March 2014 and its preferred print year is 2015.
 
@@ -511,6 +513,10 @@ python scripts/correct_record_links.py \
 The script checks the original digest and each expected old value. It validates the corrected foreign keys, chapter crosswalk, paper counters, unique DOIs and raw-occurrence digest. It refreshes the cached analyses and writes the corrected digest and checks to the report. Existing inputs and output files are preserved.
 
 The chronology rule queues `matched_doi` occurrences whose preferred year exceeds the source's unambiguous publication year or differs from the first printed year by more than one. The parser accepts year suffixes such as `2013a`. The snapshot contains 1,728 chronology flags. Nine have documented targeted decisions; 1,719 remain open. Verified advance-online dates resolve several flagged cases. Targeted source inspections and the unreviewed probability worksheet have separate records. Population linkage accuracy remains unestimated.
+
+Analysis version [v1.2.1](https://github.com/Karcen/ipcc_litdb/tree/v1.2.1) adds an explicit census of unresolved chronology flags among AR5–AR6 shared matched IDs. The database remains the v1.2.0 snapshot with the same SHA-256 digest. The selection uses `open` or `in_progress` reviews with reason `matched_doi_chronology_review`, joins by occurrence ID, and counts each occurrence once across all reports. It selects 38 shared IDs and 85 flagged occurrences. Of these occurrences, 49 are in AR5 or AR6 and 36 are in other reports. The AR5/AR6-only subset spans 29 IDs. The exported detail table records each flagged occurrence's report, preferred year and review status.
+
+All 38 selected IDs have preferred years through 2013. A fixed-denominator stress calculation removes them from the shared numerator: 1,619/13,503 gives 11.99% retention and 1,619/34,869 gives 4.64% reuse. The corresponding conditional rate is 1,612/5,810, or 27.75%. This is the maximum loss of shared identity within the selected set under fixed cohort denominators. It leaves the database unchanged. Source adjudication determines which flagged identities need correction; the stress calculation measures their possible numerical effect. The registered [stress table](reproducibility/reference/revision_identity_flagged_sensitivity.csv) reproduces this calculation. The workflow also generates `results/revision_identity_open_shared_chronology_details.csv`, with one row per flagged occurrence, and `results/revision_identity_summary.json`, with the selection queries and report-level counts.
 
 ## PostgreSQL
 

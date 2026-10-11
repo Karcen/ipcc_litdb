@@ -63,7 +63,7 @@
     },
     {
       "filename": "revision_identity_flagged_sensitivity.csv",
-      "sha256": "5f66bc5bbc50a04dd02efbbfbd4fc1c8fe8770ee09890a1aa035927d25a0f5cb"
+      "sha256": "a9e692db08988a2f881db02d5b863e15f59af0cb102d4cb048a4b75624f7a65a"
     },
     {
       "filename": "revision_age_summary.csv",
@@ -132,5 +132,6 @@
     "outlet_weighting": "one per distinct paper_id within report/cohort"
   },
   "scope": "Snapshot analysis; automated consistency checks and unreviewed audit sampling",
-  "snapshot_version": "v1.2.0"
+  "snapshot_version": "v1.2.0",
+  "analysis_version": "v1.2.1"
 }
