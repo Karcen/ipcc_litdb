@@ -19,8 +19,8 @@ from pathlib import Path
 from restore_database import verify_compressed_snapshot
 
 REPO = Path(__file__).resolve().parents[1]
-IGNORED = {".git", ".venv", "venv", "__pycache__", ".pytest_cache", ".idea", ".vscode", "paper"}
-AUTHORED = {"backend", "analytics", "scripts", "tests", "frontend", ".github"}
+IGNORED = {".git", ".venv", "venv", "__pycache__", ".pytest_cache", ".idea", ".vscode", "paper", "analysis-reproduction"}
+AUTHORED = {"backend", "analytics", "scripts", "tests", "frontend", ".github", "reproducibility"}
 TEXT_SUFFIXES = {".py", ".js", ".html", ".css", ".md", ".yml", ".yaml", ".sql", ".sh", ".example", ".json"}
 
 

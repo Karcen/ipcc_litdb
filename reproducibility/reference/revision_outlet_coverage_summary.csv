@@ -1,0 +1,7 @@
+report,normalization,full_known_ids,matched_known_ids,total_variation_distance
+AR4,casefold_whitespace,10732,4393,0.502580045728902
+AR4,conservative_title_tokens,10732,4393,0.5023936871750444
+AR5,casefold_whitespace,21591,13504,0.3316190355501821
+AR5,conservative_title_tokens,21591,13504,0.33149866782302
+AR6,casefold_whitespace,47009,34853,0.2374577700256406
+AR6,conservative_title_tokens,47009,34853,0.23733952573427622

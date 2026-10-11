@@ -1,0 +1,2 @@
+scenario,excluded_union_ids,papers_a,papers_b,shared,only_a,only_b,retention,reuse,jaccard,interpretation
+exclude_all_shared_later_than_2013,14,13496,34859,1650,11846,33209,0.12225844694724362,0.047333543704638686,0.03532812332726689,Stress test; no corrected-identity or error-rate claim

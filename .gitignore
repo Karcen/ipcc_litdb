@@ -27,6 +27,7 @@ ipcc_*.csv
 ipcc_*.json
 ipcc_*.xlsx
 research-export/
+analysis-reproduction/
 
 # Operating-system metadata
 ._*

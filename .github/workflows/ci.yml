@@ -19,6 +19,7 @@ jobs:
           cache-dependency-path: |
             backend/requirements.txt
             requirements-dev.txt
+            requirements-analysis.txt
       - name: Install dependencies and restore snapshot
         run: |
           python -m venv .venv
@@ -29,6 +30,16 @@ jobs:
           source .venv/bin/activate
           bash scripts/lint.sh
           python scripts/verify_project.py
+      - name: Reproduce registered assessment analyses
+        run: |
+          source .venv/bin/activate
+          python -m pip install -r requirements-analysis.txt
+          python scripts/reproduce_assessment_analysis.py --output-dir /tmp/ipcc-assessment-reproduction --check-reference
+      - name: Save reproduction record
+        uses: actions/upload-artifact@v4
+        with:
+          name: assessment-reproduction-${{ matrix.python-version }}
+          path: /tmp/ipcc-assessment-reproduction/reproduction.json
       - name: Check API and run tests
         run: |
           source .venv/bin/activate

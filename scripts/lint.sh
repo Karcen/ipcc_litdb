@@ -2,7 +2,7 @@
 # Check Python, shell, JavaScript, and Compose syntax.
 set -euo pipefail
 cd "$(dirname "$0")/.."
-python -m compileall -q -x '(^|/)\._' backend analytics database scripts tests
+python -m compileall -q -x '(^|/)\._' backend analytics database scripts tests reproducibility
 for script in scripts/*.sh; do bash -n "$script"; done
 if command -v node >/dev/null; then
   node --check frontend/app.js

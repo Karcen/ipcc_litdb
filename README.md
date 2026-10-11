@@ -48,6 +48,7 @@ Stopping the containers preserves the database volume, including review history.
 - [Configuration](#configuration)
 - [Database model](#database-model)
 - [Analysis](#analysis)
+- [Reproduce assessment analyses](#reproduce-assessment-analyses)
 - [Exports and API](#exports-and-api)
 - [Sources and provenance](#sources-and-provenance)
 - [Data quality and review](#data-quality-and-review)
@@ -77,7 +78,7 @@ The bibliographic snapshot was built on 6 October 2026. Derived analyses and Eng
 | Papers cited in multiple reports | 12,884 |
 | Data-quality flags | 33,571 |
 
-The occurrence-level Web of Science match rate is 57.38%. At paper level, 91,401 works have a Web of Science match or a verified DOI, giving a traceability rate of 80.47%. These measures use different denominators.
+The occurrence-level Web of Science match rate is 57.38%. At paper level, 91,401 works carry either `wos_matched` or `doi_verified`, giving a combined workflow-label share of 80.47%. The builder assigns `doi_verified` to a syntactically valid DOI without a WoS record. It does not independently resolve that DOI or validate its correspondence to the printed reference. These measures use different denominators.
 
 | Report | Matched occurrences | Total occurrences | Match rate |
 |---|---:|---:|---:|
@@ -150,6 +151,7 @@ ipcc_litdb/
 │   ├── raw/                # Manifest of upstream inputs
 │   └── processed/          # Audit statistics and deduplication summary
 ├── scripts/                # Install, restore, serve, analyse, test, export, migrate
+├── reproducibility/        # Assessment analyses and registered result tables
 ├── screenshots/
 ├── tests/
 └── .github/workflows/      # Automated checks
@@ -297,6 +299,65 @@ python -m analytics.cli bundle AR5 AR6 --limit 300 --output research-export
 
 Use `--database /path/to/database.sqlite` to select another SQLite file. The bundle contains the comparison, live audit, and all five networks in JSON, GraphML, GEXF, and CSV. All analyses read one transaction-consistent SQLite backup. A manifest records the input digest, parameters, output sizes, and SHA-256 digests. The temporary input copy is removed after export. Choose a new output directory for each bundle.
 
+## Reproduce assessment analyses
+
+The reproducibility package reads the distributed SQLite snapshot. It computes report transitions, publication-age distributions, outlet concentration, and working-group overlap. It also generates a stratified reference-review worksheet. All outputs go to a new directory. The input database stays unchanged.
+
+Use Python 3.10 or 3.12 with the pinned analysis dependency:
+
+```bash
+python -m pip install -r requirements-analysis.txt
+python scripts/reproduce_assessment_analysis.py \
+  --output-dir analysis-reproduction \
+  --check-reference
+```
+
+Run these commands from the repository root after Quick start installation. Choose a new output directory for each run. The full run uses 2,500 chapter resamples and conditional sharing draws, and 2,000 equal-size outlet subsamples. The seed is `20261011`.
+
+The input SHA-256 is:
+
+```text
+faa7fc711ae4607acfa9833739ec8f202f8aefd6d929b474a12fceb589c5b85d
+```
+
+The runner checks this digest before analysis and again after analysis. `--check-reference` compares 29 complete registered CSV tables with `reproducibility/reference/`. Table headers, row order, and nonnumeric values must agree. Numeric comparisons use absolute and relative tolerances of `1e-10`. `reproduction.json` records the dependency version, input and code hashes, parameters, output hashes, and comparison results. Each step has its own log. The `qc/` directory contains checks of identifiers, joins, resampling margins, and analytical sampling expectations.
+
+The bundled snapshot supplies every numerical input. API keys, journal subscriptions, original PDFs, and LaTeX are unnecessary for this run. Data acquisition from PDFs and the historical WoS collection remain separate upstream stages, described under [Sources and provenance](#sources-and-provenance).
+
+### Units and definitions
+
+| Quantity | Unit and denominator |
+|---|---|
+| Extraction coverage | Reference occurrences with the selected workflow status divided by all occurrences in the report or working group. |
+| Retention | Distinct IDs shared by the later and earlier reports divided by earlier-report IDs. |
+| Reuse | Shared distinct IDs divided by later-report IDs. |
+| Conditional reuse | Shared eligible matched IDs divided by all later-report matched IDs within the selected publication-year cutoff. All-extracted and DOI-status sensitivities use their respective cohorts. Cutoffs 2012, 2013, and 2014 are reported separately. |
+| First observed in AR6 | AR6 matched IDs absent from every AR5 extracted ID, including unmatched entries. This describes the saved collection. |
+| Reference age | Source publication year minus publication year of the cited work; missing, future, and over-60-year dates have separate counts. |
+| Equal-ID age | Each eligible ID contributes total weight one within a report, shared equally across its eligible occurrences. |
+| Price fraction | Share of eligible citation weights aged 0–5 years inclusive; a separate sensitivity uses ages under 5 years. |
+| Outlet concentration | Sum of squared named-outlet shares, with one weight per distinct ID. Missing labels have separate counts. |
+| Hill diversity | `q0` counts labels, `q1` is the exponential Shannon entropy, and `q2` is inverse concentration. |
+| Working-group overlap | Shared distinct IDs divided by their union (Jaccard), or by the smaller group (overlap coefficient). |
+
+`paper_id` denotes the database's linked identity. A `matched_doi` occurrence has an exact DOI match at the WoS acceptance stage. Earlier enrichment can supply or replace its title, DOI, and year. This workflow status therefore does not establish the accuracy of the link to the original printed reference. The separate `doi_verified` paper label has the builder meaning given under [Data and coverage](#data-and-coverage).
+
+### Results registered for this snapshot
+
+| Check | Result |
+|---|---|
+| AR5–AR6 matched-ID overlap | 1,664 shared IDs; AR5 retention 12.32%, AR6 reuse 4.77%. |
+| Symmetric earlier-report presence | 1,665 AR6 matched IDs appear anywhere in AR5. Of 4,160 earlier-publication IDs absent from the AR5 matched cohort, one is present in its unmatched cohort. |
+| Publication-year-eligible reuse | 34.16%, 28.40%, and 20.47% at cutoffs 2012, 2013, and 2014. |
+| Occurrence-weighted age | Median 4 years in both reports; mean increases from 4.434 to 5.139 years. The 0–5-year fraction decreases from 71.21% to 62.79%. |
+| Equal-ID age | Median increases from 4 to 5 years; mean increases from 4.513 to 5.306 years. |
+
+Age uncertainty tables describe stability under chapter resampling within this fixed collection. Outlet subsampling compares reports at the same number of IDs. These intervals retain the saved record links and metadata. The working-group null preserves journal/vintage margins, group counts, and each ID's number of working-group memberships. It tests how fixed sharing is allocated across pairs. It does not test whether total sharing exceeds a climate-literature population benchmark.
+
+Outlet sensitivities compare the preferred labels, conservative punctuation aliases, and registered WoS source titles. The local snapshot and upstream exports lack usable ISSNs. The alias crosswalk records exactly which strings were combined. Named-outlet concentration and richness have separate results; outlet labels do not assign disciplines.
+
+The review worksheet contains 337 IDs and 818 printed entries. It includes a probability sample and targeted anomaly cases, identified separately. Mechanical title, DOI, year, and author flags accompany the raw entries. Human adjudication fields remain unreviewed. Informal spot checks were performed during the original work; retained adjudication records are unavailable. The package estimates no human-validated linkage error rate.
+
 ## Exports and API
 
 The literature page exports CSV, XLSX, JSON, BibTeX, and RIS using the applied filters and sorting. Each format records the total matching records, export limit, and truncation state. Paper exports contain one row per work. The export script requires a running server:
@@ -419,6 +480,8 @@ bash scripts/lint.sh
 
 Tests cover database integrity, paper/occurrence relationships, metrics, exports, API responses, SQL guards, and snapshot restoration. The bundled data is required for database and API tests.
 
+Ten small, fully enumerated membership fixtures test the conditional working-group model against independent labelled assignments. GitHub Actions also runs the full assessment reproduction and compares all 29 registered tables on Python 3.10 and 3.12. Each run saves its `reproduction.json` record as a workflow artifact.
+
 For live checks, keep the dashboard running in another terminal:
 
 ```bash
@@ -460,7 +523,7 @@ An existing database is preserved. To replace it with the packaged snapshot, fir
 
 ## Attribution and contact
 
-[Jiacheng Zheng](https://karcen.github.io/), Ma Yinchu School of Economics, Tianjin University.
+Jiacheng Zheng, Ma Yinchu School of Economics, Tianjin University.
 
 Contact: [karcenzheng@yeah.net](mailto:karcenzheng@yeah.net) or [karcenzheng@tju.edu.cn](mailto:karcenzheng@tju.edu.cn).
 

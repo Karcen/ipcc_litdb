@@ -1,0 +1,13 @@
+earlier,later,cutoff_year,identity_unit,earlier_membership,eligible_later_matched_IDs,shared_eligible_IDs,conditional_reuse,later_IDs_with_conflicting_raw_leading_years,eligibility_year
+AR4,AR5,2006,recorded_paper_ID,earlier_matched,2197,673,0.3063268092853892,142,Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned
+AR4,AR5,2006,recorded_paper_ID,any_earlier_extracted,2197,674,0.3067819754210287,142,Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned
+AR4,AR5,2007,recorded_paper_ID,earlier_matched,3124,702,0.22471190781049935,142,Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned
+AR4,AR5,2007,recorded_paper_ID,any_earlier_extracted,3124,703,0.22503201024327785,142,Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned
+AR4,AR5,2008,recorded_paper_ID,earlier_matched,4482,707,0.15774207942882643,142,Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned
+AR4,AR5,2008,recorded_paper_ID,any_earlier_extracted,4482,708,0.15796519410977242,142,Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned
+AR5,AR6,2012,recorded_paper_ID,earlier_matched,3673,1291,0.3514838007078682,325,Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned
+AR5,AR6,2012,recorded_paper_ID,any_earlier_extracted,3673,1292,0.3517560577184862,325,Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned
+AR5,AR6,2013,recorded_paper_ID,earlier_matched,5254,1613,0.3070041872858774,325,Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned
+AR5,AR6,2013,recorded_paper_ID,any_earlier_extracted,5254,1614,0.3071945184621241,325,Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned
+AR5,AR6,2014,recorded_paper_ID,earlier_matched,7451,1650,0.2214467856663535,325,Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned
+AR5,AR6,2014,recorded_paper_ID,any_earlier_extracted,7451,1651,0.22158099583948462,325,Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned
