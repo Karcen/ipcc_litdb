@@ -21,6 +21,7 @@ jobs:
             backend/requirements.txt
             requirements-dev.txt
             requirements-analysis.txt
+            requirements-figures.txt
       - name: Install dependencies and restore snapshot
         run: |
           python -m venv .venv
@@ -64,3 +65,31 @@ jobs:
           PY
           python scripts/verify_project.py --require-api
           bash scripts/test.sh --ignore=tests/test_frontend_smoke.py
+
+  figures:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: |
+            requirements-analysis.txt
+            requirements-figures.txt
+      - name: Install figure dependencies and pinned QA tools
+        run: |
+          python -m pip install -r requirements-figures.txt
+          git clone --filter=blob:none https://github.com/Yuan1z0825/nature-skills /tmp/ipcc-nature-qa
+          git -C /tmp/ipcc-nature-qa checkout e605b35611ab2849af46d0cf7831aefdcf85be07
+      - name: Render and audit assessment figures
+        run: |
+          python reproducibility/make_assessment_figures.py \
+            --results-dir reproducibility/reference \
+            --output-dir /tmp/ipcc-assessment-figures \
+            --qc-dir /tmp/ipcc-assessment-figure-checks \
+            --skill-directory /tmp/ipcc-nature-qa/skills/nature-figure

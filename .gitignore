@@ -42,3 +42,7 @@ analysis-reproduction/
 
 # Local manuscript
 /paper/
+
+# Generated assessment figures and audits
+assessment-figures/
+assessment-figure-checks/

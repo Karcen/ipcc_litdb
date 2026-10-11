@@ -326,6 +326,25 @@ The bundled snapshot supplies every numerical input. API keys, journal subscript
 
 Some printed references contain embedded NUL characters. Generated CSV files represent these characters with the literal escape `\u0000`, which Python 3.10 can read. SQLite and JSON preserve the original text. The snapshot contains no pre-existing literal `\u0000` tokens in the extracted reference or preferred-title fields, so replacing the marker with a NUL reconstructs those fields.
 
+### Export assessment figures
+
+The figure generator reads ten registered result tables and exports four plots as PDF, editable SVG, and 600-dpi PNG. It includes workflow coverage, citation-age ECDFs, equal-size effective outlet comparisons, and working-group retention and conditional sharing. It writes source hashes, figure contracts, and layout audits to a separate output directory.
+
+Install the plotting dependencies and the pinned [Nature Figure QA tools](https://github.com/Yuan1z0825/nature-skills/tree/e605b35611ab2849af46d0cf7831aefdcf85be07/skills/nature-figure) outside this repository:
+
+```bash
+python -m pip install -r requirements-figures.txt
+git clone https://github.com/Yuan1z0825/nature-skills ../nature-skills
+git -C ../nature-skills checkout e605b35611ab2849af46d0cf7831aefdcf85be07
+python reproducibility/make_assessment_figures.py \
+  --results-dir reproducibility/reference \
+  --output-dir assessment-figures \
+  --qc-dir assessment-figure-checks \
+  --skill-directory ../nature-skills/skills/nature-figure
+```
+
+Use fresh output directories. Substitute `analysis-reproduction/results` for the results directory to plot a complete rerun. The generator checks input hashes before and after rendering. At 133 mm width, each plot must pass panel alignment within 1.5 pt, exported PDF text at least 7 pt, and rendered collision checks. The audits cover file geometry; the figure contract also records units, weights, denominators and interval definitions. The QA tools are distributed under Apache 2.0. Figure exports are generated locally and are absent from this repository.
+
 ### Units and definitions
 
 | Quantity | Unit and denominator |
