@@ -324,6 +324,8 @@ The runner checks this digest before analysis and again after analysis. `--check
 
 The bundled snapshot supplies every numerical input. API keys, journal subscriptions, original PDFs, and LaTeX are unnecessary for this run. Data acquisition from PDFs and the historical WoS collection remain separate upstream stages, described under [Sources and provenance](#sources-and-provenance).
 
+Some printed references contain embedded NUL characters. Generated CSV files represent these characters with the literal escape `\u0000`, which Python 3.10 can read. SQLite and JSON preserve the original text. The snapshot contains no pre-existing literal `\u0000` tokens in the extracted reference or preferred-title fields, so replacing the marker with a NUL reconstructs those fields.
+
 ### Units and definitions
 
 | Quantity | Unit and denominator |

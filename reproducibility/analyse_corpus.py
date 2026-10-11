@@ -44,7 +44,10 @@ def write_csv(path, rows, fields=None):
     with path.open("w", newline="", encoding="utf-8") as stream:
         writer = csv.DictWriter(stream, fieldnames=fields)
         writer.writeheader()
-        writer.writerows(rows)
+        # Render embedded NULs as the literal JSON escape for Python 3.10 CSV.
+        # The immutable SQLite snapshot retains the original control characters.
+        writer.writerows({key: value.replace("\x00", "\\u0000") if isinstance(value, str) else value
+                          for key, value in row.items()} for row in rows)
 
 
 def compare(a, b):

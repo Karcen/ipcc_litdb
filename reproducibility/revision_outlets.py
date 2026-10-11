@@ -46,7 +46,10 @@ def write_csv(path, rows):
     with path.open("w", encoding="utf-8", newline="") as stream:
         writer = csv.DictWriter(stream, fieldnames=list(rows[0]) if rows else [])
         writer.writeheader()
-        writer.writerows(rows)
+        # Render embedded NULs as the literal JSON escape for Python 3.10 CSV.
+        # The immutable SQLite snapshot retains the original control characters.
+        writer.writerows({key: value.replace("\x00", "\\u0000") if isinstance(value, str) else value
+                          for key, value in row.items()} for row in rows)
 
 
 def write_json(path, value):

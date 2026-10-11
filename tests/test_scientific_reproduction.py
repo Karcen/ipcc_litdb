@@ -12,6 +12,7 @@ import numpy as np
 import pytest
 
 from reproducibility.revision_age_networks import conditional_states
+from reproducibility.analyse_corpus import write_csv
 
 
 FIXTURES = (
@@ -27,6 +28,20 @@ FIXTURES = (
     ((1, 2, 4, 7), 6, 1),
 )
 PAIRS = ((0, 1), (0, 2), (1, 2))
+
+
+def test_csv_control_character_round_trip(tmp_path):
+    """Retain source control characters in a format older CSV readers accept."""
+    import csv
+
+    original = 'Printed citation, "quoted"\nwith embedded\x00NUL and a second\x00NUL.'
+    path = tmp_path / "control_character.csv"
+    write_csv(path, [{"occurrence_id": "fixture-1", "raw_reference": original}])
+    assert b"\x00" not in path.read_bytes()
+    with path.open(newline="", encoding="utf-8") as stream:
+        row = next(csv.DictReader(stream))
+    assert row["occurrence_id"] == "fixture-1"
+    assert row["raw_reference"].replace("\\u0000", "\x00") == original
 
 
 def enumerate_labelled_matrices(patterns):
