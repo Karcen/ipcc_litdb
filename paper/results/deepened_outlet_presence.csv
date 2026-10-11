@@ -1,7 +1,0 @@
-cohort,outlet_presence,named_journal_titles,papers,known_journal_denominator,share_known_journal_papers
-AR6 matched,Present in matched AR5,959,28771,34853,0.8254956531718933
-AR6 matched,Absent from matched AR5,1565,6082,34853,0.17450434682810662
-Reused from AR5,Present in matched AR5,336,1664,1664,1.0
-Reused from AR5,Absent from matched AR5,0,0,1664,0.0
-New to AR6,Present in matched AR5,930,27107,33189,0.8167465123986863
-New to AR6,Absent from matched AR5,1565,6082,33189,0.18325348760131369

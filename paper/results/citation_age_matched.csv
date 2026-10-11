@@ -1,7 +1,0 @@
-report_id,reference_occurrences,dated_included,missing_year,future_year,over_60_years,median_age,p25,p75
-AR1,2,0,0,2,0,,,
-AR2,43,0,1,42,0,,,
-AR3,1537,1470,1,66,0,2.0,2.0,3.0
-AR4,5855,5648,5,202,0,4.0,2.0,5.0
-AR5,17604,17519,5,80,0,4,2.0,6.0
-AR6,47053,47003,5,45,0,4,3.0,7.0

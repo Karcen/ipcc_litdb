@@ -19,8 +19,8 @@ from pathlib import Path
 from restore_database import verify_compressed_snapshot
 
 REPO = Path(__file__).resolve().parents[1]
-IGNORED = {".git", ".venv", "venv", "__pycache__", ".pytest_cache", ".idea", ".vscode"}
-AUTHORED = {"backend", "analytics", "scripts", "tests", "frontend", "paper", ".github"}
+IGNORED = {".git", ".venv", "venv", "__pycache__", ".pytest_cache", ".idea", ".vscode", "paper"}
+AUTHORED = {"backend", "analytics", "scripts", "tests", "frontend", ".github"}
 TEXT_SUFFIXES = {".py", ".js", ".html", ".css", ".md", ".yml", ".yaml", ".sql", ".sh", ".example", ".json"}
 
 
@@ -88,10 +88,7 @@ def main() -> int:
     print("Repository and interface")
     files = list(package_files())
     markdown = sorted(str(relative) for path, relative in files if path.suffix.lower() == ".md")
-    check("Project guide and analysis article use their README files",
-          markdown == ["README.md", "paper/README.md"], ", ".join(markdown))
-    check("Analysis article includes its LaTeX, bibliography, and PDF",
-          all((REPO / "paper" / name).is_file() for name in ("README.md", "paper.tex", "references.bib", "paper.pdf")))
+    check("Project guide uses a single README", markdown == ["README.md"], ", ".join(markdown))
     readme = (REPO / "README.md").read_text(encoding="utf-8")
     check("README includes Quick Start", "quick start" in readme.lower())
     locales = sorted(path.name for path in (REPO / "frontend" / "locales").glob("*.json") if not path.name.startswith("._"))

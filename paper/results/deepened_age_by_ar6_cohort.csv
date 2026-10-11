@@ -1,9 +1,0 @@
-report_id,working_group,cohort,distinct_matched_papers,matched_occurrences,dated_included,source_year_count,fallback_year_count,missing_year,future_year,over_60_years,median_age,p25,p75
-AR6,All report units,Reused from AR5,1664,2217,2216,2217,0,0,1,0,11.0,9.0,13.0
-AR6,All report units,New to AR6,33209,44836,44787,44836,0,5,44,0,4,3.0,6.0
-AR6,WG1,Reused from AR5,953,1209,1208,1209,0,0,1,0,10.0,9.0,12.0
-AR6,WG1,New to AR6,10970,14025,14015,14025,0,0,10,0,4,2.0,6.0
-AR6,WG2,Reused from AR5,577,671,671,671,0,0,0,0,11,10.0,13.0
-AR6,WG2,New to AR6,16320,20650,20632,20650,0,5,13,0,4.0,3.0,6.0
-AR6,WG3,Reused from AR5,280,337,337,337,0,0,0,0,11,10.0,13.0
-AR6,WG3,New to AR6,8380,10161,10140,10161,0,0,21,0,4.0,3.0,6.0
