@@ -1,0 +1,90 @@
+[
+  {
+    "figure": "figure1_corpus",
+    "panel": "a",
+    "unique_role": "Distinct-paper and occurrence grains define the dataset.",
+    "visual_review": "Axes, labels, legends and marks inspected; no overlap or page clipping observed.",
+    "uncertainty": "Descriptive enumeration; no sampling error bars or hypothesis tests.",
+    "alignment": "PASS at 1.5pt tolerance",
+    "collision": "PASS; no findings",
+    "text_floor": "All rendered glyphs at least5pt",
+    "note": ""
+  },
+  {
+    "figure": "figure1_corpus",
+    "panel": "b",
+    "unique_role": "Matching fractions and units containing references qualify cross-generation interpretation.",
+    "visual_review": "Axes, labels, legends and marks inspected; no overlap or page clipping observed.",
+    "uncertainty": "Descriptive enumeration; no sampling error bars or hypothesis tests.",
+    "alignment": "PASS at 1.5pt tolerance",
+    "collision": "PASS; no findings",
+    "text_floor": "All rendered glyphs at least5pt",
+    "note": ""
+  },
+  {
+    "figure": "figure2_renewal",
+    "panel": "a",
+    "unique_role": "Contrast all-extracted and matched/coherent paper-ID retention for AR4\u2013AR6 transitions.",
+    "visual_review": "Axes, labels, legends and marks inspected; no overlap or page clipping observed.",
+    "uncertainty": "Descriptive enumeration; no sampling error bars or hypothesis tests.",
+    "alignment": "PASS at 1.5pt tolerance",
+    "collision": "PASS; no findings",
+    "text_floor": "All rendered glyphs at least5pt",
+    "note": ""
+  },
+  {
+    "figure": "figure2_renewal",
+    "panel": "b",
+    "unique_role": "Partition matched AR6 reused and newly represented papers by publication vintage.",
+    "visual_review": "Axes, labels, legends and marks inspected; no overlap or page clipping observed.",
+    "uncertainty": "Descriptive enumeration; no sampling error bars or hypothesis tests.",
+    "alignment": "PASS at 1.5pt tolerance",
+    "collision": "PASS; no findings",
+    "text_floor": "All rendered glyphs at least5pt",
+    "note": ""
+  },
+  {
+    "figure": "figure3_age_groups",
+    "panel": "a",
+    "unique_role": "All-extracted and matched occurrence-weighted publication ages use source-volume years for AR4\u2013AR6.",
+    "visual_review": "Axes, labels, legends and marks inspected; no overlap or page clipping observed.",
+    "uncertainty": "Points are medians; whiskers span the 25th\u201375th percentiles, not confidence intervals. Ages outside 0\u201360 or lacking a valid publication year are counted in source data.",
+    "alignment": "PASS at 1.5pt tolerance",
+    "collision": "PASS; no findings",
+    "text_floor": "All rendered glyphs at least5pt",
+    "note": ""
+  },
+  {
+    "figure": "figure3_age_groups",
+    "panel": "b",
+    "unique_role": "Matched-paper overlaps quantify sharing among working groups within AR4\u2013AR6.",
+    "visual_review": "Axes, labels, legends and marks inspected; no overlap or page clipping observed.",
+    "uncertainty": "Points are medians; whiskers span the 25th\u201375th percentiles, not confidence intervals. Ages outside 0\u201360 or lacking a valid publication year are counted in source data.",
+    "alignment": "PASS at 1.5pt tolerance",
+    "collision": "PASS; no findings",
+    "text_floor": "All rendered glyphs at least5pt",
+    "note": ""
+  },
+  {
+    "figure": "figure4_journals",
+    "panel": "a",
+    "unique_role": "The eight largest named outlets pooled over AR4\u2013AR6 show report-specific paper shares.",
+    "visual_review": "Axes, labels, legends and marks inspected; no overlap or page clipping observed.",
+    "uncertainty": "Descriptive enumeration; no sampling error bars or hypothesis tests.",
+    "alignment": "PASS at 1.5pt tolerance",
+    "collision": "PASS; no findings",
+    "text_floor": "All rendered glyphs at least5pt",
+    "note": "Heatmap numbers intentionally occupy cell interiors."
+  },
+  {
+    "figure": "figure4_journals",
+    "panel": "b",
+    "unique_role": "Matched-only and all-extracted HHI summarize named-journal distributions in AR4\u2013AR6.",
+    "visual_review": "Axes, labels, legends and marks inspected; no overlap or page clipping observed.",
+    "uncertainty": "Descriptive enumeration; no sampling error bars or hypothesis tests.",
+    "alignment": "PASS at 1.5pt tolerance",
+    "collision": "PASS; no findings",
+    "text_floor": "All rendered glyphs at least5pt",
+    "note": ""
+  }
+]

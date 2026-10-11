@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-11",
+  "destination": "https://github.com/Karcen/ipcc_litdb/tree/main/paper",
+  "status": "Validated for publication",
+  "artifacts": {
+    "Markdown": "paper/README.md",
+    "LaTeX": "paper/paper.tex",
+    "BibTeX": "paper/references.bib",
+    "PDF": "paper/paper.pdf"
+  },
+  "sha256": {
+    "Markdown": "7ebfc1915656fc31c8fd9ad771438f02e6bc697efe673b2dad3e8216ef6e88f1",
+    "LaTeX": "429bbd34ad1cb5c6dc0439dd0a9ab25d31ca2a03c84ee3106532d8ec9086d6cc",
+    "BibTeX": "19e68365f4eaadf72163503e7ebf91c2be5509797db0e383d3e8531e730f60dd",
+    "PDF": "fca85ec7b192ef7569a64cba83d02a7f58ff87748b08081efda2a6d9ab9a55a5"
+  },
+  "Markdown_validation": {
+    "complete_abstract_and_four_main_sections": true,
+    "appendices": 2,
+    "figures": 4,
+    "tables": 6,
+    "numeric_table_tokens_preserved": 194,
+    "references": 23,
+    "all_citation_anchors_resolve": true,
+    "all_local_assets_and_fragments_resolve": true,
+    "display_equations": 2,
+    "no_conversion_metadata_remains": true,
+    "question_marks": 0,
+    "language": "English",
+    "independent_prose_acceptance": "passed"
+  },
+  "public_edition_changes": [
+    "Correct Liu (2023) show to shows in the LaTeX source.",
+    "Resolve citations, figures, tables and formulas for GitHub Markdown.",
+    "Write scientific ranges in plain English and fix compound range grammar in Markdown.",
+    "Use the repository database path as the analysis CLI default.",
+    "Update the analysis-script provenance hash; statistical outputs are unchanged.",
+    "Replace authoring-machine paths with relative paths or skill identifiers in public audit records."
+  ],
+  "PDF_validation": {
+    "pages": 15,
+    "compiler_warnings": 0,
+    "author_homepage": "https://karcen.github.io/",
+    "changed_page_visually_reviewed": 2,
+    "other_pages_pixel_identical_to_reviewed_manuscript": 14,
+    "text_within_page_bounds": true
+  },
+  "reproduction_evidence": "qc/publication_reproduction_audit.json",
+  "path_translation_evidence": "qc/publication_portability_audit.json",
+  "historical_audit_policy": "Earlier audit records preserve their source hashes and are labeled as historical. Final public-edition artifacts and reproduction have separate hashes.",
+  "Git_publication_validation": {
+    "all_inventory_files_match_staged_git_blobs": true,
+    "verified_inventory_files": 104,
+    "CSV_line_endings_preserved": true,
+    "CSV_attributes": ".gitattributes",
+    "source_whitespace_policy": "Exported source strings are preserved byte for byte."
+  }
+}

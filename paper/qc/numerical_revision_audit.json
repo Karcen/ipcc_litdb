@@ -1,0 +1,623 @@
+{
+  "paper_sha256": "773cb80b8d263e323010b6001a6e33fe81c47584fa0e3528e192fbe9c8561c58",
+  "result_sources": {
+    "results/deepened_analysis.json": "8de916c6999f807cb22e14b5be154cf98a5af0d4c01fcc1d153a06f82dfdb724",
+    "results/summary.json": "cf5d47364f6f7ff3d2dffd9162892ffe900945de2d21d7cd9122a7b43ac60ad0",
+    "results/journal_mix_matched.csv": "a78bf651675ab373ead1157ce9bfa838e77ad147de9b2840aa050790585b45de"
+  },
+  "scope": "Numerical and denominator audit of revised paper; external literature claims/bibliography excluded. Paper was not edited.",
+  "all_passed": true,
+  "check_count": 82,
+  "substantive_issues": [],
+  "checks": [
+    {
+      "claim": "WG1 within-group papers_a",
+      "paper_line": 104,
+      "reported_token": "5,606",
+      "exact_value": 5606,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "WG1 within-group shared",
+      "paper_line": 104,
+      "reported_token": "811",
+      "exact_value": 811,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "WG1 within-group retention",
+      "paper_line": 104,
+      "reported_token": "14.47\\%",
+      "exact_value": 0.14466642882625758,
+      "denominator": 5606,
+      "passed": true
+    },
+    {
+      "claim": "WG1 within-group reuse",
+      "paper_line": 104,
+      "reported_token": "6.80\\%",
+      "exact_value": 0.06801979367608824,
+      "denominator": 11923,
+      "passed": true
+    },
+    {
+      "claim": "WG2 within-group papers_a",
+      "paper_line": 104,
+      "reported_token": "6,424",
+      "exact_value": 6424,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "WG2 within-group shared",
+      "paper_line": 104,
+      "reported_token": "511",
+      "exact_value": 511,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "WG2 within-group retention",
+      "paper_line": 104,
+      "reported_token": "7.95\\%",
+      "exact_value": 0.07954545454545454,
+      "denominator": 6424,
+      "passed": true
+    },
+    {
+      "claim": "WG2 within-group reuse",
+      "paper_line": 104,
+      "reported_token": "3.02\\%",
+      "exact_value": 0.030242054802627684,
+      "denominator": 16897,
+      "passed": true
+    },
+    {
+      "claim": "WG3 within-group papers_a",
+      "paper_line": 104,
+      "reported_token": "2,142",
+      "exact_value": 2142,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "WG3 within-group shared",
+      "paper_line": 104,
+      "reported_token": "175",
+      "exact_value": 175,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "WG3 within-group retention",
+      "paper_line": 104,
+      "reported_token": "8.17\\%",
+      "exact_value": 0.08169934640522876,
+      "denominator": 2142,
+      "passed": true
+    },
+    {
+      "claim": "WG3 within-group reuse",
+      "paper_line": 104,
+      "reported_token": "2.02\\%",
+      "exact_value": 0.02020785219399538,
+      "denominator": 8660,
+      "passed": true
+    },
+    {
+      "claim": "WG1–WG2 shared IDs",
+      "paper_line": 106,
+      "reported_token": "1,391",
+      "exact_value": 1391,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "WG1–WG2 Jaccard",
+      "paper_line": 106,
+      "reported_token": "5.07\\%",
+      "exact_value": 0.05071274927995917,
+      "denominator": 27429,
+      "passed": true
+    },
+    {
+      "claim": "WG1–WG2 overlap coefficient",
+      "paper_line": 106,
+      "reported_token": "11.67\\%",
+      "exact_value": 0.11666526880818585,
+      "denominator": 11923,
+      "passed": true
+    },
+    {
+      "claim": "WG1–WG3 shared IDs",
+      "paper_line": 106,
+      "reported_token": "346",
+      "exact_value": 346,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "WG1–WG3 Jaccard",
+      "paper_line": 106,
+      "reported_token": "1.71\\%",
+      "exact_value": 0.01709739585907002,
+      "denominator": 20237,
+      "passed": true
+    },
+    {
+      "claim": "WG1–WG3 overlap coefficient",
+      "paper_line": 106,
+      "reported_token": "4.00\\%",
+      "exact_value": 0.03995381062355658,
+      "denominator": 8660,
+      "passed": true
+    },
+    {
+      "claim": "WG2–WG3 shared IDs",
+      "paper_line": 106,
+      "reported_token": "1,017",
+      "exact_value": 1017,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "WG2–WG3 Jaccard",
+      "paper_line": 106,
+      "reported_token": "4.14\\%",
+      "exact_value": 0.04144254278728606,
+      "denominator": 24540,
+      "passed": true
+    },
+    {
+      "claim": "WG2–WG3 overlap coefficient",
+      "paper_line": 106,
+      "reported_token": "11.74\\%",
+      "exact_value": 0.1174364896073903,
+      "denominator": 8660,
+      "passed": true
+    },
+    {
+      "claim": "Reused from AR5 dated occurrence count",
+      "paper_line": 102,
+      "reported_token": "2,216",
+      "exact_value": 2216,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "New to AR6 dated occurrence count",
+      "paper_line": 102,
+      "reported_token": "44,787",
+      "exact_value": 44787,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "Reused share of included AR6 ages",
+      "paper_line": 102,
+      "reported_token": "4.71\\%",
+      "exact_value": 0.047145926855732614,
+      "denominator": 47003,
+      "passed": true
+    },
+    {
+      "claim": "All matched AR6 familiar outlet share",
+      "paper_line": 118,
+      "reported_token": "82.55\\%",
+      "exact_value": 0.8254956531718933,
+      "denominator": 34853,
+      "passed": true
+    },
+    {
+      "claim": "Incoming familiar outlets: papers",
+      "paper_line": 118,
+      "reported_token": "27,107",
+      "exact_value": 27107,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "Incoming familiar outlets: known_journal_denominator",
+      "paper_line": 118,
+      "reported_token": "33,189",
+      "exact_value": 33189,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "Incoming familiar outlets: named_journal_titles",
+      "paper_line": 118,
+      "reported_token": "930",
+      "exact_value": 930,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "Incoming familiar outlet share",
+      "paper_line": 118,
+      "reported_token": "81.67\\%",
+      "exact_value": 0.8167465123986863,
+      "denominator": 33189,
+      "passed": true
+    },
+    {
+      "claim": "Reused from AR5 named_journals",
+      "paper_line": 116,
+      "reported_token": "336",
+      "exact_value": 336,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "Reused from AR5 hhi_known_journals",
+      "paper_line": 116,
+      "reported_token": "0.03211",
+      "exact_value": 0.03210954835428994,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "Reused from AR5 effective_journals_known",
+      "paper_line": 116,
+      "reported_token": "31.14",
+      "exact_value": 31.143384172402936,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "New to AR6 named_journals",
+      "paper_line": 116,
+      "reported_token": "2,495",
+      "exact_value": 2495,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "New to AR6 hhi_known_journals",
+      "paper_line": 116,
+      "reported_token": "0.00802",
+      "exact_value": 0.008020948732053904,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "New to AR6 effective_journals_known",
+      "paper_line": 116,
+      "reported_token": "124.67",
+      "exact_value": 124.67353095073737,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "AR5 named_journals",
+      "paper_line": 114,
+      "reported_token": "1,402",
+      "exact_value": 1402,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "AR5 known_journal_papers",
+      "paper_line": 114,
+      "reported_token": "13,504",
+      "exact_value": 13504,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "AR5 hhi_known_journals",
+      "paper_line": 114,
+      "reported_token": "0.01659",
+      "exact_value": 0.016585385530844994,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "AR5 effective_journals_known",
+      "paper_line": 114,
+      "reported_token": "60.29",
+      "exact_value": 60.294046113081336,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "AR6 named_journals",
+      "paper_line": 114,
+      "reported_token": "2,524",
+      "exact_value": 2524,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "AR6 known_journal_papers",
+      "paper_line": 114,
+      "reported_token": "34,853",
+      "exact_value": 34853,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "AR6 hhi_known_journals",
+      "paper_line": 114,
+      "reported_token": "0.00852",
+      "exact_value": 0.008523302533078318,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "AR6 effective_journals_known",
+      "paper_line": 114,
+      "reported_token": "117.33",
+      "exact_value": 117.32541419468248,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "AR1 coverage table",
+      "paper_line": 191,
+      "passed": true,
+      "expected_row": "AR1 & 1,551 & 1,448 & 2 & 0.13 & 20/30"
+    },
+    {
+      "claim": "AR2 coverage table",
+      "paper_line": 192,
+      "passed": true,
+      "expected_row": "AR2 & 8,250 & 7,310 & 40 & 0.52 & 52/71"
+    },
+    {
+      "claim": "AR3 coverage table",
+      "paper_line": 193,
+      "passed": true,
+      "expected_row": "AR3 & 8,292 & 6,914 & 1,126 & 18.54 & 26/55"
+    },
+    {
+      "claim": "AR4 coverage table",
+      "paper_line": 194,
+      "passed": true,
+      "expected_row": "AR4 & 16,193 & 13,635 & 4,597 & 36.16 & 46/66"
+    },
+    {
+      "claim": "AR5 coverage table",
+      "paper_line": 195,
+      "passed": true,
+      "expected_row": "AR5 & 27,851 & 21,770 & 13,510 & 63.21 & 75/95"
+    },
+    {
+      "claim": "AR6 coverage table",
+      "paper_line": 196,
+      "passed": true,
+      "expected_row": "AR6 & 63,027 & 47,636 & 34,873 & 74.66 & 66/78"
+    },
+    {
+      "claim": "All extracted sensitivity table",
+      "paper_line": 209,
+      "passed": true,
+      "expected_row": "All extracted & 21,770 & 47,636 & 2,103 & 9.66 & 4.41 & 3.12"
+    },
+    {
+      "claim": "Matched occurrences sensitivity table",
+      "paper_line": 210,
+      "passed": true,
+      "expected_row": "Matched occurrences & 13,510 & 34,873 & 1,664 & 12.32 & 4.77 & 3.56"
+    },
+    {
+      "claim": "Matched, coherent sensitivity table",
+      "paper_line": 211,
+      "passed": true,
+      "expected_row": "Matched, coherent & 13,447 & 34,839 & 1,653 & 12.29 & 4.74 & 3.54"
+    },
+    {
+      "claim": "All, coherent sensitivity table",
+      "paper_line": 212,
+      "passed": true,
+      "expected_row": "All, coherent & 20,670 & 46,731 & 1,978 & 9.57 & 4.23 & 3.02"
+    },
+    {
+      "claim": "Verified metadata status sensitivity table",
+      "paper_line": 213,
+      "passed": true,
+      "expected_row": "Verified metadata status & 18,902 & 43,396 & 2,035 & 10.77 & 4.69 & 3.38"
+    },
+    {
+      "claim": "DOI-verified status sensitivity table",
+      "paper_line": 214,
+      "passed": true,
+      "expected_row": "DOI-verified status & 5,387 & 8,515 & 368 & 6.83 & 4.32 & 2.72"
+    },
+    {
+      "claim": "Main WG units, all sensitivity table",
+      "paper_line": 215,
+      "passed": true,
+      "expected_row": "Main WG units, all & 21,767 & 47,636 & 2,103 & 9.66 & 4.41 & 3.12"
+    },
+    {
+      "claim": "AR4 All age table",
+      "paper_line": 228,
+      "passed": true,
+      "expected_row": "AR4 & All & 13,476 & 987 & 1,533 & 197 & 4 & 2--6"
+    },
+    {
+      "claim": "AR5 All age table",
+      "paper_line": 230,
+      "passed": true,
+      "expected_row": "AR5 & All & 26,232 & 766 & 816 & 37 & 4 & 2--6"
+    },
+    {
+      "claim": "AR6 All age table",
+      "paper_line": 232,
+      "passed": true,
+      "expected_row": "AR6 & All & 61,474 & 899 & 570 & 84 & 4 & 3--7"
+    },
+    {
+      "claim": "AR4 Matched age table",
+      "paper_line": 229,
+      "passed": true,
+      "expected_row": "AR4 & Matched & 5,648 & 5 & 202 & 0 & 4 & 2--5"
+    },
+    {
+      "claim": "AR5 Matched age table",
+      "paper_line": 231,
+      "passed": true,
+      "expected_row": "AR5 & Matched & 17,519 & 5 & 80 & 0 & 4 & 2--6"
+    },
+    {
+      "claim": "AR6 Matched age table",
+      "paper_line": 233,
+      "passed": true,
+      "expected_row": "AR6 & Matched & 47,003 & 5 & 45 & 0 & 4 & 3--7"
+    },
+    {
+      "claim": "Main decomposition Distinct paper IDs",
+      "paper_line": 136,
+      "passed": true,
+      "expected_row": "Distinct paper IDs & 1,664 & 33,209"
+    },
+    {
+      "claim": "Main decomposition Included age occurrences",
+      "paper_line": 137,
+      "passed": true,
+      "expected_row": "Included age occurrences & 2,216 & 44,787"
+    },
+    {
+      "claim": "Main decomposition Median citation age (years)",
+      "paper_line": 138,
+      "passed": true,
+      "expected_row": "Median citation age (years) & 11 & 4"
+    },
+    {
+      "claim": "Main decomposition IDs with a named outlet",
+      "paper_line": 140,
+      "passed": true,
+      "expected_row": "IDs with a named outlet & 1,664 & 33,189"
+    },
+    {
+      "claim": "Main decomposition Named outlet labels",
+      "paper_line": 141,
+      "passed": true,
+      "expected_row": "Named outlet labels & 336 & 2,495"
+    },
+    {
+      "claim": "Main decomposition Journal-title HHI",
+      "paper_line": 142,
+      "passed": true,
+      "expected_row": "Journal-title HHI & 0.03211 & 0.00802"
+    },
+    {
+      "claim": "Main decomposition Effective outlet count ($1/H$)",
+      "paper_line": 143,
+      "passed": true,
+      "expected_row": "Effective outlet count ($1/H$) & 31.14 & 124.67"
+    },
+    {
+      "claim": "geophysical research letters AR5 share of all matched IDs",
+      "paper_line": 120,
+      "reported_token": "7.1\\%",
+      "exact_value": 0.07142857142857142,
+      "denominator": 13510,
+      "passed": true
+    },
+    {
+      "claim": "geophysical research letters AR6 share of all matched IDs",
+      "paper_line": 120,
+      "reported_token": "3.6\\%",
+      "exact_value": 0.03618845525191409,
+      "denominator": 34873,
+      "passed": true
+    },
+    {
+      "claim": "journal of climate AR5 share of all matched IDs",
+      "paper_line": 120,
+      "reported_token": "6.0\\%",
+      "exact_value": 0.06017764618800888,
+      "denominator": 13510,
+      "passed": true
+    },
+    {
+      "claim": "journal of climate AR6 share of all matched IDs",
+      "paper_line": 120,
+      "reported_token": "3.1\\%",
+      "exact_value": 0.03085481604679838,
+      "denominator": 34873,
+      "passed": true
+    },
+    {
+      "claim": "environmental research letters AR5 share of all matched IDs",
+      "paper_line": 120,
+      "reported_token": "1.3\\%",
+      "exact_value": 0.012509252405625462,
+      "denominator": 13510,
+      "passed": true
+    },
+    {
+      "claim": "environmental research letters AR6 share of all matched IDs",
+      "paper_line": 120,
+      "reported_token": "2.8\\%",
+      "exact_value": 0.02827402288303272,
+      "denominator": 34873,
+      "passed": true
+    },
+    {
+      "claim": "nature climate change AR5 share of all matched IDs",
+      "paper_line": 120,
+      "reported_token": "1.1\\%",
+      "exact_value": 0.01080680977054034,
+      "denominator": 13510,
+      "passed": true
+    },
+    {
+      "claim": "nature climate change AR6 share of all matched IDs",
+      "paper_line": 120,
+      "reported_token": "2.7\\%",
+      "exact_value": 0.026610845066383736,
+      "denominator": 34873,
+      "passed": true
+    },
+    {
+      "claim": "Every selected occurrence has usable source date",
+      "paper_line": 63,
+      "expected_fallbacks": 0,
+      "observed_fallbacks": 0,
+      "passed": true
+    },
+    {
+      "claim": "AR1–AR6 union of distinct paper IDs",
+      "paper_line": 53,
+      "reported_token": "93,430",
+      "exact_value": 93430,
+      "denominator": null,
+      "passed": true
+    },
+    {
+      "claim": "Within-group matching and any-AR5 report reuse are distinguished",
+      "paper_line": 65,
+      "passed": true,
+      "evidence": "Methods explicitly uses report-specific matched same-group cohorts; Results retention/reuse values match only same-WG intersections, while AR6 age/outlet decomposition uses report-wide reused/new IDs."
+    },
+    {
+      "claim": "Age mixture uses occurrences, not paper-ID weights",
+      "paper_lines": [
+        63,
+        100,
+        128,
+        135,
+        146,
+        152
+      ],
+      "passed": true,
+      "evidence": "Reused share is 2216/47003=4.71459269%, not 1664/34873. New component supplies 95.28540731% of included occurrences. Component and pooled medians/IQRs are independently recorded in results."
+    },
+    {
+      "claim": "Overlap ordering is stated using Jaccard/absolute intersection; smaller-cohort overlap coefficient has its own denominator",
+      "paper_lines": [
+        104,
+        158
+      ],
+      "passed": true,
+      "evidence": "Jaccard: WG1–WG2 > WG2–WG3 > WG1–WG3. Smaller-cohort coefficient: WG2–WG3 narrowly exceeds WG1–WG2; both values are reported correctly without a coefficient-ordering claim."
+    }
+  ],
+  "stage": "Historical manuscript revision before the public-edition verb, CLI-path and audit-path changes",
+  "public_edition_evidence": "qc/publication_audit.json and qc/publication_reproduction_audit.json"
+}

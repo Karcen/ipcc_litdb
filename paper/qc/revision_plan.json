@@ -1,0 +1,101 @@
+{
+  "argument": "The matched AR5\u2013AR6 bibliography combines extensive document turnover with a recent incoming cohort and an older reused component, while working groups retain differentiated reference sets and incoming papers span a less concentrated outlet mix.",
+  "axes": {
+    "task": "manuscript",
+    "paper_type": "research",
+    "section": [
+      "experiments",
+      "intro",
+      "discussion",
+      "method",
+      "abstract"
+    ],
+    "language": "en",
+    "journal": "generic"
+  },
+  "introduction_variant": "general-to-specific-setting; periodic assessment evidence selection narrows to observable document continuity and its temporal and organizational structure",
+  "drafting_order": [
+    "results",
+    "introduction",
+    "discussion",
+    "methods",
+    "abstract"
+  ],
+  "architecture": [
+    "Introduction",
+    "Data and methods",
+    "Results",
+    "Discussion",
+    "Data and code availability",
+    "Appendices"
+  ],
+  "terminology": {
+    "reference occurrence": "one extracted bibliography entry linked to a catalogue unit",
+    "paper ID": "recorded database identity, used as the distinct-document unit",
+    "matched cohort": "ID with at least one recorded matched_doi or matched_title occurrence in the relevant report",
+    "retention": "shared divided by earlier-cohort size",
+    "reuse": "shared divided by later-cohort size",
+    "renewal": "entry and exit of recorded paper IDs between selected cohorts",
+    "vintage": "preferred publication year",
+    "citation age": "source publication year minus preferred paper year, occurrence weighted",
+    "journal concentration": "HHI across casefolded and whitespace-normalized named outlet labels",
+    "working-group overlap": "Jaccard of within-report matched group-specific ID sets"
+  },
+  "allocations": [
+    {
+      "result": "AR5\u2013AR6 cohort continuity and vintage",
+      "class": "core_discovery",
+      "destination": "main Results and Figure2"
+    },
+    {
+      "result": "reused/new age and outlet decomposition",
+      "class": "core_discovery",
+      "destination": "main Results and new Table1"
+    },
+    {
+      "result": "within-group continuity and group overlap",
+      "class": "heterogeneity",
+      "destination": "main Results, Figure3 and Appendix table"
+    },
+    {
+      "result": "aggregate journal concentration",
+      "class": "necessary_support",
+      "destination": "main Results and Figure4"
+    },
+    {
+      "result": "matching-coverage differences",
+      "class": "qualification",
+      "destination": "Methods, brief main Results, Figure1 and Appendix"
+    },
+    {
+      "result": "coherent and alternative status cohorts",
+      "class": "robustness",
+      "destination": "Appendix with concise main pointer"
+    },
+    {
+      "result": "raw-reference incorrect linkage",
+      "class": "edge_case",
+      "destination": "brief Methods/Discussion with Appendix detail"
+    },
+    {
+      "result": "hashes, SQL and exclusions",
+      "class": "provenance_detail",
+      "destination": "Methods/source data/README"
+    }
+  ],
+  "boundaries": [
+    "The population is the extracted snapshot, with report-specific matching membership.",
+    "Distinct document IDs and occurrence weights serve different questions.",
+    "Outlet-title labels and working-group functions do not assign formal disciplines.",
+    "Conceptual integration and institutional motives require assessment text and selection evidence."
+  ],
+  "skill_application": [
+    "User evidence-first-academic-companion modes D/E/F",
+    "Nature Writing research/manuscript/en/generic",
+    "blader Humanizer and Anti-Defensive Writing",
+    "Humanizer-zh for Chinese communication",
+    "Existing Nature figure QA retained because figures are unchanged",
+    "PDF edit marker succeeded; compilation and visual inspection follow"
+  ],
+  "local_skill_path_note": "the preferred Humanizer installation is absent. Existing skill:humanizer/SKILL.md is the applied English workflow."
+}

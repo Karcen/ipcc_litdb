@@ -1,0 +1,40 @@
+{
+  "source_summary": {
+    "ready": true,
+    "strict": false,
+    "counts": {
+      "PASS": 20,
+      "WARN": 1,
+      "FAIL": 0
+    }
+  },
+  "reviewed_warnings": [
+    {
+      "check": "EXPORT-RASTER",
+      "message": "PNG preview is present but no TIFF submission raster was found",
+      "review": "PDF and SVG are the editable main figure assets; PNG is the requested600dpi preview. TIFF was not requested and is not needed for vector initial-submission figures."
+    }
+  ],
+  "measured_pdf_dimensions": [
+    {
+      "figure": "figure1_corpus",
+      "width_mm": 183.0000055948893,
+      "height_mm": 86.99999754163953
+    },
+    {
+      "figure": "figure2_renewal",
+      "width_mm": 183.0000055948893,
+      "height_mm": 86.99999754163953
+    },
+    {
+      "figure": "figure3_age_groups",
+      "width_mm": 183.0000055948893,
+      "height_mm": 86.99999754163953
+    },
+    {
+      "figure": "figure4_journals",
+      "width_mm": 183.0000055948893,
+      "height_mm": 86.99999754163953
+    }
+  ]
+}

@@ -1,0 +1,1356 @@
+{
+  "audit_type": "sentence_function_audit",
+  "audited_at_utc": "2026-10-11T00:53:33.084966+00:00",
+  "source_file": "paper/paper.tex",
+  "source_sha256": "429bbd34ad1cb5c6dc0439dd0a9ab25d31ca2a03c84ee3106532d8ec9086d6cc",
+  "discussion_sha256": "7afc98a8f9c9ae14ff62c06b045b9babde760755985eb58d353c622d75407cee",
+  "section": "Discussion",
+  "guidance_files": [
+    "skill:nature-shared/core/discussion-argument-language.md",
+    "skill:anti-defensive-writing/SKILL.md",
+    "skill:humanizer/SKILL.md"
+  ],
+  "scope": "Read-only argument-function and prose audit. Citation verification and numerical reproducibility remain documented in their separate audit files. Manuscript prose was not changed.",
+  "allowed_primary_functions": [
+    "anchor",
+    "synthesize",
+    "position",
+    "interpret",
+    "contribute",
+    "qualify",
+    "bound",
+    "extend"
+  ],
+  "paragraph_count": 15,
+  "sentence_count": 98,
+  "function_counts": {
+    "anchor": 1,
+    "synthesize": 16,
+    "interpret": 28,
+    "contribute": 7,
+    "position": 17,
+    "bound": 11,
+    "extend": 13,
+    "qualify": 5
+  },
+  "overall_status": "pass_with_minor_optional_economy_notes",
+  "substantive_blockers": [],
+  "section_checks": [
+    {
+      "requirement": 1,
+      "name": "Reverse-funnel direction",
+      "status": "pass",
+      "finding": "The section moves from the component decomposition through group and outlet interpretation to evidence synthesis and institutional uses. It returns to local identity boundaries before drawing capability implications; those implications remain conditional.",
+      "paragraphs": [
+        1,
+        2,
+        7,
+        8,
+        10,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "requirement": 2,
+      "name": "Function coverage",
+      "status": "pass",
+      "finding": "The opening anchors the central finding. Literature positioning, synthesis, contribution, interpretation, rival explanations, scope boundaries and discriminating extensions are present. All eight primary labels occur.",
+      "paragraphs": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "requirement": 3,
+      "name": "No Results replay",
+      "status": "pass_with_optional_economy_cuts",
+      "finding": "The retained numeric recaps explain component mixing, older-document entry or organizational contrasts. Three local summary sentences repeat adjacent inferences and can be cut without changing evidence or interpretation.",
+      "optional_cut_sentence_ids": [
+        "8.4",
+        "10.5",
+        "15.4"
+      ],
+      "numeric_recaps_to_retain": [
+        "3.2",
+        "5.2",
+        "5.3",
+        "5.4",
+        "6.1"
+      ]
+    },
+    {
+      "requirement": 4,
+      "name": "Literature relationship",
+      "status": "pass",
+      "finding": "Citation-bearing comparisons state an extension, a route of indirect representation, a distinction between counting and evidence use, an alternative coordination mechanism, a database-selection boundary, or a synthesis capability. Citation placement serves those relationships. This function audit does not independently repeat DOI/full-text verification.",
+      "citation_bearing_sentence_count": 16
+    },
+    {
+      "requirement": 5,
+      "name": "Modality fit",
+      "status": "pass",
+      "finding": "Strong verbs concern observed count/set relationships or descriptive decompositions. Competing processes are explicitly named for earlier entry and outlet composition. Conditional would/can marks proposed analyses and capabilities. No causal retention mechanism or institutional effect is asserted as identified. No stacked hedge or unsupported must/cannot occurs."
+    },
+    {
+      "requirement": 6,
+      "name": "Boundary consequence",
+      "status": "pass",
+      "finding": "Boundaries specify the affected inference: scientific citation use, motives for retention, disciplinary/geographic diversity, evidence influence, database selection and record identity. Positive scope replaces generic limitation or apology language.",
+      "sentence_ids": [
+        "3.4",
+        "4.1",
+        "6.3",
+        "7.6",
+        "7.7",
+        "10.6",
+        "11.1",
+        "11.6",
+        "12.6",
+        "13.1",
+        "13.5"
+      ]
+    },
+    {
+      "requirement": 7,
+      "name": "Future-work necessity",
+      "status": "pass_with_optional_consolidation",
+      "finding": "Proposals follow named uncertainties: indirect review coverage, sources of older entry, substantive cross-group links, evidence-to-claim contribution and linkage error. The detailed stratified identity validation has a clear outcome. Several related citation-context proposals can be combined for economy; no generic larger-sample recommendation or author promise appears.",
+      "priorities": [
+        "Adjudicate document identity against original reference entries.",
+        "Link recurring/new documents to their actual uses in assessment passages."
+      ],
+      "optional_issue_id": "E4"
+    },
+    {
+      "requirement": 8,
+      "name": "Sentence economy",
+      "status": "pass_with_minor_optional_edits",
+      "finding": "The section uses continuous academic narrative, direct topic sentences and declarative prose. It contains no theatrical scene, chatbot residue, defensive disclaimers, stacked qualifiers or decorative subheadings. Three immediate recaps and overlapping extension proposals are optional shortening opportunities. The audit makes no claim about AI-detector performance.",
+      "optional_issue_ids": [
+        "E1",
+        "E2",
+        "E3",
+        "E4"
+      ]
+    }
+  ],
+  "paragraphs": [
+    {
+      "paragraph_index": 1,
+      "argument_job": "Anchor the central decomposition and explain the combined age and outlet pattern.",
+      "sentence_ids": [
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.4",
+        "1.5"
+      ]
+    },
+    {
+      "paragraph_index": 2,
+      "argument_job": "Position the identity-based decomposition as an extension of the WGI vintage comparison.",
+      "sentence_ids": [
+        "2.1",
+        "2.2",
+        "2.3"
+      ]
+    },
+    {
+      "paragraph_index": 3,
+      "argument_job": "Distinguish an older recurring document from its unobserved assessment use.",
+      "sentence_ids": [
+        "3.1",
+        "3.2",
+        "3.3",
+        "3.4",
+        "3.5",
+        "3.6",
+        "3.7"
+      ]
+    },
+    {
+      "paragraph_index": 4,
+      "argument_job": "Introduce indirect representation through reviews and an additional network layer.",
+      "sentence_ids": [
+        "4.1",
+        "4.2",
+        "4.3",
+        "4.4",
+        "4.5"
+      ]
+    },
+    {
+      "paragraph_index": 5,
+      "argument_job": "Explain how the age mixture retains its median while changing its upper quartile.",
+      "sentence_ids": [
+        "5.1",
+        "5.2",
+        "5.3",
+        "5.4",
+        "5.5"
+      ]
+    },
+    {
+      "paragraph_index": 6,
+      "argument_job": "Interpret entry of earlier documents and identify rival sources of observed entry.",
+      "sentence_ids": [
+        "6.1",
+        "6.2",
+        "6.3",
+        "6.4",
+        "6.5",
+        "6.6"
+      ]
+    },
+    {
+      "paragraph_index": 7,
+      "argument_job": "Relate group-specific retention to a common age profile without attributing selection motives.",
+      "sentence_ids": [
+        "7.1",
+        "7.2",
+        "7.3",
+        "7.4",
+        "7.5",
+        "7.6",
+        "7.7"
+      ]
+    },
+    {
+      "paragraph_index": 8,
+      "argument_job": "Distinguish shared documents from shared assessment subjects and uses.",
+      "sentence_ids": [
+        "8.1",
+        "8.2",
+        "8.3",
+        "8.4",
+        "8.5",
+        "8.6",
+        "8.7",
+        "8.8"
+      ]
+    },
+    {
+      "paragraph_index": 9,
+      "argument_job": "Provide substantive examples of coordination through frameworks and data.",
+      "sentence_ids": [
+        "9.1",
+        "9.2",
+        "9.3",
+        "9.4",
+        "9.5",
+        "9.6"
+      ]
+    },
+    {
+      "paragraph_index": 10,
+      "argument_job": "Reconcile document turnover with outlet continuity and define missing diversity dimensions.",
+      "sentence_ids": [
+        "10.1",
+        "10.2",
+        "10.3",
+        "10.4",
+        "10.5",
+        "10.6",
+        "10.7",
+        "10.8"
+      ]
+    },
+    {
+      "paragraph_index": 11,
+      "argument_job": "Distinguish documentary representation from contribution to assessed quantities.",
+      "sentence_ids": [
+        "11.1",
+        "11.2",
+        "11.3",
+        "11.4",
+        "11.5",
+        "11.6",
+        "11.7"
+      ]
+    },
+    {
+      "paragraph_index": 12,
+      "argument_job": "Describe bibliographic selection processes and their empirical separation.",
+      "sentence_ids": [
+        "12.1",
+        "12.2",
+        "12.3",
+        "12.4",
+        "12.5",
+        "12.6",
+        "12.7"
+      ]
+    },
+    {
+      "paragraph_index": 13,
+      "argument_job": "Connect record-linkage errors to continuity estimates and a stratified validation design.",
+      "sentence_ids": [
+        "13.1",
+        "13.2",
+        "13.3",
+        "13.4",
+        "13.5",
+        "13.6",
+        "13.7",
+        "13.8",
+        "13.9"
+      ]
+    },
+    {
+      "paragraph_index": 14,
+      "argument_job": "Relate the database capability to traceable synthesis and institutional memory.",
+      "sentence_ids": [
+        "14.1",
+        "14.2",
+        "14.3",
+        "14.4",
+        "14.5",
+        "14.6",
+        "14.7",
+        "14.8",
+        "14.9",
+        "14.10"
+      ]
+    },
+    {
+      "paragraph_index": 15,
+      "argument_job": "Close on the integrated within-corpus finding and the citation-context extension.",
+      "sentence_ids": [
+        "15.1",
+        "15.2",
+        "15.3",
+        "15.4",
+        "15.5"
+      ]
+    }
+  ],
+  "sentences": [
+    {
+      "sentence_id": "1.1",
+      "paragraph_index": 1,
+      "sentence_index": 1,
+      "sentence": "The AR5--AR6 comparison shows that a continuing assessment can draw on a substantially different set of cited documents.",
+      "primary_function": "anchor",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "1.2",
+      "paragraph_index": 1,
+      "sentence_index": 2,
+      "sentence": "The reused component is older and more concentrated across outlet titles.",
+      "primary_function": "synthesize",
+      "audit_note": "Necessary compressed component recap: it supplies the older/concentrated side of the joint explanation in 1.4.",
+      "citation_keys": [],
+      "replay_status": "interpretive_recap"
+    },
+    {
+      "sentence_id": "1.3",
+      "paragraph_index": 1,
+      "sentence_index": 3,
+      "sentence": "The incoming component supplies most included citation occurrences and spans a broader recorded outlet distribution.",
+      "primary_function": "synthesize",
+      "audit_note": "Necessary compressed component recap: it supplies the dominant incoming side of the joint explanation in 1.4.",
+      "citation_keys": [],
+      "replay_status": "interpretive_recap"
+    },
+    {
+      "sentence_id": "1.4",
+      "paragraph_index": 1,
+      "sentence_index": 4,
+      "sentence": "Their combination explains the coexistence of extensive document renewal, a four-year median citation age and lower journal concentration.",
+      "primary_function": "interpret",
+      "audit_note": "Explains a descriptive mixture of counts and distributions; it does not identify a causal assessment mechanism.",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "1.5",
+      "paragraph_index": 1,
+      "sentence_index": 5,
+      "sentence": "Assessment continuity can therefore be examined through the relationship between recurring documents and the temporal structure of their replacements.",
+      "primary_function": "contribute",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "2.1",
+      "paragraph_index": 2,
+      "sentence_index": 1,
+      "sentence": "This decomposition develops the recent-versus-earlier literature pattern identified for WGI by \\citet{huang2023ar5ar6}.",
+      "primary_function": "position",
+      "audit_note": "States the relationship to earlier WGI work as an extension of its recent-versus-earlier comparison.",
+      "citation_keys": [
+        "huang2023ar5ar6"
+      ],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "2.2",
+      "paragraph_index": 2,
+      "sentence_index": 2,
+      "sentence": "Relating publication vintage to cross-report identity and source-relative citation age distinguishes the older reused component from the much larger incoming cohort.",
+      "primary_function": "contribute",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "2.3",
+      "paragraph_index": 2,
+      "sentence_index": 3,
+      "sentence": "It also identifies earlier publications that enter the later cohort for the first time under the selected database rule.",
+      "primary_function": "contribute",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "3.1",
+      "paragraph_index": 3,
+      "sentence_index": 1,
+      "sentence": "The retained component has a distinct temporal role.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "3.2",
+      "paragraph_index": 3,
+      "sentence_index": 2,
+      "sentence": "Its eleven-year median age in AR6 places it well beyond the centre of the incoming citation distribution.",
+      "primary_function": "interpret",
+      "audit_note": "Retain the eleven-year median because the following argument concerns the temporal role of recurring documents.",
+      "citation_keys": [],
+      "replay_status": "interpretive_recap"
+    },
+    {
+      "sentence_id": "3.3",
+      "paragraph_index": 3,
+      "sentence_index": 3,
+      "sentence": "These recurring documents connect the bibliography to earlier research.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "3.4",
+      "paragraph_index": 3,
+      "sentence_index": 4,
+      "sentence": "Their scientific role depends on their use in the assessment text: a repeated citation can support a method, a historical comparison, an observation or a claim.",
+      "primary_function": "bound",
+      "audit_note": "Necessary boundary: an identity match gives recurrence, while scientific use requires assessment context.",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "3.5",
+      "paragraph_index": 3,
+      "sentence_index": 5,
+      "sentence": "Classifying those uses would connect documentary persistence to the forms of scientific continuity carried by the retained set.",
+      "primary_function": "extend",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "3.6",
+      "paragraph_index": 3,
+      "sentence_index": 6,
+      "sentence": "For sea-level assessments, \\citet{kopp2023uncertainty} examine the treatment of quantifiable and unquantifiable uncertainty.",
+      "primary_function": "position",
+      "citation_keys": [
+        "kopp2023uncertainty"
+      ],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "3.7",
+      "paragraph_index": 3,
+      "sentence_index": 7,
+      "sentence": "Their review shows why the interpretation and communication of evidence matter to assessment conclusions.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "4.1",
+      "paragraph_index": 4,
+      "sentence_index": 1,
+      "sentence": "Direct references capture one route through which earlier research enters an assessment.",
+      "primary_function": "bound",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "4.2",
+      "paragraph_index": 4,
+      "sentence_index": 2,
+      "sentence": "Reviews also connect an assessment to the studies they synthesize.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "4.3",
+      "paragraph_index": 4,
+      "sentence_index": 3,
+      "sentence": "In the urban climate literature, \\citet{montfort2025urban} estimate that AR6 directly represented 4.6\\% of their identified literature and covered a further 2.1\\% through studies cited by included reviews.",
+      "primary_function": "position",
+      "audit_note": "Numbers from the cited urban review are needed to establish an observed indirect route, rather than being this paper's Results replay.",
+      "citation_keys": [
+        "montfort2025urban"
+      ],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "4.4",
+      "paragraph_index": 4,
+      "sentence_index": 4,
+      "sentence": "This second-order representation supplies an empirical example of knowledge reaching an assessment through a different cited document.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "4.5",
+      "paragraph_index": 4,
+      "sentence_index": 5,
+      "sentence": "Adding the cited sources of reviews would extend the present report-to-document network into that additional layer.",
+      "primary_function": "extend",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "5.1",
+      "paragraph_index": 5,
+      "sentence_index": 1,
+      "sentence": "Nearly all included AR6 occurrences belong to documents absent from the matched AR5 cohort.",
+      "primary_function": "synthesize",
+      "audit_note": "Recap supplies the mixture weight needed for 5.3 and the median/upper-quartile interpretation.",
+      "citation_keys": [],
+      "replay_status": "interpretive_recap"
+    },
+    {
+      "sentence_id": "5.2",
+      "paragraph_index": 5,
+      "sentence_index": 2,
+      "sentence": "Their age distribution has a four-year median and a three--six-year interquartile range.",
+      "primary_function": "synthesize",
+      "audit_note": "Retain the incoming IQR because it is the comparison needed for the pooled upper-quartile argument.",
+      "citation_keys": [],
+      "replay_status": "interpretive_recap"
+    },
+    {
+      "sentence_id": "5.3",
+      "paragraph_index": 5,
+      "sentence_index": 3,
+      "sentence": "Pooling these occurrences with the older reused component leaves the median at four years and raises the upper quartile to seven.",
+      "primary_function": "interpret",
+      "audit_note": "The recap is analytical: pooling identifies why the median remains fixed while the upper quartile rises.",
+      "citation_keys": [],
+      "replay_status": "interpretive_recap"
+    },
+    {
+      "sentence_id": "5.4",
+      "paragraph_index": 5,
+      "sentence_index": 4,
+      "sentence": "The overall three--seven-year interquartile range shows how a stable median coexists with a change in the middle spread of citation ages.",
+      "primary_function": "interpret",
+      "audit_note": "States the distributional consequence of pooling; numeric overlap with 5.3 serves this consequence.",
+      "citation_keys": [],
+      "replay_status": "interpretive_recap"
+    },
+    {
+      "sentence_id": "5.5",
+      "paragraph_index": 5,
+      "sentence_index": 5,
+      "sentence": "Median recency and documentary persistence describe separate features of evidence updating.",
+      "primary_function": "contribute",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "6.1",
+      "paragraph_index": 6,
+      "sentence_index": 1,
+      "sentence": "The entry of 4,160 earlier publications gives renewal a second temporal dimension.",
+      "primary_function": "interpret",
+      "audit_note": "Retain the count of earlier entrants because it distinguishes renewal of representation from publication of new research.",
+      "citation_keys": [],
+      "replay_status": "interpretive_recap"
+    },
+    {
+      "sentence_id": "6.2",
+      "paragraph_index": 6,
+      "sentence_index": 2,
+      "sentence": "A later assessment can incorporate literature that already existed around the previous cycle.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "6.3",
+      "paragraph_index": 6,
+      "sentence_index": 3,
+      "sentence": "This pattern is consistent with changes in the subjects assessed, the coverage of extracted sources and the success of record matching.",
+      "primary_function": "qualify",
+      "audit_note": "Names scope, source coverage and matching as rival explanations; no single mechanism is claimed.",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "6.4",
+      "paragraph_index": 6,
+      "sentence_index": 4,
+      "sentence": "The observed cohort combines these processes.",
+      "primary_function": "qualify",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "6.5",
+      "paragraph_index": 6,
+      "sentence_index": 5,
+      "sentence": "Distinguishing their contributions requires a source-list inventory and comparison of the assessment passages that use the added documents.",
+      "primary_function": "extend",
+      "audit_note": "The proposed inventory and passage comparison separates the rival explanations named in 6.3.",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "6.6",
+      "paragraph_index": 6,
+      "sentence_index": 6,
+      "sentence": "This would identify whether an earlier publication enters through a newly assessed question, a changed treatment of an existing question or a changed database assignment.",
+      "primary_function": "extend",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "7.1",
+      "paragraph_index": 7,
+      "sentence_index": 1,
+      "sentence": "Working-group differences show that renewal has an organizational structure.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "7.2",
+      "paragraph_index": 7,
+      "sentence_index": 2,
+      "sentence": "WGI retains a larger share of its matched AR5 reference set within the same group than WGII or WGIII.",
+      "primary_function": "synthesize",
+      "audit_note": "Retain the retention ordering to establish the organizational comparison used by 7.4.",
+      "citation_keys": [],
+      "replay_status": "interpretive_recap"
+    },
+    {
+      "sentence_id": "7.3",
+      "paragraph_index": 7,
+      "sentence_index": 3,
+      "sentence": "All three groups nevertheless have the same central citation-age statistics in AR6.",
+      "primary_function": "synthesize",
+      "audit_note": "Retain the common age profile because it is needed for the contrast with group-specific retention.",
+      "citation_keys": [],
+      "replay_status": "interpretive_recap"
+    },
+    {
+      "sentence_id": "7.4",
+      "paragraph_index": 7,
+      "sentence_index": 4,
+      "sentence": "A common assessment cycle can thus contain different levels of document continuity alongside a similar age profile.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "7.5",
+      "paragraph_index": 7,
+      "sentence_index": 5,
+      "sentence": "The pattern connects the reference analysis with the groups' different responsibilities: physical explanation, impacts and adaptation, and mitigation \\citep{ipcc2022wg2,ipcc2022wg3,ipcc2023synthesis}.",
+      "primary_function": "position",
+      "citation_keys": [
+        "ipcc2022wg2",
+        "ipcc2022wg3",
+        "ipcc2023synthesis"
+      ],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "7.6",
+      "paragraph_index": 7,
+      "sentence_index": 6,
+      "sentence": "The data establish the differences in document sets.",
+      "primary_function": "bound",
+      "audit_note": "This boundary separates documented set differences from explanations of retention decisions.",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "7.7",
+      "paragraph_index": 7,
+      "sentence_index": 7,
+      "sentence": "Explaining particular retention decisions requires evidence on their chapter-level uses.",
+      "primary_function": "bound",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "8.1",
+      "paragraph_index": 8,
+      "sentence_index": 1,
+      "sentence": "Cross-group sharing locates a further layer of integration.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "8.2",
+      "paragraph_index": 8,
+      "sentence_index": 2,
+      "sentence": "WGI and WGII share a greater fraction of their combined matched IDs than WGI and WGIII.",
+      "primary_function": "synthesize",
+      "audit_note": "The group-pair ordering grounds the distinction between common documents and broader substantive integration.",
+      "citation_keys": [],
+      "replay_status": "interpretive_recap"
+    },
+    {
+      "sentence_id": "8.3",
+      "paragraph_index": 8,
+      "sentence_index": 3,
+      "sentence": "WGII and WGIII occupy an intermediate position.",
+      "primary_function": "synthesize",
+      "audit_note": "Completes the group-pair ordering used by 8.5–8.8.",
+      "citation_keys": [],
+      "replay_status": "interpretive_recap"
+    },
+    {
+      "sentence_id": "8.4",
+      "paragraph_index": 8,
+      "sentence_index": 4,
+      "sentence": "This ordering establishes unequal sharing of cited documents across the group pairs.",
+      "primary_function": "interpret",
+      "audit_note": "Optional immediate recap: the preceding two sentences already state unequal group-pair sharing. Deletion would preserve the paragraph's inference.",
+      "citation_keys": [],
+      "replay_status": "optional_immediate_recap"
+    },
+    {
+      "sentence_id": "8.5",
+      "paragraph_index": 8,
+      "sentence_index": 5,
+      "sentence": "A common document is one route through which knowledge can connect assessment functions.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "8.6",
+      "paragraph_index": 8,
+      "sentence_index": 6,
+      "sentence": "The groups can also use different publications to address a common risk, method or response.",
+      "primary_function": "qualify",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "8.7",
+      "paragraph_index": 8,
+      "sentence_index": 7,
+      "sentence": "The distinction between what is assessed and how it is assessed, developed by \\citet{nalau2024assessment}, directs attention to the use and evaluation of evidence within chapters.",
+      "primary_function": "position",
+      "citation_keys": [
+        "nalau2024assessment"
+      ],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "8.8",
+      "paragraph_index": 8,
+      "sentence_index": 8,
+      "sentence": "Comparing shared concepts and their assessment uses would test whether low document overlap accompanies a wider set of substantive connections.",
+      "primary_function": "extend",
+      "audit_note": "The proposed comparison tests whether low identity overlap coexists with shared concepts and assessment uses.",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "9.1",
+      "paragraph_index": 9,
+      "sentence_index": 1,
+      "sentence": "Common assessment frameworks provide another route across the working groups.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "9.2",
+      "paragraph_index": 9,
+      "sentence_index": 2,
+      "sentence": "Scenarios relate physical projections, impacts and response pathways within consistent accounts of possible futures \\citep{pirani2024scenarios}.",
+      "primary_function": "position",
+      "citation_keys": [
+        "pirani2024scenarios"
+      ],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "9.3",
+      "paragraph_index": 9,
+      "sentence_index": 3,
+      "sentence": "Atlas development offers a concrete example of data coordination: early access to the WGI Interactive Atlas supported climate-hazard analyses in the other groups \\citep{alegria2024atlas}.",
+      "primary_function": "position",
+      "citation_keys": [
+        "alegria2024atlas"
+      ],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "9.4",
+      "paragraph_index": 9,
+      "sentence_index": 4,
+      "sentence": "The proposed integrated atlas also addresses differences in spatial scale and data formats.",
+      "primary_function": "position",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "9.5",
+      "paragraph_index": 9,
+      "sentence_index": 5,
+      "sentence": "These examples identify connections carried by shared frameworks and data use.",
+      "primary_function": "synthesize",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "9.6",
+      "paragraph_index": 9,
+      "sentence_index": 6,
+      "sentence": "A reference network can be extended with those relationships to examine how differentiated bibliographies contribute to a combined assessment.",
+      "primary_function": "extend",
+      "audit_note": "Specific extension targets relationships carried by scenarios and atlas use; it is less operational than the linkage-validation proposal.",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "10.1",
+      "paragraph_index": 10,
+      "sentence_index": 1,
+      "sentence": "The outlet decomposition connects document renewal with report-wide outlet composition.",
+      "primary_function": "synthesize",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "10.2",
+      "paragraph_index": 10,
+      "sentence_index": 2,
+      "sentence": "The less concentrated incoming AR6 cohort dominates the report-wide distribution, although most of its documents appear in outlets represented in matched AR5.",
+      "primary_function": "synthesize",
+      "audit_note": "Necessary synthesis of low concentration and familiar outlets; the contrast contains two observed facts.",
+      "citation_keys": [],
+      "replay_status": "interpretive_recap"
+    },
+    {
+      "sentence_id": "10.3",
+      "paragraph_index": 10,
+      "sentence_index": 3,
+      "sentence": "Renewal therefore combines replacement within an existing publication structure with entry into additional recorded titles.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "10.4",
+      "paragraph_index": 10,
+      "sentence_index": 4,
+      "sentence": "Changes in the leading-outlet shares show that the weights within that structure also move.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "10.5",
+      "paragraph_index": 10,
+      "sentence_index": 5,
+      "sentence": "The larger outlet range and lower HHI describe this changing mix.",
+      "primary_function": "synthesize",
+      "audit_note": "Optional immediate recap of the changing outlet mix already described in 10.2–10.4.",
+      "citation_keys": [],
+      "replay_status": "optional_immediate_recap"
+    },
+    {
+      "sentence_id": "10.6",
+      "paragraph_index": 10,
+      "sentence_index": 6,
+      "sentence": "Formal disciplinary diversity would require subject classifications, and geographic representation would require affiliation and location data.",
+      "primary_function": "bound",
+      "audit_note": "Necessary scope boundary: outlet labels do not by themselves supply disciplinary or geographic classifications.",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "10.7",
+      "paragraph_index": 10,
+      "sentence_index": 7,
+      "sentence": "\\citet{huang2024openaccess} distinguish the diversity of citing institutions, countries and fields from citation volume.",
+      "primary_function": "position",
+      "citation_keys": [
+        "huang2024openaccess"
+      ],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "10.8",
+      "paragraph_index": 10,
+      "sentence_index": 8,
+      "sentence": "These dimensions would extend the present analysis beyond its recorded outlet labels.",
+      "primary_function": "extend",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "11.1",
+      "paragraph_index": 11,
+      "sentence_index": 1,
+      "sentence": "Document frequency and the influence of evidence on an assessed result are separate quantities.",
+      "primary_function": "bound",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "11.2",
+      "paragraph_index": 11,
+      "sentence_index": 2,
+      "sentence": "\\citet{sognnaes2025influence} examine how removing individual models or studies changes statistics derived from the AR6 mitigation scenario ensemble.",
+      "primary_function": "position",
+      "citation_keys": [
+        "sognnaes2025influence"
+      ],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "11.3",
+      "paragraph_index": 11,
+      "sentence_index": 3,
+      "sentence": "Their empirical comparison locates influence in the assessment calculation.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "11.4",
+      "paragraph_index": 11,
+      "sentence_index": 4,
+      "sentence": "A systematic review of carbon pricing similarly pools 483 effect sizes from eighty evaluations of twenty-one schemes \\citep{dobbeling2024carbonpricing}.",
+      "primary_function": "position",
+      "audit_note": "The cited study's effect-size/settings counts distinguish aggregation units from document frequency.",
+      "citation_keys": [
+        "dobbeling2024carbonpricing"
+      ],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "11.5",
+      "paragraph_index": 11,
+      "sentence_index": 5,
+      "sentence": "The number of documents, the number of evaluated settings and the weight of evidence each have a defined role.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "11.6",
+      "paragraph_index": 11,
+      "sentence_index": 6,
+      "sentence": "In the present study, paper membership measures documentary representation, and occurrence counts measure representation across extracted units.",
+      "primary_function": "bound",
+      "audit_note": "Necessary definition of the measurement scope before proposing evidence-to-claim linkage.",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "11.7",
+      "paragraph_index": 11,
+      "sentence_index": 7,
+      "sentence": "Connecting these records to assessed claims would add a direct measure of their substantive contribution.",
+      "primary_function": "extend",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "12.1",
+      "paragraph_index": 12,
+      "sentence_index": 1,
+      "sentence": "Literature supply, bibliographic coverage and assessment selection jointly determine the observed outlet pattern.",
+      "primary_function": "qualify",
+      "audit_note": "A statement about the construction of the observed corpus, not an estimated causal effect of publication supply.",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "12.2",
+      "paragraph_index": 12,
+      "sentence_index": 2,
+      "sentence": "More publications in a field can create more candidates for citation.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "12.3",
+      "paragraph_index": 12,
+      "sentence_index": 3,
+      "sentence": "A change in assessment scope can increase their relevance.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "12.4",
+      "paragraph_index": 12,
+      "sentence_index": 4,
+      "sentence": "A matching service can also represent some publication types more readily than others.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "12.5",
+      "paragraph_index": 12,
+      "sentence_index": 5,
+      "sentence": "\\citet{liu2023retrieval,culbert2025coverage} show why database and retrieval choices belong in the interpretation of bibliometric populations.",
+      "primary_function": "position",
+      "citation_keys": [
+        "liu2023retrieval",
+        "culbert2025coverage"
+      ],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "12.6",
+      "paragraph_index": 12,
+      "sentence_index": 6,
+      "sentence": "The report-wide and within-group results in this study use recorded match status to make that selection explicit.",
+      "primary_function": "bound",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "12.7",
+      "paragraph_index": 12,
+      "sentence_index": 7,
+      "sentence": "An audited comparison with original reference lists would separate changes in the assessment bibliography from changes in its database representation.",
+      "primary_function": "extend",
+      "audit_note": "Original-list auditing resolves the named assessment-versus-database representation uncertainty.",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "13.1",
+      "paragraph_index": 13,
+      "sentence_index": 1,
+      "sentence": "Record identity directly affects the measured continuity.",
+      "primary_function": "bound",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "13.2",
+      "paragraph_index": 13,
+      "sentence_index": 2,
+      "sentence": "The raw-reference review found a preferred encyclopedia entry linked to several distinct government reports and other documents.",
+      "primary_function": "synthesize",
+      "audit_note": "Retain the concrete identity case because it establishes the mechanism of false recurrence discussed next.",
+      "citation_keys": [],
+      "replay_status": "interpretive_recap"
+    },
+    {
+      "sentence_id": "13.3",
+      "paragraph_index": 13,
+      "sentence_index": 3,
+      "sentence": "A shared ID produced by such a merge gives a false appearance of recurrence.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "13.4",
+      "paragraph_index": 13,
+      "sentence_index": 4,
+      "sentence": "Splitting one document across several IDs produces the opposite effect.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "13.5",
+      "paragraph_index": 13,
+      "sentence_index": 5,
+      "sentence": "The primary matched rule reduces reliance on the unmatched records in which this case appears.",
+      "primary_function": "bound",
+      "audit_note": "A precise cohort-rule consequence; it does not imply that all matched IDs are correct.",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "13.6",
+      "paragraph_index": 13,
+      "sentence_index": 6,
+      "sentence": "A stratified sample checked against original entries would estimate both types of linkage error by report and match status, and establish how much of the measured shared set survives document-level adjudication.",
+      "primary_function": "extend",
+      "audit_note": "Defines a discriminating validation sample and both false-merge and false-split outcomes.",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "13.7",
+      "paragraph_index": 13,
+      "sentence_index": 7,
+      "sentence": "\\citet{sietsma2024tracking} call for diverse training data, explicit hypotheses and attention to bias in machine-assisted tracking of adaptation.",
+      "primary_function": "position",
+      "citation_keys": [
+        "sietsma2024tracking"
+      ],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "13.8",
+      "paragraph_index": 13,
+      "sentence_index": 8,
+      "sentence": "Their recommendations support making the data and assumptions of automated expansion explicit.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "13.9",
+      "paragraph_index": 13,
+      "sentence_index": 9,
+      "sentence": "Record-level validation would supply reviewed examples for that work.",
+      "primary_function": "extend",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "14.1",
+      "paragraph_index": 14,
+      "sentence_index": 1,
+      "sentence": "These relationships give transparent synthesis a concrete bibliographic task.",
+      "primary_function": "contribute",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "14.2",
+      "paragraph_index": 14,
+      "sentence_index": 2,
+      "sentence": "The practices proposed by \\citet{ford2025syntheses} include traceable and reproducible organization of evidence.",
+      "primary_function": "position",
+      "citation_keys": [
+        "ford2025syntheses"
+      ],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "14.3",
+      "paragraph_index": 14,
+      "sentence_index": 3,
+      "sentence": "Continuously updated evidence syntheses have also been proposed to shorten the interval between new research and organized evidence \\citep{elliott2021living}.",
+      "primary_function": "position",
+      "citation_keys": [
+        "elliott2021living"
+      ],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "14.4",
+      "paragraph_index": 14,
+      "sentence_index": 4,
+      "sentence": "Such updates require a dated record of additions and corrections.",
+      "primary_function": "interpret",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "14.5",
+      "paragraph_index": 14,
+      "sentence_index": 5,
+      "sentence": "A report-to-document database records the selection outcome and preserves the original entry behind each assigned identity.",
+      "primary_function": "contribute",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "14.6",
+      "paragraph_index": 14,
+      "sentence_index": 6,
+      "sentence": "It can support review of additions, recurring sources and gaps across assessment units.",
+      "primary_function": "contribute",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "14.7",
+      "paragraph_index": 14,
+      "sentence_index": 7,
+      "sentence": "The institutional questions raised by \\citet{asayama2023pathways,mochizuki2023reflexivity} become more tractable when the relevant evidence choices can be located and inspected.",
+      "primary_function": "position",
+      "audit_note": "Relates inspectable evidence choices to the cited institutional questions; this is a capability implication rather than a demonstrated institutional effect.",
+      "citation_keys": [
+        "asayama2023pathways",
+        "mochizuki2023reflexivity"
+      ],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "14.8",
+      "paragraph_index": 14,
+      "sentence_index": 8,
+      "sentence": "The institutional memory discussed by \\citet{slade2024lessons} concerns people and practices across assessment cycles.",
+      "primary_function": "position",
+      "citation_keys": [
+        "slade2024lessons"
+      ],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "14.9",
+      "paragraph_index": 14,
+      "sentence_index": 9,
+      "sentence": "Documentary recurrence supplies a separate record of which cited sources remain represented.",
+      "primary_function": "qualify",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "14.10",
+      "paragraph_index": 14,
+      "sentence_index": 10,
+      "sentence": "Connecting these two records would show how assessment teams preserve, revisit and revise the use of earlier evidence.",
+      "primary_function": "extend",
+      "audit_note": "Proposed linkage separates documentary recurrence from institutional memory; no author commitment is made.",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "15.1",
+      "paragraph_index": 15,
+      "sentence_index": 1,
+      "sentence": "The extracted matched corpus shows renewal with a distinct temporal and organizational structure.",
+      "primary_function": "synthesize",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    },
+    {
+      "sentence_id": "15.2",
+      "paragraph_index": 15,
+      "sentence_index": 2,
+      "sentence": "A small older component recurs across AR5 and AR6, while a much larger incoming component accounts for the recent citation-age median and less concentrated outlet mix.",
+      "primary_function": "synthesize",
+      "audit_note": "Compressed closing synthesis of components; acceptable once as the section's final inference anchor.",
+      "citation_keys": [],
+      "replay_status": "interpretive_recap"
+    },
+    {
+      "sentence_id": "15.3",
+      "paragraph_index": 15,
+      "sentence_index": 3,
+      "sentence": "Working groups retain different proportions of their earlier documents and share limited fractions of their within-cycle reference unions.",
+      "primary_function": "synthesize",
+      "audit_note": "Compressed closing synthesis adds the organizational comparison to the temporal/outlet account.",
+      "citation_keys": [],
+      "replay_status": "interpretive_recap"
+    },
+    {
+      "sentence_id": "15.4",
+      "paragraph_index": 15,
+      "sentence_index": 4,
+      "sentence": "These counting relationships describe how the cited record changes.",
+      "primary_function": "bound",
+      "audit_note": "Optional closing recap: it adds little beyond the preceding two synthesis sentences.",
+      "citation_keys": [],
+      "replay_status": "optional_immediate_recap"
+    },
+    {
+      "sentence_id": "15.5",
+      "paragraph_index": 15,
+      "sentence_index": 5,
+      "sentence": "Linking them to assessment passages would establish how recurring and newly represented documents contribute to the continuity of assessed knowledge.",
+      "primary_function": "extend",
+      "audit_note": "Names the remaining scientific-use question; overlaps with earlier context-linkage proposals, so consolidation is an optional economy improvement.",
+      "citation_keys": [],
+      "replay_status": "not_results_replay"
+    }
+  ],
+  "remaining_issues": [
+    {
+      "id": "E1",
+      "severity": "minor",
+      "kind": "optional_economy_cut",
+      "sentence_ids": [
+        "8.4"
+      ],
+      "finding": "The sentence restates the immediately preceding group-sharing ordering.",
+      "possible_action": "Delete the sentence; retain the pairwise ordering and the conceptual integration argument.",
+      "blocks_delivery": false
+    },
+    {
+      "id": "E2",
+      "severity": "minor",
+      "kind": "optional_economy_cut",
+      "sentence_ids": [
+        "10.5"
+      ],
+      "finding": "The sentence repeats the changing outlet-mix inference already stated in the same paragraph.",
+      "possible_action": "Delete the sentence; retain the outlet continuity/entry synthesis and scope boundary.",
+      "blocks_delivery": false
+    },
+    {
+      "id": "E3",
+      "severity": "minor",
+      "kind": "optional_economy_cut",
+      "sentence_ids": [
+        "15.4"
+      ],
+      "finding": "The closing scope sentence largely restates the preceding synthesis and established counting scope.",
+      "possible_action": "Delete the sentence if a shorter closing paragraph is preferred.",
+      "blocks_delivery": false
+    },
+    {
+      "id": "E4",
+      "severity": "minor",
+      "kind": "optional_future_work_consolidation",
+      "sentence_ids": [
+        "3.5",
+        "6.5",
+        "6.6",
+        "7.7",
+        "8.8",
+        "11.7",
+        "15.5"
+      ],
+      "finding": "Several passages propose related citation-to-assessment-context analyses. Each has a named purpose, but their distribution adds repetition to the future-work direction.",
+      "possible_action": "In a later shortening pass, consolidate them into two priorities: document-identity adjudication and linking citations to assessment uses.",
+      "blocks_delivery": false
+    }
+  ],
+  "accuracy_and_style_note": "Necessary claim boundaries were retained. Mathematical/report ranges written with TeX double hyphens carry range meanings and are not rhetorical dash connectors. All proposed changes are optional shortening, not factual repairs.",
+  "prior_whole_manuscript_sha256": "30b1e25fe2fc270782442bde9c2cef162a3cdd5b5b446392634a2aa928d77e60",
+  "public_edition_note": "The Discussion is unchanged. The public manuscript corrects one singular verb in Introduction."
+}

@@ -1,0 +1,9 @@
+Editorial notes, 11 October 2026
+
+The revised manuscript is in English and uses four major narrative sections. Jiacheng Zheng and the affiliation follow the existing project attribution. The author name links to https://karcen.github.io/.
+
+Codex assisted with code, analysis, figures, bibliography checking and drafting. The bibliography contains 23 DOI/metadata-verified sources. The source registry records publication dates, claim locators, corrections and reading scopes.
+
+The analyses enumerate recorded paper IDs and reference occurrences in the extracted snapshot. Report-specific Web of Science match status defines the primary cohort. The extension decomposes age, outlets and working-group continuity from the preserved source CSVs. Record adjudication is specified as the next test of documentary identity.
+
+Author review and factual publication declarations, including contributions, funding and competing interests, belong to the author. The delivered package records the executed source, numerical, reproduction and layout checks.

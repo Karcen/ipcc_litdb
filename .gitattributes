@@ -9,3 +9,7 @@
 *.csv text eol=lf
 *.gz binary
 *.png binary
+
+# Preserve the manuscript's exported data bytes for reproducibility.
+paper/source_data/*.csv -text -eol
+paper/results/*.csv -text -eol

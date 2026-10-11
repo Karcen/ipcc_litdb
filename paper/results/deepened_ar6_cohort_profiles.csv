@@ -1,0 +1,4 @@
+cohort,distinct_papers,known_journal_papers,missing_journal_papers,named_journals,hhi_known_journals,effective_journals_known,matched_occurrences,dated_included,median_age,p25,p75,missing_year,future_year,over_60_years
+AR6 matched,34873,34853,20,2524,0.008523302533078318,117.32541419468248,47053,47003,4,3.0,7.0,5,45,0
+Reused from AR5,1664,1664,0,336,0.03210954835428994,31.143384172402936,2217,2216,11.0,9.0,13.0,0,1,0
+New to AR6,33209,33189,20,2495,0.008020948732053904,124.67353095073737,44836,44787,4,3.0,6.0,5,44,0

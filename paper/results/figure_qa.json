@@ -1,0 +1,38 @@
+[
+  {
+    "figure": "figure1_corpus",
+    "alignment": "PASS",
+    "pdf_text_auditable": true,
+    "below_5pt": 0,
+    "collision_verdict": "PASS",
+    "collision_exit": 0,
+    "findings": []
+  },
+  {
+    "figure": "figure2_renewal",
+    "alignment": "PASS",
+    "pdf_text_auditable": true,
+    "below_5pt": 0,
+    "collision_verdict": "PASS",
+    "collision_exit": 0,
+    "findings": []
+  },
+  {
+    "figure": "figure3_age_groups",
+    "alignment": "PASS",
+    "pdf_text_auditable": true,
+    "below_5pt": 0,
+    "collision_verdict": "PASS",
+    "collision_exit": 0,
+    "findings": []
+  },
+  {
+    "figure": "figure4_journals",
+    "alignment": "PASS",
+    "pdf_text_auditable": true,
+    "below_5pt": 0,
+    "collision_verdict": "PASS",
+    "collision_exit": 0,
+    "findings": []
+  }
+]

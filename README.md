@@ -48,6 +48,7 @@ Stopping the containers preserves the database volume, including review history.
 - [Configuration](#configuration)
 - [Database model](#database-model)
 - [Analysis](#analysis)
+- [Analysis paper](#analysis-paper)
 - [Exports and API](#exports-and-api)
 - [Sources and provenance](#sources-and-provenance)
 - [Data quality and review](#data-quality-and-review)
@@ -151,11 +152,12 @@ ipcc_litdb/
 │   └── processed/          # Audit statistics and deduplication summary
 ├── scripts/                # Install, restore, serve, analyse, test, export, migrate
 ├── screenshots/
+├── paper/                  # Markdown article, LaTeX, figures, data, and analysis
 ├── tests/
 └── .github/workflows/      # Automated checks
 ```
 
-The working SQLite file, virtual environment, credentials, caches, and macOS sidecar files are excluded from Git. Project documentation lives in this README. Third-party license texts remain separate text files.
+The working SQLite file, virtual environments, credentials, caches, and macOS sidecar files are excluded from Git. This README contains the toolkit documentation. The full analysis article is in `paper/README.md`. Third-party license texts remain separate text files.
 
 ## Configuration
 
@@ -296,6 +298,32 @@ python -m analytics.cli bundle AR5 AR6 --limit 300 --output research-export
 ```
 
 Use `--database /path/to/database.sqlite` to select another SQLite file. The bundle contains the comparison, live audit, and all five networks in JSON, GraphML, GEXF, and CSV. All analyses read one transaction-consistent SQLite backup. A manifest records the input digest, parameters, output sizes, and SHA-256 digests. The temporary input copy is removed after export. Choose a new output directory for each bundle.
+
+## Analysis paper
+
+The paper compares literature renewal between AR5 and AR6. It separates reused works from newly represented works and compares their citation ages. It also measures continuity within each working group, sharing across groups, and changes in journal composition. The outlet analysis identifies renewal within journals already represented in AR5. AR1 through AR6 extraction counts provide the corpus context.
+
+Read the [full Markdown article](paper/README.md) or the [PDF](paper/paper.pdf). The [LaTeX source](paper/paper.tex) and [BibTeX references](paper/references.bib) accompany the article. Figures are supplied as PDF, SVG, and PNG files in [paper/figures](paper/figures). The analysis scripts, source tables, and audit records are in [paper](paper).
+
+To compile the supplied manuscript, install a TeX distribution with `latexmk`, `natbib`, `newtx`, and `float`. From the repository root, run:
+
+```bash
+cd paper
+bash build.sh
+```
+
+To reproduce the analysis and figures, use Python 3.12 and the bundled database snapshot. From the repository root, run:
+
+```bash
+python3.12 -m venv paper/.venv
+paper/.venv/bin/python -m pip install -r paper/requirements-lock.txt
+paper/.venv/bin/python scripts/restore_database.py
+MANUSCRIPT_PYTHON="$PWD/paper/.venv/bin/python" bash paper/build.sh --reproduce "$PWD/database/ipcc_litdb.sqlite"
+```
+
+The build checks the database hash, regenerates the analysis tables and four figure sets, and compiles `paper/paper.pdf`. The supplied source data records the snapshot used for the manuscript. References use natbib author-year citations in LaTeX.
+
+To update the Markdown article after editing LaTeX, install Pandoc 3.9 or later and run `python paper/render_markdown.py`. The renderer preserves the manuscript text, resolves author-year citations, and displays the supplied PNG figures.
 
 ## Exports and API
 
@@ -460,7 +488,7 @@ An existing database is preserved. To replace it with the packaged snapshot, fir
 
 ## Attribution and contact
 
-Jiacheng Zheng, Ma Yinchu School of Economics, Tianjin University.
+[Jiacheng Zheng](https://karcen.github.io/), Ma Yinchu School of Economics, Tianjin University.
 
 Contact: [karcenzheng@yeah.net](mailto:karcenzheng@yeah.net) or [karcenzheng@tju.edu.cn](mailto:karcenzheng@tju.edu.cn).
 

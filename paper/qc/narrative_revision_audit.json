@@ -1,0 +1,51 @@
+{
+  "citation_keys": [
+    "alegria2024atlas",
+    "asayama2023pathways",
+    "berrangford2021stocktake",
+    "callaghan2021evidence",
+    "callaghan2025policymap",
+    "culbert2025coverage",
+    "dobbeling2024carbonpricing",
+    "elliott2021living",
+    "ford2025syntheses",
+    "huang2023ar5ar6",
+    "huang2024openaccess",
+    "ipcc2022wg2",
+    "ipcc2022wg3",
+    "ipcc2023synthesis",
+    "kopp2023uncertainty",
+    "liu2023retrieval",
+    "mochizuki2023reflexivity",
+    "montfort2025urban",
+    "nalau2024assessment",
+    "pirani2024scenarios",
+    "sietsma2024tracking",
+    "slade2024lessons",
+    "sognnaes2025influence"
+  ],
+  "citation_keys_unchanged": true,
+  "citation_key_count": 23,
+  "methods_results_unchanged": true,
+  "preamble_unchanged": true,
+  "availability_bibliography_appendices_unchanged": true,
+  "main_sections": [
+    "Introduction",
+    "Data and methods",
+    "Results",
+    "Discussion"
+  ],
+  "subsection_count": 0,
+  "question_mark_count": 0,
+  "abstract_words": 197,
+  "whole_text_word_delta": -164,
+  "brace_balance": 0,
+  "culbert_precision_applied": true,
+  "appendix_sections": [
+    "Corpus coverage and sensitivity comparisons",
+    "Raw-reference identity review"
+  ],
+  "section_structure_unchanged": true,
+  "citation_invocations_unchanged": true,
+  "status": "PASS"
+}

@@ -1,0 +1,32 @@
+{
+  "pages": 15,
+  "text_placeholders_and_bounds": [],
+  "latex_warning_lines": [],
+  "pdf_links": 34,
+  "author_homepage_links": [
+    {
+      "page": 1,
+      "uri": "https://karcen.github.io/"
+    }
+  ],
+  "bibliography_entries": 23,
+  "all_bibliography_entries_cited": true,
+  "bibliography_sha256": "19e68365f4eaadf72163503e7ebf91c2be5509797db0e383d3e8531e730f60dd",
+  "paper_sha256": "429bbd34ad1cb5c6dc0439dd0a9ab25d31ca2a03c84ee3106532d8ec9086d6cc",
+  "pdf_sha256": "fca85ec7b192ef7569a64cba83d02a7f58ff87748b08081efda2a6d9ab9a55a5",
+  "figure_formats": {
+    "PDF": 4,
+    "SVG": 4,
+    "PNG": 4
+  },
+  "visual_review": "All 15 pages were reviewed in the manuscript revision. The public edition corrects one singular verb: page 2 was rerendered and visually reviewed; the other 14 pages are pixel-identical to the reviewed PDF.",
+  "manuscript_language": "English",
+  "subsections": 0,
+  "question_marks": 0,
+  "texcount_words_including_captions_and_appendix": {
+    "before": 3353,
+    "after": 5135
+  },
+  "prior_publication_source_sha256": "30b1e25fe2fc270782442bde9c2cef162a3cdd5b5b446392634a2aa928d77e60",
+  "stage": "Public GitHub edition"
+}

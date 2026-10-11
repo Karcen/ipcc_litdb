@@ -1,0 +1,58 @@
+{
+  "mode": "render-only portability verification",
+  "external_skill_directory": "nonexistent directory supplied explicitly",
+  "external_skill_audits_run": false,
+  "existing_qa_files_checked": 18,
+  "existing_qa_contents_and_mtimes_unchanged": true,
+  "figures": [
+    {
+      "figure": "figure1_corpus",
+      "png_dimensions": [
+        4322,
+        2055
+      ],
+      "png_pixels_identical": true,
+      "pdf_page_geometry_identical": true,
+      "pdf_text_and_positions_identical": true,
+      "pdf_vector_drawings_identical": true,
+      "svg_content_identical_except_date_and_generated_ids": true
+    },
+    {
+      "figure": "figure2_renewal",
+      "png_dimensions": [
+        4322,
+        2055
+      ],
+      "png_pixels_identical": true,
+      "pdf_page_geometry_identical": true,
+      "pdf_text_and_positions_identical": true,
+      "pdf_vector_drawings_identical": true,
+      "svg_content_identical_except_date_and_generated_ids": true
+    },
+    {
+      "figure": "figure3_age_groups",
+      "png_dimensions": [
+        4322,
+        2055
+      ],
+      "png_pixels_identical": true,
+      "pdf_page_geometry_identical": true,
+      "pdf_text_and_positions_identical": true,
+      "pdf_vector_drawings_identical": true,
+      "svg_content_identical_except_date_and_generated_ids": true
+    },
+    {
+      "figure": "figure4_journals",
+      "png_dimensions": [
+        4322,
+        2055
+      ],
+      "png_pixels_identical": true,
+      "pdf_page_geometry_identical": true,
+      "pdf_text_and_positions_identical": true,
+      "pdf_vector_drawings_identical": true,
+      "svg_content_identical_except_date_and_generated_ids": true
+    }
+  ],
+  "note": "This records reproduction checks only. Render-only performed no external alignment, PDF text or collision audits. Existing audited evidence was preserved."
+}
