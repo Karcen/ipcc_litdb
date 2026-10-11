@@ -81,8 +81,12 @@ def run(database: Path, output: Path, check_reference: bool) -> dict:
     ]
     for number, arguments in enumerate(jobs, 1):
         print(f"[{number}/{len(jobs)}] {arguments[0]}", flush=True)
-        with (output / f"step_{number}.log").open("w", encoding="utf-8") as log:
-            subprocess.run([sys.executable, *arguments], cwd=output, stdout=log, stderr=subprocess.STDOUT, check=True)
+        log_path = output / f"step_{number}.log"
+        with log_path.open("w", encoding="utf-8") as log:
+            process = subprocess.run([sys.executable, *arguments], cwd=output, stdout=log, stderr=subprocess.STDOUT)
+        if process.returncode:
+            print(log_path.read_text(encoding="utf-8")[-8000:], file=sys.stderr)
+            raise subprocess.CalledProcessError(process.returncode, arguments)
     after = digest(database)
     if after != before:
         raise ValueError("Input database changed during analysis")
