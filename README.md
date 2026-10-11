@@ -546,7 +546,7 @@ An existing database is preserved. To replace it with the packaged snapshot, fir
 
 Jiacheng Zheng, Ma Yinchu School of Economics, Tianjin University.
 
-Contact: [karcenzheng@yeah.net](mailto:karcenzheng@yeah.net) or [karcenzheng@tju.edu.cn](mailto:karcenzheng@tju.edu.cn).
+Contact: [karcenzheng@tju.edu.cn](mailto:karcenzheng@tju.edu.cn).
 
 For permission to reuse the original project code, contact the author. Bibliographic records and source documents retain their source terms.
 
