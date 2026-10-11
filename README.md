@@ -323,6 +323,8 @@ MANUSCRIPT_PYTHON="$PWD/paper/.venv/bin/python" bash paper/build.sh --reproduce 
 
 The build checks the database hash, regenerates the analysis tables and four figure sets, and compiles `paper/paper.pdf`. The supplied source data records the snapshot used for the manuscript. References use natbib author-year citations in LaTeX.
 
+The reference-occurrence export is stored as `paper/source_data/reference_occurrences.csv.gz`. Run `gzip -dk paper/source_data/reference_occurrences.csv.gz` to extract its CSV. The analysis build also regenerates this CSV from the database.
+
 To update the Markdown article after editing LaTeX, install Pandoc 3.9 or later and run `python paper/render_markdown.py`. The renderer preserves the manuscript text, resolves author-year citations, and displays the supplied PNG figures.
 
 ## Exports and API

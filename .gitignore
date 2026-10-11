@@ -48,3 +48,4 @@ paper/*.fls
 paper/*.log
 paper/*.out
 paper/*.synctex.gz
+paper/source_data/reference_occurrences.csv

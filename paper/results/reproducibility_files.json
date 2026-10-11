@@ -211,8 +211,8 @@
   },
   {
     "file": "qc/publication_audit.json",
-    "bytes": 2521,
-    "sha256": "834aa2dcd532d22c651dc183545a39fba1d94d4bca17fc2b9ec46c6fea959b79"
+    "bytes": 2685,
+    "sha256": "9571a92a1873c2c5eb800bbac76f4bbbc8e59dd4547e994f7799c8d8b97a0be2"
   },
   {
     "file": "qc/publication_portability_audit.json",
@@ -221,8 +221,8 @@
   },
   {
     "file": "qc/publication_reproduction_audit.json",
-    "bytes": 2645,
-    "sha256": "d6674e360dab4e024d225c8dfaedfe5edba8a1b6a3e35ffbcb7fe5dcbd18f0be"
+    "bytes": 2904,
+    "sha256": "e6aec3d4cc34b7a31548fc452d8e6e54e05b07987b1c2b71ccd10351fb44216b"
   },
   {
     "file": "qc/revision_completion.json",
@@ -238,6 +238,11 @@
     "file": "qc/revision_reproduction_audit.json",
     "bytes": 2188,
     "sha256": "059221720543850d9d8f3e182aebf753a452c63fe2dce89d746da7a7c5bffc66"
+  },
+  {
+    "file": "qc/source_archive_audit.json",
+    "bytes": 931,
+    "sha256": "300a65e36a32a2939a33d337bebafd54845762b4d3ade1c345d45a0ba05955ab"
   },
   {
     "file": "reference_audit.json",
@@ -515,8 +520,8 @@
     "sha256": "c475863043d84d3dd993b82e188b5126e67db6529387fe2b3c41fda18c9c7ed6"
   },
   {
-    "file": "source_data/reference_occurrences.csv",
-    "bytes": 64416334,
-    "sha256": "519cd3759765f63460e9c3324d48a63ab89145b759f04cf78e6d4a2653253767"
+    "file": "source_data/reference_occurrences.csv.gz",
+    "bytes": 14517072,
+    "sha256": "37958210fbb9ee102706dd01705cb89eab495da4f63614a5b0f51305e3b3f4b7"
   }
 ]

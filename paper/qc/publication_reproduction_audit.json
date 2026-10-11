@@ -68,5 +68,11 @@
   "temporary_files_removed": true,
   "database_sha256_after": "faa7fc711ae4607acfa9833739ec8f202f8aefd6d929b474a12fceb589c5b85d",
   "original_saved_package_files_unchanged": true,
-  "original_changed_files": []
+  "original_changed_files": [],
+  "source_archive_addendum": {
+    "evidence": "qc/source_archive_audit.json",
+    "scientific_contents_byte_identical_after_decompression": true,
+    "analysis_and_figure_scripts_unchanged": true,
+    "analysis_build_regenerates_uncompressed_CSV": true
+  }
 }
