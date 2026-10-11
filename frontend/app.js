@@ -298,7 +298,7 @@ async function loadOverview() {
     ["kpi.chapters", x.chapters, ""], ["kpi.matched", x.matched, "ok"],
     ["kpi.unmatched", x.unmatched, "warn"], ["kpi.unique_doi", x.unique_doi, ""],
     ["kpi.missing_doi", x.missing_doi, "warn"], ["kpi.duplicates", x.duplicate_title_groups, "warn"],
-    ["kpi.manual_review", x.manual_review_required, "bad"], ["kpi.wos_records", x.wos_records, ""],
+    ["kpi.manual_review", x.open_review_cases, "warn"], ["kpi.wos_records", x.wos_records, ""],
     ["kpi.multi_report", x.multi_report_papers, ""], ["kpi.quality_flags", x.quality_flags, "warn"],
   ];
   $("#kpis").innerHTML = K.map(([k, v, c]) =>
@@ -1035,7 +1035,7 @@ async function loadQuality() {
   }
   const keys = ["missing_doi", "missing_title", "missing_year", "missing_journal",
                 "missing_author", "invalid_doi", "possible_duplicate_title",
-                "suspicious_year", "manual_review_required"];
+                "suspicious_year", "manual_review_required", "open_review_cases"];
   $("#quality-cards").innerHTML = keys.map((k) => {
     const v = s[k] ?? 0;
     return `<div class="kpi clickable ${v > 0 ? "warn" : "ok"}" data-flag="${esc(k)}">
@@ -1050,7 +1050,16 @@ async function loadQuality() {
       <td><button class="mini" data-flag="${esc(f.flag_type)}">${t("btn.show_records")}</button></td>
     </tr>`).join("") + "</tbody>";
   $$("#quality-cards .kpi[data-flag], #tbl-flags button[data-flag]").forEach((el) =>
-    el.addEventListener("click", () => loadFlagRecords(el.dataset.flag, 1)));
+    el.addEventListener("click", () => {
+      if (el.dataset.flag === "open_review_cases") {
+        $("#u-review-queue").checked = true;
+        $("#u-report").value = "";
+        $("#u-dionly").checked = false;
+        const loaded = LOADED.unresolved;
+        show("unresolved");
+        if (loaded) loadUnresolved(1).catch(fail);
+      } else loadFlagRecords(el.dataset.flag, 1);
+    }));
   const dup = await api("/api/duplicates?limit=25");
   $("#dup-title").textContent = `${t("quality.possible_duplicate_title")} (${nf(dup.total_groups)})`;
   $("#dup-hint").textContent =
@@ -1094,20 +1103,22 @@ async function loadUnresolved(page = 1) {
   const p = new URLSearchParams({ page, size: 25 });
   if ($("#u-report").value) p.set("report_id", $("#u-report").value);
   if ($("#u-dionly").checked) p.set("only_doi_less", "true");
+  if ($("#u-review-queue").checked) p.set("review_queue", "true");
   const d = await api("/api/unresolved?" + p.toString());
   UNRESOLVED_QUERY = p.toString();
   $("#u-summary").textContent = `${nf(d.total)} — page ${d.page} / ${Math.max(1, Math.ceil(d.total / d.size))}`;
   $("#tbl-unresolved").innerHTML =
     `<thead><tr><th>${t("table.report")} / ${t("table.wg")} / ${t("table.chapter")}</th>
-      <th>${t("table.page")}</th><th>${t("table.original")}</th><th>${t("table.doi")}</th>
+      <th>${t("table.page")}</th><th>${t("table.original")}</th><th>${t("table.doi")} / ${t("table.status")}</th>
       <th>${t("table.review")}</th></tr></thead><tbody>` +
     (d.items.length ? d.items.map((r) => `<tr>
       <td>${esc(r.report_id)} ${esc(r.wg_label)}<br><span class="hint">${esc(r.chapter_label)}</span></td>
       <td>${esc(r.source_page ?? "—")}</td>
       <td title="${esc(r.raw_reference || "")}">${esc((r.raw_reference || "").slice(0, 150))}</td>
-      <td>${r.doi_norm ? esc(r.doi_norm) : `<span class="chip warn">no DOI</span>`}</td>
+      <td>${r.doi_norm ? esc(r.doi_norm) : `<span class="chip warn">no DOI</span>`}<br>${statusChip(r.match_status)}</td>
       <td><span class="chip ${r.review_status === "not_reviewed" ? "" : "info"}">${
         esc(r.review_status === "not_reviewed" ? t("state.not_reviewed") : r.review_status)}</span>
+        ${r.review_reason ? `<div class="hint">${esc(r.review_reason)}</div>` : ""}
         <button class="mini" data-review="${esc(r.occurrence_id)}">${t("btn.review")}</button></td>
     </tr>`).join("") : `<tr><td colspan="5"><div class="empty">${esc(t("state.empty"))}</div></td></tr>`)
     + "</tbody>";
@@ -1262,6 +1273,7 @@ document.addEventListener("click", async (e) => {
     if (!UNRESOLVED_QUERY) {
       if ($("#u-report").value) p.set("report_id", $("#u-report").value);
       if ($("#u-dionly").checked) p.set("only_doi_less", "true");
+      if ($("#u-review-queue").checked) p.set("review_queue", "true");
     }
   }
   p.set("limit", "5000");

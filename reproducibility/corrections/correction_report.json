@@ -1,0 +1,2406 @@
+{
+  "version": "v1.2.0",
+  "source_sha256": "faa7fc711ae4607acfa9833739ec8f202f8aefd6d929b474a12fceb589c5b85d",
+  "destination_sha256": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+  "raw_occurrence_sha256": "759114204923c8a0cb590f1382e5b4d46166602cf9b1c04708511cff9d77b183",
+  "raw_occurrences_preserved": 160029,
+  "targeted_ids_inspected": 13,
+  "field_edits": [
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 14-00193",
+      "field": "paper_id",
+      "old": 26271,
+      "new": 113592
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 14-00193",
+      "field": "parsed_title",
+      "old": "Inter-relationships between adaptation and mitigation: a systematic literature review",
+      "new": "Inter-relationships between adaptation and mitigation"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 14-00193",
+      "field": "parsed_authors",
+      "old": "Landauer, Mia; Juhola, Sirkku; S\u00f6derholm, Maria",
+      "new": "Klein, Richard J. T.; Huq, Saleemul; Denton, Fatima; Downing, Thomas E.; Richels, Richard G.; Robinson, John B.; Toth, Ferenc L."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 14-00193",
+      "field": "parsed_journal",
+      "old": "Climatic Change",
+      "new": "Climate Change 2007: Impacts, Adaptation and Vulnerability"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 14-00193",
+      "field": "parsed_year",
+      "old": "2015",
+      "new": "2007"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 14-00193",
+      "field": "doi_norm",
+      "old": "10.1007/s10584-015-1395-1",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 14-00193",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 14-00193",
+      "field": "match_status",
+      "old": "matched_doi",
+      "new": "unmatched"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 14-00193",
+      "field": "match_confidence",
+      "old": "1.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 14-00193",
+      "field": "wos_uid",
+      "old": "WOS:000358179400004",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 14-00193",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000358179400004",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 14-00193",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 14-00193",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: Eight occurrences in ID 26271 cite the 2007 IPCC chapter. One additional AR4 occurrence under ID 17259 cites the same chapter. They are distinct from the three Landauer et al. 2015 article occurrences, which retain ID 26271 and DOI 10.1007/s10584-015-1395-1. SRCCL-WG1+WG2+WG3-Chapter 1-00589 prints a different author list (Taylor et al.), but its exact chapter title, year, report, editors and pp.745\u2013777 identify the Klein et al. chapter. Preserve that raw attribution and record the correction source."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00326",
+      "field": "paper_id",
+      "old": 26271,
+      "new": 113592
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00326",
+      "field": "parsed_title",
+      "old": "Inter-relationships between adaptation and mitigation: a systematic literature review",
+      "new": "Inter-relationships between adaptation and mitigation"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00326",
+      "field": "parsed_authors",
+      "old": "Landauer, Mia; Juhola, Sirkku; S\u00f6derholm, Maria",
+      "new": "Klein, Richard J. T.; Huq, Saleemul; Denton, Fatima; Downing, Thomas E.; Richels, Richard G.; Robinson, John B.; Toth, Ferenc L."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00326",
+      "field": "parsed_journal",
+      "old": "Climatic Change",
+      "new": "Climate Change 2007: Impacts, Adaptation and Vulnerability"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00326",
+      "field": "parsed_year",
+      "old": "2015",
+      "new": "2007"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00326",
+      "field": "doi_norm",
+      "old": "10.1007/s10584-015-1395-1",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00326",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00326",
+      "field": "match_status",
+      "old": "matched_doi",
+      "new": "unmatched"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00326",
+      "field": "match_confidence",
+      "old": "1.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00326",
+      "field": "wos_uid",
+      "old": "WOS:000358179400004",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00326",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000358179400004",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00326",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00326",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: Eight occurrences in ID 26271 cite the 2007 IPCC chapter. One additional AR4 occurrence under ID 17259 cites the same chapter. They are distinct from the three Landauer et al. 2015 article occurrences, which retain ID 26271 and DOI 10.1007/s10584-015-1395-1. SRCCL-WG1+WG2+WG3-Chapter 1-00589 prints a different author list (Taylor et al.), but its exact chapter title, year, report, editors and pp.745\u2013777 identify the Klein et al. chapter. Preserve that raw attribution and record the correction source."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00229",
+      "field": "paper_id",
+      "old": 26271,
+      "new": 113592
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00229",
+      "field": "parsed_title",
+      "old": "Inter-relationships between adaptation and mitigation: a systematic literature review",
+      "new": "Inter-relationships between adaptation and mitigation"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00229",
+      "field": "parsed_authors",
+      "old": "Landauer, Mia; Juhola, Sirkku; S\u00f6derholm, Maria",
+      "new": "Klein, Richard J. T.; Huq, Saleemul; Denton, Fatima; Downing, Thomas E.; Richels, Richard G.; Robinson, John B.; Toth, Ferenc L."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00229",
+      "field": "parsed_journal",
+      "old": "Climatic Change",
+      "new": "Climate Change 2007: Impacts, Adaptation and Vulnerability"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00229",
+      "field": "parsed_year",
+      "old": "2015",
+      "new": "2007"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00229",
+      "field": "doi_norm",
+      "old": "10.1007/s10584-015-1395-1",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00229",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00229",
+      "field": "match_status",
+      "old": "matched_doi",
+      "new": "unmatched"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00229",
+      "field": "match_confidence",
+      "old": "1.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00229",
+      "field": "wos_uid",
+      "old": "WOS:000358179400004",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00229",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000358179400004",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00229",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00229",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: Eight occurrences in ID 26271 cite the 2007 IPCC chapter. One additional AR4 occurrence under ID 17259 cites the same chapter. They are distinct from the three Landauer et al. 2015 article occurrences, which retain ID 26271 and DOI 10.1007/s10584-015-1395-1. SRCCL-WG1+WG2+WG3-Chapter 1-00589 prints a different author list (Taylor et al.), but its exact chapter title, year, report, editors and pp.745\u2013777 identify the Klein et al. chapter. Preserve that raw attribution and record the correction source."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00270",
+      "field": "paper_id",
+      "old": 26271,
+      "new": 113592
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00270",
+      "field": "parsed_title",
+      "old": "Inter-relationships between adaptation and mitigation: a systematic literature review",
+      "new": "Inter-relationships between adaptation and mitigation"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00270",
+      "field": "parsed_authors",
+      "old": "Landauer, Mia; Juhola, Sirkku; S\u00f6derholm, Maria",
+      "new": "Klein, Richard J. T.; Huq, Saleemul; Denton, Fatima; Downing, Thomas E.; Richels, Richard G.; Robinson, John B.; Toth, Ferenc L."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00270",
+      "field": "parsed_journal",
+      "old": "Climatic Change",
+      "new": "Climate Change 2007: Impacts, Adaptation and Vulnerability"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00270",
+      "field": "parsed_year",
+      "old": "2015",
+      "new": "2007"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00270",
+      "field": "doi_norm",
+      "old": "10.1007/s10584-015-1395-1",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00270",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00270",
+      "field": "match_status",
+      "old": "matched_doi",
+      "new": "unmatched"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00270",
+      "field": "match_confidence",
+      "old": "1.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00270",
+      "field": "wos_uid",
+      "old": "WOS:000358179400004",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00270",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000358179400004",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00270",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00270",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: Eight occurrences in ID 26271 cite the 2007 IPCC chapter. One additional AR4 occurrence under ID 17259 cites the same chapter. They are distinct from the three Landauer et al. 2015 article occurrences, which retain ID 26271 and DOI 10.1007/s10584-015-1395-1. SRCCL-WG1+WG2+WG3-Chapter 1-00589 prints a different author list (Taylor et al.), but its exact chapter title, year, report, editors and pp.745\u2013777 identify the Klein et al. chapter. Preserve that raw attribution and record the correction source."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 9-00236",
+      "field": "paper_id",
+      "old": 26271,
+      "new": 113592
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 9-00236",
+      "field": "parsed_title",
+      "old": "Inter-relationships between adaptation and mitigation: a systematic literature review",
+      "new": "Inter-relationships between adaptation and mitigation"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 9-00236",
+      "field": "parsed_authors",
+      "old": "Landauer, Mia; Juhola, Sirkku; S\u00f6derholm, Maria",
+      "new": "Klein, Richard J. T.; Huq, Saleemul; Denton, Fatima; Downing, Thomas E.; Richels, Richard G.; Robinson, John B.; Toth, Ferenc L."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 9-00236",
+      "field": "parsed_journal",
+      "old": "Climatic Change",
+      "new": "Climate Change 2007: Impacts, Adaptation and Vulnerability"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 9-00236",
+      "field": "parsed_year",
+      "old": "2015",
+      "new": "2007"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 9-00236",
+      "field": "doi_norm",
+      "old": "10.1007/s10584-015-1395-1",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 9-00236",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 9-00236",
+      "field": "match_status",
+      "old": "matched_doi",
+      "new": "unmatched"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 9-00236",
+      "field": "match_confidence",
+      "old": "1.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 9-00236",
+      "field": "wos_uid",
+      "old": "WOS:000358179400004",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 9-00236",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000358179400004",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 9-00236",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 9-00236",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: Eight occurrences in ID 26271 cite the 2007 IPCC chapter. One additional AR4 occurrence under ID 17259 cites the same chapter. They are distinct from the three Landauer et al. 2015 article occurrences, which retain ID 26271 and DOI 10.1007/s10584-015-1395-1. SRCCL-WG1+WG2+WG3-Chapter 1-00589 prints a different author list (Taylor et al.), but its exact chapter title, year, report, editors and pp.745\u2013777 identify the Klein et al. chapter. Preserve that raw attribution and record the correction source."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch17-00647",
+      "field": "paper_id",
+      "old": 26271,
+      "new": 113592
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch17-00647",
+      "field": "parsed_title",
+      "old": "Inter-relationships between adaptation and mitigation: a systematic literature review",
+      "new": "Inter-relationships between adaptation and mitigation"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch17-00647",
+      "field": "parsed_authors",
+      "old": "Landauer, Mia; Juhola, Sirkku; S\u00f6derholm, Maria",
+      "new": "Klein, Richard J. T.; Huq, Saleemul; Denton, Fatima; Downing, Thomas E.; Richels, Richard G.; Robinson, John B.; Toth, Ferenc L."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch17-00647",
+      "field": "parsed_journal",
+      "old": "Climatic Change",
+      "new": "Climate Change 2007: Impacts, Adaptation and Vulnerability"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch17-00647",
+      "field": "parsed_year",
+      "old": "2015",
+      "new": "2007"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch17-00647",
+      "field": "doi_norm",
+      "old": "10.1007/s10584-015-1395-1",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch17-00647",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch17-00647",
+      "field": "match_status",
+      "old": "matched_doi",
+      "new": "unmatched"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch17-00647",
+      "field": "match_confidence",
+      "old": "1.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch17-00647",
+      "field": "wos_uid",
+      "old": "WOS:000358179400004",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch17-00647",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000358179400004",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch17-00647",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch17-00647",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: Eight occurrences in ID 26271 cite the 2007 IPCC chapter. One additional AR4 occurrence under ID 17259 cites the same chapter. They are distinct from the three Landauer et al. 2015 article occurrences, which retain ID 26271 and DOI 10.1007/s10584-015-1395-1. SRCCL-WG1+WG2+WG3-Chapter 1-00589 prints a different author list (Taylor et al.), but its exact chapter title, year, report, editors and pp.745\u2013777 identify the Klein et al. chapter. Preserve that raw attribution and record the correction source."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRCCL-WG1+WG2+WG3-Chapter 1-00589",
+      "field": "paper_id",
+      "old": 26271,
+      "new": 113592
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRCCL-WG1+WG2+WG3-Chapter 1-00589",
+      "field": "parsed_title",
+      "old": "Inter-relationships between adaptation and mitigation: a systematic literature review",
+      "new": "Inter-relationships between adaptation and mitigation"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRCCL-WG1+WG2+WG3-Chapter 1-00589",
+      "field": "parsed_authors",
+      "old": "Landauer, Mia; Juhola, Sirkku; S\u00f6derholm, Maria",
+      "new": "Klein, Richard J. T.; Huq, Saleemul; Denton, Fatima; Downing, Thomas E.; Richels, Richard G.; Robinson, John B.; Toth, Ferenc L."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRCCL-WG1+WG2+WG3-Chapter 1-00589",
+      "field": "parsed_journal",
+      "old": "Climatic Change",
+      "new": "Climate Change 2007: Impacts, Adaptation and Vulnerability"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRCCL-WG1+WG2+WG3-Chapter 1-00589",
+      "field": "parsed_year",
+      "old": "2015",
+      "new": "2007"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRCCL-WG1+WG2+WG3-Chapter 1-00589",
+      "field": "doi_norm",
+      "old": "10.1007/s10584-015-1395-1",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRCCL-WG1+WG2+WG3-Chapter 1-00589",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRCCL-WG1+WG2+WG3-Chapter 1-00589",
+      "field": "match_status",
+      "old": "matched_doi",
+      "new": "unmatched"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRCCL-WG1+WG2+WG3-Chapter 1-00589",
+      "field": "match_confidence",
+      "old": "1.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRCCL-WG1+WG2+WG3-Chapter 1-00589",
+      "field": "wos_uid",
+      "old": "WOS:000358179400004",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRCCL-WG1+WG2+WG3-Chapter 1-00589",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000358179400004",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRCCL-WG1+WG2+WG3-Chapter 1-00589",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRCCL-WG1+WG2+WG3-Chapter 1-00589",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: Eight occurrences in ID 26271 cite the 2007 IPCC chapter. One additional AR4 occurrence under ID 17259 cites the same chapter. They are distinct from the three Landauer et al. 2015 article occurrences, which retain ID 26271 and DOI 10.1007/s10584-015-1395-1. SRCCL-WG1+WG2+WG3-Chapter 1-00589 prints a different author list (Taylor et al.), but its exact chapter title, year, report, editors and pp.745\u2013777 identify the Klein et al. chapter. Preserve that raw attribution and record the correction source."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRREN-WG3-Chapter 1-00109",
+      "field": "paper_id",
+      "old": 26271,
+      "new": 113592
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRREN-WG3-Chapter 1-00109",
+      "field": "parsed_title",
+      "old": "Inter-relationships between adaptation and mitigation: a systematic literature review",
+      "new": "Inter-relationships between adaptation and mitigation"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRREN-WG3-Chapter 1-00109",
+      "field": "parsed_authors",
+      "old": "Landauer, Mia; Juhola, Sirkku; S\u00f6derholm, Maria",
+      "new": "Klein, Richard J. T.; Huq, Saleemul; Denton, Fatima; Downing, Thomas E.; Richels, Richard G.; Robinson, John B.; Toth, Ferenc L."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRREN-WG3-Chapter 1-00109",
+      "field": "parsed_journal",
+      "old": "Climatic Change",
+      "new": "Climate Change 2007: Impacts, Adaptation and Vulnerability"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRREN-WG3-Chapter 1-00109",
+      "field": "parsed_year",
+      "old": "2015",
+      "new": "2007"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRREN-WG3-Chapter 1-00109",
+      "field": "doi_norm",
+      "old": "10.1007/s10584-015-1395-1",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRREN-WG3-Chapter 1-00109",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRREN-WG3-Chapter 1-00109",
+      "field": "match_status",
+      "old": "matched_doi",
+      "new": "unmatched"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRREN-WG3-Chapter 1-00109",
+      "field": "match_confidence",
+      "old": "1.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRREN-WG3-Chapter 1-00109",
+      "field": "wos_uid",
+      "old": "WOS:000358179400004",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRREN-WG3-Chapter 1-00109",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000358179400004",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRREN-WG3-Chapter 1-00109",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SRREN-WG3-Chapter 1-00109",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: Eight occurrences in ID 26271 cite the 2007 IPCC chapter. One additional AR4 occurrence under ID 17259 cites the same chapter. They are distinct from the three Landauer et al. 2015 article occurrences, which retain ID 26271 and DOI 10.1007/s10584-015-1395-1. SRCCL-WG1+WG2+WG3-Chapter 1-00589 prints a different author list (Taylor et al.), but its exact chapter title, year, report, editors and pp.745\u2013777 identify the Klein et al. chapter. Preserve that raw attribution and record the correction source."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 9-00101",
+      "field": "paper_id",
+      "old": 17259,
+      "new": 113592
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 9-00101",
+      "field": "parsed_title",
+      "old": "Adaptation and Mitigation Inter-relationships",
+      "new": "Inter-relationships between adaptation and mitigation"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 9-00101",
+      "field": "parsed_authors",
+      "old": "Klein, R.J.T., S. Huq, F. Denton, T. Downing, R.G. Richels, J.B. Robinson, F.L. Toth",
+      "new": "Klein, Richard J. T.; Huq, Saleemul; Denton, Fatima; Downing, Thomas E.; Richels, Richard G.; Robinson, John B.; Toth, Ferenc L."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 9-00101",
+      "field": "parsed_journal",
+      "old": "Encyclopedia of the UN Sustainable Development Goals",
+      "new": "Climate Change 2007: Impacts, Adaptation and Vulnerability"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 9-00101",
+      "field": "parsed_year",
+      "old": "2019",
+      "new": "2007"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 9-00101",
+      "field": "doi_norm",
+      "old": "10.1007/978-3-319-95885-9_300003",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 9-00101",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 9-00101",
+      "field": "match_confidence",
+      "old": "0.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 9-00101",
+      "field": "wos_uid",
+      "old": "",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 9-00101",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 9-00101",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: Eight occurrences in ID 26271 cite the 2007 IPCC chapter. One additional AR4 occurrence under ID 17259 cites the same chapter. They are distinct from the three Landauer et al. 2015 article occurrences, which retain ID 26271 and DOI 10.1007/s10584-015-1395-1. SRCCL-WG1+WG2+WG3-Chapter 1-00589 prints a different author list (Taylor et al.), but its exact chapter title, year, report, editors and pp.745\u2013777 identify the Klein et al. chapter. Preserve that raw attribution and record the correction source."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00085",
+      "field": "paper_id",
+      "old": 26560,
+      "new": 113593
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00085",
+      "field": "parsed_title",
+      "old": "Why is socially\u2010just climate change adaptation in sub\u2010Saharan Africa so challenging? A review of barriers identified from empirical cases",
+      "new": "Socially just adaptation to climate change"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00085",
+      "field": "parsed_authors",
+      "old": "Shackleton, Sheona; Ziervogel, Gina; Sallu, Susannah; Gill, Thomas; Tschakert, Petra",
+      "new": "Brisley, Rachel; Welstead, Jean; Hindle, Richard; Paavola, Jouni"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00085",
+      "field": "parsed_journal",
+      "old": "WIREs Climate Change",
+      "new": "Joseph Rowntree Foundation"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00085",
+      "field": "parsed_year",
+      "old": "2015",
+      "new": "2012"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00085",
+      "field": "doi_norm",
+      "old": "10.1002/wcc.335",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00085",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00085",
+      "field": "match_status",
+      "old": "matched_doi",
+      "new": "unmatched"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00085",
+      "field": "match_confidence",
+      "old": "1.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00085",
+      "field": "wos_uid",
+      "old": "WOS:000352721300005",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00085",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000352721300005",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00085",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 16-00085",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: The AR5 entry cites Brisley, Welstead, Hindle and Paavola (2012), a 118-page JRF report. The other three occurrences cite Shackleton et al. (2015), a Wiley article with a different author list, title and DOI."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00443",
+      "field": "paper_id",
+      "old": 28296,
+      "new": 113594
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00443",
+      "field": "parsed_title",
+      "old": "A multi-scale and multi-dimensional framework for enhancing the resilience of urban form to climate change",
+      "new": "A framework for urban climate resilience"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00443",
+      "field": "parsed_authors",
+      "old": "Dhar, Tapan K.; Khirfan, Luna",
+      "new": "Tyler, Stephen; Moench, Marcus"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00443",
+      "field": "parsed_journal",
+      "old": "Urban Climate",
+      "new": "Climate and Development"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00443",
+      "field": "parsed_year",
+      "old": "2017",
+      "new": "2012"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00443",
+      "field": "doi_norm",
+      "old": "10.1016/j.uclim.2016.12.004",
+      "new": "10.1080/17565529.2012.745389"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00443",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": "publisher_verified"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00443",
+      "field": "match_status",
+      "old": "matched_doi",
+      "new": "unmatched"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00443",
+      "field": "match_confidence",
+      "old": "1.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00443",
+      "field": "wos_uid",
+      "old": "WOS:000409188200005",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00443",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000409188200005",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00443",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 2-00443",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: The AR5 entry cites Tyler and Moench (2012), Climate and Development 4:311\u2013326. The publisher confirms DOI 10.1080/17565529.2012.745389. The AR6 entry is Dhar and Khirfan (2017), Urban Climate 19:72\u201391. The original AR6 raw entry prints volume 17; preserve raw text. No exact Tyler DOI row exists in the local WoS table, so publisher DOI verification does not create a WoS match."
+    },
+    {
+      "table": "papers",
+      "key": 28347,
+      "field": "title_best",
+      "old": "Adapt research to the Anthropocene",
+      "new": "The \u201cAnthropocene\u201d"
+    },
+    {
+      "table": "papers",
+      "key": 28347,
+      "field": "year_best",
+      "old": "2024",
+      "new": "2000"
+    },
+    {
+      "table": "papers",
+      "key": 28347,
+      "field": "journal_best",
+      "old": "Anthropocene",
+      "new": "IGBP Newsletter"
+    },
+    {
+      "table": "papers",
+      "key": 28347,
+      "field": "doi_norm",
+      "old": "10.1016/j.ancene.2024.100455",
+      "new": null
+    },
+    {
+      "table": "papers",
+      "key": 28347,
+      "field": "authors_best",
+      "old": "Christmann, Stefanie",
+      "new": "Crutzen, Paul J.; Stoermer, Eugene F."
+    },
+    {
+      "table": "papers",
+      "key": 28347,
+      "field": "first_author_surname",
+      "old": "christmann",
+      "new": "crutzen"
+    },
+    {
+      "table": "papers",
+      "key": 28347,
+      "field": "wos_record_id",
+      "old": "WOS:WOS:001350844200001",
+      "new": null
+    },
+    {
+      "table": "papers",
+      "key": 28347,
+      "field": "title_norm",
+      "old": "adapt research to the anthropocene",
+      "new": "the anthropocene"
+    },
+    {
+      "table": "papers",
+      "key": 28347,
+      "field": "identity_method",
+      "old": "doi",
+      "new": "title_year"
+    },
+    {
+      "table": "papers",
+      "key": 28347,
+      "field": "metadata_source",
+      "old": "wos",
+      "new": "targeted_primary_source"
+    },
+    {
+      "table": "papers",
+      "key": 28347,
+      "field": "verification_status",
+      "old": "wos_matched",
+      "new": "unresolved"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 20-00053",
+      "field": "parsed_title",
+      "old": "Adapt research to the Anthropocene",
+      "new": "The \u201cAnthropocene\u201d"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 20-00053",
+      "field": "parsed_authors",
+      "old": "Christmann, Stefanie",
+      "new": "Crutzen, Paul J.; Stoermer, Eugene F."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 20-00053",
+      "field": "parsed_journal",
+      "old": "Anthropocene",
+      "new": "IGBP Newsletter"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 20-00053",
+      "field": "parsed_year",
+      "old": "2024",
+      "new": "2000"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 20-00053",
+      "field": "doi_norm",
+      "old": "10.1016/j.ancene.2024.100455",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 20-00053",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 20-00053",
+      "field": "match_status",
+      "old": "matched_doi",
+      "new": "unmatched"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 20-00053",
+      "field": "match_confidence",
+      "old": "1.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 20-00053",
+      "field": "wos_uid",
+      "old": "WOS:001350844200001",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 20-00053",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:001350844200001",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 20-00053",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 20-00053",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: All three occurrences under ID 28347 cite Crutzen and Stoermer (2000), newsletter 41:17\u201318. The additional AR3 entry under ID 7174 gives those authors, year and newsletter number. Their identity recurrence is valid. Preferred metadata and the DOI/WoS bridge incorrectly describe Christmann (2024). Remove that bridge and restore the newsletter metadata. Retire empty ID 7174 only after its one occurrence is reassigned with an explicit crosswalk."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG1-Ch1-00188",
+      "field": "parsed_title",
+      "old": "Adapt research to the Anthropocene",
+      "new": "The \u201cAnthropocene\u201d"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG1-Ch1-00188",
+      "field": "parsed_authors",
+      "old": "Christmann, Stefanie",
+      "new": "Crutzen, Paul J.; Stoermer, Eugene F."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG1-Ch1-00188",
+      "field": "parsed_journal",
+      "old": "Anthropocene",
+      "new": "IGBP Newsletter"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG1-Ch1-00188",
+      "field": "parsed_year",
+      "old": "2024",
+      "new": "2000"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG1-Ch1-00188",
+      "field": "doi_norm",
+      "old": "10.1016/j.ancene.2024.100455",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG1-Ch1-00188",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG1-Ch1-00188",
+      "field": "match_status",
+      "old": "matched_doi",
+      "new": "unmatched"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG1-Ch1-00188",
+      "field": "match_confidence",
+      "old": "1.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG1-Ch1-00188",
+      "field": "wos_uid",
+      "old": "WOS:001350844200001",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG1-Ch1-00188",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:001350844200001",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG1-Ch1-00188",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG1-Ch1-00188",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: All three occurrences under ID 28347 cite Crutzen and Stoermer (2000), newsletter 41:17\u201318. The additional AR3 entry under ID 7174 gives those authors, year and newsletter number. Their identity recurrence is valid. Preferred metadata and the DOI/WoS bridge incorrectly describe Christmann (2024). Remove that bridge and restore the newsletter metadata. Retire empty ID 7174 only after its one occurrence is reassigned with an explicit crosswalk."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SR15-WG1+WG2+WG3-Chapter 1-00050",
+      "field": "parsed_title",
+      "old": "Adapt research to the Anthropocene",
+      "new": "The \u201cAnthropocene\u201d"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SR15-WG1+WG2+WG3-Chapter 1-00050",
+      "field": "parsed_authors",
+      "old": "Christmann, Stefanie",
+      "new": "Crutzen, Paul J.; Stoermer, Eugene F."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SR15-WG1+WG2+WG3-Chapter 1-00050",
+      "field": "parsed_journal",
+      "old": "Anthropocene",
+      "new": "IGBP Newsletter"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SR15-WG1+WG2+WG3-Chapter 1-00050",
+      "field": "parsed_year",
+      "old": "2024",
+      "new": "2000"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SR15-WG1+WG2+WG3-Chapter 1-00050",
+      "field": "doi_norm",
+      "old": "10.1016/j.ancene.2024.100455",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SR15-WG1+WG2+WG3-Chapter 1-00050",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SR15-WG1+WG2+WG3-Chapter 1-00050",
+      "field": "match_status",
+      "old": "matched_doi",
+      "new": "unmatched"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SR15-WG1+WG2+WG3-Chapter 1-00050",
+      "field": "match_confidence",
+      "old": "1.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SR15-WG1+WG2+WG3-Chapter 1-00050",
+      "field": "wos_uid",
+      "old": "WOS:001350844200001",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SR15-WG1+WG2+WG3-Chapter 1-00050",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:001350844200001",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SR15-WG1+WG2+WG3-Chapter 1-00050",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SR15-WG1+WG2+WG3-Chapter 1-00050",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: All three occurrences under ID 28347 cite Crutzen and Stoermer (2000), newsletter 41:17\u201318. The additional AR3 entry under ID 7174 gives those authors, year and newsletter number. Their identity recurrence is valid. Preferred metadata and the DOI/WoS bridge incorrectly describe Christmann (2024). Remove that bridge and restore the newsletter metadata. Retire empty ID 7174 only after its one occurrence is reassigned with an explicit crosswalk."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR3-WG1-Annex12-00002",
+      "field": "paper_id",
+      "old": 7174,
+      "new": 28347
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR3-WG1-Annex12-00002",
+      "field": "parsed_title",
+      "old": "The International Geosphere-Biosphere Programme IGBP",
+      "new": "The \u201cAnthropocene\u201d"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR3-WG1-Annex12-00002",
+      "field": "parsed_authors",
+      "old": "Rapley, Chris; Morais, Jo\ufffdo",
+      "new": "Crutzen, Paul J.; Stoermer, Eugene F."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR3-WG1-Annex12-00002",
+      "field": "parsed_journal",
+      "old": "GeoJournal",
+      "new": "IGBP Newsletter"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR3-WG1-Annex12-00002",
+      "field": "parsed_year",
+      "old": "1996",
+      "new": "2000"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR3-WG1-Annex12-00002",
+      "field": "doi_norm",
+      "old": "10.1007/bf00192587",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR3-WG1-Annex12-00002",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR3-WG1-Annex12-00002",
+      "field": "match_confidence",
+      "old": "0.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR3-WG1-Annex12-00002",
+      "field": "wos_uid",
+      "old": "",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR3-WG1-Annex12-00002",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR3-WG1-Annex12-00002",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: All three occurrences under ID 28347 cite Crutzen and Stoermer (2000), newsletter 41:17\u201318. The additional AR3 entry under ID 7174 gives those authors, year and newsletter number. Their identity recurrence is valid. Preferred metadata and the DOI/WoS bridge incorrectly describe Christmann (2024). Remove that bridge and restore the newsletter metadata. Retire empty ID 7174 only after its one occurrence is reassigned with an explicit crosswalk."
+    },
+    {
+      "table": "papers",
+      "key": 29105,
+      "field": "title_best",
+      "old": "Rethinking Climate, Climate Change, and Their Relationship with Water",
+      "new": "Water and climate"
+    },
+    {
+      "table": "papers",
+      "key": 29105,
+      "field": "year_best",
+      "old": "2021",
+      "new": "2011"
+    },
+    {
+      "table": "papers",
+      "key": 29105,
+      "field": "journal_best",
+      "old": "Water",
+      "new": "Water: Science and Solutions for Australia"
+    },
+    {
+      "table": "papers",
+      "key": 29105,
+      "field": "doi_norm",
+      "old": "10.3390/w13060849",
+      "new": null
+    },
+    {
+      "table": "papers",
+      "key": 29105,
+      "field": "authors_best",
+      "old": "Koutsoyiannis, Demetris",
+      "new": "Chiew, Francis; Prosser, Ian"
+    },
+    {
+      "table": "papers",
+      "key": 29105,
+      "field": "first_author_surname",
+      "old": "koutsoyiannis",
+      "new": "chiew"
+    },
+    {
+      "table": "papers",
+      "key": 29105,
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000651947400001",
+      "new": null
+    },
+    {
+      "table": "papers",
+      "key": 29105,
+      "field": "title_norm",
+      "old": "rethinking climate climate change and their relationship with water",
+      "new": "water and climate"
+    },
+    {
+      "table": "papers",
+      "key": 29105,
+      "field": "identity_method",
+      "old": "doi",
+      "new": "title_year"
+    },
+    {
+      "table": "papers",
+      "key": 29105,
+      "field": "metadata_source",
+      "old": "wos",
+      "new": "targeted_primary_source"
+    },
+    {
+      "table": "papers",
+      "key": 29105,
+      "field": "verification_status",
+      "old": "wos_matched",
+      "new": "unresolved"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 25-00150",
+      "field": "parsed_title",
+      "old": "Rethinking Climate, Climate Change, and Their Relationship with Water",
+      "new": "Water and climate"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 25-00150",
+      "field": "parsed_authors",
+      "old": "Koutsoyiannis, Demetris",
+      "new": "Chiew, Francis; Prosser, Ian"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 25-00150",
+      "field": "parsed_journal",
+      "old": "Water",
+      "new": "Water: Science and Solutions for Australia"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 25-00150",
+      "field": "parsed_year",
+      "old": "2021",
+      "new": "2011"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 25-00150",
+      "field": "doi_norm",
+      "old": "10.3390/w13060849",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 25-00150",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 25-00150",
+      "field": "match_status",
+      "old": "matched_doi",
+      "new": "unmatched"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 25-00150",
+      "field": "match_confidence",
+      "old": "1.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 25-00150",
+      "field": "wos_uid",
+      "old": "WOS:000651947400001",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 25-00150",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000651947400001",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 25-00150",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 25-00150",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: Both AR5 and AR6 entries cite Chiew and Prosser (2011), chapter Water and climate in Water: Science and Solutions for Australia, pp.29\u201346. The CSIRO publisher confirms chapter authors and book publication in November 2011. Their identity recurrence is valid. DOI 10.3390/w13060849 and the WoS record identify Koutsoyiannis (2021), a distinct single-author article."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch11-00205",
+      "field": "parsed_title",
+      "old": "Rethinking Climate, Climate Change, and Their Relationship with Water",
+      "new": "Water and climate"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch11-00205",
+      "field": "parsed_authors",
+      "old": "Koutsoyiannis, Demetris",
+      "new": "Chiew, Francis; Prosser, Ian"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch11-00205",
+      "field": "parsed_journal",
+      "old": "Water",
+      "new": "Water: Science and Solutions for Australia"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch11-00205",
+      "field": "parsed_year",
+      "old": "2021",
+      "new": "2011"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch11-00205",
+      "field": "doi_norm",
+      "old": "10.3390/w13060849",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch11-00205",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch11-00205",
+      "field": "match_status",
+      "old": "matched_doi",
+      "new": "unmatched"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch11-00205",
+      "field": "match_confidence",
+      "old": "1.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch11-00205",
+      "field": "wos_uid",
+      "old": "WOS:000651947400001",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch11-00205",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000651947400001",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch11-00205",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG2-Ch11-00205",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: Both AR5 and AR6 entries cite Chiew and Prosser (2011), chapter Water and climate in Water: Science and Solutions for Australia, pp.29\u201346. The CSIRO publisher confirms chapter authors and book publication in November 2011. Their identity recurrence is valid. DOI 10.3390/w13060849 and the WoS record identify Koutsoyiannis (2021), a distinct single-author article."
+    },
+    {
+      "table": "papers",
+      "key": 17259,
+      "field": "title_best",
+      "old": "Adaptation and Mitigation Inter-relationships",
+      "new": "Scientific assessment of the inter-relationships of mitigation and adaptation"
+    },
+    {
+      "table": "papers",
+      "key": 17259,
+      "field": "year_best",
+      "old": "2019",
+      "new": "2004"
+    },
+    {
+      "table": "papers",
+      "key": 17259,
+      "field": "journal_best",
+      "old": "Encyclopedia of the UN Sustainable Development Goals",
+      "new": "IPCC Expert Meeting, Geneva"
+    },
+    {
+      "table": "papers",
+      "key": 17259,
+      "field": "doi_norm",
+      "old": "10.1007/978-3-319-95885-9_300003",
+      "new": null
+    },
+    {
+      "table": "papers",
+      "key": 17259,
+      "field": "authors_best",
+      "old": "Huq, S. and M. Grubb",
+      "new": "Huq, S.; Grubb, M."
+    },
+    {
+      "table": "papers",
+      "key": 17259,
+      "field": "wos_record_id",
+      "old": "",
+      "new": null
+    },
+    {
+      "table": "papers",
+      "key": 17259,
+      "field": "title_norm",
+      "old": "adaptation and mitigation inter relationships",
+      "new": "scientific assessment of the inter relationships of mitigation and adaptation"
+    },
+    {
+      "table": "papers",
+      "key": 17259,
+      "field": "identity_method",
+      "old": "doi",
+      "new": "title_year"
+    },
+    {
+      "table": "papers",
+      "key": 17259,
+      "field": "metadata_source",
+      "old": "crossref_or_openalex",
+      "new": "targeted_primary_source"
+    },
+    {
+      "table": "papers",
+      "key": 17259,
+      "field": "verification_status",
+      "old": "doi_verified",
+      "new": "unresolved"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 11-00141",
+      "field": "parsed_title",
+      "old": "Adaptation and Mitigation Inter-relationships",
+      "new": "Scientific assessment of the inter-relationships of mitigation and adaptation"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 11-00141",
+      "field": "parsed_authors",
+      "old": "Huq, S. and M. Grubb",
+      "new": "Huq, S.; Grubb, M."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 11-00141",
+      "field": "parsed_journal",
+      "old": "Encyclopedia of the UN Sustainable Development Goals",
+      "new": "IPCC Expert Meeting, Geneva"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 11-00141",
+      "field": "parsed_year",
+      "old": "2019",
+      "new": "2004"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 11-00141",
+      "field": "doi_norm",
+      "old": "10.1007/978-3-319-95885-9_300003",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 11-00141",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 11-00141",
+      "field": "match_confidence",
+      "old": "0.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 11-00141",
+      "field": "wos_uid",
+      "old": "",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 11-00141",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR4-WG3-Chapter 11-00141",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: The remaining raw entry is printed verbatim in the official AR4 WGIII chapter 11 references. The preferred 2019 encyclopedia DOI belongs to a different work. Preserve printed author initials; expansion of given names is not required for this repair."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00297",
+      "field": "paper_id",
+      "old": 31985,
+      "new": 113595
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00297",
+      "field": "parsed_title",
+      "old": "Characterizing uncertain sea-level rise projections to support investment decisions",
+      "new": "Characterizing Uncertain Sea Level Rise Projections to Support Investment Decisions"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00297",
+      "field": "parsed_authors",
+      "old": "Sriver, Ryan L.; Lempert, Robert J.; Wikman-Svahn, Per; Keller, Klaus",
+      "new": "Lempert, Robert J.; Sriver, Ryan L.; Keller, Klaus"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00297",
+      "field": "parsed_journal",
+      "old": "PLOS ONE",
+      "new": "California Energy Commission"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00297",
+      "field": "parsed_year",
+      "old": "2018",
+      "new": "2012"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00297",
+      "field": "doi_norm",
+      "old": "10.1371/journal.pone.0190641",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00297",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00297",
+      "field": "match_status",
+      "old": "matched_doi",
+      "new": "unmatched"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00297",
+      "field": "match_confidence",
+      "old": "1.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00297",
+      "field": "wos_uid",
+      "old": "WOS:000424325300009",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00297",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000424325300009",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00297",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG2-Chapter 5-00297",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: The white paper precedes the PLOS article by six years and has a different author order and author list. Remove the wrong Crossref DOI and WoS bridge. Retain the complete raw reference unchanged."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Annex-II-00004",
+      "field": "parsed_year",
+      "old": "2015",
+      "new": "2013"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 6-00004",
+      "field": "parsed_year",
+      "old": "2015",
+      "new": "2014"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 12-00048",
+      "field": "parsed_year",
+      "old": "2013",
+      "new": "2015"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SR15-WG1+WG2+WG3-Chapter 2-00017",
+      "field": "parsed_year",
+      "old": "2013",
+      "new": "2015"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 14-00004",
+      "field": "parsed_year",
+      "old": "2015",
+      "new": "2013"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 6-00007",
+      "field": "parsed_year",
+      "old": "2015",
+      "new": "2014"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 1-00060",
+      "field": "parsed_year",
+      "old": "2015",
+      "new": "2013"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 12-00076",
+      "field": "parsed_year",
+      "old": "2013",
+      "new": "2015"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 13-00083",
+      "field": "parsed_year",
+      "old": "2013",
+      "new": "2015"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 15-00096",
+      "field": "parsed_year",
+      "old": "2013",
+      "new": "2015"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 6-00074",
+      "field": "parsed_year",
+      "old": "2015",
+      "new": "2014"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 7-00127",
+      "field": "parsed_year",
+      "old": "2015",
+      "new": "2013"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SR15-WG1+WG2+WG3-Chapter 4-01498",
+      "field": "parsed_year",
+      "old": "2013",
+      "new": "2015"
+    },
+    {
+      "table": "papers",
+      "key": 35229,
+      "field": "title_best",
+      "old": "An Institutional Economics Framework to Explore Sustainable Production and Consumption",
+      "new": "Sustainable consumption and production: An effort to reconcile the determinants of environmental impact"
+    },
+    {
+      "table": "papers",
+      "key": 35229,
+      "field": "year_best",
+      "old": "2021",
+      "new": "2011"
+    },
+    {
+      "table": "papers",
+      "key": 35229,
+      "field": "journal_best",
+      "old": "Sustainable Production and Consumption",
+      "new": "Society and Economy"
+    },
+    {
+      "table": "papers",
+      "key": 35229,
+      "field": "authors_best",
+      "old": "Bradley, Peter",
+      "new": "Pogutz, Stefano; Micale, Valerio"
+    },
+    {
+      "table": "papers",
+      "key": 35229,
+      "field": "first_author_surname",
+      "old": "bradley",
+      "new": "pogutz"
+    },
+    {
+      "table": "papers",
+      "key": 35229,
+      "field": "doi_norm",
+      "old": "10.1016/j.spc.2021.02.035",
+      "new": "10.1556/socec.33.2011.1.5"
+    },
+    {
+      "table": "papers",
+      "key": 35229,
+      "field": "title_norm",
+      "old": "an institutional economics framework to explore sustainable production and consumption",
+      "new": "sustainable consumption and production an effort to reconcile the determinants of environmental impact"
+    },
+    {
+      "table": "papers",
+      "key": 35229,
+      "field": "metadata_source",
+      "old": "wos",
+      "new": "targeted_primary_source"
+    },
+    {
+      "table": "papers",
+      "key": 35229,
+      "field": "verification_status",
+      "old": "wos_matched",
+      "new": "doi_verified"
+    },
+    {
+      "table": "papers",
+      "key": 35229,
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000674221200005",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 4-00496",
+      "field": "parsed_title",
+      "old": "An Institutional Economics Framework to Explore Sustainable Production and Consumption",
+      "new": "Sustainable consumption and production: An effort to reconcile the determinants of environmental impact"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 4-00496",
+      "field": "parsed_authors",
+      "old": "Bradley, Peter",
+      "new": "Pogutz, Stefano; Micale, Valerio"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 4-00496",
+      "field": "parsed_journal",
+      "old": "Sustainable Production and Consumption",
+      "new": "Society and Economy"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 4-00496",
+      "field": "parsed_year",
+      "old": "2021",
+      "new": "2011"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 4-00496",
+      "field": "doi_norm",
+      "old": "10.1016/j.spc.2021.02.035",
+      "new": "10.1556/socec.33.2011.1.5"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 4-00496",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": "embedded_normalized"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 4-00496",
+      "field": "match_status",
+      "old": "matched_doi",
+      "new": "unmatched"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 4-00496",
+      "field": "match_confidence",
+      "old": "1.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 4-00496",
+      "field": "wos_uid",
+      "old": "WOS:000674221200005",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 4-00496",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000674221200005",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 4-00496",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 4-00496",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: The raw DOI, authors, year, outlet and pages match Pogutz and Micale. No matching WoS record exists in this snapshot; independent DOI verification does not imply a WoS match."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 5-00419",
+      "field": "paper_id",
+      "old": 35229,
+      "new": 113596
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 5-00419",
+      "field": "parsed_title",
+      "old": "An Institutional Economics Framework to Explore Sustainable Production and Consumption",
+      "new": "Sustainable Consumption and Production: An Agenda Beyond Sustainable Consumer Procurement"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 5-00419",
+      "field": "parsed_authors",
+      "old": "Bradley, Peter",
+      "new": "Fedrigo, Doreen; Hontelez, John"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 5-00419",
+      "field": "parsed_journal",
+      "old": "Sustainable Production and Consumption",
+      "new": "Journal of Industrial Ecology"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 5-00419",
+      "field": "parsed_year",
+      "old": "2021",
+      "new": "2010"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 5-00419",
+      "field": "doi_norm",
+      "old": "10.1016/j.spc.2021.02.035",
+      "new": "10.1111/j.1530-9290.2009.00219.x"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 5-00419",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": "primary_source_correction"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 5-00419",
+      "field": "match_status",
+      "old": "matched_doi",
+      "new": "unmatched"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 5-00419",
+      "field": "match_confidence",
+      "old": "1.0",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 5-00419",
+      "field": "wos_uid",
+      "old": "WOS:000674221200005",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 5-00419",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000674221200005",
+      "new": null
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 5-00419",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 5-00419",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: The author surname Fedrigo and pages 10\u201312 establish the intended article, confirmed by Wiley. Retain the raw DOI 00214.x unchanged in raw_reference and record its conflict; the corrected DOI is 00219.x. No matching WoS record exists in this snapshot."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 6-00053",
+      "field": "paper_id",
+      "old": 35431,
+      "new": 70675
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 6-00053",
+      "field": "parsed_title",
+      "old": "Critical review of: \u201cMaking or breaking climate targets \u2014 the AMPERE study on staged accession scenarios for climate policy\u201d",
+      "new": "Making or breaking climate targets: The AMPERE study on staged accession scenarios for climate policy"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 6-00053",
+      "field": "parsed_authors",
+      "old": "Rosen, Richard A.",
+      "new": "Kriegler, Elmar; Riahi, Keywan; Bauer, Nico; Schwanitz, Valeria Jana; Petermann, Nils; Bosetti, Valentina; Marcucci, Adriana; Otto, Sander; Paroussos, Leonidas; Rao, Shilpa; Curr\u00e1s, Tabar\u00e9 Arroyo; Ashina, Shuichi; Bollen, Johannes; Eom, Jiyong; Hamdi-Ch\u00e9rif, Meriem; Longden, Thomas; Kitous, Alban; M\u00e9jean, Aur\u00e9lie; Sano, Fuminori; Schaeffer, Michiel; Wada, Kenichi; Capros, Pant\u00e9lis; Vuuren, Detlef Peter van; Edenhofer, Ottmar"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 6-00053",
+      "field": "parsed_year",
+      "old": "2015",
+      "new": "2014"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 6-00053",
+      "field": "doi_norm",
+      "old": "10.1016/j.techfore.2015.01.019",
+      "new": "10.1016/j.techfore.2013.09.021"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 6-00053",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": "embedded_normalized"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 6-00053",
+      "field": "wos_uid",
+      "old": "WOS:000357223000031",
+      "new": "WOS:000347605300003"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 6-00053",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000357223000031",
+      "new": "WOS:WOS:000347605300003"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 6-00053",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR5-WG3-Chapter 6-00053",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: The original title and authors identify the paper, and the AR5 raw entry contains its DOI. The exact DOI is present in the snapshot\u2019s correct WoS record. Reassign chapter_references as well; preserve raw entries unchanged; remove or retire zero-occurrence obsolete identity 35431 with a logged crosswalk."
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 6-00800",
+      "field": "paper_id",
+      "old": 35431,
+      "new": 70675
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 6-00800",
+      "field": "parsed_title",
+      "old": "Critical review of: \u201cMaking or breaking climate targets \u2014 the AMPERE study on staged accession scenarios for climate policy\u201d",
+      "new": "Making or breaking climate targets: The AMPERE study on staged accession scenarios for climate policy"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 6-00800",
+      "field": "parsed_authors",
+      "old": "Rosen, Richard A.",
+      "new": "Kriegler, Elmar; Riahi, Keywan; Bauer, Nico; Schwanitz, Valeria Jana; Petermann, Nils; Bosetti, Valentina; Marcucci, Adriana; Otto, Sander; Paroussos, Leonidas; Rao, Shilpa; Curr\u00e1s, Tabar\u00e9 Arroyo; Ashina, Shuichi; Bollen, Johannes; Eom, Jiyong; Hamdi-Ch\u00e9rif, Meriem; Longden, Thomas; Kitous, Alban; M\u00e9jean, Aur\u00e9lie; Sano, Fuminori; Schaeffer, Michiel; Wada, Kenichi; Capros, Pant\u00e9lis; Vuuren, Detlef Peter van; Edenhofer, Ottmar"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 6-00800",
+      "field": "parsed_year",
+      "old": "2015",
+      "new": "2013"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 6-00800",
+      "field": "doi_norm",
+      "old": "10.1016/j.techfore.2015.01.019",
+      "new": "10.1016/j.techfore.2013.09.021"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 6-00800",
+      "field": "doi_source",
+      "old": "crossref",
+      "new": "primary_source_correction"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 6-00800",
+      "field": "wos_uid",
+      "old": "WOS:000357223000031",
+      "new": "WOS:000347605300003"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 6-00800",
+      "field": "wos_record_id",
+      "old": "WOS:WOS:000357223000031",
+      "new": "WOS:WOS:000347605300003"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 6-00800",
+      "field": "as_of",
+      "old": "2026-10-05",
+      "new": "2026-10-11T10:33:00Z"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 6-00800",
+      "field": "notes",
+      "old": "enriched:crossref",
+      "new": "enriched:crossref\nCorrection v1.2.0: The original title and authors identify the paper, and the AR5 raw entry contains its DOI. The exact DOI is present in the snapshot\u2019s correct WoS record. Reassign chapter_references as well; preserve raw entries unchanged; remove or retire zero-occurrence obsolete identity 35431 with a logged crosswalk."
+    },
+    {
+      "table": "papers",
+      "key": 70675,
+      "field": "year_best",
+      "old": "2014",
+      "new": "2015"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 15-00608",
+      "field": "parsed_year",
+      "old": "2014",
+      "new": "2015"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 16-00475",
+      "field": "parsed_year",
+      "old": "2014",
+      "new": "2015"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "AR6-WG3-Chapter 3-00414",
+      "field": "parsed_year",
+      "old": "2014",
+      "new": "2015"
+    },
+    {
+      "table": "references_occurrence",
+      "key": "SR15-WG1+WG2+WG3-Chapter 2-00242",
+      "field": "parsed_year",
+      "old": "2014",
+      "new": "2015"
+    }
+  ],
+  "chronology_review_candidates": 1728,
+  "invariant_checks": {
+    "occurrences without paper identities": 0,
+    "chapter/reference crosswalk": 0,
+    "missing chapter/reference crosswalk": 0,
+    "extra chapter/reference crosswalk": 0,
+    "chapter/reference crosswalk row count": 0,
+    "orphan papers": 0,
+    "missing paper counters": 0,
+    "paper occurrence counters": 0,
+    "paper chapter counters": 0,
+    "paper report counters": 0,
+    "duplicate DOI": 0
+  },
+  "cached_analysis_errors": 0,
+  "audit_scope": "Targeted source inspection; no population linkage accuracy is estimated."
+}

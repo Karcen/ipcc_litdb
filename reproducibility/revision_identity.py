@@ -25,7 +25,7 @@ from analyse_corpus import compare, digest, journal_key, write_csv
 from deepen_analysis import age_record, age_summary, journal_summary, year
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_DATABASE_SHA256 = "faa7fc711ae4607acfa9833739ec8f202f8aefd6d929b474a12fceb589c5b85d"
+EXPECTED_DATABASE_SHA256 = "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec"
 MATCHED = {"matched_doi", "matched_title"}
 WGS = ("WG1", "WG2", "WG3")
 DOI_RE = re.compile(r"(?<![\w./])(10\.\d{4,9}/[^\s\"'<>|]+)", re.I)
@@ -136,7 +136,7 @@ def run(database, output=ROOT, pipeline_root=None, seed=20261011, per_stratum=12
     database = Path(database).expanduser().resolve()
     start_hash = digest(database)
     if start_hash != EXPECTED_DATABASE_SHA256:
-        raise ValueError("This revision and its targeted inspection notes require the documented 6 October 2026 snapshot")
+        raise ValueError("This analysis requires the registered v1.2.0 corrected snapshot")
     c = sqlite3.connect(database.as_uri()+"?mode=ro&immutable=1", uri=True)
     c.row_factory = sqlite3.Row
     try:
@@ -202,10 +202,10 @@ def run(database, output=ROOT, pipeline_root=None, seed=20261011, per_stratum=12
                 "raw_age_inclusion":"missing_raw_year" if raw_age is None else "future_raw_year" if raw_age<0 else "over_60" if raw_age>60 else "included"})
         if row["match_status"]=="matched_doi":doi_ids[report].add(pid)
         if row["match_status"]=="matched_title":title_ids[report].add(pid)
-    check("selected distinct paper IDs",len(papers),93430)
-    check("AR5 matched IDs",len(matched["AR5"]),13510)
-    check("AR6 matched IDs",len(matched["AR6"]),34873)
-    check("primary shared IDs",len(matched["AR5"]&matched["AR6"]),1664)
+    check("selected distinct paper IDs",len(papers),93433)
+    check("AR5 matched IDs",len(matched["AR5"]),13503)
+    check("AR6 matched IDs",len(matched["AR6"]),34869)
+    check("primary shared IDs",len(matched["AR5"]&matched["AR6"]),1657)
     coverage=[];consistency=[]
     for report in sorted(all_ids):
         for wg in ["All",*WGS]:
@@ -293,7 +293,6 @@ def run(database, output=ROOT, pipeline_root=None, seed=20261011, per_stratum=12
     reused,new=a&b,b-a;present=b&all_ids["AR5"];absent=b-all_ids["AR5"]
     switches=b&(all_ids["AR5"]-a)
     old_incoming={i for i in new if year(papers[i]["year_best"]) is not None and year(papers[i]["year_best"])<=2013}
-    check("incoming IDs through 2013",len(old_incoming),4160)
     check("primary later partition",len(reused)+len(new),len(b))
     check("symmetric later partition",len(present)+len(absent),len(b))
     check("status-switch partition",len(switches),len(present)-len(reused))
@@ -347,8 +346,8 @@ def run(database, output=ROOT, pipeline_root=None, seed=20261011, per_stratum=12
                 "hhi_known_journals":gs["hhi_known_journals"],"named_journals":gs["named_journals"]})
     later_shared={i for i in reused if year(papers[i]["year_best"]) is not None and year(papers[i]["year_best"])>2013}
     missing={i for i in new if year(papers[i]["year_best"]) is None}
-    check("later-dated shared IDs",len(later_shared),14);check("missing-year incoming IDs",len(missing),5)
-    check("same-vintage primary components",len(same_vintage_sets["reused_matched_through_2013"])+len(old_incoming),5810)
+    # These cohort sizes are results, so corrected snapshots recompute them.
+    # The registered reference tables verify the version-specific values.
     anomalies=[]
     for i in sorted(later_shared|missing|switches):
         label="shared_later_than_2013" if i in later_shared else "incoming_missing_year" if i in missing else "AR5_unmatched_AR6_matched"

@@ -1,6 +1,6 @@
 # IPCC Literature Database
 
-A searchable database of the works cited in IPCC reports, with a local dashboard for literature search, coverage analysis, citation networks, and reference review. The October 2026 snapshot contains 113,591 papers and 160,029 reference occurrences.
+A searchable database of the works cited in IPCC reports, with a local dashboard for literature search, coverage analysis, citation networks, and reference review. The corrected v1.2.0 snapshot contains 113,594 papers and 160,029 reference occurrences.
 
 This is the second project alongside [IPCC References Toolkit](https://github.com/Karcen/ipcc_refs_toolkit). The toolkit collects and processes references; this repository provides the database and the interface for studying them across reports.
 
@@ -52,6 +52,7 @@ Stopping the containers preserves the database volume, including review history.
 - [Exports and API](#exports-and-api)
 - [Sources and provenance](#sources-and-provenance)
 - [Data quality and review](#data-quality-and-review)
+- [Snapshot corrections](#snapshot-corrections)
 - [PostgreSQL](#postgresql)
 - [Tests](#tests)
 - [GitHub distribution](#github-distribution)
@@ -60,7 +61,7 @@ Stopping the containers preserves the database volume, including review history.
 
 ## Data and coverage
 
-The bibliographic snapshot was built on 6 October 2026. Derived analyses and English insights were refreshed on 11 October 2026. Counts below describe that snapshot; the dashboard queries the working database for current values.
+The original bibliographic snapshot was built on 6 October 2026. Version v1.2.0 applies targeted record corrections dated 11 October 2026 and refreshes the derived analyses. Counts below describe the corrected snapshot; the dashboard queries the working database for current values.
 
 | Measure | Count |
 |---|---:|
@@ -69,30 +70,31 @@ The bibliographic snapshot was built on 6 October 2026. Derived analyses and Eng
 | Chapters and other citable units | 677 |
 | Units with reference occurrences | 451 |
 | Source PDFs registered | 438 |
-| Papers | 113,591 |
+| Papers | 113,594 |
 | Reference occurrences | 160,029 |
-| Occurrences matched to Web of Science | 91,832 |
-| Unmatched occurrences | 68,197 |
+| Occurrences matched to Web of Science | 91,814 |
+| Unmatched occurrences | 68,215 |
 | Web of Science metadata records | 61,264 |
-| Papers cited in multiple chapters | 24,065 |
-| Papers cited in multiple reports | 12,884 |
-| Data-quality flags | 33,571 |
+| Papers cited in multiple chapters | 24,061 |
+| Papers cited in multiple reports | 12,880 |
+| Data-quality flags | 35,300 |
+| Open review cases | 1,720 |
 
-The occurrence-level Web of Science match rate is 57.38%. At paper level, 91,401 works carry either `wos_matched` or `doi_verified`, giving a combined workflow-label share of 80.47%. The builder assigns `doi_verified` to a syntactically valid DOI without a WoS record. It does not independently resolve that DOI or validate its correspondence to the printed reference. These measures use different denominators.
+The occurrence-level Web of Science match rate is 57.37%. At paper level, 91,398 works carry either `wos_matched` or `doi_verified`, giving a combined workflow-label share of 80.46%. The builder assigns `doi_verified` to a syntactically valid DOI without a WoS record. It does not independently resolve that DOI or validate its correspondence to the printed reference. These measures use different denominators.
 
 | Report | Matched occurrences | Total occurrences | Match rate |
 |---|---:|---:|---:|
-| AR6 | 47,053 | 63,027 | 74.7% |
-| AR5 | 17,604 | 27,851 | 63.2% |
+| AR6 | 47,049 | 63,027 | 74.6% |
+| AR5 | 17,593 | 27,851 | 63.2% |
 | AR4 | 5,855 | 16,193 | 36.2% |
 | AR3 | 1,537 | 8,292 | 18.5% |
 | AR2 | 43 | 8,250 | 0.5% |
 | AR1 | 2 | 1,551 | 0.1% |
 | SROCC | 4,957 | 6,309 | 78.6% |
-| SRCCL | 5,098 | 6,712 | 76.0% |
-| SR15 | 3,977 | 5,262 | 75.6% |
+| SRCCL | 5,097 | 6,712 | 75.9% |
+| SR15 | 3,976 | 5,262 | 75.6% |
 | SREX | 1,955 | 4,816 | 40.6% |
-| SRREN | 1,484 | 3,995 | 37.1% |
+| SRREN | 1,483 | 3,995 | 37.1% |
 | 2019REF | 1,205 | 2,626 | 45.9% |
 | 2006GL | 310 | 1,338 | 23.2% |
 | WETLANDS | 545 | 1,026 | 53.1% |
@@ -105,7 +107,7 @@ The collection covers assessment reports AR1 through AR6, synthesis reports, spe
 
 | Page | Use |
 |---|---|
-| Overview | Inspect totals, citation distributions, publication years, and widely cited works. |
+| Overview | Inspect totals, open review cases, citation distributions, publication years, and widely cited works. |
 | Assessment reports | Browse the report hierarchy; inspect printed references and source pages. |
 | Literature | Search by title, DOI, report, working group, year, and verification status. |
 | BI explorer | Compare a metric across a dimension and inspect the SQL behind the result. |
@@ -114,7 +116,7 @@ The collection covers assessment reports AR1 through AR6, synthesis reports, spe
 | Automated insights | Read findings with their supporting data. |
 | Networks | Explore shared literature and co-authorship; inspect communities, centrality, and connected components. |
 | Data quality | Inspect stored flags and run live completeness, identifier, relationship, count, and year-consistency checks. |
-| Unresolved | Review unmatched references and record decisions. |
+| Unresolved | Review unmatched references or select the open review queue across all match statuses; record decisions. |
 | Collection progress | Inspect extraction coverage by chapter. |
 | AI analysis | Ask database questions through an optional model endpoint. |
 | Settings | Change the theme and inspect recent analysis runs. |
@@ -218,14 +220,14 @@ assessment_reports -> working_groups -> chapters -> references_occurrence
 | `references_occurrence` | Printed citations linked to chapters and papers. |
 | `authors`, `paper_authors` | Authors and their ordered links to papers. |
 | `wos_records`, `metadata_sources` | Retained metadata and verification sources. |
-| `data_quality_flags` | Record-level quality checks. |
+| `data_quality_flags` | Record-level quality checks and targeted review flags. |
 | `manual_review`, `change_log` | Review decisions and edit history. |
 | `collection_tasks` | Assignment records, empty in this snapshot. |
 | `analysis_runs`, `analysis_results`, `insights` | Stored analyses and findings. |
 | `build_info` | Snapshot build metadata. |
 | `chapter_references` | Chapter-to-paper associations used by analysis. |
 
-Paper identity follows exact normalized DOI, then normalized title and year. DOI-less occurrences can attach to an existing DOI paper when the title matches and the publication years differ by at most one. Similar titles become candidates for review. The `identity_method` field records the rule used for each paper.
+The original builder linked paper identities by exact normalized DOI, then normalized title and year. DOI-less occurrences could attach to an existing DOI paper when the title matched and the publication years differed by at most one. Version v1.2.0 applies the explicit identity and metadata changes in the [correction ledger](reproducibility/corrections/2026-10-11.json). The `identity_method` field records the rule used for each paper, and `change_log` records the corrected fields.
 
 After restoring the snapshot, any SQLite client can query it directly:
 
@@ -317,7 +319,7 @@ Run these commands from the repository root after Quick start installation. Choo
 The input SHA-256 is:
 
 ```text
-faa7fc711ae4607acfa9833739ec8f202f8aefd6d929b474a12fceb589c5b85d
+a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec
 ```
 
 The runner checks this digest before analysis and again after analysis. `--check-reference` compares 29 complete registered CSV tables with `reproducibility/reference/`. Table headers, row order, and nonnumeric values must agree. Numeric comparisons use absolute and relative tolerances of `1e-10`. `reproduction.json` records the dependency version, input and code hashes, parameters, output hashes, and comparison results. Each step has its own log. The `qc/` directory contains checks of identifiers, joins, resampling margins, and analytical sampling expectations.
@@ -352,7 +354,7 @@ Use fresh output directories. Substitute `analysis-reproduction/results` for the
 | Extraction coverage | Reference occurrences with the selected workflow status divided by all occurrences in the report or working group. |
 | Retention | Distinct IDs shared by the later and earlier reports divided by earlier-report IDs. |
 | Reuse | Shared distinct IDs divided by later-report IDs. |
-| Conditional reuse | Shared eligible matched IDs divided by all later-report matched IDs within the selected publication-year cutoff. All-extracted and DOI-status sensitivities use their respective cohorts. Cutoffs 2012, 2013, and 2014 are reported separately. |
+| Conditional reuse | Shared eligible matched IDs divided by all later-report matched IDs within the selected publication-year cutoff. All-extracted and DOI-status sensitivities use their respective cohorts. Cutoffs 2012, 2013, and 2014 are reported separately. An advance-online article can precede its preferred print year. |
 | First observed in AR6 | AR6 matched IDs absent from every AR5 extracted ID, including unmatched entries. This describes the saved collection. |
 | Reference age | Source publication year minus publication year of the cited work; missing, future, and over-60-year dates have separate counts. |
 | Equal-ID age | Each eligible ID contributes total weight one within a report, shared equally across its eligible occurrences. |
@@ -367,8 +369,8 @@ Use fresh output directories. Substitute `analysis-reproduction/results` for the
 
 | Check | Result |
 |---|---|
-| AR5–AR6 matched-ID overlap | 1,664 shared IDs; AR5 retention 12.32%, AR6 reuse 4.77%. |
-| Symmetric earlier-report presence | 1,665 AR6 matched IDs appear anywhere in AR5. Of 4,160 earlier-publication IDs absent from the AR5 matched cohort, one is present in its unmatched cohort. |
+| AR5–AR6 matched-ID overlap | 1,657 shared IDs among 13,503 AR5 and 34,869 AR6 IDs; AR5 retention 12.27%, AR6 reuse 4.75%. |
+| Symmetric earlier-report presence | 1,658 AR6 matched IDs appear anywhere in AR5. Of 4,160 IDs published by 2013 and absent from the AR5 matched cohort, one is present in its unmatched cohort. |
 | Publication-year-eligible reuse | 34.16%, 28.40%, and 20.47% at cutoffs 2012, 2013, and 2014. |
 | Occurrence-weighted age | Median 4 years in both reports; mean increases from 4.434 to 5.139 years. The 0–5-year fraction decreases from 71.21% to 62.79%. |
 | Equal-ID age | Median increases from 4 to 5 years; mean increases from 4.513 to 5.306 years. |
@@ -377,7 +379,7 @@ Age uncertainty tables describe stability under chapter resampling within this f
 
 Outlet sensitivities compare the preferred labels, conservative punctuation aliases, and registered WoS source titles. The local snapshot and upstream exports lack usable ISSNs. The alias crosswalk records exactly which strings were combined. Named-outlet concentration and richness have separate results; outlet labels do not assign disciplines.
 
-The review worksheet contains 337 IDs and 818 printed entries. It includes a probability sample and targeted anomaly cases, identified separately. Mechanical title, DOI, year, and author flags accompany the raw entries. Human adjudication fields remain unreviewed. Informal spot checks were performed during the original work; retained adjudication records are unavailable. The package estimates no human-validated linkage error rate.
+The corrected review worksheet contains 331 IDs and 801 printed entries: 319 probability-sampled IDs and 12 additional targeted anomaly IDs. Mechanical title, DOI, year, and author flags accompany the raw entries. Human adjudication fields remain unreviewed. The separate correction ledger records AI-assisted comparisons with original citations and primary bibliographic sources. Informal spot checks were performed during the original collection. Population linkage accuracy remains unestimated.
 
 ## Exports and API
 
@@ -402,7 +404,8 @@ bash scripts/export.sh unresolved xlsx AR2
 | `GET /api/data-quality/audit?sample_limit=10` | Live audit with denominators, samples, and SQL. |
 | `GET /api/networks/report-report?limit=300` | Graph, centrality, communities, and scope. |
 | `GET /api/networks/report-report/export?fmt=graphml&limit=300` | GraphML export; also accepts `gexf` and `csv`. |
-| `GET /api/unresolved` | Unmatched references and review status. |
+| `GET /api/unresolved` | Unmatched references and review status; `review_queue=true` selects open review cases across match statuses. |
+| `GET /api/export/unresolved.csv?review_queue=true` | Export the selected open review queue; also accepts JSON, XLSX, BibTeX, and RIS. |
 | `GET /api/export/papers.csv?report_id=AR6` | Filtered export. |
 
 The [interactive API documentation](http://127.0.0.1:8077/docs) describes parameters and review endpoints.
@@ -429,7 +432,7 @@ The upstream inputs and extraction environment remain in the original project wo
 
 The retained `wos_records` fields are record ID, DOI, article title, source title, publication year, document type, and Web of Science UID. Subscription payloads such as abstracts and cited-reference lists were removed from the delivery database.
 
-Snapshot provenance paths are relative to the source workspace. Citation text and bibliographic identifiers retain their original values. `database/snapshot.json` records the packaged file hashes.
+Snapshot provenance paths are relative to the source workspace. Every occurrence ID, chapter, source, page and printed reference remains unchanged. Corrected paper identities and bibliographic fields are recorded in the versioned ledger and database change log. `database/snapshot.json` records the packaged file hashes and the original snapshot digest.
 
 ### Manual Web of Science export convention
 
@@ -445,30 +448,69 @@ Match rates describe the collection run and its bibliographic coverage. Older as
 |---|---:|
 | Missing DOI | 26,236 |
 | Missing journal | 5,457 |
+| Matched-DOI chronology review | 1,728 |
 | Possible duplicate title | 974 |
 | Missing title | 379 |
 | Missing author | 284 |
 | Missing year | 114 |
 | Invalid DOI | 103 |
 | Suspicious year | 24 |
+| Compound extraction block | 1 |
 
-These are stored flags from the collection run. Live completeness counts both NULL and blank fields: 4,169 reference occurrences lack a publication year, giving 97.39% year completeness.
+The completeness and duplicate flags come from the original collection run. Version v1.2.0 adds chronology and compound-extraction flags. Live completeness counts both NULL and blank fields: 4,169 reference occurrences lack a publication year, giving 97.39% year completeness.
 
 Run the live audit to recalculate missing fields, DOI syntax, normalized DOI duplicates, parent-child relationships, stored citation counters, and year consistency. Each of its 21 checks records the affected grain, count, denominator, percentage, query, and bounded sample. Report-level completeness includes zero-reference reports with null percentages. A malformed DOI is a syntax finding; identifier existence requires a registry lookup.
 
 Two year checks identify citations for review: a preferred paper year later than the source's unambiguous publication year, and a first printed year token that differs from the preferred metadata. Review the printed citation, source page, and linked record to resolve these candidates. Printed references can contain several dates, editions, and numbers that resemble years. The audit reads the current database and provides a JSON download with its evidence and query provenance.
 
-The flag table and the broader duplicate analysis use different candidate rules. The stored duplicate analysis identifies 976 title groups for inspection.
+Stored duplicate flags and live duplicate analyses use different candidate rules. The original collection audit in `data/processed/` identified 974 possible duplicate-title groups for inspection. These retained files describe the original builder output; corrected live analyses read the v1.2.0 database.
 
 Two extractions of AR6 WG2 Annex I share 35 papers. The stored duplicate-unit analysis also identifies overlapping AR4 synthesis-report extractions. Both sets remain available for source comparison. Forty-eight units carry `qc_warn` extraction status.
 
-The deduplication audit records 756 papers with publication-year conflicts and 1,054 with title variants. Compare the printed citations and source pages when reviewing these works.
+The original deduplication audit recorded 756 papers with publication-year conflicts and 1,054 with title variants. Compare the printed citations and source pages when reviewing these candidates.
 
-The unresolved queue records review status, assignee, and notes. Reference edits require a reason and create a change-log entry with the actor, timestamp, previous value, and new value. Back up the working database before replacing it: review history and later analysis runs are stored there.
+The Unresolved page opens unmatched references by default. Select **Open review queue** to show distinct occurrences with an `open` or `in_progress` review, including matched DOI candidates. The corrected snapshot has 1,720 open cases: 1,719 chronology candidates and one compound extraction block. Applied report, chapter, working-group, match-status, text-search and DOI-presence filters carry through to queue exports. The overview and Data quality page display **Open review cases** separately from unmatched-reference counts.
+
+CSV, JSON and XLSX queue exports include the review status and reason. Their provenance records `review_queue=true`. BibTeX and RIS retain their bibliographic formats.
+
+The queue records review status, assignee, reason and notes. Reference edits require a reason and create a change-log entry with the actor, timestamp, previous value, and new value. Back up the working database before replacing it: review history and later analysis runs are stored there.
 
 The quality score is mean title, author, year, journal, and DOI completeness minus half the unresolved rate. Check component rates and flagged records when interpreting it.
 
 Further collection work includes source-level duplicate review, publication-year checks, metadata verification for early reports, and recording researcher assignments. Shared deployment also needs a hosting location and an access-control arrangement.
+
+## Snapshot corrections
+
+Version v1.2.0 follows a targeted comparison of the original references with publisher and institutional records. The [field ledger](reproducibility/corrections/2026-10-11.json) lists each old and new value, affected occurrence and evidence URL. The [original occurrence export](reproducibility/corrections/original_occurrences.csv) retains the inspected entries. The database records 46 resolved source-inspection decisions with the actor `Codex`.
+
+The 11 nominated shared IDs cover five false mergers (`26271`, `26560`, `28296`, `31985`, `35229`), two valid shared identities with incorrect metadata (`28347`, `29105`), one wrong enrichment and duplicate identity (`35431`), and three valid advance-online articles (`32928`, `33835`, `35438`). The three advance-online articles were available in 2013 and printed in 2015. Their identities remain linked. The original AMPERE article assigned to `35431` joins existing ID `70675`; its verified online date is 11 March 2014 and its preferred print year is 2015.
+
+The repair also separates an additional Klein chapter occurrence from ID `17259` and restores that ID's remaining original reference. It merges `7174` into the corrected Crutzen and Stoermer identity `28347`. A compound reference block under ID `104503` remains unchanged and has an open extraction-review case. One AR6 Fedrigo reference prints another article's DOI. Its derived DOI is corrected using the cited authors, pages and Wiley record; the printed DOI stays in the raw reference.
+
+All 160,029 occurrence IDs and their original reference text, chapter, source and page are preserved. The corrected corpus has 113,594 paper identities. Matched AR5–AR6 overlap changes from 1,664 to 1,657 IDs; retention changes from 12.32% to 12.27% and reuse from 4.77% to 4.75%. The registered tables use the corrected snapshot.
+
+The original snapshot remains available in [commit `6676e49`](https://github.com/Karcen/ipcc_litdb/tree/6676e496f30975ec95fdde514816639458de1cfe). Its restored SQLite SHA-256 is:
+
+```text
+faa7fc711ae4607acfa9833739ec8f202f8aefd6d929b474a12fceb589c5b85d
+```
+
+Replay the correction after installing the project dependencies. Choose a fresh directory:
+
+```bash
+mkdir snapshot-replay
+git show 6676e49:database/ipcc_litdb.sqlite.gz > snapshot-replay/original.sqlite.gz
+gzip -dc snapshot-replay/original.sqlite.gz > snapshot-replay/original.sqlite
+python scripts/correct_record_links.py \
+  --source snapshot-replay/original.sqlite \
+  --destination snapshot-replay/corrected.sqlite \
+  --corrections reproducibility/corrections/2026-10-11.json \
+  --report snapshot-replay/correction-report.json
+```
+
+The script checks the original digest and each expected old value. It validates the corrected foreign keys, chapter crosswalk, paper counters, unique DOIs and raw-occurrence digest. It refreshes the cached analyses and writes the corrected digest and checks to the report. Existing inputs and output files are preserved.
+
+The chronology rule queues `matched_doi` occurrences whose preferred year exceeds the source's unambiguous publication year or differs from the first printed year by more than one. The parser accepts year suffixes such as `2013a`. The snapshot contains 1,728 chronology flags. Nine have documented targeted decisions; 1,719 remain open. Verified advance-online dates resolve several flagged cases. Targeted source inspections and the unreviewed probability worksheet have separate records. Population linkage accuracy remains unestimated.
 
 ## PostgreSQL
 
@@ -514,13 +556,13 @@ API_BASE=http://127.0.0.1:8077 python -m pytest tests/test_frontend_smoke.py -q
 
 The 38 browser tests cover all thirteen dashboard pages, themes, applied export filters, report comparisons, live audits, network controls, and downloaded data and images. GitHub Actions runs the database, API, and script checks.
 
-The 11 October 2026 package passed 290 tests in 107.22 seconds with Python 3.12, plus 50 project checks. A fresh Docker volume passed 68 API and browser tests in 18.19 seconds, plus 24 checks covering snapshot restoration, live analyses, graph exports, shipped frontend assets, and persistent state.
+Correction tests cover expected-value preconditions, immutable raw occurrences, replay determinism, identity splits and merges, author relationships, bibliographic year decisions, review-queue selection, and snapshot counters.
 
 ## GitHub distribution
 
 The source repository is [Karcen/ipcc_litdb](https://github.com/Karcen/ipcc_litdb). Clone it or extract a source ZIP, then follow the Quick start commands.
 
-The compressed snapshot is about 70 MiB; the restored database is about 235 MiB and is ignored by Git. Use Git to publish a fork with the snapshot because [GitHub's browser uploader accepts files up to 25 MiB, while regular Git blocks files larger than 100 MiB](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github).
+The compressed snapshot is about 70 MiB; the restored database is about 238 MiB and is ignored by Git. Use Git to publish a fork with the snapshot because [GitHub's browser uploader accepts files up to 25 MiB, while regular Git blocks files larger than 100 MiB](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github).
 
 ## Troubleshooting
 

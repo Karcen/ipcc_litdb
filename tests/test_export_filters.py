@@ -53,7 +53,7 @@ def client(tmp_path, monkeypatch, db_path):
             ("r3", "AR6B", 1, 2, "matched_doi"), ("r4", "AR5A", 1, 2, "matched_doi"),
             ("r5", "AR6A", 2, 2, "unmatched"), ("r6", "AR6A", 2, 3, "unmatched"),
             ("r7", "AR6C", 3, 1, "unmatched"), ("r8", "AR6A", 4, 4, "unmatched"),
-            ("r9", "AR5A", 5, 5, "matched_doi"), ("r10", "AR6C", 6, 6, "unmatched"),
+            ("r9", "AR5A", 5, 5, "matched_title"), ("r10", "AR6C", 6, 6, "unmatched"),
         ]
         for occurrence, chapter, paper, page, status in occurrences:
             row = papers[paper - 1]
@@ -64,6 +64,17 @@ def client(tmp_path, monkeypatch, db_path):
                 VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
                 (occurrence, chapter, paper, page, status, row[1], row[2],
                  None if paper == 6 else row[3], row[4], row[5], "Printed " + row[1]))
+        connection.executemany("""INSERT INTO manual_review(occurrence_id,status,reason,note)
+            VALUES (?,?,?,?)""", [
+            ("r1", "open", "Initial chronology check", "Initial candidate"),
+            ("r2", "open", "Printed citation requires comparison", "Source check"),
+            ("r3", "resolved", "Online date verified", "Identity retained"),
+            ("r4", "wont_fix", "Source retained", "Closed case"),
+            ("r7", "in_progress", "Title link requires comparison", "Work in progress"),
+            ("r9", "open", "Publication year requires comparison", "Title match candidate"),
+            ("r10", "open", "Compound extraction candidate", "Source block"),
+            ("r1", "in_progress", "Latest chronology check", "Latest review"),
+        ])
     engine = create_engine(f"sqlite:///{fixture}", connect_args={"check_same_thread": False})
     monkeypatch.setattr(db, "_engine", engine)
     with TestClient(api.app) as session:
@@ -188,3 +199,52 @@ def test_year_completeness_excludes_empty_and_null_fields(client):
     statistics = client.get("/api/statistics").json()
     assert statistics["totals"]["references"] == 10
     assert statistics["completeness"]["year"] == 80.0
+
+
+def test_review_queue_counts_distinct_open_cases_separately_from_unmatched(client):
+    statistics = client.get("/api/statistics").json()["totals"]
+    quality = client.get("/api/data-quality").json()["summary"]
+    assert statistics["open_review_cases"] == quality["open_review_cases"] == 5
+    assert statistics["manual_review_required"] == quality["manual_review_required"] == 6
+    assert statistics["manual_review_required"] == statistics["unmatched"]
+    default = client.get("/api/unresolved", params={"size": 100}).json()
+    assert default["total"] == 6 and default["review_queue"] is False
+    assert all(row["match_status"] == "unmatched" for row in default["items"])
+
+
+@pytest.mark.parametrize("filters,expected", [
+    ({}, ["r9", "r1", "r2", "r7", "r10"]),
+    ({"status": "matched_doi"}, ["r1"]),
+    ({"status": "matched_title"}, ["r9"]),
+    ({"status": "unmatched"}, ["r2", "r7", "r10"]),
+    ({"report_id": "AR5"}, ["r9"]),
+    ({"working_group": "WG2"}, ["r7", "r10"]),
+    ({"chapter_id": "AR6A", "q": "carbon"}, ["r1", "r2"]),
+    ({"only_doi_less": "true"}, ["r10"]),
+])
+def test_open_review_queue_includes_match_statuses_and_preserves_filters_and_exports(client, filters, expected):
+    filters = {**filters, "review_queue": "true"}
+    listing = client.get("/api/unresolved", params={**filters, "size": 100}).json()
+    assert listing["review_queue"] is True
+    assert listing["total"] == len(expected)
+    assert [row["occurrence_id"] for row in listing["items"]] == expected
+    assert all(row["review_status"] in {"open", "in_progress"} and row["review_reason"] for row in listing["items"])
+    response = client.get("/api/export/unresolved.json", params={**filters, "limit": 100})
+    assert response.status_code == 200, response.text
+    exported = response.json()
+    assert [row["occurrence_id"] for row in exported["rows"]] == expected
+    assert exported["provenance"]["total_matches"] == len(expected)
+    assert "review_queue=True" in exported["provenance"]["filters"]
+    assert all(row["review_status"] in {"open", "in_progress"} and row["review_reason"] for row in exported["rows"])
+    if "r1" in expected:
+        latest = next(row for row in listing["items"] if row["occurrence_id"] == "r1")
+        assert latest["review_status"] == "in_progress"
+        assert latest["review_reason"] == "Latest chronology check"
+        assert latest["review_note"] == "Latest review"
+
+
+def test_review_queue_pagination_counts_occurrences_without_duplicate_reviews(client):
+    pages = [client.get("/api/unresolved", params={"review_queue": "true", "page": page, "size": 2}).json()
+             for page in range(1, 4)]
+    assert all(page["total"] == 5 for page in pages)
+    assert [row["occurrence_id"] for page in pages for row in page["items"]] == ["r9", "r1", "r2", "r7", "r10"]

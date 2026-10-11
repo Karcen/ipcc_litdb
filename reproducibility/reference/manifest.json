@@ -1,5 +1,5 @@
 {
-  "database_sha256": "faa7fc711ae4607acfa9833739ec8f202f8aefd6d929b474a12fceb589c5b85d",
+  "database_sha256": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
   "seed": 20261011,
   "numpy_version": "2.2.6",
   "age_network_replicates": 2500,
@@ -7,31 +7,31 @@
   "tables": [
     {
       "filename": "coverage.csv",
-      "sha256": "7652dfe57b9df63b08f07c3e7233e0cbb3638b76d24a54032c4a1956cc261426"
+      "sha256": "259c59b73631b2c5422bb5216dc91b0c7e5075202018bdee18769b5664d36ab1"
     },
     {
       "filename": "citation_age_matched.csv",
-      "sha256": "86ee1dd1beeadaa3ffa2cc73252ed0bca3f987fcf21bbdb54586a3637e9bbb3c"
+      "sha256": "efae3e22e175380cb644445b177bbdbeed4351e1f6b36c82228af47f6bd82503"
     },
     {
       "filename": "transitions.csv",
-      "sha256": "331dee927c31f735ad1cda7cd09fe83e64200655efee35e2e974ecc36e0b36ea"
+      "sha256": "773c77cf3da396db6a226ed5e35a65521334369de33985d5af34dfef9bc2246f"
     },
     {
       "filename": "revision_identity_transitions.csv",
-      "sha256": "761cadf3a6e61d741b6890c32a63e21dd6fd594aa5e3498459681a4e15784dd5"
+      "sha256": "293b6cf6574f042236795cd881722e7e4803b0cfbd4ed76de3537b7aa961264f"
     },
     {
       "filename": "revision_identity_status_coverage.csv",
-      "sha256": "7005af7a10721d31b002c85989a8e0d9c4b3c211de09de97c3bdd29ffbca574d"
+      "sha256": "9bb152938aea76e07c2c3ce02e3abd402241885a25b5666eded044ea1e661f00"
     },
     {
       "filename": "revision_identity_status_combinations.csv",
-      "sha256": "84c19b0978526973031d5b1e58a6c4d522ab6c7c63e3d7b7ae6191f1f0aa811a"
+      "sha256": "0fd7a1403f9be31e7ab2736e264f1424edb4b4c6b579d41655a81e7c28f43df2"
     },
     {
       "filename": "revision_identity_eligible_reuse.csv",
-      "sha256": "2aac758ad5e6cb94578eb8c55126ed2520cff931337aebc94d45122f7029b317"
+      "sha256": "0ec71cb211b20fe20676f1f5295028b4d5bc24e2f3143271bcfc714ea424fa69"
     },
     {
       "filename": "revision_identity_earlier_incoming_partition_summary.csv",
@@ -47,75 +47,75 @@
     },
     {
       "filename": "revision_identity_independent_raw_baselines.csv",
-      "sha256": "c67bc276848c35501b43c7340f3db3b486823fa111f5505095fd0903c188fe93"
+      "sha256": "d2c9135ce9712030fdcb694d395b0eb1586992492de93f062f6fa8ab65dbe9f1"
     },
     {
       "filename": "revision_identity_raw_consistency_census.csv",
-      "sha256": "896521b4cb9a9b1d9b4a0add096c2a746e397251ee4f2da841b8ba51a328b699"
+      "sha256": "852486064ee0a7b86b91ba33068c40d91bad60e9b74f2d5caf4b02a58aa5e1b4"
     },
     {
       "filename": "revision_identity_raw_year_age_summaries.csv",
-      "sha256": "a4b0d1b6a61063eeb33a7e1d892e4e20ec74c20e9ab7404c90ca3b2256010d15"
+      "sha256": "9c15ebe1b374f167fd5d951c22e8824ab9ce0b7a05d7a21f9786c1a71d141508"
     },
     {
       "filename": "revision_identity_raw_year_eligible_reuse.csv",
-      "sha256": "392d8d1255c99c622e315e3c310cc2f3513a07224cc729afa5d5c8a683f5ed26"
+      "sha256": "08727005d3e618d0d3a2cc6bd24a27d13cb2b828ddf82815fe50ef726811fa37"
     },
     {
       "filename": "revision_identity_flagged_sensitivity.csv",
-      "sha256": "cfd489b7a5eed9d238a8f30fe233f1033fc91f5cf78010bd7714a06fb68bd859"
+      "sha256": "5f66bc5bbc50a04dd02efbbfbd4fc1c8fe8770ee09890a1aa035927d25a0f5cb"
     },
     {
       "filename": "revision_age_summary.csv",
-      "sha256": "43895d7d6a4dc0a6953185352efff2b589518b023cfb12f6f71c6130ef38b3fc"
+      "sha256": "9c8b3f69d91a0622c725a74e482242dd4130399ff5b4a7211709b0dc980353e1"
     },
     {
       "filename": "revision_age_differences.csv",
-      "sha256": "53cd7ad0697e3fc38ea5a1a011478aca93081bdb1112eba99e4f4b9bf09ea244"
+      "sha256": "1ea8cdc9aac56d426befcc76197fd419afe2a60e640aad097e688442c1b65da2"
     },
     {
       "filename": "revision_age_bootstrap_intervals.csv",
-      "sha256": "1ec261c7205b81c073d3651ed86b148611df75d5dc16cc3c14c3020d14ea2c91"
+      "sha256": "2f981c7aa1fe0c5cb0894d44486a8642d2663f6f4c42bbfe48dd616821f862b9"
     },
     {
       "filename": "revision_network_coverage.csv",
-      "sha256": "8f5d087ccf427487efcb7038a7a8e7a197c2e00010c824338784c86bcbefc10f"
+      "sha256": "3de6d6c1685aea4bd8c449745c8e82bc00781ffefcf9048bbddb0ddd9fb25126"
     },
     {
       "filename": "revision_network_overlap_trends.csv",
-      "sha256": "02814579fa884f48ccff8a117415c45a65c472ae5b2b173f8fe5a4c4a8b0b1ae"
+      "sha256": "21169d49844944236b30f714825ad68741a1a1bfdedd5f3443a3c9909ab94574"
     },
     {
       "filename": "revision_network_retention_sensitivity.csv",
-      "sha256": "753f4e7e71a925af093603c1bf6b9e3e210507b1a9ad20b6f921beda26731c07"
+      "sha256": "8488f40f314cee5985de98ad54af0fcaaff8b5c438c5d5cd3501806fa1aa71ed"
     },
     {
       "filename": "revision_network_conditional_null.csv",
-      "sha256": "b53940270354754e62271f7d43972e573ec627b77013e0235496527d8e039e23"
+      "sha256": "d396b4f46aa26dad338898d7dc761eab14a03da7db86729924fce3c1fffc8dbb"
     },
     {
       "filename": "revision_age_ecdf.csv",
-      "sha256": "ce33f36d6e3b7c71a877fc9bafabf47f2892b8eda466b85e8e1fbd8aaed00f4d"
+      "sha256": "9ccc93bc20fbe7bc53a8ce2ebff63aaa4711f1dfba73306ed94e6dbb186dfe1e"
     },
     {
       "filename": "revision_identity_audit_sample_summary.csv",
-      "sha256": "bb0461d93407c54726284817bdeead7d8d001553f78b08665a25c75ea27aeae2"
+      "sha256": "8612c09e819e76957d56e6caa0a6a06ebeac1e9bfa5b2f5b499d915f559f08ea"
     },
     {
       "filename": "revision_outlet_hill_numbers.csv",
-      "sha256": "08232b5a2b5f3e881bbf1186c3cbcf43e9e5b62b49af5b9bbdd7f1b3ca5bebac"
+      "sha256": "92f680b0628f27dcc55f543e1e207990b59d167ed7077ccd161965728cd171b1"
     },
     {
       "filename": "revision_outlet_rarefaction_summary.csv",
-      "sha256": "2afb8c13b6af643ea5eed20c7feca7e73f2f8a5c3640b60994fe962eb5edab6d"
+      "sha256": "e1440002412c34503c679d851fb3c70e8506d7938e4dad6cc9f83d5f62591fa2"
     },
     {
       "filename": "revision_outlet_rarefaction_differences.csv",
-      "sha256": "0615d463aea7db2609630e87f3a8ae2742c5f7064a361093fe5d8dae7f16c8c3"
+      "sha256": "75574eed2adeb7e00050a7a05ef487697f875ac2f2bb0685131f9836f870dbed"
     },
     {
       "filename": "revision_outlet_coverage_summary.csv",
-      "sha256": "b8586df4d74d4b18fdeb71d4268a1717080217553001006a4ff20986ab2af613"
+      "sha256": "e454b3a7a571370270c3e1718d13496255b4082288dae79bc125f06cdb8cbd7e"
     },
     {
       "filename": "revision_outlet_title_variants.csv",
@@ -131,5 +131,6 @@
     ],
     "outlet_weighting": "one per distinct paper_id within report/cohort"
   },
-  "scope": "Snapshot analysis; automated consistency checks and unreviewed audit sampling"
+  "scope": "Snapshot analysis; automated consistency checks and unreviewed audit sampling",
+  "snapshot_version": "v1.2.0"
 }

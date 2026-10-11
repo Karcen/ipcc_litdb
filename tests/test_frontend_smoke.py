@@ -102,6 +102,33 @@ def downloaded_bytes(page, selector):
     return Path(event.value.path()).read_bytes()
 
 
+def test_open_review_queue_shows_matched_candidates_and_exports_the_applied_queue(page):
+    page.click('#tabs button[data-view="quality"]')
+    page.wait_for_selector('#quality-cards [data-flag="open_review_cases"]')
+    with page.expect_response(lambda response: "/api/unresolved?" in response.url and "review_queue=true" in response.url) as event:
+        page.click('#quality-cards [data-flag="open_review_cases"]')
+    queue = event.value.json()
+    page.wait_for_function("UNRESOLVED_QUERY?.includes('review_queue=true')")
+    assert page.is_checked("#u-review-queue")
+    assert queue["review_queue"] is True and queue["total"] > 0
+    assert all(row["review_status"] in {"open", "in_progress"} for row in queue["items"])
+    assert any(row["match_status"] == "matched_doi" for row in queue["items"])
+    assert "WoS · DOI" in page.inner_text("#tbl-unresolved")
+    assert queue["items"][0]["review_reason"] in page.inner_text("#tbl-unresolved")
+    text = downloaded_bytes(page, '[data-export="unresolved.csv"]').decode("utf-8-sig")
+    rows = list(csv.DictReader(io.StringIO(text.split("\n", 1)[1])))
+    assert len(rows) == queue["total"]
+    assert len({row["occurrence_id"] for row in rows}) == len(rows)
+    assert all(row["review_status"] in {"open", "in_progress"} and row["review_reason"] for row in rows)
+    page.uncheck("#u-review-queue")
+    with page.expect_response(lambda response: "/api/unresolved?" in response.url and "review_queue=true" not in response.url) as event:
+        page.click("#btn-u-search")
+    unmatched = event.value.json()
+    page.wait_for_function("UNRESOLVED_QUERY && !UNRESOLVED_QUERY.includes('review_queue=true')")
+    assert unmatched["review_queue"] is False
+    assert all(row["match_status"] == "unmatched" for row in unmatched["items"])
+
+
 @pytest.mark.parametrize("chart", ["chart-reports", "chart-wg", "chart-year", "chart-completeness"])
 def test_overview_chart_csv_matches_source_data(page, chart):
     page.click('#tabs button[data-view="overview"]')

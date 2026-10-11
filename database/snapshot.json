@@ -3,27 +3,37 @@
   "packaged_date": "2026-10-11",
   "compressed": {
     "file": "ipcc_litdb.sqlite.gz",
-    "bytes": 73537356,
-    "sha256": "133e91c7b27c78142b15b363e65823e2c217f8940b87e08ad3163b30427d4830"
+    "bytes": 73814220,
+    "sha256": "4008a6f22953633bb24fdaa6038318f07ad7f802f122f9bdf2935f9f5564b4aa"
   },
   "uncompressed": {
     "file": "ipcc_litdb.sqlite",
-    "bytes": 246738944,
-    "sha256": "faa7fc711ae4607acfa9833739ec8f202f8aefd6d929b474a12fceb589c5b85d"
+    "bytes": 249151488,
+    "sha256": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec"
   },
   "counts": {
     "reports": 36,
     "working_groups": 43,
     "chapters": 677,
-    "papers": 113591,
+    "papers": 113594,
     "reference_occurrences": 160029,
-    "wos_matched_occurrences": 91832,
-    "unmatched_occurrences": 68197
+    "wos_matched_occurrences": 91814,
+    "unmatched_occurrences": 68215
   },
   "packaging_changes": [
     "Application-generated insight translations replaced with English.",
     "Source machine paths changed to upstream-relative paths.",
-    "Derived analyses and English insights regenerated with analytics-1.1.0."
+    "Derived analyses and English insights regenerated with analytics-1.1.0.",
+    "Targeted reference-identity corrections applied with a field-level ledger; all original occurrence provenance preserved.",
+    "Chronology candidates added to the review queue; targeted source decisions recorded as AI-assisted inspections.",
+    "Derived analyses and English insights refreshed after identity corrections."
   ],
-  "analysis_refresh_date": "2026-10-11"
+  "analysis_refresh_date": "2026-10-11",
+  "snapshot_version": "v1.2.0",
+  "correction_date": "2026-10-11",
+  "base_snapshot": {
+    "commit": "6676e496f30975ec95fdde514816639458de1cfe",
+    "sha256": "faa7fc711ae4607acfa9833739ec8f202f8aefd6d929b474a12fceb589c5b85d",
+    "ledger": "reproducibility/corrections/2026-10-11.json"
+  }
 }

@@ -1,7 +1,7 @@
 report,normalization,full_known_ids,matched_known_ids,total_variation_distance
-AR4,casefold_whitespace,10732,4393,0.502580045728902
-AR4,conservative_title_tokens,10732,4393,0.5023936871750444
-AR5,casefold_whitespace,21591,13504,0.3316190355501821
-AR5,conservative_title_tokens,21591,13504,0.33149866782302
-AR6,casefold_whitespace,47009,34853,0.2374577700256406
-AR6,conservative_title_tokens,47009,34853,0.23733952573427622
+AR4,casefold_whitespace,10733,4393,0.5026244606344055
+AR4,conservative_title_tokens,10733,4393,0.5024381194436852
+AR5,casefold_whitespace,21591,13497,0.3319024501546559
+AR5,conservative_title_tokens,21591,13497,0.33178204402155703
+AR6,casefold_whitespace,47009,34849,0.23751888380433073
+AR6,conservative_title_tokens,47009,34849,0.23740066256597134

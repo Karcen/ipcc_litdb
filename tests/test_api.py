@@ -50,6 +50,27 @@ def test_statistics_totals_match_the_database(db_path):
     assert d["totals"]["papers"] == con.execute("SELECT COUNT(*) FROM papers").fetchone()[0]
 
 
+def test_explicit_review_queue_matches_open_cases_and_retains_match_status(db_path):
+    import sqlite3
+
+    with sqlite3.connect(f"file:{db_path}?mode=ro", uri=True) as connection:
+        expected = connection.execute(
+            "SELECT COUNT(DISTINCT occurrence_id) FROM manual_review WHERE status IN ('open','in_progress')"
+        ).fetchone()[0]
+        unmatched = connection.execute("SELECT COUNT(*) FROM references_occurrence WHERE match_status='unmatched'").fetchone()[0]
+    _, statistics = get("/api/statistics")
+    _, quality = get("/api/data-quality")
+    _, queue = get("/api/unresolved?review_queue=true&size=25")
+    _, default = get("/api/unresolved?size=25")
+    assert statistics["totals"]["open_review_cases"] == quality["summary"]["open_review_cases"] == queue["total"] == expected
+    assert statistics["totals"]["manual_review_required"] == default["total"] == unmatched
+    assert queue["review_queue"] is True and default["review_queue"] is False
+    assert len({row["occurrence_id"] for row in queue["items"]}) == len(queue["items"])
+    assert all(row["review_status"] in {"open", "in_progress"} for row in queue["items"])
+    assert all("match_status" in row and "review_reason" in row for row in queue["items"])
+    assert all(row["match_status"] == "unmatched" for row in default["items"])
+
+
 def test_bi_query_returns_sql_and_rows():
     _, d = get("/api/bi/query?metric=reference_count&dimension=report")
     assert "SELECT" in d["sql"].upper()

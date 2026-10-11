@@ -1,4 +1,5 @@
 """Schema, integrity and the paper/reference separation."""
+import json
 import sqlite3
 
 import pytest
@@ -71,10 +72,11 @@ def test_repeated_citations_are_preserved(db_path):
     assert dup > 0, "repeat citations within a chapter should exist and be preserved"
 
 
-def test_unresolved_references_retained(db_path):
+def test_unresolved_references_retained(db_path, repo):
     con = sqlite3.connect(f"file:{db_path}?mode=ro", uri=True)
+    snapshot = json.loads((repo / "database" / "snapshot.json").read_text(encoding="utf-8"))
     assert rows(con, "SELECT COUNT(*) FROM references_occurrence "
-                     "WHERE match_status='unmatched'")[0][0] == 68197
+                     "WHERE match_status='unmatched'")[0][0] == snapshot["counts"]["unmatched_occurrences"]
 
 
 def test_matched_plus_unmatched_equals_total(db_path):

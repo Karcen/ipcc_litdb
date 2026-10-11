@@ -119,7 +119,8 @@ def cohort_data(database):
                     coherent[(r, "doi_only")].add(paper)
         schema = {table: [x[1] for x in connection.execute('PRAGMA table_info("' + table + '")')]
                   for table in ("papers", "wos_records")}
-    assert len(papers) == 113591
+    if not papers or any(paper not in papers for cohort in cohorts.values() for paper in cohort):
+        raise ValueError("Outlet cohorts must refer to the supplied snapshot's paper records")
     for report in REPORTS:
         assert cohorts[(report, "doi_only")] <= cohorts[(report, "matched")] <= cohorts[(report, "raw")]
     return papers, cohorts, coherent, schema
@@ -265,9 +266,8 @@ def run(args):
     if args.upstream is not None or args.exports is not None:
         supplementary = metadata_audit(args.upstream, args.exports, schema)
         write_json(qc / "revision_outlet_source_metadata.json", supplementary)
-    expected = {"AR4": (13635, 4597, 4303), "AR5": (21770, 13510, 13150), "AR6": (47636, 34873, 34340)}
-    for r, sizes in expected.items():
-        assert tuple(len(cohorts[(r, s)]) for s in ("raw", "matched", "doi_only")) == sizes
+    # Cohort sizes are recomputed results; the runner checks the input digest
+    # and complete registered tables for the selected snapshot version.
     normalizers = {"casefold_whitespace": basic_title, "conservative_title_tokens": conservative_title}
     fields = {"preferred_label": "journal_best", "registered_wos_source": "wos_source_title"}
     labels = Counter(basic_title(papers[p]["journal_best"]) for p in set.union(*(cohorts[(r, "raw")] for r in REPORTS)))

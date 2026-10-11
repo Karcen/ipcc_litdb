@@ -1,0 +1,688 @@
+{
+  "audit_date": "2026-10-11",
+  "reviewer": "Codex; AI-assisted targeted record and primary-source audit",
+  "method": "Read-only inspection of every occurrence for six nominated IDs and all four occurrences of an existing duplicate target; publisher or author-institution verification. This is not a stratified human validation study and yields no population linkage error rate.",
+  "original_database_sha256": "faa7fc711ae4607acfa9833739ec8f202f8aefd6d929b474a12fceb589c5b85d",
+  "n_nominated_ids": 6,
+  "n_nominated_occurrences": 24,
+  "n_additional_target_occurrences": 4,
+  "raw_case_export": "linkage_cases_b.csv",
+  "cases": [
+    {
+      "paper_id": 31985,
+      "classification": "false_identity_merge",
+      "finding": "The AR5 entry is a 2012 three-author white paper. The AR6 entry is a 2018 four-author journal article. Matching titles do not establish one document identity.",
+      "current_paper": {
+        "paper_id": 31985,
+        "doi_norm": "10.1371/journal.pone.0190641",
+        "title_norm": "characterizing uncertain sea level rise projections to support investment decisions",
+        "title_best": "Characterizing uncertain sea-level rise projections to support investment decisions",
+        "year_best": "2018",
+        "journal_best": "PLOS ONE",
+        "authors_best": "Sriver, Ryan L.; Lempert, Robert J.; Wikman-Svahn, Per; Keller, Klaus",
+        "first_author_surname": "sriver",
+        "identity_method": "doi",
+        "n_occurrences": 2,
+        "n_chapters": 2,
+        "n_reports": 2,
+        "wos_record_id": "WOS:WOS:000424325300009",
+        "metadata_source": "wos",
+        "verification_status": "wos_matched"
+      },
+      "occurrence_ids": [
+        "AR5-WG2-Chapter 5-00297",
+        "AR6-WG2-Ch17-01105"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.rand.org/pubs/external_publications/EP51475.html",
+          "type": "author_institution_record",
+          "facts": "Lempert, Sriver and Keller; California Energy Commission white paper CEC-500-2012-056; July 2012."
+        },
+        {
+          "url": "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0190641",
+          "type": "publisher_article",
+          "facts": "Sriver, Lempert, Wikman-Svahn and Keller; PLOS ONE 13(2), e0190641; published 7 February 2018."
+        }
+      ],
+      "actions": [
+        {
+          "action": "split_occurrence_to_new_paper",
+          "occurrence_id": "AR5-WG2-Chapter 5-00297",
+          "new_paper": {
+            "title_best": "Characterizing Uncertain Sea Level Rise Projections to Support Investment Decisions",
+            "year_best": "2012",
+            "journal_best": "California Energy Commission",
+            "authors_best": "Lempert, Robert J.; Sriver, Ryan L.; Keller, Klaus",
+            "first_author_surname": "lempert",
+            "doi_norm": null,
+            "identity_method": "author_title_year",
+            "authors": [
+              {
+                "surname": "Lempert",
+                "given": "Robert J.",
+                "full_name": "Robert J. Lempert"
+              },
+              {
+                "surname": "Sriver",
+                "given": "Ryan L.",
+                "full_name": "Ryan L. Sriver"
+              },
+              {
+                "surname": "Keller",
+                "given": "Klaus",
+                "full_name": "Klaus Keller"
+              }
+            ]
+          },
+          "occurrence_fields": {
+            "parsed_title": "Characterizing Uncertain Sea Level Rise Projections to Support Investment Decisions",
+            "parsed_authors": "Lempert, Robert J.; Sriver, Ryan L.; Keller, Klaus",
+            "parsed_journal": "California Energy Commission",
+            "parsed_year": "2012",
+            "doi_norm": null,
+            "doi_source": null,
+            "match_status": "unmatched",
+            "match_confidence": null,
+            "wos_uid": null,
+            "wos_record_id": null
+          },
+          "reason": "The white paper precedes the PLOS article by six years and has a different author order and author list. Remove the wrong Crossref DOI and WoS bridge. Retain the complete raw reference unchanged."
+        },
+        {
+          "action": "retain_current_paper_for_remaining_occurrence",
+          "paper_id": 31985,
+          "occurrence_id": "AR6-WG2-Ch17-01105",
+          "reason": "The DOI, title, authors and 2018 journal publication agree with the publisher article."
+        }
+      ],
+      "population_inference": null
+    },
+    {
+      "paper_id": 32928,
+      "classification": "legitimate_shared_identity_online_print_year_difference",
+      "finding": "The AR5 and later raw entries identify the same journal article. The article was available online in 2013 and entered its final volume in January 2015. The source-publication-year diagnostic is a review trigger, not proof of a false merge.",
+      "current_paper": {
+        "paper_id": 32928,
+        "doi_norm": "10.1016/j.techfore.2013.10.002",
+        "title_norm": "carbon leakage in a fragmented climate regime the dynamic response of global energy markets",
+        "title_best": "Carbon leakage in a fragmented climate regime: The dynamic response of global energy markets",
+        "year_best": "2015",
+        "journal_best": "Technological Forecasting and Social Change",
+        "authors_best": "Arroyo-Currás, Tabaré; Bauer, Nico; Kriegler, Elmar; Schwanitz, Valeria Jana; Luderer, Gunnar; Aboumahboub, Tino; Giannousakis, Anastasis; Hilaire, Jérôme",
+        "first_author_surname": "arroyo-currás",
+        "identity_method": "doi",
+        "n_occurrences": 4,
+        "n_chapters": 4,
+        "n_reports": 3,
+        "wos_record_id": "WOS:WOS:000347605300014",
+        "metadata_source": "wos",
+        "verification_status": "wos_matched"
+      },
+      "occurrence_ids": [
+        "AR5-WG3-Annex-II-00004",
+        "AR5-WG3-Chapter 6-00004",
+        "AR6-WG3-Chapter 12-00048",
+        "SR15-WG1+WG2+WG3-Chapter 2-00017"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.pik-potsdam.de/members/luderer/publications/ArroyoCurrsTBauerNKrieglerEetal.2015Carbonleakage.pdf",
+          "type": "published_article_full_text",
+          "facts": "The first page records availability online 2013-11-10 and print citation Technological Forecasting and Social Change 90 (2015)."
+        },
+        {
+          "url": "https://www.ampere-project.eu/key-results/publications",
+          "type": "research_project_publication_record",
+          "facts": "The AMPERE publication list gives the same title and DOI with print year 2015."
+        }
+      ],
+      "online_publication_date": "2013-11-10",
+      "print_publication_year": 2015,
+      "actions": [
+        {
+          "action": "retain_paper_identity_and_print_year",
+          "paper_id": 32928,
+          "year_best": "2015",
+          "match_status": "matched_doi",
+          "reason": "The raw titles, author lists, journal and DOI agree. Verified advance-online publication explains citation before print year."
+        },
+        {
+          "action": "restore_occurrence_transcribed_years",
+          "updates": [
+            {
+              "occurrence_id": "AR5-WG3-Annex-II-00004",
+              "parsed_year": "2013",
+              "preserve_raw_reference": true
+            },
+            {
+              "occurrence_id": "AR5-WG3-Chapter 6-00004",
+              "parsed_year": "2014",
+              "preserve_raw_reference": true
+            },
+            {
+              "occurrence_id": "AR6-WG3-Chapter 12-00048",
+              "parsed_year": "2015",
+              "preserve_raw_reference": true
+            },
+            {
+              "occurrence_id": "SR15-WG1+WG2+WG3-Chapter 2-00017",
+              "parsed_year": "2015",
+              "preserve_raw_reference": true
+            }
+          ],
+          "reason": "parsed_year currently contains mixed enrichment years. Restore the year printed in each original reference, while preserving raw_reference and the distinct preferred print year."
+        },
+        {
+          "action": "resolve_review_trigger_with_evidence",
+          "reason": "Verified online publication in 2013 explains the later preferred print year; retain an explicit resolved review item with date evidence."
+        }
+      ],
+      "population_inference": null
+    },
+    {
+      "paper_id": 33835,
+      "classification": "legitimate_shared_identity_online_print_year_difference",
+      "finding": "The AR5 and later raw entries identify the same journal article. The article was available online in 2013 and entered its final volume in January 2015. The source-publication-year diagnostic is a review trigger, not proof of a false merge.",
+      "current_paper": {
+        "paper_id": 33835,
+        "doi_norm": "10.1016/j.techfore.2013.09.009",
+        "title_norm": "co2 emission mitigation and fossil fuel markets dynamic and international aspects of climate policies",
+        "title_best": "CO2 emission mitigation and fossil fuel markets: Dynamic and international aspects of climate policies",
+        "year_best": "2015",
+        "journal_best": "Technological Forecasting and Social Change",
+        "authors_best": "Bauer, Nico; Bosetti, Valentina; Hamdi-Cherif, Meriem; Kitous, Alban; McCollum, David; Méjean, Aurélie; Rao, Shilpa; Turton, Hal; Paroussos, Leonidas; Ashina, Shuichi; Calvin, Katherine; Wada, Kenichi; van Vuuren, Detlef",
+        "first_author_surname": "bauer",
+        "identity_method": "doi",
+        "n_occurrences": 6,
+        "n_chapters": 6,
+        "n_reports": 2,
+        "wos_record_id": "WOS:WOS:000347605300018",
+        "metadata_source": "wos",
+        "verification_status": "wos_matched"
+      },
+      "occurrence_ids": [
+        "AR5-WG3-Chapter 14-00004",
+        "AR5-WG3-Chapter 6-00007",
+        "AR6-WG3-Chapter 1-00060",
+        "AR6-WG3-Chapter 12-00076",
+        "AR6-WG3-Chapter 13-00083",
+        "AR6-WG3-Chapter 15-00096"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.osti.gov/servlets/purl/1196203",
+          "type": "published_article_full_text",
+          "facts": "The first page records availability online 2013-12-03 and print citation Technological Forecasting and Social Change 90 (2015)."
+        },
+        {
+          "url": "https://www.ampere-project.eu/key-results/publications",
+          "type": "research_project_publication_record",
+          "facts": "The AMPERE publication list gives the same title and DOI with print year 2015."
+        }
+      ],
+      "online_publication_date": "2013-12-03",
+      "print_publication_year": 2015,
+      "actions": [
+        {
+          "action": "retain_paper_identity_and_print_year",
+          "paper_id": 33835,
+          "year_best": "2015",
+          "match_status": "matched_doi",
+          "reason": "The raw titles, author lists, journal and DOI agree. Verified advance-online publication explains citation before print year."
+        },
+        {
+          "action": "restore_occurrence_transcribed_years",
+          "updates": [
+            {
+              "occurrence_id": "AR5-WG3-Chapter 14-00004",
+              "parsed_year": "2013",
+              "preserve_raw_reference": true
+            },
+            {
+              "occurrence_id": "AR5-WG3-Chapter 6-00007",
+              "parsed_year": "2014",
+              "preserve_raw_reference": true
+            },
+            {
+              "occurrence_id": "AR6-WG3-Chapter 1-00060",
+              "parsed_year": "2013",
+              "preserve_raw_reference": true
+            },
+            {
+              "occurrence_id": "AR6-WG3-Chapter 12-00076",
+              "parsed_year": "2015",
+              "preserve_raw_reference": true
+            },
+            {
+              "occurrence_id": "AR6-WG3-Chapter 13-00083",
+              "parsed_year": "2015",
+              "preserve_raw_reference": true
+            },
+            {
+              "occurrence_id": "AR6-WG3-Chapter 15-00096",
+              "parsed_year": "2015",
+              "preserve_raw_reference": true
+            }
+          ],
+          "reason": "parsed_year currently contains mixed enrichment years. Restore the year printed in each original reference, while preserving raw_reference and the distinct preferred print year."
+        },
+        {
+          "action": "resolve_review_trigger_with_evidence",
+          "reason": "Verified online publication in 2013 explains the later preferred print year; retain an explicit resolved review item with date evidence."
+        }
+      ],
+      "population_inference": null
+    },
+    {
+      "paper_id": 35438,
+      "classification": "legitimate_shared_identity_online_print_year_difference",
+      "finding": "The AR5 and later raw entries identify the same journal article. The article was available online in 2013 and entered its final volume in January 2015. The source-publication-year diagnostic is a review trigger, not proof of a false merge.",
+      "current_paper": {
+        "paper_id": 35438,
+        "doi_norm": "10.1016/j.techfore.2013.09.016",
+        "title_norm": "locked into copenhagen pledges implications of short term emission targets for the cost and feasibility of long term climate goals",
+        "title_best": "Locked into Copenhagen pledges — Implications of short-term emission targets for the cost and feasibility of long-term climate goals",
+        "year_best": "2015",
+        "journal_best": "Technological Forecasting and Social Change",
+        "authors_best": "Riahi, Keywan; Kriegler, Elmar; Johnson, Nils; Bertram, Christoph; den Elzen, Michel; Eom, Jiyong; Schaeffer, Michiel; Edmonds, Jae; Isaac, Morna; Krey, Volker; Longden, Thomas; Luderer, Gunnar; Méjean, Aurélie; McCollum, David L.; Mima, Silvana; Turton, Hal; van Vuuren, Detlef P.; Wada, Kenichi; Bosetti, Valentina; Capros, Pantelis; Criqui, Patrick; Hamdi-Cherif, Meriem; Kainuma, Mikiko; Edenhofer, Ottmar",
+        "first_author_surname": "riahi",
+        "identity_method": "doi",
+        "n_occurrences": 8,
+        "n_chapters": 8,
+        "n_reports": 4,
+        "wos_record_id": "WOS:WOS:000347605300002",
+        "metadata_source": "wos",
+        "verification_status": "wos_matched"
+      },
+      "occurrence_ids": [
+        "AR5-WG3-Chapter 6-00074",
+        "AR5-WG3-Chapter 7-00127",
+        "AR6-WG3-Chapter 3-00611",
+        "AR6-WG3-Chapter 4-00648",
+        "SR15-WG1+WG2+WG3-Chapter 2-00364",
+        "SR15-WG1+WG2+WG3-Chapter 4-01498",
+        "SR15-WG1+WG2+WG3-Chapter 5-00535",
+        "SRCCL-WG1+WG2+WG3-Chapter 1-00501"
+      ],
+      "evidence": [
+        {
+          "url": "https://oa.tib.eu/renate/server/api/core/bitstreams/946e67a5-9256-4b52-9002-29c8a2da209a/content",
+          "type": "published_article_full_text",
+          "facts": "The first page records availability online 2013-11-27 and print citation Technological Forecasting and Social Change 90 (2015)."
+        },
+        {
+          "url": "https://www.ampere-project.eu/key-results/publications",
+          "type": "research_project_publication_record",
+          "facts": "The AMPERE publication list gives the same title and DOI with print year 2015."
+        }
+      ],
+      "online_publication_date": "2013-11-27",
+      "print_publication_year": 2015,
+      "actions": [
+        {
+          "action": "retain_paper_identity_and_print_year",
+          "paper_id": 35438,
+          "year_best": "2015",
+          "match_status": "matched_doi",
+          "reason": "The raw titles, author lists, journal and DOI agree. Verified advance-online publication explains citation before print year."
+        },
+        {
+          "action": "restore_occurrence_transcribed_years",
+          "updates": [
+            {
+              "occurrence_id": "AR5-WG3-Chapter 6-00074",
+              "parsed_year": "2014",
+              "preserve_raw_reference": true
+            },
+            {
+              "occurrence_id": "AR5-WG3-Chapter 7-00127",
+              "parsed_year": "2013",
+              "preserve_raw_reference": true
+            },
+            {
+              "occurrence_id": "AR6-WG3-Chapter 3-00611",
+              "parsed_year": "2015",
+              "preserve_raw_reference": true
+            },
+            {
+              "occurrence_id": "AR6-WG3-Chapter 4-00648",
+              "parsed_year": "2015",
+              "preserve_raw_reference": true
+            },
+            {
+              "occurrence_id": "SR15-WG1+WG2+WG3-Chapter 2-00364",
+              "parsed_year": "2015",
+              "preserve_raw_reference": true
+            },
+            {
+              "occurrence_id": "SR15-WG1+WG2+WG3-Chapter 4-01498",
+              "parsed_year": "2015",
+              "preserve_raw_reference": true
+            },
+            {
+              "occurrence_id": "SR15-WG1+WG2+WG3-Chapter 5-00535",
+              "parsed_year": "2015",
+              "preserve_raw_reference": true
+            },
+            {
+              "occurrence_id": "SRCCL-WG1+WG2+WG3-Chapter 1-00501",
+              "parsed_year": "2015",
+              "preserve_raw_reference": true
+            }
+          ],
+          "reason": "parsed_year currently contains mixed enrichment years. Restore the year printed in each original reference, while preserving raw_reference and the distinct preferred print year."
+        },
+        {
+          "action": "resolve_review_trigger_with_evidence",
+          "reason": "Verified online publication in 2013 explains the later preferred print year; retain an explicit resolved review item with date evidence."
+        }
+      ],
+      "population_inference": null
+    },
+    {
+      "paper_id": 35229,
+      "classification": "false_identity_merge_and_wrong_metadata_for_both_occurrences",
+      "finding": "The AR5 Pogutz and Micale article and AR6 Fedrigo and Hontelez article are different works. Neither is the preferred Bradley 2021 paper. The AR6 raw entry also gives the DOI of a third article by Tukker and coauthors, while its authors and pages identify Fedrigo and Hontelez.",
+      "current_paper": {
+        "paper_id": 35229,
+        "doi_norm": "10.1016/j.spc.2021.02.035",
+        "title_norm": "an institutional economics framework to explore sustainable production and consumption",
+        "title_best": "An Institutional Economics Framework to Explore Sustainable Production and Consumption",
+        "year_best": "2021",
+        "journal_best": "Sustainable Production and Consumption",
+        "authors_best": "Bradley, Peter",
+        "first_author_surname": "bradley",
+        "identity_method": "doi",
+        "n_occurrences": 2,
+        "n_chapters": 2,
+        "n_reports": 2,
+        "wos_record_id": "WOS:WOS:000674221200005",
+        "metadata_source": "wos",
+        "verification_status": "wos_matched"
+      },
+      "occurrence_ids": [
+        "AR5-WG3-Chapter 4-00496",
+        "AR6-WG3-Chapter 5-00419"
+      ],
+      "evidence": [
+        {
+          "url": "https://iris.unibocconi.it/handle/11565/3732231",
+          "type": "author_institution_record",
+          "facts": "Pogutz and Micale; Sustainable consumption and production: An effort to reconcile the determinants of environmental impact; Society and Economy; 2011; DOI 10.1556/SocEc.33.2011.1.5."
+        },
+        {
+          "url": "https://api.crossref.org/works/10.1556%2FSocEc.33.2011.1.5",
+          "type": "publisher_registered_metadata",
+          "access": "Fetched successfully by urllib.request on 2026-10-11; web tool could not fetch this API endpoint.",
+          "facts": "Stefano Pogutz and Valerio Micale; Society and Economy 33(1), 29–50; 2011; DOI matches the AR5 printed entry."
+        },
+        {
+          "url": "https://onlinelibrary.wiley.com/doi/10.1111/j.1530-9290.2009.00219.x",
+          "type": "publisher_article",
+          "facts": "Doreen Fedrigo and John Hontelez; Sustainable Consumption and Production: An Agenda Beyond Sustainable Consumer Procurement; Journal of Industrial Ecology 14(1), 10–12; 2010."
+        },
+        {
+          "url": "https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1530-9290.2009.00214.x",
+          "type": "publisher_article",
+          "facts": "The DOI printed in the AR6 raw entry belongs to Arnold Tukker, Maurie J. Cohen, Klaus Hubacek and Oksana Mont, pages 1–3. It conflicts with the Fedrigo authors and pages 10–12 in that entry."
+        }
+      ],
+      "actions": [
+        {
+          "action": "replace_paper_metadata_for_AR5_identity",
+          "paper_id": 35229,
+          "occurrence_id": "AR5-WG3-Chapter 4-00496",
+          "new_paper": {
+            "title_best": "Sustainable consumption and production: An effort to reconcile the determinants of environmental impact",
+            "year_best": "2011",
+            "journal_best": "Society and Economy",
+            "authors_best": "Pogutz, Stefano; Micale, Valerio",
+            "first_author_surname": "pogutz",
+            "doi_norm": "10.1556/socec.33.2011.1.5",
+            "identity_method": "doi",
+            "authors": [
+              {
+                "surname": "Pogutz",
+                "given": "Stefano",
+                "full_name": "Stefano Pogutz"
+              },
+              {
+                "surname": "Micale",
+                "given": "Valerio",
+                "full_name": "Valerio Micale"
+              }
+            ]
+          },
+          "occurrence_fields": {
+            "parsed_title": "Sustainable consumption and production: An effort to reconcile the determinants of environmental impact",
+            "parsed_authors": "Pogutz, Stefano; Micale, Valerio",
+            "parsed_journal": "Society and Economy",
+            "parsed_year": "2011",
+            "doi_norm": "10.1556/socec.33.2011.1.5",
+            "doi_source": "embedded_normalized",
+            "match_status": "unmatched",
+            "match_confidence": null,
+            "wos_uid": null,
+            "wos_record_id": null
+          },
+          "reason": "The raw DOI, authors, year, outlet and pages match Pogutz and Micale. No matching WoS record exists in this snapshot; independent DOI verification does not imply a WoS match."
+        },
+        {
+          "action": "split_occurrence_to_new_paper",
+          "occurrence_id": "AR6-WG3-Chapter 5-00419",
+          "new_paper": {
+            "title_best": "Sustainable Consumption and Production: An Agenda Beyond Sustainable Consumer Procurement",
+            "year_best": "2010",
+            "journal_best": "Journal of Industrial Ecology",
+            "authors_best": "Fedrigo, Doreen; Hontelez, John",
+            "first_author_surname": "fedrigo",
+            "doi_norm": "10.1111/j.1530-9290.2009.00219.x",
+            "identity_method": "doi",
+            "authors": [
+              {
+                "surname": "Fedrigo",
+                "given": "Doreen",
+                "full_name": "Doreen Fedrigo"
+              },
+              {
+                "surname": "Hontelez",
+                "given": "John",
+                "full_name": "John Hontelez"
+              }
+            ]
+          },
+          "occurrence_fields": {
+            "parsed_title": "Sustainable Consumption and Production: An Agenda Beyond Sustainable Consumer Procurement",
+            "parsed_authors": "Fedrigo, Doreen; Hontelez, John",
+            "parsed_journal": "Journal of Industrial Ecology",
+            "parsed_year": "2010",
+            "doi_norm": "10.1111/j.1530-9290.2009.00219.x",
+            "doi_source": "primary_source_correction",
+            "match_status": "unmatched",
+            "match_confidence": null,
+            "wos_uid": null,
+            "wos_record_id": null
+          },
+          "reason": "The author surname Fedrigo and pages 10–12 establish the intended article, confirmed by Wiley. Retain the raw DOI 00214.x unchanged in raw_reference and record its conflict; the corrected DOI is 00219.x. No matching WoS record exists in this snapshot."
+        }
+      ],
+      "population_inference": null
+    },
+    {
+      "paper_id": 35431,
+      "classification": "wrong_enrichment_and_false_split_of_existing_identity",
+      "finding": "Both raw entries identify the original Kriegler and coauthors article, not Rosen’s critical review. The original article already has paper_id 70675, so the two occurrences should join that identity. This retains genuine AR5–AR6 continuity under paper_id 70675 while removing a duplicate AR6 document identity.",
+      "current_paper": {
+        "paper_id": 35431,
+        "doi_norm": "10.1016/j.techfore.2015.01.019",
+        "title_norm": "critical review of making or breaking climate targets the ampere study on staged accession scenarios for climate policy",
+        "title_best": "Critical review of: “Making or breaking climate targets — the AMPERE study on staged accession scenarios for climate policy”",
+        "year_best": "2015",
+        "journal_best": "Technological Forecasting and Social Change",
+        "authors_best": "Rosen, Richard A.",
+        "first_author_surname": "rosen",
+        "identity_method": "doi",
+        "n_occurrences": 2,
+        "n_chapters": 2,
+        "n_reports": 2,
+        "wos_record_id": "WOS:WOS:000357223000031",
+        "metadata_source": "wos",
+        "verification_status": "wos_matched"
+      },
+      "occurrence_ids": [
+        "AR5-WG3-Chapter 6-00053",
+        "AR6-WG3-Chapter 6-00800"
+      ],
+      "existing_target_paper": {
+        "paper_id": 70675,
+        "doi_norm": "10.1016/j.techfore.2013.09.021",
+        "title_norm": "making or breaking climate targets the ampere study on staged accession scenarios for climate policy",
+        "title_best": "Making or breaking climate targets: The AMPERE study on staged accession scenarios for climate policy",
+        "year_best": "2014",
+        "journal_best": "Technological Forecasting and Social Change",
+        "authors_best": "Kriegler, Elmar; Riahi, Keywan; Bauer, Nico; Schwanitz, Valeria Jana; Petermann, Nils; Bosetti, Valentina; Marcucci, Adriana; Otto, Sander; Paroussos, Leonidas; Rao, Shilpa; Currás, Tabaré Arroyo; Ashina, Shuichi; Bollen, Johannes; Eom, Jiyong; Hamdi-Chérif, Meriem; Longden, Thomas; Kitous, Alban; Méjean, Aurélie; Sano, Fuminori; Schaeffer, Michiel; Wada, Kenichi; Capros, Pantélis; Vuuren, Detlef Peter van; Edenhofer, Ottmar",
+        "first_author_surname": "kriegler",
+        "identity_method": "doi",
+        "n_occurrences": 4,
+        "n_chapters": 4,
+        "n_reports": 2,
+        "wos_record_id": "WOS:WOS:000347605300003",
+        "metadata_source": "wos",
+        "verification_status": "wos_matched"
+      },
+      "existing_target_occurrence_ids": [
+        "AR6-WG3-Chapter 15-00608",
+        "AR6-WG3-Chapter 16-00475",
+        "AR6-WG3-Chapter 3-00414",
+        "SR15-WG1+WG2+WG3-Chapter 2-00242"
+      ],
+      "existing_target_report_presence": [
+        "AR6",
+        "SR15"
+      ],
+      "target_report_presence_after_reassignment": [
+        "AR5",
+        "AR6",
+        "SR15"
+      ],
+      "evidence": [
+        {
+          "url": "https://pure.iiasa.ac.at/id/eprint/11540/",
+          "type": "author_institution_record",
+          "facts": "Original article by Kriegler and coauthors; volume 90, pages 24–44; print January 2015; online 11 March 2014; DOI 10.1016/j.techfore.2013.09.021."
+        },
+        {
+          "url": "https://www.pbl.nl/en/publications/making-or-breaking-climate-targets-the-ampere-study-on-staged-accession-scenarios-for-climate-policy",
+          "type": "author_institution_record",
+          "facts": "Publication date 11 March 2014; original title; full author list; DOI 10.1016/j.techfore.2013.09.021."
+        },
+        {
+          "url": "https://pure.iiasa.ac.at/id/eprint/11540/1/1-s2.0-S0040162513002588-main.pdf",
+          "type": "published_article_full_text",
+          "facts": "Published article first page records available online 11 March 2014. Accepted 28 September 2013. Final print volume is 90 (2015), 24–44."
+        },
+        {
+          "url": "https://api.crossref.org/works/10.1016%2Fj.techfore.2013.09.021",
+          "type": "publisher_registered_metadata",
+          "access": "Fetched successfully by urllib.request on 2026-10-11.",
+          "facts": "Print year 2015; title and 24-author list agree with paper_id 70675."
+        },
+        {
+          "url": "sqlite:wos_records/WOS:WOS:000347605300003",
+          "type": "existing_snapshot_WoS_record",
+          "facts": "DOI 10.1016/j.techfore.2013.09.021; correct original title; Publication Year 2015; UT WOS:000347605300003."
+        }
+      ],
+      "online_publication_date": "2014-03-11",
+      "print_publication_year": 2015,
+      "actions": [
+        {
+          "action": "reassign_occurrences_to_existing_paper",
+          "from_paper_id": 35431,
+          "to_paper_id": 70675,
+          "occurrence_updates": [
+            {
+              "occurrence_id": "AR5-WG3-Chapter 6-00053",
+              "paper_id": 70675,
+              "parsed_title": "Making or breaking climate targets: The AMPERE study on staged accession scenarios for climate policy",
+              "parsed_authors": "Kriegler, Elmar; Riahi, Keywan; Bauer, Nico; Schwanitz, Valeria Jana; Petermann, Nils; Bosetti, Valentina; Marcucci, Adriana; Otto, Sander; Paroussos, Leonidas; Rao, Shilpa; Currás, Tabaré Arroyo; Ashina, Shuichi; Bollen, Johannes; Eom, Jiyong; Hamdi-Chérif, Meriem; Longden, Thomas; Kitous, Alban; Méjean, Aurélie; Sano, Fuminori; Schaeffer, Michiel; Wada, Kenichi; Capros, Pantélis; Vuuren, Detlef Peter van; Edenhofer, Ottmar",
+              "parsed_journal": "Technological Forecasting and Social Change",
+              "parsed_year": "2014",
+              "doi_norm": "10.1016/j.techfore.2013.09.021",
+              "doi_source": "embedded_normalized",
+              "match_status": "matched_doi",
+              "match_confidence": "1.0",
+              "wos_uid": "WOS:000347605300003",
+              "wos_record_id": "WOS:WOS:000347605300003"
+            },
+            {
+              "occurrence_id": "AR6-WG3-Chapter 6-00800",
+              "paper_id": 70675,
+              "parsed_title": "Making or breaking climate targets: The AMPERE study on staged accession scenarios for climate policy",
+              "parsed_authors": "Kriegler, Elmar; Riahi, Keywan; Bauer, Nico; Schwanitz, Valeria Jana; Petermann, Nils; Bosetti, Valentina; Marcucci, Adriana; Otto, Sander; Paroussos, Leonidas; Rao, Shilpa; Currás, Tabaré Arroyo; Ashina, Shuichi; Bollen, Johannes; Eom, Jiyong; Hamdi-Chérif, Meriem; Longden, Thomas; Kitous, Alban; Méjean, Aurélie; Sano, Fuminori; Schaeffer, Michiel; Wada, Kenichi; Capros, Pantélis; Vuuren, Detlef Peter van; Edenhofer, Ottmar",
+              "parsed_journal": "Technological Forecasting and Social Change",
+              "parsed_year": "2013",
+              "doi_norm": "10.1016/j.techfore.2013.09.021",
+              "doi_source": "primary_source_correction",
+              "match_status": "matched_doi",
+              "match_confidence": "1.0",
+              "wos_uid": "WOS:000347605300003",
+              "wos_record_id": "WOS:WOS:000347605300003"
+            }
+          ],
+          "reason": "The original title and authors identify the paper, and the AR5 raw entry contains its DOI. The exact DOI is present in the snapshot’s correct WoS record. Reassign chapter_references as well; preserve raw entries unchanged; remove or retire zero-occurrence obsolete identity 35431 with a logged crosswalk."
+        },
+        {
+          "action": "set_consistent_preferred_print_year",
+          "paper_id": 70675,
+          "year_best": "2015",
+          "reason": "Current year_best 2014 is the genuine online year, but metadata_source=wos and the snapshot WoS record gives 2015. Consistency with the preferred print-year convention for the other AMPERE papers requires year_best 2015, with online publication 2014-03-11 retained separately in review notes."
+        },
+        {
+          "action": "restore_occurrence_transcribed_years",
+          "updates": [
+            {
+              "occurrence_id": "AR6-WG3-Chapter 15-00608",
+              "parsed_year": "2015",
+              "preserve_raw_reference": true
+            },
+            {
+              "occurrence_id": "AR6-WG3-Chapter 16-00475",
+              "parsed_year": "2015",
+              "preserve_raw_reference": true
+            },
+            {
+              "occurrence_id": "AR6-WG3-Chapter 3-00414",
+              "parsed_year": "2015",
+              "preserve_raw_reference": true
+            },
+            {
+              "occurrence_id": "SR15-WG1+WG2+WG3-Chapter 2-00242",
+              "parsed_year": "2015",
+              "preserve_raw_reference": true
+            }
+          ],
+          "reason": "The four existing 70675 raw references print 2015, while enriched parsed_year currently gives 2014."
+        }
+      ],
+      "population_inference": null
+    }
+  ],
+  "summary": {
+    "false_identity_merges": [
+      31985,
+      35229
+    ],
+    "wrong_enrichment_and_duplicate_identity": [
+      35431
+    ],
+    "legitimate_shared_identities_with_online_print_year_difference": [
+      32928,
+      33835,
+      35438
+    ],
+    "population_error_rate": null
+  },
+  "preservation_contract": "Preserve every occurrence_id, chapter_id, source_id, source_page and raw_reference. Changes apply only to derived identity and metadata fields, join-table paper IDs, authors, counts, review decisions and change logs."
+}

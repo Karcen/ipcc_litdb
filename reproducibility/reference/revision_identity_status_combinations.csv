@@ -4,14 +4,14 @@ AR4,AR5,doi_only,doi_only,716
 AR4,AR5,title_only,title_only,7
 AR4,AR5,title_only,unmatched_only,1
 AR4,AR5,unmatched_only,title_only,1
-AR4,AR5,unmatched_only,unmatched_only,500
+AR4,AR5,unmatched_only,unmatched_only,501
 AR5,AR6,doi_and_title,doi_and_title,1
 AR5,AR6,doi_and_title,doi_only,1
 AR5,AR6,doi_only,doi_and_title,1
-AR5,AR6,doi_only,doi_only,1608
+AR5,AR6,doi_only,doi_only,1601
 AR5,AR6,title_only,doi_and_title,5
 AR5,AR6,title_only,doi_only,36
 AR5,AR6,title_only,title_only,12
 AR5,AR6,title_only,unmatched_only,2
 AR5,AR6,unmatched_only,doi_only,1
-AR5,AR6,unmatched_only,unmatched_only,436
+AR5,AR6,unmatched_only,unmatched_only,439

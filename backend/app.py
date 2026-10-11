@@ -113,9 +113,13 @@ def paper_filters(*, q=None, doi=None, year_from=None, year_to=None, report_id=N
 
 
 def occurrence_filters(*, report_id=None, wg=None, chapter_id=None, status=None,
-                       q=None, only_doi_less=False, unresolved_only=False) -> tuple[str, dict]:
+                       q=None, only_doi_less=False, unresolved_only=False,
+                       review_queue=False) -> tuple[str, dict]:
     where, params = [], {}
-    if unresolved_only:
+    if review_queue:
+        where.append("EXISTS (SELECT 1 FROM manual_review m WHERE m.occurrence_id=r.occurrence_id "
+                     "AND m.status IN ('open','in_progress'))")
+    elif unresolved_only:
         where.append("r.match_status = 'unmatched'")
     if report_id:
         where.append("c.report_id = :report_id"); params["report_id"] = report_id
@@ -181,6 +185,7 @@ def statistics() -> dict:
         "multi_report_papers": "SELECT COUNT(*) FROM papers WHERE n_reports > 1",
         "quality_flags": "SELECT COUNT(*) FROM data_quality_flags",
         "manual_review_required": "SELECT COUNT(*) FROM references_occurrence WHERE match_status='unmatched'",
+        "open_review_cases": "SELECT COUNT(DISTINCT occurrence_id) FROM manual_review WHERE status IN ('open','in_progress')",
         "sources": "SELECT COUNT(*) FROM sources",
         "sources_present": "SELECT COUNT(*) FROM sources WHERE file_present = 1",
     }
@@ -384,23 +389,26 @@ def references(chapter_id: Optional[str] = None, status: Optional[str] = None,
 def unresolved(report_id: Optional[str] = None, chapter_id: Optional[str] = None,
                only_doi_less: bool = False, page: int = 1, size: int = 25,
                wg: Optional[str] = None, working_group: Optional[str] = None,
-               q: Optional[str] = None, status: Optional[str] = None) -> dict:
+               q: Optional[str] = None, status: Optional[str] = None,
+               review_queue: bool = False) -> dict:
     size, offset = page_args(page, size)
     wg = working_group_filter(wg, working_group)
     clause, params = occurrence_filters(report_id=report_id, wg=wg, chapter_id=chapter_id,
                                         status=status, q=q, only_doi_less=only_doi_less,
-                                        unresolved_only=True)
+                                        unresolved_only=True, review_queue=review_queue)
     total = db.query_one(f"""SELECT COUNT(*) AS n FROM references_occurrence r
                              JOIN chapters c ON c.chapter_id = r.chapter_id
                              JOIN working_groups wg ON wg.wg_id = c.wg_id {clause}""",
                          **params)["n"]
-    mr = {x["occurrence_id"]: x for x in db.query("SELECT * FROM manual_review")}
+    review_clause = " WHERE status IN ('open','in_progress')" if review_queue else ""
+    mr = {x["occurrence_id"]: x for x in db.query(
+        "SELECT * FROM manual_review" + review_clause + " ORDER BY review_id")}
     params.update(limit=size, offset=offset)
     rows = db.query(f"""
         SELECT r.occurrence_id, r.chapter_id, c.report_id, wg.wg_label, c.chapter_label,
                c.chapter_title, r.source_page, r.raw_reference, r.parsed_authors,
                r.parsed_title, r.parsed_journal, r.parsed_year, r.doi_norm, r.doi_source,
-               r.notes, r.paper_id
+               r.notes, r.paper_id, r.match_status
         FROM references_occurrence r
         JOIN chapters c ON c.chapter_id = r.chapter_id
         JOIN working_groups wg ON wg.wg_id = c.wg_id
@@ -410,7 +418,8 @@ def unresolved(report_id: Optional[str] = None, chapter_id: Optional[str] = None
         m = mr.get(r["occurrence_id"])
         r["review_status"] = m["status"] if m else "not_reviewed"
         r["review_note"] = m["note"] if m else ""
-    return {"total": total, "page": page, "size": size, "items": rows}
+        r["review_reason"] = m["reason"] if m else ""
+    return {"total": total, "page": page, "size": size, "review_queue": review_queue, "items": rows}
 
 
 # ---------------------------------------------------------------- quality / dupes
@@ -422,6 +431,8 @@ def data_quality() -> dict:
     summary = {
         "manual_review_required": db.query_one(
             "SELECT COUNT(*) AS n FROM references_occurrence WHERE match_status='unmatched'")["n"],
+        "open_review_cases": db.query_one(
+            "SELECT COUNT(DISTINCT occurrence_id) AS n FROM manual_review WHERE status IN ('open','in_progress')")["n"],
         "invalid_doi": sum(c["n"] for c in counts if c["flag_type"] == "invalid_doi"),
         "suspicious_year": sum(c["n"] for c in counts if c["flag_type"] == "suspicious_year"),
         "missing_doi": sum(c["n"] for c in counts if c["flag_type"] == "missing_doi"),
@@ -823,7 +834,8 @@ def export(kind: str, fmt: str, report_id: Optional[str] = None,
            doi: Optional[str] = None, year_from: Optional[int] = None,
            year_to: Optional[int] = None, min_reports: Optional[int] = None,
            sort: str = "n_reports", only_doi_less: bool = False,
-           wg: Optional[str] = None, limit: int = Query(5000, ge=1, le=100000)):
+           wg: Optional[str] = None, review_queue: bool = False,
+           limit: int = Query(5000, ge=1, le=100000)):
     """Export the matching rows in result order, recording limits and provenance."""
     from fastapi.responses import Response
     fmt = fmt.lower()
@@ -843,7 +855,8 @@ def export(kind: str, fmt: str, report_id: Optional[str] = None,
     elif kind in ("references", "unresolved"):
         clause, params = occurrence_filters(report_id=report_id, wg=group, chapter_id=chapter_id,
                                             status=status, q=q, only_doi_less=only_doi_less,
-                                            unresolved_only=kind == "unresolved")
+                                            unresolved_only=kind == "unresolved",
+                                            review_queue=review_queue)
         selected_sort = "chapter_page" if kind == "references" else "report_chapter_page"
         order = REFERENCE_ORDER if kind == "references" else UNRESOLVED_ORDER
         source = """FROM references_occurrence r
@@ -854,6 +867,13 @@ def export(kind: str, fmt: str, report_id: Optional[str] = None,
                      r.parsed_title AS title_best, r.parsed_authors AS authors_best,
                      r.parsed_year AS year_best, r.parsed_journal AS journal_best,
                      r.doi_norm, r.match_status, r.raw_reference"""
+        if review_queue:
+            columns += """, (SELECT m.status FROM manual_review m
+                WHERE m.occurrence_id=r.occurrence_id AND m.status IN ('open','in_progress')
+                ORDER BY m.review_id DESC LIMIT 1) AS review_status,
+                (SELECT m.reason FROM manual_review m
+                WHERE m.occurrence_id=r.occurrence_id AND m.status IN ('open','in_progress')
+                ORDER BY m.review_id DESC LIMIT 1) AS review_reason"""
     else:
         raise HTTPException(400, "kind must be papers|references|unresolved")
     total = db.query_one(f"SELECT COUNT(*) AS n {source} {clause}", **params)["n"]
@@ -866,6 +886,8 @@ def export(kind: str, fmt: str, report_id: Optional[str] = None,
                        year_to=year_to, min_reports=min_reports)
     elif only_doi_less:
         filters["only_doi_less"] = True
+    if kind in ("references", "unresolved") and review_queue:
+        filters["review_queue"] = True
     filters = {key: value for key, value in filters.items() if value is not None and value != ""}
     filters["sort"] = selected_sort
     desc = "; ".join(f"{key}={value}" for key, value in filters.items())
