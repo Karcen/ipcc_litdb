@@ -108,10 +108,11 @@ The collection covers assessment reports AR1 through AR6, synthesis reports, spe
 | Assessment reports | Browse the report hierarchy; inspect printed references and source pages. |
 | Literature | Search by title, DOI, report, working group, year, and verification status. |
 | BI explorer | Compare a metric across a dimension and inspect the SQL behind the result. |
+| Research comparison | Compare two report literature cohorts, publication years, journals, and shared works. |
 | Analytics | Open stored analysis results, parameters, and queries. |
 | Automated insights | Read findings with their supporting data. |
-| Networks | Explore shared papers, chapter overlap, report overlap, journals, and co-authorship. |
-| Data quality | Inspect missing fields, suspicious years, and duplicate candidates. |
+| Networks | Explore shared literature and co-authorship; inspect communities, centrality, and connected components. |
+| Data quality | Inspect stored flags and run live completeness, identifier, relationship, count, and year-consistency checks. |
 | Unresolved | Review unmatched references and record decisions. |
 | Collection progress | Inspect extraction coverage by chapter. |
 | AI analysis | Ask database questions through an optional model endpoint. |
@@ -119,7 +120,7 @@ The collection covers assessment reports AR1 through AR6, synthesis reports, spe
 
 FastAPI serves the static frontend and the API. ECharts and Cytoscape.js are bundled locally; the dashboard requires no frontend build or CDN.
 
-Overview and BI charts provide CSV, PNG, SVG, and JSON downloads. Figures include their title, units, filters, source, and retrieval time. BI JSON files retain the executed SQL and returned rows. Network downloads include a PNG and JSON with nodes, edges, parameters, and rendered positions.
+Overview, BI, and research comparison charts provide CSV, PNG, SVG, and JSON downloads. Figures include their title, units, filters, source, and retrieval time. BI JSON files retain the executed SQL and returned rows. Networks provide PNG, JSON, GraphML, GEXF, and edge-list CSV downloads. The JSON retains rendered positions and view settings; GraphML and GEXF retain node metrics, edge weights, parameters, and provenance for further graph analysis.
 
 ![Overview with citation counts and report coverage](screenshots/01-overview.png)
 
@@ -267,6 +268,35 @@ Reference ages use each source file's publication year. AR5 WG1 uses 2013; AR6 W
 
 Network responses define their node population, edge weights, ranking, threshold, and display limit. Graph filters run before the edge limit. The response records eligible and omitted edges, isolated nodes, and connected nodes omitted from the display; the JSON download retains these definitions.
 
+### Network structure
+
+Choose an edge limit from 100 to 2,000, then color nodes by their source group or detected community. Available layouts are force-directed, breadth-first, circle, and concentric. Rankings show degree, weighted strength, and betweenness. The summary reports components, density, and weighted modularity.
+
+NetworkX computes these metrics on the displayed graph after the threshold and edge limit. Degree counts displayed neighbors. Strength sums their edge weights. Betweenness uses unweighted shortest paths because the source weights measure citation strength or similarity. It is exact through 200 nodes and uses 64 sampled source nodes above that size, with seed 42. Louvain communities use positive edge weights, resolution 1, and seed 42. The response records the installed NetworkX version and algorithm parameters.
+
+Changing the edge limit changes the graph and can change its rankings and communities. Source-population isolates and omitted connected nodes have separate counts.
+
+### Report comparison
+
+The Research comparison page selects two reports and counts each cited paper once per cohort. Shared papers divided by the union gives Jaccard similarity. Shared papers divided by the smaller cohort gives the overlap coefficient. The two cohort shares use their respective paper counts as denominators. Publication-year distributions follow numeric year order. Journal shares include a missing-journal category and use all cohort papers as their denominators.
+
+The result retains cohort SQL, parameters, missing-year counts, and the limit on the shared-paper table. Journal downloads contain the full distribution even when the view shows only its leading rows.
+
+The publication-year chart starts at 1850 by default. Use the year-range controls to inspect another period or show all recorded years. The caption counts papers outside the plotted range and papers with missing or invalid years. Chart downloads follow the applied range; the full comparison JSON retains all recorded years and the chosen view settings.
+
+### Command-line research exports
+
+These commands run without a dashboard server:
+
+```bash
+python -m analytics.cli compare AR5 AR6 --output comparison.json
+python -m analytics.cli audit --sample-limit 10 --output quality-audit.json
+python -m analytics.cli network report-report --limit 300 --format graphml --output reports.graphml
+python -m analytics.cli bundle AR5 AR6 --limit 300 --output research-export
+```
+
+Use `--database /path/to/database.sqlite` to select another SQLite file. The bundle contains the comparison, live audit, and all five networks in JSON, GraphML, GEXF, and CSV. All analyses read one transaction-consistent SQLite backup. A manifest records the input digest, parameters, output sizes, and SHA-256 digests. The temporary input copy is removed after export. Choose a new output directory for each bundle.
+
 ## Exports and API
 
 The literature page exports CSV, XLSX, JSON, BibTeX, and RIS using the applied filters and sorting. Each format records the total matching records, export limit, and truncation state. Paper exports contain one row per work. The export script requires a running server:
@@ -286,6 +316,10 @@ bash scripts/export.sh unresolved xlsx AR2
 | `GET /api/papers/{paper_id}/citations` | Citation history for a work. |
 | `GET /api/bi/query?metric=reference_count&dimension=report` | Metric values and SQL. |
 | `GET /api/insights` | Stored findings. |
+| `GET /api/research/compare?report_a=AR5&report_b=AR6` | Distinct-paper cohort comparison and supporting queries. |
+| `GET /api/data-quality/audit?sample_limit=10` | Live audit with denominators, samples, and SQL. |
+| `GET /api/networks/report-report?limit=300` | Graph, centrality, communities, and scope. |
+| `GET /api/networks/report-report/export?fmt=graphml&limit=300` | GraphML export; also accepts `gexf` and `csv`. |
 | `GET /api/unresolved` | Unmatched references and review status. |
 | `GET /api/export/papers.csv?report_id=AR6` | Filtered export. |
 
@@ -338,6 +372,10 @@ Match rates describe the collection run and its bibliographic coverage. Older as
 
 These are stored flags from the collection run. Live completeness counts both NULL and blank fields: 4,169 reference occurrences lack a publication year, giving 97.39% year completeness.
 
+Run the live audit to recalculate missing fields, DOI syntax, normalized DOI duplicates, parent-child relationships, stored citation counters, and year consistency. Each of its 21 checks records the affected grain, count, denominator, percentage, query, and bounded sample. Report-level completeness includes zero-reference reports with null percentages. A malformed DOI is a syntax finding; identifier existence requires a registry lookup.
+
+Two year checks identify citations for review: a preferred paper year later than the source's unambiguous publication year, and a first printed year token that differs from the preferred metadata. Review the printed citation, source page, and linked record to resolve these candidates. Printed references can contain several dates, editions, and numbers that resemble years. The audit reads the current database and provides a JSON download with its evidence and query provenance.
+
 The flag table and the broader duplicate analysis use different candidate rules. The stored duplicate analysis identifies 976 title groups for inspection.
 
 Two extractions of AR6 WG2 Annex I share 35 papers. The stored duplicate-unit analysis also identifies overlapping AR4 synthesis-report extractions. Both sets remain available for source comparison. Forty-eight units carry `qc_warn` extraction status.
@@ -369,7 +407,7 @@ DATABASE_URL='postgresql+psycopg://user:password@host:5432/ipcc_litdb' \
   bash scripts/dev.sh
 ```
 
-Networks, the analysis CLI, and the AI query executor use SQLite. PostgreSQL deployment requires a separate server and integration check.
+Networks, research comparisons, live audits, the analysis CLI, and the AI query executor use SQLite. PostgreSQL deployment requires a separate server and integration check.
 
 ## Tests
 
@@ -384,15 +422,15 @@ Tests cover database integrity, paper/occurrence relationships, metrics, exports
 For live checks, keep the dashboard running in another terminal:
 
 ```bash
-API_BASE=http://127.0.0.1:8077 python scripts/verify_project.py
+API_BASE=http://127.0.0.1:8077 python scripts/verify_project.py --require-api
 python -m pip install playwright
 python -m playwright install chromium
 API_BASE=http://127.0.0.1:8077 python -m pytest tests/test_frontend_smoke.py -q
 ```
 
-Browser tests exercise the English interface and theme controls. GitHub Actions runs the database, API, and script checks.
+The 38 browser tests cover all thirteen dashboard pages, themes, applied export filters, report comparisons, live audits, network controls, and downloaded data and images. GitHub Actions runs the database, API, and script checks.
 
-The 11 October 2026 package passed 202 tests with Python 3.12, including browser downloads and the twelve dashboard pages, plus 48 project checks. Docker checks covered verified snapshot restoration, API exports, network views, and persistent state.
+The 11 October 2026 package passed 290 tests in 107.22 seconds with Python 3.12, plus 50 project checks. A fresh Docker volume passed 68 API and browser tests in 18.19 seconds, plus 24 checks covering snapshot restoration, live analyses, graph exports, shipped frontend assets, and persistent state.
 
 ## GitHub distribution
 

@@ -26,6 +26,7 @@ test-results/
 ipcc_*.csv
 ipcc_*.json
 ipcc_*.xlsx
+research-export/
 
 # Operating-system metadata
 ._*

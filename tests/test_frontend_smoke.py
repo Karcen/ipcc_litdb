@@ -22,6 +22,7 @@ BASE = os.environ.get("API_BASE", "http://127.0.0.1:8077").rstrip("/")
 TABS = {
     "overview": "#kpis .kpi", "reports": "#tree-reports .trow",
     "literature": "#tbl-papers tbody tr", "bi": "#bi-result table tbody tr",
+    "research": "#research-summary .kpi",
     "analytics": "#analytics-index table tbody tr", "insights": "#insight-feed .insight",
     "networks": "#net-svg canvas",  # rendered by Cytoscape.js
     "quality": "#quality-cards .kpi",
@@ -89,7 +90,7 @@ def test_theme_switching(page):
 def test_menu_has_english_labels(page):
     labels = page.locator("#tabs button").all_text_contents()
     assert labels == [
-        "Overview", "Assessment Reports", "Literature", "BI Explorer", "Analytics",
+        "Overview", "Assessment Reports", "Literature", "BI Explorer", "Research Comparison", "Analytics",
         "Automated Insights", "Networks", "Data Quality", "Unresolved", "Progress",
         "AI Analysis", "Settings",
     ]
@@ -244,6 +245,173 @@ def test_record_downloads_use_applied_filters(page):
     text = downloaded_bytes(page, '[data-export="unresolved.csv"]').decode("utf-8-sig")
     rows = list(csv.DictReader(io.StringIO(text.split("\n", 1)[1])))
     assert rows and all(row["report_id"] == "AR2" and not row["doi_norm"] for row in rows)
+
+
+def test_research_comparison_controls_and_downloads(page):
+    page.click('#tabs button[data-view="research"]')
+    page.wait_for_function("RESEARCH?.report_a.report_id === 'AR5' && RESEARCH?.report_b.report_id === 'AR6'")
+    page.select_option("#research-a", "AR2")
+    page.select_option("#research-b", "AR3")
+    with page.expect_response(lambda response: "/api/research/compare?" in response.url) as event:
+        page.click("#research-run")
+    expected = event.value.json()
+    page.wait_for_function("RESEARCH?.report_a.report_id === 'AR2' && RESEARCH?.report_b.report_id === 'AR3'")
+    payload = json.loads(downloaded_bytes(page, "#research-json"))
+    for key in ("report_a", "report_b", "overlap", "by_year", "journal_distribution", "top_shared_papers"):
+        assert payload[key] == expected[key]
+    assert "Jaccard = shared / union" in page.inner_text("#research-definitions")
+    assert str(expected["overlap"]["shared_papers"]) in page.inner_text("#research-summary").replace(",", "")
+    assert payload["provenance"]["queries"] and payload["provenance"]["endpoint"].startswith("/api/research/compare?")
+    contents = downloaded_bytes(page, '#research-year [data-chart-download="csv"]').decode("utf-8-sig")
+    metadata, body = contents.split("\n", 1)
+    provenance = json.loads(metadata.removeprefix("# provenance: "))
+    rows = list(csv.DictReader(io.StringIO(body)))
+    plotted = [row for row in expected["by_year"] if row["year"] >= 1850]
+    assert [int(row["year"]) for row in rows] == [row["year"] for row in plotted]
+    assert [int(row["count_a"]) for row in rows] == [row["count_a"] for row in plotted]
+    assert provenance["filters"] == {"report_a": "AR2", "report_b": "AR3", "year_from": 1850, "year_to": None}
+    svg = downloaded_bytes(page, '#research-year [data-chart-download="svg"]').decode()
+    root = ET.fromstring(svg)
+    assert len([node for node in root.iter() if node.tag.endswith("}polyline")]) == 2
+    assert "AR2" in svg and "AR3" in svg and "Unique papers" in svg
+    assert_png(downloaded_bytes(page, '#research-year [data-chart-download="png"]'))
+    journals = json.loads(downloaded_bytes(page, '#research-journals [data-chart-download="json"]'))
+    assert journals["rows"] == expected["journal_distribution"]
+    shared = json.loads(downloaded_bytes(page, '#research-shared [data-chart-download="json"]'))
+    assert shared["rows"] == expected["top_shared_papers"]
+    assert shared["provenance"]["shared_paper_limit"] == 20
+
+
+def test_research_year_range_changes_plot_and_export_only(page):
+    page.click('#tabs button[data-view="research"]')
+    page.wait_for_function("RESEARCH && !document.querySelector('#research-run').disabled")
+    original = page.evaluate("RESEARCH")
+    page.fill("#research-year-from", "1990")
+    page.fill("#research-year-to", "2000")
+    page.click("#research-year-apply")
+    data = json.loads(downloaded_bytes(page, '#research-year [data-chart-download="json"]'))
+    assert data["rows"] == [row for row in original["by_year"] if 1990 <= row["year"] <= 2000]
+    assert data["provenance"]["filters"]["year_from"] == 1990
+    assert data["provenance"]["filters"]["year_to"] == 2000
+    assert "Outside this range" in page.inner_text("#research-year-note")
+    full = json.loads(downloaded_bytes(page, "#research-json"))
+    assert full["by_year"] == original["by_year"]
+    assert full["provenance"]["view"]["publication_year_range"] == {"from": 1990, "to": 2000}
+    page.click("#research-year-all")
+    assert page.evaluate("CHART_EXPORTS.get('research-year').rows") == original["by_year"]
+
+
+def test_research_empty_cohort_preserves_undefined_ratios(page):
+    page.click('#tabs button[data-view="research"]')
+    page.wait_for_function("RESEARCH && !document.querySelector('#research-run').disabled")
+    page.select_option("#research-a", "AR7")
+    page.select_option("#research-b", "AR6")
+    page.click("#research-run")
+    page.wait_for_function("RESEARCH?.report_a.report_id === 'AR7' && RESEARCH?.report_b.report_id === 'AR6'")
+    payload = json.loads(downloaded_bytes(page, "#research-json"))
+    assert payload["report_a"]["unique_papers"] == 0
+    assert payload["overlap"]["share_of_a"] is None
+    assert payload["overlap"]["overlap_coefficient"] is None
+    assert "—" in page.inner_text("#research-summary")
+
+
+def test_live_audit_runs_on_request_and_downloads_evidence(page):
+    page.click('#tabs button[data-view="quality"]')
+    assert page.evaluate("AUDIT_RESULT") is None
+    with page.expect_response(lambda response: "/api/data-quality/audit" in response.url) as event:
+        page.click("#audit-run")
+    assert event.value.request.method == "GET"
+    expected = event.value.json()
+    page.wait_for_selector("#audit-checks tbody tr")
+    payload = json.loads(downloaded_bytes(page, "#audit-json"))
+    assert payload["checks"] == expected["checks"]
+    assert payload["by_report"] == expected["by_report"]
+    assert len(expected["checks"]) >= 15
+    assert page.locator("#audit-checks tbody tr").count() == len(expected["checks"])
+    assert page.locator("#audit-reports tbody tr").count() == len(expected["by_report"])
+    assert all(check["definition"] and check["grain"] and check["sql"] for check in payload["checks"])
+    assert payload["provenance"]["endpoint"] == "/api/data-quality/audit"
+    assert "Read-only database observations" in page.inner_text("#audit-status")
+
+
+def test_network_analysis_controls_and_layouts(page):
+    page.click('#tabs button[data-view="networks"]')
+    page.wait_for_function("NET?.analysis && !NET_BUSY")
+    page.select_option("#net-kind", "report-report")
+    page.wait_for_function("NET?.parameters.kind === 'report-report' && !NET_BUSY")
+    page.select_option("#net-limit", "2000")
+    page.wait_for_function("NET?.parameters.limit === 2000 && !NET_BUSY")
+    data = page.evaluate("NET")
+    assert data["analysis"]["scope"] == "displayed_graph"
+    assert data["analysis"]["graph"]["node_count"] == data["node_count"]
+    assert page.locator("#net-analysis-stats .kpi").count() >= 8
+    assert "displayed" in page.inner_text("#net-analysis-note").lower()
+    page.select_option("#net-color", "community")
+    assert "Community" in page.inner_text("#net-legend")
+    assert page.evaluate("NET.nodes.every(node => CY.getElementById(node.id).data('colour') === networkColor(node, document.documentElement.dataset.theme === 'dark'))")
+    positions = []
+    for layout in ("circle", "breadthfirst", "concentric", "cose"):
+        page.select_option("#net-layout", layout)
+        current = page.evaluate("CY.nodes().map(node => node.position())")
+        assert len(current) == data["node_count"]
+        assert all(isinstance(position[axis], (int, float)) for position in current for axis in ("x", "y"))
+        positions.append(current)
+    assert positions[0] != positions[1]
+    page.select_option("#net-ranking", "betweenness")
+    assert "unweighted shortest paths" in page.inner_text("#net-ranking-note")
+    ranked = data["analysis"]["rankings"]["betweenness"]
+    assert page.locator("#net-top-nodes tbody tr").count() == len(ranked)
+    assert page.locator("#net-top-nodes tbody tr").first.locator("td").first.inner_text() == ranked[0]["label"]
+    assert_png(downloaded_bytes(page, "#net-export-png"))
+
+
+@pytest.mark.parametrize("format", ["graphml", "gexf", "csv"])
+def test_network_interchange_downloads_match_displayed_graph(page, format):
+    page.click('#tabs button[data-view="networks"]')
+    page.wait_for_function("NET?.analysis && !NET_BUSY")
+    data = page.evaluate("NET")
+    contents = downloaded_bytes(page, f'[data-network-download="{format}"]')
+    if format == "csv":
+        rows = list(csv.DictReader(io.StringIO(contents.decode("utf-8-sig"))))
+        assert len(rows) == data["edge_count"]
+        expected = {frozenset((str(edge["source"]), str(edge["target"]))): edge["weight"] for edge in data["edges"]}
+        for row in rows:
+            assert row["Type"] == "Undirected"
+            assert float(row["Weight"]) == pytest.approx(expected[frozenset((row["Source"], row["Target"]))])
+            provenance = json.loads(row["provenance"])
+            assert provenance["parameters"]["limit"] == data["parameters"]["limit"]
+        return
+    root = ET.fromstring(contents)
+    nodes = [element for element in root.iter() if element.tag.rsplit("}", 1)[-1] == "node"]
+    edges = [element for element in root.iter() if element.tag.rsplit("}", 1)[-1] == "edge"]
+    assert len(nodes) == data["node_count"] and len(edges) == data["edge_count"]
+    assert {node.attrib["id"] for node in nodes} == {str(node["id"]) for node in data["nodes"]}
+    assert b"community" in contents and b"betweenness" in contents
+
+
+def test_network_stale_responses_cannot_replace_newer_settings(page):
+    page.click('#tabs button[data-view="networks"]')
+    page.wait_for_function("NET?.analysis && !NET_BUSY")
+    page.select_option("#net-kind", "report-report")
+    page.wait_for_function("NET?.parameters.kind === 'report-report' && !NET_BUSY")
+    page.evaluate("""async () => {
+        const original = window.fetch;
+        window.fetch = async (input, options) => {
+            const response = await original(input, {...options, signal: undefined});
+            if (String(input).includes('/api/networks/report-report?limit=100&'))
+                await new Promise(resolve => setTimeout(resolve, 300));
+            return response;
+        };
+        try {
+            document.querySelector('#net-limit').value = '100'; const first = loadNetwork(false);
+            document.querySelector('#net-limit').value = '500'; const second = loadNetwork(false);
+            await Promise.all([first, second]);
+        } finally { window.fetch = original; }
+    }""")
+    assert page.evaluate("NET.parameters.limit") == 500
+    assert "limit=500" in page.evaluate("NET_SOURCE")
+    assert "edge limit 500" in page.inner_text("#net-stats")
+    assert page.evaluate("NET_BUSY") is False
 
 
 def test_no_console_errors(page):

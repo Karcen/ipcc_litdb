@@ -11,6 +11,8 @@ const esc = (s) => String(s ?? "").replace(/[&<>"']/g,
 const nf = (n) => (n === null || n === undefined || n === "") ? "—" : Number(n).toLocaleString("en-US");
 const pct = (n) => (n === null || n === undefined) ? "—" : Number(n).toFixed(1) + "%";
 const valueLabel = (n, unit = "") => (n === null || n === undefined || n === "") ? "—" : nf(n) + unit;
+const decimalLabel = (n, digits = 3) => n === null || n === undefined ? "—" : Number(n).toLocaleString("en-US", { maximumFractionDigits: digits });
+const rateLabel = (n) => n === null || n === undefined ? "—" : (n > 0 && n < 0.001 ? "<0.001" : decimalLabel(n)) + "%";
 
 /* ------------------------------------------------------------------ i18n */
 const LOCALE = "en";
@@ -257,13 +259,15 @@ function show(view) {
   $$(".view").forEach((v) => v.classList.toggle("active", v.id === "view-" + view));
   location.hash = "#/" + view;
   const loaders = {
-    reports: loadReports, literature: () => loadPapers(1), bi: initBI,
+    reports: loadReports, literature: () => loadPapers(1), bi: initBI, research: initResearch,
     analytics: loadAnalyticsIndex, insights: loadInsights,
     networks: () => loadNetwork(true), quality: loadQuality,
     unresolved: () => loadUnresolved(1), progress: loadProgress,
     ai: loadAIStatus, settings: loadSettings,
   };
-  if (view !== "overview" && loaders[view] && !LOADED[view]) { LOADED[view] = true; loaders[view](); }
+  if (view !== "overview" && loaders[view] && !LOADED[view]) {
+    LOADED[view] = true; Promise.resolve(loaders[view]()).catch(fail);
+  }
 }
 $$("#tabs button").forEach((b) => b.addEventListener("click", () => show(b.dataset.view)));
 
@@ -272,6 +276,7 @@ function rerender() {
   if (active === "overview") loadOverview();
   else if (active === "networks") renderNetwork();
   else if (active === "bi" && BI_RESULT) renderBI(BI_RESULT);
+  else if (active === "research" && RESEARCH) renderResearch(RESEARCH);
 }
 
 /* ------------------------------------------------------------------ modal */
@@ -577,6 +582,122 @@ async function openAnalysis(type) {
   $("#card-analysis").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+/* ------------------------------------------------------- report comparison */
+let RESEARCH = null, RESEARCH_REQUEST = 0, RESEARCH_YEAR_RANGE = { from: 1850, to: null };
+async function initResearch() {
+  const [reports] = await loadFilterOptions();
+  const options = reports.map((report) => `<option value="${esc(report.report_id)}">${esc(report.report_id)}</option>`).join("");
+  $("#research-a").innerHTML = options; $("#research-b").innerHTML = options;
+  $("#research-a").value = reports.some((r) => r.report_id === "AR5") ? "AR5" : reports[0]?.report_id;
+  $("#research-b").value = reports.some((r) => r.report_id === "AR6") ? "AR6" : reports[1]?.report_id;
+  $("#research-run").onclick = runResearch;
+  $("#research-json").onclick = () => {
+    if (!RESEARCH) return;
+    const data = { ...RESEARCH, provenance: { ...RESEARCH.provenance, view: { publication_year_range: RESEARCH_YEAR_RANGE } } };
+    downloadBlob(new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }),
+      `ipcc_comparison_${RESEARCH.report_a.report_id}_${RESEARCH.report_b.report_id}.json`);
+  };
+  $("#research-year-apply").onclick = () => {
+    const from = $("#research-year-from").value ? Number($("#research-year-from").value) : null;
+    const to = $("#research-year-to").value ? Number($("#research-year-to").value) : null;
+    if ((from !== null && (!Number.isInteger(from) || from < 1000 || from > 9999)) ||
+        (to !== null && (!Number.isInteger(to) || to < 1000 || to > 9999)) || (from !== null && to !== null && from > to)) {
+      $("#research-year-note").textContent = "Use whole years from 1000 to 9999, with the start no later than the end."; return;
+    }
+    RESEARCH_YEAR_RANGE = { from, to }; if (RESEARCH) renderResearchYear(RESEARCH);
+  };
+  $("#research-year-all").onclick = () => {
+    $("#research-year-from").value = ""; $("#research-year-to").value = "";
+    RESEARCH_YEAR_RANGE = { from: null, to: null }; if (RESEARCH) renderResearchYear(RESEARCH);
+  };
+  await runResearch();
+}
+async function runResearch() {
+  const request = ++RESEARCH_REQUEST, button = $("#research-run");
+  const parameters = new URLSearchParams({ report_a: $("#research-a").value, report_b: $("#research-b").value, top: 20 });
+  const source = "/api/research/compare?" + parameters;
+  button.disabled = true; $("#research-status").textContent = t("state.loading");
+  try {
+    const data = await api(source);
+    if (request !== RESEARCH_REQUEST) return;
+    RESEARCH = { ...data, provenance: { ...data.provenance, endpoint: source, retrieved_at: new Date().toISOString() } };
+    renderResearch(RESEARCH); $("#research-json").disabled = false;
+    $("#research-status").textContent = `Compared ${data.report_a.report_id} and ${data.report_b.report_id} · Generated ${data.generated_at}`;
+  } catch (error) { if (request === RESEARCH_REQUEST) { $("#research-status").textContent = error.message; fail(error); } }
+  finally { if (request === RESEARCH_REQUEST) button.disabled = false; }
+}
+function comparisonLineChart(el, rows, series, info) {
+  const data = rows.filter((r) => Number.isFinite(Number(r.year))).slice().sort((a, b) => a.year - b.year);
+  if (!data.length) { el.innerHTML = `<div class="empty">${esc(t("state.empty"))}</div>`; registerChart(el, rows, info); return; }
+  const width = Math.max(el.clientWidth || 800, 320), height = 260;
+  const left = 60, right = 20, top = 34, bottom = 30;
+  const minYear = Number(data[0].year), maxYear = Number(data[data.length - 1].year);
+  const maxCount = Math.max(1, ...data.flatMap((row) => series.map((s) => Number(row[s.key]) || 0)));
+  const x = (year) => left + (width - left - right) * (year - minYear) / Math.max(maxYear - minYear, 1);
+  const y = (count) => height - bottom - (height - top - bottom) * count / maxCount;
+  let svg = `<svg width="${width}" height="${height}" role="img" aria-label="${esc(info.title)}">`;
+  for (let tick = 0; tick <= 4; tick++) {
+    const value = maxCount * tick / 4;
+    svg += `<line x1="${left}" x2="${width - right}" y1="${y(value)}" y2="${y(value)}" stroke="${css("--grid")}"/>
+      <text class="bar-label" x="${left - 8}" y="${y(value) + 4}" text-anchor="end">${nf(Math.round(value))}</text>`;
+  }
+  const tickCount = Math.max(2, Math.floor((width - left - right) / 85));
+  const years = [...new Set(Array.from({ length: tickCount }, (_, i) => Math.round(minYear + (maxYear - minYear) * i / (tickCount - 1))))];
+  years.forEach((year) => { svg += `<text class="bar-label" x="${x(year)}" y="${height - 8}" text-anchor="middle">${year}</text>`; });
+  for (const s of series) {
+    svg += `<polyline fill="none" stroke="${s.color}" stroke-width="2" points="${data.map((r) => `${x(r.year)},${y(r[s.key])}`).join(" ")}"/>`;
+    data.forEach((row) => { svg += `<circle cx="${x(row.year)}" cy="${y(row[s.key])}" r="2" fill="${s.color}" data-tip="${esc(s.label)} · ${row.year}: ${nf(row[s.key])} unique papers"/>`; });
+  }
+  // Keep the series key inside the figure so it also appears in image downloads.
+  series.forEach((s, index) => {
+    const xx = left + index * 135;
+    svg += `<rect x="${xx}" y="14" width="18" height="3" fill="${s.color}"/><text class="bar-label" x="${xx + 24}" y="19">${esc(s.label)}</text>`;
+  });
+  el.innerHTML = svg + "</svg>"; registerChart(el, rows, info);
+}
+function renderResearchYear(data) {
+  const a = data.report_a, b = data.report_b, range = RESEARCH_YEAR_RANGE;
+  const rows = data.by_year.filter((r) => (range.from === null || r.year >= range.from) && (range.to === null || r.year <= range.to));
+  const included = new Set(rows.map((row) => row.year));
+  const excluded = data.by_year.filter((row) => !included.has(row.year));
+  const excludedA = excluded.reduce((sum, row) => sum + row.count_a, 0), excludedB = excluded.reduce((sum, row) => sum + row.count_b, 0);
+  const missing = data.provenance.year_missing;
+  $("#research-year-note").textContent = `Unique papers on a shared scale. Chart range: ${range.from ?? "earliest recorded year"} through ${range.to ?? "latest recorded year"}. Outside this range: ${a.report_id} ${nf(excludedA)}; ${b.report_id} ${nf(excludedB)}. Missing or invalid years: ${a.report_id} ${nf(missing.a)}; ${b.report_id} ${nf(missing.b)}. Full comparison JSON retains all recorded years.`;
+  const info = { title: `${a.report_id} and ${b.report_id}: publication years`, unit: "Unique papers", rows,
+    filters: { report_a: a.report_id, report_b: b.report_id, year_from: range.from, year_to: range.to },
+    source: data.provenance.endpoint, source_generated_at: data.generated_at,
+    provenance: { ...data.provenance, year_filter_applied_in: "browser", outside_year_range: { a: excludedA, b: excludedB } } };
+  comparisonLineChart($("#research-year"), rows,
+    [{ key: "count_a", label: a.report_id, color: css("--accent") }, { key: "count_b", label: b.report_id, color: css("--ok") }], info);
+}
+function renderResearch(data) {
+  const a = data.report_a, b = data.report_b, o = data.overlap;
+  const cards = [["Shared papers", nf(o.shared_papers)], ["Union papers", nf(o.union_papers)],
+    [`Only ${a.report_id}`, nf(o.only_a_papers)], [`Only ${b.report_id}`, nf(o.only_b_papers)],
+    ["Jaccard overlap", rateLabel(o.jaccard === null ? null : 100 * o.jaccard)],
+    ["Overlap of smaller cohort", rateLabel(o.overlap_coefficient === null ? null : 100 * o.overlap_coefficient)],
+    [`Shared share of ${a.report_id}`, rateLabel(o.share_of_a)], [`Shared share of ${b.report_id}`, rateLabel(o.share_of_b)]];
+  $("#research-summary").innerHTML = cards.map(([label, value]) => `<div class="kpi"><div class="v">${esc(value)}</div><div class="l">${esc(label)}</div></div>`).join("");
+  $("#research-definitions").textContent = "Jaccard = shared / union. Overlap of smaller cohort = shared / min(cohort A, cohort B). Report shares = shared / that report's paper cohort. A dash marks an undefined ratio.";
+  const filters = { report_a: a.report_id, report_b: b.report_id };
+  const info = (title, unit, rows) => ({ title, unit, rows, filters, source: data.provenance.endpoint,
+    source_generated_at: data.generated_at, provenance: { ...data.provenance, grain: "Distinct recorded paper IDs per report" } });
+  barChart($("#research-cohorts"), [a, b], { labelKey: "report_id", valueKey: "unique_papers",
+    exportInfo: info("Paper cohorts by report", "Unique papers", [a, b]) });
+  $("#research-cohorts").insertAdjacentHTML("beforeend", `<div class="tblwrap" style="margin-top:12px"><table class="tbl"><thead><tr><th>Report</th><th class="num">Unique papers</th><th class="num">Reference occurrences</th><th class="num">Chapters</th><th class="num">Matched occurrences</th><th class="num">Match rate</th></tr></thead><tbody>` +
+    [a, b].map((report) => `<tr><td title="${esc(report.report_label)}">${esc(report.report_id)}</td><td class="num">${nf(report.unique_papers)}</td><td class="num">${nf(report.reference_occurrences)}</td><td class="num">${nf(report.chapters)}</td><td class="num">${nf(report.matched_occurrences)}</td><td class="num">${rateLabel(report.match_rate)}</td></tr>`).join("") + "</tbody></table></div>");
+  renderResearchYear(data);
+  const journals = data.journal_distribution.slice(0, 20);
+  $("#research-journals").innerHTML = `<div class="tblwrap"><table class="tbl"><thead><tr><th>Journal</th><th class="num">${esc(a.report_id)} papers</th><th class="num">${esc(b.report_id)} papers</th><th class="num">${esc(a.report_id)} share</th><th class="num">${esc(b.report_id)} share</th><th class="num">B − A (pp)</th></tr></thead><tbody>` +
+    journals.map((r) => `<tr><td>${esc(r.journal)}</td><td class="num">${nf(r.count_a)}</td><td class="num">${nf(r.count_b)}</td><td class="num">${rateLabel(r.share_a)}</td><td class="num">${rateLabel(r.share_b)}</td><td class="num">${decimalLabel(r.difference_pp)}</td></tr>`).join("") + "</tbody></table></div>";
+  registerChart($("#research-journals"), data.journal_distribution, info("Journal distribution comparison", "Unique papers; report share (%)", data.journal_distribution));
+  $("#research-shared-note").textContent = `Showing ${nf(data.top_shared_papers.length)} of ${nf(o.shared_papers)} shared papers, ranked by number of reports, then chapters. Downloads of this table contain these displayed papers.`;
+  $("#research-shared").innerHTML = `<div class="tblwrap"><table class="tbl"><thead><tr><th>Paper</th><th>Year</th><th>Journal</th><th>DOI</th><th class="num">Reports</th><th class="num">Chapters</th></tr></thead><tbody>` +
+    data.top_shared_papers.map((p) => `<tr class="rowlink" data-paper="${p.paper_id}"><td>${esc(p.title_best || "—")}</td><td>${nf(p.year_best)}</td><td>${esc(p.journal_best || "—")}</td><td>${esc(p.doi_norm || "—")}</td><td class="num">${nf(p.n_reports)}</td><td class="num">${nf(p.n_chapters)}</td></tr>`).join("") + "</tbody></table></div>";
+  registerChart($("#research-shared"), data.top_shared_papers, info("Shared papers", "Recorded papers", data.top_shared_papers));
+  $("#research-provenance").textContent = JSON.stringify(data.provenance, null, 2);
+}
+
 /* --------------------------------------------------------------- insights */
 async function loadInsights() {
   const rows = await api(`/api/insights?lang=${encodeURIComponent(LOCALE)}`);
@@ -596,6 +717,7 @@ async function loadInsights() {
 
 /* --------------------------------------------------------------- networks */
 let NET = null, NET_KIND = "chapter-chapter", NET_SOURCE = "", NET_GENERATED = "";
+let NET_META = null, NET_REQUEST = 0, NET_CONTROLLER = null, NET_BUSY = false;
 function networkCaption(data) {
   const parameters = data.parameters || {}, parts = [
     `${nf(data.node_count)} displayed nodes`, `${nf(data.edge_count)} displayed edges`,
@@ -610,28 +732,45 @@ function networkCaption(data) {
     ? `. Truncated view: ${nf(parameters.omitted_edge_count)} eligible edges omitted.` : ".");
 }
 async function loadNetwork(reset) {
-  const meta = await api("/api/networks");
-  $("#net-kind").innerHTML = meta.kinds.map((k) =>
-    `<option value="${esc(k.key)}" data-i18n="net.${esc(k.key)}">${esc(t("net." + k.key))}</option>`).join("");
-  $("#net-kind").value = NET_KIND;
-  if (reset) $("#net-threshold").value = meta.defaults[NET_KIND] ?? 0.25;
-  $("#net-threshold-val").textContent = Number($("#net-threshold").value).toFixed(2);
-  $("#net-kind").onchange = () => {
-    NET_KIND = $("#net-kind").value; loadNetwork(true);
-  };
-  $("#net-threshold").oninput = () => {
-    $("#net-threshold-val").textContent = Number($("#net-threshold").value).toFixed(2);
-  };
-  $("#net-threshold").onchange = () => loadNetwork(false);
-  $("#net-fit").onclick = () => renderNetwork();
-  const mw = NET_KIND.endsWith("chapter") || NET_KIND === "report-report"
-    ? Number($("#net-threshold").value) : "";
-  NET_SOURCE = `/api/networks/${NET_KIND}` + (mw === "" ? "" : `?min_weight=${mw}`);
-  NET = await api(NET_SOURCE); NET_GENERATED = new Date().toISOString();
-  $("#net-stats").textContent = networkCaption(NET);
-  renderNetwork();
-  $("#net-export-png").disabled = !NET.nodes.length;
-  $("#net-export-json").disabled = false;
+  const request = ++NET_REQUEST;
+  NET_CONTROLLER?.abort(); NET_CONTROLLER = new AbortController();
+  const controller = NET_CONTROLLER; NET_BUSY = true;
+  $$("[data-network-download]").forEach((button) => button.disabled = true);
+  $("#net-stats").textContent = t("state.loading");
+  try {
+    if (!NET_META) {
+      const meta = await api("/api/networks");
+      if (request !== NET_REQUEST) return;
+      NET_META = meta;
+      $("#net-kind").innerHTML = meta.kinds.map((k) => `<option value="${esc(k.key)}">${esc(t("net." + k.key))}</option>`).join("");
+      $("#net-kind").value = NET_KIND;
+      $("#net-kind").onchange = () => { NET_KIND = $("#net-kind").value; loadNetwork(true); };
+      $("#net-threshold").oninput = () => $("#net-threshold-val").textContent = Number($("#net-threshold").value).toFixed(2);
+      $("#net-threshold").onchange = () => loadNetwork(false);
+      $("#net-limit").onchange = () => loadNetwork(false);
+      $("#net-color").onchange = renderNetwork; $("#net-layout").onchange = renderNetwork;
+      $("#net-ranking").onchange = renderNetworkAnalysis;
+    }
+    if (reset) $("#net-threshold").value = NET_META.defaults[NET_KIND] ?? 0.25;
+    const overlapGraph = ["chapter-chapter", "report-report"].includes(NET_KIND);
+    $("#net-threshold").disabled = !overlapGraph;
+    $("#net-threshold-val").textContent = overlapGraph ? Number($("#net-threshold").value).toFixed(2) : "n/a";
+    const parameters = new URLSearchParams({ limit: $("#net-limit").value });
+    if (overlapGraph) parameters.set("min_weight", $("#net-threshold").value);
+    const source = `/api/networks/${NET_KIND}?` + parameters;
+    const response = await fetch(source, { signal: controller.signal });
+    if (!response.ok) throw new Error(`${source} → HTTP ${response.status}`);
+    const data = await response.json();
+    if (request !== NET_REQUEST) return;
+    NET = data; NET_SOURCE = source; NET_GENERATED = new Date().toISOString();
+    $("#net-stats").textContent = networkCaption(NET); renderNetwork(); renderNetworkAnalysis();
+  } catch (error) { if (request === NET_REQUEST && error.name !== "AbortError") { $("#net-stats").textContent = error.message; fail(error); } }
+  finally {
+    if (request === NET_REQUEST) {
+      NET_BUSY = false;
+      $$("[data-network-download]").forEach((button) => button.disabled = !NET || (button.dataset.networkDownload === "png" && !NET.nodes.length));
+    }
+  }
 }
 let CY = null;   // cytoscape instance
 
@@ -639,8 +778,47 @@ let CY = null;   // cytoscape instance
    layout below remains as a fallback if the library fails to load. */
 function renderNetwork() {
   if (!NET) return;
+  renderNetworkLegend();
   if (window.cytoscape) return renderNetworkCytoscape();
+  if (CY) { CY.destroy(); CY = null; }
   return renderNetworkSVG();
+}
+function networkColor(node, dark) {
+  return $("#net-color").value === "community" ? hueToHex((Number(node.community || 0) * 137.508) % 360, 0.52, dark ? 0.60 : 0.46)
+    : groupColour(node.group, dark);
+}
+function renderNetworkLegend() {
+  const mode = $("#net-color").value, dark = document.documentElement.dataset.theme === "dark", groups = new Map();
+  NET.nodes.forEach((node) => {
+    const label = mode === "community" ? `Community ${node.community ?? "—"}` : String(node.group ?? "Unspecified");
+    const group = groups.get(label) || { label, color: networkColor(node, dark), count: 0 };
+    group.count++; groups.set(label, group);
+  });
+  const entries = [...groups.values()].sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+  $("#net-legend").innerHTML = entries.slice(0, 12).map((g) => `<span><i style="background:${g.color}"></i>${esc(g.label)} (${nf(g.count)})</span>`).join("") +
+    (entries.length > 12 ? `<span>${nf(entries.length - 12)} additional groups in JSON</span>` : "");
+}
+function renderNetworkAnalysis() {
+  if (!NET?.analysis) return;
+  const analysis = NET.analysis, graph = analysis.graph;
+  $("#net-analysis-note").textContent = analysis.scope_note + " Density = edges / possible undirected node pairs. Communities describe connectivity in this displayed graph.";
+  $("#net-weight-note").textContent = "Weight units: " + NET.provenance.weight_definition +
+    ` Node strength sums incident weights; mean strength averages those sums. Weighted modularity describes the Louvain partition at resolution ${analysis.methods.communities.resolution}.`;
+  const cards = [["Displayed nodes", nf(graph.node_count)], ["Displayed edges", nf(graph.edge_count)], ["Density", decimalLabel(graph.density, 6)],
+    ["Mean degree", decimalLabel(graph.average_degree)], ["Connected components", nf(graph.connected_components)],
+    ["Largest component nodes", nf(graph.largest_component_nodes)], ["Displayed isolates", nf(graph.isolates)], ["Communities", nf(analysis.communities.length)],
+    ["Mean strength", decimalLabel(graph.average_strength)], ["Total edge weight", decimalLabel(graph.total_edge_weight)],
+    ["Weighted modularity", decimalLabel(graph.modularity)], ["Connected graph", graph.is_connected === null ? "—" : graph.is_connected ? "Yes" : "No"]];
+  $("#net-analysis-stats").innerHTML = cards.map(([label, value]) => `<div class="kpi"><div class="v">${esc(value)}</div><div class="l">${esc(label)}</div></div>`).join("");
+  const ranking = $("#net-ranking").value, methods = analysis.methods.betweenness;
+  $("#net-ranking-note").textContent = ranking === "degree" ? "Degree counts neighbors in the displayed undirected graph." : ranking === "strength"
+    ? "Strength sums displayed edge weights. " + (NET.provenance.weight_definition || "")
+    : `Betweenness is normalized (0–1) and uses unweighted shortest paths (hops). ${methods.mode === "sampled" ? `Estimated from ${methods.sample_size} sampled nodes; seed ${methods.seed}.` : "Calculated over all displayed nodes."}`;
+  const index = Object.fromEntries(NET.nodes.map((node) => [node.id, node]));
+  $("#net-top-nodes").innerHTML = `<thead><tr><th>Node</th><th>Type</th><th class="num">Community</th><th class="num">Degree</th><th class="num">Strength</th><th class="num">Betweenness</th></tr></thead><tbody>` +
+    analysis.rankings[ranking].map((entry) => { const node = index[entry.id]; return `<tr class="rowlink" data-network-node="${esc(node.id)}" title="Focus this node in the network"><td>${esc(node.label)}</td><td>${esc(node.kind || entry.kind || "—")}</td><td class="num">${nf(node.community)}</td><td class="num">${nf(node.degree)}</td><td class="num">${decimalLabel(node.strength)}</td><td class="num">${decimalLabel(node.betweenness, 6)}</td></tr>`; }).join("") + "</tbody>";
+  $$("#net-top-nodes tr[data-network-node]").forEach((row) => row.onclick = () => { if (CY) { const node = CY.getElementById(row.dataset.networkNode); node.emit("tap"); CY.animate({ center: { eles: node }, duration: 200 }); } });
+  $("#net-methods").textContent = JSON.stringify({ definitions: NET.provenance, methods: analysis.methods, source_population: analysis.population }, null, 2);
 }
 
 /* Cytoscape's colour parser does not accept hsl() strings; it silently falls back
@@ -681,8 +859,8 @@ function renderNetworkCytoscape() {
   const elements = [
     ...NET.nodes.map((n) => ({ data: {
         id: String(n.id), label: labelled.has(String(n.id)) ? String(n.label || n.id) : "",
-        size: n.size || 1, group: String(n.group ?? "x"), colour: groupColour(n.group, dark),
-        hint: `${n.label}${n.size ? " · " + n.size : ""}` } })),
+        size: n.size || 1, group: String(n.group ?? "x"), colour: networkColor(n, dark),
+        hint: `${n.label}${n.community ? " · community " + n.community : ""}${n.degree !== undefined ? " · degree " + n.degree : ""}${n.strength !== undefined ? " · strength " + decimalLabel(n.strength) : ""}` } })),
     ...NET.edges.map((e, i) => ({ data: {
         id: "e" + i, source: String(e.source), target: String(e.target),
         weight: e.weight ?? 1,
@@ -706,9 +884,10 @@ function renderNetworkCytoscape() {
           "curve-style": "haystack", "opacity": 0.35 } },
       { selector: ":selected", style: { "background-color": css("--accent"), "opacity": 1 } },
     ],
-    layout: { name: "cose", nodeDimensionsIncludeLabels: true,
+    layout: { name: $("#net-layout").value, nodeDimensionsIncludeLabels: true,
               animate: false, padding: 26, nodeRepulsion: 11000, idealEdgeLength: 78,
-              nodeOverlap: 24, componentSpacing: 60 },
+              nodeOverlap: 24, componentSpacing: 60, directed: false,
+              concentric: (node) => node.degree(), levelWidth: () => 2 },
     wheelSensitivity: 0.2,
     minZoom: 0.15, maxZoom: 4,
   });
@@ -781,8 +960,6 @@ function renderNetworkSVG() {
     .slice(0, labelBudget)
     .map((n) => n.id));
   const maxW = Math.max(...edges.map((e) => e.weight || 0), 1);
-  const hue = (g) => { let h = 0; const s = String(g || "x");
-    for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) % 360; return h; };
   let out = "";
   for (const e of edges) {
     const a = nodes[idx[e.source]], b = nodes[idx[e.target]];
@@ -795,7 +972,7 @@ function renderNetworkSVG() {
   for (const n of nodes) {
     const r = Math.max(3, Math.min(15, 3 + Math.sqrt(n.size || 1)));
     out += `<circle cx="${n.x.toFixed(1)}" cy="${n.y.toFixed(1)}" r="${r.toFixed(1)}"
-      fill="hsl(${hue(n.group)} 62% ${document.documentElement.getAttribute("data-theme") === "dark" ? 58 : 42}%)"
+      fill="${networkColor(n, document.documentElement.dataset.theme === "dark")}"
       fill-opacity="0.85" stroke="${css("--panel")}" stroke-width="1"
       data-tip="${esc(n.label)}${n.size ? " · " + n.size : ""}"/>`;
     if (labelled.has(n.id))
@@ -816,6 +993,35 @@ function renderNetworkSVG() {
 }
 
 /* ---------------------------------------------------------------- quality */
+let AUDIT_RESULT = null;
+$("#audit-run").onclick = async () => {
+  const button = $("#audit-run"); button.disabled = true;
+  $("#audit-status").textContent = t("state.loading");
+  try {
+    const data = await api("/api/data-quality/audit");
+    AUDIT_RESULT = { ...data, provenance: { ...data.provenance, endpoint: "/api/data-quality/audit", retrieved_at: new Date().toISOString() } };
+    renderAudit(AUDIT_RESULT); $("#audit-json").disabled = false;
+    $("#audit-status").textContent = `${nf(data.checks.length)} checks · Generated ${data.generated_at} · Read-only database observations`;
+  } catch (error) { $("#audit-status").textContent = error.message; fail(error); }
+  finally { button.disabled = false; }
+};
+$("#audit-json").onclick = () => {
+  if (AUDIT_RESULT) downloadBlob(new Blob([JSON.stringify(AUDIT_RESULT, null, 2)], { type: "application/json" }), "ipcc_live_quality_audit.json");
+};
+function renderAudit(data) {
+  const grainLabel = (grain) => ({ reference_occurrence: "Reference occurrences", references_occurrence: "Reference occurrences",
+    normalized_doi_group: "Normalized DOI groups", paper_authors: "Author links", paper: "Paper records",
+    chapters: "Chapters", working_groups: "Working groups" })[grain] || String(grain).replaceAll("_", " ");
+  $("#audit-checks").innerHTML = `<div class="tblwrap"><table class="tbl"><thead><tr><th>Check</th><th>Grain</th><th class="num">Affected</th><th class="num">Denominator</th><th class="num">Rate</th><th>Priority</th><th>Result</th><th>Definition and evidence</th></tr></thead><tbody>` +
+    data.checks.map((check) => `<tr><td>${esc(check.label.replace(/\bdoi\b/gi, "DOI"))}</td><td>${esc(grainLabel(check.grain))}</td><td class="num">${nf(check.count)}</td><td class="num">${nf(check.denominator)}</td><td class="num">${rateLabel(check.rate)}</td><td>${esc(check.severity)}</td><td><span class="chip ${check.status === "pass" ? "ok" : "warn"}">${esc(check.status)}</span></td><td class="audit-detail"><details><summary>${esc(check.definition)}</summary><pre class="sql">${esc(JSON.stringify({ samples: check.samples, sql: check.sql, parameters: check.parameters }, null, 2))}</pre></details></td></tr>`).join("") + "</tbody></table></div>";
+  const fields = ["title", "authors", "journal", "year", "doi"];
+  $("#audit-reports").innerHTML = `<div class="tblwrap"><table class="tbl"><thead><tr><th>Report</th><th class="num">Occurrences</th>` + fields.map((field) => `<th class="num">${esc(field === "doi" ? "DOI" : field)} present</th>`).join("") + "</tr></thead><tbody>" +
+    data.by_report.map((row) => `<tr><td>${esc(row.report_id)}</td><td class="num">${nf(row.reference_occurrences)}</td>` + fields.map((field) => {
+      const cell = row.fields[field];
+      return `<td class="num">${rateLabel(cell.completeness)}<br><span class="hint">${nf(cell.present)} / ${nf(cell.denominator)}; ${nf(cell.missing)} missing</span></td>`;
+    }).join("") + "</tr>").join("") + "</tbody></table></div>";
+  $("#audit-provenance").textContent = JSON.stringify(data.provenance, null, 2);
+}
 async function loadQuality() {
   const q = await api("/api/data-quality");
   const s = q.summary;
@@ -1075,19 +1281,26 @@ document.addEventListener("click", async (e) => {
 });
 
 document.addEventListener("click", async (event) => {
-  const button = event.target.closest("[data-network-download]"); if (!button || !NET) return;
-  const format = button.dataset.networkDownload, kind = NET.parameters.kind || NET_KIND;
+  const button = event.target.closest("[data-network-download]"); if (!button || !NET || NET_BUSY) return;
+  const network = NET, source = NET_SOURCE, retrieved = NET_GENERATED, cy = CY;
+  const format = button.dataset.networkDownload, kind = network.parameters.kind || NET_KIND;
+  const layout = $("#net-layout").value, color = $("#net-color").value;
   button.disabled = true;
   try {
-    const provenance = { ...NET.provenance, dataset: "IPCC Literature Database", generated_at: new Date().toISOString(),
-      source_generated_at: NET_GENERATED, source: NET_SOURCE, parameters: NET.parameters,
-      view: { zoom: CY?.zoom(), pan: CY?.pan(), highlighted_nodes: CY?.nodes().filter((n) => !n.hasClass("faded")).map((n) => n.id()) } };
+    const provenance = { ...network.provenance, dataset: "IPCC Literature Database", generated_at: new Date().toISOString(),
+      source_generated_at: retrieved, source, parameters: network.parameters,
+      view: { layout, color_by: color, zoom: cy?.zoom(), pan: cy?.pan(), highlighted_nodes: cy?.nodes().filter((n) => !n.hasClass("faded")).map((n) => n.id()) } };
     if (format === "json") {
-      const data = { ...NET, provenance,
-        positions: CY ? Object.fromEntries(CY.nodes().map((node) => [node.id(), node.position()])) : {} };
+      const data = { ...network, provenance,
+        positions: cy ? Object.fromEntries(cy.nodes().map((node) => [node.id(), node.position()])) : {} };
       downloadBlob(new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }), `ipcc_network_${kind}.json`);
-    } else if (CY) {
-      const image = new Image(); image.src = CY.png({ full: false, scale: 2, bg: css("--panel2") });
+    } else if (["graphml", "gexf", "csv"].includes(format)) {
+      const [endpoint, query] = source.split("?"), parameters = new URLSearchParams(query); parameters.set("fmt", format);
+      const response = await fetch(endpoint + "/export?" + parameters);
+      if (!response.ok) throw new Error(`Network download → HTTP ${response.status}`);
+      downloadBlob(await response.blob(), `ipcc_network_${kind}.${format}`);
+    } else if (cy) {
+      const image = new Image(); image.src = cy.png({ full: false, scale: 2, bg: css("--panel2") });
       await image.decode();
       const canvas = document.createElement("canvas"); canvas.width = image.naturalWidth;
       let context = canvas.getContext("2d");
@@ -1101,8 +1314,8 @@ document.addEventListener("click", async (event) => {
         if (line) lines.push(line);
         return lines;
       };
-      const title = wrap(t("net." + kind), "bold 22px Arial"), caption = wrap(networkCaption(NET), "17px Arial");
-      const footer = wrap(`IPCC Literature Database · Retrieved ${NET_GENERATED}`, "15px Arial");
+      const title = wrap(t("net." + kind), "bold 22px Arial"), caption = wrap(networkCaption(network) + ` Color: ${color}; layout: ${layout}.`, "17px Arial");
+      const footer = wrap(`IPCC Literature Database · Retrieved ${retrieved}`, "15px Arial");
       const headerHeight = 32 + title.length * 28 + caption.length * 23 + footer.length * 21;
       canvas.height = image.naturalHeight + headerHeight; context = canvas.getContext("2d");
       context.fillStyle = css("--panel"); context.fillRect(0, 0, canvas.width, canvas.height);
@@ -1116,12 +1329,12 @@ document.addEventListener("click", async (event) => {
       const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
       downloadBlob(blob, `ipcc_network_${kind}.png`);
     } else {
-      const entry = { title: t("net." + kind), unit: networkCaption(NET),
-        filters: {}, source: NET_SOURCE, source_generated_at: NET_GENERATED, rows: NET.nodes, provenance };
+      const entry = { title: t("net." + kind), unit: networkCaption(network),
+        filters: {}, source, source_generated_at: retrieved, rows: network.nodes, provenance };
       downloadBlob(await svgToPng(standaloneSvg($("#net-svg svg"), entry)), `ipcc_network_${kind}.png`);
     }
   } catch (error) { fail(error); }
-  finally { button.disabled = false; }
+  finally { if (!NET_BUSY) button.disabled = format === "png" && !NET?.nodes.length; }
 });
 
 /* ------------------------------------------------------------------- boot */

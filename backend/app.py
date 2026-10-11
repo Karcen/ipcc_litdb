@@ -11,11 +11,11 @@ from __future__ import annotations
 
 import datetime as dt
 import re
-from typing import Any, Optional
+from typing import Annotated, Any, Optional
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
@@ -23,7 +23,7 @@ import db
 from config import (ALLOW_WRITES, CHANGED_BY, FRONTEND_DIR, MAX_PAGE_SIZE,
                     REPO_ROOT, sqlite_database_path)
 
-app = FastAPI(title="IPCC Literature Database API", version="1.0.0")
+app = FastAPI(title="IPCC Literature Database API", version="1.2.0")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"],
                    allow_headers=["*"],
                    expose_headers=["X-Total-Count", "X-Row-Count", "X-Export-Limit",
@@ -723,15 +723,66 @@ def network_kinds() -> dict:
 
 
 @app.get("/api/networks/{kind}")
-def network(kind: str, min_weight: Optional[float] = None, limit: int = 300) -> dict:
+def network(kind: str, min_weight: Optional[float] = None,
+            limit: Annotated[int, Query(ge=1, le=2000)] = 300) -> dict:
     try:
         database = sqlite_database_path()
     except ValueError as error:
         raise HTTPException(501, str(error))
     try:
-        return _networks.build(kind, db=database, min_weight=min_weight, limit=min(limit, 2000))
+        return _networks.build(kind, db=database, min_weight=min_weight, limit=limit)
     except ValueError as e:
         raise HTTPException(404, str(e))
+
+
+@app.get("/api/networks/{kind}/export")
+def network_export(kind: str, fmt: str = "graphml", min_weight: Optional[float] = None,
+                   limit: Annotated[int, Query(ge=1, le=2000)] = 300):
+    """Export the same filtered, capped graph used by the network view."""
+    from analytics.graph_analysis import graph_download
+
+    if fmt not in {"graphml", "gexf", "csv"}:
+        raise HTTPException(400, "fmt must be graphml, gexf, or csv")
+    data = network(kind=kind, min_weight=min_weight, limit=limit)
+    content, mime, extension = graph_download(data, fmt)
+    return Response(content=content, media_type=mime, headers={
+        "Content-Disposition": f'attachment; filename="ipcc_network_{kind}.{extension}"',
+        "X-Row-Count": str(data["edge_count"]),
+        "X-Total-Count": str(data["parameters"]["eligible_edge_count"]),
+        "X-Export-Limit": str(limit),
+        "X-Export-Truncated": str(data["parameters"]["truncated"]).lower(),
+    })
+
+
+@app.get("/api/data-quality/audit")
+def quality_audit(sample_limit: Annotated[int, Query(ge=1, le=50)] = 10) -> dict:
+    """Recalculate bibliographic and relationship checks from the working database."""
+    from analytics.research import quality_audit as run_audit
+
+    try:
+        database = sqlite_database_path()
+    except ValueError as error:
+        raise HTTPException(501, str(error))
+    try:
+        return run_audit(db=database, sample_limit=sample_limit)
+    except ValueError as error:
+        raise HTTPException(400, str(error))
+
+
+@app.get("/api/research/compare")
+def research_compare(report_a: str, report_b: str,
+                     top: Annotated[int, Query(ge=1, le=100)] = 20) -> dict:
+    """Compare distinct works cited by two report cohorts."""
+    from analytics.research import compare_reports
+
+    try:
+        database = sqlite_database_path()
+    except ValueError as error:
+        raise HTTPException(501, str(error))
+    try:
+        return compare_reports(report_a, report_b, db=database, top=top)
+    except ValueError as error:
+        raise HTTPException(400, str(error))
 
 
 # =========================================================================== #

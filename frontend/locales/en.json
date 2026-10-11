@@ -131,7 +131,7 @@
   "page.insights": "Automated Insights",
   "page.insights.hint": "Findings from the analysis engine, with the supporting records and calculations.",
   "page.networks": "Networks",
-  "page.networks.hint": "Built from the database. Adjust the threshold to reduce clutter.",
+  "page.networks.hint": "Choose a graph and edge limit. Analysis describes the displayed graph; source population counts remain separate.",
   "page.ai": "AI Analysis",
   "page.ai.hint": "Ask a question about the database. The answer includes the validated query and its results.",
   "page.settings": "Settings",
@@ -156,7 +156,7 @@
   "ai.answer": "Answer",
   "ai.rows": "Query result",
   "net.kind": "Network",
-  "net.threshold": "Minimum weight",
+  "net.threshold": "Minimum overlap",
   "net.nodes": "nodes",
   "net.edges": "edges",
   "net.reset": "Fit view",
@@ -179,5 +179,8 @@
   "state.no_data_report": "No data for this Assessment Report",
   "state.ai_unconfigured": "AI analysis not configured",
   "state.timeout": "Analysis timed out",
-  "state.not_reviewed": "not reviewed"
+  "state.not_reviewed": "not reviewed",
+  "nav.research": "Research Comparison",
+  "research.title": "Research Comparison",
+  "research.hint": "Compare the distinct papers cited by two reports. Counts refer to recorded paper IDs."
 }

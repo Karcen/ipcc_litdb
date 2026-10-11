@@ -140,7 +140,9 @@ def main() -> int:
         for route in ("/api/statistics", "/api/reports", "/api/chapters?report_id=AR6&limit=1000",
                       "/api/papers?page=1&size=25", "/api/metrics", "/api/bi/query?metric=reference_count&dimension=report",
                       "/api/analysis", "/api/insights?lang=en", "/api/networks", "/api/networks/chapter-chapter",
-                      "/api/data-quality", "/api/duplicates?limit=25", "/api/unresolved?page=1&size=25",
+                      "/api/data-quality", "/api/data-quality/audit?sample_limit=2",
+                      "/api/research/compare?report_a=AR5&report_b=AR6&top=2",
+                      "/api/duplicates?limit=25", "/api/unresolved?page=1&size=25",
                       "/api/collection-progress", "/api/papers/1", "/api/papers/1/citations", "/api/ai/status", "/api/changelog"):
             try:
                 status, payload = get(route)

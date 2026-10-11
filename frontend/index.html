@@ -18,6 +18,7 @@
     <button data-view="reports"   data-i18n="nav.reports">Assessment Reports</button>
     <button data-view="literature" data-i18n="nav.literature">Literature</button>
     <button data-view="bi"        data-i18n="nav.bi">BI Explorer</button>
+    <button data-view="research"  data-i18n="nav.research">Research Comparison</button>
     <button data-view="analytics" data-i18n="nav.analytics">Analytics</button>
     <button data-view="insights"  data-i18n="nav.insights">Automated Insights</button>
     <button data-view="networks"  data-i18n="nav.networks">Networks</button>
@@ -139,6 +140,37 @@
     </div>
   </section>
 
+  <section id="view-research" class="view">
+    <div class="card">
+      <h3 data-i18n="research.title">Research Comparison</h3>
+      <p class="hint" data-i18n="research.hint">Compare the distinct papers cited by two reports. Counts refer to recorded paper IDs.</p>
+      <div class="filters">
+        <label>Report A <select id="research-a" aria-label="Report A"></select></label>
+        <label>Report B <select id="research-b" aria-label="Report B"></select></label>
+        <button id="research-run" class="primary">Compare reports</button>
+        <button id="research-json" disabled>Download comparison JSON</button>
+      </div>
+      <div id="research-status" class="hint" role="status"></div>
+      <div id="research-summary" class="kpis"></div>
+      <div id="research-definitions" class="hint"></div>
+      <div id="research-cohorts"></div>
+    </div>
+    <div class="card"><h3>Publication years</h3>
+      <div class="filters"><label>From <input type="number" id="research-year-from" aria-label="Publication year from" value="1850" min="1000" max="9999" style="width:110px"></label>
+        <label>Through <input type="number" id="research-year-to" aria-label="Publication year through" min="1000" max="9999" placeholder="Latest year" style="width:110px"></label>
+        <button id="research-year-apply">Apply year range</button><button id="research-year-all">Show all years</button></div>
+      <div id="research-year-note" class="hint"></div><div id="research-year" class="chart"></div>
+    </div>
+    <div class="card"><h3>Journal comparison</h3>
+      <p class="hint">Top 20 journals by combined paper count. Shares use each report's full paper cohort.</p>
+      <div id="research-journals"></div>
+    </div>
+    <div class="card"><h3>Shared papers</h3>
+      <div id="research-shared-note" class="hint"></div><div id="research-shared"></div>
+    </div>
+    <div class="card"><details><summary>Definitions and query provenance</summary><pre id="research-provenance" class="sql"></pre></details></div>
+  </section>
+
   <section id="view-analytics" class="view">
     <div class="card"><h3 data-i18n="nav.analytics">Analytics</h3>
       <p class="hint" data-i18n="page.insights.hint"></p>
@@ -165,17 +197,30 @@
       <div class="filters">
         <select id="net-kind"></select>
         <label class="chk"><span data-i18n="net.threshold"></span>
-          <input type="range" id="net-threshold" min="0" max="0.8" step="0.01" value="0.25" style="min-width:130px">
+          <input type="range" id="net-threshold" min="0" max="1" step="0.01" value="0.25" style="min-width:130px">
           <code id="net-threshold-val">0.25</code></label>
+        <label>Edge limit <select id="net-limit" aria-label="Edge limit"><option>100</option><option selected>300</option><option>500</option><option>1000</option><option>2000</option></select></label>
+        <label>Color <select id="net-color" aria-label="Network color"><option value="group">Source group</option><option value="community">Community</option></select></label>
+        <label>Layout <select id="net-layout" aria-label="Network layout"><option value="cose">Force-directed</option><option value="breadthfirst">Breadth-first</option><option value="circle">Circle</option><option value="concentric">Concentric</option></select></label>
         <button id="net-fit" data-i18n="net.reset"></button>
         <button id="net-export-png" data-network-download="png" disabled title="Download network image">PNG</button>
         <button id="net-export-json" data-network-download="json" disabled title="Download network data and provenance">JSON</button>
+        <button data-network-download="graphml" disabled>GraphML</button>
+        <button data-network-download="gexf" disabled>GEXF</button>
+        <button data-network-download="csv" disabled>Edge CSV</button>
       </div>
-      <div id="net-stats" class="hint"></div>
+      <div id="net-stats" class="hint" role="status"></div>
+      <div id="net-legend" class="net-legend"></div>
       <div class="netwrap" id="net-wrap">
         <div id="net-svg" class="netcanvas"></div>
         <div class="nettip" id="net-tip"></div>
       </div>
+    </div>
+    <div class="card"><h3>Displayed graph analysis</h3>
+      <div id="net-analysis-note" class="hint"></div><div id="net-weight-note" class="hint"></div><div id="net-analysis-stats" class="kpis"></div>
+      <div class="filters"><label>Rank nodes by <select id="net-ranking" aria-label="Node ranking"><option value="degree">Degree</option><option value="strength">Strength</option><option value="betweenness">Betweenness</option></select></label></div>
+      <div id="net-ranking-note" class="hint"></div><div class="tblwrap"><table id="net-top-nodes" class="tbl"></table></div>
+      <details><summary>Graph definitions and methods</summary><pre id="net-methods" class="sql"></pre></details>
     </div>
   </section>
 
@@ -185,6 +230,13 @@
       <p class="hint" data-i18n="page.quality.hint"></p>
       <div id="quality-score" class="hint"></div>
       <div id="quality-cards" class="kpis"></div>
+    </div>
+    <div class="card"><h3>Live database audit</h3>
+      <p class="hint">Count missing metadata, broken links and stored-count differences in the current database. Rates show the affected share at each check's stated grain.</p>
+      <div class="filters"><button id="audit-run" class="primary">Run live audit</button><button id="audit-json" disabled>Download audit JSON</button></div>
+      <div id="audit-status" class="hint" role="status"></div><div id="audit-checks"></div>
+      <h4>Completeness by report</h4><div id="audit-reports"></div>
+      <details><summary>Definitions and query provenance</summary><pre id="audit-provenance" class="sql"></pre></details>
     </div>
     <div class="card"><h3 data-i18n="table.flag">Flag</h3>
       <div class="tblwrap"><table class="tbl" id="tbl-flags"></table></div>

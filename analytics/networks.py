@@ -7,6 +7,7 @@ from pathlib import Path
 import sqlite3
 
 from backend.config import sqlite_database_path
+from analytics.graph_analysis import summarise
 
 DEFAULT_MIN_WEIGHT = {
     "chapter-chapter": 0.25,
@@ -64,7 +65,7 @@ def _pack(node_index, eligible_edges, limit, *, provenance, **params) -> dict:
     edges = eligible_edges[:limit]
     displayed = {edge[key] for edge in edges for key in ("source", "target")}
     nodes = [node_index[node_id] for node_id in sorted(displayed)]
-    return {
+    payload = {
         "nodes": nodes,
         "edges": edges,
         "node_count": len(nodes),
@@ -89,6 +90,9 @@ def _pack(node_index, eligible_edges, limit, *, provenance, **params) -> dict:
             **provenance,
         },
     }
+
+    payload["analysis"] = summarise(payload)
+    return payload
 
 
 def _chapter_nodes(con):
