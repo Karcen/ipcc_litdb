@@ -1,8 +1,8 @@
 [
   {
     "file": "README.md",
-    "bytes": 49307,
-    "sha256": "7ebfc1915656fc31c8fd9ad771438f02e6bc697efe673b2dad3e8216ef6e88f1"
+    "bytes": 49335,
+    "sha256": "82e4d57c5412c96069af72af266f674ddf7147e58a5904b7b1a73bcc0bb03a40"
   },
   {
     "file": "analyse_corpus.py",
@@ -151,13 +151,13 @@
   },
   {
     "file": "paper.pdf",
-    "bytes": 351439,
-    "sha256": "fca85ec7b192ef7569a64cba83d02a7f58ff87748b08081efda2a6d9ab9a55a5"
+    "bytes": 351448,
+    "sha256": "d31166c8da9a4154dc13555d744705f77989337c6eaad825fb170cf432f9e986"
   },
   {
     "file": "paper.tex",
-    "bytes": 41806,
-    "sha256": "429bbd34ad1cb5c6dc0439dd0a9ab25d31ca2a03c84ee3106532d8ec9086d6cc"
+    "bytes": 41834,
+    "sha256": "f830f5ede2e8cbc927580db011898ce51765958e71a704bf5e735a0b38813b1a"
   },
   {
     "file": "qc/claim_evidence_map.json",
@@ -168,6 +168,11 @@
     "file": "qc/discussion_function_audit.json",
     "bytes": 51185,
     "sha256": "9993b11fe9401a1bebbdd354970434ca9d6ba0af9520debbede9b2dfacdac275"
+  },
+  {
+    "file": "qc/draft_status_revision.json",
+    "bytes": 1363,
+    "sha256": "67c3063422a2264f8333e953fd3eb2d9902d1126df1910ffa9a73fae9f353593"
   },
   {
     "file": "qc/editorial_notes.txt",
@@ -181,8 +186,8 @@
   },
   {
     "file": "qc/final_render_audit.json",
-    "bytes": 1157,
-    "sha256": "66e107dc35ce60edcdcf34f0461f8d0cd4775a9ddb9e9fe26d3f6a2655b695cd"
+    "bytes": 1421,
+    "sha256": "3d842b4705b1c187ed213b15e54135a5a63d8eb437b03c76c8cadeb059284d77"
   },
   {
     "file": "qc/fresh_build.json",
@@ -196,8 +201,8 @@
   },
   {
     "file": "qc/manuscript_audit.json",
-    "bytes": 1157,
-    "sha256": "66e107dc35ce60edcdcf34f0461f8d0cd4775a9ddb9e9fe26d3f6a2655b695cd"
+    "bytes": 1421,
+    "sha256": "3d842b4705b1c187ed213b15e54135a5a63d8eb437b03c76c8cadeb059284d77"
   },
   {
     "file": "qc/narrative_revision_audit.json",
@@ -211,8 +216,8 @@
   },
   {
     "file": "qc/publication_audit.json",
-    "bytes": 2685,
-    "sha256": "9571a92a1873c2c5eb800bbac76f4bbbc8e59dd4547e994f7799c8d8b97a0be2"
+    "bytes": 3275,
+    "sha256": "ccef08a881295bdcc2e08072faed989a2c50280dbf622e0fb3a788b1b4394e09"
   },
   {
     "file": "qc/publication_portability_audit.json",
@@ -221,8 +226,8 @@
   },
   {
     "file": "qc/publication_reproduction_audit.json",
-    "bytes": 2904,
-    "sha256": "e6aec3d4cc34b7a31548fc452d8e6e54e05b07987b1c2b71ccd10351fb44216b"
+    "bytes": 3101,
+    "sha256": "13ba8694c1ca161df14a8eeadd1a6a0bbd0bacaaccaf6a8ed191cd0bdc5a058e"
   },
   {
     "file": "qc/revision_completion.json",

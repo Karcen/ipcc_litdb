@@ -3,7 +3,7 @@
 [Jiacheng Zheng](https://karcen.github.io/)\
 Ma Yinchu School of Economics, Tianjin University
 
-11 October 2026
+Working draft and work with ChatGPT 6.1 Sol
 
 [PDF](paper.pdf) [LaTeX](paper.tex) [BibTeX](references.bib)
 

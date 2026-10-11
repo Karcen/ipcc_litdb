@@ -12,14 +12,14 @@
   "bibliography_entries": 23,
   "all_bibliography_entries_cited": true,
   "bibliography_sha256": "19e68365f4eaadf72163503e7ebf91c2be5509797db0e383d3e8531e730f60dd",
-  "paper_sha256": "429bbd34ad1cb5c6dc0439dd0a9ab25d31ca2a03c84ee3106532d8ec9086d6cc",
-  "pdf_sha256": "fca85ec7b192ef7569a64cba83d02a7f58ff87748b08081efda2a6d9ab9a55a5",
+  "paper_sha256": "f830f5ede2e8cbc927580db011898ce51765958e71a704bf5e735a0b38813b1a",
+  "pdf_sha256": "d31166c8da9a4154dc13555d744705f77989337c6eaad825fb170cf432f9e986",
   "figure_formats": {
     "PDF": 4,
     "SVG": 4,
     "PNG": 4
   },
-  "visual_review": "All 15 pages were reviewed in the manuscript revision. The public edition corrects one singular verb: page 2 was rerendered and visually reviewed; the other 14 pages are pixel-identical to the reviewed PDF.",
+  "visual_review": "The revised first page was rendered and visually reviewed. The other 14 pages are pixel-identical to the published edition.",
   "manuscript_language": "English",
   "subsections": 0,
   "question_marks": 0,
@@ -28,5 +28,9 @@
     "after": 5135
   },
   "prior_publication_source_sha256": "30b1e25fe2fc270782442bde9c2cef162a3cdd5b5b446392634a2aa928d77e60",
-  "stage": "Public GitHub edition"
+  "stage": "Public GitHub edition",
+  "prior_draft_status_source_sha256": "429bbd34ad1cb5c6dc0439dd0a9ab25d31ca2a03c84ee3106532d8ec9086d6cc",
+  "prior_draft_status_pdf_sha256": "fca85ec7b192ef7569a64cba83d02a7f58ff87748b08081efda2a6d9ab9a55a5",
+  "displayed_status": "Working draft and work with ChatGPT 6.1 Sol",
+  "draft_status_revision_evidence": "qc/draft_status_revision.json"
 }

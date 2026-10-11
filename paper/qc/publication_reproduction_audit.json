@@ -74,5 +74,6 @@
     "scientific_contents_byte_identical_after_decompression": true,
     "analysis_and_figure_scripts_unchanged": true,
     "analysis_build_regenerates_uncompressed_CSV": true
-  }
+  },
+  "scope_revision": "Scientific reproduction before the draft-status label update. The analysis scripts and data remain unchanged. See qc/draft_status_revision.json for the final document check."
 }
