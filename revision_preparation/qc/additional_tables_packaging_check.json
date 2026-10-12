@@ -1,0 +1,89 @@
+{
+  "all_passed": true,
+  "baseline_tables_passed": 29,
+  "database_unchanged": true,
+  "reference_manifest_sha256": "19729e6a70b5ec7b2c69bc3a551468317e76858307033b19b17d64546ca603f3",
+  "tables": [
+    {
+      "byte_identical": true,
+      "filename": "results/raw_doi_coverage.csv",
+      "generated_sha256": "68bdbd2294b75fb78eb20ec8606d0ed01e7a81bb48d0e7480aae33d0658a30d7",
+      "passed": true,
+      "registered_sha256": "68bdbd2294b75fb78eb20ec8606d0ed01e7a81bb48d0e7480aae33d0658a30d7",
+      "rows": 24
+    },
+    {
+      "byte_identical": true,
+      "filename": "results/raw_doi_year_diagnostics.csv",
+      "generated_sha256": "77d4604b74637cbec9d94482a77d5ecf45a0fe122c08aa2c6380c343f776d3a3",
+      "passed": true,
+      "registered_sha256": "77d4604b74637cbec9d94482a77d5ecf45a0fe122c08aa2c6380c343f776d3a3",
+      "rows": 24
+    },
+    {
+      "byte_identical": true,
+      "filename": "results/raw_doi_recurrence.csv",
+      "generated_sha256": "9aeaf1a6ff321b8bc3aac4115b04a9ccb19ce9528da23e062a5810d70203c31e",
+      "passed": true,
+      "registered_sha256": "9aeaf1a6ff321b8bc3aac4115b04a9ccb19ce9528da23e062a5810d70203c31e",
+      "rows": 48
+    },
+    {
+      "byte_identical": true,
+      "filename": "results/raw_doi_eligible_reuse.csv",
+      "generated_sha256": "b648c01cdad55b957439c89e813bd6da4a047fc5e05d1a648627dcdede694a36",
+      "passed": true,
+      "registered_sha256": "b648c01cdad55b957439c89e813bd6da4a047fc5e05d1a648627dcdede694a36",
+      "rows": 96
+    },
+    {
+      "byte_identical": true,
+      "filename": "results/raw_doi_age_summary.csv",
+      "generated_sha256": "bce9eb4eaadafcfd00b7a307eeba8cff5780d889445dd4b61c65f0610838a8bb",
+      "passed": true,
+      "registered_sha256": "bce9eb4eaadafcfd00b7a307eeba8cff5780d889445dd4b61c65f0610838a8bb",
+      "rows": 80
+    },
+    {
+      "byte_identical": true,
+      "filename": "results/raw_doi_age_ecdf.csv",
+      "generated_sha256": "2ea01ea059fd642a97438cf032e20d387e44ebdbed44dc12dc84eaa069b024fd",
+      "passed": true,
+      "registered_sha256": "2ea01ea059fd642a97438cf032e20d387e44ebdbed44dc12dc84eaa069b024fd",
+      "rows": 4880
+    },
+    {
+      "byte_identical": true,
+      "filename": "results/raw_doi_age_differences.csv",
+      "generated_sha256": "8887d10939a365f9e63582d58b94eb9bf103b4b69f645cd6022428f55858416c",
+      "passed": true,
+      "registered_sha256": "8887d10939a365f9e63582d58b94eb9bf103b4b69f645cd6022428f55858416c",
+      "rows": 40
+    },
+    {
+      "byte_identical": true,
+      "filename": "results/raw_doi_age_bootstrap_intervals.csv",
+      "generated_sha256": "09e141e572cc538f177a478ceb804138be00a98b0e8d2f959c363104a808dbb4",
+      "passed": true,
+      "registered_sha256": "09e141e572cc538f177a478ceb804138be00a98b0e8d2f959c363104a808dbb4",
+      "rows": 96
+    },
+    {
+      "byte_identical": true,
+      "filename": "results/raw_doi_age_bootstrap_draws.csv",
+      "generated_sha256": "06421cdc9a58067b59b28dcca3f4e4a8f492ff176de24ea30f90fc488f90c1d1",
+      "passed": true,
+      "registered_sha256": "06421cdc9a58067b59b28dcca3f4e4a8f492ff176de24ea30f90fc488f90c1d1",
+      "rows": 80000
+    },
+    {
+      "byte_identical": true,
+      "filename": "results/raw_doi_occurrence_audit.csv",
+      "generated_sha256": "47a602ea387a6c4ea81874ce60ef1bfdf8a3bf1ee796476eee2cbb44aea3748f",
+      "passed": true,
+      "registered_sha256": "47a602ea387a6c4ea81874ce60ef1bfdf8a3bf1ee796476eee2cbb44aea3748f",
+      "rows": 107071
+    }
+  ],
+  "tables_passed": 10
+}

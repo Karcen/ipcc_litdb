@@ -1,0 +1,13 @@
+{
+  "status": "pending_complete_human_annotation",
+  "registered_outputs": [],
+  "baseline_reference_tables_modified": false,
+  "planned_outputs": [
+    "annotation_integrity.json",
+    "annotation_estimates.json",
+    "annotation_strata.csv",
+    "annotation_rates.csv",
+    "annotation_recurrence_stress.csv"
+  ],
+  "registration_condition": "Valid complete human labels and explicit search completion for the relevant estimands. Register only actual generated outputs with their hashes after validation."
+}

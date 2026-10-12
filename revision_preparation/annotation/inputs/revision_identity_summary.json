@@ -1,0 +1,2562 @@
+{
+  "provenance": {
+    "database_sha256": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+    "database_bytes": 249151488,
+    "database_read_only": true,
+    "database_unchanged": true,
+    "script_sha256": "6e23acc973f0f21d19a55d9d3523ec444108641e41294001d6dcaac3ce9294ae",
+    "query": "SELECT r.*, c.report_id, w.wg_label, c.chapter_label, c.chapter_title,\n       s.publication_year AS source_year, s.file_url AS source_file_url,\n       p.doi_norm AS paper_doi, p.title_best, p.year_best, p.journal_best,\n       p.identity_method, p.metadata_source, p.verification_status,\n       p.first_author_surname AS preferred_first_author, p.authors_best\nFROM references_occurrence r\nJOIN chapters c ON c.chapter_id=r.chapter_id\nLEFT JOIN working_groups w ON w.wg_id=c.wg_id\nLEFT JOIN sources s ON s.source_id=c.source_id\nLEFT JOIN papers p ON p.paper_id=r.paper_id\nWHERE c.report_id IN ('AR1','AR2','AR3','AR4','AR5','AR6')\nORDER BY c.report_id,r.occurrence_id",
+    "open_shared_chronology_queries": {
+      "shared_membership": "SELECT r.paper_id\nFROM references_occurrence r\nJOIN chapters c ON c.chapter_id=r.chapter_id\nWHERE c.report_id IN (?,?)\n  AND r.match_status IN ('matched_doi','matched_title')\n  AND r.paper_id IS NOT NULL\nGROUP BY r.paper_id\nHAVING COUNT(DISTINCT c.report_id)=2",
+      "shared_membership_parameters": [
+        "AR5",
+        "AR6"
+      ],
+      "open_reviews": "SELECT review_id,occurrence_id,status,reason\nFROM manual_review\nWHERE status IN ('open','in_progress')\n  AND reason='matched_doi_chronology_review'\nORDER BY occurrence_id,review_id",
+      "occurrence_flags": "SELECT f.flag_id,f.detail AS flag_detail,\n       r.occurrence_id,r.paper_id,r.chapter_id,r.match_status,\n       r.raw_reference,r.doi_norm AS occurrence_doi,r.doi_source,\n       c.report_id,c.chapter_label,c.chapter_title,w.wg_label,\n       s.publication_year AS source_year,\n       p.year_best AS preferred_year,p.doi_norm AS paper_doi,p.title_best\nFROM data_quality_flags f\nJOIN references_occurrence r ON r.occurrence_id=f.entity_id\nJOIN chapters c ON c.chapter_id=r.chapter_id\nLEFT JOIN working_groups w ON w.wg_id=c.wg_id\nLEFT JOIN sources s ON s.source_id=c.source_id\nJOIN papers p ON p.paper_id=r.paper_id\nWHERE f.entity_type='occurrence'\n  AND f.flag_type='matched_doi_chronology_review'\nORDER BY r.paper_id,r.occurrence_id,f.flag_id",
+      "selection_after_queries": "Keep chronology occurrence rows whose paper ID is in shared membership and whose occurrence ID has an open/in_progress review with reason matched_doi_chronology_review; aggregate repeated flags and matching reviews per occurrence"
+    }
+  },
+  "definitions": {
+    "unit_of_analysis": "Unique reference occurrence; report-specific paper ID set; stratified sample paper ID",
+    "link_cardinality": "references_occurrence many-to-one chapters, papers and sources; validated unique occurrence IDs and invariant paper metadata",
+    "null_paper_id_exclusions_by_report": {},
+    "source_population_occurrences": 125164,
+    "matching_status": "Recorded workflow result, not validated original-reference identity",
+    "DOI_status": "At least one matched_doi occurrence in the selected report, including enriched DOIs",
+    "paper_DOI_verified_workflow_label": "paper.verification_status == doi_verified; excludes wos_matched papers. Builder assigns this label to valid-DOI records without a WoS bridge. It differs from matched_doi occurrence status.",
+    "symmetric_presence": "An AR6 matched ID is present earlier if any AR5 extracted occurrence has the same recorded ID, whatever its status",
+    "conditional_reuse": "Shared preferred-year-eligible IDs / later matched IDs with valid preferred years at or before cutoff",
+    "cutoff_scope": "Preferred publication-year eligibility, not reconstructed literature-search cutoff; in-press records and bad enriched dates require separate examination",
+    "same_vintage": "Valid preferred year through 2013; no guarantee of correct preferred metadata",
+    "raw_doi_screen": "Fresh unfragmented DOI regex in preserved raw_reference; missing or split DOI is not evidence of an error",
+    "independent_raw_DOI_baseline": "Exactly one usable DOI freshly extracted from the raw bibliography string; literal DOI is the identity key, with no enriched paper DOI or assigned paper ID used. All-status and matched-occurrence populations are separate.",
+    "punctuation_repaired_raw_DOI_baseline": "Fresh raw text only. Unicode dash variants and whitespace immediately around / . - are normalized, with case-sensitive lowercase/digit continuation after punctuation. Strings with multiple usable DOI tokens are excluded. This recovers some typography differences, still misses other fragmentation and needs adjudication.",
+    "independent_raw_text_baseline": "Exact text_key-normalized complete reference string, at least 100 normalized characters and an available raw leading year; identity key has no enriched metadata. Formatting/versions can separate a real common document.",
+    "raw_year_screen": "First plausible four-digit year in first 300 characters; mismatch >1 year is a review candidate, not a validated error",
+    "raw_length_screen": "More than 900 characters is an extraction-review cue; it does not prove concatenation",
+    "raw_author_screen": "First alphabetic name/organization token in raw entry compared with stored first-author surname after accent/punctuation normalization. Truncation, corporate names and incomplete authors can disagree without establishing an error.",
+    "age_and_outlets": "Original exclusive quartiles, occurrence weights, source years, ages 0–60 and casefold/whitespace-only named outlet labels",
+    "inference": "Descriptive census and rule sensitivity. No sampling p-values, linkage precision or population error rate are inferred."
+  },
+  "main_counts": {
+    "matched_AR5": 13503,
+    "matched_AR6": 34869,
+    "shared_matched": 1657,
+    "AR6_matched_present_in_any_AR5": 1658,
+    "AR6_matched_absent_from_any_AR5": 33211,
+    "matching_status_switch_ids": [
+      66849
+    ],
+    "incoming_through_2013": 4160,
+    "incoming_through_2013_present_any_AR5": 1,
+    "incoming_through_2013_absent_any_AR5": 4159,
+    "shared_later_than_2013_ids": [
+      27890,
+      32473,
+      32928,
+      32993,
+      33835,
+      35438,
+      70675
+    ],
+    "incoming_missing_year_ids": [
+      48860,
+      53012,
+      53456,
+      64184,
+      66674
+    ]
+  },
+  "transitions": [
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "definition": "matched",
+      "papers_a": 4597,
+      "papers_b": 13503,
+      "shared": 724,
+      "only_a": 3873,
+      "only_b": 12779,
+      "retention": 0.15749401783772024,
+      "reuse": 0.05361771458194475,
+      "jaccard": 0.041666666666666664
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "definition": "DOI_status",
+      "papers_a": 4303,
+      "papers_b": 13143,
+      "shared": 716,
+      "only_a": 3587,
+      "only_b": 12427,
+      "retention": 0.16639553799674645,
+      "reuse": 0.05447766872099216,
+      "jaccard": 0.04279736999402271
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "definition": "title_status_any",
+      "papers_a": 296,
+      "papers_b": 364,
+      "shared": 8,
+      "only_a": 288,
+      "only_b": 356,
+      "retention": 0.02702702702702703,
+      "reuse": 0.02197802197802198,
+      "jaccard": 0.012269938650306749
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "definition": "title_status_only",
+      "papers_a": 294,
+      "papers_b": 360,
+      "shared": 7,
+      "only_a": 287,
+      "only_b": 353,
+      "retention": 0.023809523809523808,
+      "reuse": 0.019444444444444445,
+      "jaccard": 0.010819165378670788
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "definition": "raw_single_DOI_anchored_matched",
+      "papers_a": 68,
+      "papers_b": 789,
+      "shared": 1,
+      "only_a": 67,
+      "only_b": 788,
+      "retention": 0.014705882352941176,
+      "reuse": 0.0012674271229404308,
+      "jaccard": 0.0011682242990654205
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "definition": "paper_DOI_verified_workflow_label",
+      "papers_a": 4431,
+      "papers_b": 5389,
+      "shared": 472,
+      "only_a": 3959,
+      "only_b": 4917,
+      "retention": 0.10652222974497856,
+      "reuse": 0.08758582297272222,
+      "jaccard": 0.050492083868207104
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "definition": "all_extracted",
+      "papers_a": 13636,
+      "papers_b": 21770,
+      "shared": 1227,
+      "only_a": 12409,
+      "only_b": 20543,
+      "retention": 0.08998239953065415,
+      "reuse": 0.05636196600826826,
+      "jaccard": 0.03589923637321162
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "definition": "later_matched_vs_any_earlier_extracted",
+      "papers_a": 13636,
+      "papers_b": 13503,
+      "shared": 725,
+      "only_a": 12911,
+      "only_b": 12778,
+      "retention": 0.05316808448225286,
+      "reuse": 0.053691772198770644,
+      "jaccard": 0.027447565684864086
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "definition": "matched",
+      "papers_a": 13503,
+      "papers_b": 34869,
+      "shared": 1657,
+      "only_a": 11846,
+      "only_b": 33212,
+      "retention": 0.12271347108050062,
+      "reuse": 0.04752072041067997,
+      "jaccard": 0.035470405651289734
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "definition": "DOI_status",
+      "papers_a": 13143,
+      "papers_b": 34336,
+      "shared": 1604,
+      "only_a": 11539,
+      "only_b": 32732,
+      "retention": 0.12204215171574222,
+      "reuse": 0.046714818266542404,
+      "jaccard": 0.03496457765667575
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "definition": "title_status_any",
+      "papers_a": 364,
+      "papers_b": 594,
+      "shared": 18,
+      "only_a": 346,
+      "only_b": 576,
+      "retention": 0.04945054945054945,
+      "reuse": 0.030303030303030304,
+      "jaccard": 0.019148936170212766
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "definition": "title_status_only",
+      "papers_a": 360,
+      "papers_b": 533,
+      "shared": 12,
+      "only_a": 348,
+      "only_b": 521,
+      "retention": 0.03333333333333333,
+      "reuse": 0.0225140712945591,
+      "jaccard": 0.01362088535754824
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "definition": "raw_single_DOI_anchored_matched",
+      "papers_a": 789,
+      "papers_b": 26028,
+      "shared": 146,
+      "only_a": 643,
+      "only_b": 25882,
+      "retention": 0.1850443599493029,
+      "reuse": 0.005609343783617642,
+      "jaccard": 0.00547411045705073
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "definition": "paper_DOI_verified_workflow_label",
+      "papers_a": 5389,
+      "papers_b": 8516,
+      "shared": 368,
+      "only_a": 5021,
+      "only_b": 8148,
+      "retention": 0.06828725180924104,
+      "reuse": 0.04321277595115078,
+      "jaccard": 0.027184752899460738
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "definition": "all_extracted",
+      "papers_a": 21770,
+      "papers_b": 47636,
+      "shared": 2099,
+      "only_a": 19671,
+      "only_b": 45537,
+      "retention": 0.09641708773541571,
+      "reuse": 0.04406331346040809,
+      "jaccard": 0.03118546362191154
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "definition": "later_matched_vs_any_earlier_extracted",
+      "papers_a": 21770,
+      "papers_b": 34869,
+      "shared": 1658,
+      "only_a": 20112,
+      "only_b": 33211,
+      "retention": 0.0761598530087276,
+      "reuse": 0.047549399179787205,
+      "jaccard": 0.030155872028518944
+    }
+  ],
+  "shared_status_combinations": [
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "earlier_status_set": "doi_and_title",
+      "later_status_set": "title_only",
+      "shared_ids": 1
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "earlier_status_set": "doi_only",
+      "later_status_set": "doi_only",
+      "shared_ids": 716
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "earlier_status_set": "title_only",
+      "later_status_set": "title_only",
+      "shared_ids": 7
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "earlier_status_set": "title_only",
+      "later_status_set": "unmatched_only",
+      "shared_ids": 1
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "earlier_status_set": "unmatched_only",
+      "later_status_set": "title_only",
+      "shared_ids": 1
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "earlier_status_set": "unmatched_only",
+      "later_status_set": "unmatched_only",
+      "shared_ids": 501
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "earlier_status_set": "doi_and_title",
+      "later_status_set": "doi_and_title",
+      "shared_ids": 1
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "earlier_status_set": "doi_and_title",
+      "later_status_set": "doi_only",
+      "shared_ids": 1
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "earlier_status_set": "doi_only",
+      "later_status_set": "doi_and_title",
+      "shared_ids": 1
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "earlier_status_set": "doi_only",
+      "later_status_set": "doi_only",
+      "shared_ids": 1601
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "earlier_status_set": "title_only",
+      "later_status_set": "doi_and_title",
+      "shared_ids": 5
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "earlier_status_set": "title_only",
+      "later_status_set": "doi_only",
+      "shared_ids": 36
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "earlier_status_set": "title_only",
+      "later_status_set": "title_only",
+      "shared_ids": 12
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "earlier_status_set": "title_only",
+      "later_status_set": "unmatched_only",
+      "shared_ids": 2
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "earlier_status_set": "unmatched_only",
+      "later_status_set": "doi_only",
+      "shared_ids": 1
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "earlier_status_set": "unmatched_only",
+      "later_status_set": "unmatched_only",
+      "shared_ids": 439
+    }
+  ],
+  "earlier_incoming_partition": [
+    {
+      "AR5_status_set": "absent",
+      "AR6_status_set": "doi_and_title",
+      "IDs": 4
+    },
+    {
+      "AR5_status_set": "absent",
+      "AR6_status_set": "doi_only",
+      "IDs": 4062
+    },
+    {
+      "AR5_status_set": "absent",
+      "AR6_status_set": "title_only",
+      "IDs": 93
+    },
+    {
+      "AR5_status_set": "unmatched_only",
+      "AR6_status_set": "doi_only",
+      "IDs": 1
+    }
+  ],
+  "independent_raw_baselines": [
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "identity_unit": "literal_single_raw_DOI_all_statuses",
+      "papers_a": 74,
+      "papers_b": 870,
+      "shared": 1,
+      "only_a": 73,
+      "only_b": 869,
+      "retention": 0.013513513513513514,
+      "reuse": 0.0011494252873563218,
+      "jaccard": 0.0010604453870625664
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "identity_unit": "literal_single_raw_DOI_matched_occurrences",
+      "papers_a": 68,
+      "papers_b": 789,
+      "shared": 1,
+      "only_a": 67,
+      "only_b": 788,
+      "retention": 0.014705882352941176,
+      "reuse": 0.0012674271229404308,
+      "jaccard": 0.0011682242990654205
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "identity_unit": "punctuation_repaired_single_raw_DOI_all_statuses",
+      "papers_a": 77,
+      "papers_b": 2863,
+      "shared": 3,
+      "only_a": 74,
+      "only_b": 2860,
+      "retention": 0.03896103896103896,
+      "reuse": 0.001047851903597625,
+      "jaccard": 0.0010214504596527069
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "identity_unit": "punctuation_repaired_single_raw_DOI_matched_occurrences",
+      "papers_a": 70,
+      "papers_b": 2249,
+      "shared": 2,
+      "only_a": 68,
+      "only_b": 2247,
+      "retention": 0.02857142857142857,
+      "reuse": 0.0008892841262783459,
+      "jaccard": 0.0008631851532153647
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "identity_unit": "exact_normalized_raw_reference_all_statuses",
+      "papers_a": 4493,
+      "papers_b": 24568,
+      "shared": 5,
+      "only_a": 4488,
+      "only_b": 24563,
+      "retention": 0.001112842198976185,
+      "reuse": 0.00020351676978183002,
+      "jaccard": 0.00017208149779735684
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "identity_unit": "exact_normalized_raw_reference_matched_occurrences",
+      "papers_a": 1350,
+      "papers_b": 15555,
+      "shared": 1,
+      "only_a": 1349,
+      "only_b": 15554,
+      "retention": 0.0007407407407407407,
+      "reuse": 6.428801028608164e-05,
+      "jaccard": 5.915759583530525e-05
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "identity_unit": "literal_single_raw_DOI_all_statuses",
+      "papers_a": 870,
+      "papers_b": 29194,
+      "shared": 151,
+      "only_a": 719,
+      "only_b": 29043,
+      "retention": 0.1735632183908046,
+      "reuse": 0.005172295677193944,
+      "jaccard": 0.005047972453448333
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "identity_unit": "literal_single_raw_DOI_matched_occurrences",
+      "papers_a": 789,
+      "papers_b": 26151,
+      "shared": 146,
+      "only_a": 643,
+      "only_b": 26005,
+      "retention": 0.1850443599493029,
+      "reuse": 0.005582960498642499,
+      "jaccard": 0.005448981115175039
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "identity_unit": "punctuation_repaired_single_raw_DOI_all_statuses",
+      "papers_a": 2863,
+      "papers_b": 35207,
+      "shared": 393,
+      "only_a": 2470,
+      "only_b": 34814,
+      "retention": 0.13726859937128885,
+      "reuse": 0.011162552901411651,
+      "jaccard": 0.010430766780794649
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "identity_unit": "punctuation_repaired_single_raw_DOI_matched_occurrences",
+      "papers_a": 2249,
+      "papers_b": 31086,
+      "shared": 328,
+      "only_a": 1921,
+      "only_b": 30758,
+      "retention": 0.14584259670964872,
+      "reuse": 0.01055137360869845,
+      "jaccard": 0.00993728603023601
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "identity_unit": "exact_normalized_raw_reference_all_statuses",
+      "papers_a": 24568,
+      "papers_b": 55815,
+      "shared": 27,
+      "only_a": 24541,
+      "only_b": 55788,
+      "retention": 0.0010989905568218822,
+      "reuse": 0.00048374092985756516,
+      "jaccard": 0.0003360047787346309
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "identity_unit": "exact_normalized_raw_reference_matched_occurrences",
+      "papers_a": 15555,
+      "papers_b": 41425,
+      "shared": 19,
+      "only_a": 15536,
+      "only_b": 41406,
+      "retention": 0.0012214721954355513,
+      "reuse": 0.0004586602293301147,
+      "jaccard": 0.00033356155966362953
+    }
+  ],
+  "independent_raw_conditional_reuse": [
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "identity_unit": "literal_single_raw_DOI_all_statuses",
+      "cutoff_year": 2006,
+      "later_raw_DOIs": 870,
+      "eligible_later_raw_DOIs": 56,
+      "shared_eligible_raw_DOIs": 1,
+      "conditional_reuse": 0.017857142857142856,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "identity_unit": "literal_single_raw_DOI_matched_occurrences",
+      "cutoff_year": 2006,
+      "later_raw_DOIs": 789,
+      "eligible_later_raw_DOIs": 50,
+      "shared_eligible_raw_DOIs": 1,
+      "conditional_reuse": 0.02,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "identity_unit": "punctuation_repaired_single_raw_DOI_all_statuses",
+      "cutoff_year": 2006,
+      "later_raw_DOIs": 2863,
+      "eligible_later_raw_DOIs": 368,
+      "shared_eligible_raw_DOIs": 1,
+      "conditional_reuse": 0.002717391304347826,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "identity_unit": "punctuation_repaired_single_raw_DOI_matched_occurrences",
+      "cutoff_year": 2006,
+      "later_raw_DOIs": 2249,
+      "eligible_later_raw_DOIs": 176,
+      "shared_eligible_raw_DOIs": 1,
+      "conditional_reuse": 0.005681818181818182,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "identity_unit": "literal_single_raw_DOI_all_statuses",
+      "cutoff_year": 2007,
+      "later_raw_DOIs": 870,
+      "eligible_later_raw_DOIs": 108,
+      "shared_eligible_raw_DOIs": 1,
+      "conditional_reuse": 0.009259259259259259,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "identity_unit": "literal_single_raw_DOI_matched_occurrences",
+      "cutoff_year": 2007,
+      "later_raw_DOIs": 789,
+      "eligible_later_raw_DOIs": 96,
+      "shared_eligible_raw_DOIs": 1,
+      "conditional_reuse": 0.010416666666666666,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "identity_unit": "punctuation_repaired_single_raw_DOI_all_statuses",
+      "cutoff_year": 2007,
+      "later_raw_DOIs": 2863,
+      "eligible_later_raw_DOIs": 528,
+      "shared_eligible_raw_DOIs": 1,
+      "conditional_reuse": 0.001893939393939394,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "identity_unit": "punctuation_repaired_single_raw_DOI_matched_occurrences",
+      "cutoff_year": 2007,
+      "later_raw_DOIs": 2249,
+      "eligible_later_raw_DOIs": 299,
+      "shared_eligible_raw_DOIs": 1,
+      "conditional_reuse": 0.0033444816053511705,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "identity_unit": "literal_single_raw_DOI_all_statuses",
+      "cutoff_year": 2008,
+      "later_raw_DOIs": 870,
+      "eligible_later_raw_DOIs": 170,
+      "shared_eligible_raw_DOIs": 1,
+      "conditional_reuse": 0.0058823529411764705,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "identity_unit": "literal_single_raw_DOI_matched_occurrences",
+      "cutoff_year": 2008,
+      "later_raw_DOIs": 789,
+      "eligible_later_raw_DOIs": 152,
+      "shared_eligible_raw_DOIs": 1,
+      "conditional_reuse": 0.006578947368421052,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "identity_unit": "punctuation_repaired_single_raw_DOI_all_statuses",
+      "cutoff_year": 2008,
+      "later_raw_DOIs": 2863,
+      "eligible_later_raw_DOIs": 756,
+      "shared_eligible_raw_DOIs": 2,
+      "conditional_reuse": 0.0026455026455026454,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "identity_unit": "punctuation_repaired_single_raw_DOI_matched_occurrences",
+      "cutoff_year": 2008,
+      "later_raw_DOIs": 2249,
+      "eligible_later_raw_DOIs": 484,
+      "shared_eligible_raw_DOIs": 1,
+      "conditional_reuse": 0.002066115702479339,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "identity_unit": "literal_single_raw_DOI_all_statuses",
+      "cutoff_year": 2012,
+      "later_raw_DOIs": 29194,
+      "eligible_later_raw_DOIs": 3373,
+      "shared_eligible_raw_DOIs": 75,
+      "conditional_reuse": 0.02223539875481767,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "identity_unit": "literal_single_raw_DOI_matched_occurrences",
+      "cutoff_year": 2012,
+      "later_raw_DOIs": 26151,
+      "eligible_later_raw_DOIs": 2808,
+      "shared_eligible_raw_DOIs": 74,
+      "conditional_reuse": 0.026353276353276354,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "identity_unit": "punctuation_repaired_single_raw_DOI_all_statuses",
+      "cutoff_year": 2012,
+      "later_raw_DOIs": 35207,
+      "eligible_later_raw_DOIs": 3957,
+      "shared_eligible_raw_DOIs": 247,
+      "conditional_reuse": 0.062421026029820574,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "identity_unit": "punctuation_repaired_single_raw_DOI_matched_occurrences",
+      "cutoff_year": 2012,
+      "later_raw_DOIs": 31086,
+      "eligible_later_raw_DOIs": 3242,
+      "shared_eligible_raw_DOIs": 194,
+      "conditional_reuse": 0.05983960518198643,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "identity_unit": "literal_single_raw_DOI_all_statuses",
+      "cutoff_year": 2013,
+      "later_raw_DOIs": 29194,
+      "eligible_later_raw_DOIs": 4709,
+      "shared_eligible_raw_DOIs": 132,
+      "conditional_reuse": 0.028031429178169462,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "identity_unit": "literal_single_raw_DOI_matched_occurrences",
+      "cutoff_year": 2013,
+      "later_raw_DOIs": 26151,
+      "eligible_later_raw_DOIs": 4042,
+      "shared_eligible_raw_DOIs": 130,
+      "conditional_reuse": 0.032162295893122216,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "identity_unit": "punctuation_repaired_single_raw_DOI_all_statuses",
+      "cutoff_year": 2013,
+      "later_raw_DOIs": 35207,
+      "eligible_later_raw_DOIs": 5597,
+      "shared_eligible_raw_DOIs": 364,
+      "conditional_reuse": 0.06503484009290691,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "identity_unit": "punctuation_repaired_single_raw_DOI_matched_occurrences",
+      "cutoff_year": 2013,
+      "later_raw_DOIs": 31086,
+      "eligible_later_raw_DOIs": 4713,
+      "shared_eligible_raw_DOIs": 303,
+      "conditional_reuse": 0.06429026098026734,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "identity_unit": "literal_single_raw_DOI_all_statuses",
+      "cutoff_year": 2014,
+      "later_raw_DOIs": 29194,
+      "eligible_later_raw_DOIs": 6580,
+      "shared_eligible_raw_DOIs": 146,
+      "conditional_reuse": 0.022188449848024316,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "identity_unit": "literal_single_raw_DOI_matched_occurrences",
+      "cutoff_year": 2014,
+      "later_raw_DOIs": 26151,
+      "eligible_later_raw_DOIs": 5718,
+      "shared_eligible_raw_DOIs": 144,
+      "conditional_reuse": 0.025183630640083946,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "identity_unit": "punctuation_repaired_single_raw_DOI_all_statuses",
+      "cutoff_year": 2014,
+      "later_raw_DOIs": 35207,
+      "eligible_later_raw_DOIs": 7828,
+      "shared_eligible_raw_DOIs": 389,
+      "conditional_reuse": 0.0496934082779765,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "identity_unit": "punctuation_repaired_single_raw_DOI_matched_occurrences",
+      "cutoff_year": 2014,
+      "later_raw_DOIs": 31086,
+      "eligible_later_raw_DOIs": 6669,
+      "shared_eligible_raw_DOIs": 324,
+      "conditional_reuse": 0.048582995951417005,
+      "eligibility_year": "Maximum observed raw leading year in later-report entries for each DOI"
+    }
+  ],
+  "raw_leading_year_age_summaries": [
+    {
+      "report": "AR4",
+      "working_group": "All",
+      "matched_occurrences": 5855,
+      "included_raw_year_ages": 5833,
+      "missing_raw_year": 5,
+      "future_raw_year": 0,
+      "raw_age_over_60": 17,
+      "median_raw_year_age": 4,
+      "p25": 2.0,
+      "p75": 5.0
+    },
+    {
+      "report": "AR4",
+      "working_group": "WG1",
+      "matched_occurrences": 2415,
+      "included_raw_year_ages": 2403,
+      "missing_raw_year": 0,
+      "future_raw_year": 0,
+      "raw_age_over_60": 12,
+      "median_raw_year_age": 4,
+      "p25": 2.0,
+      "p75": 6.0
+    },
+    {
+      "report": "AR4",
+      "working_group": "WG2",
+      "matched_occurrences": 2594,
+      "included_raw_year_ages": 2589,
+      "missing_raw_year": 0,
+      "future_raw_year": 0,
+      "raw_age_over_60": 5,
+      "median_raw_year_age": 4,
+      "p25": 3.0,
+      "p75": 5.0
+    },
+    {
+      "report": "AR4",
+      "working_group": "WG3",
+      "matched_occurrences": 842,
+      "included_raw_year_ages": 837,
+      "missing_raw_year": 5,
+      "future_raw_year": 0,
+      "raw_age_over_60": 0,
+      "median_raw_year_age": 4,
+      "p25": 2.0,
+      "p75": 5.0
+    },
+    {
+      "report": "AR5",
+      "working_group": "All",
+      "matched_occurrences": 17593,
+      "included_raw_year_ages": 17536,
+      "missing_raw_year": 56,
+      "future_raw_year": 0,
+      "raw_age_over_60": 1,
+      "median_raw_year_age": 4.0,
+      "p25": 2.0,
+      "p75": 6.0
+    },
+    {
+      "report": "AR5",
+      "working_group": "WG1",
+      "matched_occurrences": 7133,
+      "included_raw_year_ages": 7132,
+      "missing_raw_year": 1,
+      "future_raw_year": 0,
+      "raw_age_over_60": 0,
+      "median_raw_year_age": 4.0,
+      "p25": 2.0,
+      "p75": 6.0
+    },
+    {
+      "report": "AR5",
+      "working_group": "WG2",
+      "matched_occurrences": 8177,
+      "included_raw_year_ages": 8134,
+      "missing_raw_year": 43,
+      "future_raw_year": 0,
+      "raw_age_over_60": 0,
+      "median_raw_year_age": 4.0,
+      "p25": 3.0,
+      "p75": 6.0
+    },
+    {
+      "report": "AR5",
+      "working_group": "WG3",
+      "matched_occurrences": 2283,
+      "included_raw_year_ages": 2270,
+      "missing_raw_year": 12,
+      "future_raw_year": 0,
+      "raw_age_over_60": 1,
+      "median_raw_year_age": 4.0,
+      "p25": 2.0,
+      "p75": 6.0
+    },
+    {
+      "report": "AR6",
+      "working_group": "All",
+      "matched_occurrences": 47049,
+      "included_raw_year_ages": 47037,
+      "missing_raw_year": 1,
+      "future_raw_year": 0,
+      "raw_age_over_60": 11,
+      "median_raw_year_age": 4,
+      "p25": 3.0,
+      "p75": 6.0
+    },
+    {
+      "report": "AR6",
+      "working_group": "WG1",
+      "matched_occurrences": 15233,
+      "included_raw_year_ages": 15226,
+      "missing_raw_year": 1,
+      "future_raw_year": 0,
+      "raw_age_over_60": 6,
+      "median_raw_year_age": 4.0,
+      "p25": 2.0,
+      "p75": 7.0
+    },
+    {
+      "report": "AR6",
+      "working_group": "WG2",
+      "matched_occurrences": 21319,
+      "included_raw_year_ages": 21315,
+      "missing_raw_year": 0,
+      "future_raw_year": 0,
+      "raw_age_over_60": 4,
+      "median_raw_year_age": 4,
+      "p25": 3.0,
+      "p75": 6.0
+    },
+    {
+      "report": "AR6",
+      "working_group": "WG3",
+      "matched_occurrences": 10497,
+      "included_raw_year_ages": 10496,
+      "missing_raw_year": 0,
+      "future_raw_year": 0,
+      "raw_age_over_60": 1,
+      "median_raw_year_age": 4.0,
+      "p25": 3.0,
+      "p75": 6.0
+    }
+  ],
+  "raw_leading_year_matched_ID_conditional_reuse": [
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "cutoff_year": 2006,
+      "identity_unit": "recorded_paper_ID",
+      "earlier_membership": "earlier_matched",
+      "eligible_later_matched_IDs": 2196,
+      "shared_eligible_IDs": 673,
+      "conditional_reuse": 0.3064663023679417,
+      "later_IDs_with_conflicting_raw_leading_years": 142,
+      "eligibility_year": "Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned"
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "cutoff_year": 2006,
+      "identity_unit": "recorded_paper_ID",
+      "earlier_membership": "any_earlier_extracted",
+      "eligible_later_matched_IDs": 2196,
+      "shared_eligible_IDs": 674,
+      "conditional_reuse": 0.3069216757741348,
+      "later_IDs_with_conflicting_raw_leading_years": 142,
+      "eligibility_year": "Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned"
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "cutoff_year": 2007,
+      "identity_unit": "recorded_paper_ID",
+      "earlier_membership": "earlier_matched",
+      "eligible_later_matched_IDs": 3122,
+      "shared_eligible_IDs": 702,
+      "conditional_reuse": 0.22485586162716206,
+      "later_IDs_with_conflicting_raw_leading_years": 142,
+      "eligibility_year": "Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned"
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "cutoff_year": 2007,
+      "identity_unit": "recorded_paper_ID",
+      "earlier_membership": "any_earlier_extracted",
+      "eligible_later_matched_IDs": 3122,
+      "shared_eligible_IDs": 703,
+      "conditional_reuse": 0.22517616912235747,
+      "later_IDs_with_conflicting_raw_leading_years": 142,
+      "eligibility_year": "Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned"
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "cutoff_year": 2008,
+      "identity_unit": "recorded_paper_ID",
+      "earlier_membership": "earlier_matched",
+      "eligible_later_matched_IDs": 4480,
+      "shared_eligible_IDs": 707,
+      "conditional_reuse": 0.1578125,
+      "later_IDs_with_conflicting_raw_leading_years": 142,
+      "eligibility_year": "Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned"
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "cutoff_year": 2008,
+      "identity_unit": "recorded_paper_ID",
+      "earlier_membership": "any_earlier_extracted",
+      "eligible_later_matched_IDs": 4480,
+      "shared_eligible_IDs": 708,
+      "conditional_reuse": 0.15803571428571428,
+      "later_IDs_with_conflicting_raw_leading_years": 142,
+      "eligibility_year": "Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned"
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "cutoff_year": 2012,
+      "identity_unit": "recorded_paper_ID",
+      "earlier_membership": "earlier_matched",
+      "eligible_later_matched_IDs": 3670,
+      "shared_eligible_IDs": 1288,
+      "conditional_reuse": 0.35095367847411446,
+      "later_IDs_with_conflicting_raw_leading_years": 325,
+      "eligibility_year": "Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned"
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "cutoff_year": 2012,
+      "identity_unit": "recorded_paper_ID",
+      "earlier_membership": "any_earlier_extracted",
+      "eligible_later_matched_IDs": 3670,
+      "shared_eligible_IDs": 1289,
+      "conditional_reuse": 0.35122615803814716,
+      "later_IDs_with_conflicting_raw_leading_years": 325,
+      "eligibility_year": "Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned"
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "cutoff_year": 2013,
+      "identity_unit": "recorded_paper_ID",
+      "earlier_membership": "earlier_matched",
+      "eligible_later_matched_IDs": 5250,
+      "shared_eligible_IDs": 1609,
+      "conditional_reuse": 0.30647619047619046,
+      "later_IDs_with_conflicting_raw_leading_years": 325,
+      "eligibility_year": "Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned"
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "cutoff_year": 2013,
+      "identity_unit": "recorded_paper_ID",
+      "earlier_membership": "any_earlier_extracted",
+      "eligible_later_matched_IDs": 5250,
+      "shared_eligible_IDs": 1610,
+      "conditional_reuse": 0.30666666666666664,
+      "later_IDs_with_conflicting_raw_leading_years": 325,
+      "eligibility_year": "Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned"
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "cutoff_year": 2014,
+      "identity_unit": "recorded_paper_ID",
+      "earlier_membership": "earlier_matched",
+      "eligible_later_matched_IDs": 7447,
+      "shared_eligible_IDs": 1646,
+      "conditional_reuse": 0.22102860212165973,
+      "later_IDs_with_conflicting_raw_leading_years": 325,
+      "eligibility_year": "Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned"
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "cutoff_year": 2014,
+      "identity_unit": "recorded_paper_ID",
+      "earlier_membership": "any_earlier_extracted",
+      "eligible_later_matched_IDs": 7447,
+      "shared_eligible_IDs": 1647,
+      "conditional_reuse": 0.22116288438297302,
+      "later_IDs_with_conflicting_raw_leading_years": 325,
+      "eligibility_year": "Maximum fresh raw leading year in later matched occurrences for each recorded ID; identity remains database-assigned"
+    }
+  ],
+  "raw_DOI_crosswalk_conflicts": {
+    "report_DOI_keys": 30138,
+    "keys_assigned_to_multiple_paper_IDs": 5
+  },
+  "conditional_reuse": [
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "working_group": "All",
+      "cutoff_year": 2006,
+      "cutoff_basis": "fixed_preferred_publication_year",
+      "earlier_membership": "earlier_matched",
+      "later_matched_total": 13503,
+      "temporally_eligible_later_ids": 2220,
+      "shared_eligible_ids": 674,
+      "eligible_absent_ids": 1546,
+      "conditional_reuse": 0.3036036036036036
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "working_group": "All",
+      "cutoff_year": 2006,
+      "cutoff_basis": "fixed_preferred_publication_year",
+      "earlier_membership": "any_earlier_extracted",
+      "later_matched_total": 13503,
+      "temporally_eligible_later_ids": 2220,
+      "shared_eligible_ids": 675,
+      "eligible_absent_ids": 1545,
+      "conditional_reuse": 0.30405405405405406
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "working_group": "All",
+      "cutoff_year": 2007,
+      "cutoff_basis": "fixed_preferred_publication_year",
+      "earlier_membership": "earlier_matched",
+      "later_matched_total": 13503,
+      "temporally_eligible_later_ids": 3228,
+      "shared_eligible_ids": 700,
+      "eligible_absent_ids": 2528,
+      "conditional_reuse": 0.21685254027261464
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "working_group": "All",
+      "cutoff_year": 2007,
+      "cutoff_basis": "fixed_preferred_publication_year",
+      "earlier_membership": "any_earlier_extracted",
+      "later_matched_total": 13503,
+      "temporally_eligible_later_ids": 3228,
+      "shared_eligible_ids": 701,
+      "eligible_absent_ids": 2527,
+      "conditional_reuse": 0.2171623296158612
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "working_group": "All",
+      "cutoff_year": 2008,
+      "cutoff_basis": "fixed_preferred_publication_year",
+      "earlier_membership": "earlier_matched",
+      "later_matched_total": 13503,
+      "temporally_eligible_later_ids": 4600,
+      "shared_eligible_ids": 702,
+      "eligible_absent_ids": 3898,
+      "conditional_reuse": 0.15260869565217391
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "working_group": "All",
+      "cutoff_year": 2008,
+      "cutoff_basis": "fixed_preferred_publication_year",
+      "earlier_membership": "any_earlier_extracted",
+      "later_matched_total": 13503,
+      "temporally_eligible_later_ids": 4600,
+      "shared_eligible_ids": 703,
+      "eligible_absent_ids": 3897,
+      "conditional_reuse": 0.15282608695652175
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "working_group": "All",
+      "cutoff_year": 2012,
+      "cutoff_basis": "fixed_preferred_publication_year",
+      "earlier_membership": "earlier_matched",
+      "later_matched_total": 13503,
+      "temporally_eligible_later_ids": 12412,
+      "shared_eligible_ids": 716,
+      "eligible_absent_ids": 11696,
+      "conditional_reuse": 0.05768611021592008
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "working_group": "All",
+      "cutoff_year": 2012,
+      "cutoff_basis": "fixed_preferred_publication_year",
+      "earlier_membership": "any_earlier_extracted",
+      "later_matched_total": 13503,
+      "temporally_eligible_later_ids": 12412,
+      "shared_eligible_ids": 717,
+      "eligible_absent_ids": 11695,
+      "conditional_reuse": 0.05776667740895907
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "working_group": "All",
+      "cutoff_year": 2013,
+      "cutoff_basis": "fixed_preferred_publication_year",
+      "earlier_membership": "earlier_matched",
+      "later_matched_total": 13503,
+      "temporally_eligible_later_ids": 13422,
+      "shared_eligible_ids": 719,
+      "eligible_absent_ids": 12703,
+      "conditional_reuse": 0.053568767694829385
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "working_group": "All",
+      "cutoff_year": 2013,
+      "cutoff_basis": "fixed_preferred_publication_year",
+      "earlier_membership": "any_earlier_extracted",
+      "later_matched_total": 13503,
+      "temporally_eligible_later_ids": 13422,
+      "shared_eligible_ids": 720,
+      "eligible_absent_ids": 12702,
+      "conditional_reuse": 0.05364327223960662
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "working_group": "All",
+      "cutoff_year": 2014,
+      "cutoff_basis": "fixed_preferred_publication_year",
+      "earlier_membership": "earlier_matched",
+      "later_matched_total": 13503,
+      "temporally_eligible_later_ids": 13449,
+      "shared_eligible_ids": 719,
+      "eligible_absent_ids": 12730,
+      "conditional_reuse": 0.053461223882816565
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "working_group": "All",
+      "cutoff_year": 2014,
+      "cutoff_basis": "fixed_preferred_publication_year",
+      "earlier_membership": "any_earlier_extracted",
+      "later_matched_total": 13503,
+      "temporally_eligible_later_ids": 13449,
+      "shared_eligible_ids": 720,
+      "eligible_absent_ids": 12729,
+      "conditional_reuse": 0.053535578853446356
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "working_group": "WG1",
+      "cutoff_year": 2007,
+      "cutoff_basis": "earlier_working_group_source_publication_year",
+      "earlier_membership": "same_group_earlier_matched",
+      "later_matched_total": 5606,
+      "temporally_eligible_later_ids": 1723,
+      "shared_eligible_ids": 397,
+      "eligible_absent_ids": 1326,
+      "conditional_reuse": 0.23041207196749855
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "working_group": "WG1",
+      "cutoff_year": 2007,
+      "cutoff_basis": "earlier_working_group_source_publication_year",
+      "earlier_membership": "same_group_any_earlier_extracted",
+      "later_matched_total": 5606,
+      "temporally_eligible_later_ids": 1723,
+      "shared_eligible_ids": 398,
+      "eligible_absent_ids": 1325,
+      "conditional_reuse": 0.2309924550203134
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "working_group": "WG2",
+      "cutoff_year": 2007,
+      "cutoff_basis": "earlier_working_group_source_publication_year",
+      "earlier_membership": "same_group_earlier_matched",
+      "later_matched_total": 6418,
+      "temporally_eligible_later_ids": 1220,
+      "shared_eligible_ids": 179,
+      "eligible_absent_ids": 1041,
+      "conditional_reuse": 0.14672131147540984
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "working_group": "WG2",
+      "cutoff_year": 2007,
+      "cutoff_basis": "earlier_working_group_source_publication_year",
+      "earlier_membership": "same_group_any_earlier_extracted",
+      "later_matched_total": 6418,
+      "temporally_eligible_later_ids": 1220,
+      "shared_eligible_ids": 179,
+      "eligible_absent_ids": 1041,
+      "conditional_reuse": 0.14672131147540984
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "working_group": "WG3",
+      "cutoff_year": 2007,
+      "cutoff_basis": "earlier_working_group_source_publication_year",
+      "earlier_membership": "same_group_earlier_matched",
+      "later_matched_total": 2141,
+      "temporally_eligible_later_ids": 422,
+      "shared_eligible_ids": 52,
+      "eligible_absent_ids": 370,
+      "conditional_reuse": 0.12322274881516587
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "working_group": "WG3",
+      "cutoff_year": 2007,
+      "cutoff_basis": "earlier_working_group_source_publication_year",
+      "earlier_membership": "same_group_any_earlier_extracted",
+      "later_matched_total": 2141,
+      "temporally_eligible_later_ids": 422,
+      "shared_eligible_ids": 52,
+      "eligible_absent_ids": 370,
+      "conditional_reuse": 0.12322274881516587
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "working_group": "All",
+      "cutoff_year": 2012,
+      "cutoff_basis": "fixed_preferred_publication_year",
+      "earlier_membership": "earlier_matched",
+      "later_matched_total": 34869,
+      "temporally_eligible_later_ids": 3967,
+      "shared_eligible_ids": 1355,
+      "eligible_absent_ids": 2612,
+      "conditional_reuse": 0.3415679354676078
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "working_group": "All",
+      "cutoff_year": 2012,
+      "cutoff_basis": "fixed_preferred_publication_year",
+      "earlier_membership": "any_earlier_extracted",
+      "later_matched_total": 34869,
+      "temporally_eligible_later_ids": 3967,
+      "shared_eligible_ids": 1356,
+      "eligible_absent_ids": 2611,
+      "conditional_reuse": 0.34182001512477944
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "working_group": "All",
+      "cutoff_year": 2013,
+      "cutoff_basis": "fixed_preferred_publication_year",
+      "earlier_membership": "earlier_matched",
+      "later_matched_total": 34869,
+      "temporally_eligible_later_ids": 5810,
+      "shared_eligible_ids": 1650,
+      "eligible_absent_ids": 4160,
+      "conditional_reuse": 0.28399311531841653
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "working_group": "All",
+      "cutoff_year": 2013,
+      "cutoff_basis": "fixed_preferred_publication_year",
+      "earlier_membership": "any_earlier_extracted",
+      "later_matched_total": 34869,
+      "temporally_eligible_later_ids": 5810,
+      "shared_eligible_ids": 1651,
+      "eligible_absent_ids": 4159,
+      "conditional_reuse": 0.28416523235800345
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "working_group": "All",
+      "cutoff_year": 2014,
+      "cutoff_basis": "fixed_preferred_publication_year",
+      "earlier_membership": "earlier_matched",
+      "later_matched_total": 34869,
+      "temporally_eligible_later_ids": 8076,
+      "shared_eligible_ids": 1653,
+      "eligible_absent_ids": 6423,
+      "conditional_reuse": 0.20468053491827637
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "working_group": "All",
+      "cutoff_year": 2014,
+      "cutoff_basis": "fixed_preferred_publication_year",
+      "earlier_membership": "any_earlier_extracted",
+      "later_matched_total": 34869,
+      "temporally_eligible_later_ids": 8076,
+      "shared_eligible_ids": 1654,
+      "eligible_absent_ids": 6422,
+      "conditional_reuse": 0.20480435859336305
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "working_group": "WG1",
+      "cutoff_year": 2013,
+      "cutoff_basis": "earlier_working_group_source_publication_year",
+      "earlier_membership": "same_group_earlier_matched",
+      "later_matched_total": 11922,
+      "temporally_eligible_later_ids": 2633,
+      "shared_eligible_ids": 811,
+      "eligible_absent_ids": 1822,
+      "conditional_reuse": 0.3080136726167869
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "working_group": "WG1",
+      "cutoff_year": 2013,
+      "cutoff_basis": "earlier_working_group_source_publication_year",
+      "earlier_membership": "same_group_any_earlier_extracted",
+      "later_matched_total": 11922,
+      "temporally_eligible_later_ids": 2633,
+      "shared_eligible_ids": 811,
+      "eligible_absent_ids": 1822,
+      "conditional_reuse": 0.3080136726167869
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "working_group": "WG2",
+      "cutoff_year": 2014,
+      "cutoff_basis": "earlier_working_group_source_publication_year",
+      "earlier_membership": "same_group_earlier_matched",
+      "later_matched_total": 16896,
+      "temporally_eligible_later_ids": 3105,
+      "shared_eligible_ids": 506,
+      "eligible_absent_ids": 2599,
+      "conditional_reuse": 0.16296296296296298
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "working_group": "WG2",
+      "cutoff_year": 2014,
+      "cutoff_basis": "earlier_working_group_source_publication_year",
+      "earlier_membership": "same_group_any_earlier_extracted",
+      "later_matched_total": 16896,
+      "temporally_eligible_later_ids": 3105,
+      "shared_eligible_ids": 506,
+      "eligible_absent_ids": 2599,
+      "conditional_reuse": 0.16296296296296298
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "working_group": "WG3",
+      "cutoff_year": 2014,
+      "cutoff_basis": "earlier_working_group_source_publication_year",
+      "earlier_membership": "same_group_earlier_matched",
+      "later_matched_total": 8658,
+      "temporally_eligible_later_ids": 1847,
+      "shared_eligible_ids": 170,
+      "eligible_absent_ids": 1677,
+      "conditional_reuse": 0.092041147807255
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "working_group": "WG3",
+      "cutoff_year": 2014,
+      "cutoff_basis": "earlier_working_group_source_publication_year",
+      "earlier_membership": "same_group_any_earlier_extracted",
+      "later_matched_total": 8658,
+      "temporally_eligible_later_ids": 1847,
+      "shared_eligible_ids": 171,
+      "eligible_absent_ids": 1676,
+      "conditional_reuse": 0.09258256632376827
+    }
+  ],
+  "same_vintage_profiles": [
+    {
+      "cohort": "reused_matched_through_2013",
+      "distinct_papers": 1650,
+      "known_year_papers": 1650,
+      "missing_year_papers": 0,
+      "median_publication_year": 2011.0,
+      "publication_year_p25": 2009.0,
+      "publication_year_p75": 2012.0,
+      "matched_occurrences": 2194,
+      "dated_included": 2194,
+      "source_year_count": 2194,
+      "fallback_year_count": 0,
+      "missing_year": 0,
+      "future_year": 0,
+      "over_60_years": 0,
+      "median_age": 11.0,
+      "p25": 9.0,
+      "p75": 13.0,
+      "known_journal_papers": 1650,
+      "missing_journal_papers": 0,
+      "missing_journal_share": 0.0,
+      "named_journals": 333,
+      "hhi_known_journals": 0.03249292929292929,
+      "effective_journals_known": 30.77592638647103,
+      "hhi_all_including_missing_category": 0.03249292929292929,
+      "top5_named_journal_share_known": 0.32727272727272727,
+      "top5_named_journal_share_all": 0.32727272727272727
+    },
+    {
+      "cohort": "present_any_AR5_through_2013",
+      "distinct_papers": 1651,
+      "known_year_papers": 1651,
+      "missing_year_papers": 0,
+      "median_publication_year": 2011,
+      "publication_year_p25": 2009.0,
+      "publication_year_p75": 2012.0,
+      "matched_occurrences": 2195,
+      "dated_included": 2195,
+      "source_year_count": 2195,
+      "fallback_year_count": 0,
+      "missing_year": 0,
+      "future_year": 0,
+      "over_60_years": 0,
+      "median_age": 11,
+      "p25": 9.0,
+      "p75": 13.0,
+      "known_journal_papers": 1651,
+      "missing_journal_papers": 0,
+      "missing_journal_share": 0.0,
+      "named_journals": 333,
+      "hhi_known_journals": 0.032506041343443634,
+      "effective_journals_known": 30.7635122171435,
+      "hhi_all_including_missing_category": 0.032506041343443634,
+      "top5_named_journal_share_known": 0.3276801938219261,
+      "top5_named_journal_share_all": 0.3276801938219261
+    },
+    {
+      "cohort": "actually_absent_AR5_through_2013",
+      "distinct_papers": 4159,
+      "known_year_papers": 4159,
+      "missing_year_papers": 0,
+      "median_publication_year": 2012,
+      "publication_year_p25": 2009.0,
+      "publication_year_p75": 2013.0,
+      "matched_occurrences": 4726,
+      "dated_included": 4726,
+      "source_year_count": 4726,
+      "fallback_year_count": 0,
+      "missing_year": 0,
+      "future_year": 0,
+      "over_60_years": 0,
+      "median_age": 10.0,
+      "p25": 9.0,
+      "p75": 12.0,
+      "known_journal_papers": 4157,
+      "missing_journal_papers": 2,
+      "missing_journal_share": 0.00048088482808367395,
+      "named_journals": 945,
+      "hhi_known_journals": 0.010542138781940423,
+      "effective_journals_known": 94.85741182928503,
+      "hhi_all_including_missing_category": 0.01053223336083862,
+      "top5_named_journal_share_known": 0.15949001683906663,
+      "top5_named_journal_share_all": 0.15941332050973792
+    },
+    {
+      "cohort": "new_to_matched_AR5_through_2013",
+      "distinct_papers": 4160,
+      "known_year_papers": 4160,
+      "missing_year_papers": 0,
+      "median_publication_year": 2012.0,
+      "publication_year_p25": 2009.0,
+      "publication_year_p75": 2013.0,
+      "matched_occurrences": 4727,
+      "dated_included": 4727,
+      "source_year_count": 4727,
+      "fallback_year_count": 0,
+      "missing_year": 0,
+      "future_year": 0,
+      "over_60_years": 0,
+      "median_age": 10,
+      "p25": 9.0,
+      "p75": 12.0,
+      "known_journal_papers": 4158,
+      "missing_journal_papers": 2,
+      "missing_journal_share": 0.0004807692307692308,
+      "named_journals": 945,
+      "hhi_known_journals": 0.01054996701942349,
+      "effective_journals_known": 94.7870261735326,
+      "hhi_all_including_missing_category": 0.010540056397928994,
+      "top5_named_journal_share_known": 0.1596921596921597,
+      "top5_named_journal_share_all": 0.1596153846153846
+    }
+  ],
+  "same_vintage_groups": [
+    {
+      "cohort": "reused_matched_through_2013",
+      "working_group": "WG1",
+      "paper_ids": 952,
+      "share_cohort_ids": 0.576969696969697,
+      "matched_occurrences": 1208,
+      "dated_included": 1208,
+      "source_year_count": 1208,
+      "fallback_year_count": 0,
+      "missing_year": 0,
+      "future_year": 0,
+      "over_60_years": 0,
+      "median_age": 10.0,
+      "p25": 9.0,
+      "p75": 12.0,
+      "hhi_known_journals": 0.0677543076053951,
+      "named_journals": 123
+    },
+    {
+      "cohort": "reused_matched_through_2013",
+      "working_group": "WG2",
+      "paper_ids": 571,
+      "share_cohort_ids": 0.34606060606060607,
+      "matched_occurrences": 663,
+      "dated_included": 663,
+      "source_year_count": 663,
+      "fallback_year_count": 0,
+      "missing_year": 0,
+      "future_year": 0,
+      "over_60_years": 0,
+      "median_age": 11,
+      "p25": 10.0,
+      "p75": 13.0,
+      "hhi_known_journals": 0.020153907023963243,
+      "named_journals": 221
+    },
+    {
+      "cohort": "reused_matched_through_2013",
+      "working_group": "WG3",
+      "paper_ids": 272,
+      "share_cohort_ids": 0.16484848484848486,
+      "matched_occurrences": 323,
+      "dated_included": 323,
+      "source_year_count": 323,
+      "fallback_year_count": 0,
+      "missing_year": 0,
+      "future_year": 0,
+      "over_60_years": 0,
+      "median_age": 12,
+      "p25": 10.0,
+      "p75": 13.0,
+      "hhi_known_journals": 0.032493512110726645,
+      "named_journals": 103
+    },
+    {
+      "cohort": "present_any_AR5_through_2013",
+      "working_group": "WG1",
+      "paper_ids": 952,
+      "share_cohort_ids": 0.5766202301635373,
+      "matched_occurrences": 1208,
+      "dated_included": 1208,
+      "source_year_count": 1208,
+      "fallback_year_count": 0,
+      "missing_year": 0,
+      "future_year": 0,
+      "over_60_years": 0,
+      "median_age": 10.0,
+      "p25": 9.0,
+      "p75": 12.0,
+      "hhi_known_journals": 0.0677543076053951,
+      "named_journals": 123
+    },
+    {
+      "cohort": "present_any_AR5_through_2013",
+      "working_group": "WG2",
+      "paper_ids": 571,
+      "share_cohort_ids": 0.34585099939430647,
+      "matched_occurrences": 663,
+      "dated_included": 663,
+      "source_year_count": 663,
+      "fallback_year_count": 0,
+      "missing_year": 0,
+      "future_year": 0,
+      "over_60_years": 0,
+      "median_age": 11,
+      "p25": 10.0,
+      "p75": 13.0,
+      "hhi_known_journals": 0.020153907023963243,
+      "named_journals": 221
+    },
+    {
+      "cohort": "present_any_AR5_through_2013",
+      "working_group": "WG3",
+      "paper_ids": 273,
+      "share_cohort_ids": 0.16535433070866143,
+      "matched_occurrences": 324,
+      "dated_included": 324,
+      "source_year_count": 324,
+      "fallback_year_count": 0,
+      "missing_year": 0,
+      "future_year": 0,
+      "over_60_years": 0,
+      "median_age": 12.0,
+      "p25": 10.0,
+      "p75": 13.0,
+      "hhi_known_journals": 0.032537669900307264,
+      "named_journals": 103
+    },
+    {
+      "cohort": "actually_absent_AR5_through_2013",
+      "working_group": "WG1",
+      "paper_ids": 1681,
+      "share_cohort_ids": 0.40418369800432796,
+      "matched_occurrences": 1891,
+      "dated_included": 1891,
+      "source_year_count": 1891,
+      "fallback_year_count": 0,
+      "missing_year": 0,
+      "future_year": 0,
+      "over_60_years": 0,
+      "median_age": 9,
+      "p25": 8.0,
+      "p75": 11.0,
+      "hhi_known_journals": 0.03317602040816327,
+      "named_journals": 257
+    },
+    {
+      "cohort": "actually_absent_AR5_through_2013",
+      "working_group": "WG2",
+      "paper_ids": 1468,
+      "share_cohort_ids": 0.3529694638134167,
+      "matched_occurrences": 1601,
+      "dated_included": 1601,
+      "source_year_count": 1601,
+      "fallback_year_count": 0,
+      "missing_year": 0,
+      "future_year": 0,
+      "over_60_years": 0,
+      "median_age": 10,
+      "p25": 9.0,
+      "p75": 12.0,
+      "hhi_known_journals": 0.008064257565556072,
+      "named_journals": 533
+    },
+    {
+      "cohort": "actually_absent_AR5_through_2013",
+      "working_group": "WG3",
+      "paper_ids": 1137,
+      "share_cohort_ids": 0.27338302476556864,
+      "matched_occurrences": 1234,
+      "dated_included": 1234,
+      "source_year_count": 1234,
+      "fallback_year_count": 0,
+      "missing_year": 0,
+      "future_year": 0,
+      "over_60_years": 0,
+      "median_age": 11.0,
+      "p25": 9.0,
+      "p75": 13.0,
+      "hhi_known_journals": 0.01774098852927321,
+      "named_journals": 411
+    },
+    {
+      "cohort": "new_to_matched_AR5_through_2013",
+      "working_group": "WG1",
+      "paper_ids": 1681,
+      "share_cohort_ids": 0.40408653846153847,
+      "matched_occurrences": 1891,
+      "dated_included": 1891,
+      "source_year_count": 1891,
+      "fallback_year_count": 0,
+      "missing_year": 0,
+      "future_year": 0,
+      "over_60_years": 0,
+      "median_age": 9,
+      "p25": 8.0,
+      "p75": 11.0,
+      "hhi_known_journals": 0.03317602040816327,
+      "named_journals": 257
+    },
+    {
+      "cohort": "new_to_matched_AR5_through_2013",
+      "working_group": "WG2",
+      "paper_ids": 1468,
+      "share_cohort_ids": 0.3528846153846154,
+      "matched_occurrences": 1601,
+      "dated_included": 1601,
+      "source_year_count": 1601,
+      "fallback_year_count": 0,
+      "missing_year": 0,
+      "future_year": 0,
+      "over_60_years": 0,
+      "median_age": 10,
+      "p25": 9.0,
+      "p75": 12.0,
+      "hhi_known_journals": 0.008064257565556072,
+      "named_journals": 533
+    },
+    {
+      "cohort": "new_to_matched_AR5_through_2013",
+      "working_group": "WG3",
+      "paper_ids": 1138,
+      "share_cohort_ids": 0.27355769230769234,
+      "matched_occurrences": 1235,
+      "dated_included": 1235,
+      "source_year_count": 1235,
+      "fallback_year_count": 0,
+      "missing_year": 0,
+      "future_year": 0,
+      "over_60_years": 0,
+      "median_age": 11,
+      "p25": 9.0,
+      "p75": 13.0,
+      "hhi_known_journals": 0.01773376039733013,
+      "named_journals": 411
+    }
+  ],
+  "flagged_case_sensitivities": [
+    {
+      "scenario": "exclude_all_shared_later_than_2013",
+      "excluded_union_ids": 7,
+      "papers_a": 13496,
+      "papers_b": 34862,
+      "shared": 1650,
+      "only_a": 11846,
+      "only_b": 33212,
+      "retention": 0.12225844694724362,
+      "reuse": 0.047329470483621135,
+      "jaccard": 0.03532585424338443,
+      "interpretation": "Stress test; no corrected-identity or error-rate claim",
+      "denominator_policy": "Remove selected IDs from both matched report sets",
+      "flag_scope": "Shared IDs with a preferred year after 2013, irrespective of review-queue status",
+      "review_flag_type": null,
+      "review_statuses": null,
+      "flagged_occurrences": null,
+      "flagged_shared_ids": null,
+      "stress_removed_shared_ids": 7,
+      "eligibility_cutoff_year": 2013,
+      "eligible_denominator": 5810,
+      "baseline_shared_eligible_ids": 1650,
+      "affected_eligible_shared_ids": 0,
+      "stress_shared_eligible_ids": 1650,
+      "conditional_reuse": 0.28399311531841653
+    },
+    {
+      "scenario": "observed_matched_baseline",
+      "excluded_union_ids": 0,
+      "papers_a": 13503,
+      "papers_b": 34869,
+      "shared": 1657,
+      "only_a": 11846,
+      "only_b": 33212,
+      "retention": 0.12271347108050062,
+      "reuse": 0.04752072041067997,
+      "jaccard": 0.035470405651289734,
+      "interpretation": "Observed snapshot memberships; no candidate removal",
+      "denominator_policy": "Original matched report memberships and preferred-year-eligible later membership fixed",
+      "flag_scope": "No candidate removal",
+      "review_flag_type": null,
+      "review_statuses": null,
+      "flagged_occurrences": 0,
+      "flagged_shared_ids": 0,
+      "stress_removed_shared_ids": 0,
+      "eligibility_cutoff_year": 2013,
+      "eligible_denominator": 5810,
+      "baseline_shared_eligible_ids": 1650,
+      "affected_eligible_shared_ids": 0,
+      "stress_shared_eligible_ids": 1650,
+      "conditional_reuse": 0.28399311531841653
+    },
+    {
+      "scenario": "fixed_denominator_open_chronology_all_reports",
+      "excluded_union_ids": 0,
+      "papers_a": 13503,
+      "papers_b": 34869,
+      "shared": 1619,
+      "only_a": null,
+      "only_b": null,
+      "retention": 0.1198992816411168,
+      "reuse": 0.04643092718460524,
+      "jaccard": null,
+      "interpretation": "Numerator stress calculation; candidates are not adjudicated errors; no database correction or error-rate estimate",
+      "denominator_policy": "Original matched report memberships and preferred-year-eligible later membership fixed",
+      "flag_scope": "All reports in snapshot",
+      "review_flag_type": "matched_doi_chronology_review",
+      "review_statuses": "open | in_progress",
+      "flagged_occurrences": 85,
+      "flagged_shared_ids": 38,
+      "stress_removed_shared_ids": 38,
+      "eligibility_cutoff_year": 2013,
+      "eligible_denominator": 5810,
+      "baseline_shared_eligible_ids": 1650,
+      "affected_eligible_shared_ids": 38,
+      "stress_shared_eligible_ids": 1612,
+      "conditional_reuse": 0.2774526678141136
+    },
+    {
+      "scenario": "fixed_denominator_open_chronology_AR5_AR6_only",
+      "excluded_union_ids": 0,
+      "papers_a": 13503,
+      "papers_b": 34869,
+      "shared": 1628,
+      "only_a": null,
+      "only_b": null,
+      "retention": 0.12056580019254981,
+      "reuse": 0.046689036106570304,
+      "jaccard": null,
+      "interpretation": "Numerator stress calculation; candidates are not adjudicated errors; no database correction or error-rate estimate",
+      "denominator_policy": "Original matched report memberships and preferred-year-eligible later membership fixed",
+      "flag_scope": "Flagged occurrences in AR5 or AR6 only",
+      "review_flag_type": "matched_doi_chronology_review",
+      "review_statuses": "open | in_progress",
+      "flagged_occurrences": 49,
+      "flagged_shared_ids": 29,
+      "stress_removed_shared_ids": 29,
+      "eligibility_cutoff_year": 2013,
+      "eligible_denominator": 5810,
+      "baseline_shared_eligible_ids": 1650,
+      "affected_eligible_shared_ids": 29,
+      "stress_shared_eligible_ids": 1621,
+      "conditional_reuse": 0.27900172117039584
+    }
+  ],
+  "open_shared_chronology": {
+    "selection": "Distinct occurrences with an occurrence-level matched_doi_chronology_review flag and at least one manual_review row in open or in_progress status with reason matched_doi_chronology_review. Their paper IDs must have a matched_doi or matched_title occurrence in both AR5 and AR6. Flagged occurrences may belong to any report in the snapshot, including reports outside AR5 and AR6. Duplicate flag and review rows do not add occurrences or paper IDs.",
+    "unit_of_detail_export": "One distinct occurrence_id; flag IDs and open review rows aggregated within occurrence",
+    "transition_membership_reports": [
+      "AR5",
+      "AR6"
+    ],
+    "transition_membership_statuses": [
+      "matched_doi",
+      "matched_title"
+    ],
+    "flag_occurrence_report_scope": "All reports in the database, without an AR1–AR6 restriction",
+    "flag_type": "matched_doi_chronology_review",
+    "review_statuses": [
+      "open",
+      "in_progress"
+    ],
+    "review_reason": "matched_doi_chronology_review",
+    "flagged_occurrences": 85,
+    "flagged_shared_ids": 38,
+    "flagged_shared_paper_ids": [
+      10840,
+      11002,
+      11101,
+      12425,
+      12434,
+      13122,
+      13183,
+      13402,
+      14966,
+      15260,
+      17277,
+      17380,
+      19416,
+      19561,
+      19772,
+      19818,
+      21178,
+      21314,
+      22099,
+      24575,
+      24854,
+      25252,
+      26593,
+      27813,
+      27819,
+      27963,
+      28385,
+      28564,
+      30760,
+      32168,
+      32934,
+      33738,
+      33960,
+      34193,
+      34941,
+      35105,
+      35453,
+      35582
+    ],
+    "flagged_shared_eligible_ids": 38,
+    "eligibility_cutoff_year": 2013,
+    "transition_only_flagged_occurrences": 49,
+    "transition_only_flagged_shared_ids": 29,
+    "by_flag_occurrence_report": [
+      {
+        "report": "AR4",
+        "flagged_occurrences": 16,
+        "flagged_shared_ids": 8
+      },
+      {
+        "report": "AR5",
+        "flagged_occurrences": 18,
+        "flagged_shared_ids": 15
+      },
+      {
+        "report": "AR6",
+        "flagged_occurrences": 31,
+        "flagged_shared_ids": 18
+      },
+      {
+        "report": "SR15",
+        "flagged_occurrences": 4,
+        "flagged_shared_ids": 4
+      },
+      {
+        "report": "SRCCL",
+        "flagged_occurrences": 9,
+        "flagged_shared_ids": 5
+      },
+      {
+        "report": "SREX",
+        "flagged_occurrences": 2,
+        "flagged_shared_ids": 2
+      },
+      {
+        "report": "SROCC",
+        "flagged_occurrences": 1,
+        "flagged_shared_ids": 1
+      },
+      {
+        "report": "SRREN",
+        "flagged_occurrences": 4,
+        "flagged_shared_ids": 1
+      }
+    ],
+    "stress_definition": "Subtract each selected shared paper ID once from the shared numerator. Keep original AR5, AR6 and preferred-year-eligible AR6 denominators fixed. Subtract only eligible candidate IDs from the conditional numerator. Do not edit the database or construct a corrected crosswalk; exclusive set counts and Jaccard are not computed for these stress rows."
+  },
+  "sample": {
+    "seed": 20261011,
+    "ranking": "SHA256(seed|stratum|paper_id), smallest hashes within each mutually exclusive stratum",
+    "target_per_stratum": 12,
+    "strata": [
+      {
+        "stratum": "AR5_only_matched|doi_and_title|WG2",
+        "population_ids": 1,
+        "sampled_ids": 1,
+        "inclusion_probability": 1.0
+      },
+      {
+        "stratum": "AR5_only_matched|doi_and_title|multiple_groups",
+        "population_ids": 1,
+        "sampled_ids": 1,
+        "inclusion_probability": 1.0
+      },
+      {
+        "stratum": "AR5_only_matched|doi_only|WG1",
+        "population_ids": 4339,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.0027656141968195437
+      },
+      {
+        "stratum": "AR5_only_matched|doi_only|WG2",
+        "population_ids": 5124,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.00234192037470726
+      },
+      {
+        "stratum": "AR5_only_matched|doi_only|WG3",
+        "population_ids": 1645,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.00729483282674772
+      },
+      {
+        "stratum": "AR5_only_matched|doi_only|multiple_groups",
+        "population_ids": 429,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.027972027972027972
+      },
+      {
+        "stratum": "AR5_only_matched|title_only|WG1",
+        "population_ids": 113,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.10619469026548672
+      },
+      {
+        "stratum": "AR5_only_matched|title_only|WG2",
+        "population_ids": 154,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.07792207792207792
+      },
+      {
+        "stratum": "AR5_only_matched|title_only|WG3",
+        "population_ids": 29,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.41379310344827586
+      },
+      {
+        "stratum": "AR5_only_matched|title_only|multiple_groups",
+        "population_ids": 11,
+        "sampled_ids": 11,
+        "inclusion_probability": 1.0
+      },
+      {
+        "stratum": "AR6_only_matched|doi_and_title|WG1",
+        "population_ids": 7,
+        "sampled_ids": 7,
+        "inclusion_probability": 1.0
+      },
+      {
+        "stratum": "AR6_only_matched|doi_and_title|WG2",
+        "population_ids": 17,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.7058823529411765
+      },
+      {
+        "stratum": "AR6_only_matched|doi_and_title|WG3",
+        "population_ids": 1,
+        "sampled_ids": 1,
+        "inclusion_probability": 1.0
+      },
+      {
+        "stratum": "AR6_only_matched|doi_and_title|multiple_groups",
+        "population_ids": 29,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.41379310344827586
+      },
+      {
+        "stratum": "AR6_only_matched|doi_only|WG1",
+        "population_ids": 9323,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.0012871393328327792
+      },
+      {
+        "stratum": "AR6_only_matched|doi_only|WG2",
+        "population_ids": 13984,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.0008581235697940503
+      },
+      {
+        "stratum": "AR6_only_matched|doi_only|WG3",
+        "population_ids": 7053,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.0017014036580178648
+      },
+      {
+        "stratum": "AR6_only_matched|doi_only|multiple_groups",
+        "population_ids": 2277,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.005270092226613966
+      },
+      {
+        "stratum": "AR6_only_matched|title_only|WG1",
+        "population_ids": 144,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.08333333333333333
+      },
+      {
+        "stratum": "AR6_only_matched|title_only|WG2",
+        "population_ids": 183,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.06557377049180328
+      },
+      {
+        "stratum": "AR6_only_matched|title_only|WG3",
+        "population_ids": 176,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.06818181818181818
+      },
+      {
+        "stratum": "AR6_only_matched|title_only|multiple_groups",
+        "population_ids": 18,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.6666666666666666
+      },
+      {
+        "stratum": "shared_matched|doi_and_title|WG1",
+        "population_ids": 22,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.5454545454545454
+      },
+      {
+        "stratum": "shared_matched|doi_and_title|WG2",
+        "population_ids": 10,
+        "sampled_ids": 10,
+        "inclusion_probability": 1.0
+      },
+      {
+        "stratum": "shared_matched|doi_and_title|WG3",
+        "population_ids": 4,
+        "sampled_ids": 4,
+        "inclusion_probability": 1.0
+      },
+      {
+        "stratum": "shared_matched|doi_and_title|multiple_groups",
+        "population_ids": 8,
+        "sampled_ids": 8,
+        "inclusion_probability": 1.0
+      },
+      {
+        "stratum": "shared_matched|doi_only|WG1",
+        "population_ids": 835,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.01437125748502994
+      },
+      {
+        "stratum": "shared_matched|doi_only|WG2",
+        "population_ids": 432,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.027777777777777776
+      },
+      {
+        "stratum": "shared_matched|doi_only|WG3",
+        "population_ids": 206,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.05825242718446602
+      },
+      {
+        "stratum": "shared_matched|doi_only|multiple_groups",
+        "population_ids": 128,
+        "sampled_ids": 12,
+        "inclusion_probability": 0.09375
+      },
+      {
+        "stratum": "shared_matched|title_only|WG1",
+        "population_ids": 1,
+        "sampled_ids": 1,
+        "inclusion_probability": 1.0
+      },
+      {
+        "stratum": "shared_matched|title_only|WG2",
+        "population_ids": 9,
+        "sampled_ids": 9,
+        "inclusion_probability": 1.0
+      },
+      {
+        "stratum": "shared_matched|title_only|WG3",
+        "population_ids": 2,
+        "sampled_ids": 2,
+        "inclusion_probability": 1.0
+      }
+    ],
+    "frame_size": 46715,
+    "probability_sample_ids": 319,
+    "targeted_supplement_ids": 12,
+    "all_sample_ids": 331,
+    "raw_entries_exported": 801,
+    "human_labels_completed": 0,
+    "independent_human_review": false,
+    "use": "Review worksheet and consistency screen. Sampling weights are recorded, but no weighted precision is estimated without validated labels."
+  },
+  "pipeline": {
+    "scope": "Inspection of available upstream code and immutable snapshot fields; code has no archived executed-version identifier in build_info",
+    "files": [
+      {
+        "role": "configuration",
+        "workspace_relative_path": "run_all.py",
+        "exists": false,
+        "sha256": null
+      },
+      {
+        "role": "extraction",
+        "workspace_relative_path": "ipccdb/refextract.py",
+        "exists": false,
+        "sha256": null
+      },
+      {
+        "role": "extraction_driver",
+        "workspace_relative_path": "ipccdb/pipeline.py",
+        "exists": false,
+        "sha256": null
+      },
+      {
+        "role": "citation_similarity",
+        "workspace_relative_path": "ipccdb/cite.py",
+        "exists": false,
+        "sha256": null
+      },
+      {
+        "role": "enrichment",
+        "workspace_relative_path": "ipccdb/enrich.py",
+        "exists": false,
+        "sha256": null
+      },
+      {
+        "role": "WoS_acceptance",
+        "workspace_relative_path": "ipccdb/wos.py",
+        "exists": false,
+        "sha256": null
+      },
+      {
+        "role": "database_entity_builder",
+        "workspace_relative_path": "ipcc_litdb/database/build_litdb.py",
+        "exists": false,
+        "sha256": null
+      },
+      {
+        "role": "enrichment_cache_runner",
+        "workspace_relative_path": "tools/run_enrich.py",
+        "exists": false,
+        "sha256": null
+      }
+    ],
+    "snapshot_build_info": {
+      "build_timestamp": "2026-10-06T13:06:20Z",
+      "source": "upstream/output",
+      "builder": "06_database/build_litdb.py",
+      "correction_version": "v1.2.0",
+      "correction_source_sha256": "faa7fc711ae4607acfa9833739ec8f202f8aefd6d929b474a12fceb589c5b85d",
+      "correction_timestamp": "2026-10-11T10:33:00Z"
+    },
+    "source_retrieval_dates": {
+      "first": "2026-10-05",
+      "last": "2026-10-06"
+    },
+    "occurrence_as_of_counts": {
+      "2026-10-05": 125144,
+      "2026-10-11T10:33:00Z": 20
+    },
+    "stored_confidence_range": [
+      {
+        "status": "matched_doi",
+        "count": 70482,
+        "min": 1.0,
+        "max": 1.0
+      },
+      {
+        "status": "matched_title",
+        "count": 1597,
+        "min": 0.9286,
+        "max": 1.0
+      }
+    ],
+    "extraction": {
+      "splitters": [
+        "PDF text blocks",
+        "hanging indent",
+        "year/author regex"
+      ],
+      "selection": "QC score penalizes missing-year and duplicate rates and subtracts 12 per flag. Hanging-indent strategy overrides when confidence >=0.5 and median gap >=3.0.",
+      "QC_thresholds": {
+        "missing_year_rate_max": 0.25,
+        "duplicate_rate_max": 0.15,
+        "references_per_page_min": 1.5,
+        "references_per_page_max": 45,
+        "median_raw_length_range": [
+          90,
+          900
+        ],
+        "non_reference_start_rate_max": 0.35
+      },
+      "deduplication": "Within a splitter result, repeated normalized complete raw strings are removed. A retry can choose an alternative with more items.",
+      "OCR": "Current configuration enables OCR copies and QC retries; it does not prove the executed method for every source."
+    },
+    "enrichment": {
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "title_to_DOI_acceptance_similarity": 0.9,
+      "candidate_year_gap_penalty": "Subtract 0.05 when candidate publication year differs by more than one year.",
+      "metadata_overwrite": "enrich.apply replaces Article Title, Authors, Publisher and Year with enriched metadata before WoS acceptance; recovered DOI is inserted when no DOI is present.",
+      "cache": "tools/run_enrich.py warms DOI and title caches; run_all can reuse title cache without live title enrichment."
+    },
+    "WoS_acceptance": {
+      "exact_DOI": "Normalized candidate DOI equals occurrence DOI; accepted with confidence 1.0.",
+      "crossref_backfilled_DOI": "Additional title similarity >=0.85; the compared title may already have been replaced by enrichment.",
+      "title_match": "Best normalized similarity >=0.92, |publication-year difference| <=1 where both values are usable, first-author surname equality where both are available.",
+      "similarity": "Maximum token-set Jaccard and RapidFuzz token_set_ratio where RapidFuzz is installed; Jaccard fallback otherwise.",
+      "source_asymmetry": "The special DOI-title check is keyed to doi_source == crossref; OpenAlex-backfilled DOI does not take that branch.",
+      "interpretation": "Confidence is a rule output. An enriched DOI hit cannot independently validate the DOI's correspondence to the original raw reference."
+    },
+    "paper_ID_assignment": {
+      "first_pass": "Group valid normalized DOI-bearing occurrences by DOI.",
+      "second_pass": "Attach DOI-less occurrences by exact normalized title when selected group's year is within one year if both years exist; otherwise create title/year or occurrence-only identity.",
+      "title_normalization": "NFKD decomposition, combining-mark removal, lowercase ASCII letters/digits/spaces after markup removal, whitespace collapse.",
+      "preferred_metadata": "Most common occurrence title, year, journal and author strings; selection inherits enriched fields.",
+      "validation_status": "A paper with a WoS record is wos_matched; a syntactically valid DOI without WoS is labelled doi_verified by builder. That latter label is not an independent resolver check."
+    },
+    "historical_limit": "Snapshot dates and saved statuses document the collection/build state. Current source thresholds are inspectable; exact executed software versions and original candidate sets need archived logs/cache provenance for complete reconstruction."
+  },
+  "quality_checks": {
+    "all_passed": true,
+    "count": 22,
+    "checks": [
+      {
+        "check": "unique occurrence ID",
+        "observed": 125164,
+        "expected": 125164,
+        "passed": true
+      },
+      {
+        "check": "selected occurrence count",
+        "observed": 125164,
+        "expected": 125164,
+        "passed": true
+      },
+      {
+        "check": "selected distinct paper IDs",
+        "observed": 93433,
+        "expected": 93433,
+        "passed": true
+      },
+      {
+        "check": "AR5 matched IDs",
+        "observed": 13503,
+        "expected": 13503,
+        "passed": true
+      },
+      {
+        "check": "AR6 matched IDs",
+        "observed": 34869,
+        "expected": 34869,
+        "passed": true
+      },
+      {
+        "check": "primary shared IDs",
+        "observed": 1657,
+        "expected": 1657,
+        "passed": true
+      },
+      {
+        "check": "primary later partition",
+        "observed": 34869,
+        "expected": 34869,
+        "passed": true
+      },
+      {
+        "check": "symmetric later partition",
+        "observed": 34869,
+        "expected": 34869,
+        "passed": true
+      },
+      {
+        "check": "status-switch partition",
+        "observed": 1,
+        "expected": 1,
+        "passed": true
+      },
+      {
+        "check": "single actual source year for AR4 WG1",
+        "observed": 1,
+        "expected": 1,
+        "passed": true
+      },
+      {
+        "check": "single actual source year for AR4 WG2",
+        "observed": 1,
+        "expected": 1,
+        "passed": true
+      },
+      {
+        "check": "single actual source year for AR4 WG3",
+        "observed": 1,
+        "expected": 1,
+        "passed": true
+      },
+      {
+        "check": "single actual source year for AR5 WG1",
+        "observed": 1,
+        "expected": 1,
+        "passed": true
+      },
+      {
+        "check": "single actual source year for AR5 WG2",
+        "observed": 1,
+        "expected": 1,
+        "passed": true
+      },
+      {
+        "check": "single actual source year for AR5 WG3",
+        "observed": 1,
+        "expected": 1,
+        "passed": true
+      },
+      {
+        "check": "nonoverlapping strata frame",
+        "observed": 46715,
+        "expected": 46715,
+        "passed": true
+      },
+      {
+        "check": "unique sample IDs",
+        "observed": 331,
+        "expected": 331,
+        "passed": true
+      },
+      {
+        "check": "probability sample selected size",
+        "observed": 319,
+        "expected": 319,
+        "passed": true
+      },
+      {
+        "check": "sample raw-entry uniqueness",
+        "observed": 801,
+        "expected": 801,
+        "passed": true
+      },
+      {
+        "check": "open chronology occurrence uniqueness",
+        "observed": 85,
+        "expected": 85,
+        "passed": true
+      },
+      {
+        "check": "open chronology candidate shared membership",
+        "observed": 38,
+        "expected": 38,
+        "passed": true
+      },
+      {
+        "check": "database unchanged",
+        "observed": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+        "expected": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+        "passed": true
+      }
+    ]
+  },
+  "human_validation_still_needed": [
+    "Two independent reviewers check sampled original PDF references and authoritative candidate records.",
+    "Separate same-document, different-version, false-merge, false-split, extraction-concatenation and unresolved labels.",
+    "Reconcile disagreements before estimating stratum-weighted linkage precision and false-merge or false-split rates.",
+    "Use adjudicated crosswalks to recompute recurrence; current flags do not supply corrected IDs."
+  ]
+}

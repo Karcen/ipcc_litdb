@@ -1,0 +1,8 @@
+{
+  "key": "bradford1934original",
+  "provider": "openalex_search",
+  "query_date": "2026-10-12",
+  "queried_at_utc": "2026-10-12T10:57:12.023521+00:00",
+  "request_url": "https://api.openalex.org/works?search=Sources+of+information+on+specific+subjects&per-page=5",
+  "error": "HTTP Error 429: Too Many Requests"
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "sampling_seed": 20261011,
+  "database_sha256": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+  "sources": {
+    "papers": {
+      "filename": "revision_identity_audit_sample_papers.csv",
+      "sha256": "2b184fe01a14d00a258392350a3a8caf5635f804841725c880b5a08be12219b5"
+    },
+    "occurrences": {
+      "filename": "revision_identity_audit_sample_entries.csv",
+      "sha256": "a8694cee07680872229b40f2acb61b83e9d22a394a5ed73aeadaa1ec92e544df"
+    },
+    "strata": {
+      "filename": "revision_identity_audit_strata.csv",
+      "sha256": "3e571f52d68c0bde90618e33e28a8c00ef45a66d1ca5e66c7757006462645cf1"
+    },
+    "summary": {
+      "filename": "revision_identity_summary.json",
+      "sha256": "fabedfb666075c908ff82771869898001ee091bcc916506039c71b5d2e07f2ec"
+    }
+  },
+  "counts": {
+    "sampled_ids": 331,
+    "probability_ids": 319,
+    "targeted_ids": 12,
+    "occurrences": 801,
+    "strata": 33,
+    "frame_ids": 46715
+  },
+  "sampling": "SHA256(seed|stratum|paper_id) rank; up to 12 IDs per mutually exclusive stratum. Targeted supplements remain separate.",
+  "inference_design": "Treat seeded hash ranking as pseudo-random simple random sampling without replacement within fixed strata. Intervals condition on this sampling design and the adjudicated labels.",
+  "annotation_status": "No manual labels supplied; empty annotation templates only"
+}

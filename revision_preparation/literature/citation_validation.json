@@ -1,0 +1,17 @@
+{
+  "filepath": "revision_preparation/literature/references_additions.bib",
+  "total_entries": 6,
+  "valid_entries": 6,
+  "errors": [],
+  "warnings": [],
+  "duplicates": [],
+  "venue_standard_checked": null,
+  "min_count_checked": null,
+  "manuscript_results": {
+    "checked": false,
+    "manuscript_filepath": null,
+    "cited_keys": [],
+    "missing_keys": [],
+    "unused_keys": []
+  }
+}

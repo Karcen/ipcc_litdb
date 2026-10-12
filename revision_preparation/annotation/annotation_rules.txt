@@ -1,0 +1,191 @@
+IPCC reference annotation protocol
+
+Start the local workspace
+
+Use Python 3.10 or later. No additional packages are required.
+From this directory, run:
+
+  python3 local_annotation_app.py
+
+The app finds database/ipcc_litdb.sqlite when it is inside the repository.
+For another location, pass the saved snapshot explicitly:
+
+  python3 local_annotation_app.py --db /path/to/ipcc_litdb.sqlite
+
+Open http://127.0.0.1:8765. The server binds to this machine only. All labels
+save in work/. Original inputs and empty templates remain unchanged. The app
+makes no network requests to external data services. Source PDF and DOI links
+open only when selected. Stop the server with Ctrl+C.
+
+Sample and units
+
+The frozen current sample has 331 IDs: 319 probability IDs and 12 targeted
+supplements. It contains 801 raw AR5/AR6 occurrences. The 33 probability strata
+cover 46,715 distinct recorded IDs in the union of the matched AR5 and AR6 sets.
+The 801 exported occurrences are AR5 (369) and AR6 (432). Other-report occurrences
+of sampled IDs are outside the within-ID and metadata audit. The sampling seed is 20261011. Strata, source strings, keys and weights are fixed.
+An occurrence is one saved bibliography entry. An ID can contain several entries.
+No manual annotation existed when these empty templates were prepared.
+
+Review an ID
+
+1. Read every original entry shown for the ID. Open its source PDF and locate
+   the bibliography entry. Compare candidate publisher, DOI or report records.
+2. Assign a work-group letter to each occurrence. Use A for one document, B
+   for another, and so on. Letters have meaning only within the current ID.
+   When a raw entry clearly joins two documents, record A | B and explain it.
+3. Check preferred title, DOI, year, authors and journal. Record metadata errors
+   separately from identity errors. Enter the affected fields and evidence.
+4. Give the ID identity label and, where applicable, its shared-link judgment.
+   Add reviewer initials and a short note or evidence URL. Set review_complete
+   to yes only after every occurrence has a work group and metadata judgment.
+5. Conduct the separate missed-merge search. Record the queries and results.
+   Set its search status to complete only after the specified searches are done.
+
+Identity labels
+
+correct_merge: All reviewed occurrences under the ID represent one bibliographic
+document. An ID with one original entry has no internal merge to contradict this
+label. This label describes within-ID grouping; it does not establish that every
+preferred field is correct or that the document has no duplicate ID elsewhere.
+
+false_merge: The ID contains occurrences of at least two distinct documents.
+Use distinct work groups. Identify the documents and explain whether the error
+comes from record linkage or an extraction that joined bibliography entries.
+
+unresolved: The available evidence does not establish the identity. Keep the ID
+review incomplete. The estimator does not turn this label into a correct record.
+
+An online-first article and its final published version can be the same work.
+Different publication-year labels alone do not establish a false merge. Compare
+the DOI, authors, title, document version and publisher record. Treat separate
+editions or substantively different reports as different documents. Record the
+version decision in notes. A chronology flag is a cue for review, not a label.
+
+Shared-link labels
+
+The observed shared-matched set contains 1,657 IDs. Membership requires a
+matched_doi or matched_title occurrence in each of AR5 and AR6.
+
+same_work: At least one reviewed document occurs in matched entries in both
+reports. Its work-group letter therefore appears on both sides. A false-merged
+ID can still contain a real common document, so false_merge does not automatically
+mean false_shared.
+
+false_shared: The recorded ID is in both matched report sets, but the documents
+represented by the AR5 matched entries and AR6 matched entries do not overlap.
+Their work-group sets have no intersection.
+
+not_shared: The ID is outside the original shared-matched set. Some occurrences
+may exist in both reports while only one report has a recorded matched status.
+
+unresolved: Cross-report identity remains uncertain. Keep review_complete blank
+or no. The validation checks shared-link decisions against the work groups.
+
+Occurrence metadata
+
+correct: The checked preferred fields represent the cited document under the
+document/version convention stated above. An allowed online/print year choice
+is not automatically an error.
+
+metadata_error: At least one preferred field is wrong. Identify doi, title,
+year, journal, authors or other. Give notes or evidence. The weighted estimand
+counts IDs with any erroneous reviewed occurrence. Occurrence counts describe
+the reviewed entries and have a different denominator.
+
+unresolved: The checked metadata remain uncertain. Do not mark the ID review
+complete until this decision is resolved.
+
+Missed-merge search
+
+A missed merge is the same document assigned to another recorded ID. A within-ID
+review alone cannot identify its absence. Search the raw DOI where present and
+title variants, then author and publication year. Search the full saved database.
+Inspect candidate raw entries and their source bibliographies. Preferred metadata
+can themselves be wrong, so check the raw strings. Record useful query variants,
+the search scope and candidate evidence in missed_merge_search_notes.
+
+Use the Original raw reference search for raw DOI, title and author-year variants.
+Preferred DOI/title/author searches supplement this original-text search. Their
+search basis is displayed. Choose methods from raw_reference, raw_doi, title,
+author_year and candidate_raw_entries. A complete search requires raw_reference,
+at least raw_doi or title, plus author_year, and notes.
+Record incomplete when a source, search or candidate check remains outstanding.
+
+none_found: The completed protocol found no confirmed counterpart ID. This means
+no missed merge was found in that audited search; it is not a guarantee of global
+record-linkage recall.
+
+missed_merge_found: Another ID represents the same document. Record its positive
+integer ID in missed_merge_candidate_ids, with | between several IDs. Include
+candidate_raw_entries among completed methods and record the confirming evidence.
+Do not include the current ID. Do not count several counterpart IDs as several
+positive sampled IDs: the outcome is whether this audited ID has any counterpart.
+
+unresolved: Candidate equivalence remains uncertain. Keep the search incomplete.
+
+Labels and files
+
+The browser saves only annotation fields. It exports ID and occurrence CSVs with
+all original keys, source fields, selections and sampling weights retained.
+Blank decisions remain blank. Work changes are recorded in work/change_log.jsonl.
+An invalid or contradictory decision is reported by Check annotations. The app
+does not replace the decision or repair an imported file.
+
+Validate exported labels:
+
+  python3 annotation_tools.py validate --id-labels work/id_annotations.csv \
+    --occurrence-labels work/occurrence_annotations.csv
+
+Generate results in a new output directory after annotation:
+
+  python3 annotation_tools.py estimate --id-labels work/id_annotations.csv \
+    --occurrence-labels work/occurrence_annotations.csv --output outputs/review_01
+
+Missing files, missing keys, invalid labels, conflicting duplicates or altered
+source/weight fields block estimates. Row order does not affect weighting.
+Identical duplicate rows are counted once and reported. The default estimator is strictly closed until every one of the 331 ID reviews,
+all 801 occurrence judgments and all required missed-merge searches are complete.
+Incomplete labels produce only an integrity report and a nonzero CLI exit; no
+rate or sensitivity files are written. Targeted cases remain separate descriptive
+counts and never receive probability weights. Validation and the browser remain
+usable while annotation is in progress.
+
+Statistical method
+
+For a binary ID outcome, the point total is sum_h N_h * k_h / n_h. The denominator
+is the known ID population of the stated domain, not the number of raw entries.
+Within-ID identity precision and false-merge and metadata-error rates refer to
+the 46,715-ID union frame, based on the exported AR5/AR6 entries only. They do
+not assess within-ID grouping of unexported other-report occurrences. Shared-ID outcomes refer to its 1,657-ID shared domain.
+
+The design treats seeded hash ranking as pseudo-random simple random sampling
+without replacement within the fixed strata. For each noncensus stratum, the
+interval inverts both hypergeometric tails for the unknown finite-population
+positive count. Bonferroni allocation gives simultaneous 95% stratum coverage.
+Summing stratum bounds and dividing by the known domain population gives a
+conservative 95% design interval. Census strata have exact bounds. Zero observed
+errors in a noncensus stratum still permit a positive upper error bound. A
+one-ID noncensus stratum has an exact interval even though its sample variance
+cannot estimate a design standard error. The standard error uses the stratified
+finite-population variance formula when estimable; it does not define the interval.
+
+Missed-merge estimation measures the weighted share of audited IDs with a
+confirmed counterpart under this search protocol. It does not estimate all
+missing links, the number of unique duplicate pairs, or global linkage recall.
+
+Recurrence sensitivity uses weighted shared-ID false-merge and false-shared
+counts separately. It assumes each affected ID loses its shared-numerator
+contribution and holds AR5 (13,503) and AR6 (34,869) membership denominators fixed.
+The bounds transform the corresponding error-count interval. A false merge can
+retain a genuine shared document, so the false-merge scenario is a loss scenario.
+These calculations do not build a corrected crosswalk or corrected unique-work
+counts. Metadata errors and confirmed missed merges have different mechanisms
+and are not subtracted from recurrence as if they were false shared IDs.
+
+Public delivery
+
+The code, protocol, frozen sample and empty templates are portable. Keep work/
+and outputs/ out of version control while annotating. Review any annotation
+release separately. No analytical output is registered until actual labels pass
+validation. The original 29 registered reference tables remain unchanged.

@@ -49,6 +49,9 @@ Stopping the containers preserves the database volume, including review history.
 - [Database model](#database-model)
 - [Analysis](#analysis)
 - [Reproduce assessment analyses](#reproduce-assessment-analyses)
+- [Manual annotation](#manual-annotation)
+- [Additional raw-DOI checks](#additional-raw-doi-checks)
+- [Verified references and revision preparation](#verified-references-and-revision-preparation)
 - [Exports and API](#exports-and-api)
 - [Sources and provenance](#sources-and-provenance)
 - [Data quality and review](#data-quality-and-review)
@@ -154,12 +157,16 @@ ipcc_litdb/
 │   └── processed/          # Audit statistics and deduplication summary
 ├── scripts/                # Install, restore, serve, analyse, test, export, migrate
 ├── reproducibility/        # Assessment analyses and registered result tables
+├── revision_preparation/   # Annotation app, additional analyses, citation records
+├── changes.md              # Revision changes and verification status
+├── reviewer_prep.md        # Anticipated reviewer questions and conditional replies
+├── author_requirements.md  # Information and annotations the authors must supply
 ├── screenshots/
 ├── tests/
 └── .github/workflows/      # Automated checks
 ```
 
-The working SQLite file, virtual environments, credentials, caches, and macOS sidecar files are excluded from Git. This README contains the toolkit documentation. Third-party license texts remain separate text files.
+The working SQLite file, virtual environments, credentials, caches, and macOS sidecar files are excluded from Git. This README contains the toolkit documentation. The three revision documents record changes, anticipated reviewer questions and information the authors must supply. Third-party license texts remain separate text files.
 
 ## Configuration
 
@@ -381,7 +388,97 @@ Age uncertainty tables describe stability under chapter resampling within this f
 
 Outlet sensitivities compare the preferred labels, conservative punctuation aliases, and registered WoS source titles. The local snapshot and upstream exports lack usable ISSNs. The alias crosswalk records exactly which strings were combined. Named-outlet concentration and richness have separate results; outlet labels do not assign disciplines.
 
-The corrected review worksheet contains 331 IDs and 801 printed entries: 319 probability-sampled IDs and 12 additional targeted anomaly IDs. Mechanical title, DOI, year, and author flags accompany the raw entries. Human adjudication fields remain unreviewed. The separate correction ledger records AI-assisted comparisons by Codex (ChatGPT 6.1 Sol) with original citations and primary bibliographic sources. The authors report that they checked the primary sources for all eleven nominated cases. Informal spot checks were performed during the original collection. Population linkage accuracy remains unestimated.
+The corrected review worksheet contains 331 IDs and 801 printed entries: 319 probability-sampled IDs and 12 additional targeted anomaly IDs. Mechanical title, DOI, year, and author flags accompany the raw entries. Structured annotation has not started. The local annotation interface stores author decisions in a separate export, and the estimator requires every planned review and duplicate search to be complete. The separate correction ledger records AI-assisted comparisons by Codex (ChatGPT 6.1 Sol) with original citations and primary bibliographic sources. The authors report that they checked the primary sources for all eleven nominated cases. Informal spot checks were performed during the original collection. Weighted linkage rates will be generated from the completed probability annotations after integrity checks pass. The current release contains no annotation-derived accuracy estimates.
+
+## Manual annotation
+
+The annotation workspace contains 319 probability-sampled IDs and 12 targeted supplements. Its 801 original entries come from AR5 and AR6. The probability sample has 33 strata and represents the 46,715-ID union of the matched AR5 and AR6 sets. The frozen sample, source strings and sampling weights remain unchanged. Human labels start empty.
+
+Restore the database through Quick start, then launch the workspace from the repository root:
+
+```bash
+revision_preparation/annotation/launch_annotation.command
+```
+
+The launcher selects Python 3.10 or later from the project environment or an available installation. On macOS, the same `.command` file can be opened in Finder. On Linux or WSL, an explicit Python command also works:
+
+```bash
+python3 revision_preparation/annotation/local_annotation_app.py
+```
+
+Open [the annotation workspace](http://127.0.0.1:8765/). The server uses the local machine's loopback address. It opens the saved database read-only. Original entries and preferred metadata appear side by side, with source-page and DOI links. Database searches cover preserved raw references as well as preferred DOI, title and author fields. To select another snapshot or port, pass `--db /path/to/database.sqlite` or `--port 8766`. Stop the server with Ctrl+C.
+
+Read the [annotation rules](revision_preparation/annotation/annotation_rules.txt). Assign a document group to each original entry. Record the within-ID identity decision, cross-report sharing decision and occurrence metadata judgment separately. Then search for the same work under other IDs and record the queries, candidates and evidence. A false merge can still contain a genuinely shared work. Finding no duplicate during the specified search describes that search result, rather than global linkage recall.
+
+Edits save automatically in `revision_preparation/annotation/work/`. Wait for **Saved locally** before closing the page. **Save and next ID** saves the current record before navigation. **Check annotations** reports missing or inconsistent decisions without changing them. **Export files** downloads the ID CSV, occurrence CSV and complete work JSON. Back up the work directory or exported files while annotating. Work files and generated estimate directories are excluded from Git.
+
+Run the integrity check against saved labels:
+
+```bash
+python3 revision_preparation/annotation/annotation_tools.py validate \
+  --id-labels revision_preparation/annotation/work/id_annotations.csv \
+  --occurrence-labels revision_preparation/annotation/work/occurrence_annotations.csv \
+  > revision_preparation/annotation/work/integrity.json
+```
+
+The report checks expected keys and counts, unchanged source fields and weights, allowed labels, missing judgments and duplicate consistency. Incomplete or invalid input returns a nonzero exit code. It does not repair labels. Review the listed issues before continuing.
+
+After all 331 ID reviews, 801 occurrence judgments and required duplicate searches are complete, generate estimates in a fresh directory:
+
+```bash
+python3 revision_preparation/annotation/annotation_tools.py estimate \
+  --id-labels revision_preparation/annotation/work/id_annotations.csv \
+  --occurrence-labels revision_preparation/annotation/work/occurrence_annotations.csv \
+  --output revision_preparation/annotation/outputs/review_01
+```
+
+Missing, unresolved or inconsistent labels produce an integrity report and error exit, with no rate or sensitivity tables. Successful estimation registers `annotation_rates.csv`, `annotation_strata.csv` and `annotation_recurrence_stress.csv` with JSON provenance and file hashes. Probability-sample estimates use the recorded inclusion weights. Targeted supplements have separate descriptive counts. The estimator measures false merges, identity precision, detected missed merges and ID-level metadata errors. Its 95% intervals invert finite-population hypergeometric tails within strata and combine conservative stratum bounds. Zero observed errors in a noncensus stratum retain a positive upper error bound.
+
+The within-ID and metadata audit covers the exported AR5/AR6 entries. Other-report occurrences of these IDs are outside that audit. Detected missed-merge rates describe the recorded search protocol. Shared-identity sensitivity holds the original AR5 and AR6 denominators fixed; it does not construct a corrected database. [The pending registry](revision_preparation/annotation/pending_registry.json) records the planned outputs. [The initial integrity report](revision_preparation/annotation/initial_integrity_report.json) confirms that source keys and counts agree and every human decision is still empty.
+
+## Additional raw-DOI checks
+
+These analyses construct identities from usable DOI tokens in original reference text across all matching statuses. They use printed years for cited-work age and annual eligibility. They compare common publication windows, working groups, occurrence weights, equal-DOI weights and equal-group weights. The method therefore selects entries without using the Web of Science match decision. Raw DOI availability still differs between reports.
+
+Complete the 29-table baseline reproduction first, using the command under [Reproduce assessment analyses](#reproduce-assessment-analyses). Then run:
+
+```bash
+python3 revision_preparation/robustness/coverage_robustness.py \
+  --repo . \
+  --baseline-reproduction analysis-reproduction \
+  --output-dir coverage-reproduction
+
+python3 revision_preparation/robustness/verify_registered_outputs.py \
+  --output-dir coverage-reproduction \
+  --reference-dir revision_preparation/robustness/output_v1 \
+  --report coverage-reproduction-check.json
+```
+
+Choose fresh output and report paths. The extension verifies the input database, baseline code and all 29 baseline tables before generating ten additional tables. It uses NumPy 2.2.6, 2,500 chapter resamples and seed `20261011`. The [separate manifest](revision_preparation/robustness/output_v1/manifest.json) records units, filters, code hashes, exclusions and the ten table hashes. The verification command compares each generated table with this registry. The original baseline registry remains unchanged.
+
+| Raw-DOI check | Registered result |
+|---|---|
+| Usable single DOI in original entries | AR5: 3,124 entries, 11.22% of extracted entries; AR6: 45,605 entries, 72.36%. |
+| Common 2000–2013 publication window | 355 shared DOI keys among 2,721 AR5 and 5,230 AR6 keys; retention 13.05%, reuse 6.79%. |
+| Reuse eligible through 2013 | 364 shared eligible keys among 5,597 eligible AR6 keys, or 6.50%. |
+| Occurrence-weighted mean age | 4.52 years in AR5 and 5.14 years in AR6; the difference interval is −0.26 to 1.49 years. |
+| References aged zero through five | 74.67% in AR5 and 64.92% in AR6; the change is −9.75 percentage points, with an interval of −16.01 to −2.96. |
+
+The common-window recurrence still shows substantial replacement. The recent-reference share decreases. The pooled mean-age interval includes zero. Raw-DOI conditional reuse of 6.50% and matched-ID conditional reuse of 28.40% describe different selected populations and year rules. Their difference is a measurement sensitivity, rather than a calibrated correction. These checks do not supply an external climate-literature pool or independent outlet metadata. [The method record](revision_preparation/robustness/methods.txt) describes the selection and interval scope.
+
+## Verified references and revision preparation
+
+The [six BibTeX additions](revision_preparation/literature/references_additions.bib) cover Price's citation networks, Burton and Kebler's literature half-life, Bradford's source scattering, Hill numbers, Simpson diversity and Jost's entropy interpretation. Each DOI and title was checked against a successful Crossref work record. The [JSON ledger](revision_preparation/literature/reference_verification.json), [CSV ledger](revision_preparation/literature/reference_verification.csv) and retained API responses record the decisions and source hashes. OpenAlex rate-limit failures are recorded separately. The [verification report](revision_preparation/literature/verification_report.txt) explains rejected candidates and Bradford's 1985 reprint metadata.
+
+Check the archived reference records without network access or file changes:
+
+```bash
+python revision_preparation/literature/check_archived_verification.py
+```
+
+The inclusive zero-through-five-year share is this analysis's operational definition. Price's historical immediacy discussion supplies context; it does not establish this exact boundary.
+
+[Changes](changes.md) maps the revision work to the requested tasks. [Reviewer preparation](reviewer_prep.md) contains eight anticipated comments and responses conditional on the stated checks. [Author requirements](author_requirements.md) lists the manuscript's nine pending information requests. The submitted manuscript and revision manuscript, complete bibliographies and compiled PDFs remain outside this public repository. This release contains the annotation tools, empty templates, analysis code, registered results and verification records.
 
 ## Exports and API
 
@@ -512,7 +609,7 @@ python scripts/correct_record_links.py \
 
 The script checks the original digest and each expected old value. It validates the corrected foreign keys, chapter crosswalk, paper counters, unique DOIs and raw-occurrence digest. It refreshes the cached analyses and writes the corrected digest and checks to the report. Existing inputs and output files are preserved.
 
-The chronology rule queues `matched_doi` occurrences whose preferred year exceeds the source's unambiguous publication year or differs from the first printed year by more than one. The parser accepts year suffixes such as `2013a`. The snapshot contains 1,728 chronology flags. Nine have documented targeted decisions; 1,719 remain open. Verified advance-online dates resolve several flagged cases. Targeted source inspections and the unreviewed probability worksheet have separate records. Population linkage accuracy remains unestimated.
+The chronology rule queues `matched_doi` occurrences whose preferred year exceeds the source's unambiguous publication year or differs from the first printed year by more than one. The parser accepts year suffixes such as `2013a`. The snapshot contains 1,728 chronology flags. Nine have documented targeted decisions; 1,719 remain open. Verified advance-online dates resolve several flagged cases. Targeted source inspections and the pending probability annotations have separate records. Weighted linkage rates will be generated from the completed probability annotations after integrity checks pass. The current release contains no annotation-derived accuracy estimates.
 
 Analysis version [v1.2.1](https://github.com/Karcen/ipcc_litdb/tree/v1.2.1) adds an explicit census of unresolved chronology flags among AR5–AR6 shared matched IDs. The database remains the v1.2.0 snapshot with the same SHA-256 digest. The selection uses `open` or `in_progress` reviews with reason `matched_doi_chronology_review`, joins by occurrence ID, and counts each occurrence once across all reports. It selects 38 shared IDs and 85 flagged occurrences. Of these occurrences, 49 are in AR5 or AR6 and 36 are in other reports. The AR5/AR6-only subset spans 29 IDs. The exported detail table records each flagged occurrence's report, preferred year and review status.
 

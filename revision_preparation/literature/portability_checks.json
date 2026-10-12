@@ -1,0 +1,73 @@
+{
+  "passed": true,
+  "mode": "offline_read_only",
+  "archive_dir": ".",
+  "accepted_bibtex_entries": 6,
+  "work_payload_hashes_checked": 8,
+  "search_payload_hashes_checked": 3,
+  "rejected_candidates": 2,
+  "inventory_payload_hashes_checked": 9,
+  "bibliography_sha256": "7779d4708a4bef10e47f05f58d97849d7e85d39c3d656f77835621396bfe2563",
+  "check_date": "2026-10-12",
+  "standard_library_only": true,
+  "network_queries_performed": false,
+  "fixed_API_response_payloads_modified": false,
+  "generator": {
+    "mode": "offline_byte_check",
+    "files_checked": 3,
+    "mismatches": [],
+    "passed": true,
+    "included_reference_keys": [
+      "price1965networks",
+      "burton1960halflife",
+      "bradford1985sources",
+      "hill1973diversity",
+      "simpson1949diversity",
+      "jost2006entropy"
+    ],
+    "records": 10,
+    "bibliography_sha256": "7779d4708a4bef10e47f05f58d97849d7e85d39c3d656f77835621396bfe2563"
+  },
+  "unit_tests": {
+    "command": "python3 -B -m unittest -v test_verification_tools.py",
+    "tests": 9,
+    "passed": 9,
+    "failed": 0,
+    "output": "test_bibtex_corruption_fails (test_verification_tools.VerificationToolsTest) ... ok\ntest_explicit_regeneration_uses_fresh_directory (test_verification_tools.VerificationToolsTest) ... ok\ntest_fetcher_query_date_comes_from_actual_utc_timestamp (test_verification_tools.VerificationToolsTest) ... ok\ntest_fetcher_rejects_fixed_and_existing_directories_before_network (test_verification_tools.VerificationToolsTest) ... ok\ntest_fixed_archive_checks_six_entries_and_eleven_payloads (test_verification_tools.VerificationToolsTest) ... ok\ntest_pages_preserve_article_numbers_and_ranges (test_verification_tools.VerificationToolsTest) ... ok\ntest_parser_retains_nested_braces_and_rejects_duplicate_keys (test_verification_tools.VerificationToolsTest) ... ok\ntest_payload_corruption_fails (test_verification_tools.VerificationToolsTest) ... ok\ntest_relocated_archive_is_read_only_and_generator_bytes_match (test_verification_tools.VerificationToolsTest) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.177s\n\nOK"
+  },
+  "portability_scan": {
+    "host_specific_paths_found": 0,
+    "inventory_paths": "archive-relative"
+  },
+  "fetch_safety": {
+    "requires_new_output_directory": true,
+    "refuses_fixed_archive_and_existing_directories": true,
+    "query_date": "Actual per-query UTC timestamp, tested with a mocked 2031 date."
+  },
+  "files": {
+    "bibtex_helpers.py": {
+      "sha256": "51cee4467a2cd4a3dd9d63e2e28d51932ab37fd3d02c6cb7ce782f1c2b1b4059",
+      "bytes": 1190
+    },
+    "check_archived_verification.py": {
+      "sha256": "8ec83df9d6a28972c6e7eee610c63f22959db2764bd6c34df600d0d6722df9ff",
+      "bytes": 10752
+    },
+    "generate_verification_records.py": {
+      "sha256": "b683b4e1e4332c594c5cd73d493d422af3ba62dd0b6828e9f244c451e6cedcc3",
+      "bytes": 12986
+    },
+    "verify_reference_metadata.py": {
+      "sha256": "4cab45fad207a1d9986eff684f0facf96e3390697736d93129f7a5557f77091a",
+      "bytes": 5879
+    },
+    "test_verification_tools.py": {
+      "sha256": "8836fe85ab99516c0dec4dfee58fa94a52d541295bd9185ab177fe15701d38b6",
+      "bytes": 6962
+    },
+    "api_response_inventory.json": {
+      "sha256": "4505e31bf89205c6f8b32262db44b719cfeddc200936842e15c2a77ce8030d36",
+      "bytes": 26235
+    }
+  }
+}

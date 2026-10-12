@@ -1,0 +1,1556 @@
+{
+  "query_date": "2026-10-12",
+  "purpose": "Verify classic bibliometric citation candidates for an assessment-reference analysis",
+  "acceptance_rule": "Every included reference has an exact DOI and normalized title match in a successful Crossref API work record, plus matching year and bibliographic fields. Author gaps receive documented primary-source enrichment.",
+  "title_normalization": "Remove HTML formatting, normalize curly quotation marks and Unicode hyphens to ASCII; retain words, title suffixes and publication year.",
+  "candidates": [
+    {
+      "query_date": "2026-10-12",
+      "provider": "Crossref",
+      "request_url": "https://api.crossref.org/works/10.1126%2Fscience.149.3683.510",
+      "response_http_status": 200,
+      "response_payload_sha256": "0045c1464d9f4af30d7a96118323676cabee9337ddb6c2947fdf2c843c87b367",
+      "response_payload_file": "raw/price1965networks_crossref.json",
+      "doi": "10.1126/science.149.3683.510",
+      "title": "Networks of Scientific Papers",
+      "authors": [
+        {
+          "given": "Derek J. de Solla",
+          "family": "Price",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Yale University, New Haven, Connecticut"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container_title": "Science",
+      "published": {
+        "date-parts": [
+          [
+            1965,
+            7,
+            30
+          ]
+        ]
+      },
+      "published_print": {
+        "date-parts": [
+          [
+            1965,
+            7,
+            30
+          ]
+        ]
+      },
+      "published_online": null,
+      "volume": "149",
+      "issue": "3683",
+      "pages": "510-515",
+      "record_type": "journal-article",
+      "doi_url": "https://doi.org/10.1126/science.149.3683.510",
+      "publisher_record_url": "https://doi.org/10.1126/science.149.3683.510",
+      "fulltext_links": [
+        {
+          "URL": "https://www.science.org/doi/pdf/10.1126/science.149.3683.510",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "candidate_key": "price1965networks",
+      "decision": "accepted",
+      "included_in_bib": true,
+      "decision_reason": "Historical basis for citation immediacy and research fronts. The exact age-at-most-five statistic is defined by the present study.",
+      "title_checked_against": "Networks of Scientific Papers",
+      "year_checked_against": 1965,
+      "bibtex_fields": {
+        "author": "Price, Derek J. de Solla",
+        "title": "Networks of Scientific Papers",
+        "journal": "Science",
+        "year": "1965",
+        "volume": "149",
+        "number": "3683",
+        "pages": "510--515",
+        "doi": "10.1126/science.149.3683.510",
+        "url": "https://doi.org/10.1126/science.149.3683.510"
+      },
+      "author_enrichment": null,
+      "source_reading_level": "Relevant original full-text passages"
+    },
+    {
+      "query_date": "2026-10-12",
+      "provider": "Crossref",
+      "request_url": "https://api.crossref.org/works/10.1002%2Fasi.5090110105",
+      "response_http_status": 200,
+      "response_payload_sha256": "85b2b78894de51154841893f1f2e0bf0dcfdd9ad1bd39d597f8900f82c093227",
+      "response_payload_file": "raw/burton1960halflife_crossref.json",
+      "doi": "10.1002/asi.5090110105",
+      "title": "The “half‐life” of some scientific and technical literatures",
+      "authors": [
+        {
+          "given": "R. E.",
+          "family": "Burton",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "R. W.",
+          "family": "Kebler",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container_title": "American Documentation",
+      "published": {
+        "date-parts": [
+          [
+            1960,
+            1
+          ]
+        ]
+      },
+      "published_print": {
+        "date-parts": [
+          [
+            1960,
+            1
+          ]
+        ]
+      },
+      "published_online": {
+        "date-parts": [
+          [
+            2007,
+            4,
+            19
+          ]
+        ]
+      },
+      "volume": "11",
+      "issue": "1",
+      "pages": "18-22",
+      "record_type": "journal-article",
+      "doi_url": "https://doi.org/10.1002/asi.5090110105",
+      "publisher_record_url": "https://doi.org/10.1002/asi.5090110105",
+      "fulltext_links": [
+        {
+          "URL": "https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1002%2Fasi.5090110105",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://onlinelibrary.wiley.com/doi/pdf/10.1002/asi.5090110105",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "candidate_key": "burton1960halflife",
+      "decision": "accepted",
+      "included_in_bib": true,
+      "decision_reason": "Historical treatment of literature ageing. It does not identify reference retention across IPCC assessments.",
+      "title_checked_against": "The \"half-life\" of some scientific and technical literatures",
+      "year_checked_against": 1960,
+      "bibtex_fields": {
+        "author": "Burton, R. E. and Kebler, R. W.",
+        "title": "The \"half-life\" of some scientific and technical literatures",
+        "journal": "American Documentation",
+        "year": "1960",
+        "volume": "11",
+        "number": "1",
+        "pages": "18--22",
+        "doi": "10.1002/asi.5090110105",
+        "url": "https://doi.org/10.1002/asi.5090110105"
+      },
+      "author_enrichment": null,
+      "source_reading_level": "Publisher abstract and metadata"
+    },
+    {
+      "query_date": "2026-10-12",
+      "provider": "Crossref",
+      "request_url": "https://api.crossref.org/works/10.1177%2F016555158501000407",
+      "response_http_status": 200,
+      "response_payload_sha256": "da93f1fa3d88fca38ddf0fc8b2090774b64ae6c9b3d08a00bb2fb2e6eaa2ebba",
+      "response_payload_file": "raw/bradford1985sources_crossref.json",
+      "doi": "10.1177/016555158501000407",
+      "title": "Sources of information on specific subjects 1934",
+      "authors": null,
+      "container_title": "Journal of Information Science",
+      "published": {
+        "date-parts": [
+          [
+            1985,
+            4
+          ]
+        ]
+      },
+      "published_print": {
+        "date-parts": [
+          [
+            1985,
+            4
+          ]
+        ]
+      },
+      "published_online": {
+        "date-parts": [
+          [
+            1985,
+            4,
+            1
+          ]
+        ]
+      },
+      "volume": "10",
+      "issue": "4",
+      "pages": "176-180",
+      "record_type": "journal-article",
+      "doi_url": "https://doi.org/10.1177/016555158501000407",
+      "publisher_record_url": "https://doi.org/10.1177/016555158501000407",
+      "fulltext_links": [
+        {
+          "URL": "https://journals.sagepub.com/doi/pdf/10.1177/016555158501000407",
+          "content-type": "application/pdf",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://journals.sagepub.com/doi/pdf/10.1177/016555158501000407",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "candidate_key": "bradford1985sources",
+      "decision": "accepted",
+      "included_in_bib": true,
+      "decision_reason": "DOI-registered 1985 reprint. The DOI and pages refer to the reprint, not to the 1934 Engineering publication.",
+      "title_checked_against": "Sources of information on specific subjects 1934",
+      "year_checked_against": 1985,
+      "bibtex_fields": {
+        "author": "Bradford, S. C.",
+        "title": "Sources of information on specific subjects 1934",
+        "journal": "Journal of Information Science",
+        "year": "1985",
+        "volume": "10",
+        "number": "4",
+        "pages": "176--180",
+        "doi": "10.1177/016555158501000407",
+        "url": "https://doi.org/10.1177/016555158501000407",
+        "note": "Reprint of the paper originally published in 1934"
+      },
+      "author_enrichment": {
+        "field": "author",
+        "value": "Bradford, S. C.",
+        "reason": "The 1985 Crossref record omits authors. A DOI-registered 1976 reprint supplies S. C. Bradford, and the publisher companion introduction explicitly credits the work to S.C. Bradford.",
+        "primary_supporting_records": [
+          {
+            "query_date": "2026-10-12",
+            "provider": "Crossref",
+            "request_url": "https://api.crossref.org/works/10.1300%2FJ105v01n03_06",
+            "response_http_status": 200,
+            "response_payload_sha256": "2cdbc4bb8cd9d7d63c0e7a98ba870dce541d6fb2a4ffa9008c18d10cde6995ce",
+            "response_payload_file": "raw/bradford1976sources_crossref.json",
+            "doi": "10.1300/j105v01n03_06",
+            "title": "CLASSIC PAPER: Sources of Information on Specific Subjects",
+            "authors": [
+              {
+                "given": "S. C.",
+                "family": "Bradford",
+                "sequence": "first",
+                "affiliation": [],
+                "role": [
+                  {
+                    "vocabulary": "crossref",
+                    "role": "author"
+                  }
+                ]
+              }
+            ],
+            "container_title": "Collection Management",
+            "published": {
+              "date-parts": [
+                [
+                  1976,
+                  12
+                ]
+              ]
+            },
+            "published_print": {
+              "date-parts": [
+                [
+                  1976,
+                  12
+                ]
+              ]
+            },
+            "published_online": null,
+            "volume": "1",
+            "issue": "3-4",
+            "pages": "95-104",
+            "record_type": "journal-article",
+            "doi_url": "https://doi.org/10.1300/j105v01n03_06",
+            "publisher_record_url": "https://doi.org/10.1300/j105v01n03_06",
+            "fulltext_links": [
+              {
+                "URL": "http://www.tandfonline.com/doi/pdf/10.1300/J105v01n03_06",
+                "content-type": "unspecified",
+                "content-version": "vor",
+                "intended-application": "similarity-checking"
+              }
+            ]
+          },
+          {
+            "query_date": "2026-10-12",
+            "provider": "Crossref",
+            "request_url": "https://api.crossref.org/works/10.1177%2F016555158501000406",
+            "response_http_status": 200,
+            "response_payload_sha256": "80170a8aa060dd74ed153964fdaf686cbef86302df417bbab74f4b9c8e8b7b66",
+            "response_payload_file": "raw/brookes1985bradford_crossref.json",
+            "doi": "10.1177/016555158501000406",
+            "title": "\"Sources of information on specific subjects\" by S.C. Bradford",
+            "authors": [
+              {
+                "given": "B.C.",
+                "family": "Brookes",
+                "sequence": "first",
+                "affiliation": [
+                  {
+                    "name": "Department of Information Science The City University London, United Kingdom"
+                  }
+                ],
+                "role": [
+                  {
+                    "vocabulary": "crossref",
+                    "role": "author"
+                  }
+                ]
+              }
+            ],
+            "container_title": "Journal of Information Science",
+            "published": {
+              "date-parts": [
+                [
+                  1985,
+                  4
+                ]
+              ]
+            },
+            "published_print": {
+              "date-parts": [
+                [
+                  1985,
+                  4
+                ]
+              ]
+            },
+            "published_online": {
+              "date-parts": [
+                [
+                  1985,
+                  4,
+                  1
+                ]
+              ]
+            },
+            "volume": "10",
+            "issue": "4",
+            "pages": "173-175",
+            "record_type": "journal-article",
+            "doi_url": "https://doi.org/10.1177/016555158501000406",
+            "publisher_record_url": "https://doi.org/10.1177/016555158501000406",
+            "fulltext_links": [
+              {
+                "URL": "https://journals.sagepub.com/doi/pdf/10.1177/016555158501000406",
+                "content-type": "application/pdf",
+                "content-version": "vor",
+                "intended-application": "text-mining"
+              },
+              {
+                "URL": "https://journals.sagepub.com/doi/pdf/10.1177/016555158501000406",
+                "content-type": "unspecified",
+                "content-version": "vor",
+                "intended-application": "similarity-checking"
+              }
+            ]
+          }
+        ],
+        "publisher_support_url": "https://journals.sagepub.com/doi/10.1177/016555158501000406"
+      },
+      "source_reading_level": "Metadata and primary supporting records"
+    },
+    {
+      "query_date": "2026-10-12",
+      "provider": "Crossref",
+      "request_url": "https://api.crossref.org/works/10.2307%2F1934352",
+      "response_http_status": 200,
+      "response_payload_sha256": "05f9bf61d3d0e50034d30bb248129d28a032490dda4fb55b551d7b5f9bf87597",
+      "response_payload_file": "raw/hill1973diversity_crossref.json",
+      "doi": "10.2307/1934352",
+      "title": "Diversity and Evenness: A Unifying Notation and Its Consequences",
+      "authors": [
+        {
+          "given": "M. O.",
+          "family": "Hill",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container_title": "Ecology",
+      "published": {
+        "date-parts": [
+          [
+            1973,
+            3
+          ]
+        ]
+      },
+      "published_print": {
+        "date-parts": [
+          [
+            1973,
+            3
+          ]
+        ]
+      },
+      "published_online": {
+        "date-parts": [
+          [
+            1973,
+            3
+          ]
+        ]
+      },
+      "volume": "54",
+      "issue": "2",
+      "pages": "427-432",
+      "record_type": "journal-article",
+      "doi_url": "https://doi.org/10.2307/1934352",
+      "publisher_record_url": "https://doi.org/10.2307/1934352",
+      "fulltext_links": [
+        {
+          "URL": "http://api.wiley.com/onlinelibrary/tdm/v1/articles/10.2307%2F1934352",
+          "content-type": "application/pdf",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.2307%2F1934352",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://esajournals.onlinelibrary.wiley.com/doi/pdf/10.2307/1934352",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "candidate_key": "hill1973diversity",
+      "decision": "accepted",
+      "included_in_bib": true,
+      "decision_reason": "Primary effective-number framework for comparing richness, entropy diversity and concentration diversity.",
+      "title_checked_against": "Diversity and Evenness: A Unifying Notation and Its Consequences",
+      "year_checked_against": 1973,
+      "bibtex_fields": {
+        "author": "Hill, M. O.",
+        "title": "Diversity and Evenness: A Unifying Notation and Its Consequences",
+        "journal": "Ecology",
+        "year": "1973",
+        "volume": "54",
+        "number": "2",
+        "pages": "427--432",
+        "doi": "10.2307/1934352",
+        "url": "https://doi.org/10.2307/1934352"
+      },
+      "author_enrichment": null,
+      "source_reading_level": "Publisher abstract and metadata"
+    },
+    {
+      "query_date": "2026-10-12",
+      "provider": "Crossref",
+      "request_url": "https://api.crossref.org/works/10.1038%2F163688a0",
+      "response_http_status": 200,
+      "response_payload_sha256": "a9a8f304691f3268c6989e7b59f7950c80c28c1ec2f5a71f0e91af40158f79df",
+      "response_payload_file": "raw/simpson1949diversity_crossref.json",
+      "doi": "10.1038/163688a0",
+      "title": "Measurement of Diversity",
+      "authors": [
+        {
+          "given": "E. H.",
+          "family": "SIMPSON",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container_title": "Nature",
+      "published": {
+        "date-parts": [
+          [
+            1949,
+            4,
+            30
+          ]
+        ]
+      },
+      "published_print": {
+        "date-parts": [
+          [
+            1949,
+            4,
+            30
+          ]
+        ]
+      },
+      "published_online": null,
+      "volume": "163",
+      "issue": "4148",
+      "pages": "688-688",
+      "record_type": "journal-article",
+      "doi_url": "https://doi.org/10.1038/163688a0",
+      "publisher_record_url": "https://doi.org/10.1038/163688a0",
+      "fulltext_links": [
+        {
+          "URL": "https://www.nature.com/articles/163688a0.pdf",
+          "content-type": "application/pdf",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://www.nature.com/articles/163688a0",
+          "content-type": "text/html",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://www.nature.com/articles/163688a0.pdf",
+          "content-type": "application/pdf",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "candidate_key": "simpson1949diversity",
+      "decision": "accepted",
+      "included_in_bib": true,
+      "decision_reason": "Primary concentration/diversity measure based on category abundances.",
+      "title_checked_against": "Measurement of Diversity",
+      "year_checked_against": 1949,
+      "bibtex_fields": {
+        "author": "Simpson, E. H.",
+        "title": "Measurement of Diversity",
+        "journal": "Nature",
+        "year": "1949",
+        "volume": "163",
+        "number": "4148",
+        "pages": "688--688",
+        "doi": "10.1038/163688a0",
+        "url": "https://doi.org/10.1038/163688a0"
+      },
+      "author_enrichment": null,
+      "source_reading_level": "Metadata and primary supporting records"
+    },
+    {
+      "query_date": "2026-10-12",
+      "provider": "Crossref",
+      "request_url": "https://api.crossref.org/works/10.1111%2Fj.2006.0030-1299.14714.x",
+      "response_http_status": 200,
+      "response_payload_sha256": "4f4e48ca6351eec0dbb8a0ba9c50ede5bf34f5be51c00b979849a3c1831b27ec",
+      "response_payload_file": "raw/jost2006entropy_crossref.json",
+      "doi": "10.1111/j.2006.0030-1299.14714.x",
+      "title": "<i>Entropy and diversity</i>",
+      "authors": [
+        {
+          "given": "Lou",
+          "family": "Jost",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container_title": "Oikos",
+      "published": {
+        "date-parts": [
+          [
+            2006,
+            5
+          ]
+        ]
+      },
+      "published_print": {
+        "date-parts": [
+          [
+            2006,
+            5
+          ]
+        ]
+      },
+      "published_online": {
+        "date-parts": [
+          [
+            2006,
+            5,
+            18
+          ]
+        ]
+      },
+      "volume": "113",
+      "issue": "2",
+      "pages": "363-375",
+      "record_type": "journal-article",
+      "doi_url": "https://doi.org/10.1111/j.2006.0030-1299.14714.x",
+      "publisher_record_url": "https://doi.org/10.1111/j.2006.0030-1299.14714.x",
+      "fulltext_links": [
+        {
+          "URL": "https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1111%2Fj.2006.0030-1299.14714.x",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1111%2Fj.2006.0030-1299.14714.x",
+          "content-type": "application/pdf",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://nsojournals.onlinelibrary.wiley.com/doi/pdf/10.1111/j.2006.0030-1299.14714.x",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "candidate_key": "jost2006entropy",
+      "decision": "accepted",
+      "included_in_bib": true,
+      "decision_reason": "Explains conversion of entropy and concentration indices to effective numbers.",
+      "title_checked_against": "Entropy and diversity",
+      "year_checked_against": 2006,
+      "bibtex_fields": {
+        "author": "Jost, Lou",
+        "title": "Entropy and diversity",
+        "journal": "Oikos",
+        "year": "2006",
+        "volume": "113",
+        "number": "2",
+        "pages": "363--375",
+        "doi": "10.1111/j.2006.0030-1299.14714.x",
+        "url": "https://doi.org/10.1111/j.2006.0030-1299.14714.x"
+      },
+      "author_enrichment": null,
+      "source_reading_level": "Publisher abstract and metadata"
+    },
+    {
+      "query_date": "2026-10-12",
+      "provider": "Crossref",
+      "request_url": "https://api.crossref.org/works/10.1300%2FJ105v01n03_06",
+      "response_http_status": 200,
+      "response_payload_sha256": "2cdbc4bb8cd9d7d63c0e7a98ba870dce541d6fb2a4ffa9008c18d10cde6995ce",
+      "response_payload_file": "raw/bradford1976sources_crossref.json",
+      "doi": "10.1300/j105v01n03_06",
+      "title": "CLASSIC PAPER: Sources of Information on Specific Subjects",
+      "authors": [
+        {
+          "given": "S. C.",
+          "family": "Bradford",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container_title": "Collection Management",
+      "published": {
+        "date-parts": [
+          [
+            1976,
+            12
+          ]
+        ]
+      },
+      "published_print": {
+        "date-parts": [
+          [
+            1976,
+            12
+          ]
+        ]
+      },
+      "published_online": null,
+      "volume": "1",
+      "issue": "3-4",
+      "pages": "95-104",
+      "record_type": "journal-article",
+      "doi_url": "https://doi.org/10.1300/j105v01n03_06",
+      "publisher_record_url": "https://doi.org/10.1300/j105v01n03_06",
+      "fulltext_links": [
+        {
+          "URL": "http://www.tandfonline.com/doi/pdf/10.1300/J105v01n03_06",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "candidate_key": "bradford1976sources",
+      "decision": "accepted_supporting_record",
+      "included_in_bib": false,
+      "decision_reason": "A second DOI-registered reprint with complete author metadata. It corroborates the 1985 author attribution and is omitted as a redundant edition.",
+      "source_reading_level": "Metadata"
+    },
+    {
+      "query_date": "2026-10-12",
+      "provider": "Crossref",
+      "request_url": "https://api.crossref.org/works/10.1177%2F016555158501000406",
+      "response_http_status": 200,
+      "response_payload_sha256": "80170a8aa060dd74ed153964fdaf686cbef86302df417bbab74f4b9c8e8b7b66",
+      "response_payload_file": "raw/brookes1985bradford_crossref.json",
+      "doi": "10.1177/016555158501000406",
+      "title": "\"Sources of information on specific subjects\" by S.C. Bradford",
+      "authors": [
+        {
+          "given": "B.C.",
+          "family": "Brookes",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Department of Information Science The City University London, United Kingdom"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container_title": "Journal of Information Science",
+      "published": {
+        "date-parts": [
+          [
+            1985,
+            4
+          ]
+        ]
+      },
+      "published_print": {
+        "date-parts": [
+          [
+            1985,
+            4
+          ]
+        ]
+      },
+      "published_online": {
+        "date-parts": [
+          [
+            1985,
+            4,
+            1
+          ]
+        ]
+      },
+      "volume": "10",
+      "issue": "4",
+      "pages": "173-175",
+      "record_type": "journal-article",
+      "doi_url": "https://doi.org/10.1177/016555158501000406",
+      "publisher_record_url": "https://doi.org/10.1177/016555158501000406",
+      "fulltext_links": [
+        {
+          "URL": "https://journals.sagepub.com/doi/pdf/10.1177/016555158501000406",
+          "content-type": "application/pdf",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://journals.sagepub.com/doi/pdf/10.1177/016555158501000406",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "candidate_key": "brookes1985bradford",
+      "decision": "accepted_supporting_record",
+      "included_in_bib": false,
+      "decision_reason": "Primary publisher companion introduction supplies Bradford attribution. Its pages 173-175 are separate from the Bradford reprint pages 176-180.",
+      "source_reading_level": "Metadata"
+    },
+    {
+      "candidate_key": "price1970citationmeasures",
+      "query_date": "2026-10-12",
+      "candidate_title": "Citation Measures of Hard Science, Soft Science, Technology, and Nonscience",
+      "decision": "rejected_for_bib",
+      "included_in_bib": false,
+      "doi": null,
+      "decision_reason": "No exact DOI/title record was found in the archived Crossref title and author queries. OpenAlex requests were rate limited. No DOI was invented and no BibTeX entry was added."
+    },
+    {
+      "candidate_key": "bradford1934original",
+      "query_date": "2026-10-12",
+      "candidate_title": "Sources of information on specific subjects",
+      "decision": "rejected_for_bib",
+      "included_in_bib": false,
+      "doi": null,
+      "decision_reason": "No original-1934 DOI/title record was verified. DOI 10.1177/016555158501000407 identifies a 1985 reprint; attaching it to an Engineering 1934 entry would misidentify the edition."
+    }
+  ],
+  "search_records": [
+    {
+      "provider": "Crossref",
+      "query_date": "2026-10-12",
+      "request_url": "https://api.crossref.org/works?query.bibliographic=Citation+measures+of+hard+science+soft+science+technology+and+nonscience&rows=5",
+      "response_payload_sha256": "6d49fc1630f04c9d2db48fe6fd7163552ad9e829dc9ebba61078f4217e5199d2",
+      "response_payload_file": "raw/price1970citationmeasures_crossref_search.json",
+      "returned_records": [
+        {
+          "doi": "10.1016/j.compscitech.2007.05.033",
+          "title": [
+            "Nanoindentation on soft film/hard substrate and hard film/soft substrate material systems with finite element analysis"
+          ],
+          "author": [
+            {
+              "given": "Assimina A.",
+              "family": "Pelegri",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Xiaoqin",
+              "family": "Huang",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2008,
+                1
+              ]
+            ]
+          }
+        },
+        {
+          "doi": "10.1126/science.964-d",
+          "title": [
+            "Science for Nonscience Majors"
+          ],
+          "author": null,
+          "published": {
+            "date-parts": [
+              [
+                1990,
+                1,
+                5
+              ]
+            ]
+          }
+        },
+        {
+          "doi": "10.1016/b0-08-043152-6/00893-7",
+          "title": [
+            "Magnets, Soft and Hard: Domains"
+          ],
+          "author": [
+            {
+              "given": "R.",
+              "family": "Schäfer",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2001
+              ]
+            ]
+          }
+        },
+        {
+          "doi": "10.1126/science.248.4958.964-d",
+          "title": [
+            "Science for Nonscience Majors"
+          ],
+          "author": null,
+          "published": {
+            "date-parts": [
+              [
+                1990,
+                5,
+                25
+              ]
+            ]
+          }
+        },
+        {
+          "doi": "10.11594/nstp.2022.2747",
+          "title": [
+            "Templated growth formation of mesoporous silica materials: a soft-hard template approach"
+          ],
+          "author": null,
+          "published": {
+            "date-parts": [
+              [
+                2022,
+                11,
+                22
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "provider": "Crossref",
+      "query_date": "2026-10-12",
+      "request_url": "https://api.crossref.org/works?query.title=Citation+measures+of+hard+science+soft+science+technology+and+nonscience&query.author=Price&rows=8",
+      "response_payload_sha256": "5d4eeff23602dd200a1e0a06bc3dc3994d8eb8a1d3172494ba8a33b7c9aadffd",
+      "response_payload_file": "raw/price1970title_author_crossref_search.json",
+      "returned_records": [
+        {
+          "doi": "10.1002/9781118604427.ch6",
+          "title": [
+            "Science and Technology"
+          ],
+          "author": [
+            {
+              "given": "Katy",
+              "family": "Price",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2014,
+                3,
+                28
+              ]
+            ]
+          }
+        },
+        {
+          "doi": "10.5771/9781605907116-147",
+          "title": [
+            "Chapter 08. Science Is Hard Work—Too Hard!"
+          ],
+          "author": [
+            {
+              "given": "Frank R.",
+              "family": "Spellman",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            },
+            {
+              "given": "Joan",
+              "family": "Price-Bayer",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2010
+              ]
+            ]
+          }
+        },
+        {
+          "doi": "10.1038/197633a0",
+          "title": [
+            "Spectroscopy in Science and Technology"
+          ],
+          "author": [
+            {
+              "given": "W. G.",
+              "family": "PRICE",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                1963,
+                2,
+                16
+              ]
+            ]
+          }
+        },
+        {
+          "doi": "10.1088/0031-9112/18/4/006",
+          "title": [
+            "Library resources for science and technology"
+          ],
+          "author": [
+            {
+              "given": "M R",
+              "family": "Price",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                1967,
+                4
+              ]
+            ]
+          }
+        },
+        {
+          "doi": "10.1016/0048-7333(84)90003-9",
+          "title": [
+            "The science/technology relationship, the craft of experimental science, and policy for the improvement of high technology innovation"
+          ],
+          "author": [
+            {
+              "given": "Derek",
+              "family": "deS. Price",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                1984,
+                2
+              ]
+            ]
+          }
+        },
+        {
+          "doi": "10.1080/0950069950170302",
+          "title": [
+            "Conceptions of science and technology clarified: improving the teaching of science"
+          ],
+          "author": [
+            {
+              "given": "R. F.",
+              "family": "Price",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            },
+            {
+              "given": "R. T.",
+              "family": "Cross",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                1995,
+                5
+              ]
+            ]
+          }
+        },
+        {
+          "doi": "10.1016/0048-7333(93)90061-l",
+          "title": [
+            "The science/technology relationship, the craft of experimental science, and policy for the improvement of high technology innovation"
+          ],
+          "author": [
+            {
+              "given": "Derek",
+              "family": "de Solla Price",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                1993,
+                4
+              ]
+            ]
+          }
+        },
+        {
+          "doi": "10.1016/j.radmeas.2005.05.003",
+          "title": [
+            "Science and technology with nuclear tracks in solids"
+          ],
+          "author": [
+            {
+              "given": "P.",
+              "family": "Buford Price",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2005,
+                11
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "provider": "Crossref",
+      "query_date": "2026-10-12",
+      "request_url": "https://api.crossref.org/works?query.title=Sources+of+information+on+specific+subjects&query.author=Bradford&rows=8",
+      "response_payload_sha256": "32d7e1127503066bb11f0256aa8eeafec2ed0d88aa3bac0b47533d96fcfa544c",
+      "response_payload_file": "raw/bradford1934title_author_crossref_search.json",
+      "returned_records": [
+        {
+          "doi": "10.1300/j105v01n03_06",
+          "title": [
+            "CLASSIC PAPER: Sources of Information on Specific Subjects"
+          ],
+          "author": [
+            {
+              "given": "S. C.",
+              "family": "Bradford",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                1976,
+                12
+              ]
+            ]
+          }
+        },
+        {
+          "doi": "10.1007/bf02344512",
+          "title": [
+            "Sources used in health policy research and implications for information retrieval systems"
+          ],
+          "author": [
+            {
+              "given": "Bradford H.",
+              "family": "Gray",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                1998,
+                12
+              ]
+            ]
+          }
+        },
+        {
+          "doi": "10.1080/15228959.2014.960642",
+          "title": [
+            "Library and Information Science: A Guide to Key Literature and Sources by Michael F. Bemis"
+          ],
+          "author": [
+            {
+              "given": "Bradford Lee",
+              "family": "Solsvik",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2014,
+                10,
+                2
+              ]
+            ]
+          }
+        },
+        {
+          "doi": "10.4324/9781351174626-5",
+          "title": [
+            "Ideas, sources, and interviewing"
+          ],
+          "author": [
+            {
+              "given": "Julie",
+              "family": "Bradford",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2019,
+                12,
+                6
+              ]
+            ]
+          }
+        },
+        {
+          "doi": "10.1097/00000441-190508000-00008",
+          "title": [
+            "CERTAIN HYPERTENSIVE CRISES IN ARTERIOSCLEROTIC SUBJECTS"
+          ],
+          "author": [
+            {
+              "given": "JOHN BRADFORD",
+              "family": "BRIDGGS",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                1905,
+                8
+              ]
+            ]
+          }
+        },
+        {
+          "doi": "10.1002/0471142905.hg1006s61",
+          "title": [
+            "Methylation‐Specific PCR"
+          ],
+          "author": [
+            {
+              "given": "Bradford",
+              "family": "Coffee",
+              "sequence": "first",
+              "affiliation": [
+                {
+                  "name": "Emory University School of Medicine  Atlanta Georgia"
+                }
+              ],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2009,
+                4
+              ]
+            ]
+          }
+        },
+        {
+          "doi": "10.1353/chq.2007.0013",
+          "title": [
+            "Representing Islam: Female Subjects in Suzanne Fisher Staples's Novels"
+          ],
+          "author": [
+            {
+              "given": "Clare",
+              "family": "Bradford",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2007,
+                3
+              ]
+            ]
+          }
+        },
+        {
+          "doi": "10.4324/9780429051098-4",
+          "title": [
+            "Human Subjects Review Committees and Social Research"
+          ],
+          "author": [
+            {
+              "given": "Bradford H.",
+              "family": "Gray",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2019,
+                3,
+                8
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "provider_failures": [
+    {
+      "key": "bradford1934original",
+      "provider": "crossref_search",
+      "query_date": "2026-10-12",
+      "queried_at_utc": "2026-10-12T10:57:11.853746+00:00",
+      "request_url": "https://api.crossref.org/works?query.bibliographic=Sources+of+information+on+specific+subjects&rows=5",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "key": "bradford1934original",
+      "provider": "openalex_search",
+      "query_date": "2026-10-12",
+      "queried_at_utc": "2026-10-12T10:57:12.023521+00:00",
+      "request_url": "https://api.openalex.org/works?search=Sources+of+information+on+specific+subjects&per-page=5",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "key": "bradford1985sources",
+      "provider": "openalex",
+      "query_date": "2026-10-12",
+      "queried_at_utc": "2026-10-12T10:57:08.544132+00:00",
+      "request_url": "https://api.openalex.org/works/https://doi.org/10.1177/016555158501000407",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "key": "burton1960halflife",
+      "provider": "openalex",
+      "query_date": "2026-10-12",
+      "queried_at_utc": "2026-10-12T10:57:08.544049+00:00",
+      "request_url": "https://api.openalex.org/works/https://doi.org/10.1002/asi.5090110105",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "key": "hill1973diversity",
+      "provider": "openalex",
+      "query_date": "2026-10-12",
+      "queried_at_utc": "2026-10-12T10:57:10.583284+00:00",
+      "request_url": "https://api.openalex.org/works/https://doi.org/10.2307/1934352",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "key": "jost2006entropy",
+      "provider": "openalex",
+      "query_date": "2026-10-12",
+      "queried_at_utc": "2026-10-12T10:57:11.545924+00:00",
+      "request_url": "https://api.openalex.org/works/https://doi.org/10.1111/j.2006.0030-1299.14714.x",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "key": "price1965networks",
+      "provider": "openalex",
+      "query_date": "2026-10-12",
+      "queried_at_utc": "2026-10-12T10:57:08.543918+00:00",
+      "request_url": "https://api.openalex.org/works/https://doi.org/10.1126/science.149.3683.510",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "key": "price1970citationmeasures",
+      "provider": "openalex_search",
+      "query_date": "2026-10-12",
+      "queried_at_utc": "2026-10-12T10:57:11.844932+00:00",
+      "request_url": "https://api.openalex.org/works?search=Citation+measures+of+hard+science+soft+science+technology+and+nonscience&per-page=5",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "key": "simpson1949diversity",
+      "provider": "openalex",
+      "query_date": "2026-10-12",
+      "queried_at_utc": "2026-10-12T10:57:10.654740+00:00",
+      "request_url": "https://api.openalex.org/works/https://doi.org/10.1038/163688a0",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "accepted_bibtex_keys": [
+    "price1965networks",
+    "burton1960halflife",
+    "bradford1985sources",
+    "hill1973diversity",
+    "simpson1949diversity",
+    "jost2006entropy"
+  ],
+  "bibliography_sha256": "7779d4708a4bef10e47f05f58d97849d7e85d39c3d656f77835621396bfe2563",
+  "private_manuscript_or_full_bibliography_exported": false,
+  "Price_definition_check": {
+    "primary_source_url": "https://garfield.library.upenn.edu/papers/pricenetworks1965.pdf",
+    "source_pages": "513-514 (PDF pages 4-5)",
+    "finding": "The paper examines an immediacy distribution. It describes a recent-reference band from one to six years. The exact integer-age-at-most-five fraction used in the assessment analysis is a study-defined recency summary.",
+    "recommended_term": "recent-reference share; alternatively explicitly defined Price-style recent-reference fraction",
+    "canonical_Price_index_claim_supported": false,
+    "Price_1970_fulltext_verified": false
+  }
+}

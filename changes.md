@@ -1,0 +1,64 @@
+# Revision changes
+
+Preparation date: 12 October 2026. Baseline analysis: [v1.2.1](https://github.com/Karcen/ipcc_litdb/tree/v1.2.1). The database remains the corrected v1.2.0 snapshot. The revision manuscript is a local copy; the submitted manuscript remains unchanged.
+
+Structured probability-sample annotation has not started. This release provides the interface, rules, empty templates, integrity checks and estimation code for the authors to complete it. It contains no fabricated labels or annotation-derived error rates.
+
+## Changes by task
+
+| Task | Location or deliverable | Change and reason |
+|---|---|---|
+| A | `revision_preparation/annotation/inputs/`, `input_manifest.json` | Freeze the existing 319 probability IDs, 12 targeted IDs and 801 AR5/AR6 original entries. Retain source keys, strata and inclusion weights so later judgments can be checked against the planned sample. |
+| A | `annotation_rules.txt`, `annotation_schema.json` | Define correct and false merges, genuine and false sharing, occurrence metadata errors and detected missed merges separately. State the reviewed AR5/AR6 scope and the required duplicate-search evidence. A false merge can contain a genuinely shared document. |
+| A | `local_annotation_app.py`, `app.html`, `launch_annotation.command` | Add an English local annotation interface with original entries, preferred metadata, source links, raw-reference and preferred-field searches, progress, automatic saves and exports. Open the database read-only and store labels separately. The launcher selects Python 3.10 or later. |
+| A | `annotation_tools.py`, `initial_integrity_report.json` | Check expected IDs and entries, unchanged source fields and weights, allowed labels, blanks and consistent duplicate rows. Report defects without repairing decisions. The empty templates have the expected keys and counts. |
+| A | `annotation_tools.py`, `pending_registry.json` | Implement weighted identity precision, false-merge, detected missed-merge and ID-level metadata-error estimates. Use finite-population hypergeometric intervals with simultaneous stratum bounds for each outcome. Keep targeted counts separate. Require all planned judgments and searches before writing rates. |
+| A | `annotation_tools.py`, recurrence sensitivity | Transform the shared-ID error-count interval into fixed-denominator retention and reuse scenarios. Distinguish false merges from false sharing. Do not subtract metadata errors or detected duplicate IDs as if they were false shared identities. A corrected crosswalk requires subsequent adjudication. |
+| A | `annotation/tests/`, `annotation/qc/` | Check incomplete-label exits, immutable source fields, inconsistent decisions, weights and interval behavior. Independent finite-population checks cover census strata, zero-error upper bounds and small samples. Quote complete CSV fields so embedded carriage returns round-trip without changing the frozen source text. |
+| A | Local manuscript, Data and methods | Describe the prospective probability audit, sample design, required source checking and separate targeted supplements. Reserve actual annotator details, secondary review and agreement for the authors. |
+| A | Local manuscript, Results and Discussion | Reserve weighted rates, targeted descriptive results, recurrence sensitivity and their interpretation for completed annotation. Distinguish the prior targeted source checks from the pending structured sample. |
+| A | Local manuscript, Appendix C | State the implemented interval method, reviewed scope, duplicate-search estimand and fixed-denominator sensitivity. Retain author requests for the actual search procedure, completed export and successful integrity report. |
+| A | `revision_preparation/robustness/coverage_robustness.py` and ten additional registered tables | Add original-reference DOI comparisons across all matching statuses. Use common publication windows, annual eligibility, working-group strata, alternate age clocks and three weighting rules. Require the complete 29-table baseline to pass first. Fix the seed at `20261011`. |
+| A | Local manuscript, Results, Discussion and Appendix D | Integrate the raw-DOI results. Report unequal DOI availability and differing measurement populations. State that the pooled mean-age interval includes zero while the recent-reference-share interval remains negative. Keep the original conclusions and their scope. |
+| B | Local manuscript, Introduction closing paragraph | Specify one research question and three testable diagnostic expectations. Describe them as post hoc checks. Explain the report and working-group scope, record-level traceability and eligibility-window differences from Huang et al. (2023). |
+| B | Local manuscript, Discussion opening | Start with the three main findings, then explain measurement choices and their implications. Preserve the existing limits on population and disciplinary interpretation. |
+| C | Local manuscript, Abstract | Use 180 words and seven numerical facts under the recorded word-count rule. Present the question, data, methods, three findings, a limit and the implication in ordinary terms. |
+| D | Local manuscript, Data and methods and Results | Replace workflow variables with their recorded meanings. Keep units, denominators, identity definitions, eligibility, age rules and inference in the main text. |
+| D | Local manuscript, Appendix B | Move acquisition thresholds, dates, environment details, hashes, engineering checks, workflow-name mappings and individual correction IDs from the main text. Retain the information needed to inspect the workflow. |
+| D | Local manuscript, Appendix A and public README | Replace legacy descriptions of missing accuracy fields with the actual pending annotation process. Keep immutable source worksheets and historical correction records unchanged. |
+| E | `revision_preparation/literature/` and local manuscript | Add six DOI/title-verified classic references on citation age, immediacy, source scattering and effective diversity. Keep Crossref responses, acceptance decisions and rejected candidates in the verification ledger. Record OpenAlex failures as failures. |
+| E | Local manuscript, recent-reference definition | Cite Price's immediacy discussion and state the inclusive zero-through-five-year boundary as this analysis's operational definition. Cite Bradford's verified 1985 reprint with its correct publication metadata. |
+| F | Local manuscript, AI disclosure | Compress the disclosure to two sentences. Identify Codex (ChatGPT 6.1 Sol) and its actual tasks. Delete the sentence about simulated pre-submission comments. Keep known checks of the eleven targeted cases separate from the pending probability audit and ask the authors to identify their other independent checks. |
+| F | Local manuscript, captions `fig:coverage`, `fig:age`, `fig:outlets`, `fig:groups` | Disclose AI assistance in plotting code under the checked Springer Nature guidance. Keep the registered data and artwork unchanged. |
+| F′ | Local manuscript, Declarations | Keep the supplied declarations unchanged. Add no acknowledgment or data-source placeholder. |
+| G | `reviewer_prep.md` | Prepare eight likely reviewer comments, conditional responses and the corresponding analysis or revision locations. No response asserts that pending annotation has been completed. |
+| A–G | `author_requirements.md` | Collect the nine actual author placeholders and their manuscript locations. The list identifies information the authors must supply before the accuracy paragraphs can be finalized. |
+| A/E | Portable literature scripts and CI | Remove host-specific skill dependencies, check the fixed API archive offline, and require fresh output directories for new retrievals. Add the annotation and citation tests plus all ten additional table comparisons to both CI Python versions. Preserve archived CSV bytes in Git. |
+| A–G | Project verification and syntax checks | Allow the three requested revision documents alongside README and include new source files in syntax checks. Continue checking English authored text and portable paths. |
+| A–G | Public README and release scope | Document the local annotation commands, strict estimate checks, ten-table extension and verified citations. Publish the non-paper tools and records. Keep manuscript files, complete bibliographies, PDFs, local labels and private preparation notes outside the public checkout. |
+
+## Verification and preserved inputs
+
+The original `paper.tex`, `paper.pdf`, `references.bib`, journal class and bibliography style remain unchanged. The revision uses a separate manuscript file and combined bibliography. The SHA-256 of the submitted LaTeX source is:
+
+```text
+b886eef50bc2c9f4852e11e81d5ff9b1174508f12c375eac66c0de56d7a6dbae
+```
+
+The database SHA-256 remains:
+
+```text
+a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec
+```
+
+A full v1.2.1 rerun passes all 29 registered tables. The original baseline analysis modules and registry remain unchanged. The new robustness registry has ten tables. Its independent rerun reproduces all ten byte for byte. The input database is unchanged before and after both workflows. The [additional manifest](revision_preparation/robustness/output_v1/manifest.json) records the baseline comparison and extra table hashes.
+
+The original four tabular blocks remain identical in the revision copy. All original unique numerical tokens are retained, including material moved to the appendices. Under the recorded main-text word-count rule, the Introduction through the end of Discussion decreases from 7,432 to 6,845 words. The revision compiles through pdflatex and BibTeX with the existing journal template. The final compilation has no errors, undefined references or overfull boxes; rendered pages were inspected.
+
+The annotation integrity report confirms 331 unique sampled IDs and 801 unique entries with no source-key mismatch or duplicate rows. All manual decisions are empty. The missing-label check exits without generating rates. Successful future annotation outputs will receive their own hashes and registry; they will not replace the 29 baseline or ten robustness tables.
+
+The [citation ledger](revision_preparation/literature/reference_verification.json) records successful DOI and title verification for all six additions. It explains the Bradford reprint's attribution and metadata and excludes unverified candidates. [The protocol](revision_preparation/annotation/annotation_rules.txt) and [robustness methods](revision_preparation/robustness/methods.txt) state the scope of each new quantity.
+
+## Remaining author work
+
+Complete the annotation, resolve reported inconsistencies and document the actual search and source-checking procedure. Supply the annotator count, review dates and any secondary review or agreement result. Run the strict estimator and use its registered outputs to fill the reserved accuracy and sensitivity paragraphs. Identify the other analysis, code, citation and figure checks performed by the authors. The exact pending requests are in [author requirements](author_requirements.md).

@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-12",
+  "annotation_unit_tests_passed": 19,
+  "literature_portability_tests_passed": 9,
+  "offline_reference_entries_verified": 6,
+  "work_payload_hashes_verified": 8,
+  "search_payload_hashes_verified": 3,
+  "project_checks_passed": 30,
+  "project_checks_failed": 0,
+  "baseline_tables_reproduced": 29,
+  "additional_tables_reproduced_and_byte_identical": 10,
+  "random_seed": 20261011,
+  "annotated_IDs": 0,
+  "annotated_occurrences": 0,
+  "annotation_accuracy_generated": false,
+  "missing_label_gate_exit": 2,
+  "working_labels_published": false,
+  "private_manuscripts_published": false
+}

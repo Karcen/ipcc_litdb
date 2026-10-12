@@ -1,0 +1,25 @@
+REFERENCE AND POLICY VERIFICATION
+Query date: 2026-10-12
+
+Six BibTeX additions have exact DOI and normalized-title matches in successful Crossref work records. Publication years, journals, volumes, issues and pages were also checked. The JSON and CSV ledgers record provider URLs, bibliographic fields, acceptance decisions and response SHA-256 hashes. Original API payloads are retained under raw/. OpenAlex requests returned HTTP 429; those failures are recorded separately.
+
+The accepted references are Price (1965), Burton and Kebler (1960), Bradford (1985 reprint), Hill (1973), Simpson (1949) and Jost (2006). The Bradford DOI identifies the 1985 Journal of Information Science reprint, volume 10, issue 4, pages 176-180. Its title ends with "1934". That suffix describes the earlier work; it is not the DOI record's publication year. The API omits authors. Author attribution to S. C. Bradford is documented through a complete DOI-registered 1976 reprint and the publisher's companion introduction. The introduction occupies pages 173-175 and has a separate DOI. An original-1934 Engineering entry with the 1985 DOI was rejected. The 1970 Price chapter was also omitted because an exact DOI/title API match was not found.
+
+Relevant passages in Price's original 1965 article were read through its University of Pennsylvania archival copy. It analyses citation immediacy and describes a one-to-six-year recent band. The manuscript's inclusive integer-age-at-most-five fraction is an explicit operational measure. The suggested name is "recent-reference share" or a clearly defined "Price-style recent-reference fraction". No claim about Price's exact canonical index is made.
+Primary original-text source: https://garfield.library.upenn.edu/papers/pricenetworks1965.pdf
+Primary Bradford companion: https://journals.sagepub.com/doi/10.1177/016555158501000406
+Bradford reprint: https://journals.sagepub.com/doi/10.1177/016555158501000407
+
+Scientometrics requires an abstract of 150-250 words and follows single-blind review. Its abstract guidance requires abbreviations to be defined and excludes unspecified references.
+Official source: https://link.springer.com/journal/11192/submission-guidelines
+
+Springer Nature manuscript policy summary:
+Describe AI tools and author checks. Disclose AI assistance in figure captions. Retain inspectable inputs and author accountability.
+Official source: https://www.springernature.com/gp/policies/editorial-policies/ai-manuscript-preparation
+
+The group-level AI FAQ discusses tool disclosure and human responsibility. It also excludes simple numerical displays from its image restriction. The manuscript-preparation page explicitly covers analytical charts, so the two pages have different display scopes. Figure provenance and disclosure should be checked against the manuscript-preparation page before submission.
+Official source: https://group.springernature.com/kr/group/ai/ai-guidance-for-researchers-editors-reviewers
+
+This work used the existing citation-management skill for discovery, metadata extraction, formatting and validation. The user-supplied research-writing and nature-literature-pipeline skills guided claim checks and source-level labels. Humanizer and anti-defensive-writing rules guided the short prose. Peer-review procedures guided the author-preparation draft. Existing software disclosure in the manuscript identifies Scientific Agent Skills at https://arxiv.org/abs/2609.00065. Public queries contained bibliographic candidates and journal-policy terms. No private manuscript passage or complete private bibliography was sent to a citation API or search service.
+
+Private integration proposals are in literature_paragraph.txt and price_integration_proposal.txt. They are excluded from the public verification record. The reviewer-preparation document contains prospective comments and conditional responses. It does not report completed manual labels or an editorial decision.

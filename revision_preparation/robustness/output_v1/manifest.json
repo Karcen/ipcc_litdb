@@ -1,0 +1,333 @@
+{
+  "accuracy": "No manual adjudication labels were supplied. No population correspondence accuracy is estimated.",
+  "age_bootstrap_replicates": 2500,
+  "age_inclusion": "Unambiguous source year or documented WG cutoff year, raw leading year present, age 0-60. No fallback origin is used.",
+  "analysis_version": "coverage-robustness-1.0.0",
+  "baseline_bridge_checks": [
+    {
+      "check": "literal_single_raw_DOI_all_statuses AR4-AR5",
+      "passed": true
+    },
+    {
+      "check": "literal_single_raw_DOI_all_statuses AR5-AR6",
+      "passed": true
+    },
+    {
+      "check": "punctuation_repaired_single_raw_DOI_all_statuses AR4-AR5",
+      "passed": true
+    },
+    {
+      "check": "punctuation_repaired_single_raw_DOI_all_statuses AR5-AR6",
+      "passed": true
+    }
+  ],
+  "baseline_gate": {
+    "all_29_passed": true,
+    "baseline_analysis_version": "v1.2.1",
+    "baseline_code_sha256": {
+      "analyse_corpus.py": "eb6008eeb2c57a3b899bd9f8129126e392df57090f9368096f779d90a3a368cc",
+      "deepen_analysis.py": "b7300ef0fbecf879dde5c6497626bbb4fdedd52a4a4bfd8eab2838d4909ec2a4",
+      "revision_age_networks.py": "e7032096db447a747176d2fcaec2748fdf2186ed40d9964b9f28879e795ee141",
+      "revision_identity.py": "6e23acc973f0f21d19a55d9d3523ec444108641e41294001d6dcaac3ce9294ae",
+      "revision_outlets.py": "18ab41e99e113ee173a14b16726f72ca411d08ee639e6e834167ef799347d518"
+    },
+    "baseline_manifest_sha256": "ddd60b576a71ddaa389ca95a40e044febd6426161628eb907762ebafaceca9c1",
+    "baseline_reproduction_sha256": "dedf514a7cd440c44725645a74c888b901925d0f3f1e25ca8d1f9940548a5743",
+    "baseline_tables_checked": [
+      {
+        "baseline_generated_sha256": "ddd0fd188e210219f451a022fe30bca0de24075e07d9cdb9686ef9306e52029b",
+        "filename": "coverage.csv",
+        "passed": true,
+        "registered_sha256": "259c59b73631b2c5422bb5216dc91b0c7e5075202018bdee18769b5664d36ab1"
+      },
+      {
+        "baseline_generated_sha256": "20d86b74137b1e8bed4225778e96d5cdaa0bf835fd840d08524f943042bdc587",
+        "filename": "citation_age_matched.csv",
+        "passed": true,
+        "registered_sha256": "efae3e22e175380cb644445b177bbdbeed4351e1f6b36c82228af47f6bd82503"
+      },
+      {
+        "baseline_generated_sha256": "abcb946f54988cfd1b4c470b8e602a0b1e81c263cb8d1796b0a0a4e08878f071",
+        "filename": "transitions.csv",
+        "passed": true,
+        "registered_sha256": "773c77cf3da396db6a226ed5e35a65521334369de33985d5af34dfef9bc2246f"
+      },
+      {
+        "baseline_generated_sha256": "b743ab8463628d945d6cec4bb4aa0586e3c6afe57d1d183fc24b73576510720f",
+        "filename": "revision_identity_transitions.csv",
+        "passed": true,
+        "registered_sha256": "293b6cf6574f042236795cd881722e7e4803b0cfbd4ed76de3537b7aa961264f"
+      },
+      {
+        "baseline_generated_sha256": "8b7500c0eca10a2b6167c37a254ddc4962fcca8ce80c193a0f5463f11a1819ae",
+        "filename": "revision_identity_status_coverage.csv",
+        "passed": true,
+        "registered_sha256": "9bb152938aea76e07c2c3ce02e3abd402241885a25b5666eded044ea1e661f00"
+      },
+      {
+        "baseline_generated_sha256": "58a6144c5e766ad8c53a4dd077b32456f9bb4324133605208adfee28a58a7701",
+        "filename": "revision_identity_status_combinations.csv",
+        "passed": true,
+        "registered_sha256": "0fd7a1403f9be31e7ab2736e264f1424edb4b4c6b579d41655a81e7c28f43df2"
+      },
+      {
+        "baseline_generated_sha256": "1a250b914f76ca9867a5666f89054dbcab45f71426fcc8349723cef1ec536e34",
+        "filename": "revision_identity_eligible_reuse.csv",
+        "passed": true,
+        "registered_sha256": "0ec71cb211b20fe20676f1f5295028b4d5bc24e2f3143271bcfc714ea424fa69"
+      },
+      {
+        "baseline_generated_sha256": "3305e8bf76604f130984ede6a75ef75a988d9debe225c1a2a03881d680a3344a",
+        "filename": "revision_identity_earlier_incoming_partition_summary.csv",
+        "passed": true,
+        "registered_sha256": "553a54dade890489b08c7becdd18879411773c8b095419ef78bbc6f9418f5cf2"
+      },
+      {
+        "baseline_generated_sha256": "8c70e3ec55d229f6abdd42bfd83cbbc898e852d179712cc98e56a52cbfb802b9",
+        "filename": "revision_identity_same_vintage_profiles.csv",
+        "passed": true,
+        "registered_sha256": "7ccb01eb78bdc805c74f6a1f5b5cef6dfb6125da6c70119ebbeaadb39ac341c8"
+      },
+      {
+        "baseline_generated_sha256": "43cff78fe9c67aeda8ff690233b61fa3f55b26433c205be38633c406589da41c",
+        "filename": "revision_identity_same_vintage_groups.csv",
+        "passed": true,
+        "registered_sha256": "30945d1cf80eed6db69c8eab1fdf52cd5ef2adc183bc7c6ea6313c07d0933b6f"
+      },
+      {
+        "baseline_generated_sha256": "5be3e6fc955f0018f2e4b4f5092729dfc7270017f218814fe400ace57ea78c31",
+        "filename": "revision_identity_independent_raw_baselines.csv",
+        "passed": true,
+        "registered_sha256": "d2c9135ce9712030fdcb694d395b0eb1586992492de93f062f6fa8ab65dbe9f1"
+      },
+      {
+        "baseline_generated_sha256": "e44a3c7e41f2871ff8f0d84a95c1cd5b40328e9475d7c744b94087d02fc88ab8",
+        "filename": "revision_identity_raw_consistency_census.csv",
+        "passed": true,
+        "registered_sha256": "852486064ee0a7b86b91ba33068c40d91bad60e9b74f2d5caf4b02a58aa5e1b4"
+      },
+      {
+        "baseline_generated_sha256": "8b813613d86fecc5758f5710967099ee5a70e66d5eaec141bf8bb4ac9e9e8736",
+        "filename": "revision_identity_raw_year_age_summaries.csv",
+        "passed": true,
+        "registered_sha256": "9c15ebe1b374f167fd5d951c22e8824ab9ce0b7a05d7a21f9786c1a71d141508"
+      },
+      {
+        "baseline_generated_sha256": "fd0f430a50b651c11699ede65bbbfc020af6d5bb78940f68a5a7580db6cb3293",
+        "filename": "revision_identity_raw_year_eligible_reuse.csv",
+        "passed": true,
+        "registered_sha256": "08727005d3e618d0d3a2cc6bd24a27d13cb2b828ddf82815fe50ef726811fa37"
+      },
+      {
+        "baseline_generated_sha256": "eab01f3c7891392bafa3e37547617ac86e09c53d45bdf667196d08e58159a9c3",
+        "filename": "revision_identity_flagged_sensitivity.csv",
+        "passed": true,
+        "registered_sha256": "a9e692db08988a2f881db02d5b863e15f59af0cb102d4cb048a4b75624f7a65a"
+      },
+      {
+        "baseline_generated_sha256": "ce1aa79d94ccb1444e93ca13600d9b026022e5bce004b59467cf4b5711a595d5",
+        "filename": "revision_age_summary.csv",
+        "passed": true,
+        "registered_sha256": "9c8b3f69d91a0622c725a74e482242dd4130399ff5b4a7211709b0dc980353e1"
+      },
+      {
+        "baseline_generated_sha256": "8a7177286f06c92fdbe2b62ac6ec902b81c07ac88d9a1f39c4086a4e691c8ff8",
+        "filename": "revision_age_differences.csv",
+        "passed": true,
+        "registered_sha256": "1ea8cdc9aac56d426befcc76197fd419afe2a60e640aad097e688442c1b65da2"
+      },
+      {
+        "baseline_generated_sha256": "01b5f8b163e91005cb3a961baa96df8eee1fab14942b84ade497d68b47bbeeb9",
+        "filename": "revision_age_bootstrap_intervals.csv",
+        "passed": true,
+        "registered_sha256": "2f981c7aa1fe0c5cb0894d44486a8642d2663f6f4c42bbfe48dd616821f862b9"
+      },
+      {
+        "baseline_generated_sha256": "001141f89e2606fa9842b73d73c3b0f6c0fb6263ec9f3b8820b9ffa90bd257c6",
+        "filename": "revision_network_coverage.csv",
+        "passed": true,
+        "registered_sha256": "3de6d6c1685aea4bd8c449745c8e82bc00781ffefcf9048bbddb0ddd9fb25126"
+      },
+      {
+        "baseline_generated_sha256": "5c905ee0f42c5dfd00f9bb2fad0bff44fd83dee3d3cb490cc3599018d3389e61",
+        "filename": "revision_network_overlap_trends.csv",
+        "passed": true,
+        "registered_sha256": "21169d49844944236b30f714825ad68741a1a1bfdedd5f3443a3c9909ab94574"
+      },
+      {
+        "baseline_generated_sha256": "e790bb13517373b1d5dc35f862f282f64fefecd9ab69893f639a0a73db7d882c",
+        "filename": "revision_network_retention_sensitivity.csv",
+        "passed": true,
+        "registered_sha256": "8488f40f314cee5985de98ad54af0fcaaff8b5c438c5d5cd3501806fa1aa71ed"
+      },
+      {
+        "baseline_generated_sha256": "be7c16080446db45562244f1ffea701d297f87b925bd79bb86e0461891c1c73d",
+        "filename": "revision_network_conditional_null.csv",
+        "passed": true,
+        "registered_sha256": "d396b4f46aa26dad338898d7dc761eab14a03da7db86729924fce3c1fffc8dbb"
+      },
+      {
+        "baseline_generated_sha256": "2c2ef580733d8480bf000ff59f84006b49cbb9c082b93954afbb82e016d73843",
+        "filename": "revision_age_ecdf.csv",
+        "passed": true,
+        "registered_sha256": "9ccc93bc20fbe7bc53a8ce2ebff63aaa4711f1dfba73306ed94e6dbb186dfe1e"
+      },
+      {
+        "baseline_generated_sha256": "001398bb1b1711262e3299bbdc81dd166fcbf5c6a189dd872718211a722d0d90",
+        "filename": "revision_identity_audit_sample_summary.csv",
+        "passed": true,
+        "registered_sha256": "8612c09e819e76957d56e6caa0a6a06ebeac1e9bfa5b2f5b499d915f559f08ea"
+      },
+      {
+        "baseline_generated_sha256": "58bdb210a83c3ef66dcc6ed64e7e8af0ea6818530b9c6937b23f6eb7f5513493",
+        "filename": "revision_outlet_hill_numbers.csv",
+        "passed": true,
+        "registered_sha256": "92f680b0628f27dcc55f543e1e207990b59d167ed7077ccd161965728cd171b1"
+      },
+      {
+        "baseline_generated_sha256": "9703f8147c466cb4588dad11bd550cab883c9ac1a83ec26f82f6a3ab25b5bc9b",
+        "filename": "revision_outlet_rarefaction_summary.csv",
+        "passed": true,
+        "registered_sha256": "e1440002412c34503c679d851fb3c70e8506d7938e4dad6cc9f83d5f62591fa2"
+      },
+      {
+        "baseline_generated_sha256": "7889b2ecf4b8665082d456eb4419f19e998c3f635a8d50e6b77b386c467eefa8",
+        "filename": "revision_outlet_rarefaction_differences.csv",
+        "passed": true,
+        "registered_sha256": "75574eed2adeb7e00050a7a05ef487697f875ac2f2bb0685131f9836f870dbed"
+      },
+      {
+        "baseline_generated_sha256": "c82508a372c0e0bf79c1a52f330f266df72594704625e2101e8b0b865f6e422e",
+        "filename": "revision_outlet_coverage_summary.csv",
+        "passed": true,
+        "registered_sha256": "e454b3a7a571370270c3e1718d13496255b4082288dae79bc125f06cdb8cbd7e"
+      },
+      {
+        "baseline_generated_sha256": "1c4d689f1f965a333e3d7e637b272af8902b45c0c2a7de2a229d69e61b6eb139",
+        "filename": "revision_outlet_title_variants.csv",
+        "passed": true,
+        "registered_sha256": "87c1527896ba2246c6ece4e201922ac98ae36025f3ca999f1bb4b03edff1c227"
+      }
+    ],
+    "database_sha256": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec"
+  },
+  "database_sha256_after": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+  "database_sha256_before": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+  "database_unchanged": true,
+  "external_literature_pool": "No external pool is constructed; all inputs come from cited references in this snapshot.",
+  "interpretation": "Descriptive recurrence and age in the raw-DOI-bearing portion of the saved references. Selection is independent of WoS match status, but raw DOI availability and extraction remain unequal across reports/groups. Composition intervals condition on these extracted entries and raw DOI keys.",
+  "numpy_version": "2.2.6",
+  "occurrence_uniqueness_passed": true,
+  "official_cutoff_sources": [
+    {
+      "locator": "Page 1, papers accepted: WGI 15 March, WGII 31 August, WGIII 3 October 2013",
+      "read_scope": "Official publisher indexed table text",
+      "report": "AR5",
+      "title": "Cut-Off Dates for literature to be considered for AR5, updated 12 December 2012",
+      "url": "https://archive.ipcc.ch/pdf/ar5/ar5-cut-off-dates.pdf"
+    },
+    {
+      "group": "WG1",
+      "locator": "Preface: scientific publications available by 31 January 2021",
+      "read_scope": "Official publisher indexed preface text",
+      "report": "AR6",
+      "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SummaryVolume.pdf"
+    },
+    {
+      "group": "WG2",
+      "locator": "September 2021: 1 September, cut-off date for accepted papers",
+      "read_scope": "Official publisher indexed timeline text",
+      "report": "AR6",
+      "url": "https://www.ipcc.ch/site/assets/uploads/2021/05/WG2AR6_Timeline_v4.pdf"
+    },
+    {
+      "group": "WG3",
+      "locator": "Footnote 24: literature cut-off date 11 October 2021",
+      "read_scope": "Official publisher indexed final headline statements text",
+      "report": "AR6",
+      "url": "https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_HeadlineStatements.pdf"
+    }
+  ],
+  "orphan_chapter_rows": 0,
+  "outlet_analysis": "No new outlet result is estimated because stored outlet metadata are enriched rather than independently parsed or validated from raw citations.",
+  "python_version": "3.12.14",
+  "query": "SELECT r.occurrence_id, r.chapter_id, c.report_id, w.wg_label,\n r.raw_reference, r.match_status, s.publication_year AS source_year,\n c.source_id AS chapter_source_id, r.source_id AS occurrence_source_id,\n r.source_page\n FROM references_occurrence r\n JOIN chapters c ON c.chapter_id=r.chapter_id\n JOIN working_groups w ON w.wg_id=c.wg_id\n LEFT JOIN sources s ON s.source_id=c.source_id\n WHERE c.report_id IN ('AR4','AR5','AR6')\n ORDER BY c.report_id,r.occurrence_id",
+  "raw_DOI_eligibility_policies": {
+    "maximum_observed_known": "At least one raw leading year; maximum observed known year at/below cutoff; common windows also require minimum at/above lower boundary. Missing-year occurrences do not change known bounds.",
+    "unambiguous_complete": "Every selected occurrence has a raw year and all years agree; that year must fall within the boundary."
+  },
+  "registered_tables": [
+    {
+      "bytes": 2283,
+      "filename": "results/raw_doi_coverage.csv",
+      "rows": 24,
+      "sha256": "68bdbd2294b75fb78eb20ec8606d0ed01e7a81bb48d0e7480aae33d0658a30d7"
+    },
+    {
+      "bytes": 972,
+      "filename": "results/raw_doi_year_diagnostics.csv",
+      "rows": 24,
+      "sha256": "77d4604b74637cbec9d94482a77d5ecf45a0fe122c08aa2c6380c343f776d3a3"
+    },
+    {
+      "bytes": 6998,
+      "filename": "results/raw_doi_recurrence.csv",
+      "rows": 48,
+      "sha256": "9aeaf1a6ff321b8bc3aac4115b04a9ccb19ce9528da23e062a5810d70203c31e"
+    },
+    {
+      "bytes": 8007,
+      "filename": "results/raw_doi_eligible_reuse.csv",
+      "rows": 96,
+      "sha256": "b648c01cdad55b957439c89e813bd6da4a047fc5e05d1a648627dcdede694a36"
+    },
+    {
+      "bytes": 14114,
+      "filename": "results/raw_doi_age_summary.csv",
+      "rows": 80,
+      "sha256": "bce9eb4eaadafcfd00b7a307eeba8cff5780d889445dd4b61c65f0610838a8bb"
+    },
+    {
+      "bytes": 476195,
+      "filename": "results/raw_doi_age_ecdf.csv",
+      "rows": 4880,
+      "sha256": "2ea01ea059fd642a97438cf032e20d387e44ebdbed44dc12dc84eaa069b024fd"
+    },
+    {
+      "bytes": 5524,
+      "filename": "results/raw_doi_age_differences.csv",
+      "rows": 40,
+      "sha256": "8887d10939a365f9e63582d58b94eb9bf103b4b69f645cd6022428f55858416c"
+    },
+    {
+      "bytes": 14337,
+      "filename": "results/raw_doi_age_bootstrap_intervals.csv",
+      "rows": 96,
+      "sha256": "09e141e572cc538f177a478ceb804138be00a98b0e8d2f959c363104a808dbb4"
+    },
+    {
+      "bytes": 12940407,
+      "filename": "results/raw_doi_age_bootstrap_draws.csv",
+      "rows": 80000,
+      "sha256": "06421cdc9a58067b59b28dcca3f4e4a8f492ff176de24ea30f90fc488f90c1d1"
+    },
+    {
+      "bytes": 22058007,
+      "filename": "results/raw_doi_occurrence_audit.csv",
+      "rows": 107071,
+      "sha256": "47a602ea387a6c4ea81874ce60ef1bfdf8a3bf1ee796476eee2cbb44aea3748f"
+    }
+  ],
+  "resampling": "Catalogue units with selected DOI occurrences are resampled with replacement within each report/WG. Report draws are independent. Equal-DOI weights are recalculated in each draw. Empty draws are logged; intervals require at least 95% paired nonempty draws.",
+  "script_sha256": "87f384e5c990123f64330f3da2be619cdc4ed7e239ecf3f57b2cfc5425268e72",
+  "seed": 20261011,
+  "source_occurrences": 107071,
+  "units": {
+    "age_equal_raw_DOI": "total weight one per included DOI key within report/group",
+    "age_equal_working_group": "mean of the three separately normalized WG age distributions",
+    "age_occurrence": "one included printed-DOI reference occurrence",
+    "identity": "one usable DOI extracted from preserved raw_reference",
+    "input": "occurrence_id",
+    "recurrence": "distinct DOI key per report or report/working group"
+  }
+}

@@ -37,6 +37,19 @@ jobs:
           source .venv/bin/activate
           python -m pip install -r requirements-analysis.txt
           python scripts/reproduce_assessment_analysis.py --output-dir /tmp/ipcc-assessment-reproduction --check-reference
+      - name: Check annotation tools and additional DOI analyses
+        run: |
+          source .venv/bin/activate
+          python -m pytest -q revision_preparation/annotation/tests/test_annotation_tools.py revision_preparation/literature/test_verification_tools.py
+          python revision_preparation/literature/check_archived_verification.py
+          python revision_preparation/robustness/coverage_robustness.py \
+            --repo . \
+            --baseline-reproduction /tmp/ipcc-assessment-reproduction \
+            --output-dir /tmp/ipcc-additional-doi-reproduction
+          python revision_preparation/robustness/verify_registered_outputs.py \
+            --output-dir /tmp/ipcc-additional-doi-reproduction \
+            --reference-dir revision_preparation/robustness/output_v1 \
+            --report /tmp/ipcc-additional-doi-verification.json
       - name: Save reproduction record
         uses: actions/upload-artifact@v4
         if: always()
@@ -45,6 +58,8 @@ jobs:
           path: |
             /tmp/ipcc-assessment-reproduction/reproduction.json
             /tmp/ipcc-assessment-reproduction/step_*.log
+            /tmp/ipcc-additional-doi-reproduction/manifest.json
+            /tmp/ipcc-additional-doi-verification.json
       - name: Check API and run tests
         run: |
           source .venv/bin/activate

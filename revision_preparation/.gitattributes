@@ -1,0 +1,2 @@
+# Preserve archived CSV bytes, including embedded carriage returns.
+*.csv -text

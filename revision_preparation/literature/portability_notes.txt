@@ -1,0 +1,19 @@
+Offline verification uses the Python standard library. Run these commands from this archive directory:
+
+python3 -B check_archived_verification.py
+python3 -B generate_verification_records.py
+python3 -B -m unittest -v test_verification_tools.py
+
+The first command checks the six accepted bibliography entries, DOI/title/year correspondence and archived response hashes. It reads files and prints JSON. The generator defaults to an offline byte comparison of three derived files. Neither command fetches records or updates the fixed archive.
+
+For a separate regeneration, provide a new output directory outside this archive:
+
+python3 -B generate_verification_records.py --output-dir ../regenerated-reference-records
+
+The regenerated files refer to the raw payloads in the fixed source archive. Copy the payloads and inventory alongside them if a separate complete archive is needed.
+
+New API queries use a new, dated directory:
+
+python3 -B verify_reference_metadata.py --output-dir ../new-reference-query
+
+The fetcher refuses existing directories and records each query date from its actual UTC timestamp. New query results require a new evidence assessment; they do not replace the fixed 12 October 2026 verification decisions.

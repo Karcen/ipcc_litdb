@@ -1,0 +1,33 @@
+{
+  "query_date": "2026-10-12",
+  "source_access": "Official pages accessed through the web research tool",
+  "journal": {
+    "name": "Scientometrics",
+    "url": "https://link.springer.com/journal/11192/submission-guidelines",
+    "abstract_min_words": 150,
+    "abstract_max_words": 250,
+    "abstract_abbreviations_defined": true,
+    "abstract_unspecified_references_excluded": true,
+    "review_model": "single-blind"
+  },
+  "AI_manuscript_preparation": {
+    "url": "https://www.springernature.com/gp/policies/editorial-policies/ai-manuscript-preparation",
+    "relevant_sections": ["AI-generated and AI-assisted visual content", "Transparency and disclosure for visual content"]
+  },
+  "AI_group_FAQ": {
+    "url": "https://group.springernature.com/kr/group/ai/ai-guidance-for-researchers-editors-reviewers",
+    "scope_difference_recorded_in": "verification_report.txt"
+  },
+  "Scientific_Agent_Skills_attribution": {
+    "url": "https://arxiv.org/abs/2609.00065",
+    "doi": "10.48550/arXiv.2609.00065",
+    "title": "Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents",
+    "authors": ["Timothy Kassis", "Vinayak Agarwal", "Yuhuan He", "Darshil Patel", "Aubrey M. Brueckner"],
+    "year": 2026,
+    "current_version_at_check": "v2",
+    "last_revision_date": "2026-09-02",
+    "attribution_location": "Existing manuscript software-use disclosure",
+    "new_BibTeX_entry_added_for_this_record": false
+  },
+  "private_manuscript_passages_in_public_queries": false
+}
