@@ -1,0 +1,37 @@
+{
+  "authentication": "private bearer header, omitted",
+  "cost_source": "documented conservative per-query cost",
+  "endpoint": "https://api.openalex.org/works",
+  "error_type": "HTTPError",
+  "http_status": 403,
+  "json_success": false,
+  "method": "GET",
+  "observed_cost_usd": 0.001,
+  "parameters": {
+    "filter": "publication_year:1980-2013,type:article|review",
+    "group_by": "publication_year",
+    "per_page": 100,
+    "search.title_and_abstract": "\"climate change\" OR \"global warming\""
+  },
+  "received_utc": "2026-10-21T06:12:02.429635+00:00",
+  "request_url_without_credentials": "https://api.openalex.org/works?search.title_and_abstract=%22climate+change%22+OR+%22global+warming%22&filter=publication_year%3A1980-2013%2Ctype%3Aarticle%7Creview&group_by=publication_year&per_page=100",
+  "requested_utc": "2026-10-21T06:12:00.943221+00:00",
+  "response_bytes": 390,
+  "response_file": "eb7aab3f561661491babc5bf6be02d94586371d9fcedbdb653280e4afab70d1c.response.json",
+  "response_headers": {
+    "Access-Control-Allow-Origin": "*",
+    "CF-RAY": "a4de1bb9fce5b706-LAX",
+    "Cache-Control": "no-store",
+    "Connection": "close",
+    "Content-Length": "390",
+    "Content-Type": "application/json",
+    "Date": "Wed, 21 Oct 2026 06:12:02 GMT",
+    "Server": "cloudflare",
+    "access-control-allow-headers": "Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI, X-Impersonate-User",
+    "access-control-allow-methods": "GET, HEAD, POST, PATCH, DELETE, OPTIONS",
+    "access-control-expose-headers": "Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining, X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset, X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD, X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location, Content-Disposition, X-OpenAlex-UI-Token"
+  },
+  "response_secret_redacted": false,
+  "response_sha256": "3365996771b9701c96d684121507545ae991734cd52bd38a840b2dd76f59a440",
+  "retry_count": 0
+}

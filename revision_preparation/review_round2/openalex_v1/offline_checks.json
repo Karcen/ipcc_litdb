@@ -1,0 +1,16 @@
+{
+  "all_passed": true,
+  "checks": {
+    "DOI_normalization": true,
+    "all29_registered_hashes_unchanged": true,
+    "ambiguous_identity_not_selected": true,
+    "database_hash_unchanged": true,
+    "date_invalid_rejected": true,
+    "date_valid_unimputed": true,
+    "failed_cache_refuses_replay": true,
+    "incomplete_cache_rejects_analysis": true,
+    "missing_replay_fails_without_key_read": true
+  },
+  "scope": "Offline unit/gate checks only. No fabricated analytical output and no API requests.",
+  "script_sha256": "ca643b5d8e87a26e7f173ef9d9c68afa7bc4e4c05588a8ea8c2c75e542c2aa13"
+}

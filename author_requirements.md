@@ -44,3 +44,9 @@ The annotation interface, blank templates, integrity checker and human-label wei
 An external climate-literature denominator, complete publication dates, source-ID normalization and citation-descendant analyses have a separate acquisition status. These offline analyses do not establish that those tasks are complete. [Reviewer preparation](reviewer_prep.md) distinguishes their requested evidence from the completed checks. Depositing a DOI-bearing archive would require a later upload; preparing metadata alone does not create a DOI. Imported metadata retain their source terms.
 
 The supplied contributions, funding and competing-interest declarations remain unchanged. Manuscript files and complete bibliographies remain private.
+
+## Completed external acquisition and remaining release decisions
+
+The independent OpenAlex package is complete and replayable without credentials. It supplies seventeen tables for DOI resolution, source identity, annual publication pools, publication-date screens, indirect continuity and a frozen citation-survival sample. It does not establish acceptance dates, an exhaustive climate-research population, linkage accuracy or independence of the AI judgments. [The external workflow](README.md#external-openalex-benchmarks) states each scope.
+
+Before a new DOI archive is deposited, the authors need to check the actual institutional agreement for imported Web of Science-derived fields and choose a rights-cleared deposit scope. Public developer guidance does not certify redistribution rights. No Zenodo upload or DOI has been created. A common-sample numerical reproduction of Huang et al. (2023) also remains unavailable from the supplied/public restricted-data materials. The qualitative comparison retains its stated scope.

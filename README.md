@@ -6,6 +6,13 @@ This is the second project alongside [IPCC References Toolkit](https://github.co
 
 ## What's new
 
+### 2026-10-21: Frozen OpenAlex benchmarks and offline replay
+
+- Completed the independent external acquisition and [17-table archive](revision_preparation/review_round2/openalex_v1/activated_attempt_03/results_v1/manifest.json). Preferred-DOI OpenAlex work identities give 12.4649% retention and 4.7908% reuse. Missing and ambiguous matches remain excluded with separate counts.
+- Added broad/narrow climate title-and-abstract publication pools, source-ID/ISSN-L comparisons, leading named sources, annual pool-relative ages and group-specific publication-date screens. Source ratios compare compositions; API dates do not establish acceptance dates or deposited date precision.
+- Archived indirect continuity and a frozen 300-key citation-survival sample separately from direct recurrence. The raw-DOI indirect result is 17,143/33,357 unique AR6 works. The survival sample contains 282 positive, two zero and sixteen unresolved outcomes; it is not a linkage-accuracy sample.
+- Saved complete selected-field API responses and request provenance in 48 deterministic compressed bundles. Cold replay reproduced all 17 tables byte for byte with network and credential functions disabled. The fixed database, old 45 CSV tables and seed remain unchanged. [Restore and replay](#external-openalex-benchmarks) needs no API key. Manuscript files remain private.
+
 ### 2026-10-21: Second-round coverage and AI sensitivity analyses
 
 - Added an independent [raw-reference age archive](revision_preparation/review_round2/raw_age_v1/manifest.json) for all extracted AR5/AR6 occurrences, including unmatched references. With assessment publication year as the origin, mean age falls from 5.374923 to 5.252392 years in the full extracted population and rises from 4.373688 to 4.957161 years in the matched subset. The author approved revising the interpretation to reflect this direction change. The fixed snapshot and earlier results are preserved.
@@ -81,6 +88,7 @@ Stopping the containers preserves the database volume, including review history.
 - [AI-led diagnostic summary](#ai-led-diagnostic-summary)
 - [Additional raw-DOI checks](#additional-raw-doi-checks)
 - [Second-round sensitivity analyses](#second-round-sensitivity-analyses)
+- [External OpenAlex benchmarks](#external-openalex-benchmarks)
 - [Verified references and revision preparation](#verified-references-and-revision-preparation)
 - [Exports and API](#exports-and-api)
 - [Sources and provenance](#sources-and-provenance)
@@ -418,7 +426,7 @@ This table describes the preserved matched-ID and preferred-year baseline. The [
 
 Age uncertainty tables describe stability under chapter resampling within this fixed collection. Outlet subsampling compares reports at the same number of IDs. These intervals retain the saved record links and metadata. The working-group null preserves journal/vintage margins, group counts, and each ID's number of working-group memberships. It tests how fixed sharing is allocated across pairs. It does not test whether total sharing exceeds a climate-literature population benchmark.
 
-Outlet sensitivities compare the preferred labels, conservative punctuation aliases, and registered WoS source titles. The local snapshot and upstream exports lack usable ISSNs. The alias crosswalk records exactly which strings were combined. Named-outlet concentration and richness have separate results; outlet labels do not assign disciplines.
+Outlet sensitivities compare the preferred labels, conservative punctuation aliases, and registered WoS source titles. The baseline snapshot and upstream exports lack usable ISSNs; the separate OpenAlex archive now supplies source IDs and ISSN-L where available. The alias crosswalk records exactly which strings were combined. Named-outlet concentration and richness have separate results; outlet labels do not assign disciplines.
 
 The corrected review worksheet contains 331 IDs and 801 printed entries: 319 probability-sampled IDs and 12 targeted anomaly IDs. Codex completed an initial source-based review and retained its case judgments separately from the empty human-label files. The [descriptive registry](revision_preparation/annotation/ai_review_summary_v1/manifest.json) reports unweighted AI counts for the two selections. The author chose to proceed without further human annotation. Population linkage accuracy and recall remain unestimated. The separate correction ledger records earlier AI-assisted comparisons by Codex (ChatGPT 6.1 Sol). The authors report checking primary sources for all eleven nominated historical correction cases. Those checks and the original informal spot checks do not constitute independent adjudication of the sampled IDs.
 
@@ -637,6 +645,33 @@ The intervals are wide. There are zero false-sharing AI proposals among 94 proba
 The [counterpart geometry table](revision_preparation/review_round2/ai_sensitivity_v1/counterpart_edge_geometry.csv) links all 49 directed proposals to actual matched report memberships. Most are not opposite-report-only pairs. The canonical-only whole-ID rule accepts no edge because the endpoint IDs had not been reviewed as single-study records. A separate targeted extension reviewed all saved occurrences of those endpoints. Its [explicit acceptance scenario](revision_preparation/review_round2/counterpart_review_v1/counterpart_scenarios.csv) accepts 37 edges in 33 connected components and yields 13,502 AR5 IDs, 34,859 AR6 IDs and 1,661 shared IDs: 12.3019% retention and 4.7649% reuse. Compound or unresolved nodes remain blocked. This nonprobability AI exercise changes no stored record, supplies no population error interval and is not a true recurrence bound. [Candidate judgments](revision_preparation/review_round2/counterpart_review_v1/candidate_summary.csv), [edge eligibility](revision_preparation/review_round2/counterpart_review_v1/expanded_edge_eligibility.csv) and [local-page evidence](revision_preparation/review_round2/counterpart_review_v1/local_page_evidence.json) retain its scope.
 
 The historical eleven source-correction cases with author-reported checks, the 331-ID AI sample and this targeted endpoint extension are separate activities. No independent human sample adjudication is claimed. These offline analyses do not identify subject-level mechanisms, complete publication dates or selection relative to an external literature pool.
+
+## External OpenAlex benchmarks
+
+The [completed acquisition status](revision_preparation/review_round2/openalex_v1/acquisition_status.json), [17-table manifest](revision_preparation/review_round2/openalex_v1/activated_attempt_03/results_v1/manifest.json), [bundle index](revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/index.json) and [cold-replay check](revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundle_offline_replay_check.json) identify the frozen data. Analysis package version **1.3.0** extends the **v1.2.1 baseline workflow** and continues to read the corrected **v1.2.0 database**. This package label is not a new database correction or a claim of preregistration. Its independent manifests are listed in the [package manifest](revision_preparation/review_round2/package_manifest.json).
+
+The broad query searches title and abstract for `"climate change" OR "global warming"`, restricted to articles/reviews published during 1980–2013 and 1980–2021. It returns 153,787 and 399,665 works. The narrower phrase query returns 127,823 and 341,976. The pool is defined by those fields and phrases. IPCC references need not be members of that text-query population, so source-share ratios are composition comparisons, not selection probabilities.
+
+The DOI frame contains 51,941 keys: 49,788 resolve uniquely, 2,082 are missing and 71 are ambiguous. Resolution uses exact requested DOI equality against a work or location DOI, with no title fallback. The [external recurrence table](revision_preparation/review_round2/openalex_v1/activated_attempt_03/results_v1/openalex_work_recurrence.csv) reports assigned-cohort and raw-DOI populations separately. The [source comparison](revision_preparation/review_round2/openalex_v1/activated_attempt_03/results_v1/outlet_top15_comparison.csv) includes the union of each report's fifteen leading sources, with source IDs, types, ISSN-L, shares, changes and pool ratios. Monthly/day date strings remain publication proxies; first-of-month and January-first values have explicit counts.
+
+The [indirect-continuity table](revision_preparation/review_round2/openalex_v1/activated_attempt_03/results_v1/indirect_continuity.csv) uses the 2,664 uniquely resolved AR5 raw-DOI works as targets. Empty outgoing lists are unobserved reference coverage, not verified absence of real-world citations. The [citation-survival summary](revision_preparation/review_round2/openalex_v1/activated_attempt_03/results_v1/citation_survival_summary.csv) uses 300 randomly selected keys from the 2,863-key AR5 raw-DOI frame, fixed before survival outcomes with seed `20261011`. It records citations by general OpenAlex articles/reviews published in 2014–2021. Its conservative finite-population 95% envelope is 90.8837–99.8952%, retaining unresolved outcomes. This describes that raw-DOI frame, not all IPCC references or linkage accuracy.
+
+Restore the database using the quick start, then restore both compressed table layers before replay. These commands use saved responses only:
+
+```bash
+python3 scripts/restore_round2_tables.py
+python3 scripts/review_round2_openalex.py restore-raw \
+  --output revision_preparation/review_round2/openalex_v1/activated_attempt_03
+python3 scripts/review_round2_openalex.py check-methods \
+  --output revision_preparation/review_round2/openalex_v1/activated_attempt_03
+python3 scripts/review_round2_openalex.py analyse \
+  --output revision_preparation/review_round2/openalex_v1/activated_attempt_03 \
+  --results-dir revision_preparation/annotation/work/openalex_replay
+```
+
+Use the pinned analysis environment with NumPy `2.2.6`. The output directory must be fresh. Compare its 17 CSVs with the archived manifest; the delivered cold-replay record already verifies every byte with both network and credential access disabled. Restoring the large audit CSV does not change its registered bytes. The API bundles also restore the large resolution/draw CSVs to their registered paths.
+
+No key is needed for replay. Live acquisition is separate, requires an activated private credential and stops on failed responses. The historical activation and two format-collision failures are retained alongside explicit resumption records. Measured successful-request charges total USD 0.0934; failed-response reservations are separate from actual measured usage.
 
 ## Verified references and revision preparation
 

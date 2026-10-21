@@ -1,0 +1,17 @@
+cohort,report,working_group,unresolved_identity,ambiguous_identity,original_cohort_size,resolved_identity,API_ISO_date_present,first_day_of_month_dates,january_first_dates,source_id_present
+matched_assigned,AR5,All,299,15,13503,13189,13189,3644,728,13188
+matched_assigned,AR5,WG1,118,4,5606,5484,5484,1809,306,5484
+matched_assigned,AR5,WG2,161,7,6418,6250,6250,1476,319,6249
+matched_assigned,AR5,WG3,34,4,2141,2103,2103,498,131,2103
+matched_assigned,AR6,All,512,41,34869,34316,34316,4481,1048,34312
+matched_assigned,AR6,WG1,152,12,11922,11758,11758,1460,274,11757
+matched_assigned,AR6,WG2,189,13,16896,16694,16694,2177,559,16692
+matched_assigned,AR6,WG3,189,18,8658,8451,8451,1173,279,8449
+all_raw_DOI,AR5,All,189,8,2863,2666,2666,780,175,2659
+all_raw_DOI,AR5,WG1,20,1,334,313,313,67,7,308
+all_raw_DOI,AR5,WG2,23,2,702,677,677,247,55,676
+all_raw_DOI,AR5,WG3,146,5,1848,1697,1697,470,113,1696
+all_raw_DOI,AR6,All,1771,54,35207,33382,33382,5032,1434,33300
+all_raw_DOI,AR6,WG1,605,22,12869,12242,12242,1694,423,12210
+all_raw_DOI,AR6,WG2,509,17,15185,14659,14659,2135,650,14623
+all_raw_DOI,AR6,WG3,678,20,9343,8645,8645,1491,419,8628

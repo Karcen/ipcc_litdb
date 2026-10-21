@@ -1,0 +1,28 @@
+{
+  "archives": [
+    {
+      "bytes": 1358,
+      "filename": "raw-part-001.tar.gz",
+      "members": [
+        {
+          "bytes": 2069,
+          "path": "raw/eb7aab3f561661491babc5bf6be02d94586371d9fcedbdb653280e4afab70d1c.request.json",
+          "sha256": "e0df6cdb1fd2e7af1cda64f0fabb1a7d11df1456af112f7194f35769f905d2d9"
+        },
+        {
+          "bytes": 390,
+          "path": "raw/eb7aab3f561661491babc5bf6be02d94586371d9fcedbdb653280e4afab70d1c.response.json",
+          "sha256": "3365996771b9701c96d684121507545ae991734cd52bd38a840b2dd76f59a440"
+        }
+      ],
+      "sha256": "bdf4e1a7f6b4fc6a7d8d35c80d79a343b4b3b202c3cc274c4c4d042a8fbbe6c6"
+    }
+  ],
+  "contains_credentials": false,
+  "format": "deterministic tar.gz, sorted paths, gzip mtime=0, fixed tar ownership/mode/time",
+  "raw_cache_retained": true,
+  "raw_fields": "Selected OpenAlex bibliographic/source/date/reference fields and sanitized HTTP provenance; no abstracts or authors requested.",
+  "raw_file_count": 2,
+  "uncompressed_bytes": 2459,
+  "version": "review-round2-openalex-1.0.0"
+}

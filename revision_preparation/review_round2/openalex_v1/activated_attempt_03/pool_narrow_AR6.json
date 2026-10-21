@@ -1,0 +1,274 @@
+{
+  "parameters": {
+    "filter": "publication_year:1980-2021,type:article|review",
+    "group_by": "publication_year",
+    "per_page": 100,
+    "search.title_and_abstract": "\"climate change\""
+  },
+  "raw_request_id": "57a8d2a6c709f412a1cac439c1f040c57916c4d5c2b171c593abb36baccf037b",
+  "response": {
+    "group_by": [
+      {
+        "count": 38510,
+        "key": "2021",
+        "key_display_name": "2021"
+      },
+      {
+        "count": 33934,
+        "key": "2020",
+        "key_display_name": "2020"
+      },
+      {
+        "count": 28402,
+        "key": "2019",
+        "key_display_name": "2019"
+      },
+      {
+        "count": 24867,
+        "key": "2018",
+        "key_display_name": "2018"
+      },
+      {
+        "count": 23179,
+        "key": "2017",
+        "key_display_name": "2017"
+      },
+      {
+        "count": 22837,
+        "key": "2016",
+        "key_display_name": "2016"
+      },
+      {
+        "count": 21677,
+        "key": "2015",
+        "key_display_name": "2015"
+      },
+      {
+        "count": 20747,
+        "key": "2014",
+        "key_display_name": "2014"
+      },
+      {
+        "count": 19481,
+        "key": "2013",
+        "key_display_name": "2013"
+      },
+      {
+        "count": 18094,
+        "key": "2012",
+        "key_display_name": "2012"
+      },
+      {
+        "count": 15717,
+        "key": "2011",
+        "key_display_name": "2011"
+      },
+      {
+        "count": 14422,
+        "key": "2010",
+        "key_display_name": "2010"
+      },
+      {
+        "count": 11955,
+        "key": "2009",
+        "key_display_name": "2009"
+      },
+      {
+        "count": 9214,
+        "key": "2008",
+        "key_display_name": "2008"
+      },
+      {
+        "count": 6931,
+        "key": "2007",
+        "key_display_name": "2007"
+      },
+      {
+        "count": 4845,
+        "key": "2006",
+        "key_display_name": "2006"
+      },
+      {
+        "count": 3809,
+        "key": "2005",
+        "key_display_name": "2005"
+      },
+      {
+        "count": 3086,
+        "key": "2004",
+        "key_display_name": "2004"
+      },
+      {
+        "count": 2895,
+        "key": "2003",
+        "key_display_name": "2003"
+      },
+      {
+        "count": 2501,
+        "key": "2002",
+        "key_display_name": "2002"
+      },
+      {
+        "count": 2243,
+        "key": "2001",
+        "key_display_name": "2001"
+      },
+      {
+        "count": 1919,
+        "key": "2000",
+        "key_display_name": "2000"
+      },
+      {
+        "count": 1552,
+        "key": "1999",
+        "key_display_name": "1999"
+      },
+      {
+        "count": 1337,
+        "key": "1998",
+        "key_display_name": "1998"
+      },
+      {
+        "count": 1252,
+        "key": "1997",
+        "key_display_name": "1997"
+      },
+      {
+        "count": 1146,
+        "key": "1996",
+        "key_display_name": "1996"
+      },
+      {
+        "count": 1016,
+        "key": "1995",
+        "key_display_name": "1995"
+      },
+      {
+        "count": 855,
+        "key": "1993",
+        "key_display_name": "1993"
+      },
+      {
+        "count": 784,
+        "key": "1994",
+        "key_display_name": "1994"
+      },
+      {
+        "count": 682,
+        "key": "1992",
+        "key_display_name": "1992"
+      },
+      {
+        "count": 548,
+        "key": "1991",
+        "key_display_name": "1991"
+      },
+      {
+        "count": 441,
+        "key": "1990",
+        "key_display_name": "1990"
+      },
+      {
+        "count": 248,
+        "key": "1989",
+        "key_display_name": "1989"
+      },
+      {
+        "count": 181,
+        "key": "1988",
+        "key_display_name": "1988"
+      },
+      {
+        "count": 110,
+        "key": "1987",
+        "key_display_name": "1987"
+      },
+      {
+        "count": 99,
+        "key": "1986",
+        "key_display_name": "1986"
+      },
+      {
+        "count": 95,
+        "key": "1985",
+        "key_display_name": "1985"
+      },
+      {
+        "count": 94,
+        "key": "1982",
+        "key_display_name": "1982"
+      },
+      {
+        "count": 79,
+        "key": "1983",
+        "key_display_name": "1983"
+      },
+      {
+        "count": 78,
+        "key": "1984",
+        "key_display_name": "1984"
+      },
+      {
+        "count": 60,
+        "key": "1981",
+        "key_display_name": "1981"
+      },
+      {
+        "count": 54,
+        "key": "1980",
+        "key_display_name": "1980"
+      }
+    ],
+    "meta": {
+      "cost_usd": 0.001,
+      "count": 341976,
+      "db_response_time_ms": 45,
+      "groups_count": 42,
+      "page": 1,
+      "per_page": 100,
+      "x_query": {
+        "oql": "get works where published from 1980 through 2021\n  and title-abstract has (stemmed \"climate change\")\n  and type is ([article](article) or [review](review));\nthen, group those works by year",
+        "oqo": {
+          "filter_rows": [
+            {
+              "column_id": "publication_year",
+              "operator": ">=",
+              "value": 1980
+            },
+            {
+              "column_id": "publication_year",
+              "operator": "<=",
+              "value": 2021
+            },
+            {
+              "column_id": "title_and_abstract.search",
+              "operator": "has",
+              "value": "\"climate change\""
+            },
+            {
+              "filters": [
+                {
+                  "column_id": "type",
+                  "value": "article"
+                },
+                {
+                  "column_id": "type",
+                  "value": "review"
+                }
+              ],
+              "join": "or"
+            }
+          ],
+          "get_rows": "works",
+          "group_by": [
+            {
+              "column_id": "publication_year"
+            }
+          ]
+        },
+        "url": "/works?filter=publication_year:1980-2021,title_and_abstract.search:%22climate change%22,type:article|review&group_by=publication_year&per_page=100",
+        "x_new_oql": "get the count of works with (stemmed \"climate change\") in the title or abstract where type is ([article](article) or [review](review)) by year from 1980–2021"
+      }
+    }
+  }
+}

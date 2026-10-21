@@ -1,0 +1,129 @@
+{
+  "DOI_resolutions": {
+    "exact_unique": 49788,
+    "missing": 2082,
+    "ambiguous": 71
+  },
+  "source_assignment": {
+    "mapped_source_ids": {
+      "AR5": 13188,
+      "AR6": 34312
+    },
+    "report_matched_ids": {
+      "AR5": 13503,
+      "AR6": 34869
+    }
+  },
+  "API_successes": 578,
+  "API_failures_preserved": 2,
+  "actual_success_cost_usd": 0.06500000000000072,
+  "unreported_failure_reserve_usd": 0.0002,
+  "cutoff_age_differences": [
+    {
+      "cohort": "matched_assigned",
+      "working_group": "WG1",
+      "origin_basis": "documented_WG_cutoff",
+      "metric": "mean_age",
+      "AR5": "4.368678651441488",
+      "AR6": "4.931472027845735",
+      "AR6_minus_AR5": "0.5627933764042465"
+    },
+    {
+      "cohort": "matched_assigned",
+      "working_group": "WG2",
+      "origin_basis": "documented_WG_cutoff",
+      "metric": "mean_age",
+      "AR5": "3.8909419698647247",
+      "AR6": "4.443653184547545",
+      "AR6_minus_AR5": "0.5527112146828199"
+    },
+    {
+      "cohort": "matched_assigned",
+      "working_group": "WG3",
+      "origin_basis": "documented_WG_cutoff",
+      "metric": "mean_age",
+      "AR5": "3.9979682924211084",
+      "AR6": "4.780073205260989",
+      "AR6_minus_AR5": "0.7821049128398809"
+    },
+    {
+      "cohort": "all_raw_DOI",
+      "working_group": "WG1",
+      "origin_basis": "documented_WG_cutoff",
+      "metric": "mean_age",
+      "AR5": "2.174236556549739",
+      "AR6": "5.1466450739562815",
+      "AR6_minus_AR5": "2.9724085174065427"
+    },
+    {
+      "cohort": "all_raw_DOI",
+      "working_group": "WG2",
+      "origin_basis": "documented_WG_cutoff",
+      "metric": "mean_age",
+      "AR5": "3.1497556154735973",
+      "AR6": "4.394162288834867",
+      "AR6_minus_AR5": "1.2444066733612695"
+    },
+    {
+      "cohort": "all_raw_DOI",
+      "working_group": "WG3",
+      "origin_basis": "documented_WG_cutoff",
+      "metric": "mean_age",
+      "AR5": "4.742475400394454",
+      "AR6": "5.127365666932451",
+      "AR6_minus_AR5": "0.3848902665379965"
+    }
+  ],
+  "journal_D2_differences": [
+    {
+      "cohort": "matched_assigned",
+      "working_group": "All",
+      "source_scope": "journal_sources",
+      "metric": "D2",
+      "AR6_minus_AR5_mean": "60.56210870315719",
+      "q025": "57.33760647439326",
+      "q975": "63.940553486028534",
+      "equal_size": "13152",
+      "draws": "1000",
+      "interval_type": "Conditional equal-size resampling difference, not population CI"
+    },
+    {
+      "cohort": "all_raw_DOI",
+      "working_group": "All",
+      "source_scope": "journal_sources",
+      "metric": "D2",
+      "AR6_minus_AR5_mean": "52.94333633018086",
+      "q025": "43.85354267842178",
+      "q975": "62.819858022734174",
+      "equal_size": "2648",
+      "draws": "1000",
+      "interval_type": "Conditional equal-size resampling difference, not population CI"
+    }
+  ],
+  "indirect_continuity": [
+    {
+      "cohort": "matched_assigned",
+      "AR5_target_resolved_raw_DOI_work_IDs": "2664",
+      "AR6_resolved_keys": "34316",
+      "AR6_keys_with_recorded_references": "34026",
+      "AR6_keys_citing_AR5_target": "17707",
+      "fraction_among_all_resolved_keys": "0.5159983681081711",
+      "fraction_among_keys_with_recorded_references": "0.5203961676365133",
+      "AR6_unique_openalex_work_IDs": "34316",
+      "AR6_unique_work_IDs_citing_target": "17707",
+      "missing_reference_interpretation": "Empty outgoing lists are unobserved citation coverage, not verified absence of a real-world citation."
+    },
+    {
+      "cohort": "all_raw_DOI",
+      "AR5_target_resolved_raw_DOI_work_IDs": "2664",
+      "AR6_resolved_keys": "33382",
+      "AR6_keys_with_recorded_references": "32778",
+      "AR6_keys_citing_AR5_target": "17156",
+      "fraction_among_all_resolved_keys": "0.513929662692469",
+      "fraction_among_keys_with_recorded_references": "0.5233998413570078",
+      "AR6_unique_openalex_work_IDs": "33357",
+      "AR6_unique_work_IDs_citing_target": "17143",
+      "missing_reference_interpretation": "Empty outgoing lists are unobserved citation coverage, not verified absence of a real-world citation."
+    }
+  ]
+}

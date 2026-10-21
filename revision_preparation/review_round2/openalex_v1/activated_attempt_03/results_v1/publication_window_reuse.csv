@@ -1,0 +1,7 @@
+cohort,working_group,earlier_publication_date_boundary,later_original_keys,later_resolved_keys,later_keys_with_date,later_published_by_boundary,shared_published_by_boundary,conditional_publication_availability_reuse,screen
+matched_assigned,WG1,2013-03-15,11922,11758,11758,1977,761,0.38492665655032876,OpenAlex publication date <= earlier group cutoff; not accepted-paper eligibility
+matched_assigned,WG2,2013-08-31,16896,16694,16694,1761,480,0.272572402044293,OpenAlex publication date <= earlier group cutoff; not accepted-paper eligibility
+matched_assigned,WG3,2013-10-03,8658,8451,8451,1282,162,0.12636505460218408,OpenAlex publication date <= earlier group cutoff; not accepted-paper eligibility
+all_raw_DOI,WG1,2013-03-15,12869,12242,12242,2141,92,0.04297057449789818,OpenAlex publication date <= earlier group cutoff; not accepted-paper eligibility
+all_raw_DOI,WG2,2013-08-31,15185,14659,14659,1473,49,0.03326544467073999,OpenAlex publication date <= earlier group cutoff; not accepted-paper eligibility
+all_raw_DOI,WG3,2013-10-03,9343,8645,8645,1436,136,0.0947075208913649,OpenAlex publication date <= earlier group cutoff; not accepted-paper eligibility

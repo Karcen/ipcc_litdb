@@ -14,9 +14,9 @@ Location: Introduction research questions and closest-study comparison; Discussi
 
 Likely comment: Assessment reference shares need a source-supply and age benchmark from an independently defined climate-literature population.
 
-Response outline: The completed offline package contains no external denominator. Its source-label bounds and raw-year comparisons do not substitute for that denominator. Any external result needs an archived query, field selection, date windows, coverage counts and retained API responses. Compare assessment shares with the same defined population, and distinguish citation descendants from direct shared identities. Report acquisition failures and incomplete outputs as such. A successful request is not, by itself, a completed benchmark.
+Completed response evidence: The [external registry](revision_preparation/review_round2/openalex_v1/activated_attempt_03/results_v1/manifest.json) now contains seventeen tables, with all selected raw responses frozen and replayed offline. Broad and narrow title/abstract phrase queries define the publication pools. Source-ID/ISSN-L composition, annual pool-relative ages and a frozen random citation-survival sample provide distinct external comparisons. State that source ratios are not selection probabilities: IPCC references need not satisfy the pool query. Distinguish general citation survival from direct assessment recurrence and report unresolved outcomes. Indirect continuity uses the resolved AR5 raw-DOI target set and unique later work IDs.
 
-Location: External-data acquisition record and any later independent archive. The current [offline methods](revision_preparation/review_round2/raw_age_v1/methods.txt) retain their narrower target.
+Location: External methods, benchmark results and supplement; [restore/replay instructions](README.md#external-openalex-benchmarks).
 
 ## 3. Unequal matching coverage and working-group composition
 
@@ -34,7 +34,7 @@ Likely comment: Conditional reuse is sensitive to the year boundary, and a newly
 
 Response outline: Keep all-extracted earlier presence separate from earlier matched presence. The [baseline eligibility table](reproducibility/reference/revision_identity_eligible_reuse.csv) records 34.16%, 28.40% and 20.47% at boundaries 2012, 2013 and 2014. These are different denominator definitions, not a temporal increase in reuse. Report the boundary range and the eligible numerator/denominator. The [earlier-presence partition](reproducibility/reference/revision_identity_earlier_incoming_partition_summary.csv) distinguishes matched absence from complete extracted absence. The new cutoff-year age clock is not a full-date eligibility analysis. Neither a publication date nor a print year alone establishes acceptance eligibility.
 
-Location: Cohort and eligibility definitions; recurrence table; Abstract boundary sensitivity. Independent full-date results, if completed, need their own archived outputs.
+Location: Cohort and eligibility definitions; recurrence table; Abstract boundary sensitivity. The completed OpenAlex archive reports group-specific publication-by-cutoff screens and API-date ages. These are not acceptance-date histories. ISO date strings have unverified precision, and exact final-report publication origins were not imputed. The date-coverage and exclusion tables preserve the limits.
 
 ## 5. AI review, sampling uncertainty and counterpart propagation
 

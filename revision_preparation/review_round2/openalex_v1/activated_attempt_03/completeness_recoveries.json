@@ -1,0 +1,47 @@
+{
+  "original_stop_log_preserved": true,
+  "recoveries": [
+    {
+      "DOI_filter_unchanged": true,
+      "all_page_records": 101,
+      "all_unique_work_ids": 101,
+      "batch": 245,
+      "first_page_records": 100,
+      "first_request_id": "6324920541ab1bbf86f5f689d0dd3546f12f0ff9feb903dc93fa59894c858206",
+      "reported_total": 101,
+      "request_ids": [
+        "6324920541ab1bbf86f5f689d0dd3546f12f0ff9feb903dc93fa59894c858206",
+        "b445ea81e95e3d535308664a4cff82607e0c22fb5e89aa443bf412544df3a80a"
+      ],
+      "resolution": "All pages archived; multiple exact DOI candidates remain ambiguous"
+    },
+    {
+      "DOI_filter_unchanged": true,
+      "all_page_records": 101,
+      "all_unique_work_ids": 101,
+      "batch": 415,
+      "first_page_records": 100,
+      "first_request_id": "ff984ba425c7c26c977feb482b74b3e3ba371525a7f2cb1406f19cab759d2fe0",
+      "reported_total": 101,
+      "request_ids": [
+        "ff984ba425c7c26c977feb482b74b3e3ba371525a7f2cb1406f19cab759d2fe0",
+        "2e8942f872d429335663812a3e70f7d7412d12ca7a86250c8a004a33c3a70dcd"
+      ],
+      "resolution": "All pages archived; multiple exact DOI candidates remain ambiguous"
+    },
+    {
+      "DOI_filter_unchanged": true,
+      "all_page_records": 102,
+      "all_unique_work_ids": 102,
+      "batch": 416,
+      "first_page_records": 100,
+      "first_request_id": "9449a3ced6ee63b32fdd5479ecc1bee2db0ad1f8aefddaefa57d78178b2ba098",
+      "reported_total": 102,
+      "request_ids": [
+        "9449a3ced6ee63b32fdd5479ecc1bee2db0ad1f8aefddaefa57d78178b2ba098",
+        "3192b5f24de6a08f1b9c5d113d9db5e50e3c0b7c5fded79ad57abcdf1522f675"
+      ],
+      "resolution": "All pages archived; multiple exact DOI candidates remain ambiguous"
+    }
+  ]
+}

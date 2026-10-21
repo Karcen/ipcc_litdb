@@ -1,0 +1,27 @@
+{
+  "counts": {
+    "AR5": {
+      "matched_assigned_ids": 13503,
+      "occurrences": 27851,
+      "raw_doi_keys": 2863
+    },
+    "AR6": {
+      "matched_assigned_ids": 34869,
+      "occurrences": 63027,
+      "raw_doi_keys": 35207
+    }
+  },
+  "documented_work_lookup_budget_usd": 0.0524,
+  "input": {
+    "database_sha256_after": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+    "database_sha256_before": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+    "database_unchanged": true,
+    "raw_parser": "reproducibility/revision_identity.py:punctuation_repaired_raw_dois",
+    "raw_parser_script_sha256": "6e23acc973f0f21d19a55d9d3523ec444108641e41294001d6dcaac3ce9294ae"
+  },
+  "lookup_batches": 524,
+  "maximum_encoded_url_bytes": 3699,
+  "optional_raw_key_citation_upper_budget_usd": 0.2863,
+  "requested_dois": 51941,
+  "status": "offline inventory only; API acquisition stopped after 403"
+}

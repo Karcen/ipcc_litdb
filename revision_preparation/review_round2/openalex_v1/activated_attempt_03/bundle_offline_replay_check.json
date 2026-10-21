@@ -1,0 +1,137 @@
+{
+  "all_tables_byte_identical": true,
+  "bundle_index_sha256": "f960b45e7b9b0ef74135352b90d09a51f1911f70c7bbd252bf114954220ae472",
+  "checked_utc": "2026-10-21T08:06:43.262868+00:00",
+  "cold_start": "Only compressed bundles and lightweight acquisition manifests copied; uncompressed raw responses and oversized lookup file absent initially.",
+  "credential_loader": "Replaced by a function that raises immediately if called.",
+  "credential_reads": 0,
+  "deterministic_fixture": "Repacking the two-file historical403 cache yielded the original compressed archive SHA256.",
+  "explicit_transport_authorization_ledger_byte_identical": true,
+  "final_registry_sha256": "1d3f34d7a054a52c11e3ee2e6b99d8b21cc057791d4489233bc21125a317be18",
+  "lookup_batch_membership_byte_identical": true,
+  "network_function": "Replaced by a function that raises immediately if called.",
+  "network_requests": 0,
+  "new_registered_tables": 17,
+  "original_29_table_hashes_unchanged": true,
+  "raw_cache_restored_files": 1728,
+  "replayed_acquisition_phases": [
+    "pool",
+    "works",
+    "sources",
+    "citations"
+  ],
+  "script_sha256": "85b57ec821a3f3ffc866c30796bb808a9ceccf513703792c426ec6af99bf41f4",
+  "source_snapshot": {
+    "database_sha256_after": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+    "database_sha256_before": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+    "database_unchanged": true,
+    "raw_parser": "reproducibility/revision_identity.py:punctuation_repaired_raw_dois",
+    "raw_parser_script_sha256": "6e23acc973f0f21d19a55d9d3523ec444108641e41294001d6dcaac3ce9294ae",
+    "unit": "One immutable occurrence_id; joins to chapter, working group, source and paper are many-to-one. Derived units are report/assigned-ID or report/raw-DOI key."
+  },
+  "status": "passed",
+  "tables": [
+    {
+      "byte_identical": true,
+      "cold_bundle_recomputed_sha256": "7d5c93a435ea308b3495147ed7ccb6e78198ace81c72931744d864c6a38e14e8",
+      "filename": "AR5_raw_DOI_citation_survival.csv",
+      "registered_sha256": "7d5c93a435ea308b3495147ed7ccb6e78198ace81c72931744d864c6a38e14e8"
+    },
+    {
+      "byte_identical": true,
+      "cold_bundle_recomputed_sha256": "1a5f0856f862a1e97302c47d375bddf51f235b306aed404c0300814050eec60b",
+      "filename": "citation_survival_summary.csv",
+      "registered_sha256": "1a5f0856f862a1e97302c47d375bddf51f235b306aed404c0300814050eec60b"
+    },
+    {
+      "byte_identical": true,
+      "cold_bundle_recomputed_sha256": "1464abc2630641fa2dd7027535af2ba01bf7d87c9ad5967fd1e1e6c751fe035d",
+      "filename": "date_age_differences.csv",
+      "registered_sha256": "1464abc2630641fa2dd7027535af2ba01bf7d87c9ad5967fd1e1e6c751fe035d"
+    },
+    {
+      "byte_identical": true,
+      "cold_bundle_recomputed_sha256": "8be6e7521ede462bb545cba3bee22035b94ea7fe29d58ec7cf2e81caa9ae8504",
+      "filename": "date_age_ecdf.csv",
+      "registered_sha256": "8be6e7521ede462bb545cba3bee22035b94ea7fe29d58ec7cf2e81caa9ae8504"
+    },
+    {
+      "byte_identical": true,
+      "cold_bundle_recomputed_sha256": "0c2d460f5dd2e08e694e4c5da3b1fccab4568cd6164688fcad4c526f12a2abd3",
+      "filename": "date_age_summary.csv",
+      "registered_sha256": "0c2d460f5dd2e08e694e4c5da3b1fccab4568cd6164688fcad4c526f12a2abd3"
+    },
+    {
+      "byte_identical": true,
+      "cold_bundle_recomputed_sha256": "f9465381a84d5c81e58a1e59349c822239e4111b1d9fde3987f304f00ea4f1d2",
+      "filename": "date_coverage.csv",
+      "registered_sha256": "f9465381a84d5c81e58a1e59349c822239e4111b1d9fde3987f304f00ea4f1d2"
+    },
+    {
+      "byte_identical": true,
+      "cold_bundle_recomputed_sha256": "80b12f88a02b742743197e9feca5e35eb9d2924d20c5c3fa822864d27f405ed1",
+      "filename": "doi_resolution.csv",
+      "registered_sha256": "80b12f88a02b742743197e9feca5e35eb9d2924d20c5c3fa822864d27f405ed1"
+    },
+    {
+      "byte_identical": true,
+      "cold_bundle_recomputed_sha256": "2cb020bcbef482970fec107a913fe948bc87f5cda8db1306543390dc8a83b640",
+      "filename": "indirect_continuity.csv",
+      "registered_sha256": "2cb020bcbef482970fec107a913fe948bc87f5cda8db1306543390dc8a83b640"
+    },
+    {
+      "byte_identical": true,
+      "cold_bundle_recomputed_sha256": "149d979792460e64b749d0016c7e59664ce0192fd752ed4273f078192dd79801",
+      "filename": "openalex_work_recurrence.csv",
+      "registered_sha256": "149d979792460e64b749d0016c7e59664ce0192fd752ed4273f078192dd79801"
+    },
+    {
+      "byte_identical": true,
+      "cold_bundle_recomputed_sha256": "169eee89e1bd2ccc250e766a01e9ccfcf2f2f59d43e0e861859f0e16fe6b424a",
+      "filename": "outlet_diversity.csv",
+      "registered_sha256": "169eee89e1bd2ccc250e766a01e9ccfcf2f2f59d43e0e861859f0e16fe6b424a"
+    },
+    {
+      "byte_identical": true,
+      "cold_bundle_recomputed_sha256": "885b43da6204390ac4c6b6042f38a1186ebf3fed923aa0a065f304cd6c8d19d0",
+      "filename": "outlet_diversity_differences.csv",
+      "registered_sha256": "885b43da6204390ac4c6b6042f38a1186ebf3fed923aa0a065f304cd6c8d19d0"
+    },
+    {
+      "byte_identical": true,
+      "cold_bundle_recomputed_sha256": "b6f768f04ce9037d9acace7ecb00c2390c173c17d2857876567a04c86ae4482d",
+      "filename": "outlet_resampling_draws.csv",
+      "registered_sha256": "b6f768f04ce9037d9acace7ecb00c2390c173c17d2857876567a04c86ae4482d"
+    },
+    {
+      "byte_identical": true,
+      "cold_bundle_recomputed_sha256": "262664a7d9b040618a3ad7e0defd0662a9c8341b6d0e4d63657ef24b8fb30dad",
+      "filename": "outlet_top15_comparison.csv",
+      "registered_sha256": "262664a7d9b040618a3ad7e0defd0662a9c8341b6d0e4d63657ef24b8fb30dad"
+    },
+    {
+      "byte_identical": true,
+      "cold_bundle_recomputed_sha256": "3f3d41ff062150550594c8f9a6300b4b984818dd658c4f1d7fea1a3a704e5cb2",
+      "filename": "pool_age_comparison.csv",
+      "registered_sha256": "3f3d41ff062150550594c8f9a6300b4b984818dd658c4f1d7fea1a3a704e5cb2"
+    },
+    {
+      "byte_identical": true,
+      "cold_bundle_recomputed_sha256": "d9fd44a9736bf1c0426f6c0863f1972134c7cc7348d9b0e93378ef248337a233",
+      "filename": "pool_by_year.csv",
+      "registered_sha256": "d9fd44a9736bf1c0426f6c0863f1972134c7cc7348d9b0e93378ef248337a233"
+    },
+    {
+      "byte_identical": true,
+      "cold_bundle_recomputed_sha256": "f77297675a1a739af6edfef3387176bae2863ee287ba6a1f6f4668dffb62a1c5",
+      "filename": "publication_window_reuse.csv",
+      "registered_sha256": "f77297675a1a739af6edfef3387176bae2863ee287ba6a1f6f4668dffb62a1c5"
+    },
+    {
+      "byte_identical": true,
+      "cold_bundle_recomputed_sha256": "93e902fda5b901f28a15c5a994e5badeec80019f7f3ac0254550558559ca5f8f",
+      "filename": "source_shares.csv",
+      "registered_sha256": "93e902fda5b901f28a15c5a994e5badeec80019f7f3ac0254550558559ca5f8f"
+    }
+  ]
+}
