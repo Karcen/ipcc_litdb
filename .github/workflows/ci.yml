@@ -41,6 +41,7 @@ jobs:
         run: |
           source .venv/bin/activate
           python -m pytest -q revision_preparation/annotation/tests/test_annotation_tools.py revision_preparation/literature/test_verification_tools.py
+          python scripts/check_ai_annotation_proposals.py --report /tmp/ipcc-ai-proposal-check.json
           python revision_preparation/literature/check_archived_verification.py
           python revision_preparation/robustness/coverage_robustness.py \
             --repo . \
@@ -60,6 +61,7 @@ jobs:
             /tmp/ipcc-assessment-reproduction/step_*.log
             /tmp/ipcc-additional-doi-reproduction/manifest.json
             /tmp/ipcc-additional-doi-verification.json
+            /tmp/ipcc-ai-proposal-check.json
       - name: Check API and run tests
         run: |
           source .venv/bin/activate

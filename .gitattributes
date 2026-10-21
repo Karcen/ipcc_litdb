@@ -7,5 +7,7 @@
 *.json text eol=lf
 *.sql text eol=lf
 *.csv text eol=lf
+# Preserve quoted original-reference bytes and CSV record endings in AI exports.
+revision_preparation/annotation/ai_review/*.csv -text -whitespace
 *.gz binary
 *.png binary

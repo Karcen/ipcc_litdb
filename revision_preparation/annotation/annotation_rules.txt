@@ -17,6 +17,17 @@ save in work/. Original inputs and empty templates remain unchanged. The app
 makes no network requests to external data services. Source PDF and DOI links
 open only when selected. Stop the server with Ctrl+C.
 
+AI-assisted suggestions
+
+The ai_review/ package contains initial Codex proposals for the fixed sample.
+The browser shows the proposal, evidence and open questions separately from
+your annotations. Use as draft for this ID copies blank fields only. It keeps
+review and duplicate-search completion pending and preserves existing labels.
+Check the source entries, resolve open questions and enter your actual reviewer
+code before marking the ID complete. A completed review attributed to Codex or
+an AI reviewer is rejected by the browser and CSV validator. AI initial-review
+counts are not human validation results.
+
 Sample and units
 
 The frozen current sample has 331 IDs: 319 probability IDs and 12 targeted
@@ -31,9 +42,10 @@ Review an ID
 
 1. Read every original entry shown for the ID. Open its source PDF and locate
    the bibliography entry. Compare candidate publisher, DOI or report records.
-2. Assign a work-group letter to each occurrence. Use A for one document, B
+2. Assign a work-group letter to each occurrence. Use A for one study, B
    for another, and so on. Letters have meaning only within the current ID.
-   When a raw entry clearly joins two documents, record A | B and explain it.
+   When a raw entry clearly joins two distinct studies, record A | B and explain it.
+   Verified publication versions of the same study share a letter.
 3. Check preferred title, DOI, year, authors and journal. Record metadata errors
    separately from identity errors. Enter the affected fields and evidence.
 4. Give the ID identity label and, where applicable, its shared-link judgment.
@@ -44,17 +56,28 @@ Review an ID
 
 Identity labels
 
-correct_merge: All reviewed occurrences under the ID represent one bibliographic
-document. An ID with one original entry has no internal merge to contradict this
+correct_merge: All reviewed occurrences under the ID represent one study under
+the verified-version convention below. An ID with one original entry has no internal merge to contradict this
 label. This label describes within-ID grouping; it does not establish that every
 preferred field is correct or that the document has no duplicate ID elsewhere.
 
-false_merge: The ID contains occurrences of at least two distinct documents.
-Use distinct work groups. Identify the documents and explain whether the error
+false_merge: The ID contains occurrences of at least two distinct studies under
+the verified-version convention. Use distinct work groups. Identify the studies and explain whether the error
 comes from record linkage or an extraction that joined bibliography entries.
 
 unresolved: The available evidence does not establish the identity. Keep the ID
 review incomplete. The estimator does not turn this label into a correct record.
+
+Version convention authorized by the author on 21 October 2026: group a working
+paper, preprint and journal article as one study after verifying their version
+relationship. An explicit version-of-record link or a documented revision chain
+can establish that relationship. A similar title or shared authors alone cannot.
+Keep the source identifiers, cited version and publication dates in the notes.
+The author also specified that citation age uses the verified year of the version
+actually cited. Retain the final-publication year separately. A final-article year
+substituted for an earlier cited working-paper year is a metadata error for that
+occurrence, even when their study identity is correct. These proposals do not
+change the frozen snapshot or the existing registered age results.
 
 An online-first article and its final published version can be the same work.
 Different publication-year labels alone do not establish a false merge. Compare
@@ -67,12 +90,12 @@ Shared-link labels
 The observed shared-matched set contains 1,657 IDs. Membership requires a
 matched_doi or matched_title occurrence in each of AR5 and AR6.
 
-same_work: At least one reviewed document occurs in matched entries in both
+same_work: At least one reviewed study occurs in matched entries in both
 reports. Its work-group letter therefore appears on both sides. A false-merged
-ID can still contain a real common document, so false_merge does not automatically
+ID can still contain a real common study, so false_merge does not automatically
 mean false_shared.
 
-false_shared: The recorded ID is in both matched report sets, but the documents
+false_shared: The recorded ID is in both matched report sets, but the studies
 represented by the AR5 matched entries and AR6 matched entries do not overlap.
 Their work-group sets have no intersection.
 
@@ -98,7 +121,8 @@ complete until this decision is resolved.
 
 Missed-merge search
 
-A missed merge is the same document assigned to another recorded ID. A within-ID
+A missed merge is the same study, including verified publication versions,
+assigned to another recorded ID. A within-ID
 review alone cannot identify its absence. Search the raw DOI where present and
 title variants, then author and publication year. Search the full saved database.
 Inspect candidate raw entries and their source bibliographies. Preferred metadata
@@ -116,7 +140,8 @@ none_found: The completed protocol found no confirmed counterpart ID. This means
 no missed merge was found in that audited search; it is not a guarantee of global
 record-linkage recall.
 
-missed_merge_found: Another ID represents the same document. Record its positive
+missed_merge_found: Another ID represents the same study under the verified-version
+convention. Record its positive
 integer ID in missed_merge_candidate_ids, with | between several IDs. Include
 candidate_raw_entries among completed methods and record the confirming evidence.
 Do not include the current ID. Do not count several counterpart IDs as several

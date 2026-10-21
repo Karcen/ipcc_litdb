@@ -14,8 +14,10 @@ from urllib.parse import parse_qs, urlparse
 
 from annotation_tools import (
     ROOT, ID_FIELDS, OCCURRENCE_FIELDS, canonical_templates, digest,
-    load_bundle, validate, write_csv, write_json,
+    is_ai_annotator, load_bundle, validate, write_csv, write_json,
 )
+
+AI_ANNOTATOR = "Codex (AI-assisted initial review)"
 
 
 def atomic_json(path, obj):
@@ -87,7 +89,98 @@ class AnnotationStore:
                 "labels": self.state, "schema": {"id_fields": ID_FIELDS, "occurrence_fields": OCCURRENCE_FIELDS},
                 "integrity": self.integrity()}
 
-    def save(self, payload):
+    def ai_review(self):
+        """Read proposals separately; their presence changes no annotation."""
+        path = self.root/"ai_review"/"proposals.json"
+        if not path.is_file():
+            return {"available": False, "human_validated": False, "cases": []}
+        data = json.loads(path.read_text(encoding="utf-8"))
+        if (not isinstance(data, dict)
+                or data.get("schema_version") != "ipcc-ai-initial-review-1"
+                or data.get("review_type") != "ai_assisted_initial_review"
+                or data.get("human_validated") is not False
+                or not isinstance(data.get("cases"), list)):
+            raise ValueError("AI proposal provenance is invalid; no proposals were loaded")
+        seen, seen_occurrences = set(), set()
+        for case in data["cases"]:
+            if not isinstance(case, dict):
+                raise ValueError("Each AI proposal must be an object")
+            pid = str(case.get("paper_id", ""))
+            if pid not in self.ids or pid in seen:
+                raise ValueError("AI proposals contain an unknown or duplicate sampled ID")
+            seen.add(pid)
+            if case.get("review_complete") != "no":
+                raise ValueError(f"AI proposal for ID {pid} must remain incomplete")
+            if not is_ai_annotator(case.get("annotator")):
+                raise ValueError(f"AI proposal for ID {pid} must identify its AI annotator")
+            if not isinstance(case.get("occurrences"), list):
+                raise ValueError(f"AI proposal for ID {pid} is missing its occurrence list")
+            for field in ("identity_label", "shared_link_label", "missed_merge_search_status", "missed_merge_result"):
+                if case.get(field, "") not in ("", *ID_FIELDS[field]):
+                    raise ValueError(f"Invalid AI proposal field {field} for ID {pid}")
+            expected = {oid for oid, row in self.occurrences.items() if row["paper_id"] == pid}
+            actual = set()
+            for row in case["occurrences"]:
+                if not isinstance(row, dict):
+                    raise ValueError("Each AI occurrence proposal must be an object")
+                oid = row.get("occurrence_id")
+                if oid not in expected or oid in actual or oid in seen_occurrences:
+                    raise ValueError(f"AI proposal has an unknown, misplaced or duplicate occurrence for ID {pid}")
+                actual.add(oid); seen_occurrences.add(oid)
+                if row.get("metadata_judgment", "") not in ("", *OCCURRENCE_FIELDS["metadata_judgment"]):
+                    raise ValueError(f"Invalid AI metadata proposal for occurrence {oid}")
+            if actual != expected:
+                raise ValueError(f"AI proposal occurrence keys differ from the frozen sample for ID {pid}")
+        if seen != set(self.ids) or seen_occurrences != set(self.occurrences):
+            raise ValueError("AI proposal keys differ from the complete frozen ID and occurrence sets")
+        return {**data, "available": True, "human_validated": False,
+                "proposal_sha256": digest(path), "case_count": len(seen)}
+
+    def use_ai_draft(self, paper_id):
+        """Copy blank fields only, leaving all review completion to the user."""
+        pid = str(paper_id)
+        proposals = self.ai_review()
+        if not proposals["available"]:
+            raise ValueError("No AI proposals are available")
+        case = next((c for c in proposals["cases"] if str(c["paper_id"]) == pid), None)
+        if case is None:
+            raise ValueError("Unknown sample paper ID")
+
+        def proposal_text(value):
+            if isinstance(value, list):
+                return " | ".join(str(v) for v in value)
+            return str(value) if value is not None else ""
+
+        with self.lock:
+            current = self.state["ids"][pid]
+            if current["review_complete"] == "yes":
+                raise ValueError("This ID already has a completed review; its annotations were left unchanged")
+            labels = {field: proposal_text(case[field]) for field in ID_FIELDS
+                      if field in case and not current[field]}
+            if not current["annotator"]:
+                labels["annotator"] = AI_ANNOTATOR
+            if not current["review_complete"]:
+                labels["review_complete"] = "no"
+            # A proposal may describe its offline search, but cannot complete a
+            # human search by importing it into the annotation form.
+            if labels.get("missed_merge_search_status") == "complete":
+                labels["missed_merge_search_status"] = "incomplete"
+            occurrence_labels = {}
+            for row in case["occurrences"]:
+                oid = row["occurrence_id"]
+                existing = self.state["occurrences"][oid]
+                fields = {field: proposal_text(row[field]) for field in OCCURRENCE_FIELDS
+                          if field in row and not existing[field]}
+                if not existing["annotator"]:
+                    fields["annotator"] = AI_ANNOTATOR
+                occurrence_labels[oid] = fields
+            result = self.save({"paper_id": pid, "id_labels": labels,
+                                "occurrence_labels": occurrence_labels}, origin="ai_proposal_draft")
+            return {**result, "paper_id": pid, "id_labels": dict(self.state["ids"][pid]),
+                    "occurrence_labels": {oid: dict(self.state["occurrences"][oid]) for oid in occurrence_labels},
+                    "draft_only": True, "human_validated": False}
+
+    def save(self, payload, *, origin=None):
         pid = str(payload.get("paper_id", ""))
         if pid not in self.ids:
             raise ValueError("Unknown sample paper ID")
@@ -101,6 +194,12 @@ class AnnotationStore:
                 raise ValueError("Occurrence is outside this sampled ID")
             self.check_fields(fields, OCCURRENCE_FIELDS)
         with self.lock:
+            effective = {**self.state["ids"][pid], **labels}
+            ai_occurrences = any(is_ai_annotator({**self.state["occurrences"][oid], **occurrences.get(oid, {})}.get("annotator"))
+                                 for oid, row in self.occurrences.items() if row["paper_id"] == pid)
+            if ((effective.get("review_complete") == "yes" or effective.get("missed_merge_search_status") == "complete")
+                    and (is_ai_annotator(effective.get("annotator")) or ai_occurrences)):
+                raise ValueError("AI suggestions cannot complete a review or search. Check the sources, then change the annotator to the actual reviewer's name or code for the ID and its entries.")
             changes = []
             for group, key, new_labels in [("ids", pid, labels), *[("occurrences", oid, v) for oid, v in occurrences.items()]]:
                 for field, value in new_labels.items():
@@ -112,7 +211,10 @@ class AnnotationStore:
                 stamp = datetime.now(timezone.utc).isoformat()
                 self.state["updated_at"] = stamp
                 with (self.work/"change_log.jsonl").open("a", encoding="utf-8") as stream:
-                    stream.write(json.dumps({"at": stamp, "paper_id": pid, "changes": changes}, ensure_ascii=False)+"\n")
+                    record = {"at": stamp, "paper_id": pid, "changes": changes}
+                    if origin:
+                        record["origin"] = origin
+                    stream.write(json.dumps(record, ensure_ascii=False)+"\n")
                 self.persist()
             return {"saved": True, "updated_at": self.state["updated_at"], "integrity": self.integrity()}
 
@@ -209,6 +311,8 @@ def make_server(store, database=None, port=8765):
                     self.send(data)
                 elif url.path == "/api/integrity":
                     self.send(store.integrity())
+                elif url.path == "/api/ai-review":
+                    self.send(store.ai_review())
                 elif url.path == "/api/search":
                     q = parse_qs(url.query)
                     self.send(search_database(database, q.get("q", [""])[0], q.get("mode", ["title"])[0], q.get("year", [""])[0]))
@@ -225,7 +329,7 @@ def make_server(store, database=None, port=8765):
         def do_POST(self):
             if not self.local_host():
                 return
-            if self.path != "/api/save":
+            if self.path not in {"/api/save", "/api/ai-review/draft"}:
                 self.send({"error": "Page not found"}, 404); return
             if self.headers.get("X-Annotation-Token") != token:
                 self.send({"error": "Invalid local annotation token"}, 403); return
@@ -233,7 +337,11 @@ def make_server(store, database=None, port=8765):
             if length > 1000000:
                 self.send({"error": "Save payload is too large"}, 413); return
             try:
-                self.send(store.save(json.loads(self.rfile.read(length))))
+                payload = json.loads(self.rfile.read(length))
+                if self.path == "/api/ai-review/draft":
+                    self.send(store.use_ai_draft(payload.get("paper_id", "")))
+                else:
+                    self.send(store.save(payload))
             except (ValueError, KeyError, TypeError) as exc:
                 self.send({"error": str(exc)}, 400)
 

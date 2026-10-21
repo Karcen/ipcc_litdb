@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "checked_date": "2026-10-20",
+  "scope": "Annotation preparation and initial AI review. This is not a completed six-phase manuscript compliance audit.",
+  "github_search_performed": true,
+  "search_topics": [
+    "academic writing",
+    "LaTeX",
+    "bibliographic evidence and reproducibility",
+    "blader humanizer",
+    "Nature Skills"
+  ],
+  "installation_root_relative_to_user_home": ".codex/skills/ipcc-v2-20261020",
+  "installation_method": "Official Codex skill-installer helper, pinned GitHub archives, download method.",
+  "alternative_source_authorization": "The user authorized another verified source after K-Dense-AI/scientific-skills returned 404. The accessible repository used here is K-Dense-AI/scientific-agent-skills.",
+  "skills": [
+    {
+      "skill": "humanizer-upstream",
+      "source": "https://github.com/blader/humanizer",
+      "pinned_commit": "8c307f367c91bd974002f10f2be2965d642c13df",
+      "repository_license_spdx": "MIT",
+      "repository_archived": false,
+      "repository_last_push_utc_observed": "2026-10-16T19:12:03Z",
+      "maintenance_evidence": "GitHub repository metadata checked on 2026-10-20; last push recorded without inferring maintenance frequency.",
+      "installed": true,
+      "main_skill_read": true,
+      "skill_md_sha256": "0612f1dfb1672b0ea9b97e139bf1f06cabe98d8b27424fe8ff01e1fb4cc99cad",
+      "applied_in_annotation_task": true,
+      "application": "Plain English review notes and annotation documentation; facts and source strings preserved."
+    },
+    {
+      "skill": "citation-management",
+      "source": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "pinned_commit": "593377bb048752abb0152deab9fbb1083a6087df",
+      "repository_license_spdx": "MIT",
+      "repository_archived": false,
+      "repository_last_push_utc_observed": "2026-10-19T09:33:57Z",
+      "maintenance_evidence": "GitHub repository metadata checked on 2026-10-20; last push recorded without inferring maintenance frequency.",
+      "installed": true,
+      "main_skill_read": true,
+      "skill_md_sha256": "dc79fe1e8438dcf598040615d5323360c6a7ed0b868fc3ffc82512c871a1e3ff",
+      "applied_in_annotation_task": true,
+      "application": "Distinguish original DOI evidence, local publisher records and pipeline caches; preserve unresolved identifiers."
+    },
+    {
+      "skill": "scientific-writing",
+      "source": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "pinned_commit": "593377bb048752abb0152deab9fbb1083a6087df",
+      "repository_license_spdx": "MIT",
+      "repository_archived": false,
+      "repository_last_push_utc_observed": "2026-10-19T09:33:57Z",
+      "maintenance_evidence": "GitHub repository metadata checked on 2026-10-20; last push recorded without inferring maintenance frequency.",
+      "installed": true,
+      "main_skill_read": true,
+      "skill_md_sha256": "511a2096bebecd8cf0f8212b9d262d37154ae1ba566eb385d93ac968682edbd1",
+      "applied_in_annotation_task": true,
+      "application": "Separate AI initial adjudication from human verification; retain tool provenance and author questions."
+    },
+    {
+      "skill": "nature-data",
+      "source": "https://github.com/Yuan1z0825/nature-skills",
+      "pinned_commit": "c8599197e7d2a22c2a091bbf8c14efcb3625cfa0",
+      "repository_license_spdx": "Apache-2.0",
+      "repository_archived": false,
+      "repository_last_push_utc_observed": "2026-10-20T05:43:25Z",
+      "maintenance_evidence": "GitHub repository metadata checked on 2026-10-20; last push recorded without inferring maintenance frequency.",
+      "installed": true,
+      "main_skill_read": true,
+      "skill_md_sha256": "4ef9c383411b069265901e9f157cb4d73861f42f6ddd28611084005e67eafa43",
+      "applied_in_annotation_task": true,
+      "application": "Bounded availability records for proposal files, source index, hashes and replay scripts; manuscript remains local."
+    },
+    {
+      "skill": "nature-statistics",
+      "source": "https://github.com/Yuan1z0825/nature-skills",
+      "pinned_commit": "c8599197e7d2a22c2a091bbf8c14efcb3625cfa0",
+      "repository_license_spdx": "Apache-2.0",
+      "repository_archived": false,
+      "repository_last_push_utc_observed": "2026-10-20T05:43:25Z",
+      "maintenance_evidence": "GitHub repository metadata checked on 2026-10-20; last push recorded without inferring maintenance frequency.",
+      "installed": true,
+      "main_skill_read": true,
+      "skill_md_sha256": "89d2a101fc45d7adf8ca327a6da4bda4a696d6364d7c36ead4f53413627a9b6f",
+      "applied_in_annotation_task": true,
+      "application": "Separate ID and occurrence units, probability and targeted samples, and proposal counts from validation estimates."
+    },
+    {
+      "skill": "nature-figure",
+      "source": "https://github.com/Yuan1z0825/nature-skills",
+      "pinned_commit": "c8599197e7d2a22c2a091bbf8c14efcb3625cfa0",
+      "repository_license_spdx": "Apache-2.0",
+      "repository_archived": false,
+      "repository_last_push_utc_observed": "2026-10-20T05:43:25Z",
+      "maintenance_evidence": "GitHub repository metadata checked on 2026-10-20; last push recorded without inferring maintenance frequency.",
+      "installed": true,
+      "main_skill_read": true,
+      "skill_md_sha256": "5aefe708a2531c5ddaa8ee74d5155d747e96c0f21a33143d38316b7c5c88ffc4",
+      "applied_in_annotation_task": false,
+      "application": "Installed and main skill read for later manuscript work; no scientific figures changed in this annotation task."
+    },
+    {
+      "skill": "latex-paper-writer",
+      "source": "https://github.com/xu0106/latex-paper-writer-skill",
+      "pinned_commit": "0e9bff38b475191956769f0675adbf57a82246a3",
+      "repository_license_spdx": "MIT",
+      "repository_archived": false,
+      "repository_last_push_utc_observed": "2026-06-26T15:12:22Z",
+      "maintenance_evidence": "GitHub repository metadata checked on 2026-10-20; last push recorded without inferring maintenance frequency.",
+      "installed": true,
+      "main_skill_read": true,
+      "skill_md_sha256": "bad4438703141cfa9d1ab34967bf1b366a952dc8c7da484a861a03c971d97408",
+      "applied_in_annotation_task": false,
+      "application": "Installed and main skill read; manuscript editing and compilation are outside this annotation task."
+    }
+  ],
+  "local_second_prose_pass": {
+    "requested_path_exists": false,
+    "actual_user_supplied_skill": "Downloads/SKILLS/humanizer/humanizer-main/SKILL.md",
+    "skill_md_sha256": "0612f1dfb1672b0ea9b97e139bf1f06cabe98d8b27424fe8ff01e1fb4cc99cad",
+    "read": true,
+    "applied_to": "New annotation documentation and review-note prose; no manuscript text edited."
+  },
+  "anti_defensive_pass": {
+    "user_supplied_skill": "Downloads/SKILLS/anti-defensive-writing-main/SKILL.md",
+    "skill_md_sha256": "ef055917cc1407064cd0deaffd78264c251e8a27c30c112c54c64fb5ca46ef7a",
+    "read": true,
+    "applied_to": "Direct instructions and necessary provenance boundaries in new annotation documentation."
+  },
+  "figures_changed": false,
+  "manuscripts_changed": false,
+  "bibliography_entries_added": false,
+  "human_annotation_completed": false,
+  "version_follow_up_20261021": {
+    "skill_reused": "citation-management",
+    "application": "Check primary RFF revision covers, publisher-indexed journal metadata, an archived version-of-record notice and primary Harvard/SSRN records. Record access failures and separate author-authorized conventions from AI case judgments.",
+    "bibliographic_api_calls": 0,
+    "manuscripts_changed": false,
+    "human_case_confirmation": false
+  }
+}

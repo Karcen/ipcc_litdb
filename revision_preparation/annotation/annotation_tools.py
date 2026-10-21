@@ -56,6 +56,11 @@ METADATA_FIELDS = {"doi", "title", "year", "journal", "authors", "other"}
 MATCHED_STATUS_SETS = {"doi_only", "title_only", "doi_and_title"}
 
 
+def is_ai_annotator(value):
+    """Identify explicit tool provenance, without scanning reviewers' notes."""
+    return bool(re.search(r"\bcodex\b|\bai\b|\bchatgpt\b", str(value or ""), re.I))
+
+
 def digest(path):
     h = hashlib.sha256()
     with Path(path).open("rb") as stream:
@@ -272,6 +277,10 @@ def validate(root=ROOT, id_labels=None, occurrence_labels=None):
         if row.get("metadata_judgment") == "metadata_error" and not (row.get("review_notes") or row.get("evidence_urls")):
             errors.append(f"occurrence {row['occurrence_id']}: metadata error needs notes or evidence")
     for pid, row in ids.items():
+        rr = by_pid[pid]
+        ai_review = is_ai_annotator(row.get("annotator")) or any(is_ai_annotator(r.get("annotator")) for r in rr)
+        if ai_review and (row.get("review_complete") == "yes" or row.get("missed_merge_search_status") == "complete"):
+            errors.append(f"paper {pid}: AI suggestions cannot complete a review or search; source-check the entries and use the actual reviewer's name or code")
         methods = split_values(row.get("missed_merge_search_methods"))
         if methods-SEARCH_METHODS:
             errors.append(f"paper {pid}: invalid missed-merge search methods")
@@ -289,7 +298,6 @@ def validate(root=ROOT, id_labels=None, occurrence_labels=None):
                 errors.append(f"paper {pid}: none_found conflicts with confirmed candidate IDs")
         if row.get("review_complete") != "yes":
             continue
-        rr = by_pid[pid]
         if not row.get("annotator") or not (row.get("review_notes") or row.get("evidence_urls")):
             errors.append(f"paper {pid}: completed review needs annotator and notes/evidence")
         if row.get("identity_label") not in {"correct_merge", "false_merge"}:
@@ -314,7 +322,9 @@ def validate(root=ROOT, id_labels=None, occurrence_labels=None):
     prob_ids = {r["paper_id"] for r in probability}
     shared_prob = {r["paper_id"] for r in probability if is_shared(r)}
     valid = not errors and not report["missing_files"]
-    ready_id = lambda pid: ids.get(pid, {}).get("review_complete") == "yes"
+    ready_id = lambda pid: (ids.get(pid, {}).get("review_complete") == "yes"
+                           and not is_ai_annotator(ids.get(pid, {}).get("annotator"))
+                           and not any(is_ai_annotator(r.get("annotator")) for r in by_pid[pid]))
     report["readiness"] = {
         "probability_identity": valid and all(ready_id(pid) for pid in prob_ids),
         "probability_shared_link": valid and all(ready_id(pid) for pid in shared_prob),
@@ -325,7 +335,9 @@ def validate(root=ROOT, id_labels=None, occurrence_labels=None):
     }
     report["completed_ids"] = sum(ready_id(pid) for pid in ids)
     report["completed_probability_ids"] = sum(ready_id(pid) for pid in prob_ids)
-    report["completed_searches"] = sum(r.get("missed_merge_search_status") == "complete" for r in ids.values())
+    report["completed_searches"] = sum(r.get("missed_merge_search_status") == "complete"
+        and not is_ai_annotator(r.get("annotator"))
+        and not any(is_ai_annotator(o.get("annotator")) for o in by_pid[pid]) for pid, r in ids.items())
     report["status"] = "invalid" if errors else "ready_for_estimates" if all(report["readiness"].values()) else "pending_annotation"
     return report, ids, entries
 

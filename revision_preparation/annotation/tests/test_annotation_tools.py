@@ -285,3 +285,167 @@ def test_local_http_autosave_export_and_token_guard(bundle):
         assert error.value.code == 403
     finally:
         server.shutdown(); server.server_close(); thread.join()
+
+
+def ai_proposals(root):
+    """Synthetic suggestions, separate from all production annotations."""
+    ids = tools.read_csv(root/"templates/id_annotations.csv")
+    entries = tools.read_csv(root/"templates/occurrence_annotations.csv")
+    cases = []
+    for row in ids:
+        pid = row["paper_id"]
+        cases.append({"paper_id": int(pid), "annotator": "Codex (AI-assisted initial review)",
+            "review_complete": "no", "identity_label": "correct_merge",
+            "shared_link_label": "same_work" if tools.is_shared(row) else "not_shared",
+            "review_notes": "Synthetic AI suggestion. Check the sources before confirming.",
+            "missed_merge_search_status": "incomplete", "missed_merge_result": "unresolved",
+            "missed_merge_candidate_ids": [123], "missed_merge_search_notes": "Synthetic offline retrieval.",
+            "occurrences": [{"occurrence_id": r["occurrence_id"], "work_groups": "A",
+                "metadata_judgment": "correct", "metadata_error_fields": "",
+                "review_notes": "Synthetic suggested occurrence check.", "evidence_urls": ["https://example.org/source"]}
+                for r in entries if r["paper_id"] == pid]})
+    payload = {"schema_version": "ipcc-ai-initial-review-1", "review_type": "ai_assisted_initial_review",
+               "human_validated": False, "cases": cases}
+    path = root/"ai_review"/"proposals.json"; path.parent.mkdir(exist_ok=True)
+    tools.write_json(path, payload)
+    return payload
+
+
+def test_ai_proposals_are_read_only_and_missing_file_is_normal(bundle):
+    store = AnnotationStore(bundle)
+    assert store.ai_review() == {"available": False, "human_validated": False, "cases": []}
+    ai_proposals(bundle)
+    before = {p: tools.digest(p) for p in (bundle/"work").iterdir()}
+    response = store.ai_review()
+    assert response["available"] and not response["human_validated"]
+    assert response["case_count"] == 6
+    assert all(tools.digest(p) == h for p, h in before.items())
+    assert all(not row["identity_label"] for row in store.state["ids"].values())
+
+
+@pytest.mark.parametrize("problem", ["wrong_provenance", "claimed_human_validation", "unknown_id", "duplicate_id", "missing_id", "missing_occurrence", "wrong_occurrence", "duplicate_occurrence", "completed_AI", "invalid_label"])
+def test_ai_proposal_keys_and_provenance_must_match_frozen_sample(bundle, problem):
+    store = AnnotationStore(bundle)
+    payload = ai_proposals(bundle)
+    if problem == "wrong_provenance": payload["review_type"] = "human_review"
+    elif problem == "claimed_human_validation": payload["human_validated"] = True
+    elif problem == "unknown_id": payload["cases"][0]["paper_id"] = 999999
+    elif problem == "duplicate_id": payload["cases"][1]["paper_id"] = payload["cases"][0]["paper_id"]
+    elif problem == "missing_id": payload["cases"].pop()
+    elif problem == "missing_occurrence": payload["cases"][0]["occurrences"].pop()
+    elif problem == "wrong_occurrence": payload["cases"][0]["occurrences"][0]["occurrence_id"] = "AR5-2"
+    elif problem == "duplicate_occurrence": payload["cases"][0]["occurrences"].append(payload["cases"][0]["occurrences"][0])
+    elif problem == "completed_AI": payload["cases"][0]["review_complete"] = "yes"
+    elif problem == "invalid_label": payload["cases"][0]["identity_label"] = "automatic_gold"
+    tools.write_json(bundle/"ai_review"/"proposals.json", payload)
+    with pytest.raises(ValueError):
+        store.ai_review()
+
+
+def test_ai_draft_copies_only_blank_fields_and_never_completes_review_or_search(bundle):
+    store = AnnotationStore(bundle)
+    payload = ai_proposals(bundle)
+    payload["cases"][0]["missed_merge_search_status"] = "complete"
+    tools.write_json(bundle/"ai_review"/"proposals.json", payload)
+    store.save({"paper_id": "1", "id_labels": {"annotator": "JZ", "review_notes": "Existing author note", "identity_label": "unresolved"},
+        "occurrence_labels": {"AR5-1": {"annotator": "JZ", "review_notes": "Existing occurrence note", "metadata_judgment": "unresolved"}}})
+    result = store.use_ai_draft("1")
+    assert result["draft_only"] and not result["human_validated"]
+    row = store.state["ids"]["1"]
+    assert row["annotator"] == "JZ" and row["review_notes"] == "Existing author note" and row["identity_label"] == "unresolved"
+    assert row["review_complete"] == "no" and row["missed_merge_search_status"] == "incomplete"
+    assert row["missed_merge_candidate_ids"] == "123"
+    assert store.state["occurrences"]["AR5-1"]["review_notes"] == "Existing occurrence note"
+    assert store.state["occurrences"]["AR5-1"]["metadata_judgment"] == "unresolved"
+    assert store.state["occurrences"]["AR6-1"]["annotator"] == "Codex (AI-assisted initial review)"
+    assert store.state["occurrences"]["AR6-1"]["evidence_urls"] == "https://example.org/source"
+    log = [json.loads(line) for line in (bundle/"work/change_log.jsonl").read_text().splitlines()]
+    assert log[-1]["origin"] == "ai_proposal_draft"
+
+
+def test_ai_draft_will_not_modify_an_already_completed_human_id(bundle):
+    store = AnnotationStore(bundle)
+    ai_proposals(bundle)
+    ids, occurrences = completed_labels(bundle)
+    row = next(r for r in ids if r["paper_id"] == "1")
+    store.save({"paper_id": "1", "id_labels": {k: row[k] for k in tools.ID_FIELDS},
+        "occurrence_labels": {r["occurrence_id"]: {k: r[k] for k in tools.OCCURRENCE_FIELDS}
+                              for r in occurrences if r["paper_id"] == "1"}})
+    before = deepcopy(store.state)
+    with pytest.raises(ValueError, match="already has a completed review"):
+        store.use_ai_draft("1")
+    assert store.state == before
+
+
+def test_backend_provenance_guard_requires_actual_reviewer_after_AI_draft(bundle):
+    store = AnnotationStore(bundle)
+    ai_proposals(bundle)
+    store.use_ai_draft("1")
+    before = deepcopy(store.state)
+    with pytest.raises(ValueError, match="actual reviewer's name or code"):
+        store.save({"paper_id": "1", "id_labels": {"review_complete": "yes"}})
+    assert store.state == before
+    with pytest.raises(ValueError, match="actual reviewer's name or code"):
+        store.save({"paper_id": "1", "id_labels": {"annotator": "JZ", "review_complete": "yes"}})
+    store.save({"paper_id": "1", "id_labels": {"annotator": "JZ", "review_complete": "yes", "review_notes": "Author checked the sources with AI assistance disclosed."},
+        "occurrence_labels": {oid: {"annotator": "JZ"} for oid, row in store.occurrences.items() if row["paper_id"] == "1"}})
+    assert store.state["ids"]["1"]["review_complete"] == "yes"
+    assert "AI assistance" in store.state["ids"]["1"]["review_notes"]
+
+
+@pytest.mark.parametrize("annotator", ["Codex", "Codex (AI-assisted initial review)", "AI initial review", "ChatGPT"])
+def test_CLI_estimator_rejects_AI_completion_even_if_imported_as_CSV(bundle, annotator):
+    ids, entries = completed_labels(bundle)
+    ids[0]["annotator"] = annotator
+    result = tools.estimate(bundle, *save_labels(bundle, ids, entries))
+    assert result["status"] == "invalid" and not result["rates"] and not result["recurrence_stress"]
+    assert any("AI suggestions cannot complete" in e for e in result["integrity"]["errors"])
+    assert result["integrity"]["completed_ids"] == 5
+
+
+def test_AI_occurrence_provenance_also_blocks_CLI_but_AI_disclosure_notes_do_not(bundle):
+    ids, entries = completed_labels(bundle)
+    entries[0]["annotator"] = "Codex (AI-assisted initial review)"
+    assert tools.estimate(bundle, *save_labels(bundle, ids, entries))["status"] == "invalid"
+    entries[0]["annotator"] = "JZ"
+    ids[0]["review_notes"] += " AI assistance was used, then the author checked the original sources."
+    assert tools.estimate(bundle, *save_labels(bundle, ids, entries))["status"] == "all_planned_estimates_ready"
+
+
+def test_AI_routes_are_read_only_unless_user_requests_a_token_protected_draft(bundle):
+    store = AnnotationStore(bundle)
+    server = make_server(store, port=0)
+    thread = threading.Thread(target=server.serve_forever, daemon=True); thread.start()
+    base = f"http://127.0.0.1:{server.server_port}"
+    try:
+        assert json.load(urlopen(base+"/api/ai-review"))["available"] is False
+        ai_proposals(bundle)
+        assert json.load(urlopen(base+"/api/ai-review"))["available"] is True
+        assert all(not r["identity_label"] for r in store.state["ids"].values())
+        payload = json.dumps({"paper_id": "1"}).encode()
+        with pytest.raises(HTTPError) as error:
+            urlopen(Request(base+"/api/ai-review/draft", payload, {"Content-Type": "application/json"}))
+        assert error.value.code == 403
+        token = json.load(urlopen(base+"/api/dataset"))["token"]
+        result = json.load(urlopen(Request(base+"/api/ai-review/draft", payload,
+            {"Content-Type": "application/json", "X-Annotation-Token": token})))
+        assert result["draft_only"] and not result["human_validated"]
+        assert store.state["ids"]["1"]["review_complete"] == "no"
+    finally:
+        server.shutdown(); server.server_close(); thread.join()
+
+
+def test_PDF_source_index_zero_links_to_first_page_without_changing_source_values():
+    import os
+    import re
+    import shutil
+    import subprocess
+    page = (Path(__file__).resolve().parents[1]/"app.html").read_text()
+    helper = re.search(r"function pdfPage\(value\)\{.*?\n\}", page, re.S).group(0)
+    configured = os.environ.get("NODE_BINARY")
+    node = shutil.which(configured) if configured else shutil.which("node")
+    if not node:
+        pytest.skip("Set NODE_BINARY or install Node.js to exercise the JavaScript PDF page helper")
+    script = helper + "\nconsole.log(JSON.stringify([0,'0',1,'17',null,'',-1,'x',2.5].map(pdfPage)));"
+    result = subprocess.run([node, "-e", script], text=True, capture_output=True, check=True)
+    assert json.loads(result.stdout) == [1, 1, 2, 18, None, None, None, None, None]

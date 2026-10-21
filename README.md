@@ -4,6 +4,19 @@ A searchable database of the works cited in IPCC reports, with a local dashboard
 
 This is the second project alongside [IPCC References Toolkit](https://github.com/Karcen/ipcc_refs_toolkit). The toolkit collects and processes references; this repository provides the database and the interface for studying them across reports.
 
+## What's new
+
+### 2026-10-21
+
+- Updated the [AI review proposals](revision_preparation/annotation/ai_review/proposals.json) to `ai-initial-review-1.1.0`. The [version ledger](revision_preparation/annotation/ai_review/version_decisions.json) records source checks for three working-paper, preprint and journal-version relationships.
+- Applied the author-authorized rules: group verified versions of the same study and use the year of the version actually cited for citation age. The frozen database and registered analysis results remain unchanged.
+- Updated the annotation interface, proposal exports and checks. All 42 annotation tests passed. Individual proposals await author confirmation.
+
+### 2026-10-20
+
+- Added initial AI proposals for all 331 sampled IDs and 801 original entries, with source links, a review priority queue and offline evidence-replay tools.
+- Added a separate AI review panel to the [annotation workspace](#manual-annotation). Draft import fills blank fields, preserves existing annotations and leaves human review completion pending.
+
 ## Quick start
 
 Use Python 3.10 or later:
@@ -42,6 +55,7 @@ Stopping the containers preserves the database volume, including review history.
 
 ## Contents
 
+- [What's new](#whats-new)
 - [Data and coverage](#data-and-coverage)
 - [Dashboard](#dashboard)
 - [Repository layout](#repository-layout)
@@ -388,7 +402,7 @@ Age uncertainty tables describe stability under chapter resampling within this f
 
 Outlet sensitivities compare the preferred labels, conservative punctuation aliases, and registered WoS source titles. The local snapshot and upstream exports lack usable ISSNs. The alias crosswalk records exactly which strings were combined. Named-outlet concentration and richness have separate results; outlet labels do not assign disciplines.
 
-The corrected review worksheet contains 331 IDs and 801 printed entries: 319 probability-sampled IDs and 12 additional targeted anomaly IDs. Mechanical title, DOI, year, and author flags accompany the raw entries. Structured annotation has not started. The local annotation interface stores author decisions in a separate export, and the estimator requires every planned review and duplicate search to be complete. The separate correction ledger records AI-assisted comparisons by Codex (ChatGPT 6.1 Sol) with original citations and primary bibliographic sources. The authors report that they checked the primary sources for all eleven nominated cases. Informal spot checks were performed during the original collection. Weighted linkage rates will be generated from the completed probability annotations after integrity checks pass. The current release contains no annotation-derived accuracy estimates.
+The corrected review worksheet contains 331 IDs and 801 printed entries: 319 probability-sampled IDs and 12 additional targeted anomaly IDs. Mechanical title, DOI, year, and author flags accompany the raw entries. Codex has completed an initial review of this worksheet. Its proposals and evidence are separate from the author annotation exports. The estimator requires every planned human review and duplicate search to be complete. The separate correction ledger records earlier AI-assisted comparisons by Codex (ChatGPT 6.1 Sol) with original citations and primary bibliographic sources. The authors report that they checked the primary sources for all eleven nominated correction cases. Informal spot checks were performed during the original collection. Weighted linkage rates await completed probability annotations and integrity checks. The current release contains no annotation-derived accuracy estimates.
 
 ## Manual annotation
 
@@ -411,6 +425,43 @@ Open [the annotation workspace](http://127.0.0.1:8765/). The server uses the loc
 Read the [annotation rules](revision_preparation/annotation/annotation_rules.txt). Assign a document group to each original entry. Record the within-ID identity decision, cross-report sharing decision and occurrence metadata judgment separately. Then search for the same work under other IDs and record the queries, candidates and evidence. A false merge can still contain a genuinely shared work. Finding no duplicate during the specified search describes that search result, rather than global linkage recall.
 
 Edits save automatically in `revision_preparation/annotation/work/`. Wait for **Saved locally** before closing the page. **Save and next ID** saves the current record before navigation. **Check annotations** reports missing or inconsistent decisions without changing them. **Export files** downloads the ID CSV, occurrence CSV and complete work JSON. Back up the work directory or exported files while annotating. Work files and generated estimate directories are excluded from Git.
+
+### AI-assisted initial review
+
+[Initial proposals](revision_preparation/annotation/ai_review/proposals.json) cover all 331 sampled IDs and 801 original entries. Codex read the frozen references, compared stored metadata and inspected source-page evidence and selected local cited-paper PDFs. All 76 sampled IPCC PDFs match the snapshot hashes. The review proposes false merges for 15 IDs and counterpart records for 41 IDs. Metadata questions remain open for 66 IDs. These are unweighted AI proposal counts, recorded in a separate [manifest](revision_preparation/annotation/ai_review/manifest.json). Human confirmation remains pending, and every duplicate search remains incomplete.
+
+The **AI-assisted initial review** panel shows each proposal, its reasons, occurrence judgments and candidate citations. Use the issue and uncertainty filters to find cases that need attention. **Use as draft for this ID** copies suggestions into blank fields. Existing annotations stay in place. Check the original entries and sources, resolve open questions, and enter your actual reviewer code before marking a review complete. The browser and estimator reject completed reviews attributed to Codex or an AI reviewer. The saved notes retain the AI assistance disclosure.
+
+The [priority queue](revision_preparation/annotation/ai_review/priority_queue.csv) lists cases for source review. The [source index](revision_preparation/annotation/ai_review/source_index.csv) records original-string hashes, PDF hashes and both page conventions. Stored page indices start at zero; browser PDF pages start at one. A compound extraction can continue beyond its recorded starting page. Working-paper, preprint and journal-version decisions remain unresolved where the available evidence does not establish equivalence.
+
+On 21 October 2026, the author authorized two rules: group publication versions only after their study identity is verified, and use the year of the version actually cited for citation age. Codex checked IDs 33960, 49343 and 102897 against the sources recorded in [the version ledger](revision_preparation/annotation/ai_review/version_decisions.json). These AI proposals now group the verified versions; author confirmation of individual judgments remains pending. ID 33960's working-paper occurrence has a proposed cited-version year of 2004; its preferred 2008 journal year is a version-substitution error for that occurrence. The snapshot and registered results remain unchanged.
+
+The same suggestions are available as [ID proposals](revision_preparation/annotation/ai_review/id_proposals.csv) and [occurrence proposals](revision_preparation/annotation/ai_review/occurrence_proposals.csv) for spreadsheet review. They retain all original fields and weights, identify Codex as the reviewer and leave review completion at `no`. Author annotations continue to save separately in `work/`.
+
+Check the proposal package and the unchanged 29 registered tables:
+
+```bash
+python3 scripts/check_ai_annotation_proposals.py
+```
+
+After a sourced update to the saved proposals, `python3 scripts/refresh_ai_review_exports.py --write` refreshes their derived CSVs and manifest hashes. It exports the recorded judgments and leaves human annotations untouched. Run the proposal checker afterwards.
+
+Rebuild offline retrieval evidence from the restored snapshot in a fresh output directory:
+
+```bash
+python3 scripts/build_offline_annotation_candidates.py \
+  --repo . --output revision_preparation/annotation/work/ai_evidence/retrieval_replay
+```
+
+Source-page extraction also requires `pdftotext` and a local workspace containing the original `input/raw/` PDFs. Existing `output/papers/` PDFs and enrichment caches are optional:
+
+```bash
+python3 scripts/extract_annotation_source_pages.py \
+  --repo . --workspace "/path/to/IPCC Database" \
+  --output revision_preparation/annotation/work/ai_evidence/source_pages_replay.json
+```
+
+These commands reconstruct retrieval and page evidence. They preserve the frozen source strings and do not adjudicate identities or create accuracy estimates. The archived [retrieval log](revision_preparation/annotation/ai_review/retrieval_log.json.gz) records query parameters and uncapped results. [Review scope](revision_preparation/annotation/ai_review/review_scope.txt) describes what was inspected and what remains for the authors.
 
 Run the integrity check against saved labels:
 
@@ -478,7 +529,7 @@ python revision_preparation/literature/check_archived_verification.py
 
 The inclusive zero-through-five-year share is this analysis's operational definition. Price's historical immediacy discussion supplies context; it does not establish this exact boundary.
 
-[Changes](changes.md) maps the revision work to the requested tasks. [Reviewer preparation](reviewer_prep.md) contains eight anticipated comments and responses conditional on the stated checks. [Author requirements](author_requirements.md) lists the manuscript's nine pending information requests. The submitted manuscript and revision manuscript, complete bibliographies and compiled PDFs remain outside this public repository. This release contains the annotation tools, empty templates, analysis code, registered results and verification records.
+[Changes](changes.md) maps the revision work to the requested tasks. [Reviewer preparation](reviewer_prep.md) contains eight anticipated comments and responses conditional on the stated checks. [Author requirements](author_requirements.md) lists the manuscript's nine pending information requests. The submitted manuscript and revision manuscript, complete bibliographies and compiled PDFs remain outside this public repository. This repository contains annotation tools, empty human-label templates, separate AI initial-review proposals, analysis code, registered results and verification records.
 
 ## Exports and API
 
@@ -664,6 +715,8 @@ Correction tests cover expected-value preconditions, immutable raw occurrences, 
 ## GitHub distribution
 
 The source repository is [Karcen/ipcc_litdb](https://github.com/Karcen/ipcc_litdb). Clone it or extract a source ZIP, then follow the Quick start commands.
+
+Before each GitHub update, add a dated entry to [What's new](#whats-new) describing the changes and the data or analysis version involved. Keep the newest entries first and retain the earlier entries. Link the relevant checks and provenance records.
 
 The compressed snapshot is about 70 MiB; the restored database is about 238 MiB and is ignored by Git. Use Git to publish a fork with the snapshot because [GitHub's browser uploader accepts files up to 25 MiB, while regular Git blocks files larger than 100 MiB](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github).
 

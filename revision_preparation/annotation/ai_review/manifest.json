@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "artifact_version": "ai-initial-review-1.1.0",
+  "artifact_type": "annotation_proposals_not_validation_results",
+  "created_utc": "2026-10-20T11:28:22.997254+00:00",
+  "database_sha256": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+  "source_manifest_sha256": "3042fdf6a4c66a7d34e34646b6bcdfe1bfbd910a050bee8a10d8728d2227e157",
+  "original_analysis_manifest_sha256": "ddd60b576a71ddaa389ca95a40e044febd6426161628eb907762ebafaceca9c1",
+  "sampling_seed_unchanged": 20261011,
+  "human_validated": false,
+  "weighted_estimates_generated": false,
+  "database_modified": false,
+  "original_29_tables_modified": false,
+  "counts": {
+    "sampled_ids": 331,
+    "probability_ids": 319,
+    "targeted_ids": 12,
+    "occurrences": 801,
+    "primary_ipcc_pdfs": 76,
+    "primary_source_start_pages": 682,
+    "ai_identity_proposals": {
+      "correct_merge": 316,
+      "false_merge": 15
+    },
+    "ai_occurrence_metadata_proposals": {
+      "unresolved": 115,
+      "correct": 558,
+      "metadata_error": 128
+    },
+    "ids_with_counterpart_proposals": 41,
+    "ids_with_identity_or_metadata_uncertainty": 66,
+    "completed_human_reviews": 0,
+    "completed_exhaustive_duplicate_searches": 0
+  },
+  "source_review_artifacts": {
+    "review_000_110.json": "73dbff3d6691c6744c927d1fadc197988f3dfea62d4e413d95672fe61deed534",
+    "duplicate_review_000_110.json": "eb9e21bd8ef3a7e2ff531161f8181b9ac301763e264f9ce7661aeae3b9d17dff",
+    "review_110_220.json": "a21f256323929dd6cf0687cc217baa0acaed8f8248ca9653e1b3282255f2721c",
+    "review_220_331.json": "9d7bc9fda32ba242af9ebfa3be1686fe4021a80bc3c6449d9cd7b54f214cea53",
+    "source_pages.json": "a8dc738e191abfef225e4ff1e5bc39b80ca508ad9e6b25b7d5ab9fc61ed29be5",
+    "candidate_packets.json": "ea185eafde78eb161010a82c7a4a3e019aa726ee0e5edc4b677113b936032e37"
+  },
+  "files": {
+    "proposals.json": {
+      "sha256": "33e1aca690e8872d6a1d71616a77d4fe5559379bb5392d5ab1a50ebb0471ac32",
+      "bytes": 2899425
+    },
+    "source_index.csv": {
+      "sha256": "67bd666e9202519dc573493c802a109b586a2be62c443f7911156dcb478e4f97",
+      "bytes": 265193
+    },
+    "priority_queue.csv": {
+      "sha256": "cdff2beede1ec86d42bb200df051a709c006850f37590fd9dc9605fa62bb46c5",
+      "bytes": 113192
+    },
+    "retrieval_log.json.gz": {
+      "sha256": "85f147923398ac08fca14a7d187b804aac84318612ddb4564c044d7e55f80388",
+      "bytes": 316241
+    },
+    "id_proposals.csv": {
+      "sha256": "2e18d6de09f83bbbd12dc974ad664aebd38d8be1062f980128d84e8d52644ba5",
+      "bytes": 681002
+    },
+    "occurrence_proposals.csv": {
+      "sha256": "36aa415c6a76a2bb5fb7c715ade14fdc4e28c5468d0058e2989c367673c31508",
+      "bytes": 1539777
+    },
+    "review_scope.txt": {
+      "sha256": "b1395751c87f1556c6ea6c409cfc0c7033565138c0d37e55a89696ad267d8fa8",
+      "bytes": 5150
+    },
+    "skills_provenance.json": {
+      "sha256": "1747dbf1702e77bcaec7edfd3d559d5c051249026d8e37c3f1efba75d2f4914e",
+      "bytes": 7610
+    },
+    "version_decisions.json": {
+      "sha256": "af296f3b950aafe8d15ab4dc6ededcc5bc801c640991f0efcc57ea5ac8f42ff6",
+      "bytes": 6702
+    }
+  },
+  "local_evidence_archived_under": "work/ai_evidence/",
+  "provenance": "Codex and delegated Codex agents performed initial textual adjudication. Author confirmation is absent. Proposal counts do not estimate population accuracy.",
+  "version_cases_pending_author": [],
+  "normalization_notes": [
+    "Initial none-found outcomes with incomplete searches are displayed as unresolved. No negative population label is inferred.",
+    "Explicit unresolved candidate verdicts remain listed in the priority queue.",
+    "Occurrence metadata uncertainty and unadjudicated candidate ID fields are retained where present in source reviews."
+  ],
+  "reproduction_helpers": {
+    "scripts/build_offline_annotation_candidates.py": {
+      "sha256": "a4cac1d8b19f7302cd0a75b46e81d7d8d4e65f40bbd20662718c54697970f1e3",
+      "bytes": 18647
+    },
+    "scripts/extract_annotation_source_pages.py": {
+      "sha256": "b63c7dafc40fd97a07a9dba18583b155d6529a90c26c743397fd1e871914baa3",
+      "bytes": 11575
+    },
+    "scripts/check_ai_annotation_proposals.py": {
+      "sha256": "e0c99505184aa6afd9f7c468fe4fe07dbd73d2e459d8d11f6e51484c195af43a",
+      "bytes": 11902
+    },
+    "scripts/refresh_ai_review_exports.py": {
+      "sha256": "9ed87a89e2716708d658a6dfe1864994b3c8b83c3b9d6512da7e3a7b143ef05f",
+      "bytes": 5473
+    }
+  },
+  "updated_utc": "2026-10-21T02:15:16.992693+00:00",
+  "version_policy": {
+    "policy_id": "verified-study-versions-20261021",
+    "authorized_date": "2026-10-21",
+    "authority": "Direct author instruction in this conversation",
+    "definition": "Group a working paper, preprint and journal article as one study only after their version relationship is verified. Similar titles alone do not establish equivalence.",
+    "case_verification": "AI-assisted source inspection; the author authorized the convention, not the individual judgments.",
+    "human_case_confirmation": false,
+    "age_convention": "Use the verified year of the version actually cited in each original entry; preserve final-publication metadata separately.",
+    "age_convention_authorized_date": "2026-10-21"
+  },
+  "version_metadata_cases_pending_author": []
+}

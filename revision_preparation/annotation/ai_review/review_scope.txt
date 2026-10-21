@@ -1,0 +1,89 @@
+AI-assisted initial annotation review
+
+Version: ai-initial-review-1.1.0
+Date: 20 October 2026; version follow-up 21 October 2026
+Reviewer: Codex, with delegated Codex agents
+Human confirmation: pending
+
+Coverage
+
+The proposals cover the fixed 331-ID sample: 319 probability IDs, 12 targeted
+supplements and 801 original AR5/AR6 entries. Each ID has an initial identity
+and shared-link judgment. Each occurrence has a metadata judgment. The version
+follow-up resolves the two initially uncertain within-ID identities. All sampled
+occurrences now have proposed work groups. Metadata questions remain separate.
+
+The agents read the frozen original entries and compared titles, authors,
+years, identifiers and outlets. Local evidence contains 682 source start pages
+from 76 IPCC PDFs. Every source PDF hash agrees with the read-only snapshot.
+The review used extracted page text and selected full bibliography contexts,
+including adjacent pages for truncated references. It did not visually inspect
+every complete PDF page. Fifty DOI-derived filenames identified local cited-PDF
+candidates. Their contents were checked where the case notes cite such evidence;
+a filename alone was not treated as proof of identity. Existing enrichment
+caches retain their pipeline provenance. No new bibliographic API requests
+were made for this annotation review. The version follow-up also read primary
+RFF PDFs, publisher-indexed journal content, an archived Research Square version
+notice, and primary Harvard and SSRN records. The version ledger records the
+source locators, file hashes where archived, and unsuccessful direct page access.
+
+Identity and metadata
+
+Work-group letters identify documents within one sampled ID. They are separate
+from IPCC working groups. Distinct complete references in a joined extraction
+receive distinct letters. A shared matched ID can contain an extraction error
+and still contain the same document in AR5 and AR6. Caption and axis-text
+contamination is recorded separately from an additional bibliography document.
+Metadata judgments identify fields or extraction problems. An unprinted enriched
+DOI and an unsupported publication-date convention can remain unresolved while
+the within-ID identity is clear. Online-first and final publication years alone
+do not establish different works.
+
+Duplicate search
+
+Offline retrieval searched the full saved snapshot across report cycles and
+matching statuses. It retained 6,321 executed queries without result caps.
+Queries used original DOI strings, repaired DOI tokens, original-text title
+fragments and first-author/year variants. Preferred-field searches supplement
+original-text searches. The retrieval log records actual query definitions,
+parameters, hit memberships and scope.
+
+The agents inspected selected plausible original-entry candidates. Positive
+counterpart proposals have comparison notes. Broad thematic and surname/year
+hits are not all adjudicated. Every missed-merge search therefore remains
+incomplete. An initial failure to establish a counterpart is displayed as
+unresolved; it is not a negative validation label or a recall estimate.
+
+Version convention and pending author decisions
+
+On 21 October 2026, the author authorized grouping working-paper, preprint and
+journal versions after verifying that they represent one study. Primary evidence
+supports the RFF revision chain and journal study for ID 33960, the explicit
+preprint-to-final link for ID 49343, and the Craig repository/journal counterpart
+for ID 102897. Counterparts 101061, 50552 and 81555 are now AI proposals. The
+earlier date in the working-paper citation for ID 33960 remains distinct from
+its preferred journal date. The author also specified cited-version years for
+citation age. Its 2004 working-paper occurrence therefore has a proposed year
+error where the preferred metadata supply 2008. The database remains unchanged.
+
+The author must confirm the individual judgments and complete the duplicate-search
+protocol before validation estimates are generated. Author authorization of the
+version convention does not assert source checking of the individual cases.
+Other open metadata fields, source checks and candidate judgments remain in the
+case notes. The version follow-up changes no scientific result.
+
+Interface and exports
+
+The initial proposals are read-only until the user selects Use as draft for
+this ID. Import fills blank fields only and preserves existing annotations.
+Imported drafts retain a Codex reviewer label and incomplete review/search
+status. The user checks sources and records their actual reviewer code before
+confirming an ID. The browser and CSV validator reject a completed review
+attributed to an AI reviewer. The initial proposal file never asserts human
+confirmation. Human labels and their change log remain under ignored work/.
+
+The artifact counts describe initial AI proposals. No probability weights,
+confidence intervals or recurrence adjustments were computed from them. The
+snapshot, original strings, original 29 registered tables and seed 20261011
+remain unchanged. Manuscript files remain private and were not edited during
+this annotation task.

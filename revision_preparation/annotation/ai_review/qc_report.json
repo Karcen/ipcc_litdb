@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "checked_utc": "2026-10-21T02:39:11.190928+00:00",
+  "status": "passed",
+  "scope": "Structural and provenance checks on AI suggestions, not validation of bibliographic judgments.",
+  "proposal_sha256": "33e1aca690e8872d6a1d71616a77d4fe5559379bb5392d5ab1a50ebb0471ac32",
+  "human_validated": false,
+  "weighted_estimates_generated": false,
+  "observed": {
+    "sampled_ids": 331,
+    "occurrences": 801,
+    "identity_proposals": {
+      "correct_merge": 316,
+      "false_merge": 15
+    },
+    "metadata_proposals": {
+      "unresolved": 115,
+      "correct": 558,
+      "metadata_error": 128
+    },
+    "explicitly_unresolved_work_groups": 0,
+    "original_registered_tables_unchanged": 29
+  },
+  "errors": []
+}

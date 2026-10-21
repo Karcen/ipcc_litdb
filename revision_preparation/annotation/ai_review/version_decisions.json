@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "artifact_version": "ai-initial-review-1.1.0",
+  "checked_utc": "2026-10-21T02:15:16.992693+00:00",
+  "policy": {
+    "policy_id": "verified-study-versions-20261021",
+    "authorized_date": "2026-10-21",
+    "authority": "Direct author instruction in this conversation",
+    "definition": "Group a working paper, preprint and journal article as one study only after their version relationship is verified. Similar titles alone do not establish equivalence.",
+    "case_verification": "AI-assisted source inspection; the author authorized the convention, not the individual judgments.",
+    "human_case_confirmation": false,
+    "age_convention": "Use the verified year of the version actually cited in each original entry; preserve final-publication metadata separately.",
+    "age_convention_authorized_date": "2026-10-21"
+  },
+  "base_proposals_sha256": "6c40f6a42ae328f3cd15b70b9c0fc81a78aca2dc650bc969dad18935ef5c685a",
+  "updated_proposals_sha256": "33e1aca690e8872d6a1d71616a77d4fe5559379bb5392d5ab1a50ebb0471ac32",
+  "evidence": [
+    {
+      "evidence_id": "rff-original",
+      "url": "https://media.rff.org/archive/files/sharepoint/WorkImages/Download/RFF-DP-04-05.pdf",
+      "sha256": "e04087124ee3e43d81c6ae9c14d34cdcb5ca493e962ac20b9cfd1c01948c8279",
+      "locator": "Cover and abstract, viewer pages 1–2",
+      "observation": "Fischer and Newell; RFF discussion paper 04-05, April 2004; earlier title concerns climate change and renewable energy."
+    },
+    {
+      "evidence_id": "rff-revision",
+      "url": "https://media.rff.org/archive/files/sharepoint/WorkImages/Download/RFF-DP-04-05-REV.pdf",
+      "sha256": "30d14a621ca73284521a8565f3f94dc9e96d7bdfbad6aecf8323888be4fa4f3f",
+      "locator": "Cover and abstract, viewer pages 1–2",
+      "observation": "Same RFF paper number and authors; cover dates the revision to February 2007 and uses the climate-mitigation title. The abstract matches the journal study in design and policy ranking."
+    },
+    {
+      "evidence_id": "jeem-final",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0095069607001064",
+      "locator": "Publisher-indexed abstract, journal metadata and reference to RFF paper 04-05",
+      "access": "Indexed primary publisher content available; direct web open returned 403. Full journal PDF was not inspected.",
+      "observation": "DOI 10.1016/j.jeem.2007.11.001; 2008, volume 55, pages 142–162. Same authors, revised title, six-instrument electricity model and abstract-level results support the version lineage."
+    },
+    {
+      "evidence_id": "berrang-preprint",
+      "url": "https://www.researchsquare.com/article/rs-100873/v1.pdf?c=1637612964000#page=8",
+      "sha256": "3b959af9f1e6ef5c6d1f5a236fe9381abad4ed8ca149409b9b0e502ff0641244",
+      "locator": "Archived preprint viewer page 8, zero-based page 7; study description on viewer page 11",
+      "observation": "The version-of-record notice explicitly links preprint DOI 10.21203/rs.3.rs-100873/v1 to final DOI 10.1038/s41558-021-01170-y, published 28 October 2021. The v1 posted date is 29 January 2021."
+    },
+    {
+      "evidence_id": "craig-publisher",
+      "url": "https://journals.law.harvard.edu/elr/wp-content/uploads/sites/79/2019/08/34.1-Craig.pdf",
+      "locator": "Official article first and last pages; viewer pages 1 and 65",
+      "observation": "Robin Kundis Craig; the adaptation-law article in Harvard Environmental Law Review 34 (2010), printed pages 9–73. The original source citations vary in their final-page numbers."
+    },
+    {
+      "evidence_id": "craig-issue",
+      "url": "https://journals.law.harvard.edu/elr/archive/volume-34-number-1-2010/",
+      "locator": "Publisher issue contents",
+      "observation": "The Craig article appears in volume 34, issue 1. The next article starts at page 75; the article PDF itself establishes Craig’s final page as 73."
+    },
+    {
+      "evidence_id": "craig-ssrn",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1357766",
+      "access": "Indexed primary SSRN record inspected. Direct short-link open was inaccessible; canonical page returned 403. Full repository text was not compared.",
+      "observation": "SSRN 1357766 identifies Robin Kundis Craig and the same adaptation-law title and 2010 journal article. Its indexed page range differs from the official publisher PDF, which takes precedence."
+    }
+  ],
+  "changes": [
+    {
+      "paper_id": "33960",
+      "previous_case_sha256": "b7632de810044c59be5765bca062aba3204c851518b4d23c82e035e0162b780e",
+      "updated_case_sha256": "11e02b09df99c78842dc32056db9ce7f4c8e84ee828647dd65f0645a3cd02e0b",
+      "old_identity_label": "unresolved",
+      "new_identity_label": "correct_merge",
+      "old_counterpart_proposals": [],
+      "new_counterpart_proposals": [
+        "101061"
+      ],
+      "evidence_ids": [
+        "rff-original",
+        "rff-revision",
+        "jeem-final"
+      ],
+      "human_confirmed": false,
+      "metadata_outcome": "One sampled working-paper occurrence is proposed metadata_error for year: cited 2004 versus preferred 2008. Other sampled occurrences cite the 2008 journal version."
+    },
+    {
+      "paper_id": "49343",
+      "previous_case_sha256": "8ef61472ff7a7e2dc1f6685f2ecabd228bbd86d2ba5679d170a70e72efc915dd",
+      "updated_case_sha256": "1b0bab280d13664a66f7c4022f3a861377902a6e7a3e8d5cf64583aa14b7e501",
+      "old_identity_label": "unresolved",
+      "new_identity_label": "correct_merge",
+      "old_counterpart_proposals": [],
+      "new_counterpart_proposals": [
+        "50552"
+      ],
+      "evidence_ids": [
+        "berrang-preprint"
+      ],
+      "human_confirmed": false
+    },
+    {
+      "paper_id": "102897",
+      "previous_case_sha256": "a5936a37212eca053fa173d9067da2e393dbb0e617522b98d3551d384dfa937b",
+      "updated_case_sha256": "477dfa8d9825fcdf84a6b2b468d92a47f475a94939508ef10c38532a4ff22b78",
+      "old_identity_label": "correct_merge",
+      "new_identity_label": "correct_merge",
+      "old_counterpart_proposals": [],
+      "new_counterpart_proposals": [
+        "81555"
+      ],
+      "evidence_ids": [
+        "craig-publisher",
+        "craig-issue",
+        "craig-ssrn"
+      ],
+      "human_confirmed": false
+    }
+  ],
+  "human_case_confirmation": false,
+  "database_modified": false,
+  "analysis_recomputed": false,
+  "bibliographic_api_calls": 0,
+  "source_scope": "Primary documents and publisher/repository records; version grouping is a sourced AI judgment. Author authorization concerns the convention only.",
+  "age_convention_author_confirmation": "Direct author reply on 21 October 2026: use the year of the version actually cited."
+}

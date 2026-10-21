@@ -2,9 +2,39 @@
 
 Preparation date: 12 October 2026. Baseline analysis: [v1.2.1](https://github.com/Karcen/ipcc_litdb/tree/v1.2.1). The database remains the corrected v1.2.0 snapshot. The revision manuscript is a local copy; the submitted manuscript remains unchanged.
 
-Structured probability-sample annotation has not started. This release provides the interface, rules, empty templates, integrity checks and estimation code for the authors to complete it. It contains no fabricated labels or annotation-derived error rates.
+Human probability-sample annotation remains incomplete. The interface, rules, empty human-label templates, integrity checks and estimation code are available. Separate AI initial-review proposals were added on 20 October 2026. Accuracy estimates await completed author annotations.
+
+## Phase 1 preparation: AI-assisted annotation, 20 October 2026
+
+Review issue 1, linkage accuracy: add explicit Codex initial judgments for all 331 sampled IDs and 801 original entries in `revision_preparation/annotation/ai_review/`. Record per-ID reasoning, document groups, occurrence metadata judgments, candidate comparisons, unresolved fields and author questions. Preserve the 319 probability IDs, 12 targeted supplements, sampling weights and original reference strings. Keep human confirmation pending. The proposal counts are separate from validation estimates.
+
+Review issue 2, identity sensitivity: preserve counterpart-ID evidence and distinguish compound extraction, incorrect linking, metadata problems and version uncertainty. A false-merged ID can retain a genuinely shared document. Working-paper and preprint relationships remain unresolved where the evidence or author convention is missing. Scientific recurrence estimates were not recalculated in this preparation step.
+
+Review issue 3, evidence and reproducibility: add read-only retrieval and source-page extraction scripts, an uncapped query log, PDF and original-string hashes, a source index, proposal CSVs, a priority queue and a dedicated manifest. The source replay reproduced all 682 start-page texts, 76 IPCC PDF hashes, 50 local cited-PDF texts and 801 entry records. Local full-text evidence stays in ignored `work/ai_evidence/`; public proposals retain bibliography facts and source locators.
+
+The interface now presents initial AI proposals separately from author decisions. Draft import fills blank fields only and preserves existing annotations. Both the server and CSV validator reject completed reviews attributed to Codex or an AI reviewer. Correct PDF links convert the saved zero-based index to the one-based browser page. Joined entries retain their recorded starting page, with separately inspected locations where available.
+
+Verification: 42 annotation tests passed, including browser workflows, blank-only import, source-page conversion, AI completion guards and author confirmation with disclosed AI assistance. Structural checks cover all proposal keys, original-string hashes, ownership, labels, sharing logic and artifact hashes. All 29 original registered tables and the snapshot hash remain unchanged. The manuscript and bibliography were not edited. This step prepares author annotation; it does not complete the human-validation stage.
+
+CI checks the AI proposal package and preserves its structural-check report alongside the analysis reproduction records. The separate proposal manifest records the review scope, skill provenance and replay-helper hashes.
+
+Git preserves the AI CSV exports byte for byte, including quoted original-reference whitespace and CSV record endings. Their hashes and immutable fields are checked separately from source-code whitespace.
+
+## Phase 1 preparation: verified publication versions, 21 October 2026
+
+Review issue 2, identity sensitivity: record the author's instruction to group working-paper, preprint and journal versions after verifying that they represent the same study. Update the protocol and preserve version-specific source facts. The convention itself is author-confirmed; the case judgments remain AI proposals.
+
+Review issue 3, evidence: add a version ledger for IDs 33960, 49343 and 102897. Primary RFF covers establish the discussion-paper revision chain; publisher-indexed journal content supports the journal relationship. The archived Research Square notice explicitly identifies the final DOI. Harvard's official article and indexed SSRN metadata identify Craig's journal work. Log failed direct publisher/repository page access and the scope of the available evidence.
+
+The two uncertain within-ID identities now have same-study proposals. Counterpart proposals increase from 38 to 41 sampled IDs. Six occurrence metadata questions are resolved by the source follow-up and the author's cited-version age convention; the count of IDs with metadata questions decreases from 68 to 66. Five receive correct-metadata proposals. The remaining working-paper occurrence receives a year-error proposal: it cites 2004 while preferred metadata supply the 2008 journal year. Record proposed cited-version years of 2004 and 2008 for the respective occurrences without changing the snapshot. The version ledger records the base and updated proposal hashes and per-case hashes. A portable export script refreshes CSVs, counts and artifact hashes from the saved judgments.
+
+These changes affect annotation proposals. Human labels, raw entries, the snapshot, sampling seed, original 29 registered tables, ten robustness tables and manuscript files remain unchanged. No accuracy rate or recurrence estimate was calculated.
+
+Verification: all 42 annotation tests passed, including the updated browser terminology, with no skipped tests. The project checker passed all 30 available checks. The AI package checker passed all 331 IDs, 801 entries, version-ledger case hashes and original-table hashes. The browser displays the new study-version rule and ID 33960's cited-version year decision.
 
 ## Changes by task
+
+README update, 21 October 2026: add a dated What's new section for the annotation releases and record the requirement to maintain it with every GitHub update. Preserve older entries and link source checks. No code, labels, data or analytical results change in this documentation update.
 
 | Task | Location or deliverable | Change and reason |
 |---|---|---|
