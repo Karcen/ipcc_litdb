@@ -6,6 +6,12 @@ This is the second project alongside [IPCC References Toolkit](https://github.co
 
 ## What's new
 
+### 2026-10-21: Fixed analysis version and delivery checks
+
+- Analysis package `1.3.0` is frozen at [commit c858167](https://github.com/Karcen/ipcc_litdb/tree/c858167e68c30b1f2d6ab8857f1445e6504f13bb). This is a package version, not a Git tag. It extends baseline workflow `v1.2.1` without changing snapshot `v1.2.0` or the earlier 45 CSVs.
+- The independent offline audit checks 89 archived CSVs and 5,506,283 cells. All seventeen OpenAlex tables replay from the response bundles without network access or credentials. The [skills application record](revision_preparation/review_round2/skills_application.json) links this revision to the preserved search, installation and license record.
+- Manuscript sources, full bibliographies and paper PDFs remain outside this repository. The age comparison distinguishes the full extraction from the matched subset; the AI proposals remain separate from independent human validation.
+
 ### 2026-10-21: Frozen OpenAlex benchmarks and offline replay
 
 - Completed the independent external acquisition and [17-table archive](revision_preparation/review_round2/openalex_v1/activated_attempt_03/results_v1/manifest.json). Preferred-DOI OpenAlex work identities give 12.4649% retention and 4.7908% reuse. Missing and ambiguous matches remain excluded with separate counts.
