@@ -11,3 +11,8 @@
 revision_preparation/annotation/ai_review/*.csv -text -whitespace
 *.gz binary
 *.png binary
+
+# Preserve new archived table bytes, including original CSV record endings.
+revision_preparation/review_round2/**/*.csv -text -whitespace
+# Generated SVG path records retain renderer whitespace and artifact hashes.
+revision_preparation/review_round2/**/*.svg -whitespace

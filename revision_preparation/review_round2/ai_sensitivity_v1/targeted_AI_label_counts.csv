@@ -1,0 +1,6 @@
+outcome,targeted_sample_ID_denominator,positive_AI_sample_IDs,probability_weight_available
+false_merge_proposal,12,4,no
+any_metadata_error_proposal,12,6,no
+any_unresolved_metadata_judgment,12,4,no
+counterpart_proposal,12,1,no
+false_sharing_proposal,6,0,no

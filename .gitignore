@@ -46,3 +46,6 @@ analysis-reproduction/
 # Generated assessment figures and audits
 assessment-figures/
 assessment-figure-checks/
+
+# Restored round-two audit table; exact bytes are distributed in gzip
+/revision_preparation/review_round2/raw_age_v1/raw_age_occurrence_audit.csv

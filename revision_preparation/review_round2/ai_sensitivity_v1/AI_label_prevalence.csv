@@ -1,0 +1,6 @@
+outcome,domain,population_ID_denominator,probability_sample_IDs,positive_AI_sample_IDs,HT_positive_AI_ID_numerator,weighted_AI_proposal_fraction,lower_positive_AI_IDs,upper_positive_AI_IDs,sampling_only_lower_95,sampling_only_upper_95,strata,noncensus_strata,confidence_level_per_outcome,AI_classification_error_quantified,human_validated
+false_merge_proposal,matched_union_IDs,46715,319,11,737.75,0.015792571979021727,19,21044,0.0004067216097613186,0.450476292411431,33,22,0.95,no,false
+any_metadata_error_proposal,matched_union_IDs,46715,319,71,1236.0,0.026458311034999463,227,21432,0.00485925291662207,0.4587819758107674,33,22,0.95,no,false
+any_unresolved_metadata_judgment,matched_union_IDs,46715,319,63,17732.166666666668,0.37958186164329805,4777,35989,0.102258375254201,0.7703949480894787,33,22,0.95,no,false
+counterpart_proposal,matched_union_IDs,46715,319,40,519.8333333333334,0.011127760533732921,72,20709,0.0015412608369902601,0.44330514823932354,33,22,0.95,no,false
+false_sharing_proposal,shared_matched_IDs,1657,94,0,0.0,0.0,0,567,0.0,0.3421846710923355,11,5,0.95,no,false

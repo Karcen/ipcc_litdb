@@ -1,0 +1,147 @@
+{
+  "backend": "python",
+  "findings": [
+    {
+      "check_id": "SOURCE-SYNTAX",
+      "evidence": [],
+      "level": "PASS",
+      "message": "Python source parses successfully"
+    },
+    {
+      "check_id": "FONT-FAMILY",
+      "evidence": [
+        "sans-serif"
+      ],
+      "level": "PASS",
+      "message": "A publication-safe sans-serif family is configured"
+    },
+    {
+      "check_id": "FONT-SIZE",
+      "evidence": [],
+      "level": "PASS",
+      "message": "All detected text sizes are at least 5 pt (minimum 5.6 pt)"
+    },
+    {
+      "check_id": "FONT-GLYPH-FLOOR",
+      "evidence": [],
+      "level": "PASS",
+      "message": "No mathtext superscript/subscript expression detected"
+    },
+    {
+      "check_id": "LEGEND-LABEL-CASE",
+      "evidence": [],
+      "level": "PASS",
+      "message": "No auditable literal legend labels detected"
+    },
+    {
+      "check_id": "COLOR-MAP",
+      "evidence": [],
+      "level": "PASS",
+      "message": "No rainbow/jet/hsv color mapping detected"
+    },
+    {
+      "check_id": "EDITABLE-TEXT",
+      "evidence": [],
+      "level": "PASS",
+      "message": "SVG and PDF editable-text settings are configured"
+    },
+    {
+      "check_id": "EXPORT-VECTOR",
+      "evidence": [],
+      "level": "PASS",
+      "message": "Both SVG and PDF exports are present"
+    },
+    {
+      "check_id": "EXPORT-RASTER",
+      "evidence": [],
+      "level": "WARN",
+      "message": "PNG preview is present but no TIFF submission raster was found"
+    },
+    {
+      "check_id": "RASTER-DPI",
+      "evidence": [
+        "600"
+      ],
+      "level": "PASS",
+      "message": "A raster export of at least 600 dpi is configured"
+    },
+    {
+      "check_id": "FINAL-WIDTH",
+      "evidence": [],
+      "level": "WARN",
+      "message": "No static final width detected; verify the target journal's current specification"
+    },
+    {
+      "check_id": "DATA-SAMPLING",
+      "evidence": [],
+      "level": "PASS",
+      "message": "No high-confidence row-sampling operation detected"
+    },
+    {
+      "check_id": "DATA-EXCLUSION",
+      "evidence": [],
+      "level": "PASS",
+      "message": "No high-confidence missing-data exclusion detected"
+    },
+    {
+      "check_id": "DEMO-DATA",
+      "evidence": [],
+      "level": "PASS",
+      "message": "No obvious simulated-data generator detected"
+    },
+    {
+      "check_id": "LOG-GUARD",
+      "evidence": [],
+      "level": "PASS",
+      "message": "No logarithmic transform or axis detected"
+    },
+    {
+      "check_id": "INTERP-MONOTONIC",
+      "evidence": [],
+      "level": "PASS",
+      "message": "No NumPy interpolation requiring an increasing x-grid detected"
+    },
+    {
+      "check_id": "UNCERTAINTY-ENCODING",
+      "evidence": [],
+      "level": "PASS",
+      "message": "No stochastic aggregate requiring a variability audit was inferred"
+    },
+    {
+      "check_id": "ROTATION-ANCHOR",
+      "evidence": [],
+      "level": "PASS",
+      "message": "No rotated Matplotlib text detected"
+    },
+    {
+      "check_id": "ANNOTATION-WORKAROUND",
+      "evidence": [],
+      "level": "PASS",
+      "message": "No high-risk hard-coded label height or opaque white text mask detected"
+    },
+    {
+      "check_id": "PANEL-ALIGNMENT-GATE",
+      "evidence": [
+        "require_matplotlib_panel_alignment("
+      ],
+      "level": "PASS",
+      "message": "Render-time panel-alignment gate is wired into the plotting source"
+    },
+    {
+      "check_id": "BACKEND-EXCLUSIVE",
+      "evidence": [],
+      "level": "PASS",
+      "message": "No obvious cross-backend plotting reference found for python"
+    }
+  ],
+  "source": "scripts/review_round2_figures.py",
+  "summary": {
+    "counts": {
+      "FAIL": 0,
+      "PASS": 19,
+      "WARN": 2
+    },
+    "ready": true,
+    "strict": false
+  }
+}

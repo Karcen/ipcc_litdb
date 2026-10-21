@@ -1,0 +1,34 @@
+Raw-reference citation-age ECDF figure
+
+Run from the repository root:
+  python scripts/review_round2_figures.py --skill-directory PATH_TO_PINNED_NATURE_FIGURE
+
+Install the optional dependencies in revision_preparation/review_round2/requirements-figures.txt.
+The figure renderer reads the archived ECDF table; it does not estimate or interpolate ages.
+The source archive and its manifest are checked by SHA-256 before plotting.
+The selected 488 rows contain all 61 archived ages for each of eight curves.
+The main axes show ages 0–30 and the insets show 0–60. Both use the original
+full-population CDF, with no rescaling at age 30.
+
+Deterministic replay uses a fixed SVG hash salt and removes creation/modification
+dates from SVG/PDF metadata. Byte-identical replay requires the recorded Python,
+library versions and font files. The manifest records the DejaVu Sans font hash;
+the family is bundled with Matplotlib and does not require a macOS system font.
+The PDF embeds TrueType subsets. The SVG keeps editable text, so another viewer
+needs DejaVu Sans to reproduce the exact appearance. A font substitution may
+change SVG text metrics without changing the ECDF coordinates.
+
+PyMuPDF is an audit dependency. Its SVG preview does not preserve all CSS font
+and dash styles and is not the authoritative SVG visual check. The final SVG
+was also inspected with macOS Quick Look, which retains the intended fonts and
+solid/dashed line distinctions. PDF and PNG are independent of viewer font
+substitution. The text remains editable/searchable in the vector exports.
+
+Source-preflight warnings are intentional: PNG/PDF/SVG are the requested formats,
+so no TIFF is exported; final width is set through WIDTH_MM=133 rather than a
+static literal figsize expression detected by the source linter. Actual dimensions
+are recorded in the manifest and confirmed in the PDF alignment audit.
+
+No old figure, original reference string or scientific result is changed by this
+renderer. The optional --copy-to argument copies only the three newly named
+exports and verifies their hashes against the repository outputs.

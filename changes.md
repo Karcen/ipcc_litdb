@@ -2,7 +2,29 @@
 
 Initial preparation: 12 October 2026. Latest update: 21 October 2026. Baseline analysis: [v1.2.1](https://github.com/Karcen/ipcc_litdb/tree/v1.2.1). The database remains the corrected v1.2.0 snapshot. Manuscript revisions remain private; the submitted manuscript is preserved.
 
-The author chose AI-led source review and declined further human annotation. Human-label files remain empty. The current report uses registered unweighted AI diagnostics and supplies no population linkage-accuracy or recall estimate. Optional independent annotation tools remain available.
+The author chose AI-led source review and declined further human annotation. Human-label files remain empty. The current workflow combines the original unweighted AI diagnostics with independent design-weighted AI-label projections and explicit scenarios. It supplies no independent population linkage-accuracy or recall estimate. Optional independent annotation tools remain available. Phase-1 statements about unweighted-only reporting describe that earlier stage.
+
+## Phase 2: second major-revision review, 21 October 2026
+
+The [second-round README section](README.md#second-round-sensitivity-analyses) records completed offline work. Each extension has its own code and archive; the outputs were not preregistered. External acquisition and literature-pool work have separate status and are not claimed complete by this entry.
+
+Review issues 3 and 6, selection and age origins: add `scripts/review_round2_raw_age.py` and [raw-age archive](revision_preparation/review_round2/raw_age_v1/manifest.json). Apply one leading-reference-year rule to all extracted and matched occurrences, with publication-year and cutoff-year clocks, occurrence and equal-ID weights, group-specific summaries, full ECDFs and explicit exclusions. Retain all original strings. Add fractional working-group composition and an exact symmetric Kitagawa decomposition for mean age and the at-most-five-year share. The single-group decomposition population is recorded separately from pooled All.
+
+### Author-approved change in the age conclusion
+
+The all-extracted raw-year mean falls from 5.374923 to 5.252392 years using publication-year origin. The matched raw-year mean rises from 4.373688 to 4.957161 years. The respective changes are −0.122531 and +0.583473 years. The author approved revising the main interpretation to reflect this difference. The original matched preferred-year result remains unchanged as a selected-cohort comparison. The code was not adjusted to preserve the earlier general age narrative. [The difference table](revision_preparation/review_round2/raw_age_v1/raw_age_differences.csv) contains the two clocks, weights and working-group results. The recent-reference share falls in both populations.
+
+Review issues 3 and 6, missing outlet labels: add fixed-population label bounds and [difference envelopes](revision_preparation/review_round2/raw_age_v1/missing_outlet_difference_envelopes.csv). Under conservative aliases, the D2 outer envelope is −140.624170 to +211.358702. Its crossing of zero limits the dominance conclusion to known labels. It is not a confidence interval, sharp joint region, external source-supply comparison or evidence of assessment-wide diversification.
+
+Review issue 5, sampling and AI labels: add `scripts/review_round2_ai_sensitivity.py` and the [separate archive](revision_preparation/review_round2/ai_sensitivity_v1/manifest.json). Project five AI-label outcomes with the fixed sampling weights. Invert finite-population tails with conservative simultaneous stratum bounds; keep targeted counts separate. Add exact one-sided stratified zero-event limits and fixed-denominator numerator-loss scenarios. The false-merge proposal fraction is 1.58%, with a sampling-only 95% interval of 0.04–45.05%. This is not linkage accuracy; AI classification error and incomplete search remain unquantified. The unweighted phase-1 archive is preserved.
+
+Review issue 5, counterpart scope: link all directed candidate edges to actual report memberships and statuses. Add `scripts/review_round2_counterpart_review.py` with a [targeted endpoint archive](revision_preparation/review_round2/counterpart_review_v1/manifest.json). The canonical-only scenario accepts no whole-ID edge. The separate endpoint AI scenario accepts 37 edges in 33 components, yielding 1,661 shared matched identities, retention 12.3019% and reuse 4.7649%. These are unvalidated proposal-acceptance scenarios, not corrections or true recurrence bounds. Compound nodes remain blocked; raw strings, occurrence statuses, canonical proposals and human work remain unchanged.
+
+Review issues 6 and 8, figures and reporting: add a portable raw-age ECDF renderer, three final [figure formats](revision_preparation/review_round2/figures_v1/manifest.json), separate optional dependency pins, data/code/font hashes and layout/text/collision audits. Main axes retain full-distribution normalization when zoomed to 0–30 years; insets show 0–60. Both figure panels have explicit age-origin definitions and occurrence-level populations. PDF/SVG/PNG repeat byte for byte in the recorded environment. Audit JSON paths are repository-relative. Earlier figures are unchanged.
+
+Verification: the raw-age self-checks pass exclusion accounting, identifier uniqueness, fractional overlapping-ID fixtures and decomposition reconstruction. All 45 earlier CSV hashes pass: 29 baseline, ten raw-DOI and six AI-descriptive tables. The raw-age archive also reproduces 16 preferred-year summary rows. The database and seed `20261011` remain unchanged. These checks replay saved inputs; they do not validate AI labels independently.
+
+Public documentation: update the existing README, changes, reviewer preparation and evidence-limit documents. Keep completed offline analyses separate from external data acquisition. All manuscript text, complete bibliographies, compiled papers, author work files and private cleanup preparation remain outside the public checkout.
 
 ## Phase 1 revision: AI-led diagnostics, 21 October 2026
 
@@ -105,4 +127,4 @@ The [citation ledger](revision_preparation/literature/reference_verification.jso
 
 ## Current evidence limits
 
-No independent human sample adjudication or exhaustive duplicate search is available. The revision describes the AI procedure and its registered case counts. Population accuracy, recall and annotation-derived recurrence sensitivity remain unestimated. [Review status](author_requirements.md) records the author's decision and the scope of the available evidence. The optional annotation estimator remains subject to its original completeness requirements.
+No independent human sample adjudication or exhaustive duplicate search is available. The workflow describes AI case counts, sampling-weighted label projections and explicit recurrence scenarios. Population linkage accuracy and recall remain unestimated. The AI-label intervals exclude classification error; the loss and counterpart scenarios are not corrected results or true-error bounds. [Review status](author_requirements.md) records the author's decision and the scope of the available evidence. The optional human-annotation estimator remains subject to its original completeness requirements.

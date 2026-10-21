@@ -1,0 +1,30 @@
+{
+  "all_exclusions_accounted": true,
+  "fractional_compositions_sum_to_one": true,
+  "kitagawa_reconstruction": true,
+  "no_random_draws": true,
+  "occurrence_uniqueness": true,
+  "older_archive_counts": [
+    {
+      "csv_tables_checked": 29,
+      "manifest": "reproducibility/reference/manifest.json"
+    },
+    {
+      "csv_tables_checked": 10,
+      "manifest": "revision_preparation/robustness/output_v1/manifest.json"
+    },
+    {
+      "csv_tables_checked": 6,
+      "manifest": "revision_preparation/annotation/ai_review_summary_v1/manifest.json"
+    }
+  ],
+  "preferred_year_baseline_summary_rows_reproduced": 16,
+  "self_tests": {
+    "ambiguous_source_guard": true,
+    "exhaustive_small_unknown_outlet_assignments": true,
+    "fractional_overlapping_ID_fixture": true,
+    "kitagawa_reconstruction_fixture": true,
+    "raw_parser_boundaries": true
+  },
+  "source_occurrences": 90878
+}

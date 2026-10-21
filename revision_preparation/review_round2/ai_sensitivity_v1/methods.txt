@@ -1,0 +1,79 @@
+AI label prevalence and counterpart geometry, version 1.0.0
+
+The source is the fixed AI-assisted initial review, not independent human
+adjudication. One label observation is a sampled paper_id. The 319 probability
+IDs are a stratified hash-ranked sample of the matched AR5/AR6 union. The 12
+targeted supplements remain separate and receive no probability weight.
+Occurrence diagnostics use all 801 original entries attached to these IDs,
+including unmatched occurrences. IDs unmatched in both reports are outside the
+probability frame. Source strings, statuses, labels and weights are immutable.
+
+Each AI outcome is a binary proposal/uncertainty indicator. The estimator is
+sum_h(N_h*k_h/n_h)/sum_h(N_h). It projects AI-coded labels, conditional on the
+unvalidated coding protocol. It is not precision, recall or a true error rate.
+Treat the seeded hash ordering as simple random sampling without replacement
+within the fixed strata. Invert exact hypergeometric tails for the unknown
+number of positive AI labels in each stratum. For each outcome separately,
+allocate alpha=.05 equally across its noncensus strata; aggregate the resulting
+simultaneous stratum count bounds. Census strata have point intervals. The
+shared false-sharing outcome uses only its eleven shared-membership strata;
+its unequal sampling fractions preclude a binomial rule-of-three interval.
+The 95% intervals describe sampling only and exclude AI classification error,
+incomplete duplicate search, extraction error and independent human agreement.
+The five outcome intervals have separate coverage, not joint across outcomes.
+
+A separate one-sided 95% zero-event procedure is also reported for shared-ID
+false-sharing AI labels. For total K, maximize P0=product_h C(N_h-K_h,n_h)/
+C(N_h,n_h) over allocations summing to K. Incrementing K_h multiplies P0 by
+1-n_h/(N_h-K_h). The negative-log marginal cost increases with K_h, so selecting
+the smallest available marginal cost gives the global minimum cumulative cost
+for each total K while respecting prefix allocations. The implementation uses
+exact Fraction(n_h,N_h-K_h) priorities and exact rational products. U is the
+largest K with maximized P0>=.05. It records the maximizing allocation, product,
+log product and the next-total product. The probability calculations and alpha
+comparison use exact rational arithmetic, without a Bonferroni adjustment.
+For any actual allocation with total K>U, the probability of observing all
+zeros is at most the maximized P0(K)<.05. On any nonzero observation the defined
+procedure returns the entire domain capacity. Thus its unconditional coverage
+is at least 95% under stratified SRS and stable hypothetical AI labels. The
+older two-sided conservative simultaneous-stratum intervals remain visible.
+
+For the through-2013 variant, reconstruct each shared stratum's eligible-ID
+capacity E_h from unchanged preferred years, validate all N_h against the
+frozen frame, and require K_h<=E_h. This profiles the number of eligible positive
+AI labels, not the total number. Ineligible positive labels only reduce P0, so
+zero ineligible labels maximize zero-event probability at a fixed eligible
+total. It receives a separate per-outcome one-sided interval, not joint coverage
+with the all-shared result. The same 94-ID all-zero event is used. Fixed-
+denominator loss scenarios subtract the all-shared U only from shared numerators
+for retention/reuse, and the eligibility-constrained U only from the through-
+2013 numerator. They preserve all denominators and original points. They assume
+hypothetical projected AI flags remove shared identities; they are neither
+true-error bounds nor corrected recurrence estimates. No AI classification
+error is quantified. Exhaustive small-stratum allocation checks verify every
+total's maximizing product, census behavior and constrained capacities.
+
+Geometry joins every positive counterpart edge to unchanged snapshot report
+memberships and occurrence matching statuses. Only edges with both endpoints
+classified correct_merge in the canonical AI sample are eligible for automatic
+whole-ID union. Compound IDs, unresolved IDs and unsampled counterpart IDs are
+blocked. This conservative restriction avoids guessing that an unreviewed ID
+contains one study. All edges, including blocked ones, remain in the table.
+Connected components of eligible edges define an explicit accept-eligible-
+proposals scenario. A component contributes at most one identity per report;
+it contributes one shared identity if it has a matched occurrence in both.
+No occurrence status is changed. The baseline and proposal scenario are not
+bounds on true recurrence or calibrated corrections. Untested counterpart
+edges and compound work groups remain outside this scenario. Conditional
+reuse and metadata-corrected ages are not inferred from aggregate flags.
+
+Field-specific counts separate proposed errors, typed unresolved fields and
+missing stored fields. An unresolved judgment without typed fields is recorded
+as unspecified. Explicit uncertainty may coexist with a definite error in
+another field. Rows can overlap. Missing metadata alone is not an error label.
+
+The seed is 20261011, inherited from the frozen design. There are no new random
+draws or API requests. The database is opened with mode=ro&immutable=1. Every
+prior baseline29, raw-DOI10 and AI-descriptive6 CSV hash is checked before the
+run. Source hashes are checked again before writing. Human-label files and the
+human estimator are untouched. All outputs belong to this separate registry.

@@ -1,0 +1,116 @@
+{
+  "PNG_dpi": 600,
+  "QA": {
+    "PDF_raster_images": 0,
+    "PDF_searchable_labels": true,
+    "alignment": "PASS",
+    "collision_exit": 0,
+    "collision_verdict": "PASS",
+    "glyphs_below_5pt": 0,
+    "old_figures_unchanged": true,
+    "source_preflight_exit": 0,
+    "visual_inspection": "Required after rendering; see visual_QA.txt"
+  },
+  "archetype": "quantitative grid",
+  "audit_code_sha256": {
+    "audit_figure_collisions.py": "4bd020238a9f207c8a67c61d7209cef5959f2995a1d9cd95911d6fa93de7aa36",
+    "audit_panel_alignment.py": "4ed2d6afe9db45aaf6ca26aeb264cfc251ae92b49ee9fbf117d926e1956acf56",
+    "audit_pdf_text.py": "0b3d3e30ce9ec7191b8ba6dd053226487ab41594297005afcd127acda3b08281",
+    "validate_figure.py": "09694ac0ac4036d4b759e7c9aeb3d4f7a9b525212db50085d2ea0d88b0e49d76"
+  },
+  "axis_definitions": {
+    "x": "Integer origin year minus leading year in original reference; main0\u201330,insets0\u201360",
+    "y": "Archived empirical CDF among included0\u201360-year occurrences; no renormalization at30"
+  },
+  "figure_version": "round2-figures-1.0.0",
+  "files": {
+    "review_round2_age_comparison.pdf": "6c4b1b561bb9db255d1bf6a85af47c6286095841e38ca20e285121a7f883b8f2",
+    "review_round2_age_comparison.png": "0f1f10ce1077b91b9b435e27083e8d36e72b7debf69a104d2c74412549d43a40",
+    "review_round2_age_comparison.svg": "2f6b5e08282c130c8ce77f44eddbf1730edf0a6888a40e5e02917a38bd3da03b"
+  },
+  "font": {
+    "PDF_embedded_TrueType": true,
+    "SVG_editable_text": true,
+    "family": "DejaVu Sans",
+    "font_file": "DejaVuSans.ttf",
+    "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22"
+  },
+  "height_mm": 140,
+  "no_new_estimates_or_interpolation": true,
+  "panel_roles": {
+    "a": "Primary comparison with source publication-year origin",
+    "b": "Timing sensitivity with documented group-cutoff-year origin"
+  },
+  "plotted_rows": 488,
+  "populations": [
+    {
+      "age_origin": "source_publication_year",
+      "cohort": "all_extracted",
+      "included_occurrences": 27659,
+      "report": "AR5"
+    },
+    {
+      "age_origin": "source_publication_year",
+      "cohort": "all_extracted",
+      "included_occurrences": 62910,
+      "report": "AR6"
+    },
+    {
+      "age_origin": "source_publication_year",
+      "cohort": "matched_occurrences",
+      "included_occurrences": 17536,
+      "report": "AR5"
+    },
+    {
+      "age_origin": "source_publication_year",
+      "cohort": "matched_occurrences",
+      "included_occurrences": 47037,
+      "report": "AR6"
+    },
+    {
+      "age_origin": "documented_cutoff_year",
+      "cohort": "all_extracted",
+      "included_occurrences": 27588,
+      "report": "AR5"
+    },
+    {
+      "age_origin": "documented_cutoff_year",
+      "cohort": "all_extracted",
+      "included_occurrences": 62876,
+      "report": "AR6"
+    },
+    {
+      "age_origin": "documented_cutoff_year",
+      "cohort": "matched_occurrences",
+      "included_occurrences": 17508,
+      "report": "AR5"
+    },
+    {
+      "age_origin": "documented_cutoff_year",
+      "cohort": "matched_occurrences",
+      "included_occurrences": 47024,
+      "report": "AR6"
+    }
+  ],
+  "replay": {
+    "SVG_preview_note": "PyMuPDF SVG preview does not preserve all CSS font/dash styles; inspect in a browser or Quick Look",
+    "byte_identity_requires": "Recorded Python/library versions and font hashes; fixed SVG IDs and date-free metadata are used",
+    "dependency_file": "../requirements-figures.txt"
+  },
+  "script_sha256": "0370715d010329ad61f2ca24e80fc2cc13fcbe1ebfbb8e3067720fb5955bf024",
+  "selection": "All working groups; raw_leading_year; occurrence weights; two origins; both reports and cohorts",
+  "software": {
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.4",
+    "pymupdf": "1.28.2",
+    "python": "3.12.14"
+  },
+  "source_data": {
+    "file": "../raw_age_v1/raw_age_ecdf.csv",
+    "sha256": "af58ea03ad65d7a4f070dfa8caf979a8da067744a9b499b84505822162200319"
+  },
+  "source_manifest_sha256": "4f95fc59c5bc6bc36bf8900f52a289c67881099dbec4348c1201fb7dbc53396c",
+  "source_rows": 7808,
+  "uncertainty": "None: fixed-snapshot empirical distributions, not resampling summaries",
+  "width_mm": 133
+}

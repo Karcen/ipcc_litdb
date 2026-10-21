@@ -1,0 +1,4 @@
+scenario_family,scenario,AR5_IDs,AR6_IDs,shared_IDs,retention,reuse,accepted_distinct_edges,accepted_components,estimated_correction,true_recurrence_bound
+canonical_only,unchanged_snapshot,13503,34869,1657,0.12271347108050062,0.04752072041067997,0,0,no,no
+canonical_only,accept_eligible_single_study_AI_edges,13503,34869,1657,0.12271347108050062,0.04752072041067997,0,0,no,no
+expanded_targeted_endpoint_AI,accept_single_study_source_and_targeted_endpoint_AI_edges,13502,34859,1661,0.12301881202784773,0.04764910066266961,37,33,no,no

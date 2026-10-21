@@ -6,6 +6,13 @@ This is the second project alongside [IPCC References Toolkit](https://github.co
 
 ## What's new
 
+### 2026-10-21: Second-round coverage and AI sensitivity analyses
+
+- Added an independent [raw-reference age archive](revision_preparation/review_round2/raw_age_v1/manifest.json) for all extracted AR5/AR6 occurrences, including unmatched references. With assessment publication year as the origin, mean age falls from 5.374923 to 5.252392 years in the full extracted population and rises from 4.373688 to 4.957161 years in the matched subset. The author approved revising the interpretation to reflect this direction change. The fixed snapshot and earlier results are preserved.
+- Added [design-weighted AI-label projections](revision_preparation/review_round2/ai_sensitivity_v1/manifest.json), sampling-only intervals and fixed-denominator loss scenarios. These quantify the archived AI proposals under the sample design; they do not measure independent linkage accuracy.
+- Added a separate [targeted counterpart-endpoint review](revision_preparation/review_round2/counterpart_review_v1/manifest.json). An explicit AI-proposal acceptance scenario admits 37 edges in 33 components and yields 1,661 shared IDs. It changes no stored identity and is not a corrected estimate or a true recurrence bound.
+- Added [missing-outlet envelopes](revision_preparation/review_round2/raw_age_v1/missing_outlet_difference_envelopes.csv) and a [two-panel raw-age ECDF figure](revision_preparation/review_round2/figures_v1/review_round2_age_comparison.pdf), with editable SVG, 600-dpi PNG and saved QA. [Offline replay commands](#second-round-sensitivity-analyses) are below. The original 29 baseline, ten raw-DOI and six AI-descriptive CSVs remain unchanged; the seed is `20261011`.
+
 ### 2026-10-21: AI-led diagnostics
 
 - Refined the source proposals to `ai-initial-review-1.1.1`. The [version ledger](revision_preparation/annotation/ai_review/version_decisions.json) retains verified study grouping and records the unresolved preprint DOI versus journal-metadata combination in one entry for ID 49343.
@@ -73,6 +80,7 @@ Stopping the containers preserves the database volume, including review history.
 - [Manual annotation](#manual-annotation)
 - [AI-led diagnostic summary](#ai-led-diagnostic-summary)
 - [Additional raw-DOI checks](#additional-raw-doi-checks)
+- [Second-round sensitivity analyses](#second-round-sensitivity-analyses)
 - [Verified references and revision preparation](#verified-references-and-revision-preparation)
 - [Exports and API](#exports-and-api)
 - [Sources and provenance](#sources-and-provenance)
@@ -374,7 +382,7 @@ python reproducibility/make_assessment_figures.py \
   --skill-directory ../nature-skills/skills/nature-figure
 ```
 
-Use fresh output directories. Substitute `analysis-reproduction/results` for the results directory to plot a complete rerun. The generator checks input hashes before and after rendering. At 133 mm width, each plot must pass panel alignment within 1.5 pt, exported PDF text at least 7 pt, and rendered collision checks. The audits cover file geometry; the figure contract also records units, weights, denominators and interval definitions. The QA tools are distributed under Apache 2.0. Figure exports are generated locally and are absent from this repository.
+Use fresh output directories. Substitute `analysis-reproduction/results` for the results directory to plot a complete rerun. The generator checks input hashes before and after rendering. At 133 mm width, each plot must pass panel alignment within 1.5 pt, exported PDF text at least 7 pt, and rendered collision checks. The audits cover file geometry; the figure contract also records units, weights, denominators and interval definitions. The QA tools are distributed under Apache 2.0. These baseline figure exports are generated locally. The separate [second-round raw-age figure](#second-round-sensitivity-analyses) is archived in the repository.
 
 ### Units and definitions
 
@@ -394,7 +402,9 @@ Use fresh output directories. Substitute `analysis-reproduction/results` for the
 
 `paper_id` denotes the database's linked identity. A `matched_doi` occurrence has an exact DOI match at the WoS acceptance stage. Earlier enrichment can supply or replace its title, DOI, and year. This workflow status therefore does not establish the accuracy of the link to the original printed reference. The separate `doi_verified` paper label has the builder meaning given under [Data and coverage](#data-and-coverage).
 
-### Results registered for this snapshot
+### Archived baseline results for this snapshot
+
+This table describes the preserved matched-ID and preferred-year baseline. The [second-round all-extracted raw-year comparison](#raw-reference-age-and-working-group-composition) has a different mean-age direction and is reported alongside it.
 
 | Check | Result |
 |---|---|
@@ -522,7 +532,7 @@ python3 revision_preparation/annotation/annotation_tools.py estimate \
 
 Missing, unresolved or inconsistent labels produce an integrity report and error exit, with no rate or sensitivity tables. Successful estimation registers `annotation_rates.csv`, `annotation_strata.csv` and `annotation_recurrence_stress.csv` with JSON provenance and file hashes. Probability-sample estimates use the recorded inclusion weights. Targeted supplements have separate descriptive counts. The estimator measures false merges, identity precision, detected missed merges and ID-level metadata errors. Its 95% intervals invert finite-population hypergeometric tails within strata and combine conservative stratum bounds. Zero observed errors in a noncensus stratum retain a positive upper error bound.
 
-The optional within-ID and metadata audit covers the exported AR5/AR6 entries. Other-report occurrences are outside its scope. Detected missed-merge rates would describe the recorded search protocol. Shared-identity sensitivity would hold the original cohort denominators fixed. [The pending registry](revision_preparation/annotation/pending_registry.json) records these unused planned outputs. [The initial integrity report](revision_preparation/annotation/initial_integrity_report.json) records consistent source keys and empty human decisions. The current AI-led workflow uses the descriptive registry above and produces no human-label accuracy estimates.
+The optional within-ID and metadata audit covers the exported AR5/AR6 entries. Other-report occurrences are outside its scope. Detected missed-merge rates would describe the recorded search protocol. Shared-identity sensitivity would hold the original cohort denominators fixed. [The pending registry](revision_preparation/annotation/pending_registry.json) records these unused planned outputs. [The initial integrity report](revision_preparation/annotation/initial_integrity_report.json) records consistent source keys and empty human decisions. The current AI-led workflow uses the descriptive registry and [separate weighted AI-label projections](#weighted-ai-proposals-and-explicit-recurrence-scenarios). It produces no human-label accuracy estimates.
 
 ## Additional raw-DOI checks
 
@@ -553,6 +563,80 @@ Choose fresh output and report paths. The extension verifies the input database,
 | References aged zero through five | 74.67% in AR5 and 64.92% in AR6; the change is −9.75 percentage points, with an interval of −16.01 to −2.96. |
 
 The common-window recurrence still shows substantial replacement. The recent-reference share decreases. The pooled mean-age interval includes zero. Raw-DOI conditional reuse of 6.50% and matched-ID conditional reuse of 28.40% describe different selected populations and year rules. Their difference is a measurement sensitivity, rather than a calibrated correction. These checks do not supply an external climate-literature pool or independent outlet metadata. [The method record](revision_preparation/robustness/methods.txt) describes the selection and interval scope.
+
+## Second-round sensitivity analyses
+
+The second-round analyses have separate archives. They read the corrected v1.2.0 database and preserve the v1.2.1 baseline. “Archived” means saved outputs with hashes; it does not imply preregistration. The seed remains `20261011`. None of these workflows modifies the snapshot, raw reference strings, canonical AI proposals or human-label files.
+
+### Offline reproduction
+
+Install the analysis dependency from `requirements-analysis.txt`, then check the archived results:
+
+```bash
+python scripts/review_round2_raw_age.py --check
+python scripts/review_round2_ai_sensitivity.py --check
+python scripts/review_round2_counterpart_review.py check
+```
+
+The first two checks regenerate their outputs in memory and compare them with the separate archives. The counterpart check replays saved AI decisions and source records; it does not create independent validation. These commands need the restored database, not API access. The raw-age script uses NumPy 2.2.6. Its [checks](revision_preparation/review_round2/raw_age_v1/checks.json) include all 45 earlier CSV hashes, exclusion accounting, overlapping-ID weights and exact decomposition reconstruction. Each archive records its code and input hashes.
+
+For fresh output directories:
+
+```bash
+python scripts/review_round2_raw_age.py --output-dir ../ipcc-round2-raw-age-replay
+python scripts/review_round2_ai_sensitivity.py --output ../ipcc-round2-ai-replay
+```
+
+Choose paths that do not exist. The [raw-age methods](revision_preparation/review_round2/raw_age_v1/methods.txt), [AI-sensitivity methods](revision_preparation/review_round2/ai_sensitivity_v1/methods.txt) and [endpoint-review methods](revision_preparation/review_round2/counterpart_review_v1/methods.txt) give the units, estimands and exclusions.
+
+### Raw-reference age and working-group composition
+
+The leading year in the original reference is available for both matched and unmatched occurrences. The same parser and age exclusions are applied to both populations. The following means use equal occurrence weights and included ages zero through 60:
+
+| Age origin | Occurrence population | AR5 mean | AR6 mean | AR6 minus AR5 |
+|---|---|---:|---:|---:|
+| Assessment publication year | All extracted | 5.374923 | 5.252392 | −0.122531 |
+| Assessment publication year | Matched | 4.373688 | 4.957161 | +0.583473 |
+| Working-group cutoff year | All extracted | 4.714006 | 4.528612 | −0.185394 |
+| Working-group cutoff year | Matched | 3.788040 | 4.282324 | +0.494284 |
+
+Source: [raw-year differences](revision_preparation/review_round2/raw_age_v1/raw_age_differences.csv). Equal-ID weighting retains these directions. The age-at-most-five share falls in both populations. The previous increase in matched preferred-year mean age remains a result for that selected cohort; it does not describe the entire extracted collection. The cutoff clock still uses integer years. It is not a full-date or acceptance-date analysis, and these new outputs have no resampling intervals.
+
+[Group summaries and exclusions](revision_preparation/review_round2/raw_age_v1/raw_age_summary.csv) and [ECDFs](revision_preparation/review_round2/raw_age_v1/raw_age_ecdf.csv) report all three working groups, both clocks and both weighting rules. The [symmetric Kitagawa decomposition](revision_preparation/review_round2/raw_age_v1/raw_age_WG_kitagawa.csv) uses single-working-group occurrences. With publication-year origin and occurrence weights, its total mean change is −0.117067 years: −0.183769 within groups plus +0.066703 from composition. It excludes non-single-group occurrences, so its pooled total differs from the all-extracted comparison above. Under equal-ID weighting, each included ID has pooled weight one, divided among groups by its included occurrences. [Fractional group weights](revision_preparation/review_round2/raw_age_v1/raw_age_WG_fractional_composition.csv) and [scope counts](revision_preparation/review_round2/raw_age_v1/raw_age_single_WG_coverage.csv) make that distinction explicit. The decomposition is descriptive, not causal.
+
+The [new figure](revision_preparation/review_round2/figures_v1/review_round2_age_comparison.pdf) compares the two clocks in separate panels, with solid all-extracted and dashed matched curves. Main axes show ages 0–30 and insets show 0–60; both retain full-population normalization. [SVG](revision_preparation/review_round2/figures_v1/review_round2_age_comparison.svg), [PNG](revision_preparation/review_round2/figures_v1/review_round2_age_comparison.png), [data and rendering manifest](revision_preparation/review_round2/figures_v1/manifest.json) and [visual QA](revision_preparation/review_round2/figures_v1/visual_QA.txt) are archived. Keep the renderer separate from the pinned NumPy 2.2.6 analysis environment. With the pinned Nature Figure tools installed above:
+
+```bash
+python3 -m venv ../ipcc-round2-figures-env
+../ipcc-round2-figures-env/bin/python -m pip install \
+  -r revision_preparation/review_round2/requirements-figures.txt
+../ipcc-round2-figures-env/bin/python scripts/review_round2_figures.py \
+  --skill-directory ../nature-skills/skills/nature-figure
+```
+
+The renderer uses Matplotlib 3.11.2 and the bundled DejaVu Sans font. Byte-identical replay requires the recorded versions and font hash. The PDF embeds its fonts; editable SVG text can use substitute fonts in other viewers. [Render notes](revision_preparation/review_round2/figures_v1/render_notes.txt) record the PyMuPDF SVG-preview limitation. The underlying PDF, SVG and PNG repeat byte for byte in the recorded environment.
+
+### Missing outlet labels
+
+The [outlet-label calculation](revision_preparation/review_round2/raw_age_v1/missing_outlet_bounds.csv) fixes the all-extracted assigned-ID population. Named labels on matched IDs are retained and other labels are treated as unknown. Under conservative alias normalization, the [outer envelope for the D2 difference](revision_preparation/review_round2/raw_age_v1/missing_outlet_difference_envelopes.csv) is −140.624170 to +211.358702. It crosses zero. Lower dominance in known outlet labels does not identify diversification across all assessment sources. The envelope is not a confidence interval or a sharp joint bound: report-specific extrema can ignore cross-report constraints on shared IDs. It also supplies no climate-literature source-supply benchmark.
+
+### Weighted AI proposals and explicit recurrence scenarios
+
+The [AI-label projection archive](revision_preparation/review_round2/ai_sensitivity_v1/manifest.json) adds design weights to the frozen 319-ID probability sample. The 12 targeted supplements stay separate. A projected AI-label fraction describes the saved AI decisions, not independent accuracy or recall. The [sampling-only intervals](revision_preparation/review_round2/ai_sensitivity_v1/AI_label_prevalence.csv) invert finite-population hypergeometric tails within strata and combine conservative simultaneous stratum bounds separately for each outcome. They exclude AI classification error and incomplete duplicate search.
+
+| AI outcome | Weighted proposal or uncertainty share | Sampling-only 95% interval |
+|---|---:|---:|
+| False-merge proposal | 1.58% | 0.04–45.05% |
+| Any metadata-error proposal | 2.65% | 0.49–45.88% |
+| Any unresolved metadata judgment | 37.96% | 10.23–77.04% |
+| Counterpart proposal | 1.11% | 0.15–44.33% |
+| False-sharing proposal, shared-ID domain | 0.00% | 0.00–34.22% |
+
+The intervals are wide. There are zero false-sharing AI proposals among 94 probability-sampled shared IDs. A separate [one-sided zero-event calculation](revision_preparation/review_round2/ai_sensitivity_v1/AI_zero_event_one_sided_limits.csv) profiles the exact stratified probability and gives an upper count of 183 hypothetical positive AI labels at 95% confidence. It does not use the binomial rule of three. The eligibility-constrained version profiles the through-2013 shared domain separately. In [fixed-denominator loss scenarios](revision_preparation/review_round2/ai_sensitivity_v1/fixed_denominator_AI_loss_scenarios.csv), subtracting the respective upper counts from shared numerators gives 10.9161% retention, 4.2273% reuse and 25.2496% conditional reuse. These are hypothetical AI-label scenarios, not calibrated corrections or bounds on true linkage error. [Field-specific counts](revision_preparation/review_round2/ai_sensitivity_v1/field_specific_diagnostics.csv) keep metadata errors, unresolved fields and missing stored values separate.
+
+The [counterpart geometry table](revision_preparation/review_round2/ai_sensitivity_v1/counterpart_edge_geometry.csv) links all 49 directed proposals to actual matched report memberships. Most are not opposite-report-only pairs. The canonical-only whole-ID rule accepts no edge because the endpoint IDs had not been reviewed as single-study records. A separate targeted extension reviewed all saved occurrences of those endpoints. Its [explicit acceptance scenario](revision_preparation/review_round2/counterpart_review_v1/counterpart_scenarios.csv) accepts 37 edges in 33 connected components and yields 13,502 AR5 IDs, 34,859 AR6 IDs and 1,661 shared IDs: 12.3019% retention and 4.7649% reuse. Compound or unresolved nodes remain blocked. This nonprobability AI exercise changes no stored record, supplies no population error interval and is not a true recurrence bound. [Candidate judgments](revision_preparation/review_round2/counterpart_review_v1/candidate_summary.csv), [edge eligibility](revision_preparation/review_round2/counterpart_review_v1/expanded_edge_eligibility.csv) and [local-page evidence](revision_preparation/review_round2/counterpart_review_v1/local_page_evidence.json) retain its scope.
+
+The historical eleven source-correction cases with author-reported checks, the 331-ID AI sample and this targeted endpoint extension are separate activities. No independent human sample adjudication is claimed. These offline analyses do not identify subject-level mechanisms, complete publication dates or selection relative to an external literature pool.
 
 ## Verified references and revision preparation
 

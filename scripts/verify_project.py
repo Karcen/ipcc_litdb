@@ -105,7 +105,7 @@ def main() -> int:
     untranslated = []
     credentials = []
     private_paths = []
-    secret_pattern = re.compile(r"sk-[A-Za-z0-9_-]{32,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----")
+    secret_pattern = re.compile(r"(?<![A-Za-z0-9])sk-[A-Za-z0-9_-]{32,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----")
     for path, relative in files:
         if path.suffix not in TEXT_SUFFIXES or "vendor" in relative.parts:
             continue

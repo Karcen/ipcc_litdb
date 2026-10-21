@@ -1,0 +1,81 @@
+{
+  "accuracy_estimated": false,
+  "analysis_version": "targeted-counterpart-AI-review-1.0.0",
+  "canonical_proposals_modified": false,
+  "counts": {
+    "AI_classifications": {
+      "compound": 6,
+      "correct_merge": 43
+    },
+    "expanded_components": 33,
+    "expanded_eligible_edges": 37,
+    "full_occurrences": 111,
+    "targeted_candidate_IDs": 49
+  },
+  "database_modified": false,
+  "database_sha256": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+  "human_validated": false,
+  "input_files": {
+    "case_judgments.json": "bd6dcbd0a1612ed2be847e3f6fcf2154e980cf18dd4cc48fc7ba22b434d375da",
+    "input_manifest.json": "ea937648efd8dd0377473cd64a2938c1045c33f3a1a8e47103455fdfa3bcaaaf",
+    "local_page_evidence.json": "012d3e41148674e1ca01d73b910ecee9ab5f32955d6626013ce878f3a23f2d63",
+    "source_entries.json": "f637a82d2a2eb0374f68ffc3a8b930910ba84864473625114c6c01fc22e34460",
+    "source_index.csv": "b2a8a3bf786ffba07e39ea9cee8d5f7bd09649d4182c65c6fd204d84f81cbbcd"
+  },
+  "probability_sample": false,
+  "protected_source_files": {
+    "revision_preparation/annotation/ai_review/manifest.json": "2b13c415e0e2c50cd5e3ccc1cf94d9c6a94708030363ebfafb94e71846ab3752",
+    "revision_preparation/annotation/ai_review/proposals.json": "269d113ab667f5fda107e3ce3e854a98129ce9dd8509e361ac4b7c4c9dbcb516",
+    "revision_preparation/annotation/ai_review/version_decisions.json": "362814c404351b2c12b93e8fbfbee8c23b5641e650d73b1312469334cde5bcc1",
+    "revision_preparation/review_round2/ai_sensitivity_v1/counterpart_edge_geometry.csv": "8348bf88448d9321d03ec3aa60ce44c4f7f47e030070aeb14f9577afd7678809",
+    "revision_preparation/review_round2/ai_sensitivity_v1/manifest.json": "de3de66980b41c913755b555db180bb770eac916e9a7302f83c2ce1b7c0699c8"
+  },
+  "random_draws_used": false,
+  "registered_outputs": [
+    {
+      "bytes": 410627,
+      "filename": "case_proposals.json",
+      "sha256": "106cd166911889b0ab78af31ce169ea87ad4176bcde6a2a52fad4f94253ab037"
+    },
+    {
+      "bytes": 3941,
+      "filename": "candidate_summary.csv",
+      "rows": 49,
+      "sha256": "d9304ea647eda1d15558c21e90cce4c0ff3be689e2198a5916bd6fb22514347d"
+    },
+    {
+      "bytes": 16311,
+      "filename": "expanded_edge_eligibility.csv",
+      "rows": 49,
+      "sha256": "6a0ab6ca5664528812db02796ad2d50a340857f0c7baebe69388271b8ce05350"
+    },
+    {
+      "bytes": 1314,
+      "filename": "expanded_components.csv",
+      "rows": 33,
+      "sha256": "de97efb0438aaa5e047e7af2606dc2e37023c0b0048832ac21561d484c17c863"
+    },
+    {
+      "bytes": 533,
+      "filename": "counterpart_scenarios.csv",
+      "rows": 3,
+      "sha256": "25c61a95469bf980511b5e68128ddc6c405ad3b8326a88690301a6e91dd7847a"
+    },
+    {
+      "bytes": 2483,
+      "filename": "methods.txt",
+      "sha256": "65b62763f41536836d3d758dfa2dd67f52f783bf9cb4be7a45cb9369d8af1b0f"
+    },
+    {
+      "bytes": 664,
+      "filename": "validation_tests.json",
+      "sha256": "925324aa6fde4962bf1dda19fb02fa4296c9adf68f88b83d3b47412650975b58"
+    }
+  ],
+  "schema_version": 1,
+  "script": {
+    "path": "scripts/review_round2_counterpart_review.py",
+    "sha256": "35564ad50fead764b2b8dbe6681be98866b0f8c6308cc0e0d0b71b56830475af"
+  },
+  "seed": 20261011
+}

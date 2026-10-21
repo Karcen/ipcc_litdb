@@ -1,0 +1,26 @@
+{
+  "candidate_IDs": 49,
+  "database_sha256": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+  "files": {
+    "source_entries.json": {
+      "bytes": 288380,
+      "sha256": "f637a82d2a2eb0374f68ffc3a8b930910ba84864473625114c6c01fc22e34460"
+    },
+    "source_index.csv": {
+      "bytes": 35769,
+      "sha256": "b2a8a3bf786ffba07e39ea9cee8d5f7bd09649d4182c65c6fd204d84f81cbbcd"
+    }
+  },
+  "human_validated": false,
+  "original_occurrences": 111,
+  "schema_version": 1,
+  "seed": 20261011,
+  "selection": "targeted counterpart endpoints, not a probability sample",
+  "source_files": {
+    "revision_preparation/annotation/ai_review/manifest.json": "2b13c415e0e2c50cd5e3ccc1cf94d9c6a94708030363ebfafb94e71846ab3752",
+    "revision_preparation/annotation/ai_review/proposals.json": "269d113ab667f5fda107e3ce3e854a98129ce9dd8509e361ac4b7c4c9dbcb516",
+    "revision_preparation/annotation/ai_review/version_decisions.json": "362814c404351b2c12b93e8fbfbee8c23b5641e650d73b1312469334cde5bcc1",
+    "revision_preparation/review_round2/ai_sensitivity_v1/counterpart_edge_geometry.csv": "8348bf88448d9321d03ec3aa60ce44c4f7f47e030070aeb14f9577afd7678809",
+    "revision_preparation/review_round2/ai_sensitivity_v1/manifest.json": "de3de66980b41c913755b555db180bb770eac916e9a7302f83c2ce1b7c0699c8"
+  }
+}

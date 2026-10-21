@@ -1,0 +1,2829 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-21",
+  "human_validated": false,
+  "selection": "targeted counterpart endpoints; no probability weights",
+  "cases": [
+    {
+      "paper_id": "18946",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Aldrin et al. Bayesian climate-sensitivity estimation, Environmetrics23:253–271.",
+          "title_anchor": "Bayesian estimation of climate sensitivity",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG1-Chapter 10-00004",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        },
+        {
+          "occurrence_id": "AR5-WG1-Chapter 12-00006",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        },
+        {
+          "occurrence_id": "AR5-WG1-Chapter 7-00009",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "All three AR5 entries give the same authors,2012,title,journal,volume and pages. No second work is present.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. All three AR5 entries give the same authors,2012,title,journal,volume and pages. No second work is present.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "20269",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Li et al. FGOALS-g2 article, Advances in Atmospheric Sciences30:543–560.",
+          "title_anchor": "The Flexible Global Ocean-Atmosphere-Land System Model",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG1-Chapter 12-00450",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The one printed citation identifies a journal article. Preferred metadata instead describe a Springer book chapter; those fields are not endorsed or substituted. The source comparison has a2012/2013date discrepancy.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The one printed citation identifies a journal article. Preferred metadata instead describe a Springer book chapter; those fields are not endorsed or substituted. The source comparison has a2012/2013date discrepancy.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "22484",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Collins et al. HadGEM2 article, Geoscientific Model Development4:1051–1075.",
+          "title_anchor": "Development and evaluation of an Earth-System model",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG1-Chapter 6-00151",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        },
+        {
+          "occurrence_id": "AR5-WG1-Chapter 9-00197",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "Both printed entries identify the final journal article. The preferred discussion-paper DOI is a separate version-metadata problem; no date or DOI correction is made.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. Both printed entries identify the final journal article. The preferred discussion-paper DOI is a separate version-metadata problem; no date or DOI correction is made.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "26745",
+      "classification": "compound",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Lenton et al.2008 PNAS tipping-points article105:1786–1793.",
+          "title_anchor": "Tipping points in the Earth",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "B",
+          "study_descriptor": "Lenton,Footitt and Dlugolecki2009 WWF/Allianz insurance-sector report,89pp.",
+          "title_anchor": "Consequences for the Insurance Sector",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG2-Chapter 16-00355",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "SREX-WG1+WG2-Chapter 4-00319",
+          "work_groups": [
+            "B"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "Two separate entries identify a2008PNASjournal article and a2009WWF/Allianzinsurance report with different coauthors,format,length and purpose. The canonical Lenton comparison refers only to groupA. Whole-ID union is blocked.",
+      "metadata_notes": "Preferred metadata cannot represent all printed works in this ID. Fragments remain unresolved; no new bibliographic fields are inferred.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No cross-work version equivalence is inferred.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "28495",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Barkhordarian, Bhend and von Storch Mediterranean-temperature article, Climate Dynamics38:1695–1702.",
+          "title_anchor": "Consistency of observed near surface temperature trends",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG2-Chapter 22-00062",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The single printed2012citation agrees in full title and pages with the canonical comparison. Preferred2011and printed2012dates are kept separate without a new publication-date claim.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The single printed2012citation agrees in full title and pages with the canonical comparison. Preferred2011and printed2012dates are kept separate without a new publication-date claim.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "29865",
+      "classification": "compound",
+      "study_groups": [
+        {
+          "group_id": "W01",
+          "study_descriptor": "Lewis2011 The2010Amazon drought.",
+          "title_anchor": "The 2010 Amazon drought",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W02",
+          "study_descriptor": "Broecker1975 Climatic Change: Are We on the Brink of a Pronounced Global Warming?",
+          "title_anchor": "On the Brink of a Pronounced",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W03",
+          "study_descriptor": "Diaz and Rosenberg2008 Spreading Dead Zones.",
+          "title_anchor": "Spreading Dead Zones",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W04",
+          "study_descriptor": "Scheffers2016 broad footprint of climate change.",
+          "title_anchor": "The broad footprint of climate change",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W05",
+          "study_descriptor": "Cheng2019 How fast are the oceans warming?",
+          "title_anchor": "How fast are the oceans warming?",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W06",
+          "study_descriptor": "Clement2015 Atlantic Multidecadal Oscillation without ocean circulation.",
+          "title_anchor": "The Atlantic Multidecadal Oscillation",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W07",
+          "study_descriptor": "Soden2018 Reducing uncertainties in climate models.",
+          "title_anchor": "Reducing uncertainties in climate models",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W08",
+          "study_descriptor": "Rignot2013 Ice-shelf melting around Antarctica.",
+          "title_anchor": "Ice-shelf melting around Antarctica",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W09",
+          "study_descriptor": "Diaz2018 Assessing nature contributions to people.",
+          "title_anchor": "Assessing nature",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W10",
+          "study_descriptor": "Alkama and Cescatti2016 biophysical forest-cover impacts.",
+          "title_anchor": "Biophysical climate impacts",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W11",
+          "study_descriptor": "Blowes2019 geography of biodiversity change.",
+          "title_anchor": "The geography of biodiversity change",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W12",
+          "study_descriptor": "Hughes2018 spatial/temporal coral bleaching patterns.",
+          "title_anchor": "Spatial and temporal patterns of mass bleaching",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W13",
+          "study_descriptor": "Allison and Bassett2015 ocean climate-change impacts/responses.",
+          "title_anchor": "Climate change in the oceans",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W14",
+          "study_descriptor": "Irannezhad2020 Arctic zombie wildfires.",
+          "title_anchor": "The dangers of Arctic zombie wildfires",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W15",
+          "study_descriptor": "Moore2018 declining marine biological productivity.",
+          "title_anchor": "Sustained climate warming drives",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W16",
+          "study_descriptor": "Wang2020 CO2fertilization effects.",
+          "title_anchor": "Recent global decline of CO2",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W17",
+          "study_descriptor": "Deutsch2015 marine metabolic constraint.",
+          "title_anchor": "Climate change tightens a metabolic constraint",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W18",
+          "study_descriptor": "Hoegh-Guldberg2019 stabilizing climate at1.5C.",
+          "title_anchor": "The human imperative",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W19",
+          "study_descriptor": "Brodribb2020 Hanging by a thread?",
+          "title_anchor": "Hanging by a thread?",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W20",
+          "study_descriptor": "Jones2018 protected-land human pressure.",
+          "title_anchor": "One-third of global protected land",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W21",
+          "study_descriptor": "Kremen2018 Landscapes that work.",
+          "title_anchor": "Landscapes that work for biodiversity",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W22",
+          "study_descriptor": "Penn2018 end-Permian hypoxia.",
+          "title_anchor": "end-Permian marine mass extinction",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W23",
+          "study_descriptor": "Hsiang2017 USeconomic damage.",
+          "title_anchor": "Estimating economic damage",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W24",
+          "study_descriptor": "Chaplin-Kramer2019 modeling nature contributions.",
+          "title_anchor": "Global modeling of nature",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W25",
+          "study_descriptor": "Cheung2016 marine fisheries benefits.",
+          "title_anchor": "Large benefits to marine fisheries",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W26",
+          "study_descriptor": "Deutsch2018 crop losses to insect pests.",
+          "title_anchor": "Increase in crop losses",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W27",
+          "study_descriptor": "Laufkotter2020 human-induced marine heatwaves.",
+          "title_anchor": "High-impact marine heatwaves",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W28",
+          "study_descriptor": "Sullivan2020 tropical-forest thermal sensitivity.",
+          "title_anchor": "Long-term thermal sensitivity",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W29",
+          "study_descriptor": "Meckling2015 climate-policy coalitions.",
+          "title_anchor": "Winning coalitions",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W30",
+          "study_descriptor": "Anderegg2020 climate-driven risks to forest mitigation.",
+          "title_anchor": "Climate-driven risks",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W31",
+          "study_descriptor": "Alvarez2018 oil/gas methane emissions.",
+          "title_anchor": "Assessment of methane emissions",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W32",
+          "study_descriptor": "Millar and Stephenson2015 forest megadisturbance.",
+          "title_anchor": "Temperate forest health",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W33",
+          "study_descriptor": "Tessler2015 coastal-delta risk/sustainability.",
+          "title_anchor": "Profiling risk and sustainability",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W34",
+          "study_descriptor": "Wouters2015 Antarctic Peninsula glacier thinning.",
+          "title_anchor": "Dynamic thinning of glaciers",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG2-Chapter 27-00439",
+          "work_groups": [
+            "W01"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG1-Ch1-00108",
+          "work_groups": [
+            "W02"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG1-Ch12-00357",
+          "work_groups": [
+            "W03"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG1-Ch2-01185",
+          "work_groups": [
+            "W04"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG1-Ch3-00133",
+          "work_groups": [
+            "W05"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG1-Ch3-00153",
+          "work_groups": [
+            "W06"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG1-Ch7-00818",
+          "work_groups": [
+            "W07"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG1-Ch9-00216",
+          "work_groups": [
+            "W05"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG1-Ch9-01089",
+          "work_groups": [
+            "W08"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-AnnexII-00008",
+          "work_groups": [
+            "W09"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-CCP1-00004",
+          "work_groups": [
+            "W10"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-CCP1-00031",
+          "work_groups": [
+            "W11"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-CCP1-00127",
+          "work_groups": [
+            "W12"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-CCP2-00009",
+          "work_groups": [
+            "W13"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-CCP6-00006",
+          "work_groups": [
+            "W13"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-CCP6-00238",
+          "work_groups": [
+            "W14"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-CCP6-00329",
+          "work_groups": [
+            "W15"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-CCP7-00011",
+          "work_groups": [
+            "W10"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch13-01313",
+          "work_groups": [
+            "W16"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch14-00379",
+          "work_groups": [
+            "W17"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch14-00658",
+          "work_groups": [
+            "W18"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch2-00273",
+          "work_groups": [
+            "W19"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch2-01002",
+          "work_groups": [
+            "W20"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch2-01095",
+          "work_groups": [
+            "W21"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch2-01797",
+          "work_groups": [
+            "W04"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch3-00465",
+          "work_groups": [
+            "W17"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch3-01552",
+          "work_groups": [
+            "W22"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch4-01325",
+          "work_groups": [
+            "W04"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch5-00064",
+          "work_groups": [
+            "W13"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch5-01081",
+          "work_groups": [
+            "W23"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch7-00650",
+          "work_groups": [
+            "W23"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch8-00427",
+          "work_groups": [
+            "W23"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch9-00346",
+          "work_groups": [
+            "W24"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch9-00359",
+          "work_groups": [
+            "W25"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch9-00470",
+          "work_groups": [
+            "W26"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch9-00974",
+          "work_groups": [
+            "W27"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch9-01628",
+          "work_groups": [
+            "W28"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG3-Chapter 15-00685",
+          "work_groups": [
+            "W29"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG3-Chapter 3-00013",
+          "work_groups": [
+            "W30"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "AR6-WG3-Chapter 6-00042",
+          "work_groups": [
+            "W31"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "SRCCL-WG1+WG2+WG3-Chapter 2-00830",
+          "work_groups": [
+            "W32"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "SRCCL-WG1+WG2+WG3-Chapter 4-01084",
+          "work_groups": [
+            "W33"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "SROCC-WG1+WG2-Chapter 1-00100",
+          "work_groups": [
+            "W17"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "SROCC-WG1+WG2-Chapter 3-01607",
+          "work_groups": [
+            "W34"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "SROCC-WG1+WG2-Chapter 5-00695",
+          "work_groups": [
+            "W12"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "SROCC-WG1+WG2-Chapter 6-00128",
+          "work_groups": [
+            "W06"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        }
+      ],
+      "referring_group_ids": [
+        "W30"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The preferred genericScience/10.1126/science record joins34distinct studies in46separate entries, spanning different authors,years,titles and article suffixes. Repeated appearances of the same study share one group. The source50178comparison refers only to Anderegg2020groupW30. Every whole-ID union is blocked.",
+      "metadata_notes": "Preferred metadata cannot represent all printed works in this ID. Fragments remain unresolved; no new bibliographic fields are inferred.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No cross-work version equivalence is inferred.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "33034",
+      "classification": "compound",
+      "study_groups": [
+        {
+          "group_id": "fragment_0",
+          "study_descriptor": "Unidentified preceding chapter ending Technology,Behavior and Development.",
+          "title_anchor": "Technology, Behavior and Development",
+          "unresolved_fragment": true
+        },
+        {
+          "group_id": "A",
+          "study_descriptor": "Roy and Pal2009 Lifestyles and climate change.",
+          "title_anchor": "Lifestyles and climate change",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "B",
+          "study_descriptor": "Roy et al.2006 substitution/price elasticities.",
+          "title_anchor": "Substitution and price elasticity",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "C",
+          "study_descriptor": "de la Rue du Can and Price2008 sectoral energy trends.",
+          "title_anchor": "Sectoral trends in global energy",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "D",
+          "study_descriptor": "Saidur2010 electrical-motor review.",
+          "title_anchor": "A review on electrical motors",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "E",
+          "study_descriptor": "Sakamoto2011 heat-pump reduction method.",
+          "title_anchor": "Analysis Methodology Proposal",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "F",
+          "study_descriptor": "Sano,Akimoto,Wada2013 mitigation diffusion.",
+          "title_anchor": "Impacts of different diffusion",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "G",
+          "study_descriptor": "Sano,Wada,Akimoto,Oda2013 GHGscenarios.",
+          "title_anchor": "Assessments of GHG emission",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "H",
+          "study_descriptor": "Sanstad2006 energy-augmenting change.",
+          "title_anchor": "Estimating energy-augmenting",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "I",
+          "study_descriptor": "Sardeshpande2007 glass-furnace benchmarking.",
+          "title_anchor": "Model based energy benchmarking",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "J",
+          "study_descriptor": "Sarkar2003 Bangladesh energy conservation.",
+          "title_anchor": "Issues relating to energy con",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "K",
+          "study_descriptor": "Sathaye and Gupta2010 India electricity deficit.",
+          "title_anchor": "Eliminating Electricity Deficit",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "L",
+          "study_descriptor": "Sathaye2011 cement technologies.",
+          "title_anchor": "Bottom-up Representation",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "M",
+          "study_descriptor": "Saygin2011a chemical-sector best practice.",
+          "title_anchor": "tial of best practice technology",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "N",
+          "study_descriptor": "Saygin2011b industry benchmarking.",
+          "title_anchor": "Benchmarking the energy use",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "O",
+          "study_descriptor": "Schafer2005 structural energy change.",
+          "title_anchor": "Structural change in energy use",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "P",
+          "study_descriptor": "Schleich2004 energy audits.",
+          "title_anchor": "Do energy audits help",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "Q",
+          "study_descriptor": "Schleich and Gruber2008 efficiency barriers.",
+          "title_anchor": "Beyond case studies",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "R",
+          "study_descriptor": "Schmitz1995 collective efficiency.",
+          "title_anchor": "Collective efficiency",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "S",
+          "study_descriptor": "Scholl2010 resource-efficiency approaches.",
+          "title_anchor": "Consumer-Oriented Approaches",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "T",
+          "study_descriptor": "Scott2010 tourism emissions.",
+          "title_anchor": "Can tourism deliver",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "U",
+          "study_descriptor": "Sengenberger and Pyke1992 industrial districts.",
+          "title_anchor": "Industrial Districts and Local",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "V",
+          "study_descriptor": "Sheinbaum2011 Latin-American emissions.",
+          "title_anchor": "five Latin American countries",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "W",
+          "study_descriptor": "Sheinbaum-Pardo2012 Mexican industry.",
+          "title_anchor": "position of energy consumption",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "X",
+          "study_descriptor": "Shen2012 China energy audits.",
+          "title_anchor": "Energy audit practices in China",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "Y",
+          "study_descriptor": "Shin2011 methanogenic populations.",
+          "title_anchor": "Variations in metha",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "Z",
+          "study_descriptor": "Shipley2008 combined heat and power.",
+          "title_anchor": "bined Heat and Power",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "AA",
+          "study_descriptor": "SilverInstitute/GFMS2013 silver survey.",
+          "title_anchor": "World Silver Survey 2013",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "AB",
+          "study_descriptor": "Siitonen2010 steel-industry efficiency.",
+          "title_anchor": "Variables affecting energy",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "AC",
+          "study_descriptor": "Sim2007 food-sourcing transport.",
+          "title_anchor": "The relative importance of transport",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "fragment_1",
+          "study_descriptor": "Sims2011 renewable-energy integration chapter, trailing editor-list fragment.",
+          "title_anchor": "Integration of Renew",
+          "unresolved_fragment": true
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG3-Chapter 10-00074",
+          "work_groups": [
+            "fragment_0",
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+            "AA",
+            "AB",
+            "AC",
+            "fragment_1"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "One raw occurrence concatenates many complete independent references and two incomplete boundary fragments, including a source-page header. Roy/Pal2009is present as groupA, but the ID is not one study.",
+      "metadata_notes": "Preferred metadata cannot represent all printed works in this ID. Fragments remain unresolved; no new bibliographic fields are inferred.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No cross-work version equivalence is inferred.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "35426",
+      "classification": "compound",
+      "study_groups": [
+        {
+          "group_id": "fragment_0",
+          "study_descriptor": "Unidentified preceding edited-book reference.",
+          "title_anchor": "Zwickel, P. Eickemeier",
+          "unresolved_fragment": true
+        },
+        {
+          "group_id": "A",
+          "study_descriptor": "SchaefferM2014 mid/long-term projections.",
+          "title_anchor": "Mid- and long-term climate projections",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "B",
+          "study_descriptor": "SchaefferM2008 near-linear climate-risk costs.",
+          "title_anchor": "Near-linear cost increase",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "C",
+          "study_descriptor": "SchaefferR2012 Energysector vulnerability review.",
+          "title_anchor": "Energy sector vulnerability",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "D",
+          "study_descriptor": "Schafer2005 structural energy change.",
+          "title_anchor": "Structural change in energy use",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "E",
+          "study_descriptor": "Schelling1996 geoengineering diplomacy.",
+          "title_anchor": "The economic diplomacy",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "F",
+          "study_descriptor": "Schellnhuber2009 budget approach.",
+          "title_anchor": "Solving the Climate Dilemma",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "G",
+          "study_descriptor": "Schmidt2012 solar irradiance reduction.",
+          "title_anchor": "Solar irradiance reduction",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "H",
+          "study_descriptor": "Scholte2013 societal climate-engineering debate.",
+          "title_anchor": "Opening up the societal debate",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "I",
+          "study_descriptor": "Searchinger2008 biofuel land-use emissions.",
+          "title_anchor": "Use of U. S. Croplands",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "J",
+          "study_descriptor": "Shen2008 future water resources.",
+          "title_anchor": "Projection of future world water resources",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "K",
+          "study_descriptor": "Shiklomanov and Rodda2003 water resources book.",
+          "title_anchor": "World Water Resources at the Beginning",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "fragment_1",
+          "study_descriptor": "Shindell2012 author-list fragment without title.",
+          "title_anchor": "Shindell D., J. C. I.",
+          "unresolved_fragment": true
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG3-Chapter 6-00076",
+          "work_groups": [
+            "fragment_0",
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "fragment_1"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        },
+        {
+          "occurrence_id": "SRCCL-WG1+WG2+WG3-Chapter 1-00531",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        }
+      ],
+      "referring_group_ids": [
+        "C"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The AR5occurrence is a concatenated bibliography block; the SRCCLentry is SchaefferMmid/long-term projections(groupA), not SchaefferRenergy vulnerability(groupC). Source40922refers only to the groupCsegment of the AR5block.",
+      "metadata_notes": "Preferred metadata cannot represent all printed works in this ID. Fragments remain unresolved; no new bibliographic fields are inferred.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No cross-work version equivalence is inferred.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "35457",
+      "classification": "compound",
+      "study_groups": [
+        {
+          "group_id": "fragment_0",
+          "study_descriptor": "Unidentified preceding edited-book reference.",
+          "title_anchor": "Edenhofer, R. Pichs-Madruga",
+          "unresolved_fragment": true
+        },
+        {
+          "group_id": "A",
+          "study_descriptor": "Sathre2012 CCSenvironmental framework.",
+          "title_anchor": "A framework for environ",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "B",
+          "study_descriptor": "Sato2011 Nagaoka CO2monitoring.",
+          "title_anchor": "toring and simulation studies",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "C",
+          "study_descriptor": "Sauer2013 hierarchical monitoring.",
+          "title_anchor": "grative hierarchical monitoring",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "D",
+          "study_descriptor": "SchaefferR2012 Energysector vulnerability.",
+          "title_anchor": "Energy sector vulnerability",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "E",
+          "study_descriptor": "Scheffknecht2011 oxy-fuel coal review.",
+          "title_anchor": "Oxy-fuel coal combustion",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "F",
+          "study_descriptor": "Schenk2012 undiscovered oil/gas report.",
+          "title_anchor": "An Estimate of Undiscovered",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "G",
+          "study_descriptor": "Schloemer2013 continuous soil-gas monitoring.",
+          "title_anchor": "A review of continuous soil gas",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "H",
+          "study_descriptor": "Schneider and Sailor2008 uranium supply.",
+          "title_anchor": "Long-Term Uranium Supply",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "I",
+          "study_descriptor": "Schnelzer2010 uranium-miner smoking risks.",
+          "title_anchor": "Accounting for smoking",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "J",
+          "study_descriptor": "Scholes and Settele2014 terrestrial/inland systems chapter.",
+          "title_anchor": "Terrestial and inland water systems",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "K",
+          "study_descriptor": "Schwenk-Ferrero2013 spent nuclear fuel article, two printed variants.",
+          "title_anchor": "German Spent Nuclear Fuel Legacy",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "L",
+          "study_descriptor": "Scott2013 Last chance for CCS.",
+          "title_anchor": "Last chance for carbon capture",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "M",
+          "study_descriptor": "Scudder2005 large dams book.",
+          "title_anchor": "The Future of Large Dams",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "N",
+          "study_descriptor": "Sensfuss2008 merit-order effect.",
+          "title_anchor": "The merit-order effect",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "fragment_1",
+          "study_descriptor": "Sermage-Faure author-list fragment.",
+          "title_anchor": "Sermage-Faure C., D. Laurier",
+          "unresolved_fragment": true
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG3-Chapter 7-00132",
+          "work_groups": [
+            "fragment_0",
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "fragment_1"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        }
+      ],
+      "referring_group_ids": [
+        "D"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The single raw block contains many independent articles/books and two incomplete boundary fragments. The two Schwenk-Ferrero2013variants share the same full subject,title,year and article identifier and are one groupK. The source40922energy review is groupD.",
+      "metadata_notes": "Preferred metadata cannot represent all printed works in this ID. Fragments remain unresolved; no new bibliographic fields are inferred.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No cross-work version equivalence is inferred.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "37636",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Mauritsen et al. MPI-ESM1.2 development article, JAMES11:998–1038.",
+          "title_anchor": "Developments in the MPI-M Earth System Model version 1.2",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR6-WG1-Ch1-00653",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        },
+        {
+          "occurrence_id": "AR6-WG1-Ch3-00615",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "Both AR6 entries identify the same2019article and complete DOI. A trailing page number in one entry is source-layout contamination, not another reference.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. Both AR6 entries identify the same2019article and complete DOI. A trailing page number in one entry is source-layout contamination, not another reference.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "39058",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Kossin2017 hurricane-intensification article, Nature541:390–393.",
+          "title_anchor": "Hurricane intensi",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR6-WG1-Ch11-00831",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        },
+        {
+          "occurrence_id": "SROCC-WG1+WG2-Chapter 4-00724",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        },
+        {
+          "occurrence_id": "SROCC-WG1+WG2-Chapter 6-00376",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "All three AR6/SROCC citations have the same author,year,title,volume and first page. Ligatures, shortened page ranges and DOI whitespace do not identify another study.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. All three AR6/SROCC citations have the same author,year,title,volume and first page. Ligatures, shortened page ranges and DOI whitespace do not identify another study.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "40306",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Fluixa-Sanmartin et al.2018 dam-safety review, NHESS18:2471–2488.",
+          "title_anchor": "Climate change impacts on dam safety",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR6-WG1-Ch12-00459",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The printed reference is the final review article. Preferred metadata identify a review comment; the mismatch is retained and is not evidence that two works occur inside this one printed entry.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The printed reference is the final review article. Preferred metadata identify a review comment; the mismatch is retained and is not evidence that two works occur inside this one printed entry.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "40545",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Knutson et al.2020 Tropical Cyclones and Climate Change Assessment, PartII, BAMS101:E303–E322.",
+          "title_anchor": "Part II: Projected Response",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR6-WG1-Ch12-00794",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        },
+        {
+          "occurrence_id": "AR6-WG1-Ch8-00847",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "Both entries explicitly identify PartII and the same DOI/pages. PartI is a different publication and is not grouped here. DOI line breaks and a trailing source-page number are retained.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. Both entries explicitly identify PartII and the same DOI/pages. PartI is a different publication and is not grouped here. DOI line breaks and a trailing source-page number are retained.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "41435",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Collins et al.2011 HadGEM2 final article, GMD4:1051–1075.",
+          "title_anchor": "Development and evaluation of an Earth-System model",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR6-WG1-Ch2-00247",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The single entry supplies the final-article title,authors,pages and DOI. It agrees with the canonical HadGEM2 comparison; metadata are not replaced.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The single entry supplies the final-article title,authors,pages and DOI. It agrees with the canonical HadGEM2 comparison; metadata are not replaced.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "43649",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Schmidt et al.2014 palaeoclimate comparisons article, Climate of the Past10:221–250.",
+          "title_anchor": "Using palaeo-climate comparisons",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR6-WG1-Ch4-00760",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The single printed entry agrees in title,year,outlet,pages and DOI with the canonical source. Its DOI line break is retained.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The single printed entry agrees in title,year,outlet,pages and DOI with the canonical source. Its DOI line break is retained.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "44048",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Gasser et al.2020 land-use emissions article, Biogeosciences17:4075–4101.",
+          "title_anchor": "Historical CO2 emissions from land use",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR6-WG1-Ch5-00367",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        },
+        {
+          "occurrence_id": "AR6-WG3-Chapter 2-00195",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        },
+        {
+          "occurrence_id": "AR6-WG3-Chapter 7-00371",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "All three WGI/WGIII entries repeat the same title,year,pages and DOI. No second study appears.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. All three WGI/WGIII entries repeat the same title,year,pages and DOI. No second study appears.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "45698",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Manne and Richels2001 greenhouse-gas trade-offs article, Nature410:675–677.",
+          "title_anchor": "An alternative approach to establishing trade-offs",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR6-WG1-Ch7-00548",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The single entry agrees with the canonical author/title/year/volume/pages. The zero-width character in the printed DOI is preserved.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The single entry agrees with the canonical author/title/year/volume/pages. The zero-width character in the printed DOI is preserved.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "50552",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Berrang-Ford Mapping evidence of human adaptation study, preprint/final lineage recorded in the existing version ledger.",
+          "title_anchor": "Mapping evidence of human adaptation",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR6-WG2-Ch1-00045",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch16-00117",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        },
+        {
+          "occurrence_id": "AR6-WG2-Ch8-00099",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "All three entries use the same title and preprint DOI. Their2020/2021and journal/preprint labels remain inconsistent metadata. Study equivalence follows the existing verified version notice and author-authorized convention; no new publication date is inferred.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. All three entries use the same title and preprint DOI. Their2020/2021and journal/preprint labels remain inconsistent metadata. Study equivalence follows the existing verified version notice and author-authorized convention; no new publication date is inferred.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "Existing canonical version ledger; no new version dates verified.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": [
+        "berrang-preprint"
+      ]
+    },
+    {
+      "paper_id": "59659",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Holbrook et al.2019 global marine-heatwave assessment, Nature Communications10:2624.",
+          "title_anchor": "A global assessment of marine heatwaves",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR6-WG2-Ch3-00881",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The raw entry stops mid-title. A newly inspected local IPCC bibliography context completes the title and supplies Nature Communications10:2624and the article DOI. Preferred Hu2021coastal-urban metadata concern another paper and remain uncorrected.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The raw entry stops mid-title. A newly inspected local IPCC bibliography context completes the title and supplies Nature Communications10:2624and the article DOI. Preferred Hu2021coastal-urban metadata concern another paper and remain uncorrected.",
+      "local_evidence_ids": [
+        "local-IPCC-context-59659"
+      ],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "64369",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Triana, Lamberts and Sassi2018 Brazilian social-housing article, Energy and Buildings158:1379–1392.",
+          "title_anchor": "Should we consider climate change for Brazilian social housing",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR6-WG2-Ch6-01665",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The single original reference agrees in complete authors,title,year,outlet,volume and pages with the canonical comparison. Missing printed DOI is not classified as an identity error.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The single original reference agrees in complete authors,title,year,outlet,volume and pages with the canonical comparison. Missing printed DOI is not classified as an identity error.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "67216",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Rochedo et al.2021 green-recovery economic-packages article, Energies14:5567.",
+          "title_anchor": "Is Green Recovery Enough?",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR6-WG3-Chapter 1-00587",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        },
+        {
+          "occurrence_id": "AR6-WG3-Chapter 15-00861",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "Both WGIII entries repeat the same title,year,article number and DOI. They represent one study.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. Both WGIII entries repeat the same title,year,article number and DOI. They represent one study.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "69000",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Bulkeley and Castan Broto Government by experiment article, Transactions38:361–375.",
+          "title_anchor": "Government by experiment?",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR6-WG3-Chapter 13-00178",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The one printed2013entry agrees with the canonical study in author,title,outlet,pages and DOI. Preferred2012is retained as an unresolved date-label difference.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The one printed2013entry agrees with the canonical study in author,title,outlet,pages and DOI. Preferred2012is retained as an unresolved date-label difference.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "72229",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Riahi et al.2015 Locked into Copenhagen pledges article, TFSC90:8–23.",
+          "title_anchor": "Locked into Copenhagen pledges",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR6-WG3-Chapter 2-00547",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The single AR6entry identifies the canonical Riahi article. Its fragmented preferred DOI is a metadata problem. The canonical source ID is compound, so this endpoint cannot authorize a whole-source-ID union.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The single AR6entry identifies the canonical Riahi article. Its fragmented preferred DOI is a metadata problem. The canonical source ID is compound, so this endpoint cannot authorize a whole-source-ID union.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "76723",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Yang et al.2015 comparative green-roof thermal-performance article, Sustainable Cities and Society16:1–12.",
+          "title_anchor": "Comparative study of the thermal performance",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR6-WG3-Chapter 9-01113",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The single reference agrees in authors,title,year,pages and complete printed DOI. The preferred DOI is truncated; no field is changed.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The single reference agrees in authors,title,year,pages and complete printed DOI. The preferred DOI is truncated; no field is changed.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "78731",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Muys et al. Jatropha mitigation/adaptation article, GCB Bioenergy6:169–171.",
+          "title_anchor": "Integrating mitigation and adaptation into development",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "SR15-WG1+WG2+WG3-Chapter 5-01006",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The SR15entry and canonical comparison identify the same complete title,author group,pages and DOI. Printed2014and preferred2013remain distinct date labels; no online-publication date is asserted.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The SR15entry and canonical comparison identify the same complete title,author group,pages and DOI. Printed2014and preferred2013remain distinct date labels; no online-publication date is asserted.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "80419",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Trenberth2011 precipitation-with-climate-change article, Climate Research47:123–138.",
+          "title_anchor": "Changes in precipitation with climate change",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "SRCCL-WG1+WG2+WG3-Chapter 4-01104",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The single SRCCLentry matches the canonical complete title,author,year,outlet and pages. Its10.2307identifier differs from the canonical10.3354identifier; alias validity is not newly checked.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The single SRCCLentry matches the canonical complete title,author,year,outlet and pages. Its10.2307identifier differs from the canonical10.3354identifier; alias validity is not newly checked.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "81555",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Craig2010 Stationarity is dead adaptation-law study, Harvard Environmental Law Review34:9–73.",
+          "title_anchor": "Long live transformation",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "SRCCL-WG1+WG2+WG3-Chapter 7-00328",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The single SRCCLentry identifies the same journal article with a Stationary typo and an SSRN DOI. Existing primary-publisher/indexed-repository evidence and the version convention are retained; repository full text is not newly compared.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The single SRCCLentry identifies the same journal article with a Stationary typo and an SSRN DOI. Existing primary-publisher/indexed-repository evidence and the version convention are retained; repository full text is not newly compared.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "Existing canonical version ledger; no new version dates verified.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": [
+        "craig-publisher",
+        "craig-issue",
+        "craig-ssrn"
+      ]
+    },
+    {
+      "paper_id": "99875",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Grubler, Nakicenovic and Victor1999 technological-change article, Annual Review24:545–569.",
+          "title_anchor": "Modeling technological change",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR4-WG2-Chapter 2-00105",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The one raw entry is truncated. Newly inspected local AR4context supplies the remaining title,outlet,volume and pages and agrees with the canonical three authors and1999. No raw text is repaired.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The one raw entry is truncated. Newly inspected local AR4context supplies the remaining title,outlet,volume and pages and agrees with the canonical three authors and1999. No raw text is repaired.",
+      "local_evidence_ids": [
+        "local-IPCC-context-99875"
+      ],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "100389",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Sohngen, Mendelsohn and Sedjo2001 timber-markets article, JARE26:326–343.",
+          "title_anchor": "A global model of climate change impacts on timber",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR4-WG2-Chapter 5-00260",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The one raw title is truncated. Newly inspected local AR4context completes markets and the journal26(2):326–343. It identifies the canonical study without replacing the raw entry.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The one raw title is truncated. Newly inspected local AR4context completes markets and the journal26(2):326–343. It identifies the canonical study without replacing the raw entry.",
+      "local_evidence_ids": [
+        "local-IPCC-context-100389"
+      ],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "101061",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Fischer and Newell RFF discussion paper04-05,2004, in the previously verified journal-version lineage.",
+          "title_anchor": "Environmental and technology policies",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR4-WG3-Chapter 11-00101",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The one entry identifies the RFFworking paper. The existing version ledger documents its relation to the later journal study. The printed2004year is preserved and is not replaced by the journal year.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The one entry identifies the RFFworking paper. The existing version ledger documents its relation to the later journal study. The printed2004year is preserved and is not replaced by the journal year.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "Existing canonical version ledger; no new version dates verified.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": [
+        "rff-original",
+        "rff-revision",
+        "jeem-final"
+      ]
+    },
+    {
+      "paper_id": "102187",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Moss et al.2010 next-generation climate scenarios article, Nature463:747–756.",
+          "title_anchor": "The next generation of scenarios",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG1-Chapter 1-00090",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The raw entry stops before the title ends. Newly inspected local WGIcontext completes and assessment and supplies Nature463:747–756. The canonical source ID is compound and remains blocked from whole-ID union.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The raw entry stops before the title ends. Newly inspected local WGIcontext completes and assessment and supplies Nature463:747–756. The canonical source ID is compound and remains blocked from whole-ID union.",
+      "local_evidence_ids": [
+        "local-IPCC-context-102187"
+      ],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "102191",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "van Vuuren et al.2011 RCP overview, Climatic Change109:5–31.",
+          "title_anchor": "The representative concentration pathways",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG1-Chapter 1-00123",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The single full citation agrees in author,year,title,outlet and pages. Its soft-hyphen/space within overview is retained.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The single full citation agrees in author,year,title,outlet and pages. Its soft-hyphen/space within overview is retained.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "102270",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Otto et al.2013 energy-budget constraints article, Nature Geoscience6:415–416.",
+          "title_anchor": "Energy budget contraints on climate response",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG1-Chapter 13-00356",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The single reference has a contraints spelling error but matches the canonical author,year,title context,outlet,volume and pages. No additional study is present.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The single reference has a contraints spelling error but matches the canonical author,year,title context,outlet,volume and pages. No additional study is present.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "102563",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Moss et al.2010 climate-scenario article, Nature463:747–756, printed with an alternative title.",
+          "title_anchor": "A new paradigm for the next generation",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG2-Chapter 1-00044",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        },
+        {
+          "occurrence_id": "SREX-WG1+WG2-Chapter 8-00381",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "Both AR5/SREXentries have the same long author list,year,alternative title,outlet and exact pages. Their correspondence to the canonical Moss study uses that bibliographic agreement; the canonical compound source remains blocked.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. Both AR5/SREXentries have the same long author list,year,alternative title,outlet and exact pages. Their correspondence to the canonical Moss study uses that bibliographic agreement; the canonical compound source remains blocked.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "102595",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Bond et al.2013 black-carbon assessment, JGR Atmospheres118:5380–5552.",
+          "title_anchor": "Bounding the role of black carbon",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG2-Chapter 11-00056",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The raw entry contains the full author list,title,year,outlet and pages. The preferred title is only an author fragment. This is one printed study, but its canonical source ID contains other works.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The raw entry contains the full author list,title,year,outlet and pages. The preferred title is only an author fragment. This is one printed study, but its canonical source ID contains other works.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "102850",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Kabat et al.2009 Dutch coast article, Nature Geoscience2:450–452.",
+          "title_anchor": "Dutch coast in transition",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG2-Chapter 15-00151",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The complete author list,year,outlet and pages match the canonical plural-coasts title variant. No second entry or competing work appears.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The complete author list,year,outlet and pages match the canonical plural-coasts title variant. No second entry or competing work appears.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "103480",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Asseng et al.2013 wheat-yield simulation uncertainty article, Nature Climate Change3:827–832.",
+          "title_anchor": "Uncertainty in simulating wheat yields",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG2-Chapter 25-00040",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        },
+        {
+          "occurrence_id": "AR5-WG2-Chapter 26-00026",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        },
+        {
+          "occurrence_id": "AR5-WG2-Chapter 7-00028",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "All three AR5entries agree in full title,year,outlet,volume and pages. Coauthor-list spelling/omission differences and a mangled preferred title do not establish distinct studies.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. All three AR5entries agree in full title,year,outlet,volume and pages. Coauthor-list spelling/omission differences and a mangled preferred title do not establish distinct studies.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "103964",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Buitenwerf et al.2012 South African savanna tree-density article, Global Change Biology18:675–684.",
+          "title_anchor": "Increased tree densities in two South African savannas",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG2-Chapter 4-00175",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The single citation gives the same four authors,year,outlet and pages as the canonical comparison. The presence of two in the title is retained.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The single citation gives the same four authors,year,outlet and pages as the canonical comparison. The presence of two in the title is retained.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "104133",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Bulkeley and Castan Broto2013 Government by experiment article, Transactions38:361–375.",
+          "title_anchor": "Government by experiment?",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG2-Chapter 8-00087",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The one reference supplies the complete title,authors,outlet and pages. It is the same printed study as the canonical comparison and candidate69000; no date substitution is made.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The one reference supplies the complete title,authors,outlet and pages. It is the same printed study as the canonical comparison and candidate69000; no date substitution is made.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "104412",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Godfray et al.2010 Food Security article, Science327:812–818.",
+          "title_anchor": "The Challenge of Feeding 9 Billion People",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG3-Chapter 11-00305",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The complete author list,title,year,outlet,pages and printed DOI match the canonical work. The Food Secu-rity line-break artifact is retained.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The complete author list,title,year,outlet,pages and printed DOI match the canonical work. The Food Secu-rity line-break artifact is retained.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "104501",
+      "classification": "compound",
+      "study_groups": [
+        {
+          "group_id": "fragment_0",
+          "study_descriptor": "Unidentified preceding edited-book reference ending1075pp.",
+          "title_anchor": "Schlömer, C. von Stechow",
+          "unresolved_fragment": true
+        },
+        {
+          "group_id": "A",
+          "study_descriptor": "Istrate and Nadeau2012 Global MetroMonitor.",
+          "title_anchor": "Global MetroMonitor 2012",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "B",
+          "study_descriptor": "Jaccard1997 community energy infrastructure.",
+          "title_anchor": "From equipment to infrastructure",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "C",
+          "study_descriptor": "Jaccard and Rivers2007 capital-stock abatement.",
+          "title_anchor": "Heterogeneous capital stocks",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "D",
+          "study_descriptor": "Jacob and Winner2009 air-quality review.",
+          "title_anchor": "Effect of climate change on air quality",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "E",
+          "study_descriptor": "Jewell2013 IAMenergy security.",
+          "title_anchor": "Energy security of China",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "F",
+          "study_descriptor": "JiangZandLin2012 Chinaenergy demand.",
+          "title_anchor": "China’s energy demand",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "G",
+          "study_descriptor": "JiangLandONeill2004 rural energy transition.",
+          "title_anchor": "The energy transition in rural China",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "H",
+          "study_descriptor": "JiangLandONeill2007 household structure.",
+          "title_anchor": "Impacts of Demographic Trends",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "I",
+          "study_descriptor": "Jim and Chen2009 urban-forest services.",
+          "title_anchor": "Ecosystem services and valuation",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "J",
+          "study_descriptor": "Jo2002 urban greenspace offsets.",
+          "title_anchor": "Impacts of urban greenspace",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "K",
+          "study_descriptor": "Johnson and Hoel1985 transport value capture.",
+          "title_anchor": "An Inventory of Value Capture",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "L",
+          "study_descriptor": "Jones2004 Urbanization and Energy chapter.",
+          "title_anchor": "Urbanization and Energy",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "M",
+          "study_descriptor": "Jones and Kammen2011 household carbon footprints.",
+          "title_anchor": "Quantifying Carbon Footprint",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "N",
+          "study_descriptor": "Jun and Bae2000 Seoulgreenbelt commuting costs.",
+          "title_anchor": "Estimating the Commuting Costs",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "O",
+          "study_descriptor": "Jun and Hur2001 leap-frog newtown costs.",
+          "title_anchor": "Commuting costs of",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "P",
+          "study_descriptor": "Junge and Levinson2012 land-value transport taxes.",
+          "title_anchor": "Financing transportation",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "Q",
+          "study_descriptor": "Kahn2009 urban growth/climate.",
+          "title_anchor": "Urban Growth and Climate Change",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "R",
+          "study_descriptor": "Kang and Cervero2009 Seoulgreenway values.",
+          "title_anchor": "From Elevated Freeway",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "S",
+          "study_descriptor": "Kawada2011 noise/sleep health.",
+          "title_anchor": "Noise and Health",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "T",
+          "study_descriptor": "Kaya1990 carbon control/GNP.",
+          "title_anchor": "Impact of Carbon Dioxide",
+          "unresolved_fragment": false
+        },
+        {
+          "group_id": "fragment_1",
+          "study_descriptor": "Keirstead and Shah2013 urban-energy chapter with incomplete editor context.",
+          "title_anchor": "Urban energy systems planning",
+          "unresolved_fragment": true
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG3-Chapter 12-00033",
+          "work_groups": [
+            "fragment_0",
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "fragment_1"
+          ],
+          "notes": "Original entry contains the listed distinct studies/fragments; no text or identity is repaired."
+        }
+      ],
+      "referring_group_ids": [
+        "D"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The single raw occurrence concatenates independent urban/energy/health articles,reports and books plus incomplete boundary fragments. Source53987refers to Jacob/Winner2009groupD, not the entire compound ID.",
+      "metadata_notes": "Preferred metadata cannot represent all printed works in this ID. Fragments remain unresolved; no new bibliographic fields are inferred.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No cross-work version equivalence is inferred.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "104737",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "van Vuuren et al.2011 RCP overview, Climatic Change109:5–31.",
+          "title_anchor": "The representative concen",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG3-Chapter 2-00432",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The long author list,year,title,outlet and pages match the canonical RCPoverview. The concen-tration line split is retained.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The long author list,year,title,outlet and pages match the canonical RCPoverview. The concen-tration line split is retained.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "104924",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Moss et al.2010 next-generation scenarios article, Nature463:747–756.",
+          "title_anchor": "The next generation of scenar",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG3-Chapter 4-00427",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The complete author list,title,year,outlet,pages and DOI identify the canonical Moss study. The canonical source is compound and is not a safe whole-ID union.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The complete author list,title,year,outlet,pages and DOI identify the canonical Moss study. The canonical source is compound and is not a safe whole-ID union.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "104950",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Bond et al.2013 black-carbon assessment, JGR118:5380–5552.",
+          "title_anchor": "Bounding the role of black carbon",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR5-WG3-Chapter 5-00053",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The raw entry gives the full author list,title,year and exact volume/pages. The preferred title is an author fragment. The canonical compound source remains blocked.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The raw entry gives the full author list,title,year and exact volume/pages. The preferred title is an author fragment. The canonical compound source remains blocked.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "105644",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Darmaraki et al.2019 future Mediterranean marine-heatwaves article, Climate Dynamics53:1371–1392.",
+          "title_anchor": "Future evolution of marine heatwaves",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR6-WG2-CCP4-00122",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The raw title is truncated. Newly inspected local CCP4context completes Mediterranean Sea and supplies matching journal/pages. The page-extracted DOI typography differs; no DOI repair or external resolver claim is made.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The raw title is truncated. Newly inspected local CCP4context completes Mediterranean Sea and supplies matching journal/pages. The page-extracted DOI typography differs; no DOI repair or external resolver claim is made.",
+      "local_evidence_ids": [
+        "local-IPCC-context-105644"
+      ],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "105778",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Huntingford et al.2013 tropical-rainforest resilience article, Nature Geoscience6:268–273.",
+          "title_anchor": "Simulated resilience of tropical rainforests",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR6-WG2-CCP7-00207",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The single printed title,author,year,outlet and first page agree with the canonical study. CO2spacing and abbreviated pages are retained.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The single printed title,author,year,outlet and first page agree with the canonical study. CO2spacing and abbreviated pages are retained.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "107811",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Ford et al. adaptation-status article, Regional Environmental Change15:801–814.",
+          "title_anchor": "The status of climate change adaptation",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "AR6-WG2-Ch9-00617",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The intrusive9in the printed title does not change the complete author/title/outlet/pages and DOI correspondence. The existing canonical date evidence is not reinterpreted; no new online date is claimed.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The intrusive9in the printed title does not change the complete author/title/outlet/pages and DOI correspondence. The existing canonical date evidence is not reinterpreted; no new online date is claimed.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "111166",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Adger et al. social-limits-to-adaptation article, Climatic Change93:335–354.",
+          "title_anchor": "Are there social limits to adaptation",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "SREX-WG1+WG2-Chapter 5-00013",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The complete author list,title,outlet,volume and pages match the canonical work. The printed2010year differs from its2009counterpart and remains an unresolved citation-date difference.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The complete author list,title,outlet,volume and pages match the canonical work. The printed2010year differs from its2009counterpart and remains an unresolved citation-date difference.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    },
+    {
+      "paper_id": "112005",
+      "classification": "correct_merge",
+      "study_groups": [
+        {
+          "group_id": "A",
+          "study_descriptor": "Darmaraki et al.2019 future Mediterranean marine-heatwaves article, Climate Dynamics53:1371–1392.",
+          "title_anchor": "Future evolution of Marine Heat Waves",
+          "unresolved_fragment": false
+        }
+      ],
+      "occurrence_judgments": [
+        {
+          "occurrence_id": "SROCC-WG1+WG2-Chapter 6-00145",
+          "work_groups": [
+            "A"
+          ],
+          "notes": "Printed entry identifies groupA; original metadata and source coordinates are retained."
+        }
+      ],
+      "referring_group_ids": [
+        "A"
+      ],
+      "edge_relation": "same_study",
+      "review_notes": "The SROCCentry matches author,year,outlet,volume,pages and complete DOI. Heat Waves versus heatwaves is retained as a title-spacing variation.",
+      "metadata_notes": "Within-ID study grouping does not validate preferred DOI,publication date or outlet. The SROCCentry matches author,year,outlet,volume,pages and complete DOI. Heat Waves versus heatwaves is retained as a title-spacing variation.",
+      "local_evidence_ids": [],
+      "existing_version_evidence": "No new publication-version evidence is asserted.",
+      "review_origin": "AI-assisted Codex initial review",
+      "human_confirmed": false,
+      "review_complete": "no",
+      "existing_version_evidence_ids": []
+    }
+  ]
+}

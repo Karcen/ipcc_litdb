@@ -1,0 +1,11 @@
+source_sample_group,matched_pair_geometry,positive_directed_edges,distinct_source_IDs,distinct_candidate_IDs,automatic_union_eligible_edges,selection_edge_denominator
+probability_sample,opposite_report_only,5,5,5,0,48
+probability_sample,endpoint_without_pair_matched_membership,29,26,29,0,48
+probability_sample,shared_plus_single_report,3,2,3,0,48
+probability_sample,same_report_only,11,11,11,0,48
+probability_sample,both_already_shared,0,0,0,0,48
+targeted_supplement,opposite_report_only,0,0,0,0,1
+targeted_supplement,endpoint_without_pair_matched_membership,0,0,0,0,1
+targeted_supplement,shared_plus_single_report,1,1,1,0,1
+targeted_supplement,same_report_only,0,0,0,0,1
+targeted_supplement,both_already_shared,0,0,0,0,1

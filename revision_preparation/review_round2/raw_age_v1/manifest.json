@@ -1,0 +1,159 @@
+{
+  "accuracy_or_human_validation_estimated": false,
+  "analysis_version": "round2-raw-age-1.0.0",
+  "cutoff_map": {
+    "AR5": {
+      "WG1": "2013-03-15",
+      "WG2": "2013-08-31",
+      "WG3": "2013-10-03"
+    },
+    "AR6": {
+      "WG1": "2021-01-31",
+      "WG2": "2021-09-01",
+      "WG3": "2021-10-11"
+    }
+  },
+  "database_modified": false,
+  "database_sha256": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+  "intervals_generated": false,
+  "numpy_version": "2.2.6",
+  "old_tables_unchanged": true,
+  "output_tables": [
+    {
+      "bytes": 899,
+      "filename": "checks.json",
+      "sha256": "c2dd5051017fcfb56a2cd0c5e258f5d601f2a82617cf3df63259ee57c0f92520"
+    },
+    {
+      "bytes": 3721,
+      "filename": "methods.txt",
+      "sha256": "a429a7b71198abf595ddd8c7aaae8229e3039cc314261fe954c76db8095dd644"
+    },
+    {
+      "bytes": 2938,
+      "filename": "missing_outlet_bounds.csv",
+      "rows": 16,
+      "sha256": "9530649003aee0917716da9c5f3a644a4573614bda265748b6ce4161bf322b75"
+    },
+    {
+      "bytes": 1165,
+      "filename": "missing_outlet_difference_envelopes.csv",
+      "rows": 8,
+      "sha256": "ce742d04cab6e75472007ffb9354dcc7423e02e8dc741a8abb89e5cb6f8e291d"
+    },
+    {
+      "bytes": 16519,
+      "filename": "raw_age_WG_fractional_composition.csv",
+      "rows": 96,
+      "sha256": "409a66400ad0041d5565759cf240d56f9ba41317893f16988ef48fa0bdddc1a6"
+    },
+    {
+      "bytes": 7905,
+      "filename": "raw_age_WG_kitagawa.csv",
+      "rows": 32,
+      "sha256": "85e2b63048c67fb1ed53383ffd8ee48c2af12d3fd4deac20988708cf88e16494"
+    },
+    {
+      "bytes": 12287,
+      "filename": "raw_age_differences.csv",
+      "rows": 64,
+      "sha256": "8987f2fc85a43d93216d75ad6924cf2d99da6dbec49f17613dcb2b78c6003213"
+    },
+    {
+      "bytes": 1024087,
+      "filename": "raw_age_ecdf.csv",
+      "rows": 7808,
+      "sha256": "af58ea03ad65d7a4f070dfa8caf979a8da067744a9b499b84505822162200319"
+    },
+    {
+      "bytes": 23905746,
+      "filename": "raw_age_occurrence_audit.csv",
+      "rows": 90878,
+      "sha256": "e058b9c84e92519dc18e3850850f3a01b56c1adbc2f3fa6eedbe43b29b902ef5"
+    },
+    {
+      "bytes": 10992,
+      "filename": "raw_age_paired_year_comparison.csv",
+      "rows": 64,
+      "sha256": "70f16f1b443b43096e8fde0615440fd107e9184fbd40425110d9a589ba9098ad"
+    },
+    {
+      "bytes": 1892,
+      "filename": "raw_age_single_WG_coverage.csv",
+      "rows": 16,
+      "sha256": "1d5bf7241001fe70f4dc861ac1f7fc2527029aacafe03a41bf62ba35e8a4023c"
+    },
+    {
+      "bytes": 27214,
+      "filename": "raw_age_summary.csv",
+      "rows": 128,
+      "sha256": "df3f21f664548202ec511087f84834d710c3e67a804d5228c03b5c06f934f2ba"
+    }
+  ],
+  "protected_inputs": {
+    "database/ipcc_litdb.sqlite": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+    "reproducibility/reference/citation_age_matched.csv": "efae3e22e175380cb644445b177bbdbeed4351e1f6b36c82228af47f6bd82503",
+    "reproducibility/reference/coverage.csv": "259c59b73631b2c5422bb5216dc91b0c7e5075202018bdee18769b5664d36ab1",
+    "reproducibility/reference/manifest.json": "ddd60b576a71ddaa389ca95a40e044febd6426161628eb907762ebafaceca9c1",
+    "reproducibility/reference/revision_age_bootstrap_intervals.csv": "2f981c7aa1fe0c5cb0894d44486a8642d2663f6f4c42bbfe48dd616821f862b9",
+    "reproducibility/reference/revision_age_differences.csv": "1ea8cdc9aac56d426befcc76197fd419afe2a60e640aad097e688442c1b65da2",
+    "reproducibility/reference/revision_age_ecdf.csv": "9ccc93bc20fbe7bc53a8ce2ebff63aaa4711f1dfba73306ed94e6dbb186dfe1e",
+    "reproducibility/reference/revision_age_summary.csv": "9c8b3f69d91a0622c725a74e482242dd4130399ff5b4a7211709b0dc980353e1",
+    "reproducibility/reference/revision_identity_audit_sample_summary.csv": "8612c09e819e76957d56e6caa0a6a06ebeac1e9bfa5b2f5b499d915f559f08ea",
+    "reproducibility/reference/revision_identity_earlier_incoming_partition_summary.csv": "553a54dade890489b08c7becdd18879411773c8b095419ef78bbc6f9418f5cf2",
+    "reproducibility/reference/revision_identity_eligible_reuse.csv": "0ec71cb211b20fe20676f1f5295028b4d5bc24e2f3143271bcfc714ea424fa69",
+    "reproducibility/reference/revision_identity_flagged_sensitivity.csv": "a9e692db08988a2f881db02d5b863e15f59af0cb102d4cb048a4b75624f7a65a",
+    "reproducibility/reference/revision_identity_independent_raw_baselines.csv": "d2c9135ce9712030fdcb694d395b0eb1586992492de93f062f6fa8ab65dbe9f1",
+    "reproducibility/reference/revision_identity_raw_consistency_census.csv": "852486064ee0a7b86b91ba33068c40d91bad60e9b74f2d5caf4b02a58aa5e1b4",
+    "reproducibility/reference/revision_identity_raw_year_age_summaries.csv": "9c15ebe1b374f167fd5d951c22e8824ab9ce0b7a05d7a21f9786c1a71d141508",
+    "reproducibility/reference/revision_identity_raw_year_eligible_reuse.csv": "08727005d3e618d0d3a2cc6bd24a27d13cb2b828ddf82815fe50ef726811fa37",
+    "reproducibility/reference/revision_identity_same_vintage_groups.csv": "30945d1cf80eed6db69c8eab1fdf52cd5ef2adc183bc7c6ea6313c07d0933b6f",
+    "reproducibility/reference/revision_identity_same_vintage_profiles.csv": "7ccb01eb78bdc805c74f6a1f5b5cef6dfb6125da6c70119ebbeaadb39ac341c8",
+    "reproducibility/reference/revision_identity_status_combinations.csv": "0fd7a1403f9be31e7ab2736e264f1424edb4b4c6b579d41655a81e7c28f43df2",
+    "reproducibility/reference/revision_identity_status_coverage.csv": "9bb152938aea76e07c2c3ce02e3abd402241885a25b5666eded044ea1e661f00",
+    "reproducibility/reference/revision_identity_transitions.csv": "293b6cf6574f042236795cd881722e7e4803b0cfbd4ed76de3537b7aa961264f",
+    "reproducibility/reference/revision_network_conditional_null.csv": "d396b4f46aa26dad338898d7dc761eab14a03da7db86729924fce3c1fffc8dbb",
+    "reproducibility/reference/revision_network_coverage.csv": "3de6d6c1685aea4bd8c449745c8e82bc00781ffefcf9048bbddb0ddd9fb25126",
+    "reproducibility/reference/revision_network_overlap_trends.csv": "21169d49844944236b30f714825ad68741a1a1bfdedd5f3443a3c9909ab94574",
+    "reproducibility/reference/revision_network_retention_sensitivity.csv": "8488f40f314cee5985de98ad54af0fcaaff8b5c438c5d5cd3501806fa1aa71ed",
+    "reproducibility/reference/revision_outlet_coverage_summary.csv": "e454b3a7a571370270c3e1718d13496255b4082288dae79bc125f06cdb8cbd7e",
+    "reproducibility/reference/revision_outlet_hill_numbers.csv": "92f680b0628f27dcc55f543e1e207990b59d167ed7077ccd161965728cd171b1",
+    "reproducibility/reference/revision_outlet_rarefaction_differences.csv": "75574eed2adeb7e00050a7a05ef487697f875ac2f2bb0685131f9836f870dbed",
+    "reproducibility/reference/revision_outlet_rarefaction_summary.csv": "e1440002412c34503c679d851fb3c70e8506d7938e4dad6cc9f83d5f62591fa2",
+    "reproducibility/reference/revision_outlet_title_variants.csv": "87c1527896ba2246c6ece4e201922ac98ae36025f3ca999f1bb4b03edff1c227",
+    "reproducibility/reference/transitions.csv": "773c77cf3da396db6a226ed5e35a65521334369de33985d5af34dfef9bc2246f",
+    "reproducibility/revision_age_networks.py": "e7032096db447a747176d2fcaec2748fdf2186ed40d9964b9f28879e795ee141",
+    "reproducibility/revision_outlets.py": "18ab41e99e113ee173a14b16726f72ca411d08ee639e6e834167ef799347d518",
+    "revision_preparation/annotation/ai_review_summary_v1/ai_review_flagged_ids.csv": "df4d9f2b440cc6e7a42b7dc42aa2bda49a3ad0161bbddce3512f175d5d3c7f6c",
+    "revision_preparation/annotation/ai_review_summary_v1/ai_review_id_category_counts.csv": "167a6c8db1b70124c2280af124d8b756038dc97576c807e14e18d7e2098be9f5",
+    "revision_preparation/annotation/ai_review_summary_v1/ai_review_id_cross_tabs.csv": "3ef6b440968929eaa0e7a8e78388e8a2bf546c6c7e080606bc3992343c0d91f8",
+    "revision_preparation/annotation/ai_review_summary_v1/ai_review_id_diagnostics.csv": "8c69c118c15f560cdb0c69ce31b234c63aac695802fc2fd6cfa053a7332fc252",
+    "revision_preparation/annotation/ai_review_summary_v1/ai_review_metadata_field_counts.csv": "ced0ea12791626604852c04465601ee52dfb978a76b2d8ab0e3963ac5dcbd578",
+    "revision_preparation/annotation/ai_review_summary_v1/ai_review_occurrence_category_counts.csv": "230d90738701a92d4e9ad4fd0271d3b12c50a8f12e345cc3a9dbca000ba5921c",
+    "revision_preparation/annotation/ai_review_summary_v1/manifest.json": "c0fe4a086d5fccc1049570fa54d7a5a5aeb6adad7304dda8d4bfbd1c7f22a722",
+    "revision_preparation/annotation/ai_review_summary_v1/summary.json": "fa45ca44b1e72cec6785237eb4ee76d9e4ee3597948d7c63178b8f4b42a3a8e8",
+    "revision_preparation/annotation/ai_review_summary_v1/validation_report.json": "a7c333decbfc8651825a4848ad2b9cd76efbeb62ff0731b007cecdcf4f351fe4",
+    "revision_preparation/robustness/coverage_robustness.py": "87f384e5c990123f64330f3da2be619cdc4ed7e239ecf3f57b2cfc5425268e72",
+    "revision_preparation/robustness/output_v1/manifest.json": "19729e6a70b5ec7b2c69bc3a551468317e76858307033b19b17d64546ca603f3",
+    "revision_preparation/robustness/output_v1/results/raw_doi_age_bootstrap_draws.csv": "06421cdc9a58067b59b28dcca3f4e4a8f492ff176de24ea30f90fc488f90c1d1",
+    "revision_preparation/robustness/output_v1/results/raw_doi_age_bootstrap_intervals.csv": "09e141e572cc538f177a478ceb804138be00a98b0e8d2f959c363104a808dbb4",
+    "revision_preparation/robustness/output_v1/results/raw_doi_age_differences.csv": "8887d10939a365f9e63582d58b94eb9bf103b4b69f645cd6022428f55858416c",
+    "revision_preparation/robustness/output_v1/results/raw_doi_age_ecdf.csv": "2ea01ea059fd642a97438cf032e20d387e44ebdbed44dc12dc84eaa069b024fd",
+    "revision_preparation/robustness/output_v1/results/raw_doi_age_summary.csv": "bce9eb4eaadafcfd00b7a307eeba8cff5780d889445dd4b61c65f0610838a8bb",
+    "revision_preparation/robustness/output_v1/results/raw_doi_coverage.csv": "68bdbd2294b75fb78eb20ec8606d0ed01e7a81bb48d0e7480aae33d0658a30d7",
+    "revision_preparation/robustness/output_v1/results/raw_doi_eligible_reuse.csv": "b648c01cdad55b957439c89e813bd6da4a047fc5e05d1a648627dcdede694a36",
+    "revision_preparation/robustness/output_v1/results/raw_doi_occurrence_audit.csv": "47a602ea387a6c4ea81874ce60ef1bfdf8a3bf1ee796476eee2cbb44aea3748f",
+    "revision_preparation/robustness/output_v1/results/raw_doi_recurrence.csv": "9aeaf1a6ff321b8bc3aac4115b04a9ccb19ce9528da23e062a5810d70203c31e",
+    "revision_preparation/robustness/output_v1/results/raw_doi_year_diagnostics.csv": "77d4604b74637cbec9d94482a77d5ecf45a0fe122c08aa2c6380c343f776d3a3"
+  },
+  "python_version": "3.12.14",
+  "random_draws_used": false,
+  "scope": "All extracted raw-leading-year ages; assigned-ID weighted compositions; conditional unknown-outlet-label bounds",
+  "script_sha256": "8ab6fb6e8afb5661860a6d9afceb71d9e50f4cae90419e7fa1b625e62df9be4b",
+  "seed": 20261011,
+  "units": [
+    "occurrence_id",
+    "assigned_ID_per_report",
+    "fractional_single_WG_weights"
+  ]
+}

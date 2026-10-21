@@ -1,0 +1,15 @@
+sample_group,field,error_occurrences,error_IDs,explicitly_unresolved_occurrences,explicitly_unresolved_IDs,missing_preferred_occurrences,missing_preferred_IDs,occurrence_denominator
+probability_sample,authors,3,2,0,0,0,0,771
+probability_sample,doi,25,21,7,4,130,77,771
+probability_sample,journal,93,46,0,0,1,1,771
+probability_sample,other,11,11,0,0,0,0,771
+probability_sample,title,12,9,0,0,0,0,771
+probability_sample,year,1,1,33,11,0,0,771
+probability_sample,unspecified,0,0,71,48,0,0,771
+targeted_supplement,authors,1,1,0,0,0,0,30
+targeted_supplement,doi,0,0,5,5,0,0,30
+targeted_supplement,journal,2,2,1,1,0,0,30
+targeted_supplement,other,6,4,0,0,0,0,30
+targeted_supplement,title,2,2,0,0,0,0,30
+targeted_supplement,year,0,0,0,0,5,5,30
+targeted_supplement,unspecified,0,0,2,1,0,0,30

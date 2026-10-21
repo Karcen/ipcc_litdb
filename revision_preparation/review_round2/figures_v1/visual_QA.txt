@@ -1,0 +1,35 @@
+Visual QA completed: 2026-10-21
+Result: PASS
+
+Inspected the final 600-dpi PNG and the final PDF rendered with PyMuPDF.
+Inspected the SVG with macOS Quick Look, including a square-canvas QA copy to
+avoid Quick Look's square-thumbnail crop. That QA copy changes only the root
+viewport width/viewBox; final SVG coordinates, styles and text are unchanged.
+The final PDF, SVG and PNG were not altered by this preview operation.
+
+Whole-figure check: both panels, four-entry legend, report colors, solid/dashed
+cohort encodings, axis titles, panel labels and both full-range insets are legible.
+Panel a: source-publication-year origin, all four archived ECDFs, ages 0–30 in
+the main axes and 0–60 in the inset. The main y-axis uses the full 0–60 population.
+Panel b: documented cutoff-year origin, the same encodings and age support.
+Both panels: no cut labels, text/curve collisions, spurious annotations or
+interpolated curves. Lines remain distinguishable by dash style as well as color.
+
+Machine audits: alignment PASS (1.5-pt tolerance); collision PASS, zero warnings;
+minimum actual PDF glyph size 5.6 pt; zero glyphs below 5 pt; no PDF raster images.
+PDF font inspection confirms embedded DejaVu Sans TrueType subsets. SVG contains
+49 editable text elements, 10 dash-style attributes and no raster image elements.
+The final output has the intended 133 × 140 mm canvas and a 600-dpi PNG.
+
+Source preflight: 19 PASS, 2 WARN, 0 FAIL. The two warnings are resolved by scope:
+only PNG/PDF/SVG were requested (no TIFF); the actual width is configured by a
+named constant and verified in the saved PDF rather than inferred by the linter.
+
+Replay: a second run produced byte-identical PDF, SVG and PNG exports; details
+and hashes are in deterministic_replay.json. Private manuscript copies match.
+All previously existing repository and private manuscript figures checked by the
+renderer retain their pre-run hashes. No scientific input or result was changed.
+
+Viewer limitation: PyMuPDF's SVG preview omits CSS font/dash styling. Its PNG
+preview is retained as a diagnostic, not as a faithful rendition of the SVG.
+Quick Look preserves those styles; the final SVG itself is valid and editable.

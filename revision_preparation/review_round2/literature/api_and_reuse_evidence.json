@@ -1,0 +1,223 @@
+{
+  "schema_version": "1.0.0",
+  "observed_utc": "2026-10-21T05:58:32.197768+00:00",
+  "scope": "Official documentation review only. No OpenAlex API availability test, account creation, credentials inspection, payment or bulk baseline request.",
+  "sources": [
+    {
+      "id": "oa_auth",
+      "url": "https://help.openalex.org/api/authentication/",
+      "page_last_updated": "2026-10-15",
+      "access": "readable",
+      "findings": {
+        "basic_keyless_queries": true,
+        "verified_free_key_needed_for_cursor_after_first_page": true,
+        "daily_budget_multiplier_free_vs_keyless": 10,
+        "requests_per_second": {
+          "keyless": 10,
+          "free_or_prepaid": 30,
+          "annual": 50
+        },
+        "or_filter_values_max": 100,
+        "general_per_page_max": 100,
+        "basic_paging_results_max": 10000,
+        "credential_transport": [
+          "api_key query parameter",
+          "Authorization Bearer header"
+        ],
+        "response_budget_fields": [
+          "X-RateLimit-Limit",
+          "X-RateLimit-Remaining",
+          "X-RateLimit-Credits-Used",
+          "X-RateLimit-Reset",
+          "meta.cost_usd"
+        ]
+      },
+      "project_rule": "Stop and report the first bibliographic API failure; do not follow the documentation suggestion to retry 429 automatically."
+    },
+    {
+      "id": "oa_cost",
+      "url": "https://help.openalex.org/access/example-costs/",
+      "access": "readable",
+      "findings": {
+        "singleton_by_id_or_doi_cost": "free",
+        "list_filter_cost_per_1000_calls_usd": 0.1,
+        "search_cost_per_1000_calls_usd": 1.0,
+        "group_by_cost": "Same as underlying list/filter or search query."
+      }
+    },
+    {
+      "id": "oa_pricing",
+      "url": "https://help.openalex.org/access/pricing/",
+      "page_last_updated": "2026-08-11",
+      "access": "readable",
+      "findings": {
+        "verified_free_account_daily_budget_usd": 1.0,
+        "free_budget_resets": "midnight UTC",
+        "payment_method_needed_for_free_account": false,
+        "metadata_license_stated_by_provider": "CC0"
+      }
+    },
+    {
+      "id": "oa_group",
+      "url": "https://help.openalex.org/api/grouping/",
+      "page_last_updated": "2026-10-04",
+      "access": "readable",
+      "findings": [
+        "group_by returns key, key_display_name and count per bucket; filters can be combined with grouping.",
+        "Unknowns are omitted unless include_unknown is requested.",
+        "Group pagination uses cursor, not page, and is ordered by key during paging.",
+        "The grouping page states up to 200 groups/page; the general authentication page states per_page max 100. Use 100 conservatively until actual responses establish the endpoint-specific limit. No API test was performed here.",
+        "meta.groups_count counts only groups in the current page, not all groups."
+      ]
+    },
+    {
+      "id": "oa_works",
+      "url": "https://help.openalex.org/data/works/attributes/",
+      "access": "readable",
+      "findings": {
+        "relevant_fields": [
+          "id",
+          "doi",
+          "publication_date",
+          "publication_year",
+          "type",
+          "primary_location",
+          "referenced_works",
+          "referenced_works_count"
+        ],
+        "publication_date_semantics": "Usually earliest electronic publication for the primary-location version; it is not a stated acceptance date.",
+        "acceptance_date": "No acceptance-date attribute is documented on this canonical work-attributes page.",
+        "referenced_works_semantics": "IDs of works cited by the focal work, not the works citing it."
+      }
+    },
+    {
+      "id": "oa_location",
+      "url": "https://help.openalex.org/data/locations/",
+      "page_last_updated": "2026-10-17",
+      "access": "readable",
+      "findings": [
+        "primary_location.source has source ID, name, ISSN-L, ISSNs and type, and can be null.",
+        "primary_location.source.id is documented as a filter key; location source attributes support grouping.",
+        "Version labels or is_accepted describe manuscript version status, not an acceptance date."
+      ]
+    },
+    {
+      "id": "oa_source",
+      "url": "https://help.openalex.org/data/sources/attributes/",
+      "access": "readable",
+      "findings": {
+        "issn_l": "Links print and electronic ISSNs to a source; some sources lack ISSNs.",
+        "source_type_vocabulary": [
+          "journal",
+          "ebook platform",
+          "conference",
+          "repository",
+          "book series",
+          "other",
+          "metadata"
+        ],
+        "interpretation": "Publisher is a host organization, not one of these source types. Reports cannot be identified simply by mapping a source type to report."
+      }
+    },
+    {
+      "id": "oa_search",
+      "url": "https://help.openalex.org/api/searching/",
+      "access": "readable",
+      "findings": [
+        "General works search covers titles, abstracts, full text and keywords.",
+        "Scoped search.title_and_abstract and search.title_abstract_keywords are documented separately.",
+        "Boolean operators must be uppercase, quoted phrases are supported, and ordinary search applies stemming.",
+        "A Web of Science Topic query includes fields unavailable in this exact form, so an OpenAlex climate corpus would be an explicitly redefined search population, not a reproduction of WoS coverage."
+      ]
+    },
+    {
+      "id": "cr_dates",
+      "url": "https://github.com/CrossRef/rest-api-doc/blob/master/api_format.md?plain=1",
+      "access": "readable",
+      "findings": [
+        "accepted is an optional acceptance-after-submission date.",
+        "published-print and published-online are optional publication dates; issued is the earlier publication date.",
+        "Partial dates can contain only a year. Missing months or accepted dates must remain missing.",
+        "The verified Lariviere response provides full print/online publication dates but no accepted key. This is one record, not a coverage estimate."
+      ]
+    },
+    {
+      "id": "cr_reuse",
+      "url": "https://www.crossref.org/documentation/retrieve-metadata/rest-api/",
+      "access": "readable",
+      "findings": [
+        "No sign-up is required; bibliographic metadata may be used for any purpose, with an explicit exception that some abstracts may be copyrighted.",
+        "An article record license field concerns the article content/version; the Crossref website footer license concerns its documentation. Neither establishes that every response field has a CC0 license."
+      ]
+    },
+    {
+      "id": "wos_faq",
+      "url": "https://developer.clarivate.com/content/developer-portal-faq",
+      "access": "readable",
+      "findings": [
+        "Clarivate says API use depends on the user agreement and directs specific usage questions to customer support.",
+        "The FAQ lists selected public-facing institutional applications as uses of legacy APIs; this does not establish permission to redistribute a complete exported research database on GitHub."
+      ],
+      "repository_redistribution_permission": "Not established: the applicable institutional order, product terms and permission were not provided."
+    },
+    {
+      "id": "wos_current_product",
+      "url": "https://developer.clarivate.com/apis/wos",
+      "access": "official indexed result readable",
+      "findings": [
+        "Expanded API access requires a paid license, and plans are configured according to the institutional contract.",
+        "Requesting credentials binds users to portal and product/service terms; no credentials were requested here."
+      ]
+    },
+    {
+      "id": "wos_terms_index",
+      "url": "https://clarivate.com/legal-center/terms-of-business/product-service-terms/",
+      "access": "official indexed summary readable; direct browser fetch returned HTTP 403",
+      "findings": [
+        "The official product-terms index lists separate Web of Science API, custom-dataset and persistently/perpetually licensed-information terms, additional to the general Clarivate terms."
+      ],
+      "unverified": "The actual applicable product text and user-specific order were not retrieved. No legal permission conclusion is drawn."
+    },
+    {
+      "id": "oa_corpus",
+      "url": "https://help.openalex.org/api/",
+      "access": "readable",
+      "findings": [
+        "The default query population is the curated core corpus; the expansion corpus is opt-in with corpus=all. Record the chosen corpus explicitly when freezing an external baseline."
+      ]
+    },
+    {
+      "id": "wos_topic",
+      "url": "https://webofscience.help.clarivate.com/en-us/Content/wos-core-collection/woscc-search-fields.htm",
+      "access": "official indexed result readable",
+      "findings": [
+        "Web of Science Topic searches title, abstract, author keywords and Keywords Plus. OpenAlex scoped title-and-abstract search does not reproduce all these fields."
+      ]
+    }
+  ],
+  "documentation_access_failures": [
+    {
+      "url": "https://clarivate.com/legal/terms-of-business/",
+      "status": 403
+    },
+    {
+      "url": "https://clarivate.com/legal-center/terms-of-business/",
+      "status": 403
+    },
+    {
+      "url": "https://clarivate.com/legal-center/terms-of-business/product-service-terms/",
+      "status": 403
+    },
+    {
+      "url": "https://clarivate.com/wp-content/uploads/dlm_uploads/Product-Terms-v3.7-Web-of-Science-APIs.pdf",
+      "status": "not accessible via browser tool"
+    },
+    {
+      "url": "https://clarivate.com/wp-content/uploads/dlm_uploads/2022/03/Product%20Terms_3.2%20-%20Web%20of%20Science%20%20%20APIs%20-%2036.pdf",
+      "status": "not accessible via browser tool"
+    }
+  ],
+  "status_distinction": "Documentation page failures above are not failures of a bibliographic API request. The only bibliographic API request in this task succeeded (Crossref DOI lookup, HTTP 200).",
+  "baseline_feasibility": "Aggregate publication-year and source distributions are documented. A frozen climate-search definition, verified access for all cursor pages, query cost/budget and actual field availability must be established before collecting a baseline. No baseline counts or effects were generated.",
+  "legal_scope": "Source documentation and unresolved permissions only; no contract review or legal certification."
+}

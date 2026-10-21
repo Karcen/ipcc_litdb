@@ -1,0 +1,12 @@
+{
+  "mode": "offline_replay",
+  "replayed_utc": "2026-10-21T06:07:04.914221+00:00",
+  "api_calls": 0,
+  "original_endpoint": "https://api.crossref.org/works/10.1002/asi.20744",
+  "full_response_sha256": "19dcf87565d5cf122e51b7c9e8eac9de2b9f30ff404b209d5abf912e2d0cc9f8",
+  "doi_and_title_verified": true,
+  "bibliographic_file": "lariviere2008_crossref_bibliographic.json",
+  "bibliographic_sha256": "c92d46a81137bdccadebbe9e5dce7a83225dde062c68b87578fa56481378307d",
+  "full_payload_public": false,
+  "abstract_present_in_full_response": true
+}
