@@ -1,43 +1,31 @@
-# Author requirements
+# Review status and evidence limits
 
-The revision manuscript contains nine pending author requests. Structured manual annotation has not started. Complete the local annotation workflow and retain its source evidence before filling the accuracy results. The original targeted source checks and the probability audit are separate activities.
+Updated 21 October 2026. The author chose to proceed with the AI-led source review and declined further human annotation. The earlier nine-request annotation checklist is superseded. The current descriptive workflow requires no completed human-label export.
 
-Locations use the private revision manuscript's section names. Line numbers describe the current preparation copy and can change during revision.
+## Evidence available
 
-## 1. Data and methods (line 89)
+Codex and delegated Codex agents reviewed 331 frozen IDs and 801 original AR5/AR6 entries. The [source package](revision_preparation/annotation/ai_review/manifest.json), version `ai-initial-review-1.1.1`, retains individual judgments, source locators, candidate comparisons and unresolved fields. The [descriptive registry](revision_preparation/annotation/ai_review_summary_v1/manifest.json), version `ai-review-descriptive-1.0.0`, separates the 319 probability-sampled IDs from the 12 targeted supplements. Its six tables contain unweighted case and occurrence counts.
 
-[AUTHOR: Provide the completed annotation export, annotator count, review dates and the source-checking procedure.]
+The probability sample contains 771 entries. AI proposals identify mixed-work merges in 11 IDs, metadata errors in 120 entries and unresolved metadata in 111 entries. The targeted supplement contains 30 entries, with four mixed-work merge proposals, eight metadata-error proposals and five unresolved entries. Counterpart proposals concern 40 probability-sampled IDs and one targeted ID. Categories can overlap.
 
-## 2. Data and methods (line 91)
+The author authorized grouping verified publication versions and using the year of the cited version for citation age. The individual version judgments remain AI-assisted. The preprint DOI versus journal-metadata combination in one ID 49343 entry remains unresolved. The source review retains this uncertainty separately from the verified study relationship.
 
-[AUTHOR: State whether a second annotator reviewed the records. Give the number of reviewed IDs and entries, the agreement definition and result, and the handling of disagreements.]
+## Limits of this review
 
-## 3. Data and methods (line 115)
+The sample has no independent human adjudication, second-reader agreement statistic or completed exhaustive duplicate search. Every proposal retains `review_complete=no`, and human-label files remain empty. The AI-coded counts provide no population precision, missed-merge rate, recall or confidence interval. They also supply no estimated correction to retention or reuse.
 
-[AUTHOR: Identify the analysis outputs, code, references and figures independently checked by the authors, and describe those checks.]
+The authors previously reported checking primary sources for eleven historical correction cases. That earlier activity is separate from adjudicating the 331 sampled IDs. It must retain its original scope in the disclosure.
 
-## 4. Results (line 130)
+The absence of a false-sharing proposal does not establish perfect linkage precision. Mixed-work extraction and cross-report sharing are separate judgments. The original registered estimates continue to describe the frozen linked database.
 
-[AUTHOR: Insert the weighted false-merge rate, detected missed-merge rate and metadata-error rate with their 95% intervals from the completed probability-sample estimates. Give each numerator and denominator.]
+## Reproducibility and optional later annotation
 
-## 5. Results (line 132)
+The seed remains `20261011`. A fresh baseline reproduction matched all 29 registered tables by parsed CSV values. The database and ten raw-DOI tables remain unchanged. The AI summary checker verifies their hashes and reproduces the descriptive outputs:
 
-[AUTHOR: Report the twelve targeted supplements separately, with reviewed counts and error categories.]
+```bash
+python3 scripts/summarize_ai_annotation_proposals.py --check
+```
 
-## 6. Results (line 134)
+The annotation interface, blank templates, integrity checker and weighted estimator remain available for a later independent exercise. That optional exercise would need actual reviewer identities, dates, source checks, duplicate-search records and complete labels. Its estimator rejects incomplete or AI-attributed completed reviews. Until such evidence exists, the current workflow reports AI-coded diagnostics only.
 
-[AUTHOR: Insert the shared-identity error interval and the resulting fixed-denominator AR5–AR6 retention and reuse sensitivity. Distinguish false sharing, missed sharing and metadata errors.]
-
-## 7. Discussion (line 257)
-
-[AUTHOR: Interpret the completed probability-audit estimates and recurrence sensitivity here. State which conclusions they support and which error mechanisms remain unidentified.]
-
-## 8. Probability audit and annotation protocol (line 362)
-
-[AUTHOR: Describe the duplicate-search sources, candidate-review scope and stopping rule used during annotation.]
-
-## 9. Probability audit and annotation protocol (line 364)
-
-[AUTHOR: Confirm the completed export's file path and provide the successful integrity report.]
-
-The declarations retain the supplied author contributions, funding and competing-interest statements. This revision adds no acknowledgment or data-source placeholder.
+The supplied contributions, funding and competing-interest declarations remain unchanged. Manuscript files and complete bibliographies remain private.

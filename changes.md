@@ -1,8 +1,20 @@
 # Revision changes
 
-Preparation date: 12 October 2026. Baseline analysis: [v1.2.1](https://github.com/Karcen/ipcc_litdb/tree/v1.2.1). The database remains the corrected v1.2.0 snapshot. The revision manuscript is a local copy; the submitted manuscript remains unchanged.
+Initial preparation: 12 October 2026. Latest update: 21 October 2026. Baseline analysis: [v1.2.1](https://github.com/Karcen/ipcc_litdb/tree/v1.2.1). The database remains the corrected v1.2.0 snapshot. Manuscript revisions remain private; the submitted manuscript is preserved.
 
-Human probability-sample annotation remains incomplete. The interface, rules, empty human-label templates, integrity checks and estimation code are available. Separate AI initial-review proposals were added on 20 October 2026. Accuracy estimates await completed author annotations.
+The author chose AI-led source review and declined further human annotation. Human-label files remain empty. The current report uses registered unweighted AI diagnostics and supplies no population linkage-accuracy or recall estimate. Optional independent annotation tools remain available.
+
+## Phase 1 revision: AI-led diagnostics, 21 October 2026
+
+Review issue 1, linkage accuracy: replace the prospective manual-validation account with the actual AI-led review. Source package `ai-initial-review-1.1.1` covers 331 IDs and 801 original entries. No independent human adjudication or second-reader agreement is claimed. Every duplicate search remains incomplete. The earlier eleven author-reported historical source checks retain their separate scope.
+
+Review issue 2, identity sensitivity: keep study grouping separate from occurrence metadata. For ID 49343, the verified preprint-to-article relationship supports grouping, while one entry's preprint DOI and journal-version fields leave a metadata question unresolved. This refinement changes one AI metadata judgment from correct to unresolved. It changes no registered scientific estimate.
+
+Review issue 3, registered diagnostics: add `scripts/summarize_ai_annotation_proposals.py` and the independent `ai-review-descriptive-1.0.0` [registry](revision_preparation/annotation/ai_review_summary_v1/manifest.json). Six CSV tables report categories, cross-tabs, ID-level diagnostics, flagged IDs and metadata-field counts. The 319 probability-sampled IDs and 771 entries remain separate from the 12 targeted IDs and 30 entries. Probability-sample proposals contain 11 mixed-work IDs, 120 metadata-error entries, 111 unresolved entries and 40 IDs with counterpart proposals. Targeted proposals contain four mixed-work IDs, eight metadata-error entries, five unresolved entries and one ID with a counterpart proposal. Unresolved metadata judgments affect 63 probability-sampled IDs and four targeted IDs. The tables register zero false-sharing proposals in both selections. These counts supply no population precision estimate or correction to the headline results.
+
+Review issues 1–3, reporting: update README with this status, version links, descriptive counts and offline replay command. Replace the obsolete nine-author-request checklist and conditional validation response with the current evidence limits. Keep the manual interface and strict estimator as optional tools. Preserve all manuscript content outside the public checkout.
+
+Verification: the source-package checker and strict descriptive replay pass. A clean-checkout replay without private work files reproduces the summary byte for byte. Synthetic nonblank human labels and a forged human-validation claim each cause failure before output writes. All 29 baseline and ten raw-DOI table hashes match their registries. A fresh baseline reproduction also matches all 29 tables by parsed CSV values; regenerated CSV line endings differ from the archived files. The database and seed `20261011` remain unchanged. No weighted rate, confidence interval or corrected recurrence result is generated.
 
 ## Phase 1 preparation: AI-assisted annotation, 20 October 2026
 
@@ -26,13 +38,15 @@ Review issue 2, identity sensitivity: record the author's instruction to group w
 
 Review issue 3, evidence: add a version ledger for IDs 33960, 49343 and 102897. Primary RFF covers establish the discussion-paper revision chain; publisher-indexed journal content supports the journal relationship. The archived Research Square notice explicitly identifies the final DOI. Harvard's official article and indexed SSRN metadata identify Craig's journal work. Log failed direct publisher/repository page access and the scope of the available evidence.
 
-The two uncertain within-ID identities now have same-study proposals. Counterpart proposals increase from 38 to 41 sampled IDs. Six occurrence metadata questions are resolved by the source follow-up and the author's cited-version age convention; the count of IDs with metadata questions decreases from 68 to 66. Five receive correct-metadata proposals. The remaining working-paper occurrence receives a year-error proposal: it cites 2004 while preferred metadata supply the 2008 journal year. Record proposed cited-version years of 2004 and 2008 for the respective occurrences without changing the snapshot. The version ledger records the base and updated proposal hashes and per-case hashes. A portable export script refreshes CSVs, counts and artifact hashes from the saved judgments.
+In source package `ai-initial-review-1.1.0`, the two uncertain within-ID identities received same-study proposals. Counterpart proposals increased from 38 to 41 sampled IDs. Six occurrence metadata questions were resolved by the source follow-up and the author's cited-version age convention; the count of IDs with metadata questions decreased from 68 to 66. Five received correct-metadata proposals. The remaining working-paper occurrence received a year-error proposal: it cites 2004 while preferred metadata supply the 2008 journal year. Proposed cited-version years of 2004 and 2008 were recorded for the respective occurrences without changing the snapshot. Version 1.1.1 restores the ID 49343 metadata uncertainty described above. The version ledger records the base and updated proposal hashes and per-case hashes. A portable export script refreshes CSVs, counts and artifact hashes from the saved judgments.
 
 These changes affect annotation proposals. Human labels, raw entries, the snapshot, sampling seed, original 29 registered tables, ten robustness tables and manuscript files remain unchanged. No accuracy rate or recurrence estimate was calculated.
 
 Verification: all 42 annotation tests passed, including the updated browser terminology, with no skipped tests. The project checker passed all 30 available checks. The AI package checker passed all 331 IDs, 801 entries, version-ledger case hashes and original-table hashes. The browser displays the new study-version rule and ID 33960's cited-version year decision.
 
-## Changes by task
+## Earlier preparation by task
+
+The table records the 12 October preparation. Its prospective human-annotation paragraphs and nine-request checklist are superseded by the 21 October AI-led workflow above.
 
 README update, 21 October 2026: add a dated What's new section for the annotation releases and record the requirement to maintain it with every GitHub update. Preserve older entries and link source checks. No code, labels, data or analytical results change in this documentation update.
 
@@ -83,12 +97,12 @@ a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec
 
 A full v1.2.1 rerun passes all 29 registered tables. The original baseline analysis modules and registry remain unchanged. The new robustness registry has ten tables. Its independent rerun reproduces all ten byte for byte. The input database is unchanged before and after both workflows. The [additional manifest](revision_preparation/robustness/output_v1/manifest.json) records the baseline comparison and extra table hashes.
 
-The original four tabular blocks remain identical in the revision copy. All original unique numerical tokens are retained, including material moved to the appendices. Under the recorded main-text word-count rule, the Introduction through the end of Discussion decreases from 7,432 to 6,845 words. The revision compiles through pdflatex and BibTeX with the existing journal template. The final compilation has no errors, undefined references or overfull boxes; rendered pages were inspected.
+In the 12 October preparation copy, the original four tabular blocks remained identical. All original unique numerical tokens were retained, including material moved to the appendices. Under that preparation's word-count rule, the Introduction through the end of Discussion decreased from 7,432 to 6,845 words. That copy compiled through pdflatex and BibTeX with the existing journal template. Its compilation had no errors, undefined references or overfull boxes; rendered pages were inspected. These historical checks do not describe later manuscript edits.
 
-The annotation integrity report confirms 331 unique sampled IDs and 801 unique entries with no source-key mismatch or duplicate rows. All manual decisions are empty. The missing-label check exits without generating rates. Successful future annotation outputs will receive their own hashes and registry; they will not replace the 29 baseline or ten robustness tables.
+The annotation integrity report confirms 331 unique sampled IDs and 801 unique entries with no source-key mismatch or duplicate rows. All manual decisions are empty. The missing-label check exits without generating rates. The current AI descriptive outputs have their own hashes and registry. Optional later human-label estimates would also require an independent registry.
 
 The [citation ledger](revision_preparation/literature/reference_verification.json) records successful DOI and title verification for all six additions. It explains the Bradford reprint's attribution and metadata and excludes unverified candidates. [The protocol](revision_preparation/annotation/annotation_rules.txt) and [robustness methods](revision_preparation/robustness/methods.txt) state the scope of each new quantity.
 
-## Remaining author work
+## Current evidence limits
 
-Complete the annotation, resolve reported inconsistencies and document the actual search and source-checking procedure. Supply the annotator count, review dates and any secondary review or agreement result. Run the strict estimator and use its registered outputs to fill the reserved accuracy and sensitivity paragraphs. Identify the other analysis, code, citation and figure checks performed by the authors. The exact pending requests are in [author requirements](author_requirements.md).
+No independent human sample adjudication or exhaustive duplicate search is available. The revision describes the AI procedure and its registered case counts. Population accuracy, recall and annotation-derived recurrence sensitivity remain unestimated. [Review status](author_requirements.md) records the author's decision and the scope of the available evidence. The optional annotation estimator remains subject to its original completeness requirements.

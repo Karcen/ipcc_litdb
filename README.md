@@ -6,11 +6,18 @@ This is the second project alongside [IPCC References Toolkit](https://github.co
 
 ## What's new
 
-### 2026-10-21
+### 2026-10-21: AI-led diagnostics
+
+- Refined the source proposals to `ai-initial-review-1.1.1`. The [version ledger](revision_preparation/annotation/ai_review/version_decisions.json) retains verified study grouping and records the unresolved preprint DOI versus journal-metadata combination in one entry for ID 49343.
+- Registered six descriptive CSV tables as [`ai-review-descriptive-1.0.0`](revision_preparation/annotation/ai_review_summary_v1/manifest.json). They separate 319 probability-sampled IDs from 12 targeted supplements and describe the AI review of 331 IDs and 801 original entries.
+- The author chose to proceed with the AI-led review. The sample has no independent human adjudication, and the release contains no accuracy or recall estimate. The optional annotation tools remain available.
+- A fresh v1.2.1 reproduction matched all 29 registered tables by parsed CSV values. The ten raw-DOI tables, database and seed `20261011` remain unchanged. [Reproduction commands](#reproduce-assessment-analyses) and the [summary checker](#ai-led-diagnostic-summary) are documented below.
+
+### 2026-10-21: Study-version rules
 
 - Updated the [AI review proposals](revision_preparation/annotation/ai_review/proposals.json) to `ai-initial-review-1.1.0`. The [version ledger](revision_preparation/annotation/ai_review/version_decisions.json) records source checks for three working-paper, preprint and journal-version relationships.
 - Applied the author-authorized rules: group verified versions of the same study and use the year of the version actually cited for citation age. The frozen database and registered analysis results remain unchanged.
-- Updated the annotation interface, proposal exports and checks. All 42 annotation tests passed. Individual proposals await author confirmation.
+- Updated the annotation interface, proposal exports and checks. All 42 annotation tests passed. The release kept individual judgments separate from author confirmation.
 
 ### 2026-10-20
 
@@ -64,6 +71,7 @@ Stopping the containers preserves the database volume, including review history.
 - [Analysis](#analysis)
 - [Reproduce assessment analyses](#reproduce-assessment-analyses)
 - [Manual annotation](#manual-annotation)
+- [AI-led diagnostic summary](#ai-led-diagnostic-summary)
 - [Additional raw-DOI checks](#additional-raw-doi-checks)
 - [Verified references and revision preparation](#verified-references-and-revision-preparation)
 - [Exports and API](#exports-and-api)
@@ -174,13 +182,13 @@ ipcc_litdb/
 ├── revision_preparation/   # Annotation app, additional analyses, citation records
 ├── changes.md              # Revision changes and verification status
 ├── reviewer_prep.md        # Anticipated reviewer questions and conditional replies
-├── author_requirements.md  # Information and annotations the authors must supply
+├── author_requirements.md  # Current review status and remaining evidence limits
 ├── screenshots/
 ├── tests/
 └── .github/workflows/      # Automated checks
 ```
 
-The working SQLite file, virtual environments, credentials, caches, and macOS sidecar files are excluded from Git. This README contains the toolkit documentation. The three revision documents record changes, anticipated reviewer questions and information the authors must supply. Third-party license texts remain separate text files.
+The working SQLite file, virtual environments, credentials, caches, and macOS sidecar files are excluded from Git. This README contains the toolkit documentation. The three revision documents record changes, anticipated reviewer questions and the current evidence limits. Third-party license texts remain separate text files.
 
 ## Configuration
 
@@ -402,11 +410,11 @@ Age uncertainty tables describe stability under chapter resampling within this f
 
 Outlet sensitivities compare the preferred labels, conservative punctuation aliases, and registered WoS source titles. The local snapshot and upstream exports lack usable ISSNs. The alias crosswalk records exactly which strings were combined. Named-outlet concentration and richness have separate results; outlet labels do not assign disciplines.
 
-The corrected review worksheet contains 331 IDs and 801 printed entries: 319 probability-sampled IDs and 12 additional targeted anomaly IDs. Mechanical title, DOI, year, and author flags accompany the raw entries. Codex has completed an initial review of this worksheet. Its proposals and evidence are separate from the author annotation exports. The estimator requires every planned human review and duplicate search to be complete. The separate correction ledger records earlier AI-assisted comparisons by Codex (ChatGPT 6.1 Sol) with original citations and primary bibliographic sources. The authors report that they checked the primary sources for all eleven nominated correction cases. Informal spot checks were performed during the original collection. Weighted linkage rates await completed probability annotations and integrity checks. The current release contains no annotation-derived accuracy estimates.
+The corrected review worksheet contains 331 IDs and 801 printed entries: 319 probability-sampled IDs and 12 targeted anomaly IDs. Codex completed an initial source-based review and retained its case judgments separately from the empty human-label files. The [descriptive registry](revision_preparation/annotation/ai_review_summary_v1/manifest.json) reports unweighted AI counts for the two selections. The author chose to proceed without further human annotation. Population linkage accuracy and recall remain unestimated. The separate correction ledger records earlier AI-assisted comparisons by Codex (ChatGPT 6.1 Sol). The authors report checking primary sources for all eleven nominated historical correction cases. Those checks and the original informal spot checks do not constitute independent adjudication of the sampled IDs.
 
 ## Manual annotation
 
-The annotation workspace contains 319 probability-sampled IDs and 12 targeted supplements. Its 801 original entries come from AR5 and AR6. The probability sample has 33 strata and represents the 46,715-ID union of the matched AR5 and AR6 sets. The frozen sample, source strings and sampling weights remain unchanged. Human labels start empty.
+Manual annotation is optional for the current AI-led diagnostic report. The workspace retains 319 probability-sampled IDs and 12 targeted supplements, with 801 original entries from AR5 and AR6. The probability sample has 33 strata and comes from the 46,715-ID union of the matched sets. The frozen sample, source strings and sampling weights remain unchanged. Human-label files are empty. The instructions below support a future independent annotation exercise.
 
 Restore the database through Quick start, then launch the workspace from the repository root:
 
@@ -428,13 +436,13 @@ Edits save automatically in `revision_preparation/annotation/work/`. Wait for **
 
 ### AI-assisted initial review
 
-[Initial proposals](revision_preparation/annotation/ai_review/proposals.json) cover all 331 sampled IDs and 801 original entries. Codex read the frozen references, compared stored metadata and inspected source-page evidence and selected local cited-paper PDFs. All 76 sampled IPCC PDFs match the snapshot hashes. The review proposes false merges for 15 IDs and counterpart records for 41 IDs. Metadata questions remain open for 66 IDs. These are unweighted AI proposal counts, recorded in a separate [manifest](revision_preparation/annotation/ai_review/manifest.json). Human confirmation remains pending, and every duplicate search remains incomplete.
+[Initial proposals](revision_preparation/annotation/ai_review/proposals.json), version `ai-initial-review-1.1.1`, cover all 331 sampled IDs and 801 original entries. Codex read the frozen references, compared stored metadata and inspected source-page evidence and selected local cited-paper PDFs. All 76 sampled IPCC PDFs match the snapshot hashes. In the probability sample, the review proposes mixed-work merges for 11 IDs and counterpart records for 40 IDs; 63 IDs have unresolved metadata judgments. Its entries include 120 metadata-error proposals and 111 unresolved judgments. The targeted supplement has four mixed-work proposals, one ID with a counterpart proposal and four IDs with unresolved metadata; eight entries have metadata-error proposals and five remain unresolved. The [descriptive registry](revision_preparation/annotation/ai_review_summary_v1/manifest.json) records these unweighted counts separately. Every review retains `review_complete=no`, and every duplicate search remains incomplete. No independent human adjudication was performed for this sample.
 
 The **AI-assisted initial review** panel shows each proposal, its reasons, occurrence judgments and candidate citations. Use the issue and uncertainty filters to find cases that need attention. **Use as draft for this ID** copies suggestions into blank fields. Existing annotations stay in place. Check the original entries and sources, resolve open questions, and enter your actual reviewer code before marking a review complete. The browser and estimator reject completed reviews attributed to Codex or an AI reviewer. The saved notes retain the AI assistance disclosure.
 
 The [priority queue](revision_preparation/annotation/ai_review/priority_queue.csv) lists cases for source review. The [source index](revision_preparation/annotation/ai_review/source_index.csv) records original-string hashes, PDF hashes and both page conventions. Stored page indices start at zero; browser PDF pages start at one. A compound extraction can continue beyond its recorded starting page. Working-paper, preprint and journal-version decisions remain unresolved where the available evidence does not establish equivalence.
 
-On 21 October 2026, the author authorized two rules: group publication versions only after their study identity is verified, and use the year of the version actually cited for citation age. Codex checked IDs 33960, 49343 and 102897 against the sources recorded in [the version ledger](revision_preparation/annotation/ai_review/version_decisions.json). These AI proposals now group the verified versions; author confirmation of individual judgments remains pending. ID 33960's working-paper occurrence has a proposed cited-version year of 2004; its preferred 2008 journal year is a version-substitution error for that occurrence. The snapshot and registered results remain unchanged.
+On 21 October 2026, the author authorized two rules: group publication versions after checking their study identity, and use the year of the version actually cited for citation age. Codex checked IDs 33960, 49343 and 102897 against sources in [the version ledger](revision_preparation/annotation/ai_review/version_decisions.json). The author authorized the convention; individual case judgments remain AI-assisted. ID 33960's working-paper occurrence has a proposed cited-version year of 2004, compared with the preferred 2008 journal year. For ID 49343, the verified preprint-to-article relationship supports grouping. One entry combines a preprint DOI with journal-version fields, so its DOI metadata judgment remains unresolved in version 1.1.1. The snapshot and registered results remain unchanged.
 
 The same suggestions are available as [ID proposals](revision_preparation/annotation/ai_review/id_proposals.csv) and [occurrence proposals](revision_preparation/annotation/ai_review/occurrence_proposals.csv) for spreadsheet review. They retain all original fields and weights, identify Codex as the reviewer and leave review completion at `no`. Author annotations continue to save separately in `work/`.
 
@@ -461,9 +469,38 @@ python3 scripts/extract_annotation_source_pages.py \
   --output revision_preparation/annotation/work/ai_evidence/source_pages_replay.json
 ```
 
-These commands reconstruct retrieval and page evidence. They preserve the frozen source strings and do not adjudicate identities or create accuracy estimates. The archived [retrieval log](revision_preparation/annotation/ai_review/retrieval_log.json.gz) records query parameters and uncapped results. [Review scope](revision_preparation/annotation/ai_review/review_scope.txt) describes what was inspected and what remains for the authors.
+These commands reconstruct retrieval and page evidence. They preserve the frozen source strings and do not adjudicate identities or create accuracy estimates. The archived [retrieval log](revision_preparation/annotation/ai_review/retrieval_log.json.gz) records query parameters and uncapped results. [Review scope](revision_preparation/annotation/ai_review/review_scope.txt) describes the inspected evidence and unresolved questions.
 
-Run the integrity check against saved labels:
+### AI-led diagnostic summary
+
+The [descriptive registry](revision_preparation/annotation/ai_review_summary_v1/manifest.json) contains six CSV tables: ID categories, occurrence categories, their cross-tabulation, per-ID diagnostics, flagged IDs and metadata-field counts. [The summary](revision_preparation/annotation/ai_review_summary_v1/summary.json) defines each category. The two sample selections remain separate.
+
+| AI-coded quantity | Probability sample | Targeted supplements |
+|---|---:|---:|
+| IDs / original entries | 319 / 771 | 12 / 30 |
+| Mixed-work merge proposals | 11 | 4 |
+| Same-study sharing proposals | 94 | 6 |
+| False-sharing proposals | 0 | 0 |
+| IDs with a proposed metadata error | 71 | 6 |
+| IDs with an unresolved metadata judgment | 63 | 4 |
+| IDs with counterpart proposals | 40 | 1 |
+| Entries with correct metadata proposals | 540 | 17 |
+| Entries with metadata-error proposals | 120 | 8 |
+| Entries with unresolved metadata | 111 | 5 |
+
+Sources: [ID counts](revision_preparation/annotation/ai_review_summary_v1/ai_review_id_category_counts.csv), [entry counts](revision_preparation/annotation/ai_review_summary_v1/ai_review_occurrence_category_counts.csv) and [cross-tabs](revision_preparation/annotation/ai_review_summary_v1/ai_review_id_cross_tabs.csv). Categories can overlap within an ID. A compound extraction can include several works and still preserve a genuine AR5–AR6 shared work. The absence of a false-sharing proposal supplies no population precision estimate. Unequal sampling probabilities and incomplete duplicate searches preclude interpreting these unweighted counts as population error rates or recall.
+
+Replay the summary without API access:
+
+```bash
+python3 scripts/summarize_ai_annotation_proposals.py --check
+```
+
+The generator validates the source package, frozen sample, empty human-label templates, database hash and all 29 baseline plus ten raw-DOI table hashes. It uses seed `20261011` as the inherited sample identifier and performs no random draws. A clean-checkout replay reproduces the summary byte for byte. The summary changes no identity, raw entry, human label or headline estimate.
+
+### Optional human-label estimates
+
+If independent annotation is undertaken later, run the integrity check against its saved labels:
 
 ```bash
 python3 revision_preparation/annotation/annotation_tools.py validate \
@@ -474,7 +511,7 @@ python3 revision_preparation/annotation/annotation_tools.py validate \
 
 The report checks expected keys and counts, unchanged source fields and weights, allowed labels, missing judgments and duplicate consistency. Incomplete or invalid input returns a nonzero exit code. It does not repair labels. Review the listed issues before continuing.
 
-After all 331 ID reviews, 801 occurrence judgments and required duplicate searches are complete, generate estimates in a fresh directory:
+That optional estimator requires all 331 ID reviews, 801 occurrence judgments and duplicate searches to be complete before generating estimates in a fresh directory:
 
 ```bash
 python3 revision_preparation/annotation/annotation_tools.py estimate \
@@ -485,7 +522,7 @@ python3 revision_preparation/annotation/annotation_tools.py estimate \
 
 Missing, unresolved or inconsistent labels produce an integrity report and error exit, with no rate or sensitivity tables. Successful estimation registers `annotation_rates.csv`, `annotation_strata.csv` and `annotation_recurrence_stress.csv` with JSON provenance and file hashes. Probability-sample estimates use the recorded inclusion weights. Targeted supplements have separate descriptive counts. The estimator measures false merges, identity precision, detected missed merges and ID-level metadata errors. Its 95% intervals invert finite-population hypergeometric tails within strata and combine conservative stratum bounds. Zero observed errors in a noncensus stratum retain a positive upper error bound.
 
-The within-ID and metadata audit covers the exported AR5/AR6 entries. Other-report occurrences of these IDs are outside that audit. Detected missed-merge rates describe the recorded search protocol. Shared-identity sensitivity holds the original AR5 and AR6 denominators fixed; it does not construct a corrected database. [The pending registry](revision_preparation/annotation/pending_registry.json) records the planned outputs. [The initial integrity report](revision_preparation/annotation/initial_integrity_report.json) confirms that source keys and counts agree and every human decision is still empty.
+The optional within-ID and metadata audit covers the exported AR5/AR6 entries. Other-report occurrences are outside its scope. Detected missed-merge rates would describe the recorded search protocol. Shared-identity sensitivity would hold the original cohort denominators fixed. [The pending registry](revision_preparation/annotation/pending_registry.json) records these unused planned outputs. [The initial integrity report](revision_preparation/annotation/initial_integrity_report.json) records consistent source keys and empty human decisions. The current AI-led workflow uses the descriptive registry above and produces no human-label accuracy estimates.
 
 ## Additional raw-DOI checks
 
@@ -529,7 +566,7 @@ python revision_preparation/literature/check_archived_verification.py
 
 The inclusive zero-through-five-year share is this analysis's operational definition. Price's historical immediacy discussion supplies context; it does not establish this exact boundary.
 
-[Changes](changes.md) maps the revision work to the requested tasks. [Reviewer preparation](reviewer_prep.md) contains eight anticipated comments and responses conditional on the stated checks. [Author requirements](author_requirements.md) lists the manuscript's nine pending information requests. The submitted manuscript and revision manuscript, complete bibliographies and compiled PDFs remain outside this public repository. This repository contains annotation tools, empty human-label templates, separate AI initial-review proposals, analysis code, registered results and verification records.
+[Changes](changes.md) maps the revision work to the requested tasks. [Reviewer preparation](reviewer_prep.md) contains eight anticipated comments and evidence-based response outlines. [Author requirements](author_requirements.md) records the decision to proceed with AI-led diagnostics and the remaining evidence limits. The submitted and revision manuscripts, complete bibliographies and compiled PDFs remain outside this public repository. Public files contain tools, empty human-label templates, AI proposals, descriptive summaries, analysis code, registered results and verification records.
 
 ## Exports and API
 
@@ -660,7 +697,7 @@ python scripts/correct_record_links.py \
 
 The script checks the original digest and each expected old value. It validates the corrected foreign keys, chapter crosswalk, paper counters, unique DOIs and raw-occurrence digest. It refreshes the cached analyses and writes the corrected digest and checks to the report. Existing inputs and output files are preserved.
 
-The chronology rule queues `matched_doi` occurrences whose preferred year exceeds the source's unambiguous publication year or differs from the first printed year by more than one. The parser accepts year suffixes such as `2013a`. The snapshot contains 1,728 chronology flags. Nine have documented targeted decisions; 1,719 remain open. Verified advance-online dates resolve several flagged cases. Targeted source inspections and the pending probability annotations have separate records. Weighted linkage rates will be generated from the completed probability annotations after integrity checks pass. The current release contains no annotation-derived accuracy estimates.
+The chronology rule queues `matched_doi` occurrences whose preferred year exceeds the source's unambiguous publication year or differs from the first printed year by more than one. The parser accepts year suffixes such as `2013a`. The snapshot contains 1,728 chronology flags. Nine have documented targeted decisions; 1,719 remain open. Verified advance-online dates resolve several flagged cases. Historical targeted inspections and the later AI-led sample review have separate records. Human sample annotations remain empty, and the release contains no annotation-derived accuracy estimates.
 
 Analysis version [v1.2.1](https://github.com/Karcen/ipcc_litdb/tree/v1.2.1) adds an explicit census of unresolved chronology flags among AR5–AR6 shared matched IDs. The database remains the v1.2.0 snapshot with the same SHA-256 digest. The selection uses `open` or `in_progress` reviews with reason `matched_doi_chronology_review`, joins by occurrence ID, and counts each occurrence once across all reports. It selects 38 shared IDs and 85 flagged occurrences. Of these occurrences, 49 are in AR5 or AR6 and 36 are in other reports. The AR5/AR6-only subset spans 29 IDs. The exported detail table records each flagged occurrence's report, preferred year and review status.
 

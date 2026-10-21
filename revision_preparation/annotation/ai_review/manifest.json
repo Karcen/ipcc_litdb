@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "artifact_version": "ai-initial-review-1.1.0",
+  "artifact_version": "ai-initial-review-1.1.1",
   "artifact_type": "annotation_proposals_not_validation_results",
   "created_utc": "2026-10-20T11:28:22.997254+00:00",
   "database_sha256": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
@@ -23,12 +23,12 @@
       "false_merge": 15
     },
     "ai_occurrence_metadata_proposals": {
-      "unresolved": 115,
-      "correct": 558,
+      "unresolved": 116,
+      "correct": 557,
       "metadata_error": 128
     },
     "ids_with_counterpart_proposals": 41,
-    "ids_with_identity_or_metadata_uncertainty": 66,
+    "ids_with_identity_or_metadata_uncertainty": 67,
     "completed_human_reviews": 0,
     "completed_exhaustive_duplicate_searches": 0
   },
@@ -42,16 +42,16 @@
   },
   "files": {
     "proposals.json": {
-      "sha256": "33e1aca690e8872d6a1d71616a77d4fe5559379bb5392d5ab1a50ebb0471ac32",
-      "bytes": 2899425
+      "sha256": "269d113ab667f5fda107e3ce3e854a98129ce9dd8509e361ac4b7c4c9dbcb516",
+      "bytes": 2899481
     },
     "source_index.csv": {
       "sha256": "67bd666e9202519dc573493c802a109b586a2be62c443f7911156dcb478e4f97",
       "bytes": 265193
     },
     "priority_queue.csv": {
-      "sha256": "cdff2beede1ec86d42bb200df051a709c006850f37590fd9dc9605fa62bb46c5",
-      "bytes": 113192
+      "sha256": "c1ebd0fc22ff78959cbc80fbf532f075b4d7267fc117f147d8a23566383eec9c",
+      "bytes": 113209
     },
     "retrieval_log.json.gz": {
       "sha256": "85f147923398ac08fca14a7d187b804aac84318612ddb4564c044d7e55f80388",
@@ -62,20 +62,20 @@
       "bytes": 681002
     },
     "occurrence_proposals.csv": {
-      "sha256": "36aa415c6a76a2bb5fb7c715ade14fdc4e28c5468d0058e2989c367673c31508",
-      "bytes": 1539777
+      "sha256": "7d61ce714e1e5bb90875d8d12b905a02c0a8b3662a5cc75f054954bb35d7a01c",
+      "bytes": 1539747
     },
     "review_scope.txt": {
-      "sha256": "b1395751c87f1556c6ea6c409cfc0c7033565138c0d37e55a89696ad267d8fa8",
-      "bytes": 5150
+      "sha256": "f96572de091d0ca464461b98f9dc39779cdd04294ff2399ead09b826fcf9db6a",
+      "bytes": 5563
     },
     "skills_provenance.json": {
       "sha256": "1747dbf1702e77bcaec7edfd3d559d5c051249026d8e37c3f1efba75d2f4914e",
       "bytes": 7610
     },
     "version_decisions.json": {
-      "sha256": "af296f3b950aafe8d15ab4dc6ededcc5bc801c640991f0efcc57ea5ac8f42ff6",
-      "bytes": 6702
+      "sha256": "362814c404351b2c12b93e8fbfbee8c23b5641e650d73b1312469334cde5bcc1",
+      "bytes": 6982
     }
   },
   "local_evidence_archived_under": "work/ai_evidence/",

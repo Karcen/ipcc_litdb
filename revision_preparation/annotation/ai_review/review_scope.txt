@@ -1,9 +1,9 @@
 AI-assisted initial annotation review
 
-Version: ai-initial-review-1.1.0
+Version: ai-initial-review-1.1.1
 Date: 20 October 2026; version follow-up 21 October 2026
 Reviewer: Codex, with delegated Codex agents
-Human confirmation: pending
+Human sample adjudication: not performed; the author chose AI-led diagnostics
 
 Coverage
 
@@ -54,7 +54,7 @@ hits are not all adjudicated. Every missed-merge search therefore remains
 incomplete. An initial failure to establish a counterpart is displayed as
 unresolved; it is not a negative validation label or a recall estimate.
 
-Version convention and pending author decisions
+Version convention and evidence limits
 
 On 21 October 2026, the author authorized grouping working-paper, preprint and
 journal versions after verifying that they represent one study. Primary evidence
@@ -66,11 +66,16 @@ its preferred journal date. The author also specified cited-version years for
 citation age. Its 2004 working-paper occurrence therefore has a proposed year
 error where the preferred metadata supply 2008. The database remains unchanged.
 
-The author must confirm the individual judgments and complete the duplicate-search
-protocol before validation estimates are generated. Author authorization of the
-version convention does not assert source checking of the individual cases.
-Other open metadata fields, source checks and candidate judgments remain in the
-case notes. The version follow-up changes no scientific result.
+The author chose to proceed without independent human sample adjudication.
+Author authorization of the version convention does not assert source checking
+of individual cases. Version 1.1.1 retains the verified preprint-to-article
+relationship for ID 49343 while restoring the unresolved DOI-version metadata
+judgment for an entry combining preprint and journal fields. Open metadata
+questions and candidate judgments remain in the case notes. The version
+follow-up changes no scientific result. A separate descriptive registry reports
+unweighted counts for the probability sample and targeted supplements. No
+population accuracy or recall estimate is generated. Optional later human
+estimates would require the original completeness and integrity checks.
 
 Interface and exports
 

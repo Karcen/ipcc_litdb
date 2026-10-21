@@ -1,0 +1,351 @@
+{
+  "analysis_version": "ai-review-descriptive-1.0.0",
+  "confidence_intervals_generated": false,
+  "database_modified": false,
+  "database_sha256": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+  "definitions": {
+    "any_metadata_error": "At least one occurrence has metadata_judgment=metadata_error; different erroneous fields can coexist in one occurrence.",
+    "any_metadata_unresolved": "At least one occurrence has metadata_judgment=unresolved. This flag does not count every open question or an explicitly uncertain field attached to an otherwise definite error.",
+    "counterpart_proposed": "At least one candidate ID is listed in missed_merge_candidate_ids; this is a positive AI proposal within an incomplete duplicate search.",
+    "denominator_ids": "Number of frozen sampled IDs in the specified sampling selection, with no design weights.",
+    "denominator_occurrences": "All frozen original entries attached to those sampled IDs; repeated appearances remain separate occurrences.",
+    "explicitly_unresolved_occurrences": "Occurrence has the named metadata_unresolved_fields value, regardless of its overall metadata judgment. Unresolved judgments without typed fields appear as unspecified. Field rows overlap.",
+    "flagged": "Union of non-correct identity proposals, false/unresolved shared links, metadata_error or unresolved occurrence judgments, and positive or explicitly unresolved counterpart IDs.",
+    "identity_label": "AI proposal about whether the original entries assigned to one sampled ID represent one study under the recorded version policy.",
+    "shared_link_label": "AI proposal about the AR5/AR6 matched occurrences already assigned to the sampled ID; this does not adjudicate every counterpart or unsampled ID."
+  },
+  "headline_estimates_corrected": false,
+  "human_validated": false,
+  "inputs_and_protected_files": {
+    "database/ipcc_litdb.sqlite": {
+      "bytes": 249151488,
+      "sha256": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec"
+    },
+    "reproducibility/reference/citation_age_matched.csv": {
+      "bytes": 276,
+      "sha256": "efae3e22e175380cb644445b177bbdbeed4351e1f6b36c82228af47f6bd82503"
+    },
+    "reproducibility/reference/coverage.csv": {
+      "bytes": 511,
+      "sha256": "259c59b73631b2c5422bb5216dc91b0c7e5075202018bdee18769b5664d36ab1"
+    },
+    "reproducibility/reference/manifest.json": {
+      "bytes": 5077,
+      "sha256": "ddd60b576a71ddaa389ca95a40e044febd6426161628eb907762ebafaceca9c1"
+    },
+    "reproducibility/reference/revision_age_bootstrap_intervals.csv": {
+      "bytes": 5177,
+      "sha256": "2f981c7aa1fe0c5cb0894d44486a8642d2663f6f4c42bbfe48dd616821f862b9"
+    },
+    "reproducibility/reference/revision_age_differences.csv": {
+      "bytes": 1866,
+      "sha256": "1ea8cdc9aac56d426befcc76197fd419afe2a60e640aad097e688442c1b65da2"
+    },
+    "reproducibility/reference/revision_age_ecdf.csv": {
+      "bytes": 75284,
+      "sha256": "9ccc93bc20fbe7bc53a8ce2ebff63aaa4711f1dfba73306ed94e6dbb186dfe1e"
+    },
+    "reproducibility/reference/revision_age_summary.csv": {
+      "bytes": 3952,
+      "sha256": "9c8b3f69d91a0622c725a74e482242dd4130399ff5b4a7211709b0dc980353e1"
+    },
+    "reproducibility/reference/revision_identity_audit_sample_summary.csv": {
+      "bytes": 2043,
+      "sha256": "8612c09e819e76957d56e6caa0a6a06ebeac1e9bfa5b2f5b499d915f559f08ea"
+    },
+    "reproducibility/reference/revision_identity_earlier_incoming_partition_summary.csv": {
+      "bytes": 125,
+      "sha256": "553a54dade890489b08c7becdd18879411773c8b095419ef78bbc6f9418f5cf2"
+    },
+    "reproducibility/reference/revision_identity_eligible_reuse.csv": {
+      "bytes": 3737,
+      "sha256": "0ec71cb211b20fe20676f1f5295028b4d5bc24e2f3143271bcfc714ea424fa69"
+    },
+    "reproducibility/reference/revision_identity_flagged_sensitivity.csv": {
+      "bytes": 1958,
+      "sha256": "a9e692db08988a2f881db02d5b863e15f59af0cb102d4cb048a4b75624f7a65a"
+    },
+    "reproducibility/reference/revision_identity_independent_raw_baselines.csv": {
+      "bytes": 1783,
+      "sha256": "d2c9135ce9712030fdcb694d395b0eb1586992492de93f062f6fa8ab65dbe9f1"
+    },
+    "reproducibility/reference/revision_identity_raw_consistency_census.csv": {
+      "bytes": 3635,
+      "sha256": "852486064ee0a7b86b91ba33068c40d91bad60e9b74f2d5caf4b02a58aa5e1b4"
+    },
+    "reproducibility/reference/revision_identity_raw_year_age_summaries.csv": {
+      "bytes": 575,
+      "sha256": "9c15ebe1b374f167fd5d951c22e8824ab9ce0b7a05d7a21f9786c1a71d141508"
+    },
+    "reproducibility/reference/revision_identity_raw_year_eligible_reuse.csv": {
+      "bytes": 2580,
+      "sha256": "08727005d3e618d0d3a2cc6bd24a27d13cb2b828ddf82815fe50ef726811fa37"
+    },
+    "reproducibility/reference/revision_identity_same_vintage_groups.csv": {
+      "bytes": 1626,
+      "sha256": "30945d1cf80eed6db69c8eab1fdf52cd5ef2adc183bc7c6ea6313c07d0933b6f"
+    },
+    "reproducibility/reference/revision_identity_same_vintage_profiles.csv": {
+      "bytes": 1359,
+      "sha256": "7ccb01eb78bdc805c74f6a1f5b5cef6dfb6125da6c70119ebbeaadb39ac341c8"
+    },
+    "reproducibility/reference/revision_identity_status_combinations.csv": {
+      "bytes": 618,
+      "sha256": "0fd7a1403f9be31e7ab2736e264f1424edb4b4c6b579d41655a81e7c28f43df2"
+    },
+    "reproducibility/reference/revision_identity_status_coverage.csv": {
+      "bytes": 4289,
+      "sha256": "9bb152938aea76e07c2c3ce02e3abd402241885a25b5666eded044ea1e661f00"
+    },
+    "reproducibility/reference/revision_identity_transitions.csv": {
+      "bytes": 1927,
+      "sha256": "293b6cf6574f042236795cd881722e7e4803b0cfbd4ed76de3537b7aa961264f"
+    },
+    "reproducibility/reference/revision_network_conditional_null.csv": {
+      "bytes": 6825,
+      "sha256": "d396b4f46aa26dad338898d7dc761eab14a03da7db86729924fce3c1fffc8dbb"
+    },
+    "reproducibility/reference/revision_network_coverage.csv": {
+      "bytes": 3468,
+      "sha256": "3de6d6c1685aea4bd8c449745c8e82bc00781ffefcf9048bbddb0ddd9fb25126"
+    },
+    "reproducibility/reference/revision_network_overlap_trends.csv": {
+      "bytes": 3733,
+      "sha256": "21169d49844944236b30f714825ad68741a1a1bfdedd5f3443a3c9909ab94574"
+    },
+    "reproducibility/reference/revision_network_retention_sensitivity.csv": {
+      "bytes": 11754,
+      "sha256": "8488f40f314cee5985de98ad54af0fcaaff8b5c438c5d5cd3501806fa1aa71ed"
+    },
+    "reproducibility/reference/revision_outlet_coverage_summary.csv": {
+      "bytes": 428,
+      "sha256": "e454b3a7a571370270c3e1718d13496255b4082288dae79bc125f06cdb8cbd7e"
+    },
+    "reproducibility/reference/revision_outlet_hill_numbers.csv": {
+      "bytes": 16211,
+      "sha256": "92f680b0628f27dcc55f543e1e207990b59d167ed7077ccd161965728cd171b1"
+    },
+    "reproducibility/reference/revision_outlet_rarefaction_differences.csv": {
+      "bytes": 5833,
+      "sha256": "75574eed2adeb7e00050a7a05ef487697f875ac2f2bb0685131f9836f870dbed"
+    },
+    "reproducibility/reference/revision_outlet_rarefaction_summary.csv": {
+      "bytes": 17686,
+      "sha256": "e1440002412c34503c679d851fb3c70e8506d7938e4dad6cc9f83d5f62591fa2"
+    },
+    "reproducibility/reference/revision_outlet_title_variants.csv": {
+      "bytes": 56342,
+      "sha256": "87c1527896ba2246c6ece4e201922ac98ae36025f3ca999f1bb4b03edff1c227"
+    },
+    "reproducibility/reference/transitions.csv": {
+      "bytes": 4728,
+      "sha256": "773c77cf3da396db6a226ed5e35a65521334369de33985d5af34dfef9bc2246f"
+    },
+    "revision_preparation/annotation/ai_review/id_proposals.csv": {
+      "bytes": 681002,
+      "sha256": "2e18d6de09f83bbbd12dc974ad664aebd38d8be1062f980128d84e8d52644ba5"
+    },
+    "revision_preparation/annotation/ai_review/manifest.json": {
+      "bytes": 5306,
+      "sha256": "2b13c415e0e2c50cd5e3ccc1cf94d9c6a94708030363ebfafb94e71846ab3752"
+    },
+    "revision_preparation/annotation/ai_review/occurrence_proposals.csv": {
+      "bytes": 1539747,
+      "sha256": "7d61ce714e1e5bb90875d8d12b905a02c0a8b3662a5cc75f054954bb35d7a01c"
+    },
+    "revision_preparation/annotation/ai_review/priority_queue.csv": {
+      "bytes": 113209,
+      "sha256": "c1ebd0fc22ff78959cbc80fbf532f075b4d7267fc117f147d8a23566383eec9c"
+    },
+    "revision_preparation/annotation/ai_review/proposals.json": {
+      "bytes": 2899481,
+      "sha256": "269d113ab667f5fda107e3ce3e854a98129ce9dd8509e361ac4b7c4c9dbcb516"
+    },
+    "revision_preparation/annotation/ai_review/retrieval_log.json.gz": {
+      "bytes": 316241,
+      "sha256": "85f147923398ac08fca14a7d187b804aac84318612ddb4564c044d7e55f80388"
+    },
+    "revision_preparation/annotation/ai_review/review_scope.txt": {
+      "bytes": 5563,
+      "sha256": "f96572de091d0ca464461b98f9dc39779cdd04294ff2399ead09b826fcf9db6a"
+    },
+    "revision_preparation/annotation/ai_review/skills_provenance.json": {
+      "bytes": 7610,
+      "sha256": "1747dbf1702e77bcaec7edfd3d559d5c051249026d8e37c3f1efba75d2f4914e"
+    },
+    "revision_preparation/annotation/ai_review/source_index.csv": {
+      "bytes": 265193,
+      "sha256": "67bd666e9202519dc573493c802a109b586a2be62c443f7911156dcb478e4f97"
+    },
+    "revision_preparation/annotation/ai_review/version_decisions.json": {
+      "bytes": 6982,
+      "sha256": "362814c404351b2c12b93e8fbfbee8c23b5641e650d73b1312469334cde5bcc1"
+    },
+    "revision_preparation/annotation/annotation_schema.json": {
+      "bytes": 1289,
+      "sha256": "c6546ccd19c71e1ef3a0beb59f7d01521a75957335a98a30e2acae2742c332b1"
+    },
+    "revision_preparation/annotation/input_manifest.json": {
+      "bytes": 1413,
+      "sha256": "3042fdf6a4c66a7d34e34646b6bcdfe1bfbd910a050bee8a10d8728d2227e157"
+    },
+    "revision_preparation/annotation/inputs/revision_identity_audit_sample_entries.csv": {
+      "bytes": 1174530,
+      "sha256": "a8694cee07680872229b40f2acb61b83e9d22a394a5ed73aeadaa1ec92e544df"
+    },
+    "revision_preparation/annotation/inputs/revision_identity_audit_sample_papers.csv": {
+      "bytes": 92689,
+      "sha256": "2b184fe01a14d00a258392350a3a8caf5635f804841725c880b5a08be12219b5"
+    },
+    "revision_preparation/annotation/inputs/revision_identity_audit_strata.csv": {
+      "bytes": 1912,
+      "sha256": "3e571f52d68c0bde90618e33e28a8c00ef45a66d1ca5e66c7757006462645cf1"
+    },
+    "revision_preparation/annotation/inputs/revision_identity_summary.json": {
+      "bytes": 85337,
+      "sha256": "fabedfb666075c908ff82771869898001ee091bcc916506039c71b5d2e07f2ec"
+    },
+    "revision_preparation/annotation/templates/id_annotations.csv": {
+      "bytes": 131535,
+      "sha256": "da04b5c513eae6c61b5d0843c8546e6a33aa9436c139fda4e3d8b642196f81b8"
+    },
+    "revision_preparation/annotation/templates/occurrence_annotations.csv": {
+      "bytes": 1306730,
+      "sha256": "ce75dd728e38aad10f6f6b2eac6ea75278cc9c17c5cb78c1b2df5d0f97c976d4"
+    },
+    "revision_preparation/robustness/output_v1/manifest.json": {
+      "bytes": 16448,
+      "sha256": "19729e6a70b5ec7b2c69bc3a551468317e76858307033b19b17d64546ca603f3"
+    },
+    "revision_preparation/robustness/output_v1/results/raw_doi_age_bootstrap_draws.csv": {
+      "bytes": 12940407,
+      "sha256": "06421cdc9a58067b59b28dcca3f4e4a8f492ff176de24ea30f90fc488f90c1d1"
+    },
+    "revision_preparation/robustness/output_v1/results/raw_doi_age_bootstrap_intervals.csv": {
+      "bytes": 14337,
+      "sha256": "09e141e572cc538f177a478ceb804138be00a98b0e8d2f959c363104a808dbb4"
+    },
+    "revision_preparation/robustness/output_v1/results/raw_doi_age_differences.csv": {
+      "bytes": 5524,
+      "sha256": "8887d10939a365f9e63582d58b94eb9bf103b4b69f645cd6022428f55858416c"
+    },
+    "revision_preparation/robustness/output_v1/results/raw_doi_age_ecdf.csv": {
+      "bytes": 476195,
+      "sha256": "2ea01ea059fd642a97438cf032e20d387e44ebdbed44dc12dc84eaa069b024fd"
+    },
+    "revision_preparation/robustness/output_v1/results/raw_doi_age_summary.csv": {
+      "bytes": 14114,
+      "sha256": "bce9eb4eaadafcfd00b7a307eeba8cff5780d889445dd4b61c65f0610838a8bb"
+    },
+    "revision_preparation/robustness/output_v1/results/raw_doi_coverage.csv": {
+      "bytes": 2283,
+      "sha256": "68bdbd2294b75fb78eb20ec8606d0ed01e7a81bb48d0e7480aae33d0658a30d7"
+    },
+    "revision_preparation/robustness/output_v1/results/raw_doi_eligible_reuse.csv": {
+      "bytes": 8007,
+      "sha256": "b648c01cdad55b957439c89e813bd6da4a047fc5e05d1a648627dcdede694a36"
+    },
+    "revision_preparation/robustness/output_v1/results/raw_doi_occurrence_audit.csv": {
+      "bytes": 22058007,
+      "sha256": "47a602ea387a6c4ea81874ce60ef1bfdf8a3bf1ee796476eee2cbb44aea3748f"
+    },
+    "revision_preparation/robustness/output_v1/results/raw_doi_recurrence.csv": {
+      "bytes": 6998,
+      "sha256": "9aeaf1a6ff321b8bc3aac4115b04a9ccb19ce9528da23e062a5810d70203c31e"
+    },
+    "revision_preparation/robustness/output_v1/results/raw_doi_year_diagnostics.csv": {
+      "bytes": 972,
+      "sha256": "77d4604b74637cbec9d94482a77d5ecf45a0fe122c08aa2c6380c343f776d3a3"
+    },
+    "scripts/build_offline_annotation_candidates.py": {
+      "bytes": 18647,
+      "sha256": "a4cac1d8b19f7302cd0a75b46e81d7d8d4e65f40bbd20662718c54697970f1e3"
+    },
+    "scripts/check_ai_annotation_proposals.py": {
+      "bytes": 11902,
+      "sha256": "e0c99505184aa6afd9f7c468fe4fe07dbd73d2e459d8d11f6e51484c195af43a"
+    },
+    "scripts/extract_annotation_source_pages.py": {
+      "bytes": 11575,
+      "sha256": "b63c7dafc40fd97a07a9dba18583b155d6529a90c26c743397fd1e871914baa3"
+    },
+    "scripts/refresh_ai_review_exports.py": {
+      "bytes": 5473,
+      "sha256": "9ed87a89e2716708d658a6dfe1864994b3c8b83c3b9d6512da7e3a7b143ef05f"
+    }
+  },
+  "interpretation": [
+    "These are unweighted descriptions of AI-coded proposals, not human-validated labels or population accuracy estimates.",
+    "The probability sample has unequal inclusion probabilities; no sampling weights or population extrapolation are used here.",
+    "Targeted supplements were selected for anomalies and are never pooled with the probability sample in a reported count.",
+    "Every duplicate search remains incomplete. Counterpart proposals do not estimate missed-merge rates, recall or their uncertainty.",
+    "A compound extracted entry can contain several works while preserving a real work shared by AR5 and AR6. Identity and shared-link labels answer different questions.",
+    "Metadata errors, metadata uncertainty, false merges and counterpart proposals can occur in the same ID. Their counts must not be added as disjoint errors.",
+    "An unresolved metadata field is not coded as a confirmed metadata error. Missing enriched fields alone do not establish an error.",
+    "No confidence intervals, weighted error estimates, corrected headline estimates or new bibliographic API responses are produced."
+  ],
+  "prior_registered_tables_modified": false,
+  "random_draws_used": false,
+  "registered_outputs": [
+    {
+      "bytes": 1573,
+      "filename": "ai_review_id_category_counts.csv",
+      "rows": 30,
+      "sha256": "167a6c8db1b70124c2280af124d8b756038dc97576c807e14e18d7e2098be9f5"
+    },
+    {
+      "bytes": 294,
+      "filename": "ai_review_occurrence_category_counts.csv",
+      "rows": 6,
+      "sha256": "230d90738701a92d4e9ad4fd0271d3b12c50a8f12e345cc3a9dbca000ba5921c"
+    },
+    {
+      "bytes": 11483,
+      "filename": "ai_review_id_cross_tabs.csv",
+      "rows": 192,
+      "sha256": "3ef6b440968929eaa0e7a8e78388e8a2bf546c6c7e080606bc3992343c0d91f8"
+    },
+    {
+      "bytes": 54448,
+      "filename": "ai_review_id_diagnostics.csv",
+      "rows": 331,
+      "sha256": "8c69c118c15f560cdb0c69ce31b234c63aac695802fc2fd6cfa053a7332fc252"
+    },
+    {
+      "bytes": 27234,
+      "filename": "ai_review_flagged_ids.csv",
+      "rows": 162,
+      "sha256": "df4d9f2b440cc6e7a42b7dc42aa2bda49a3ad0161bbddce3512f175d5d3c7f6c"
+    },
+    {
+      "bytes": 757,
+      "filename": "ai_review_metadata_field_counts.csv",
+      "rows": 14,
+      "sha256": "ced0ea12791626604852c04465601ee52dfb978a76b2d8ab0e3963ac5dcbd578"
+    },
+    {
+      "bytes": 4780,
+      "filename": "summary.json",
+      "sha256": "fa45ca44b1e72cec6785237eb4ee76d9e4ee3597948d7c63178b8f4b42a3a8e8"
+    },
+    {
+      "bytes": 9229,
+      "filename": "validation_report.json",
+      "sha256": "a7c333decbfc8651825a4848ad2b9cd76efbeb62ff0731b007cecdcf4f351fe4"
+    }
+  ],
+  "reproduce": "python3 scripts/summarize_ai_annotation_proposals.py --check",
+  "schema_version": 1,
+  "script": {
+    "path": "scripts/summarize_ai_annotation_proposals.py",
+    "sha256": "9029759a88d92f61748025d93a61ee5c58de653219b25d08def38aa9691de2d0"
+  },
+  "seed": 20261011,
+  "source_artifact_version": "ai-initial-review-1.1.1",
+  "source_updated_utc": "2026-10-21T02:15:16.992693+00:00",
+  "units": [
+    "paper_id",
+    "occurrence_id"
+  ],
+  "weighted_estimates_generated": false
+}

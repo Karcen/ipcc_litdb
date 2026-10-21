@@ -1,0 +1,245 @@
+{
+  "dropped_ids": 0,
+  "dropped_occurrences": 0,
+  "human_label_state": [
+    {
+      "nonblank_annotation_rows": 0,
+      "path": "revision_preparation/annotation/templates/id_annotations.csv",
+      "rows": 331
+    },
+    {
+      "nonblank_annotation_rows": 0,
+      "path": "revision_preparation/annotation/templates/occurrence_annotations.csv",
+      "rows": 801
+    }
+  ],
+  "human_labels_modified": false,
+  "joins": {
+    "occurrence_to_paper": "many:1, all 801 unique entries retained",
+    "paper_to_proposal": "1:1, exact 331-ID match"
+  },
+  "optional_local_work_policy": "If present, require unchanged blank templates; these private files are not summary inputs.",
+  "package_check": {
+    "errors": [],
+    "human_validated": false,
+    "observed": {
+      "explicitly_unresolved_work_groups": 0,
+      "identity_proposals": {
+        "correct_merge": 316,
+        "false_merge": 15
+      },
+      "metadata_proposals": {
+        "correct": 557,
+        "metadata_error": 128,
+        "unresolved": 116
+      },
+      "occurrences": 801,
+      "original_registered_tables_unchanged": 29,
+      "sampled_ids": 331
+    },
+    "proposal_sha256": "269d113ab667f5fda107e3ce3e854a98129ce9dd8509e361ac4b7c4c9dbcb516",
+    "schema_version": 1,
+    "scope": "Structural and provenance checks on AI suggestions, not validation of bibliographic judgments.",
+    "status": "passed",
+    "weighted_estimates_generated": false
+  },
+  "prior_registered_tables": [
+    {
+      "path": "reproducibility/reference/coverage.csv",
+      "rows": 6,
+      "sha256": "259c59b73631b2c5422bb5216dc91b0c7e5075202018bdee18769b5664d36ab1"
+    },
+    {
+      "path": "reproducibility/reference/citation_age_matched.csv",
+      "rows": 6,
+      "sha256": "efae3e22e175380cb644445b177bbdbeed4351e1f6b36c82228af47f6bd82503"
+    },
+    {
+      "path": "reproducibility/reference/transitions.csv",
+      "rows": 42,
+      "sha256": "773c77cf3da396db6a226ed5e35a65521334369de33985d5af34dfef9bc2246f"
+    },
+    {
+      "path": "reproducibility/reference/revision_identity_transitions.csv",
+      "rows": 16,
+      "sha256": "293b6cf6574f042236795cd881722e7e4803b0cfbd4ed76de3537b7aa961264f"
+    },
+    {
+      "path": "reproducibility/reference/revision_identity_status_coverage.csv",
+      "rows": 96,
+      "sha256": "9bb152938aea76e07c2c3ce02e3abd402241885a25b5666eded044ea1e661f00"
+    },
+    {
+      "path": "reproducibility/reference/revision_identity_status_combinations.csv",
+      "rows": 16,
+      "sha256": "0fd7a1403f9be31e7ab2736e264f1424edb4b4c6b579d41655a81e7c28f43df2"
+    },
+    {
+      "path": "reproducibility/reference/revision_identity_eligible_reuse.csv",
+      "rows": 30,
+      "sha256": "0ec71cb211b20fe20676f1f5295028b4d5bc24e2f3143271bcfc714ea424fa69"
+    },
+    {
+      "path": "reproducibility/reference/revision_identity_earlier_incoming_partition_summary.csv",
+      "rows": 4,
+      "sha256": "553a54dade890489b08c7becdd18879411773c8b095419ef78bbc6f9418f5cf2"
+    },
+    {
+      "path": "reproducibility/reference/revision_identity_same_vintage_profiles.csv",
+      "rows": 4,
+      "sha256": "7ccb01eb78bdc805c74f6a1f5b5cef6dfb6125da6c70119ebbeaadb39ac341c8"
+    },
+    {
+      "path": "reproducibility/reference/revision_identity_same_vintage_groups.csv",
+      "rows": 12,
+      "sha256": "30945d1cf80eed6db69c8eab1fdf52cd5ef2adc183bc7c6ea6313c07d0933b6f"
+    },
+    {
+      "path": "reproducibility/reference/revision_identity_independent_raw_baselines.csv",
+      "rows": 12,
+      "sha256": "d2c9135ce9712030fdcb694d395b0eb1586992492de93f062f6fa8ab65dbe9f1"
+    },
+    {
+      "path": "reproducibility/reference/revision_identity_raw_consistency_census.csv",
+      "rows": 72,
+      "sha256": "852486064ee0a7b86b91ba33068c40d91bad60e9b74f2d5caf4b02a58aa5e1b4"
+    },
+    {
+      "path": "reproducibility/reference/revision_identity_raw_year_age_summaries.csv",
+      "rows": 12,
+      "sha256": "9c15ebe1b374f167fd5d951c22e8824ab9ce0b7a05d7a21f9786c1a71d141508"
+    },
+    {
+      "path": "reproducibility/reference/revision_identity_raw_year_eligible_reuse.csv",
+      "rows": 12,
+      "sha256": "08727005d3e618d0d3a2cc6bd24a27d13cb2b828ddf82815fe50ef726811fa37"
+    },
+    {
+      "path": "reproducibility/reference/revision_identity_flagged_sensitivity.csv",
+      "rows": 4,
+      "sha256": "a9e692db08988a2f881db02d5b863e15f59af0cb102d4cb048a4b75624f7a65a"
+    },
+    {
+      "path": "reproducibility/reference/revision_age_summary.csv",
+      "rows": 20,
+      "sha256": "9c8b3f69d91a0622c725a74e482242dd4130399ff5b4a7211709b0dc980353e1"
+    },
+    {
+      "path": "reproducibility/reference/revision_age_differences.csv",
+      "rows": 20,
+      "sha256": "1ea8cdc9aac56d426befcc76197fd419afe2a60e640aad097e688442c1b65da2"
+    },
+    {
+      "path": "reproducibility/reference/revision_age_bootstrap_intervals.csv",
+      "rows": 60,
+      "sha256": "2f981c7aa1fe0c5cb0894d44486a8642d2663f6f4c42bbfe48dd616821f862b9"
+    },
+    {
+      "path": "reproducibility/reference/revision_network_coverage.csv",
+      "rows": 9,
+      "sha256": "3de6d6c1685aea4bd8c449745c8e82bc00781ffefcf9048bbddb0ddd9fb25126"
+    },
+    {
+      "path": "reproducibility/reference/revision_network_overlap_trends.csv",
+      "rows": 45,
+      "sha256": "21169d49844944236b30f714825ad68741a1a1bfdedd5f3443a3c9909ab94574"
+    },
+    {
+      "path": "reproducibility/reference/revision_network_retention_sensitivity.csv",
+      "rows": 105,
+      "sha256": "8488f40f314cee5985de98ad54af0fcaaff8b5c438c5d5cd3501806fa1aa71ed"
+    },
+    {
+      "path": "reproducibility/reference/revision_network_conditional_null.csv",
+      "rows": 18,
+      "sha256": "d396b4f46aa26dad338898d7dc761eab14a03da7db86729924fce3c1fffc8dbb"
+    },
+    {
+      "path": "reproducibility/reference/revision_age_ecdf.csv",
+      "rows": 1220,
+      "sha256": "9ccc93bc20fbe7bc53a8ce2ebff63aaa4711f1dfba73306ed94e6dbb186dfe1e"
+    },
+    {
+      "path": "reproducibility/reference/revision_identity_audit_sample_summary.csv",
+      "rows": 33,
+      "sha256": "8612c09e819e76957d56e6caa0a6a06ebeac1e9bfa5b2f5b499d915f559f08ea"
+    },
+    {
+      "path": "reproducibility/reference/revision_outlet_hill_numbers.csv",
+      "rows": 108,
+      "sha256": "92f680b0628f27dcc55f543e1e207990b59d167ed7077ccd161965728cd171b1"
+    },
+    {
+      "path": "reproducibility/reference/revision_outlet_rarefaction_summary.csv",
+      "rows": 80,
+      "sha256": "e1440002412c34503c679d851fb3c70e8506d7938e4dad6cc9f83d5f62591fa2"
+    },
+    {
+      "path": "reproducibility/reference/revision_outlet_rarefaction_differences.csv",
+      "rows": 40,
+      "sha256": "75574eed2adeb7e00050a7a05ef487697f875ac2f2bb0685131f9836f870dbed"
+    },
+    {
+      "path": "reproducibility/reference/revision_outlet_coverage_summary.csv",
+      "rows": 6,
+      "sha256": "e454b3a7a571370270c3e1718d13496255b4082288dae79bc125f06cdb8cbd7e"
+    },
+    {
+      "path": "reproducibility/reference/revision_outlet_title_variants.csv",
+      "rows": 320,
+      "sha256": "87c1527896ba2246c6ece4e201922ac98ae36025f3ca999f1bb4b03edff1c227"
+    },
+    {
+      "path": "revision_preparation/robustness/output_v1/results/raw_doi_coverage.csv",
+      "rows": 24,
+      "sha256": "68bdbd2294b75fb78eb20ec8606d0ed01e7a81bb48d0e7480aae33d0658a30d7"
+    },
+    {
+      "path": "revision_preparation/robustness/output_v1/results/raw_doi_year_diagnostics.csv",
+      "rows": 24,
+      "sha256": "77d4604b74637cbec9d94482a77d5ecf45a0fe122c08aa2c6380c343f776d3a3"
+    },
+    {
+      "path": "revision_preparation/robustness/output_v1/results/raw_doi_recurrence.csv",
+      "rows": 48,
+      "sha256": "9aeaf1a6ff321b8bc3aac4115b04a9ccb19ce9528da23e062a5810d70203c31e"
+    },
+    {
+      "path": "revision_preparation/robustness/output_v1/results/raw_doi_eligible_reuse.csv",
+      "rows": 96,
+      "sha256": "b648c01cdad55b957439c89e813bd6da4a047fc5e05d1a648627dcdede694a36"
+    },
+    {
+      "path": "revision_preparation/robustness/output_v1/results/raw_doi_age_summary.csv",
+      "rows": 80,
+      "sha256": "bce9eb4eaadafcfd00b7a307eeba8cff5780d889445dd4b61c65f0610838a8bb"
+    },
+    {
+      "path": "revision_preparation/robustness/output_v1/results/raw_doi_age_ecdf.csv",
+      "rows": 4880,
+      "sha256": "2ea01ea059fd642a97438cf032e20d387e44ebdbed44dc12dc84eaa069b024fd"
+    },
+    {
+      "path": "revision_preparation/robustness/output_v1/results/raw_doi_age_differences.csv",
+      "rows": 40,
+      "sha256": "8887d10939a365f9e63582d58b94eb9bf103b4b69f645cd6022428f55858416c"
+    },
+    {
+      "path": "revision_preparation/robustness/output_v1/results/raw_doi_age_bootstrap_intervals.csv",
+      "rows": 96,
+      "sha256": "09e141e572cc538f177a478ceb804138be00a98b0e8d2f959c363104a808dbb4"
+    },
+    {
+      "path": "revision_preparation/robustness/output_v1/results/raw_doi_age_bootstrap_draws.csv",
+      "rows": 80000,
+      "sha256": "06421cdc9a58067b59b28dcca3f4e4a8f492ff176de24ea30f90fc488f90c1d1"
+    },
+    {
+      "path": "revision_preparation/robustness/output_v1/results/raw_doi_occurrence_audit.csv",
+      "rows": 107071,
+      "sha256": "47a602ea387a6c4ea81874ce60ef1bfdf8a3bf1ee796476eee2cbb44aea3748f"
+    }
+  ],
+  "raw_strings_modified": false,
+  "status": "passed"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "artifact_version": "ai-initial-review-1.1.0",
+  "artifact_version": "ai-initial-review-1.1.1",
   "checked_utc": "2026-10-21T02:15:16.992693+00:00",
   "policy": {
     "policy_id": "verified-study-versions-20261021",
@@ -13,7 +13,7 @@
     "age_convention_authorized_date": "2026-10-21"
   },
   "base_proposals_sha256": "6c40f6a42ae328f3cd15b70b9c0fc81a78aca2dc650bc969dad18935ef5c685a",
-  "updated_proposals_sha256": "33e1aca690e8872d6a1d71616a77d4fe5559379bb5392d5ab1a50ebb0471ac32",
+  "updated_proposals_sha256": "269d113ab667f5fda107e3ce3e854a98129ce9dd8509e361ac4b7c4c9dbcb516",
   "evidence": [
     {
       "evidence_id": "rff-original",
@@ -84,7 +84,7 @@
     {
       "paper_id": "49343",
       "previous_case_sha256": "8ef61472ff7a7e2dc1f6685f2ecabd228bbd86d2ba5679d170a70e72efc915dd",
-      "updated_case_sha256": "1b0bab280d13664a66f7c4022f3a861377902a6e7a3e8d5cf64583aa14b7e501",
+      "updated_case_sha256": "c3e69723e6aa8fddd84926a2803793558c819b697a0b9104e9da9c000d73e9c6",
       "old_identity_label": "unresolved",
       "new_identity_label": "correct_merge",
       "old_counterpart_proposals": [],
@@ -119,5 +119,6 @@
   "analysis_recomputed": false,
   "bibliographic_api_calls": 0,
   "source_scope": "Primary documents and publisher/repository records; version grouping is a sourced AI judgment. Author authorization concerns the convention only.",
-  "age_convention_author_confirmation": "Direct author reply on 21 October 2026: use the year of the version actually cited."
+  "age_convention_author_confirmation": "Direct author reply on 21 October 2026: use the year of the version actually cited.",
+  "metadata_refinement_20261021": "Retain DOI-version uncertainty for AR6-WG2-Ch16-00118: same-study lineage is established, while the raw citation mixes final-title/journal metadata and a preprint DOI. Both versions have year 2021. No database or registered age value changes."
 }

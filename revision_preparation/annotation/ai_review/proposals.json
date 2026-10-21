@@ -19410,10 +19410,12 @@
         {
           "occurrence_id": "AR6-WG2-Ch16-00118",
           "work_groups": "A",
-          "metadata_judgment": "correct",
+          "metadata_judgment": "unresolved",
           "metadata_error_fields": "",
-          "metadata_unresolved_fields": [],
-          "review_notes": "The archived Research Square preprint identifies final DOI 10.1038/s41558-021-01170-y in its version-of-record notice on viewer page 8. Under the authorized study-version convention, the preprint and final-title references form one study. Original version identifiers remain unchanged. The source prints the final title and journal with the preprint DOI; the explicit version notice supports the preferred final-work representation. Both version dates are in 2021.",
+          "metadata_unresolved_fields": [
+            "doi"
+          ],
+          "review_notes": "The original citation combines the final article title and Nature Climate Change with preprint DOI 10.21203/rs.3.rs-100873/v1. The archived version notice links that preprint to final DOI 10.1038/s41558-021-01170-y, so study identity is established. Both versions date to 2021. The hybrid citation does not establish which DOI version was intended; retain DOI-version uncertainty without classifying the entry as an identity error.",
           "evidence_urls": "https://www.ipcc.ch/report/ar6/wg2/downloads/report/IPCC_AR6_WGII_FullReport.pdf#page=2524",
           "source_id": "AR6_WG2_full_IPCC_AR6_WGII_FullReport",
           "source_pdf_sha256": "4ae90a7d603892d7a7ed303e20ebd5e7fb991dc31d78cce81f0d046b9dde81ac",
@@ -19652,10 +19654,11 @@
       ],
       "unadjudicated_candidate_ids": [],
       "unresolved_author_questions": [
-        "Confirm the source-based AI judgments and complete the duplicate-search protocol. The candidate citation’s 2020 date and archived v1’s 2021 posted date remain separately recorded facts."
+        "The sampled citation mixes final-title/journal metadata with a preprint DOI. Record this DOI-version ambiguity as unresolved; study identity and annual year are established. The broad duplicate search remains incomplete."
       ],
       "issue_types": [
-        "possible_duplicate"
+        "possible_duplicate",
+        "needs_evidence"
       ],
       "evidence_scope": "All frozen entries were read. Source-page text and selected primary bibliography contexts were inspected. Existing cited PDFs were checked where explicitly noted. Remaining broad duplicate candidates are not a completed exhaustive search.",
       "additional_source_locations": [],
