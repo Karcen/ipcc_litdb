@@ -1,0 +1,3 @@
+report,query,cohort,window_lower,window_upper,included_occurrences,mean_age_full_precision,mean_age_three_decimals,mean_age_four_decimals,AR6_minus_AR5_unrounded,same_three_decimal_rounding_is_copy_error,original_table
+AR5,broad,all_raw_year_occurrences,1980,2013,27397,4.452604299740847,4.453,4.4526,0.0008201613784954986,False,review_round2/openalex_v1/activated_attempt_03/results_v1/pool_age_comparison.csv
+AR6,broad,all_raw_year_occurrences,1980,2021,62769,4.453424461119343,4.453,4.4534,0.0008201613784954986,False,review_round2/openalex_v1/activated_attempt_03/results_v1/pool_age_comparison.csv

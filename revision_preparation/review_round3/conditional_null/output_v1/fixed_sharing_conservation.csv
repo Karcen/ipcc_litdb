@@ -1,0 +1,7 @@
+report,bin_width,fixed_sum_of_pairwise_sharing,observed_pairwise_sum,expected_pairwise_sum,sum_observed_minus_expected_exact_rational,scope
+AR4,5,279,279,279.0,0,"allocation of fixed total sharing among pairs, not a test of overall integration"
+AR5,5,687,687,687.0,0,"allocation of fixed total sharing among pairs, not a test of overall integration"
+AR6,5,2754,2754,2754.0,0,"allocation of fixed total sharing among pairs, not a test of overall integration"
+AR4,10,279,279,279.0,0,"allocation of fixed total sharing among pairs, not a test of overall integration"
+AR5,10,687,687,687.0,0,"allocation of fixed total sharing among pairs, not a test of overall integration"
+AR6,10,2754,2754,2754.0,0,"allocation of fixed total sharing among pairs, not a test of overall integration"

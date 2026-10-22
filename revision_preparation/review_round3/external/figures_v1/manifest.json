@@ -1,0 +1,32 @@
+{
+  "analysis_package": "1.4.0",
+  "seed": 20261011,
+  "input_sha256": "67adeeebf02da479b5711bc7bf6dccdaccf5c3cb3d49a659f826e0e6d8ae1abc",
+  "script_sha256": "269ad0ff252f0dacb3c3a233cc3f4ed0ad6e27b72cf630f7ccf52ee9c9a0c7ef",
+  "renderer": {
+    "matplotlib": "3.11.2"
+  },
+  "dimensions_mm": [
+    133,
+    70
+  ],
+  "PNG_dpi": 600,
+  "font": "DejaVu Sans",
+  "font_size_pt": 7,
+  "quantitative_rows": 42,
+  "uncertainty": "Deterministic allocation scenarios, not confidence intervals.",
+  "outputs": [
+    {
+      "filename": "source_allocation_sensitivity.pdf",
+      "sha256": "ca5dff636b2f13b0c0e0a5d0d0f91cf24ac550cd8f9e7434a6ce794ade41c378"
+    },
+    {
+      "filename": "source_allocation_sensitivity.png",
+      "sha256": "55dff120e96dbd69a0caa9f8a8f7a003b5b556433f74315d6035efcc2562f5c5"
+    },
+    {
+      "filename": "source_allocation_sensitivity.svg",
+      "sha256": "8e5b64832732996e7dadc61d1f26f74109f3676fcfa780041a8c3f22032ab168"
+    }
+  ]
+}

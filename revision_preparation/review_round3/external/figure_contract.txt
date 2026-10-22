@@ -1,0 +1,8 @@
+Core conclusion: With the same allocation parameter in both reports, the effective-source difference remains positive along both stated source-assignment paths. This does not identify the sign under unconstrained allocations.
+Question: How does the AR6-minus-AR5 D2 difference change as unresolved source mass shifts away from within-year observed-source frequencies?
+Archetype: One quantitative robustness panel. No redundant panels.
+Backend: Python/Matplotlib, continuing the supplied Python workflow.
+Evidence: All 21 parameter values for each of two deterministic allocation paths; the AR6 record contains the paired report difference also recorded on its AR5 partner row. Forty-two plotted differences, no exclusions based on their values.
+Uncertainty: None drawn. Each point is a specified deterministic scenario, not a sample estimate or confidence interval.
+Target/export contract: 133 mm wide to match the manuscript text width; 70 mm high; sans-serif text >=7 pt; PNG600dpi, editable PDF/SVG only. No TIFF.
+QA: Source preflight; render-time single-panel alignment record; PDF glyph and collision audits; final-size PNG visual inspection; input/code/output SHA-256 manifest.

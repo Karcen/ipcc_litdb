@@ -6,6 +6,24 @@ This is the second project alongside [IPCC References Toolkit](https://github.co
 
 ## What's new
 
+### 2026-10-22: Offline release inputs
+
+- Analysis package `1.4.0` includes nine shared binary chunks for the two identical source-count tables. The restoration command recreates both original files and checks their full SHA-256 hashes. The 22 earlier input archives and all numerical tables retain their original bytes.
+- Code, data and replay instructions are public release materials. Manuscript sources, paper PDFs and editorial records remain local.
+
+### 2026-10-21: Completed external benchmarks and chapter uncertainty
+
+- Added analysis package `1.4.0` under [`review_round3`](revision_preparation/review_round3). Original snapshot `v1.2.0`, baseline workflow `v1.2.1`, earlier tables and seed `20261011` are preserved.
+- Original-string citation ages now have chapter-composition intervals, unmatched distributions and matching-status decompositions. The full-extraction mean change is −0.123 years, with a 95% chapter-resampling interval of −0.648 to +0.359. The matched change is +0.583 [0.371, 0.798]. These intervals describe recorded chapter composition.
+- Completed broad and narrow publication pools for both report windows, with all source pages and metadata for 30,640 source IDs. In the broad journal article/review pool, full D2 increases from 482.11 to 694.03; the equal-size difference is 209.47 [199.18, 220.16]. ISSN-L gives the same full D2. Working-group date screens, first-day exclusions, equal-length age windows and DOI-recovered source labels are also archived.
+- Added a probability-sampled recurrence benchmark. The annual-stratified risk ratio is 8.68 (95% design-bootstrap interval 5.71–15.19); adding 2014–2021 citation-count strata gives 3.53 [2.25, 6.38]. These are journal-pool associations on observed common support. Source type is fixed to journal, and the second comparison conditions on later citation attention.
+- Added a seeded indirect-link comparator using the same 2,664 AR5 target works on both sides: 196/1,000 pool works (19.60%) and 16,932/32,545 comparable AR6 works (52.03%) have an indexed link to a target. Reference-list coverage is recorded separately.
+- Conditional sharing now uses enumerated distributions and direct convolution for tail probabilities. Numeric claim specifications trace displayed values to exact table cells and retain source hashes.
+- Restricting both work type and source type to journal articles/reviews gives a matched equal-size D2 increase of 60.084 [56.621, 63.571]. Adding uniquely DOI-resolved unmatched records gives 69.886 [65.941, 73.838]. These comparisons exclude unrecovered records.
+- The author stopped further model validation after the pilot; the external data analyses are complete. No full identity census, parser panel, source-type panel or calibrated error correction is reported. Pilot outputs and unsuccessful attempts remain archived in [`panel`](revision_preparation/review_round3/panel); they do not establish accuracy.
+- Frozen inputs use 22 deterministic archives and nine binary chunks. The restoration helper recreates both identical source-count tables from the same chunks and verifies their original SHA-256. Local raw files and numerical outputs are preserved.
+- Manuscript sources and paper PDFs remain outside this repository. Offline replay commands for this package appear below.
+
 ### 2026-10-21: Fixed analysis version and delivery checks
 
 - Analysis package `1.3.0` is frozen at [commit c858167](https://github.com/Karcen/ipcc_litdb/tree/c858167e68c30b1f2d6ab8857f1445e6504f13bb). This is a package version, not a Git tag. It extends baseline workflow `v1.2.1` without changing snapshot `v1.2.0` or the earlier 45 CSVs.
@@ -95,6 +113,7 @@ Stopping the containers preserves the database volume, including review history.
 - [Additional raw-DOI checks](#additional-raw-doi-checks)
 - [Second-round sensitivity analyses](#second-round-sensitivity-analyses)
 - [External OpenAlex benchmarks](#external-openalex-benchmarks)
+- [Third-round calculations](#third-round-calculations)
 - [Verified references and revision preparation](#verified-references-and-revision-preparation)
 - [Exports and API](#exports-and-api)
 - [Sources and provenance](#sources-and-provenance)
@@ -689,7 +708,7 @@ Check the archived reference records without network access or file changes:
 python revision_preparation/literature/check_archived_verification.py
 ```
 
-The inclusive zero-through-five-year share is this analysis's operational definition. Price's historical immediacy discussion supplies context; it does not establish this exact boundary.
+The recent-reference measure includes ages zero through five. Price's historical discussion of immediacy provides its bibliometric context.
 
 [Changes](changes.md) maps the revision work to the requested tasks. [Reviewer preparation](reviewer_prep.md) contains eight anticipated comments and evidence-based response outlines. [Author requirements](author_requirements.md) records the decision to proceed with AI-led diagnostics and the remaining evidence limits. The submitted and revision manuscripts, complete bibliographies and compiled PDFs remain outside this public repository. Public files contain tools, empty human-label templates, AI proposals, descriptive summaries, analysis code, registered results and verification records.
 
@@ -920,3 +939,38 @@ For permission to reuse the original project code, contact the author. Bibliogra
 The bundled JavaScript files retain their upstream headers. Check versions and notices when replacing a library.
 
 Network-method review used the [NetworkX guidance in Scientific Agent Skills](https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/networkx). Reference: Kassis, T., Agarwal, V., He, Y., Patel, D., and Brueckner, A. M. (2026). [Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents](https://doi.org/10.48550/arXiv.2609.00065).
+
+## Third-round calculations
+
+The independent package preserves the database, earlier tables and seed `20261011`. All external acquisitions are complete: four query/report source populations, source type and ISSN-L metadata, the selection-risk sample and the random-pool indirect-link sample. The canceled work is further model validation.
+
+Run from the repository root with NumPy `2.2.6` for byte-identical numerical replay. **Restore the frozen inputs first.** The bundles contain the original API bytes, parameters, UTC retrieval times and hashes. Restoration checks each member and reassembles the chunked source-count archive at both registry paths. It verifies the full original SHA-256 and requires no API key or network access.
+
+```bash
+python revision_preparation/review_round3/restore_frozen_inputs.py
+python revision_preparation/review_round3/age/analyze_age.py --check
+python revision_preparation/review_round3/conditional_null/analyze_conditional_null.py --check
+python revision_preparation/review_round3/external/offline_external.py --output /tmp/ipcc-r3-offline-replay
+python revision_preparation/review_round3/external/completed_pool_sources.py --output /tmp/ipcc-r3-broader-pool-replay
+python revision_preparation/review_round3/external/strict_journal_diversity.py --output /tmp/ipcc-r3-journal-replay
+python revision_preparation/review_round3/external/analyze_acquisition.py --sources-only --output /tmp/ipcc-r3-source-replay
+python revision_preparation/review_round3/external/analyze_acquisition.py --output /tmp/ipcc-r3-external-replay
+python revision_preparation/review_round3/external/risk_support.py --output /tmp/ipcc-r3-risk-support-replay
+python revision_preparation/review_round3/external/analyze_indirect_benchmark.py --output /tmp/ipcc-r3-indirect-replay
+```
+
+The support helper reads the fixed risk tables in `external/new_api_results_v2` and checks them against the archived sample and individual citation-count responses. Each replay writes its own manifest. The output directories above keep the fixed results unchanged.
+
+| Fixed registry | Contents |
+|---|---|
+| [`external/new_api_sources_v1`](revision_preparation/review_round3/external/new_api_sources_v1) | Complete broad/narrow source populations, journal-only and broader-source D2, source IDs, ISSN-L and equal-size subsampling. |
+| [`external/journal_strict_v1`](revision_preparation/review_round3/external/journal_strict_v1) | IPCC diversity restricted to both journal source type and article/review work type; a separate cohort adds DOI-recovered unmatched IDs. |
+| [`external/new_api_results_v2`](revision_preparation/review_round3/external/new_api_results_v2) | Final source comparisons, stratified recurrence risk ratios, individual strata and the indirect comparator. |
+| [`external/risk_support_v1`](revision_preparation/review_round3/external/risk_support_v1) | Design weights, common-support exclusions and checks of all 1,500 exact-period citation counts. |
+| [`external/indirect_pool_v1`](revision_preparation/review_round3/external/indirect_pool_v1) | Identical-target indirect links with missing, empty and nonempty reference-list states reported separately. |
+
+The recurrence sample contains 500 works from 5,304 query-defined AR5-cited journal works and 1,000 from 110,916 other journal works. Their inverse-inclusion weights are 10.608 and 110.916. Annual stratification has both sample groups in 16 of 29 strata and retains 500 exposed and 921 unexposed observations. Adding citation-count bins retains 498 exposed and 684 unexposed observations in 40 of 97 strata. The risk ratios describe those supported comparisons. The citation covariate comes from explicit 2014–2021 citing-work queries; no missing annual count was replaced with zero.
+
+The indirect comparison has 226 empty reference arrays among 1,000 pool works and 383 among 32,545 AR6 works; neither cohort has missing reference fields. Empty arrays record a coverage state and do not establish the absence of a citation. The earlier, broader 17,143/33,357 indirect result remains archived with its own population definition.
+
+[`external/acquisition_status.json`](revision_preparation/review_round3/external/acquisition_status.json) records completion. The older all-known-source comparison remains a separate sensitivity. All calculations above replay offline without model calls. `numbers/claim_spec.json` supplies exact row selectors, columns and display precision; the manuscript-dependent audit runs against the private LaTeX project.

@@ -1,0 +1,9 @@
+query,scope,identity,equal_size,draws,AR6_minus_AR5_D2_mean,q025,q975,interval_type
+broad,all_known_sources,source_id,132609,1000,216.45848754514725,205.75974467283163,227.05402449530635,Conditional equal-size subsampling difference; not a population confidence interval.
+broad,all_known_sources,issn_l_with_source_ID_fallback,132609,1000,215.7300581599073,205.01601613723628,226.31083008587805,Conditional equal-size subsampling difference; not a population confidence interval.
+broad,journal_sources,source_id,116220,1000,209.4651210480192,199.1845785368764,220.1632890032691,Conditional equal-size subsampling difference; not a population confidence interval.
+broad,journal_sources,issn_l_with_source_ID_fallback,116220,1000,209.1984703202897,199.08846307638947,219.46304767590877,Conditional equal-size subsampling difference; not a population confidence interval.
+narrow,all_known_sources,source_id,109734,1000,227.93762513265247,217.16707414921868,239.50359039126496,Conditional equal-size subsampling difference; not a population confidence interval.
+narrow,all_known_sources,issn_l_with_source_ID_fallback,109734,1000,227.83034602130607,217.17355857684436,239.0634233609885,Conditional equal-size subsampling difference; not a population confidence interval.
+narrow,journal_sources,source_id,95848,1000,220.36479095792205,208.69449734736816,231.16428241093442,Conditional equal-size subsampling difference; not a population confidence interval.
+narrow,journal_sources,issn_l_with_source_ID_fallback,95848,1000,220.25664266301266,209.5568646177728,231.18945710337454,Conditional equal-size subsampling difference; not a population confidence interval.

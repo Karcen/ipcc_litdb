@@ -1,0 +1,7 @@
+{
+  "analysis_package": "1.4.0",
+  "test_command": "python revision_preparation/review_round3/external/test_offline_external.py",
+  "tests": 7,
+  "failures": 0,
+  "manifest_sha256": "b98ce3672454c6cc2407e0893de6b24ff3b3074deb5f2b0d435bbddb621839d7"
+}

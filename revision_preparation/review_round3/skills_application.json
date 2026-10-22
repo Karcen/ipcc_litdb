@@ -1,0 +1,199 @@
+{
+  "observed_utc": "2026-10-21T11:44:19.992079+00:00",
+  "repositories": [
+    {
+      "repository": "blader/humanizer",
+      "URL": "https://github.com/blader/humanizer",
+      "license": "MIT",
+      "archived": false,
+      "pushed_at": "2026-10-16T19:12:03Z",
+      "updated_at": "2026-10-21T11:19:26Z",
+      "stars": 59093,
+      "default_branch": "main",
+      "commit": "8c307f367c91bd974002f10f2be2965d642c13df",
+      "commit_date": "2026-10-16T19:12:03Z",
+      "skill_paths": []
+    },
+    {
+      "repository": "Yuan1z0825/nature-skills",
+      "URL": "https://github.com/Yuan1z0825/nature-skills",
+      "license": "Apache-2.0",
+      "archived": false,
+      "pushed_at": "2026-10-21T05:46:24Z",
+      "updated_at": "2026-10-21T11:18:34Z",
+      "stars": 49832,
+      "default_branch": "main",
+      "commit": "df6db0b19530e26ac8f7c2a23254541c228fda43",
+      "commit_date": "2026-10-21T05:46:23Z",
+      "skill_paths": [
+        "skills/nature-figure/SKILL.md",
+        "skills/nature-polishing/SKILL.md",
+        "skills/nature-statistics/SKILL.md"
+      ]
+    },
+    {
+      "repository": "xu0106/latex-paper-writer-skill",
+      "URL": "https://github.com/xu0106/latex-paper-writer-skill",
+      "license": "MIT",
+      "archived": false,
+      "pushed_at": "2026-06-26T15:12:22Z",
+      "updated_at": "2026-09-10T07:30:37Z",
+      "stars": 11,
+      "default_branch": "main",
+      "commit": "0e9bff38b475191956769f0675adbf57a82246a3",
+      "commit_date": "2026-06-26T15:11:05Z",
+      "skill_paths": [
+        "latex-paper-writer/SKILL.md"
+      ]
+    },
+    {
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "URL": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "license": "MIT",
+      "archived": false,
+      "pushed_at": "2026-10-19T09:33:57Z",
+      "updated_at": "2026-10-21T11:14:40Z",
+      "stars": 53444,
+      "default_branch": "main",
+      "commit": "593377bb048752abb0152deab9fbb1083a6087df",
+      "commit_date": "2026-10-19T09:33:56Z",
+      "skill_paths": [
+        "skills/latex-posters/SKILL.md",
+        "skills/scientific-writing/SKILL.md"
+      ]
+    },
+    {
+      "repository": "google-deepmind/science-skills",
+      "URL": "https://github.com/google-deepmind/science-skills",
+      "license": "Apache-2.0",
+      "archived": false,
+      "pushed_at": "2026-10-15T14:23:06Z",
+      "updated_at": "2026-10-21T05:33:15Z",
+      "stars": 3301,
+      "default_branch": "main",
+      "commit": "99f3085bcb40514cdba7833205b3dedbf473b26d",
+      "commit_date": "2026-10-15T14:22:52Z",
+      "skill_paths": [
+        "skills/credentials/SKILL.md",
+        "skills/literature_search_openalex/SKILL.md",
+        "skills/uv/SKILL.md"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "credentials",
+      "skill_md_sha256": "82f252acbf135c37d04a14c20856f159fce7142e45cda5d318e1504426578bcc",
+      "installed": true,
+      "read": true,
+      "applied": true,
+      "application": "Environment-only API credential handling; no key in public files or request provenance."
+    },
+    {
+      "name": "humanizer-upstream",
+      "skill_md_sha256": "0612f1dfb1672b0ea9b97e139bf1f06cabe98d8b27424fe8ff01e1fb4cc99cad",
+      "installed": true,
+      "read": true,
+      "applied": true,
+      "application": "Full English draft pass: removed staging, loose transitions and repeated qualifications; preserved all source-backed claims."
+    },
+    {
+      "name": "latex-paper-writer",
+      "skill_md_sha256": "bad4438703141cfa9d1ab34967bf1b366a952dc8c7da484a861a03c971d97408",
+      "installed": true,
+      "read": true,
+      "applied": true,
+      "application": "Markdown draft converted to sn-jnl LaTeX work copy; original v2 unchanged; pdflatex/BibTeX and desktop compiler used."
+    },
+    {
+      "name": "literature_search_openalex",
+      "skill_md_sha256": "5f01889e2c75c51da9e30e623bcc18aafa9888c65d0aafdbc32eb9865c56bb28",
+      "installed": true,
+      "read": true,
+      "applied": true,
+      "application": "Pinned CLI transport used for saved external acquisition; offline calculations use frozen bytes."
+    },
+    {
+      "name": "nature-figure",
+      "skill_md_sha256": "5aefe708a2531c5ddaa8ee74d5155d747e96c0f21a33143d38316b7c5c88ffc4",
+      "installed": true,
+      "read": true,
+      "applied": true,
+      "application": "Existing two-figure render, collision/font/alignment checks, editable SVG/PDF and600dpiPNG."
+    },
+    {
+      "name": "nature-polishing",
+      "skill_md_sha256": "9391b2a2487306cf2ed560377d4bc10c339fd2c220a79db278cb7f9d31e79023",
+      "installed": true,
+      "read": true,
+      "applied": false,
+      "read_scope": "Router only; not used for polishing; no claim that its route fragments were applied."
+    },
+    {
+      "name": "nature-statistics",
+      "skill_md_sha256": "89d2a101fc45d7adf8ca327a6da4bda4a696d6364d7c36ead4f53413627a9b6f",
+      "installed": true,
+      "read": true,
+      "applied": true,
+      "application": "Corrected interpretation of chapter-composition intervals, exact conditional tails, and different cohort denominators."
+    },
+    {
+      "name": "scientific-writing",
+      "skill_md_sha256": "511a2096bebecd8cf0f8212b9d262d37154ae1ba566eb385d93ac968682edbd1",
+      "installed": true,
+      "read": true,
+      "applied": true,
+      "application": "Mapped claims to source tables and separated incomplete model review from reported calculations. User canceled further model validation; no human gate claimed satisfied."
+    },
+    {
+      "name": "uv",
+      "skill_md_sha256": "d01562f2dcc104b3291a08bfb3a9e9883044330847285824a05f04000df0665b",
+      "installed": true,
+      "read": true,
+      "applied": true,
+      "application": "User-local uv runtime used by the OpenAlex CLI."
+    },
+    {
+      "name": "humanizer-local",
+      "skill_md_sha256": "0612f1dfb1672b0ea9b97e139bf1f06cabe98d8b27424fe8ff01e1fb4cc99cad",
+      "installed": false,
+      "existing_user_copy": true,
+      "read": true,
+      "applied": true,
+      "application": "Second English pass using the existing user copy, after the upstream pass."
+    },
+    {
+      "name": "no-ai-slop",
+      "installed": false,
+      "existing_user_copy": true,
+      "skill_md_sha256": "992b365f51a2f62cf4c1c5ed22049a9ee551dfea677550c1a72b371c0ceadd62",
+      "read": true,
+      "applied": true,
+      "application": "Applied direct prose, concrete subjects, no filler or generic boundary framing; eval.md checked."
+    }
+  ],
+  "transport_notes": [
+    "K-Dense repository ZIP download stalled; its identical previously pinned skill was copied into the new installation after exact primary SKILL.md comparison with GitHub contents API at the same commit.",
+    "uv installer redirect returned 403; official PyPI uv 0.13.4 was installed in a user-local tools directory."
+  ],
+  "user_scope_override": [
+    "No new human adjudication; user explicitly chooses GPT-6.1 Sol only. Skill human-verifier gates are not claimed satisfied.",
+    "Existing supplied BibTeX is used; no citation discovery or new manuscript references are required at this stage.",
+    "Author canceled further model validation and requested remaining manuscript edits; full panel and error calibration not completed."
+  ],
+  "scientific_agent_skills_paper": {
+    "URL": "https://arxiv.org/abs/2609.00065",
+    "DOI": "10.48550/arXiv.2609.00065",
+    "title": "Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents",
+    "authors": [
+      "Timothy Kassis",
+      "Vinayak Agarwal",
+      "Yuhuan He",
+      "Darshil Patel",
+      "Aubrey M. Brueckner"
+    ],
+    "observed_version": "v2",
+    "scope": "Software attribution in skills log only; not an added manuscript reference"
+  },
+  "data_acquisition_scope": "OpenAlex external benchmark acquisition continues within verified free budget; user stopped costly model annotation only."
+}

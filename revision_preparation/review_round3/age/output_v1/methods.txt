@@ -1,0 +1,58 @@
+Round-three raw-year age analysis, package 1.4.0
+
+The immutable occurrence is the source unit. Matching status belongs to each
+occurrence; an ID with another matched occurrence does not pull an unmatched
+occurrence into the matched cohort. The unmatched cohort is the complement of
+the two accepted matching statuses. Existing raw-year parsing and mutually
+exclusive zero-through-sixty inclusion/exclusion rules are imported unchanged.
+Age origins are unambiguous report-source publication years and the documented
+working-group cutoff YEAR. Full dates and monthly precision are not used here.
+Recent-reference fractions include ages zero through five. Quantiles use the
+left inverse empirical CDF, matching the frozen raw-age point summaries.
+
+For each report and cohort, all chapters with selected occurrences, including
+chapters with no included ages, enter 2,500 multinomial draws of the observed
+number of chapters. Chapters are exchangeable composition clusters within a
+report/cohort, without working-group stratification, as in the preferred-year
+baseline. Reports have independent draws. SeedSequence(20261011) spawns six
+streams in report order AR5,AR6, each with cohort order all,matched,unmatched.
+The same chapter multiplicities serve both age origins and both weightings
+within a report/cohort. A missing origin does not remove a chapter from draws.
+Occurrence weights are chapter multiplicities. Equal-ID weights are recomputed
+in every draw: an occurrence receives its multiplicity divided by the sum of
+multiplicities over all included occurrences of that ID in the report/cohort.
+An ID present in the draw therefore has total weight one; an absent ID has zero.
+This recomputation preserves cross-chapter identity dependence. No replicate
+is discarded or redrawn. Empty draws cause failure. Intervals are 2.5th and
+97.5th percentiles (linear interpolation); change intervals use paired replicate
+indices of independently sampled reports. They quantify chapter-composition
+sensitivity conditional on the frozen corpus and assigned identities. They
+exclude record-linkage, extraction, parser and population-selection errors.
+
+Status decomposition: weights are first assigned to ALL included occurrences
+of the pooled report. For equal-ID weighting an ID spanning matching statuses
+contributes fractional weight to each status. Status-specific means using these
+pooled weights can consequently differ from the independently normalized
+standalone matched/unmatched equal-ID means. The decomposition is exact:
+delta = mean(p5,p6)*delta(matched_mean) +
+        mean(1-p5,1-p6)*delta(unmatched_mean) +
+        delta(p)*(mean(matched_means)-mean(unmatched_means)).
+Component intervals reuse the all-extracted chapter draws and recompute pooled
+ID weights before partitioning. This preserves exact reconstruction in every
+replicate. Fractions refer to included weight, not original matching coverage.
+
+WG decomposition uses only single-WG1/WG2/WG3 catalogue units, exactly as in the
+round-two fractional-weight standardization. Other catalogue units are counted
+explicitly. Pooled equal-ID weights are applied before working-group partition.
+The symmetric two-term Kitagawa identity partitions within-group and group-
+composition changes; each report at the other's composition is also exported.
+Standalone report/cohort confidence intervals include other catalogue units.
+
+The previous external-pool window check is read only: 4.452604299740847 and
+4.453424461119343 legitimately round to the same three-decimal value. Their
+unrounded difference is separately exported. This is not a copy error.
+
+This script performs no model or human validation and no API acquisition.
+Old 45 baseline/DOI/AI tables and the database are checked before and after;
+round-two raw-age outputs and the external age table are also hash protected.
+--check replays all calculations and compares bytes in this independent archive.

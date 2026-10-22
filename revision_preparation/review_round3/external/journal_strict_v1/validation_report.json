@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "tests": 8,
+  "byte_replay": {
+    "outlet_diversity.csv": true,
+    "outlet_diversity_differences.csv": true,
+    "identity_mapping_audit.csv": true,
+    "source_counts.csv": true,
+    "manifest.json": true
+  },
+  "seed": 20261011,
+  "network_used": false
+}

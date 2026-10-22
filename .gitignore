@@ -49,3 +49,21 @@ assessment-figure-checks/
 
 # Restored round-two audit table; exact bytes are distributed in gzip
 /revision_preparation/review_round2/raw_age_v1/raw_age_occurrence_audit.csv
+
+# Local round-three render attempts; final outputs and audits are archived
+/revision_preparation/review_round3/figures/work/
+/revision_preparation/review_round3/baseline_replay.log
+
+# Frozen round-three inputs are restored from deterministic archives
+/revision_preparation/review_round3/external/acquisition_v1/
+/revision_preparation/review_round3/panel/calls/
+/revision_preparation/review_round3/panel/frames/
+/revision_preparation/review_round3/panel/handshake/
+/revision_preparation/review_round3/panel/pilot/
+/revision_preparation/review_round3/panel/pilot_v1_failed_qc/
+/revision_preparation/review_round3/panel/candidates/
+/revision_preparation/review_round3/external/offline_v1/resolved_journal_source_assignments.csv
+
+# Identical compressed source tables are restored from shared binary chunks
+/revision_preparation/review_round3/external/new_api_sources_v1/pool_source_counts.csv.gz
+/revision_preparation/review_round3/external/new_api_results_v2/pool_source_counts.csv.gz

@@ -1,0 +1,207 @@
+{
+  "analysis_package": "1.4.0",
+  "build_script_sha256": "4dcb81f7caf54290dfa138b9e2a008de1a36a1b03615aedf4769cab2899a2b14",
+  "claims": 566,
+  "design_constants": 19,
+  "formatting_rounding": "Decimal ROUND_HALF_EVEN; no data inferred from numerical coincidence",
+  "outputs": [
+    {
+      "bytes": 2867,
+      "filename": "design_constants.csv",
+      "sha256": "ab2ee925ffe25ca00d70d81a5c56db07395502230d3f9470ac0837ef264fcc66"
+    },
+    {
+      "bytes": 243787,
+      "filename": "numeric_claims.csv",
+      "sha256": "c5ada6395bf01d60af4bf461157983ba8efa5036d847883be8df54b468db5c1b"
+    },
+    {
+      "bytes": 175,
+      "filename": "structural_exclusions.json",
+      "sha256": "17e8e6bda980c7fcc09b7b48e526729391c06d065d843a4de8012f9b9ed6eba1"
+    }
+  ],
+  "private_latex_values": {
+    "bytes": 41355,
+    "filename": "values.tex",
+    "sha256": "e042e1e1926ef24a308d8c0d5bd51868922b30b6daf6024145703d057f970ac4"
+  },
+  "sources": {
+    "reproducibility/reference/coverage.csv": {
+      "bytes": 511,
+      "content_sha256": "259c59b73631b2c5422bb5216dc91b0c7e5075202018bdee18769b5664d36ab1",
+      "kind": "csv",
+      "raw_sha256": "259c59b73631b2c5422bb5216dc91b0c7e5075202018bdee18769b5664d36ab1"
+    },
+    "reproducibility/reference/revision_identity_earlier_incoming_partition_summary.csv": {
+      "bytes": 125,
+      "content_sha256": "553a54dade890489b08c7becdd18879411773c8b095419ef78bbc6f9418f5cf2",
+      "kind": "csv",
+      "raw_sha256": "553a54dade890489b08c7becdd18879411773c8b095419ef78bbc6f9418f5cf2"
+    },
+    "reproducibility/reference/revision_identity_eligible_reuse.csv": {
+      "bytes": 3737,
+      "content_sha256": "0ec71cb211b20fe20676f1f5295028b4d5bc24e2f3143271bcfc714ea424fa69",
+      "kind": "csv",
+      "raw_sha256": "0ec71cb211b20fe20676f1f5295028b4d5bc24e2f3143271bcfc714ea424fa69"
+    },
+    "reproducibility/reference/revision_identity_independent_raw_baselines.csv": {
+      "bytes": 1783,
+      "content_sha256": "d2c9135ce9712030fdcb694d395b0eb1586992492de93f062f6fa8ab65dbe9f1",
+      "kind": "csv",
+      "raw_sha256": "d2c9135ce9712030fdcb694d395b0eb1586992492de93f062f6fa8ab65dbe9f1"
+    },
+    "reproducibility/reference/revision_identity_same_vintage_profiles.csv": {
+      "bytes": 1359,
+      "content_sha256": "7ccb01eb78bdc805c74f6a1f5b5cef6dfb6125da6c70119ebbeaadb39ac341c8",
+      "kind": "csv",
+      "raw_sha256": "7ccb01eb78bdc805c74f6a1f5b5cef6dfb6125da6c70119ebbeaadb39ac341c8"
+    },
+    "reproducibility/reference/revision_identity_transitions.csv": {
+      "bytes": 1927,
+      "content_sha256": "293b6cf6574f042236795cd881722e7e4803b0cfbd4ed76de3537b7aa961264f",
+      "kind": "csv",
+      "raw_sha256": "293b6cf6574f042236795cd881722e7e4803b0cfbd4ed76de3537b7aa961264f"
+    },
+    "reproducibility/reference/revision_network_coverage.csv": {
+      "bytes": 3468,
+      "content_sha256": "3de6d6c1685aea4bd8c449745c8e82bc00781ffefcf9048bbddb0ddd9fb25126",
+      "kind": "csv",
+      "raw_sha256": "3de6d6c1685aea4bd8c449745c8e82bc00781ffefcf9048bbddb0ddd9fb25126"
+    },
+    "reproducibility/reference/revision_network_retention_sensitivity.csv": {
+      "bytes": 11754,
+      "content_sha256": "8488f40f314cee5985de98ad54af0fcaaff8b5c438c5d5cd3501806fa1aa71ed",
+      "kind": "csv",
+      "raw_sha256": "8488f40f314cee5985de98ad54af0fcaaff8b5c438c5d5cd3501806fa1aa71ed"
+    },
+    "revision_preparation/annotation/ai_review_summary_v1/ai_review_id_category_counts.csv": {
+      "bytes": 1573,
+      "content_sha256": "167a6c8db1b70124c2280af124d8b756038dc97576c807e14e18d7e2098be9f5",
+      "kind": "csv",
+      "raw_sha256": "167a6c8db1b70124c2280af124d8b756038dc97576c807e14e18d7e2098be9f5"
+    },
+    "revision_preparation/annotation/ai_review_summary_v1/ai_review_occurrence_category_counts.csv": {
+      "bytes": 294,
+      "content_sha256": "230d90738701a92d4e9ad4fd0271d3b12c50a8f12e345cc3a9dbca000ba5921c",
+      "kind": "csv",
+      "raw_sha256": "230d90738701a92d4e9ad4fd0271d3b12c50a8f12e345cc3a9dbca000ba5921c"
+    },
+    "revision_preparation/review_round2/openalex_v1/activated_attempt_03/results_v1/openalex_work_recurrence.csv": {
+      "bytes": 15206,
+      "content_sha256": "149d979792460e64b749d0016c7e59664ce0192fd752ed4273f078192dd79801",
+      "kind": "csv",
+      "raw_sha256": "149d979792460e64b749d0016c7e59664ce0192fd752ed4273f078192dd79801"
+    },
+    "revision_preparation/review_round2/raw_age_v1/missing_outlet_difference_envelopes.csv": {
+      "bytes": 1165,
+      "content_sha256": "ce742d04cab6e75472007ffb9354dcc7423e02e8dc741a8abb89e5cb6f8e291d",
+      "kind": "csv",
+      "raw_sha256": "ce742d04cab6e75472007ffb9354dcc7423e02e8dc741a8abb89e5cb6f8e291d"
+    },
+    "revision_preparation/review_round3/age/output_v1/WG_kitagawa.csv": {
+      "bytes": 6021,
+      "content_sha256": "ad4edf6f25e46dbbbf4eecd055836c2d0ad7f96c311c33b718cc1f69d64957af",
+      "kind": "csv",
+      "raw_sha256": "ad4edf6f25e46dbbbf4eecd055836c2d0ad7f96c311c33b718cc1f69d64957af"
+    },
+    "revision_preparation/review_round3/age/output_v1/age_changes.csv": {
+      "bytes": 5310,
+      "content_sha256": "a3ef5ab07c84628da1930cc930a8642bebc60c5a52001da6d2301c7521a42ef4",
+      "kind": "csv",
+      "raw_sha256": "a3ef5ab07c84628da1930cc930a8642bebc60c5a52001da6d2301c7521a42ef4"
+    },
+    "revision_preparation/review_round3/age/output_v1/age_summary.csv": {
+      "bytes": 8307,
+      "content_sha256": "f37f6c68b65eff6262ce62b4a78c278d9cbed3b096566776cfd185ac5886edc7",
+      "kind": "csv",
+      "raw_sha256": "f37f6c68b65eff6262ce62b4a78c278d9cbed3b096566776cfd185ac5886edc7"
+    },
+    "revision_preparation/review_round3/age/output_v1/matching_status_decomposition.csv": {
+      "bytes": 3392,
+      "content_sha256": "179923479400c425b7dfea02882fc4bffc34c5c329355320bb505868bcc36b4b",
+      "kind": "csv",
+      "raw_sha256": "179923479400c425b7dfea02882fc4bffc34c5c329355320bb505868bcc36b4b"
+    },
+    "revision_preparation/review_round3/conditional_null/output_v1/conditional_null_summary.csv": {
+      "bytes": 9653,
+      "content_sha256": "781776c16d50e48c1852302c552d011413116f095311b006c4d2bebe4070ac62",
+      "kind": "csv",
+      "raw_sha256": "781776c16d50e48c1852302c552d011413116f095311b006c4d2bebe4070ac62"
+    },
+    "revision_preparation/review_round3/external/completed_pool_v1/pool_outlet_diversity.csv": {
+      "bytes": 1064,
+      "content_sha256": "b496f1cd7e8c9b87419cbe1caf3d6b95e9ab17b3ec9d77faac5d2af31b94616e",
+      "kind": "csv",
+      "raw_sha256": "b496f1cd7e8c9b87419cbe1caf3d6b95e9ab17b3ec9d77faac5d2af31b94616e"
+    },
+    "revision_preparation/review_round3/external/completed_pool_v1/pool_outlet_diversity_differences.csv": {
+      "bytes": 555,
+      "content_sha256": "7f13645be0d0a405ee907a4890500a6838b377a3066db94a038753ac082c9d58",
+      "kind": "csv",
+      "raw_sha256": "7f13645be0d0a405ee907a4890500a6838b377a3066db94a038753ac082c9d58"
+    },
+    "revision_preparation/review_round3/external/indirect_pool_v1/indirect_pool_baseline.csv": {
+      "bytes": 1234,
+      "content_sha256": "f36b358c284e4cb83829efee30791ddacbf926aa671d6037ea09c95ec4340a7e",
+      "kind": "csv",
+      "raw_sha256": "f36b358c284e4cb83829efee30791ddacbf926aa671d6037ea09c95ec4340a7e"
+    },
+    "revision_preparation/review_round3/external/journal_strict_v1/outlet_diversity.csv": {
+      "bytes": 1553,
+      "content_sha256": "ad85f2f5ccddfde37f7d143cd10c0f0209732cdc1150c67687781495894ed9c0",
+      "kind": "csv",
+      "raw_sha256": "ad85f2f5ccddfde37f7d143cd10c0f0209732cdc1150c67687781495894ed9c0"
+    },
+    "revision_preparation/review_round3/external/journal_strict_v1/outlet_diversity_differences.csv": {
+      "bytes": 1063,
+      "content_sha256": "4a081ce980c4883e1b85f19e942fa38d07be60b99a3c9e95f8cf390caf4ed0a6",
+      "kind": "csv",
+      "raw_sha256": "4a081ce980c4883e1b85f19e942fa38d07be60b99a3c9e95f8cf390caf4ed0a6"
+    },
+    "revision_preparation/review_round3/external/new_api_results_v2/conditional_relative_risk.csv": {
+      "bytes": 1127,
+      "content_sha256": "d9471b2b8734f962d0ef51a995f800070408400d84ec3432a6271c0560542686",
+      "kind": "csv",
+      "raw_sha256": "d9471b2b8734f962d0ef51a995f800070408400d84ec3432a6271c0560542686"
+    },
+    "revision_preparation/review_round3/external/new_api_sources_v1/pool_outlet_diversity.csv": {
+      "bytes": 4282,
+      "content_sha256": "defe8987e15542db170fb683c5c159e67b82ef846eb35e2b6d621a9f9a82158d",
+      "kind": "csv",
+      "raw_sha256": "defe8987e15542db170fb683c5c159e67b82ef846eb35e2b6d621a9f9a82158d"
+    },
+    "revision_preparation/review_round3/external/new_api_sources_v1/pool_outlet_diversity_differences.csv": {
+      "bytes": 1668,
+      "content_sha256": "eb2a253b619bee32ad569a5b8edbd4f559c9fafcf3b7a9e2b7eb682ca04b98cd",
+      "kind": "csv",
+      "raw_sha256": "eb2a253b619bee32ad569a5b8edbd4f559c9fafcf3b7a9e2b7eb682ca04b98cd"
+    },
+    "revision_preparation/review_round3/external/offline_v1/cutoff_reuse_sensitivity.csv": {
+      "bytes": 11985,
+      "content_sha256": "cd13a722ec9ab8c320f7d2489c06eea1446c306d16bd868e38ab496ed1981506",
+      "kind": "csv",
+      "raw_sha256": "cd13a722ec9ab8c320f7d2489c06eea1446c306d16bd868e38ab496ed1981506"
+    },
+    "revision_preparation/review_round3/external/offline_v1/equal_window_age_comparison.csv": {
+      "bytes": 28948,
+      "content_sha256": "ca65ff08203901c306c7c0f2f69f9dad2fd141ddf4c301ab36bf1602cf122dc3",
+      "kind": "csv",
+      "raw_sha256": "ca65ff08203901c306c7c0f2f69f9dad2fd141ddf4c301ab36bf1602cf122dc3"
+    },
+    "revision_preparation/review_round3/external/offline_v1/top18_pool_shares.csv": {
+      "bytes": 7573,
+      "content_sha256": "262664a7d9b040618a3ad7e0defd0662a9c8341b6d0e4d63657ef24b8fb30dad",
+      "kind": "csv",
+      "raw_sha256": "262664a7d9b040618a3ad7e0defd0662a9c8341b6d0e4d63657ef24b8fb30dad"
+    },
+    "revision_preparation/review_round3/external/risk_support_v1/relative_risk_support.csv": {
+      "bytes": 1445,
+      "content_sha256": "43bdb8814a99a93ce5fd814b805a971e543cf9b7b3526c02141bd6255bde5b76",
+      "kind": "csv",
+      "raw_sha256": "43bdb8814a99a93ce5fd814b805a971e543cf9b7b3526c02141bd6255bde5b76"
+    }
+  },
+  "specification_sha256": "99dd3664acb76e51eb23bd0709a2a1a55c09b9ffdc2867e83c40907099ad2729",
+  "structural_exclusions": 1
+}

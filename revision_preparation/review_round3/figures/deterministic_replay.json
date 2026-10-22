@@ -1,0 +1,101 @@
+{
+  "pass": true,
+  "scope": "All nineteen final artifact and manifest files; fresh second execution in the fixed plotting runtime",
+  "comparisons": [
+    {
+      "filename": "QA_notes.json",
+      "equal": true,
+      "sha256": "55a9f33886298ac6e8e6d2467770f4e638e044d1c7f89aa8c6893a34da0b5687"
+    },
+    {
+      "filename": "age_change_and_components.alignment.json",
+      "equal": true,
+      "sha256": "292a9a7e920a775c37f9800c4f7b0071818fcb1bfa4db9d2f454b38fd4e1b57e"
+    },
+    {
+      "filename": "age_change_and_components.alignment.svg",
+      "equal": true,
+      "sha256": "ab7eb9deb1e93b4697add0cdf39f334bd98b1211c9c8544d92984b5d1f648e03"
+    },
+    {
+      "filename": "age_change_and_components.pdf",
+      "equal": true,
+      "sha256": "2bcdc94fe7cbb9abd62480fe8734cf0d546e6c5403614105ca6a19a67810dd31"
+    },
+    {
+      "filename": "age_change_and_components.png",
+      "equal": true,
+      "sha256": "7dd78501cacd53975dc08ee97ccbd4c5a570283bfc82cf14ad17bca8ad6d1b45"
+    },
+    {
+      "filename": "age_change_and_components.svg",
+      "equal": true,
+      "sha256": "050c13d1f294dd8a93ccb92239b14cf5ca49471b2f4d06e8b4f0f9d4f85acc0a"
+    },
+    {
+      "filename": "age_change_and_components_collision_audit.json",
+      "equal": true,
+      "sha256": "0642633b19b52ac70335e1eb138dea1f6bacb382acd70e4f142ac179fc3ac686"
+    },
+    {
+      "filename": "age_change_and_components_font_audit.json",
+      "equal": true,
+      "sha256": "d564d460edd6b0c21d2c175c5c274681d79e6e79334f78c82c409cd96b0aacc1"
+    },
+    {
+      "filename": "age_figure_source.csv",
+      "equal": true,
+      "sha256": "3de6d49ef37629e22beb3d4fd19313bca40121f4b81adbefbe764eaf0d9aa065"
+    },
+    {
+      "filename": "manifest.json",
+      "equal": true,
+      "sha256": "592f13a3ec557441812c6e6b21cba610964717169ef5c602d6b3de5707ef6a7f"
+    },
+    {
+      "filename": "missing_source_allocation.alignment.json",
+      "equal": true,
+      "sha256": "ae5126a4f7f1a67182a54efbb9c1cb6f003bd05c49fc8246dcb476bc2a8f9ab3"
+    },
+    {
+      "filename": "missing_source_allocation.alignment.svg",
+      "equal": true,
+      "sha256": "2fa5097c6ceea1d45c69e216b09071f82abbb7a9f08437fb7f008135bb44940a"
+    },
+    {
+      "filename": "missing_source_allocation.pdf",
+      "equal": true,
+      "sha256": "452dcdfabc6e922e5075926a8529515280eced19ffcb2a24123e770caf616aaf"
+    },
+    {
+      "filename": "missing_source_allocation.png",
+      "equal": true,
+      "sha256": "9c71c0a62f665c8c819cde1b804745584bebfa8aee333a31f62583ace38aad3e"
+    },
+    {
+      "filename": "missing_source_allocation.svg",
+      "equal": true,
+      "sha256": "c6f00b9d216fdfa26bfac3e83b693c70d72789eb65899d64aea9398d70aa7e00"
+    },
+    {
+      "filename": "missing_source_allocation_collision_audit.json",
+      "equal": true,
+      "sha256": "4a6d3a8b4dca1b5723009d1db3557ddfd9f0a37021bf6741b8b8ff498a34c1bf"
+    },
+    {
+      "filename": "missing_source_allocation_font_audit.json",
+      "equal": true,
+      "sha256": "93ec3cedae232037daf40561a41a7c7cb8203254a2c64effa2a1ec83bc93efcc"
+    },
+    {
+      "filename": "source_allocation_figure_source.csv",
+      "equal": true,
+      "sha256": "2559d7ce791fc480c08db741997d223a4a6996495e3f3557f7308dfe50e925f7"
+    },
+    {
+      "filename": "source_preflight.json",
+      "equal": true,
+      "sha256": "5137389b4c8021d7fc6f1d72edc82da4eea007bd84a8d9dd1ca24b847935e71f"
+    }
+  ]
+}

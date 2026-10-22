@@ -1,0 +1,17 @@
+report,age_origin,weighting,component,pooled_weight_fraction,component_mean_age_with_pooled_weights,component_recent_le5_with_pooled_weights,pooled_weight_denominator,weighting_scope
+AR5,source_publication_year,occurrence,matched_occurrences,0.634007013991829,4.373688412408759,0.7201756386861314,27659.0,all included report IDs before matching-status partition
+AR5,source_publication_year,occurrence,unmatched_occurrences,0.36599298600817093,7.109354934308011,0.5841153808159636,27659.0,all included report IDs before matching-status partition
+AR5,source_publication_year,equal_assigned_ID,matched_occurrences,0.6224507691833691,4.4544696383527,0.7093342058921516,21638.0,all included report IDs before matching-status partition
+AR5,source_publication_year,equal_assigned_ID,unmatched_occurrences,0.3775492308166309,7.358696787518642,0.5766655427263954,21638.0,all included report IDs before matching-status partition
+AR5,documented_cutoff_year,occurrence,matched_occurrences,0.6346237494562853,3.7880397532556547,0.7792437742746173,27588.0,all included report IDs before matching-status partition
+AR5,documented_cutoff_year,occurrence,unmatched_occurrences,0.36537625054371464,6.322321428571429,0.6549603174603175,27588.0,all included report IDs before matching-status partition
+AR5,documented_cutoff_year,equal_assigned_ID,matched_occurrences,0.6224871426926694,3.863416275967044,0.7675395076040696,21603.0,all included report IDs before matching-status partition
+AR5,documented_cutoff_year,equal_assigned_ID,unmatched_occurrences,0.3775128573073304,6.573564639667053,0.6475106527184589,21603.0,all included report IDs before matching-status partition
+AR6,source_publication_year,occurrence,matched_occurrences,0.7476871721506915,4.95716138359164,0.653570593362672,62910.0,all included report IDs before matching-status partition
+AR6,source_publication_year,occurrence,unmatched_occurrences,0.25231282784930853,6.1272601272601275,0.6155736155736156,62910.0,all included report IDs before matching-status partition
+AR6,source_publication_year,equal_assigned_ID,matched_occurrences,0.7332150662195671,5.121820951633166,0.6350743898436323,47542.0,all included report IDs before matching-status partition
+AR6,source_publication_year,equal_assigned_ID,unmatched_occurrences,0.26678493378043233,6.440157165877434,0.5986974536016482,47542.0,all included report IDs before matching-status partition
+AR6,documented_cutoff_year,occurrence,matched_occurrences,0.7478847254914435,4.282323919700579,0.7231413746172167,62876.0,all included report IDs before matching-status partition
+AR6,documented_cutoff_year,occurrence,unmatched_occurrences,0.25211527450855653,5.25921019429725,0.6917108251324754,62876.0,all included report IDs before matching-status partition
+AR6,documented_cutoff_year,equal_assigned_ID,matched_occurrences,0.7334465120014028,4.442216717834309,0.7033357078680456,47512.00000000001,all included report IDs before matching-status partition
+AR6,documented_cutoff_year,equal_assigned_ID,unmatched_occurrences,0.2665534879985964,5.561756644483177,0.6785991923443253,47512.00000000001,all included report IDs before matching-status partition

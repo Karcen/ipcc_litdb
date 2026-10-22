@@ -1,0 +1,9 @@
+arm,field,items,unanimous_items,majority_items,fleiss_kappa,interpretation
+blind,identity,30,29,30,0.9269480519480522,same-model prompt agreement; not accuracy or independent-model reliability
+blind,cited_year,94,94,94,1.0,same-model prompt agreement; not accuracy or independent-model reliability
+blind,outlet,94,94,94,1.0,same-model prompt agreement; not accuracy or independent-model reliability
+blind,source_type,94,94,94,1.0,same-model prompt agreement; not accuracy or independent-model reliability
+metadata,identity,30,29,30,0.9308224442736359,same-model prompt agreement; not accuracy or independent-model reliability
+metadata,cited_year,94,94,94,1.0,same-model prompt agreement; not accuracy or independent-model reliability
+metadata,outlet,94,93,94,0.9926503166618885,same-model prompt agreement; not accuracy or independent-model reliability
+metadata,source_type,94,94,94,1.0,same-model prompt agreement; not accuracy or independent-model reliability

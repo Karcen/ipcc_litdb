@@ -1,0 +1,7 @@
+arm,variant,input_tokens,cached_input_tokens,output_tokens,reasoning_output_tokens,elapsed_seconds
+blind,A,37590,0,7553,108,254.273963875
+blind,B,37594,0,7426,50,220.167495917
+blind,C,37598,0,7309,64,269.60511675000004
+metadata,A,45394,0,7666,119,273.841195791
+metadata,B,45398,0,7623,96,263.7244327090001
+metadata,C,45402,0,7566,110,257.089846583

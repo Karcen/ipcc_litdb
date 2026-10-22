@@ -1,0 +1,24 @@
+{
+  "pilot_distinct_cases": 50,
+  "pilot_model_calls": 6,
+  "prompt_variants": 3,
+  "model_families": 1,
+  "requested_model": "gpt-6.1-sol",
+  "actual_reported_tokens": {
+    "input": 248976,
+    "cached_input": 0,
+    "output": 45143,
+    "total": 294119
+  },
+  "largest_elapsed_call_seconds": 273.841195791,
+  "canonical_frame_cases_before_candidate_extensions": 5956,
+  "full_calls_at_50_cases_per_call": 720,
+  "linear_pilot_token_extrapolation_including_context_overhead": 35294280.0,
+  "money_cost": null,
+  "money_reason": "Existing ChatGPT subscription authentication; no per-token price or incremental monetary charge exposed by the CLI. Usage limits still apply. Token extrapolation is a planning approximation, not a bill.",
+  "full_execution_started": false,
+  "temperature": null,
+  "generation_seed": null,
+  "sampling_seed": 20261011,
+  "temperature_and_generation_seed_exposed": false
+}

@@ -1,0 +1,22 @@
+{
+  "Monte_Carlo_draws_used": false,
+  "exact_integer_stratum_counts": true,
+  "fixed_pairwise_total_preserved": true,
+  "frozen_observed_and_expected_rows_reproduced": 18,
+  "negative_convolution_mass": false,
+  "older_archive_counts": [
+    {
+      "csv_tables_checked": 29,
+      "manifest": "reproducibility/reference/manifest.json"
+    },
+    {
+      "csv_tables_checked": 10,
+      "manifest": "revision_preparation/robustness/output_v1/manifest.json"
+    },
+    {
+      "csv_tables_checked": 6,
+      "manifest": "revision_preparation/annotation/ai_review_summary_v1/manifest.json"
+    }
+  ],
+  "small_tails_verified_Decimal80": true
+}

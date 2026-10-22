@@ -1,0 +1,5 @@
+report,occurrence_status_group,assigned_IDs_in_group,resolved_IDs,unresolved_IDs,ambiguous_IDs,journal_article_review_IDs,nonjournal_or_missing_source_IDs,journal_D0,journal_D2,interpretation
+AR5,matched,13503,13189,314,0,13022,167,1195,50.709960143159265,Source recovery from frozen DOI metadata; database untouched; a shared assigned ID can occur in both status groups.
+AR5,unmatched,8279,535,7737,7,502,33,262,94.80963130173062,Source recovery from frozen DOI metadata; database untouched; a shared assigned ID can occur in both status groups.
+AR6,matched,34869,34316,553,0,33948,368,2151,111.37776331140441,Source recovery from frozen DOI metadata; database untouched; a shared assigned ID can occur in both status groups.
+AR6,unmatched,12787,3332,9432,23,2827,505,1196,253.36616681989665,Source recovery from frozen DOI metadata; database untouched; a shared assigned ID can occur in both status groups.

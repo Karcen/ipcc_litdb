@@ -1,0 +1,281 @@
+{
+  "analysis_package": "1.4.0",
+  "credentials_read": false,
+  "inputs": [
+    {
+      "path": "database/ipcc_litdb.sqlite",
+      "sha256": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec"
+    },
+    {
+      "path": "scripts/review_round2_openalex.py",
+      "sha256": "85b57ec821a3f3ffc866c30796bb808a9ceccf513703792c426ec6af99bf41f4"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/results_v1/doi_resolution.csv",
+      "sha256": "80b12f88a02b742743197e9feca5e35eb9d2924d20c5c3fa822864d27f405ed1"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/results_v1/pool_by_year.csv",
+      "sha256": "d9fd44a9736bf1c0426f6c0863f1972134c7cc7348d9b0e93378ef248337a233"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/results_v1/outlet_top15_comparison.csv",
+      "sha256": "262664a7d9b040618a3ad7e0defd0662a9c8341b6d0e4d63657ef24b8fb30dad"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/results_v1/source_shares.csv",
+      "sha256": "93e902fda5b901f28a15c5a994e5badeec80019f7f3ac0254550558559ca5f8f"
+    },
+    {
+      "path": "revision_preparation/review_round2/raw_age_v1/raw_age_occurrence_audit.csv.gz",
+      "sha256": "31d2a9ee47a79d1614d406dd9b69f929c99cd7df47515985e15199d39dffb0a3"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-001.tar.gz",
+      "sha256": "6fee37d4584d67059bed7cd33076ec5a4549b09aa11fa2cd7dbcfd207fae9fc9"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-002.tar.gz",
+      "sha256": "8ab2d8979825ce0b73fabe79f76b4fdc4f55ffae69d175718585e8766f389179"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-003.tar.gz",
+      "sha256": "38acfb2d14733771923b96649a65d9753de87075b3efa31e918edf6c64abeca6"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-004.tar.gz",
+      "sha256": "9aee0f7345a5a2321e0fad051e218a70206579a53d2c2c97353980e40111dfd3"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-005.tar.gz",
+      "sha256": "c7aa2ac0df6799e9dee7150022c27ef964cf0173b76efbc5ed1c40e848ebe13e"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-006.tar.gz",
+      "sha256": "fdf6a055eeaab304d99ee47a66d727f07674793828b3297bdab4bab2ee922d45"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-007.tar.gz",
+      "sha256": "3003403bb9aef261cfc20f64bc13118c51825c961094f361519e590cbb19c44f"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-008.tar.gz",
+      "sha256": "a3bd4124e859ef8069ea8370d25857e4c6780fbd52f6786cb0876fefa08b2ee1"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-009.tar.gz",
+      "sha256": "dcb02c0bfeec7652a454317ec2f0b04bad738a816f62a1538c2547523ae30180"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-010.tar.gz",
+      "sha256": "d98e649ec7484753f80bc164b5fe9a0f6b1790272fba07e152dcc9f5ac47ee4a"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-011.tar.gz",
+      "sha256": "97c0e8d731b6437ad659eec6ddbf2d6fc55d7f4c966657a12102f4c89dc91394"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-012.tar.gz",
+      "sha256": "801c0c02ac9fd15e7b8e7deb6b73f0cde91d388a96c23317cf15fddaea6553dc"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-013.tar.gz",
+      "sha256": "dbdda5d96f921133b620172c9fb82498eadf700a3aeb3a61ee6e2bb92cd565f4"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-014.tar.gz",
+      "sha256": "8f67695c1b11164d704bb1c75b166e2d39ec0f06edbd75c468ca5d19eec0f56b"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-015.tar.gz",
+      "sha256": "e05afa4ebc4dab7fb049287cd041c31670ee3a979b01b2324d9e2afb7b62cbce"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-016.tar.gz",
+      "sha256": "bf69c80d30ef17bd147854359d07dfc448e49041f13bf751ae38ddcf583209b1"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-017.tar.gz",
+      "sha256": "52fe76605ba4056409af2ebe41aa2a90cae1e8fd1bb39fc618e62ee8986a5222"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-018.tar.gz",
+      "sha256": "5e787a69c1ae68f7b5d1d16b896990881655e485dabb4a030aacccfc1b7b2864"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-019.tar.gz",
+      "sha256": "60466aa00758ef1dbcfe41002ef403fad5276d408fbe09e07358eb7ad24fc9d2"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-020.tar.gz",
+      "sha256": "eca5b0a9dd7047e1625cdd968b6ec8216947650c5502e48b5f1ddd6ba7b9b3fa"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-021.tar.gz",
+      "sha256": "b397dacb7cb185dfa1fdcebc438f5988ae69403a2eb2921152807b0f843261b3"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-022.tar.gz",
+      "sha256": "e795d53def953382496535b4ed257d7be56c9c22fe24bfac5c1cbb9983132be2"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-023.tar.gz",
+      "sha256": "95c207cc5c99f0da79b8cbaf1cfd1d8f48951168fc0a1c32c28a1bf17d039d86"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-024.tar.gz",
+      "sha256": "cf429451fa3f97ddb5dec60605b5ec10be72310d510bb597430e00dd685d0648"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-025.tar.gz",
+      "sha256": "c7a3fd72b4f5b08f9da1506be49e1b3e2bb9350e86605ffc411496656c4cdbd1"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-026.tar.gz",
+      "sha256": "4c9c5f932647db46a2762fd1ecdb10e8a57b35b1280d5cb4665c4ff127ca7588"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-027.tar.gz",
+      "sha256": "ffe25a41a03dae8c39496f953873655a5c2b0c6789a5d9af64bfefba96a92ba0"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-028.tar.gz",
+      "sha256": "19b270d8614a4b53238d7556046b94dff6b44c9d42bd420395ba338fd6424e2a"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-029.tar.gz",
+      "sha256": "25533af6fde62d50e2bc73c9588c64b5a81a2e96a961dbbfd1815fd4a16c18df"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-030.tar.gz",
+      "sha256": "534627aa5b2be9322932b7ddef7f6b4fe24326c7a68b816323dc90ab4445a4a4"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-031.tar.gz",
+      "sha256": "651bf80457ea88cddbf5693caaa5f28ac399d54f7576e8430a1efaf9fbdc57a1"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-032.tar.gz",
+      "sha256": "7a1fb220738f64b3bc7ec87a0621a2f87a34b43ac430760df89a8db0a602df4e"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-033.tar.gz",
+      "sha256": "6eb50d4ac4c6c02581e04595eba273f0516f0e7f11ddfd663f2eabbd61fb66b4"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-034.tar.gz",
+      "sha256": "8c8a0d4ee5daf89dc1434cde60ff0f5cda3b48856571d31774f07abc083e55af"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-035.tar.gz",
+      "sha256": "7ad48a31be7bdfa34de41f7c90706f906e2fd15f7aa3ffbebe78be79b0b76d42"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-036.tar.gz",
+      "sha256": "436ac767dde3177e849e42a3dedfddd3d67d8dd056cee30feae6e83c6eb99c16"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-037.tar.gz",
+      "sha256": "60b678cc0e93ad136cef3d6fc8c146d1a3dd1633a904cface6b64696db0939f7"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-038.tar.gz",
+      "sha256": "1a65aa850e0957ec715f009d6a30b66b65de08a7713642dca9862803541a3dbe"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-039.tar.gz",
+      "sha256": "026c51e0a6e29924acb19860dc7acb465cf3a2456add37ed9c22b34e421524c2"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-040.tar.gz",
+      "sha256": "2c30642b4da3564b22cea448dadf4c4db8d11f84811509abf896cf70059902bd"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-041.tar.gz",
+      "sha256": "c280367cf2faaa9cb4134489c2ba4b4a83ad045c7c1d8d7ccb2691b6b80d8022"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-042.tar.gz",
+      "sha256": "c33ff02ceeb3cd9590393b7932aa8f6c6597cb37f82fe10ae5b9996fbc558cec"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-043.tar.gz",
+      "sha256": "a4f685c0dceea59c6141f316845c068f1c5e22019fd813e23529152afd563a71"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-044.tar.gz",
+      "sha256": "f8b67b333a94243c6921f8db8c9a898389da895cdb7e9e0d1aebce5860dc0aaf"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-045.tar.gz",
+      "sha256": "3f8b06a94c1636459000f1839d37bea2dfec124087ecb329011956a36aea46a2"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-046.tar.gz",
+      "sha256": "3d1fc7068229b86af7c3efeef2ce8107b6042da2d979f2e6be449926dbe1b54d"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-047.tar.gz",
+      "sha256": "4e1e06ecadbc87d18fdc452dfe5d8d0a22be1af13d3b1753635112b4f59fa9f8"
+    },
+    {
+      "path": "revision_preparation/review_round2/openalex_v1/activated_attempt_03/bundles/raw-part-048.tar.gz",
+      "sha256": "c57994351c7cdb8d6022358ed360ec28c2799481e5169f0fe9657431f7080539"
+    }
+  ],
+  "methods": {
+    "allocation_curve": "Conditional fractional allocation; unknown type/source treated as potentially journal. Earliest parsed cited-version year within each assigned ID determines its five-year bin; unsupported bins use report-wide support. It does not classify unknown types or produce an identified journal-only estimate.",
+    "common_DOI_coverage": "DOI-matched occurrences in each report; the common-source variant restricts each report to source IDs present in both, rather than selecting shared studies.",
+    "date_precision": "Missing dates and date-precision exclusions reported separately; January-first and every-month-first exclusions alter observed cohort composition.",
+    "equal_window": "Thirty inclusive annual publication bins: 1984\u20132013 and 1992\u20132021. Ages 0\u201329 relative to annual cutoff. Original 1980 comparison retained.",
+    "source_target": "Journal article/review records defined by OpenAlex work type article/review and source type journal. Unknown types remain unknown."
+  },
+  "network_used": false,
+  "output_tables": [
+    {
+      "filename": "cutoff_reuse_sensitivity.csv",
+      "rows": 36,
+      "sha256": "cd13a722ec9ab8c320f7d2489c06eea1446c306d16bd868e38ab496ed1981506"
+    },
+    {
+      "filename": "equal_window_age_comparison.csv",
+      "rows": 96,
+      "sha256": "ca65ff08203901c306c7c0f2f69f9dad2fd141ddf4c301ab36bf1602cf122dc3"
+    },
+    {
+      "filename": "top18_pool_shares.csv",
+      "rows": 18,
+      "sha256": "262664a7d9b040618a3ad7e0defd0662a9c8341b6d0e4d63657ef24b8fb30dad"
+    },
+    {
+      "filename": "top18_pool_shares_broad_narrow.csv",
+      "rows": 72,
+      "sha256": "93e902fda5b901f28a15c5a994e5badeec80019f7f3ac0254550558559ca5f8f"
+    },
+    {
+      "filename": "unmatched_DOI_source_recovery.csv",
+      "rows": 4,
+      "sha256": "9d518c20c18da09f11a0d5de83d9e2062fb5b97e12aff08389930220c4050feb"
+    },
+    {
+      "filename": "resolved_journal_source_assignments.csv",
+      "rows": 51372,
+      "sha256": "22a6f4755891079ac7ce421192a7556e2eacb6bff8c8b157e69c3bf62bca4d1d"
+    },
+    {
+      "filename": "missing_source_allocation_curve.csv",
+      "rows": 84,
+      "sha256": "67adeeebf02da479b5711bc7bf6dccdaccf5c3cb3d49a659f826e0e6d8ae1abc"
+    }
+  ],
+  "script_sha256": "d75497d970af3c10b854a0d798edb07c61e62e6b615d9e3446d08e426c939381",
+  "seed": 20261011,
+  "snapshot": {
+    "database_sha256_after": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+    "database_sha256_before": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+    "database_unchanged": true,
+    "raw_parser": "reproducibility/revision_identity.py:punctuation_repaired_raw_dois",
+    "raw_parser_script_sha256": "6e23acc973f0f21d19a55d9d3523ec444108641e41294001d6dcaac3ce9294ae",
+    "unit": "One immutable occurrence_id; joins to chapter, working group, source and paper are many-to-one. Derived units are report/assigned-ID or report/raw-DOI key."
+  }
+}

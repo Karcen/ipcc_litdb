@@ -1,0 +1,55 @@
+{
+  "repository": "https://github.com/Yuan1z0825/nature-skills",
+  "commit": "df6db0b19530e26ac8f7c2a23254541c228fda43",
+  "license": "Apache-2.0",
+  "files": [
+    {
+      "filename": "._audit_figure_collisions.py",
+      "upstream_path": "skills/nature-figure/scripts/._audit_figure_collisions.py",
+      "sha256": "f654a505a533bd37db0f66b26e2620e2b5f73fd3740808f9f45392a17f4698d7",
+      "modified": false
+    },
+    {
+      "filename": "._audit_panel_alignment.py",
+      "upstream_path": "skills/nature-figure/scripts/._audit_panel_alignment.py",
+      "sha256": "f654a505a533bd37db0f66b26e2620e2b5f73fd3740808f9f45392a17f4698d7",
+      "modified": false
+    },
+    {
+      "filename": "._audit_pdf_text.py",
+      "upstream_path": "skills/nature-figure/scripts/._audit_pdf_text.py",
+      "sha256": "f654a505a533bd37db0f66b26e2620e2b5f73fd3740808f9f45392a17f4698d7",
+      "modified": false
+    },
+    {
+      "filename": "._validate_figure.py",
+      "upstream_path": "skills/nature-figure/scripts/._validate_figure.py",
+      "sha256": "f654a505a533bd37db0f66b26e2620e2b5f73fd3740808f9f45392a17f4698d7",
+      "modified": false
+    },
+    {
+      "filename": "audit_figure_collisions.py",
+      "upstream_path": "skills/nature-figure/scripts/audit_figure_collisions.py",
+      "sha256": "4bd020238a9f207c8a67c61d7209cef5959f2995a1d9cd95911d6fa93de7aa36",
+      "modified": false
+    },
+    {
+      "filename": "audit_panel_alignment.py",
+      "upstream_path": "skills/nature-figure/scripts/audit_panel_alignment.py",
+      "sha256": "4ed2d6afe9db45aaf6ca26aeb264cfc251ae92b49ee9fbf117d926e1956acf56",
+      "modified": false
+    },
+    {
+      "filename": "audit_pdf_text.py",
+      "upstream_path": "skills/nature-figure/scripts/audit_pdf_text.py",
+      "sha256": "0b3d3e30ce9ec7191b8ba6dd053226487ab41594297005afcd127acda3b08281",
+      "modified": false
+    },
+    {
+      "filename": "validate_figure.py",
+      "upstream_path": "skills/nature-figure/scripts/validate_figure.py",
+      "sha256": "09694ac0ac4036d4b759e7c9aeb3d4f7a9b525212db50085d2ea0d88b0e49d76",
+      "modified": false
+    }
+  ]
+}

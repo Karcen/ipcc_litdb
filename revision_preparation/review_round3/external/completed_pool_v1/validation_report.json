@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "completed_source_tests": 7,
+    "api_analysis_tests": 5,
+    "byte_replay": {
+      "pool_outlet_diversity.csv": true,
+      "pool_outlet_diversity_differences.csv": true,
+      "pool_source_counts.csv": true,
+      "manifest.json": true
+    }
+  },
+  "passed": true,
+  "network_used": false,
+  "credentials_read": false,
+  "seed": 20261011
+}
