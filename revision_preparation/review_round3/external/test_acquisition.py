@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Offline tests of exact-byte archiving and failure/credential fences."""
-import importlib.util, pathlib, tempfile, unittest, json, threading
+import importlib.util, pathlib, tempfile, unittest, json, threading, contextlib, io
 from unittest.mock import patch
 from concurrent.futures import ThreadPoolExecutor
 P=pathlib.Path(__file__).resolve().parent
@@ -67,5 +67,22 @@ class Tests(unittest.TestCase):
     def test_reference_absence_and_empty_array_are_distinct(self):
         self.assertEqual(m.reference_status({}),'missing');self.assertEqual(m.reference_status({'referenced_works':None}),'missing')
         self.assertEqual(m.reference_status({'referenced_works':[]}),'empty_array');self.assertEqual(m.reference_status({'referenced_works':['W1']}),'nonempty_array')
+    def test_live_cli_requires_explicit_skill_path_before_creating_output(self):
+        with tempfile.TemporaryDirectory() as d:
+            output=pathlib.Path(d)/'not-created'
+            with patch.object(m,'DEFAULT_SKILL',None),patch.object(m.sys,'argv',['openalex_acquire.py','sources','--output',str(output)]),patch.object(m,'Client') as client,contextlib.redirect_stderr(io.StringIO()):
+                with self.assertRaises(SystemExit) as error:m.cli()
+            self.assertEqual(error.exception.code,2);self.assertFalse(output.exists());client.assert_not_called()
+    def test_live_cli_rejects_missing_skill_file_before_creating_output(self):
+        with tempfile.TemporaryDirectory() as d:
+            output=pathlib.Path(d)/'not-created'
+            with patch.object(m.sys,'argv',['openalex_acquire.py','sources','--skill-cli',str(pathlib.Path(d)/'missing.py'),'--output',str(output)]),patch.object(m,'Client') as client,contextlib.redirect_stderr(io.StringIO()):
+                with self.assertRaises(SystemExit) as error:m.cli()
+            self.assertEqual(error.exception.code,2);self.assertFalse(output.exists());client.assert_not_called()
+    def test_replay_cli_does_not_require_installed_skill(self):
+        with tempfile.TemporaryDirectory() as d:
+            with patch.object(m,'DEFAULT_SKILL',None),patch.object(m.sys,'argv',['openalex_acquire.py','sources','--replay','--output',d]),patch.object(m,'Client') as client,patch.object(m,'source_groups') as groups:
+                self.assertEqual(m.cli(),0)
+            self.assertIsNone(client.call_args.args[1]);self.assertTrue(client.call_args.args[3]);groups.assert_called_once()
 
 if __name__=='__main__':unittest.main()

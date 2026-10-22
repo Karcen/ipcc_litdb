@@ -105,11 +105,11 @@
     },
     {
       "path": "external/openalex_acquire.py",
-      "sha256": "08d45e9aa56df06cc32d67c2556ff8c11a243433a79def3323d523b7b1bdc6c5"
+      "sha256": "e54c638936886a3617b1d9348024dae3bd19543ea0746a5436bf1fb5618cf6f2"
     },
     {
       "path": "external/plot_source_sensitivity.py",
-      "sha256": "269ad0ff252f0dacb3c3a233cc3f4ed0ad6e27b72cf630f7ccf52ee9c9a0c7ef"
+      "sha256": "5a299877edac868eb76eeed784002c4ff2254c2688b0c8039a5690e95633e1aa"
     },
     {
       "path": "external/risk_support.py",
@@ -121,7 +121,7 @@
     },
     {
       "path": "external/test_acquisition.py",
-      "sha256": "92602315581db32be84c5ebbac0e1561ef86e5a3273eac2daf8fc69669b92dd0"
+      "sha256": "ea3b47a4666b9b8fcc5a1e0adcd192b197ad8cf6af76046860627e743575167d"
     },
     {
       "path": "external/test_api_analysis.py",
@@ -228,6 +228,10 @@
     {
       "path": "baseline_reproduction.json",
       "sha256": "dedf514a7cd440c44725645a74c888b901925d0f3f1e25ca8d1f9940548a5743"
+    },
+    {
+      "path": "ci_portability_fix_20261022.json",
+      "sha256": "897bbe5d3b3a7dae7f606c31d9969d86f98abb383301a8a95938d9997706ae33"
     },
     {
       "path": "external/acquisition_status.json",

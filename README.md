@@ -8,6 +8,7 @@ This is the second project alongside [IPCC References Toolkit](https://github.co
 
 ### 2026-10-22: Offline release inputs
 
+- Fixed the project check to include the requested model-review protocol and removed machine-specific skill paths from the acquisition and source-allocation scripts. Skill locations use explicit configuration.
 - Analysis package `1.4.0` includes nine shared binary chunks for the two identical source-count tables. The restoration command recreates both original files and checks their full SHA-256 hashes. The 22 earlier input archives and all numerical tables retain their original bytes.
 - Code, data and replay instructions are public release materials. Manuscript sources, paper PDFs and editorial records remain local.
 
@@ -958,6 +959,10 @@ python revision_preparation/review_round3/external/analyze_acquisition.py --outp
 python revision_preparation/review_round3/external/risk_support.py --output /tmp/ipcc-r3-risk-support-replay
 python revision_preparation/review_round3/external/analyze_indirect_benchmark.py --output /tmp/ipcc-r3-indirect-replay
 ```
+
+Live acquisition takes the OpenAlex CLI location from `--skill-cli` or `OPENALEX_SKILL_CLI`. The standalone source-allocation renderer takes the Nature Figure installation directory from `NATURE_FIGURE_SKILL`. Set these to your own installations when using those commands. Offline replay uses the saved inputs.
+
+Frozen manifests retain the code hashes from their original calculations. The configuration-only portability patch is recorded in `revision_preparation/review_round3/ci_portability_fix_20261022.json`; numerical tables and archived figure bytes are preserved.
 
 The support helper reads the fixed risk tables in `external/new_api_results_v2` and checks them against the archived sample and individual citation-count responses. Each replay writes its own manifest. The output directories above keep the fixed results unchanged.
 

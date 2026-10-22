@@ -6,13 +6,22 @@ mpl.use('Agg')
 import matplotlib.pyplot as plt
 
 ROOT=pathlib.Path(__file__).resolve().parent
-SKILL=pathlib.Path(os.environ.get('NATURE_FIGURE_SKILL','/Users/karcenzheng/.codex/skills/ipcc-v3-20261021/nature-figure'))
-sys.path.insert(0,str(SKILL/'scripts'))
-from audit_panel_alignment import require_matplotlib_panel_alignment
+
+def alignment_auditor():
+    directory=os.environ.get('NATURE_FIGURE_SKILL')
+    if not directory:
+        raise SystemExit('Set NATURE_FIGURE_SKILL to the installed nature-figure skill directory.')
+    scripts=pathlib.Path(directory).expanduser()/'scripts'
+    if not (scripts/'audit_panel_alignment.py').is_file():
+        raise SystemExit('NATURE_FIGURE_SKILL must contain scripts/audit_panel_alignment.py.')
+    sys.path.insert(0,str(scripts))
+    from audit_panel_alignment import require_matplotlib_panel_alignment
+    return require_matplotlib_panel_alignment
 
 def sha(p):return hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
 
 def main():
+    require_matplotlib_panel_alignment=alignment_auditor()
     source=ROOT/'offline_v1/missing_source_allocation_curve.csv';out=ROOT/'figures_v1';out.mkdir(exist_ok=True)
     with source.open(newline='') as f:rows=list(csv.DictReader(f))
     # Both report rows contain the same paired difference; use AR6 once.

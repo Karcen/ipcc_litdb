@@ -17,7 +17,7 @@ SEED=20261011
 QUERIES={'broad':'"climate change" OR "global warming"','narrow':'"climate change"'}
 ROOT=Path(__file__).resolve().parent
 REPO=ROOT.parents[2]
-DEFAULT_SKILL=Path('/Users/karcenzheng/.codex/skills/ipcc-v3-20261021/literature_search_openalex/scripts/openalex_cli.py')
+DEFAULT_SKILL=os.environ.get('OPENALEX_SKILL_CLI')
 
 def digest(b):return hashlib.sha256(b).hexdigest()
 def write(p,x):
@@ -318,6 +318,12 @@ def case_cohort(client,out):
 
 def cli():
     p=argparse.ArgumentParser();p.add_argument('phase',choices=['sources','case-cohort']);p.add_argument('--output',type=Path,default=ROOT/'acquisition_v1');p.add_argument('--skill-cli',type=Path,default=DEFAULT_SKILL);p.add_argument('--budget',type=float,default=.50);p.add_argument('--replay',action='store_true');p.add_argument('--authorized-resume',action='store_true');a=p.parse_args()
+    if not a.replay:
+        if a.skill_cli is None:
+            p.error('Live acquisition requires --skill-cli or OPENALEX_SKILL_CLI pointing to openalex_cli.py.')
+        a.skill_cli=a.skill_cli.expanduser()
+        if not a.skill_cli.is_file():
+            p.error('The OpenAlex skill CLI file does not exist.')
     a.output.mkdir(parents=True,exist_ok=True)
     try:
         c=Client(a.output,a.skill_cli,a.budget,a.replay,a.authorized_resume)

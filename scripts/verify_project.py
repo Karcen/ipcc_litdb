@@ -88,7 +88,7 @@ def main() -> int:
     print("Repository and interface")
     files = list(package_files())
     markdown = sorted(str(relative) for path, relative in files if path.suffix.lower() == ".md")
-    check("Project guide and requested revision documents are present", set(markdown) == {"README.md", "changes.md", "reviewer_prep.md", "author_requirements.md"}, ", ".join(markdown))
+    check("Project guide and requested revision documents are present", set(markdown) == {"README.md", "changes.md", "reviewer_prep.md", "author_requirements.md", "revision_preparation/review_round3/panel/llm_panel_protocol.md"}, ", ".join(markdown))
     readme = (REPO / "README.md").read_text(encoding="utf-8")
     check("README includes Quick Start", "quick start" in readme.lower())
     locales = sorted(path.name for path in (REPO / "frontend" / "locales").glob("*.json") if not path.name.startswith("._"))

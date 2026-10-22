@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-22",
+  "previous_commit": "c0a2484019306e80c260647adddae2bf52d726cf",
+  "fix": "Explicit protocol-document allowlist and portable skill configuration",
+  "changes": [
+    {
+      "path": "scripts/verify_project.py",
+      "previous_sha256": "9d3786c2db8a667c6f8723d555a1d2cd20f6ae1c9212d72c45c33cd9c4a673b0",
+      "current_sha256": "a6dc770f1d4b3fe05ff98f189c148a147a67e6edf25a67a79ba6b9c9a079a2ee"
+    },
+    {
+      "path": "revision_preparation/review_round3/external/openalex_acquire.py",
+      "previous_sha256": "08d45e9aa56df06cc32d67c2556ff8c11a243433a79def3323d523b7b1bdc6c5",
+      "current_sha256": "e54c638936886a3617b1d9348024dae3bd19543ea0746a5436bf1fb5618cf6f2"
+    },
+    {
+      "path": "revision_preparation/review_round3/external/plot_source_sensitivity.py",
+      "previous_sha256": "269ad0ff252f0dacb3c3a233cc3f4ed0ad6e27b72cf630f7ccf52ee9c9a0c7ef",
+      "current_sha256": "5a299877edac868eb76eeed784002c4ff2254c2688b0c8039a5690e95633e1aa"
+    },
+    {
+      "path": "revision_preparation/review_round3/external/test_acquisition.py",
+      "previous_sha256": "92602315581db32be84c5ebbac0e1561ef86e5a3273eac2daf8fc69669b92dd0",
+      "current_sha256": "ea3b47a4666b9b8fcc5a1e0adcd192b197ad8cf6af76046860627e743575167d"
+    }
+  ],
+  "frozen_analysis_tables_changed": false,
+  "frozen_response_archives_changed": false,
+  "frozen_manifests_changed": false,
+  "historical_manifest_note": "Acquisition-time code hashes refer to the preserved source commit. Replays from the patched acquisition wrapper record its current code hash; numerical outputs retain their original bytes.",
+  "verification": [
+    "Both failed matrix jobs stopped in verify_project before scientific reproduction or tests.",
+    "The exact Markdown set still rejects unexpected documents.",
+    "Live acquisition requires an explicitly configured existing skill CLI.",
+    "Offline replay and help do not require a local skill installation.",
+    "Standalone source-allocation PDF/SVG/PNG re-rendered with configured skill match archived bytes."
+  ]
+}
