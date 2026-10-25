@@ -1,0 +1,202 @@
+{
+  "policy_version": "portable_replay_v1",
+  "purpose": "Verification only of fixed frozen CSV results across supported Python/Linux libm arithmetic; no source-value or scientific-producer changes.",
+  "default": "Exact byte equality for all files and cells not explicitly allowed below.",
+  "constraints": [
+    "Exact CSV headers, row order, row widths, non-computed fields, labels and raw integer counts.",
+    "Changed cells must contain finite floating-point text; integer text, NaN and infinity are rejected.",
+    "No sign changes; expected zero cannot become nonzero.",
+    "Every allowed file is guarded by its frozen expected SHA-256. Registry allowance requires the exact source_table and metric pair.",
+    "Actual source values remain unchanged. Every accepted difference is logged."
+  ],
+  "rules": {
+    "weighted_ulp": {
+      "category": "weighted_projection_or_share",
+      "comparison": "ulp",
+      "maximum_ulp_distance": 4
+    },
+    "cp95_absolute": {
+      "category": "CP95",
+      "comparison": "absolute",
+      "maximum_absolute_delta": "1e-12"
+    },
+    "kappa_absolute": {
+      "category": "fleiss_kappa",
+      "comparison": "absolute",
+      "maximum_absolute_delta": "1e-12"
+    }
+  },
+  "files": {
+    "results/codex_comparison_sample_v1/paired_id_weighted_diagnostics.csv": {
+      "expected_sha256": "6506477386e3ac9aa74889c0cfbc24f5cd8c10d5a1920fcd894185bd9370cb63",
+      "columns": {
+        "weighted_unresolved_count": "weighted_ulp",
+        "upper_share": "weighted_ulp"
+      }
+    },
+    "results/codex_comparison_sample_v1/validation_summary.csv": {
+      "expected_sha256": "5c69c88319dad4dbd9bdf1d4cc798072a938985c66e9f556235140f81fee1cfd",
+      "registry_value_rules": [
+        {
+          "source_table": "paired_id_weighted_diagnostics.csv",
+          "metric": "weighted_unresolved_count",
+          "rule": "weighted_ulp"
+        },
+        {
+          "source_table": "paired_id_weighted_diagnostics.csv",
+          "metric": "upper_share",
+          "rule": "weighted_ulp"
+        }
+      ]
+    },
+    "results/deepseek_candidates_20261025_v2/agreement.csv": {
+      "expected_sha256": "e46de9900019ba78e2e8a4937727709dc2cbdf774499302fbd93eb90b70735b3",
+      "columns": {
+        "fleiss_kappa": "kappa_absolute"
+      }
+    },
+    "results/deepseek_full_20261025_v1/agreement.csv": {
+      "expected_sha256": "830a25f95d36d2ef8571d053238e91c74086b5cc66092f5483152a8ce8d6d0bf",
+      "columns": {
+        "fleiss_kappa": "kappa_absolute"
+      }
+    },
+    "results/deepseek_full_20261025_v1/scientific_diagnostics/control_conditional_agreement.csv": {
+      "expected_sha256": "66ec6e9dbada0b7ac63986aeecb48bac74415fb0cb1554018848f8a7bcc20be1",
+      "columns": {
+        "CP95_lower_given_available": "cp95_absolute",
+        "CP95_upper_given_available": "cp95_absolute"
+      }
+    },
+    "results/deepseek_full_20261025_v1/scientific_diagnostics/parser_stratum_diagnostics.csv": {
+      "expected_sha256": "2336dd356f2031acf460eb8e5c5d1f4ce8cad2489b8c5320bfa961ec4a4513db",
+      "columns": {
+        "CP95_lower_given_resolved": "cp95_absolute",
+        "CP95_upper_given_resolved": "cp95_absolute"
+      }
+    },
+    "results/deepseek_full_20261025_v1/scientific_diagnostics/parser_weighted_diagnostics.csv": {
+      "expected_sha256": "a19b126af7a86d9b03e3bb8fca024a3e905936b80f8506d6708105ca6d22a780",
+      "columns": {
+        "weighted_unresolved_count": "weighted_ulp",
+        "resolved_coverage": "weighted_ulp",
+        "disagreement_upper_share": "weighted_ulp"
+      }
+    },
+    "results/deepseek_full_20261025_v1/scientific_diagnostics/sample_weighted_diagnostics.csv": {
+      "expected_sha256": "ed27c5ee62d88015bd41090d0627023a059162ab1aec46a49fd4023bf24fe70f",
+      "columns": {
+        "weighted_positive_count": "weighted_ulp",
+        "weighted_resolved_count": "weighted_ulp",
+        "weighted_unresolved_count": "weighted_ulp",
+        "lower_share": "weighted_ulp",
+        "upper_share": "weighted_ulp"
+      }
+    },
+    "results/deepseek_full_20261025_v1/scientific_diagnostics/source_weighted_counts.csv": {
+      "expected_sha256": "169c35b047df73480a225fca17459c36e823914859c5de746c4a8e3bc9f841e1",
+      "columns": {
+        "projected_occurrences": "weighted_ulp",
+        "projected_share": "weighted_ulp"
+      }
+    },
+    "results/deepseek_full_20261025_v1/scientific_diagnostics/validation_summary.csv": {
+      "expected_sha256": "b8841d0881eb82e7b21fee700ed0de5101a5133fa7f1c52c54c4ce64f36275f4",
+      "registry_value_rules": [
+        {
+          "source_table": "control_conditional_agreement.csv",
+          "metric": "CP95_lower_given_available",
+          "rule": "cp95_absolute"
+        },
+        {
+          "source_table": "control_conditional_agreement.csv",
+          "metric": "CP95_upper_given_available",
+          "rule": "cp95_absolute"
+        },
+        {
+          "source_table": "parser_stratum_diagnostics.csv",
+          "metric": "CP95_lower_given_resolved",
+          "rule": "cp95_absolute"
+        },
+        {
+          "source_table": "parser_stratum_diagnostics.csv",
+          "metric": "CP95_upper_given_resolved",
+          "rule": "cp95_absolute"
+        },
+        {
+          "source_table": "parser_weighted_diagnostics.csv",
+          "metric": "weighted_unresolved_count",
+          "rule": "weighted_ulp"
+        },
+        {
+          "source_table": "parser_weighted_diagnostics.csv",
+          "metric": "resolved_coverage",
+          "rule": "weighted_ulp"
+        },
+        {
+          "source_table": "parser_weighted_diagnostics.csv",
+          "metric": "disagreement_upper_share",
+          "rule": "weighted_ulp"
+        },
+        {
+          "source_table": "sample_weighted_diagnostics.csv",
+          "metric": "weighted_positive_count",
+          "rule": "weighted_ulp"
+        },
+        {
+          "source_table": "sample_weighted_diagnostics.csv",
+          "metric": "weighted_resolved_count",
+          "rule": "weighted_ulp"
+        },
+        {
+          "source_table": "sample_weighted_diagnostics.csv",
+          "metric": "weighted_unresolved_count",
+          "rule": "weighted_ulp"
+        },
+        {
+          "source_table": "sample_weighted_diagnostics.csv",
+          "metric": "lower_share",
+          "rule": "weighted_ulp"
+        },
+        {
+          "source_table": "sample_weighted_diagnostics.csv",
+          "metric": "upper_share",
+          "rule": "weighted_ulp"
+        },
+        {
+          "source_table": "source_weighted_counts.csv",
+          "metric": "projected_occurrences",
+          "rule": "weighted_ulp"
+        },
+        {
+          "source_table": "source_weighted_counts.csv",
+          "metric": "projected_share",
+          "rule": "weighted_ulp"
+        }
+      ]
+    },
+    "results/deepseek_pilot_20261025_v2/agreement.csv": {
+      "expected_sha256": "c53d263496254b42a983eee870f293971ce53ffe505821030fc541c3342cd13c",
+      "columns": {
+        "fleiss_kappa": "kappa_absolute"
+      }
+    },
+    "results/deepseek_pilot_20261025_v3/agreement.csv": {
+      "expected_sha256": "7c3af5bcf29dced0847e7714ac4489199ae0a0ab064c99dd6f1f84fefe4a2346",
+      "columns": {
+        "fleiss_kappa": "kappa_absolute"
+      }
+    }
+  },
+  "claim_formatting": {
+    "spec_relative_path": "numbers/claim_spec_v4.json",
+    "spec_sha256": "c051106119ee882085a30220c31902cda38ae34bb4bcf240be1721663fa5f1e0",
+    "formatter_relative_path": "numbers/build_values.py",
+    "formatter_sha256": "45bb9a28de4836bcc0e3c32f4d1127897aa9b32c6fd0256c769b6a7f7183b28a",
+    "report_source_prefix": "revision_preparation/deepseek_validation_v1/reports/"
+  },
+  "diagnostic_basis_sha256": {
+    "ci-cell-summary-3.10.json": "6bf66a3d34dfc9bf58c66f2fc9a4ded8f62c2026378ec3650a5e761775ecb834",
+    "ci-cell-summary-3.12.json": "29d64c3efa89262f465c4541c527a440151b0453e4374a20cbae018c71d2f3ae"
+  }
+}

@@ -56,7 +56,8 @@ jobs:
             --destination /tmp/ipcc-model-replay
           python revision_preparation/deepseek_validation_v1/replay_validation.py \
             --root /tmp/ipcc-model-replay \
-            --output-check /tmp/ipcc-model-replay-check.json
+            --output-check /tmp/ipcc-model-replay-check.json \
+            --portable-policy revision_preparation/deepseek_validation_v1/portable_replay_policy_v1.json
       - name: Reproduce registered assessment analyses
         run: |
           source .venv/bin/activate

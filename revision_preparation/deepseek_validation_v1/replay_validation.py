@@ -3,8 +3,9 @@
 
 Run this against a disposable restored copy, never the production staging tree.
 Expected CSV SHA-256 values are captured before any recomputation. Comparisons
-are byte-exact, with one logged, path/header/SHA-locked historical empty-CSV
-serialization adapter; there is no floating-point tolerance or row resorting.
+default to exact bytes, with one logged historical empty-CSV serialization
+adapter. Optional versioned portability verification is explicitly scoped to
+frozen hashes and computed float cells; it never rewrites numerical values.
 The JSON check report must be written outside the restored root. A fresh restore
 is required for an independent repeat; this replay rewrites derived results only.
 """
@@ -34,6 +35,7 @@ import candidate_results
 import candidate_totals
 import paired_codex_comparison
 import paired_identity_record_counts
+import portable_replay
 import prepare
 import validate
 import validation_statistics
@@ -286,7 +288,7 @@ def csv_mismatch_diagnostics(expected_bytes, actual_bytes, *, example_limit=DIAG
     return result
 
 
-def replay(root, check_output):
+def replay(root, check_output, *, portable_policy=None):
     root, check_output = Path(root).resolve(), Path(check_output).resolve()
     if root == Path(__file__).resolve().parent:
         raise ValueError("Refuse production/source-root replay; use a separate disposable restored root")
@@ -310,6 +312,13 @@ def replay(root, check_output):
     started = time.monotonic()
     try:
         with network_disabled():
+            policy = portable_replay.read_policy(portable_policy) if portable_policy else None
+            if policy:
+                for path, descriptor in policy["files"].items():
+                    if expected.get(path) != descriptor["expected_sha256"]:
+                        raise ValueError("Portable policy requires its frozen expected CSV hash: " + path)
+                report["portable_policy"] = {"version": policy["policy_version"], "sha256": validation_statistics.sha(portable_policy), "opt_in": True}
+                report["csv_comparison_policy"] += "; explicit portable-policy opt-in separately verifies only its frozen-hash/column-scoped computed floats and unchanged claim formatting; numeric-compared CSVs are not byte-exact"
             report["preflight"] = source_preflight(root)
             for name, action in build_actions(root):
                 step = {"name": name, "status": "running"}
@@ -331,13 +340,33 @@ def replay(root, check_output):
             report["missing_csvs"] = sorted(set(expected) - set(actual))
             report["unexpected_csvs"] = sorted(set(actual) - set(expected))
             report["mismatched_csvs"] = [{"path": path, "expected_sha256": expected[path], "actual_sha256": actual[path]} for path in sorted(set(expected) & set(actual)) if expected[path] != actual[path]]
+            report["byte_mismatched_csvs"] = list(report["mismatched_csvs"])
             report["csv_mismatch_diagnostics"] = {item["path"]: csv_mismatch_diagnostics(expected_bytes[item["path"]], (root / item["path"]).read_bytes())
                                                   for item in report["mismatched_csvs"]}
             report["exactly_reproduced_csvs"] = report["direct_byte_exact_csvs"]
             report["documented_legacy_serialization_adapted_csvs"] = len(report["serialization_adapters"])
             report["byte_verified_after_documented_adapter_csvs"] = sum(expected[path] == actual.get(path) for path in expected)
+            report["portable_numeric_compared_csvs"] = 0
+            report["portable_numeric_accepted_cells"] = 0
+            if policy:
+                actual_bytes = {path: (root / path).read_bytes() for path in policy["files"] if (root / path).is_file()}
+                comparisons = [portable_replay.compare_csv(item["path"], expected_bytes[item["path"]], (root / item["path"]).read_bytes(), policy)
+                               for item in report["mismatched_csvs"]]
+                for comparison in comparisons:
+                    if comparison["accepted"]:
+                        portable_replay.verify_registry_mirrors(comparison, expected_bytes, actual_bytes, policy)
+                report["portable_numeric_comparisons"] = comparisons
+                report["claim_format_verification"] = portable_replay.verify_claim_formats(policy, Path(portable_policy).resolve().parent, root, expected_bytes, actual_bytes)
+                accepted = {item["path"] for item in comparisons if item["accepted"]}
+                if report["claim_format_verification"]["status"] != "passed":
+                    accepted = set()
+                report["portable_numeric_compared_csvs"] = len(accepted)
+                report["portable_numeric_accepted_cells"] = sum(len(item["accepted_cells"]) for item in comparisons if item["path"] in accepted)
+                report["mismatched_csvs"] = [item for item in report["mismatched_csvs"] if item["path"] not in accepted]
             passed = not any(report[key] for key in ("missing_csvs", "unexpected_csvs", "mismatched_csvs"))
-            report["status"] = ("passed_with_documented_legacy_serialization_adapter" if report["serialization_adapters"] else "passed") if passed else "failed_csv_comparison"
+            passed = passed and (not policy or report["claim_format_verification"]["status"] == "passed")
+            report["status"] = ("passed_with_portable_numeric_verification" if report["portable_numeric_compared_csvs"] else
+                                "passed_with_documented_legacy_serialization_adapter" if report["serialization_adapters"] else "passed") if passed else "failed_csv_comparison"
     except Exception as error:
         if report["actions"] and report["actions"][-1]["status"] == "running":
             report["actions"][-1]["status"] = "failed"
@@ -353,10 +382,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, required=True)
     parser.add_argument("--output-check", "--outputcheck", dest="check_output", type=Path, required=True)
+    parser.add_argument("--portable-policy", type=Path, help="Explicit versioned, frozen-SHA/column-scoped numeric verification policy; default remains exact bytes")
     args = parser.parse_args()
-    report = replay(args.root, args.check_output)
-    print(json.dumps({key: report.get(key) for key in ("status", "expected_csv_count", "actual_csv_count", "direct_byte_exact_csvs", "documented_legacy_serialization_adapted_csvs", "byte_verified_after_documented_adapter_csvs", "error")}))
-    raise SystemExit(0 if report["status"] in {"passed", "passed_with_documented_legacy_serialization_adapter"} else 1)
+    report = replay(args.root, args.check_output, portable_policy=args.portable_policy)
+    print(json.dumps({key: report.get(key) for key in ("status", "expected_csv_count", "actual_csv_count", "direct_byte_exact_csvs", "documented_legacy_serialization_adapted_csvs", "byte_verified_after_documented_adapter_csvs", "portable_numeric_compared_csvs", "portable_numeric_accepted_cells", "error")}))
+    raise SystemExit(0 if report["status"] in {"passed", "passed_with_documented_legacy_serialization_adapter", "passed_with_portable_numeric_verification"} else 1)
 
 
 if __name__ == "__main__":
