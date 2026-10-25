@@ -1,5 +1,7 @@
 """Offline replay safety and exactness tests with synthetic temporary CSVs."""
 from pathlib import Path
+import json
+import math
 import socket
 import tempfile
 import unittest
@@ -41,6 +43,14 @@ class ReplayTests(unittest.TestCase):
             self.assertEqual(result["status"], "failed_csv_comparison")
             self.assertEqual(result["mismatched_csvs"][0]["path"], "results/synthetic.csv")
             self.assertEqual(result["exactly_reproduced_csvs"], 0)
+            diagnostic = result["csv_mismatch_diagnostics"]["results/synthetic.csv"]
+            self.assertEqual(diagnostic["changed_cell_count"], 1)
+            example = diagnostic["examples"][0]
+            self.assertEqual(example["expected"]["value"], "0.25")
+            self.assertEqual(example["actual"]["value"], "0.25000000000000001")
+            self.assertEqual(example["difference_kind"], "numeric_representation_change")
+            self.assertEqual(example["ulp_distance"], 0)
+            self.assertEqual(example["absolute_decimal_text_delta"], "1E-17")
 
     def test_network_attempt_fails_closed_and_report_is_external(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -118,6 +128,93 @@ class ReplayTests(unittest.TestCase):
             legacy.write_bytes(replay.LEGACY_HEADER_BYTES)
             self.assertEqual(replay.apply_locked_legacy_adapter(root, {replay.LEGACY_PATH: "0" * 64}), [])
             self.assertEqual(legacy.read_bytes(), replay.LEGACY_HEADER_BYTES)
+
+
+class CsvDiagnosticTests(unittest.TestCase):
+    def test_count_float_and_label_changes_are_distinct_and_exactly_counted(self):
+        expected = b"scheduled_items_n,rate,label\r\n331,0.1,same_study\r\n"
+        actual = b"scheduled_items_n,rate,label\r\n332,0.10000000000000002,different_studies\r\n"
+        result = replay.csv_mismatch_diagnostics(expected, actual)
+        self.assertEqual(result["changed_cell_count"], 3)
+        self.assertEqual(result["header_changed_cell_count"], 0)
+        self.assertEqual(result["changed_data_row_count"], 1)
+        self.assertEqual(result["difference_kind_counts"], {"integer_value_change": 1, "float_value_change": 1, "string_or_type_change": 1})
+        count, floating, label = result["examples"]
+        self.assertTrue(count["declared_count_cell"])
+        self.assertEqual(count["integer_delta"], 1)
+        self.assertEqual(count["csv_row"], 2)
+        self.assertEqual(floating["expected_column"]["value"], "rate")
+        self.assertEqual(floating["ulp_distance"], 1)
+        self.assertAlmostEqual(floating["absolute_delta"], math.nextafter(0.1, math.inf) - 0.1)
+        self.assertFalse(floating["declared_count_cell"])
+        self.assertEqual(label["actual"]["value"], "different_studies")
+
+    def test_examples_are_capped_but_all_changed_cells_are_counted(self):
+        expected = ("value\n" + "0.1\n" * 47).encode()
+        actual = ("value\n" + "0.10000000000000002\n" * 47).encode()
+        result = replay.csv_mismatch_diagnostics(expected, actual)
+        self.assertEqual(result["changed_cell_count"], 47)
+        self.assertEqual(len(result["examples"]), 20)
+        self.assertEqual(result["omitted_changed_cell_examples"], 27)
+        self.assertEqual(result["changed_columns"][0]["changed_cell_count"], 47)
+        self.assertEqual(result["changed_columns"][0]["maximum_ulp_distance"], 1)
+
+    def test_headers_row_addition_and_cell_absence_are_reported(self):
+        expected = b"n,label\n1,old\n"
+        actual = b"count,label,extra\n1,new,x\n2,added,y\n"
+        result = replay.csv_mismatch_diagnostics(expected, actual)
+        self.assertFalse(result["header_equal"])
+        self.assertEqual(result["header_changed_cell_count"], 2)
+        self.assertEqual(result["added_data_rows"], 1)
+        self.assertEqual(result["removed_data_rows"], 0)
+        self.assertEqual(result["changed_cell_count"], 7)
+        self.assertEqual(result["data_changed_cell_count"], 5)
+        self.assertEqual(result["difference_kind_counts"]["cell_added"], 4)
+        reverse = replay.csv_mismatch_diagnostics(actual, expected)
+        self.assertEqual(reverse["removed_data_rows"], 1)
+        self.assertEqual(reverse["difference_kind_counts"]["cell_removed"], 4)
+
+    def test_registry_context_and_declared_count_units_remain_visible(self):
+        expected = b"source_table,reviewer,metric,value,unit\nsynthetic.csv,consensus,synthetic_n,331,count\n"
+        actual = expected.replace(b"331,count", b"332,count")
+        result = replay.csv_mismatch_diagnostics(expected, actual)
+        example = result["examples"][0]
+        self.assertTrue(example["declared_count_cell"])
+        self.assertEqual(example["expected_row_context"]["metric"]["value"], "synthetic_n")
+        self.assertEqual(example["expected_row_context"]["source_table"]["value"], "synthetic.csv")
+
+    def test_serialization_only_difference_does_not_invent_changed_cells(self):
+        result = replay.csv_mismatch_diagnostics(b"n,label\r\n1,same\r\n", b"n,label\n1,same\n")
+        self.assertTrue(result["serialization_only_difference"])
+        self.assertTrue(result["parsed_cells_equal"])
+        self.assertEqual(result["changed_cell_count"], 0)
+        self.assertEqual(result["examples"], [])
+
+    def test_header_addition_is_not_counted_as_a_data_row_and_integer_format_is_distinct(self):
+        header = replay.csv_mismatch_diagnostics(b"", b"n\n")
+        self.assertEqual(header["header_changed_cell_count"], 1)
+        self.assertEqual(header["added_data_rows"], 0)
+        self.assertEqual(header["data_changed_cell_count"], 0)
+        formatting = replay.csv_mismatch_diagnostics(b"n\n001\n", b"n\n1\n")
+        self.assertEqual(formatting["examples"][0]["difference_kind"], "numeric_representation_change")
+        self.assertEqual(formatting["examples"][0]["integer_delta"], 0)
+
+    def test_nonfinite_and_long_strings_remain_json_safe_and_bounded(self):
+        expected = b"value,label\nnan," + b"a" * 400 + b"\n"
+        actual = b"value,label\ninf," + b"b" * 400 + b"\n"
+        result = replay.csv_mismatch_diagnostics(expected, actual)
+        self.assertEqual(result["changed_cell_count"], 2)
+        self.assertEqual(result["examples"][0]["expected_type"], "nonfinite_numeric")
+        self.assertTrue(result["examples"][1]["expected"]["truncated"])
+        self.assertEqual(len(result["examples"][1]["expected"]["value"]), 256)
+        self.assertEqual(result["examples"][1]["expected"]["characters"], 400)
+        json.dumps(result, allow_nan=False)
+
+    def test_ulp_distance_handles_signed_zero_and_negative_adjacent_values(self):
+        self.assertEqual(replay.binary64_ulp_distance(-0.0, 0.0), 0)
+        self.assertEqual(replay.binary64_ulp_distance(-0.1, math.nextafter(-0.1, -math.inf)), 1)
+        with self.assertRaisesRegex(ValueError, "finite"):
+            replay.binary64_ulp_distance(math.inf, 0.1)
 
 
 if __name__ == "__main__":
