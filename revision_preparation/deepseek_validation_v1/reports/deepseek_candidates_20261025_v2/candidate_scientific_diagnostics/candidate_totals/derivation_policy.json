@@ -1,0 +1,15 @@
+{
+  "derivation": "Sum label counts over all consensus_status rows; preserve reviewer, field and original labels.",
+  "basis_aliases": {
+    "archived_raw": "archived_raw",
+    "postclassification_qc": "qc_derived"
+  },
+  "zero_cells": "Explicit for every eligible label in each geometry and geometry=all.",
+  "overall_partition_N": 3944,
+  "full_candidate_frame_N": 3944,
+  "detail_crosscheck": "Every raw/QC label count independently reconstructed from preserved per-case detail.",
+  "labels_changed": false,
+  "original_outputs_changed": false,
+  "pair_deltas_summed": false,
+  "interpretation": "Counts describe candidate-pair model classifications only; overlapping endpoints prevent additive shared-count corrections. No population false-split or human-accuracy estimate."
+}

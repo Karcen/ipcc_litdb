@@ -1,5 +1,7 @@
 # Review status and evidence limits
 
+Updated 25 October 2026. The [1.5.0 model-review collection and blinded Codex comparisons](README.md#deepseek-validation-and-offline-replay) are complete, with public result registries, raw-call provenance and offline replay. They retain model availability, unresolved classifications and logical-QC views separately. No new human-annotation step is requested for this release, and no human gold labels or independent population-accuracy estimate are claimed. The earlier source-review and annotation history remains below.
+
 Updated 21 October 2026. The author chose to proceed with the AI-led source review and declined further human annotation. The earlier nine-request annotation checklist is superseded. The current AI-diagnostic and sensitivity workflows require no completed human-label export. They do not establish independent linkage accuracy.
 
 ## Evidence available

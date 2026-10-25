@@ -1,0 +1,2 @@
+sampling_frames,parser_occurrences,source_occurrences,overlapping_occurrences,unique_occurrences,interpretation
+parser|source,2000,2000,76,3924,Separate probability designs; overlapping source/parser occurrences are never pooled as independent observations.

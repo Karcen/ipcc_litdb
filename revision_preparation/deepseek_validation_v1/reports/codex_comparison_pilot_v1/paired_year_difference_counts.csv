@@ -1,0 +1,5 @@
+arm,reviewer,population,field,absolute_year_difference,paired_items_n,interpretation
+blind,consensus,fixed_50_pilot,cited_year,0,100,"Paired model agreement on identical frozen bibliographic evidence; neither reviewer is a truth reference. No human accuracy, error-rate, causal anchoring effect, or model-winner inference."
+blind,flash_A,fixed_50_pilot,cited_year,0,100,"Paired model agreement on identical frozen bibliographic evidence; neither reviewer is a truth reference. No human accuracy, error-rate, causal anchoring effect, or model-winner inference."
+blind,flash_B,fixed_50_pilot,cited_year,0,100,"Paired model agreement on identical frozen bibliographic evidence; neither reviewer is a truth reference. No human accuracy, error-rate, causal anchoring effect, or model-winner inference."
+blind,pro_C,fixed_50_pilot,cited_year,0,100,"Paired model agreement on identical frozen bibliographic evidence; neither reviewer is a truth reference. No human accuracy, error-rate, causal anchoring effect, or model-winner inference."

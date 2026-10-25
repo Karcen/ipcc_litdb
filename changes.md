@@ -1,6 +1,12 @@
 # Revision changes
 
-Initial preparation: 12 October 2026. Latest update: 21 October 2026. Baseline analysis: [v1.2.1](https://github.com/Karcen/ipcc_litdb/tree/v1.2.1). The database remains the corrected v1.2.0 snapshot. Manuscript revisions remain private; the submitted manuscript is preserved.
+Initial preparation: 12 October 2026. Latest update: 25 October 2026. Baseline analysis: [v1.2.1](https://github.com/Karcen/ipcc_litdb/tree/v1.2.1). The database remains the corrected v1.2.0 snapshot. Manuscript revisions remain private; the submitted manuscript is preserved.
+
+## 25 October 2026: A validation and F disclosure, analysis package 1.5.0
+
+A, validation: completed the primary 5,956-case/9,701-record model review, separate 3,944-pair/7,888-record candidate frame, and blinded Codex comparison of 331 sampled IDs and 801 entries. The [public registries](revision_preparation/deepseek_validation_v1/reports) preserve raw labels, availability, logical-QC exclusions and derived views separately. The [fixed protocol](revision_preparation/deepseek_validation_v1/protocol.txt) distinguishes focal identity, cross-report recurrence, cited-version metadata and concatenated references. Judgments remain model outputs without human gold labels or calibrated population-accuracy claims.
+
+F, disclosure and reproducibility: publish exact prompts, requested/returned model provenance, raw API bytes, usage, bounded retry records and hashes in the [frozen archive](revision_preparation/deepseek_validation_v1/frozen_review_v1/manifest.json). [Offline commands](README.md#deepseek-validation-and-offline-replay) restore every member and replay all result stages with networking disabled. The [separate replay status](revision_preparation/deepseek_validation_v1/raw_replay_status.json) records 132 direct CSV byte matches and one explicitly guarded historical empty-table serialization adapter; no labels or numeric cells are changed. The database, baseline, earlier registries and seed remain unchanged. Manuscript files and credentials remain private.
 
 The author chose AI-led source review and declined further human annotation. Human-label files remain empty. The current workflow combines the original unweighted AI diagnostics with independent design-weighted AI-label projections and explicit scenarios. It supplies no independent population linkage-accuracy or recall estimate. Optional independent annotation tools remain available. Phase-1 statements about unweighted-only reporting describe that earlier stage.
 

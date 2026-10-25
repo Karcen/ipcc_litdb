@@ -1,0 +1,5 @@
+arm,reviewer,cross_report_identity_cases_n,two_record_eligible_n,two_record_joint_resolved_n,two_record_joint_unresolved_n,joint_incoherence_n,multi_record_mixed_recurrent_n,interpretation
+blind,consensus,102,33,32,1,0,0,Two-record inverse only; multi-record mixed-study cases may support recurrence and are retained. No labels reclassified.
+blind,flash_A,102,33,31,2,0,0,Two-record inverse only; multi-record mixed-study cases may support recurrence and are retained. No labels reclassified.
+blind,flash_B,102,33,32,1,0,0,Two-record inverse only; multi-record mixed-study cases may support recurrence and are retained. No labels reclassified.
+blind,pro_C,102,33,29,4,0,1,Two-record inverse only; multi-record mixed-study cases may support recurrence and are retained. No labels reclassified.

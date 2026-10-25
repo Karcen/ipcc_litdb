@@ -1,0 +1,31 @@
+{
+  "format_version": 2,
+  "analysis_package": "1.5.0",
+  "format": "Small index for a deterministic gzip JSON manifest payload",
+  "manifest_payload": {
+    "encoding": "gzip",
+    "bytes": 1086890,
+    "sha256": "23b4da6e87ccacb4eef9b6aeb50bf4a8aff67d6af75506f733f8b2f47514c9a4",
+    "uncompressed_bytes": 6845191,
+    "uncompressed_sha256": "cff6c7655e7f4eb502aed8e31ee38b8c613da5738db9ff364a1698c6758e2954",
+    "chunk_bytes_limit": 655360,
+    "chunks": [
+      {
+        "path": "manifest_payload.part_0001.bin",
+        "bytes": 655360,
+        "sha256": "02914125c5d4aa5e8c40447e87432a5c1dc2c6dbcc76e879472e0e5fbabea5ae"
+      },
+      {
+        "path": "manifest_payload.part_0002.bin",
+        "bytes": 431530,
+        "sha256": "f9dd8a601a3a863d9c7bd01d01db324889e269fcd29ab5e54b50394165fc5267"
+      }
+    ]
+  },
+  "source_file_count": 25074,
+  "source_bytes": 258418772,
+  "logical_archive_count": 33,
+  "chunk_bytes_limit": 655360,
+  "original_member_bytes_unchanged": true,
+  "network_requests": 0
+}

@@ -11,6 +11,8 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ["3.10", "3.12"]
+    env:
+      IPCC_VALIDATION_SOURCE_DIR: /tmp/ipcc-validation-source
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -22,6 +24,7 @@ jobs:
             requirements-dev.txt
             requirements-analysis.txt
             requirements-figures.txt
+            revision_preparation/deepseek_validation_v1/requirements.txt
       - name: Install dependencies and restore snapshot
         run: |
           python -m venv .venv
@@ -32,6 +35,28 @@ jobs:
           source .venv/bin/activate
           bash scripts/lint.sh
           python scripts/verify_project.py
+      - name: Restore and test DeepSeek validation offline
+        run: |
+          source .venv/bin/activate
+          python revision_preparation/deepseek_validation_v1/restore_source_inputs.py \
+            --repo . \
+            --destination "$IPCC_VALIDATION_SOURCE_DIR" \
+            --report /tmp/ipcc-validation-source-restore.json
+          python revision_preparation/deepseek_validation_v1/prepare.py \
+            --source-dir "$IPCC_VALIDATION_SOURCE_DIR" \
+            --work-dir revision_preparation/deepseek_validation_v1/work
+          python -m unittest discover \
+            -s revision_preparation/deepseek_validation_v1 \
+            -p 'test_*.py' -v
+      - name: Replay completed model-review CSVs offline
+        run: |
+          source .venv/bin/activate
+          python revision_preparation/deepseek_validation_v1/freeze_validation.py restore \
+            --archive-dir revision_preparation/deepseek_validation_v1/frozen_review_v1 \
+            --destination /tmp/ipcc-model-replay
+          python revision_preparation/deepseek_validation_v1/replay_validation.py \
+            --root /tmp/ipcc-model-replay \
+            --output-check /tmp/ipcc-model-replay-check.json
       - name: Reproduce registered assessment analyses
         run: |
           source .venv/bin/activate
@@ -62,6 +87,8 @@ jobs:
             /tmp/ipcc-additional-doi-reproduction/manifest.json
             /tmp/ipcc-additional-doi-verification.json
             /tmp/ipcc-ai-proposal-check.json
+            /tmp/ipcc-validation-source-restore.json
+            /tmp/ipcc-model-replay-check.json
       - name: Check API and run tests
         run: |
           source .venv/bin/activate

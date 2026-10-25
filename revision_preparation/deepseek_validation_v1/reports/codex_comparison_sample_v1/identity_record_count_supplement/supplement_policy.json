@@ -1,0 +1,9 @@
+{
+  "selection": "Frozen identity packets classified structurally into exactly one record versus at least two records.",
+  "registration_timing": "Supplement requested after inspecting the completed all-ID paired comparison; structural criterion uses only input record counts.",
+  "purpose": "Multi-record IDs can test consistency across citations assigned to an ID; singleton IDs cannot.",
+  "labels_changed": false,
+  "original_tables_changed": false,
+  "population_projection": false,
+  "interpretation": "Paired model agreement on identical frozen bibliographic evidence; neither reviewer is a truth reference. No human accuracy, error-rate, causal anchoring effect, or model-winner inference."
+}

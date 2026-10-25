@@ -1,0 +1,6 @@
+geometry,candidate_pair_rows,unique_unordered_id_pairs,distinct_assigned_ids,components,pairs_with_reused_endpoint,max_component_ids,labels_available,interpretation
+already_shared_plus_other_id,503,496,584,170,385,87,0,Unlabelled candidate frame; pair deltas are not an estimated shared-count correction.
+at_least_one_id_has_no_matched_presence,2086,2074,1754,587,1688,87,0,Unlabelled candidate frame; pair deltas are not an estimated shared-count correction.
+opposite_report_only_matched_ids,1333,1333,860,263,1188,87,0,Unlabelled candidate frame; pair deltas are not an estimated shared-count correction.
+same_report_only_matched_ids,1,1,2,1,1,6,0,Unlabelled candidate frame; pair deltas are not an estimated shared-count correction.
+two_already_shared_matched_ids,21,11,22,11,21,87,0,Unlabelled candidate frame; pair deltas are not an estimated shared-count correction.

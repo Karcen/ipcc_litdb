@@ -1,0 +1,13 @@
+arm,control_set,reviewer,reference_label,scheduled_items,available_items,unavailable_items,matching_reference_labels,agreement_available,human_reference_labels_archived,interpretation
+blind,ledger,consensus,different_studies,5,5,0,4,0.8,False,agreement conditional on provisional ledger labels
+blind,ledger,consensus,same_study,3,3,0,3,1.0,False,agreement conditional on provisional ledger labels
+blind,ledger,flash_A,different_studies,5,5,0,4,0.8,False,agreement conditional on provisional ledger labels
+blind,ledger,flash_A,same_study,3,2,1,2,1.0,False,agreement conditional on provisional ledger labels
+blind,ledger,flash_B,different_studies,5,5,0,4,0.8,False,agreement conditional on provisional ledger labels
+blind,ledger,flash_B,same_study,3,3,0,2,0.6666666666666666,False,agreement conditional on provisional ledger labels
+blind,ledger,pro_C,different_studies,5,5,0,4,0.8,False,agreement conditional on provisional ledger labels
+blind,ledger,pro_C,same_study,3,3,0,3,1.0,False,agreement conditional on provisional ledger labels
+blind,raw_doi_equal,consensus,same_study,60,56,4,53,0.9464285714285714,False,agreement with raw-DOI-equality heuristic; not sensitivity or specificity
+blind,raw_doi_equal,flash_A,same_study,60,57,3,54,0.9473684210526315,False,agreement with raw-DOI-equality heuristic; not sensitivity or specificity
+blind,raw_doi_equal,flash_B,same_study,60,56,4,53,0.9464285714285714,False,agreement with raw-DOI-equality heuristic; not sensitivity or specificity
+blind,raw_doi_equal,pro_C,same_study,60,51,9,48,0.9411764705882353,False,agreement with raw-DOI-equality heuristic; not sensitivity or specificity

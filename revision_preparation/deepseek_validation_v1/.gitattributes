@@ -1,0 +1,3 @@
+# Preserve archived CSV bytes, including the original CRLF terminators.
+reports/**/*.csv -text whitespace=cr-at-eol
+frozen_review_v1/*.bin -text

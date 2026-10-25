@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "ledger_sha256": "a899c9bd27ed16d34f335330d5eb34aec2d29a1d8a65e0bd61a992c9b7fb043c",
+  "unique_paid_attempts": 3531,
+  "unknown_charge_attempts": 1,
+  "charged_upper_cny": "62.735557380",
+  "authorized_limit_cny": "100",
+  "remaining_upper_cny": "37.264442620",
+  "invoice_claimed": false,
+  "accounting": "Uncertain requests retain peak reservations; interrupted copies are deduplicated by ledger attempt ID",
+  "paid_attempts_sha256": "577dfe3068d54636ee5a4654df6904ebc91a3e5ded5dc07c6c6338c4532920cc"
+}

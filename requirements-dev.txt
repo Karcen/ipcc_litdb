@@ -1,5 +1,6 @@
 -r backend/requirements.txt
 -r requirements-analysis.txt
+-r revision_preparation/deepseek_validation_v1/requirements.txt
 pytest>=8,<9
 httpx>=0.27,<1
 playwright>=1.40,<2

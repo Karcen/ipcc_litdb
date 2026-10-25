@@ -1,0 +1,10 @@
+{
+  "record_type": "transport_retry_authorization",
+  "provider": "DeepSeek",
+  "transport_retries_authorized": true,
+  "max_connection_retries": 2,
+  "budget_limit_cny": "100",
+  "authorized_date": "2026-10-25",
+  "scope": "Resume prepared DeepSeek validation requests; at most two connection resends per schema request across process resumes. Successful requests are never repeated. Unknown charges remain charged at their reserved upper bound. HTTP, credential and provenance failures stop new requests.",
+  "authorization_source": "Direct user selection permitting resume and at most two connection retries."
+}

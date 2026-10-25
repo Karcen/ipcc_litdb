@@ -6,6 +6,18 @@ This is the second project alongside [IPCC References Toolkit](https://github.co
 
 ## What's new
 
+### 2026-10-25: Completed model review and frozen offline replay
+
+- Completed the primary DeepSeek review of 5,956 cases and 9,701 reference records, plus 3,944 candidate pairs containing 7,888 records. A separate blinded Codex comparison covers the existing 331-ID, 801-entry sample. The [result registries](revision_preparation/deepseek_validation_v1/reports) retain availability, unresolved labels, raw classifications and separate logical-QC views.
+- Three configurations use two DeepSeek model identifiers from one provider family. Codex comparisons measure model agreement; no human gold labels were collected. These outputs do not establish population linkage accuracy or a calibrated error correction.
+- The [frozen archive](revision_preparation/deepseek_validation_v1/frozen_review_v1/manifest.json) preserves 25,074 input, call, code and result files in 67 archive files, each at most 640 KiB. [Offline replay](#deepseek-validation-and-offline-replay) verifies source bytes and CSV outputs without network access, credentials or new model calls. The [separate replay status](revision_preparation/deepseek_validation_v1/raw_replay_status.json) records 132 direct CSV byte matches and one explicitly guarded historical empty-table serialization adapter.
+
+### 2026-10-25: Initial DeepSeek workflow setup
+
+- Added the separate [`1.5.0` validation workflow](revision_preparation/deepseek_validation_v1/protocol.txt), with three configurations of two DeepSeek model identifiers: Flash with strategies A and B, and Pro with strategy C. The database snapshot, baseline workflow, earlier numerical registries and sampling seed remain unchanged.
+- The initial fixed pilot compared blinded references with a separate metadata-visible arm. Full collection was still in progress at this setup stage. Identity, cross-report recurrence, cited-version year and concatenated references have separate outputs.
+- Added hash-verified source restoration and offline tests for schema validation, provenance, budgeting, aggregation and sampling calculations. [Preparation and tests](#deepseek-validation-and-offline-replay) use repository files without an API key or model calls. Provisional controls remain separate from human gold labels and population accuracy claims.
+
 ### 2026-10-22: Offline release inputs
 
 - Fixed the project check to include the requested model-review protocol and removed machine-specific skill paths from the acquisition and source-allocation scripts. Skill locations use explicit configuration.
@@ -115,6 +127,7 @@ Stopping the containers preserves the database volume, including review history.
 - [Second-round sensitivity analyses](#second-round-sensitivity-analyses)
 - [External OpenAlex benchmarks](#external-openalex-benchmarks)
 - [Third-round calculations](#third-round-calculations)
+- [DeepSeek validation and offline replay](#deepseek-validation-and-offline-replay)
 - [Verified references and revision preparation](#verified-references-and-revision-preparation)
 - [Exports and API](#exports-and-api)
 - [Sources and provenance](#sources-and-provenance)
@@ -943,7 +956,7 @@ Network-method review used the [NetworkX guidance in Scientific Agent Skills](ht
 
 ## Third-round calculations
 
-The independent package preserves the database, earlier tables and seed `20261011`. All external acquisitions are complete: four query/report source populations, source type and ISSN-L metadata, the selection-risk sample and the random-pool indirect-link sample. The canceled work is further model validation.
+The independent package preserves the database, earlier tables and seed `20261011`. All external acquisitions are complete: four query/report source populations, source type and ISSN-L metadata, the selection-risk sample and the random-pool indirect-link sample. Further Codex-based model validation was canceled in that package. The separately authorized October 25 DeepSeek workflow is described below.
 
 Run from the repository root with NumPy `2.2.6` for byte-identical numerical replay. **Restore the frozen inputs first.** The bundles contain the original API bytes, parameters, UTC retrieval times and hashes. Restoration checks each member and reassembles the chunked source-count archive at both registry paths. It verifies the full original SHA-256 and requires no API key or network access.
 
@@ -979,3 +992,41 @@ The recurrence sample contains 500 works from 5,304 query-defined AR5-cited jour
 The indirect comparison has 226 empty reference arrays among 1,000 pool works and 383 among 32,545 AR6 works; neither cohort has missing reference fields. Empty arrays record a coverage state and do not establish the absence of a citation. The earlier, broader 17,143/33,357 indirect result remains archived with its own population definition.
 
 [`external/acquisition_status.json`](revision_preparation/review_round3/external/acquisition_status.json) records completion. The older all-known-source comparison remains a separate sensitivity. All calculations above replay offline without model calls. `numbers/claim_spec.json` supplies exact row selectors, columns and display precision; the manuscript-dependent audit runs against the private LaTeX project.
+
+## DeepSeek validation and offline replay
+
+Analysis package `1.5.0` completed bibliographic review under the [fixed protocol](revision_preparation/deepseek_validation_v1/protocol.txt). The primary frame contains 5,956 cases and 9,701 records; the separate candidate frame contains 3,944 pairs and 7,888 records. Blinded Codex comparisons include the fixed pilot and the existing 331-ID, 801-entry sample. Three DeepSeek configurations use two model identifiers from one provider family. These are model judgments without human adjudication. Provisional ledger and DOI-equality controls do not establish population accuracy or support a Rogan–Gladen correction.
+
+The [reports](revision_preparation/deepseek_validation_v1/reports) preserve the aggregate, scientific diagnostics, candidate totals, paired comparisons and [spending audit](revision_preparation/deepseek_validation_v1/reports/spending/spending_audit.json). Small summary tables are plain CSV; detailed tables use deterministic gzip. Each publication manifest maps original and stored SHA-256 hashes so the exact source files can be restored. The spending figures are published-rate upper accounting, not a provider invoice.
+
+The raw archive restores 25,074 files, including frozen inputs, request and response bytes, usage, code and original results. Its small index points to two compressed manifest-payload chunks and 64 data chunks; all 67 files are at most 640 KiB. Member, logical-archive and chunk hashes are verified before use. Manuscript sources, credentials and virtual environments are excluded.
+
+After installing development dependencies, restore into a fresh disposable directory and replay all completed result stages:
+
+```bash
+python revision_preparation/deepseek_validation_v1/freeze_validation.py restore \
+  --archive-dir revision_preparation/deepseek_validation_v1/frozen_review_v1 \
+  --destination /tmp/ipcc-model-replay
+python revision_preparation/deepseek_validation_v1/replay_validation.py \
+  --root /tmp/ipcc-model-replay \
+  --output-check /tmp/ipcc-model-replay-check.json
+```
+
+Replay disables networking and snapshots expected CSV hashes before recomputation. It checks all 133 result CSVs: 132 match directly, and one historical zero-row pilot CSV uses a path-, header- and hash-locked serialization adapter. That adapter changes no label or numeric cell and is disclosed in the [replay status](revision_preparation/deepseek_validation_v1/raw_replay_status.json). There is no numeric tolerance or row sorting. Replay rewrites derived files only inside the restored copy; use a fresh restore for each independent repeat.
+
+The source manifest fixes 39 original artifacts at commit `f2383b80bf95e777249b3d0705392f2b58035cb1`. The offline helper restores selected frame, pilot and candidate files from five existing round-three archives and copies the pinned prompts, schema and provenance files. It checks archive, member and direct-file hashes, preserves exact bytes and refuses conflicting output files.
+
+To prepare the original pilot schedule and run the offline unit tests, use:
+
+```bash
+python revision_preparation/deepseek_validation_v1/restore_source_inputs.py \
+  --repo . --destination /tmp/ipcc-validation-source
+python revision_preparation/deepseek_validation_v1/prepare.py \
+  --source-dir /tmp/ipcc-validation-source \
+  --work-dir revision_preparation/deepseek_validation_v1/work
+export IPCC_VALIDATION_SOURCE_DIR=/tmp/ipcc-validation-source
+python -m unittest discover \
+  -s revision_preparation/deepseek_validation_v1 -p 'test_*.py' -v
+```
+
+These commands prepare the fixed 50-case, two-arm pilot schedule without sending requests. Restored raw inputs remain under the ignored `work/` directory or the specified temporary destination. New live calls require separate spending authorization and private credentials. Snapshot `v1.2.0`, baseline workflow `v1.2.1`, earlier result registries and seed `20261011` retain their original scope and bytes.

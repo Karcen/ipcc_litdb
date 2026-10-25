@@ -1,0 +1,33 @@
+{
+  "status": "complete_candidate_label_totals",
+  "run_name": "deepseek_candidates_20261025_v2",
+  "scheduled_candidate_cases": 3944,
+  "full_candidate_frame_cases": 3944,
+  "input_sha256": {
+    "results/deepseek_candidates_20261025_v2/candidate_scientific_diagnostics/manifest.json": "a24dfb385ba54055b68b57ab51bc9d2c5404a186c27b0b006192095ec6ef87df",
+    "results/deepseek_candidates_20261025_v2/candidate_scientific_diagnostics/candidate_geometry_classifications.csv": "f578838f2b08cc49d358607c08209bf5087aeb53cf4840de194d2b7094616d8a",
+    "results/deepseek_candidates_20261025_v2/candidate_scientific_diagnostics/candidate_classification_detail.csv": "ff955011e1d8bbb0f5711f57687bf8797ec1b3d4c0d8fc616267517aaa0dd287",
+    "results/deepseek_candidates_20261025_v2/candidate_scientific_diagnostics/candidate_review_coverage.csv": "799924f2a5b1fcd2acc491925521d9894526c604d8b68a82aef021523c606c79"
+  },
+  "code_sha256": {
+    "candidate_totals.py": "3998b373e288c9d4c1ba916c4c0884d3d5d0707307c9aeec61351b6e5870f5f4",
+    "validation_statistics.py": "a652efee1d324c7d41996063aff57b3049f129f38b2636fc68ca6a9aa286c8a4",
+    "test_candidate_totals.py": "f9d381466dea8de39b2288b20050c1e374a7f2fd96eda2259a554ffaaa36ec0d"
+  },
+  "output_sha256": {
+    "candidate_label_totals.csv": "65e75403027bf088fc234e4db019cdc0d72fab561b9fc0f9a9d3cf2299a8ed2b",
+    "candidate_resolution_totals.csv": "b09ea72fa23ced5b28c121feffae40f40a841b23addd205d18dcc5d80ff8bf2a",
+    "validation_summary.csv": "0f36e9a973dd52bebf0453627bfa4e11e4e509802b015dd7a8ea5f1d794834d3",
+    "derivation_policy.json": "c7fba2906596a07aa32fdfbf536ac867fd32d64785d6bc1bf0f21c0b8a389647"
+  },
+  "row_counts": {
+    "candidate_label_totals": 576,
+    "candidate_resolution_totals": 192,
+    "validation_summary": 2304
+  },
+  "original_outputs_unchanged": true,
+  "no_model_calls": true,
+  "no_credential_reads": true,
+  "no_summed_pair_deltas": true,
+  "interpretation": "Counts describe candidate-pair model classifications only; overlapping endpoints prevent additive shared-count corrections. No population false-split or human-accuracy estimate."
+}
