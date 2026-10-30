@@ -123,7 +123,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", required=True)
     args = parser.parse_args()
-    project = Path(__file__).resolve().parents[1]
+    project = Path(__file__).resolve().parents[1] / "output"
     expected, registry = build_consistency_macros(project)
     current = dict(re.findall(r"\\newcommand\{\\([A-Za-z]+)\}\{([^\n]+)\}",
                               (project / "numbers_CJE_revised.tex").read_text()))
