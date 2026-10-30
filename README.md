@@ -10,6 +10,7 @@ This is the second project alongside [IPCC References Toolkit](https://github.co
 
 - Added [`cje_replication`](cje_replication/INSTRUCTIONS.txt), with frozen inputs, portable analysis code, 32 current reference tables and 199 numerical definitions. The checked replay reproduces those tables and definitions, and regenerates four figures.
 - The workflow uses saved database and bibliographic inputs. It makes no API calls, draws no new sample and creates no review labels. The [replay scope](cje_replication/replay_scope.json) records the excluded obsolete classifier audit and missing historical registry.
+- Locked pandas 3.0.1 and NumPy 2.3.5 after a cold-start check identified different missing-year handling in pandas 2.x. The runner rejects incompatible dependencies before computing results; identity rules and frozen results remain unchanged.
 - Manuscript sources, article PDFs, author information and full bibliographies remain private. The public module reproduces the numerical results and figures; compiling the article requires the separate local submission package.
 
 ### 2026-10-25: Completed model review and frozen offline replay
@@ -130,7 +131,7 @@ python cje_replication/run_reproduction.py --verify-only
 python cje_replication/run_reproduction.py --figures
 ```
 
-The numerical replay checks 32 current result tables and all 199 numerical definitions. Figure regeneration also requires R and the packages listed in [`r_packages.txt`](cje_replication/r_packages.txt). To reproduce the numbers without R, omit `--figures`. Generated files stay under `cje_replication/output/`, which is git-ignored.
+The numerical replay checks 32 current result tables and all 199 numerical definitions. The frozen environment uses pandas 3.0.1 and NumPy 2.3.5; the main runner checks these versions before analysis because pandas 2.x handles missing-year strings differently. Figure regeneration also requires R and the packages listed in [`r_packages.txt`](cje_replication/r_packages.txt). To reproduce the numbers without R, omit `--figures`. Generated files stay under `cje_replication/output/`, which is git-ignored.
 
 No API key, network request, new sample or new annotation is needed for replay after dependencies are installed. [`DATA_SOURCES.txt`](cje_replication/DATA_SOURCES.txt) describes the frozen inputs; [`replay_scope.json`](cje_replication/replay_scope.json) states the scope of the checks.
 

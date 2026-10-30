@@ -1,10 +1,10 @@
 OFFLINE REPRODUCTION
 
 Run these commands from the extracted replication directory.
-Python 3.12 was used for the checked replay. The two Python dependencies are pinned in requirements.txt.
+Python 3.12.14, pandas 3.0.1 and NumPy 2.3.5 were used for the complete cold-start numerical replay. Use the pinned dependencies in requirements.txt. pandas 2.x converts missing years differently in the title-plus-year identity sensitivity; it is not supported for this frozen analysis. The main runner checks dependency versions before computing results.
 
 1. Create and activate a virtual environment, then install dependencies:
-   python3 -m venv .venv
+   python3.12 -m venv .venv
    source .venv/bin/activate
    python -m pip install -r requirements.txt
    Windows activation: .venv\Scripts\activate
@@ -12,7 +12,7 @@ Python 3.12 was used for the checked replay. The two Python dependencies are pin
 2. Check frozen input and reference-output hashes without running analyses:
    python run_reproduction.py --verify-only
 
-3. Reproduce the submitted numerical results:
+3. Reproduce the submitted numerical results through the main runner:
    python run_reproduction.py
 
 4. Also regenerate all four figures:

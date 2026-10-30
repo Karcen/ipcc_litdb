@@ -24,12 +24,22 @@
     "scope": "Compilation was checked in the separate local submission package. Manuscript sources and article PDFs are not included in this public module."
   },
   "runtime": {
-    "python": "3.12.14"
+    "python": "3.12.14",
+    "pandas": "3.0.1",
+    "numpy": "2.3.5"
   },
   "identity_frame_rebuild": {
     "rows": 113594,
     "core_fields": 41,
     "comparison_to_original_cached_core_fields": "all values identical; dtype differences ignored"
   },
-  "date": "2026-10-30"
+  "date": "2026-10-30",
+  "dependency_scope": "The frozen analysis requires pandas 3.0.1 and NumPy 2.3.5. pandas 2.x has different missing-string behavior in the title-plus-year sensitivity; the main runner rejects other dependency versions before numerical analysis.",
+  "cold_start_replay": true,
+  "cold_start_reference_tables_checked": 32,
+  "cold_start_integrity": {
+    "frozen_hashes_changed": 0,
+    "new_files_outside_output": 0
+  },
+  "incompatible_runtime_rejected_before_analysis": true
 }
