@@ -36,6 +36,24 @@ def verify_inputs():
     return len(manifest['files'])
 
 
+def verify_runtime():
+    """Reject dependency versions with different missing-value semantics."""
+    try:
+        import pandas as pd
+        import numpy as np
+    except ImportError as error:
+        raise RuntimeError('Install the pinned dependencies with: python -m pip install -r requirements.txt') from error
+    required = {'pandas': '3.0.1', 'numpy': '2.3.5'}
+    actual = {'pandas': pd.__version__, 'numpy': np.__version__}
+    mismatched = {name: {'required': required[name], 'installed': actual[name]}
+                  for name in required if actual[name] != required[name]}
+    if mismatched:
+        raise RuntimeError('Dependency versions do not match the frozen analysis environment: '
+                           + json.dumps(mismatched)
+                           + '. Install them with: python -m pip install -r requirements.txt')
+    return {'python': sys.version.split()[0], **actual}
+
+
 def call(command, name, cwd=None):
     logdir = OUTPUT / 'logs'
     logdir.mkdir(parents=True, exist_ok=True)
@@ -113,6 +131,7 @@ def main():
     if args.verify_only:
         print(f'Verified {verified} frozen files.')
         return
+    runtime = verify_runtime()
     OUTPUT.mkdir(parents=True, exist_ok=True)
     if not args.finish_only:
         call([sys.executable, str(PACKAGE / 'run_types.py')], 'type_reproduction')
@@ -135,7 +154,7 @@ def main():
         report['figures'] = make_figures()
     if args.compile or args.all:
         report['manuscript'] = compile_manuscript(rebuild_figures)
-    report['runtime'] = {'python': sys.version.split()[0]}
+    report['runtime'] = runtime
     (OUTPUT / 'reproduction_report.json').write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps(report, indent=2))
 
