@@ -1,0 +1,4 @@
+group,n_matched,n_unmatched,n_extracted,unmatched_share,rate_matched,rate_unmatched,rate_extracted,gap_matched_minus_extracted_pp,rate_unmatched_std_to_matched_vintage,vintage_share_of_gap,n_pre1998_in_extracted,rate_pre1998,n_post1998_extracted,rate_post1998
+WG1,5592,1415,7007,0.2019,14.521,4.735,12.545,1.976,4.158,-5.9,318,6.604,6689,12.827
+WG2,6386,3774,10160,0.3715,7.908,3.604,6.309,1.599,3.602,-0.0,268,3.731,9892,6.379
+WG3,2105,2169,4274,0.5075,8.029,2.951,5.452,2.577,3.257,6.0,301,2.326,3973,5.688

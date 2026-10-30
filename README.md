@@ -6,6 +6,12 @@ This is the second project alongside [IPCC References Toolkit](https://github.co
 
 ## What's new
 
+### 2026-10-30: Portable CJE offline replication
+
+- Added [`cje_replication`](cje_replication/INSTRUCTIONS.txt), with frozen inputs, portable analysis code, 32 current reference tables and 199 numerical definitions. The checked replay reproduces those tables and definitions, and regenerates four figures.
+- The workflow uses saved database and bibliographic inputs. It makes no API calls, draws no new sample and creates no review labels. The [replay scope](cje_replication/replay_scope.json) records the excluded obsolete classifier audit and missing historical registry.
+- Manuscript sources, article PDFs, author information and full bibliographies remain private. The public module reproduces the numerical results and figures; compiling the article requires the separate local submission package.
+
 ### 2026-10-25: Completed model review and frozen offline replay
 
 - Completed the primary DeepSeek review of 5,956 cases and 9,701 reference records, plus 3,944 candidate pairs containing 7,888 records. A separate blinded Codex comparison covers the existing 331-ID, 801-entry sample. The [result registries](revision_preparation/deepseek_validation_v1/reports) retain availability, unresolved labels, raw classifications and separate logical-QC views.
@@ -112,9 +118,28 @@ docker compose down
 
 Stopping the containers preserves the database volume, including review history.
 
+## CJE offline replication
+
+The [portable replication module](cje_replication/INSTRUCTIONS.txt) contains the saved inputs and code for the current CJE analysis. Use a separate Python 3.12 environment:
+
+```bash
+python3.12 -m venv .venv-cje
+source .venv-cje/bin/activate
+python -m pip install -r cje_replication/requirements.txt
+python cje_replication/run_reproduction.py --verify-only
+python cje_replication/run_reproduction.py --figures
+```
+
+The numerical replay checks 32 current result tables and all 199 numerical definitions. Figure regeneration also requires R and the packages listed in [`r_packages.txt`](cje_replication/r_packages.txt). To reproduce the numbers without R, omit `--figures`. Generated files stay under `cje_replication/output/`, which is git-ignored.
+
+No API key, network request, new sample or new annotation is needed for replay after dependencies are installed. [`DATA_SOURCES.txt`](cje_replication/DATA_SOURCES.txt) describes the frozen inputs; [`replay_scope.json`](cje_replication/replay_scope.json) states the scope of the checks.
+
+The public module excludes the manuscript and author files. `--compile` and `--all` require the separate local submission package containing the LaTeX sources and pdflatex. They cannot compile an article from this repository alone.
+
 ## Contents
 
 - [What's new](#whats-new)
+- [CJE offline replication](#cje-offline-replication)
 - [Data and coverage](#data-and-coverage)
 - [Dashboard](#dashboard)
 - [Repository layout](#repository-layout)

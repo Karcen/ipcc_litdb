@@ -1,0 +1,6 @@
+scenario,direction,k_required,share_of_shared_numerator_pct,share_of_earlier_denominator_pct,description,baseline_WG2,baseline_WG3,baseline_gap_pp
+S1_false_recurrences_WG3,WG3 numerator -k,6,3.4482758620689653,0.2802428771602055,Mergebased false shared identities in WGIII numerator (mis-merge of distinct later works into an earlier identity); subtract k from WGIII numerator.,506/6418 = 7.8841%,174/2141 = 8.1270%,0.2429674014976277
+S2_missed_recurrences_WG2,WG2 numerator +k,16,3.1620553359683794,0.24929884699283267,Genuine WGII recurrences hidden by mis-splits; add k to WGII numerator.,506/6418 = 7.8841%,174/2141 = 8.1270%,0.2429674014976277
+S3_duplicate_earlier_WG3,WG3 denominator +k,66,37.93103448275862,3.0826716487622607,Mis-split non-recurring earlier identities added to WGIII denominator; add k to WGIII denominator.,506/6418 = 7.8841%,174/2141 = 8.1270%,0.2429674014976277
+S4_duplicate_earlier_WG2,WG2 denominator -k,192,37.944664031620555,2.991586163913992,Merged duplicate earlier identities removed from WGII denominator; subtract k from WGII denominator.,506/6418 = 7.8841%,174/2141 = 8.1270%,0.2429674014976277
+S5_symmetric_false_recurrences,both numerators -k,8,4.597701149425287,0.37365716954694067,Same number k of false shared identities in BOTH groups; subtract k from each numerator.,506/6418 = 7.8841%,174/2141 = 8.1270%,0.2429674014976277

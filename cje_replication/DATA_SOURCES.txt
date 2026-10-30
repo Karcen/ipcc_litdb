@@ -1,0 +1,13 @@
+Reproducibility inputs
+
+This package replays the submitted CJE analysis from saved inputs. It makes no API requests and does not create new review labels.
+
+The SQLite database is a byte-preserved frozen input from ipcc_litdb (https://github.com/Karcen/ipcc_litdb). Its uncompressed SHA-256 is a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec. Raw reference strings and record identities are unchanged by this package.
+
+The DOI-resolution table is a saved OpenAlex result. Its uncompressed SHA-256 is 80b12f88a02b742743197e9feca5e35eb9d2924d20c5c3fa822864d27f405ed1. Frozen API-derived tables are used as inputs; the historical API requests are not repeated.
+
+The validation inputs preserve the existing labels and worksheets. Scoring them again does not add human validation. The manuscript describes the extent of the earlier targeted human checks.
+
+Occurrence-level classification and identity-level recurrence use separate units. The scripts preserve the original definitions, report/working-group membership rules and cutoffs. No new sample is drawn.
+
+Historical scripts requiring the missing CEJ manuscript directory and the obsolete 26-claim registry are not part of this replay. The current submitted analysis is checked against its own saved tables and numerical definitions.

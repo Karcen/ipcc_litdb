@@ -1,0 +1,18 @@
+{
+  "inputs": [
+    {
+      "archive": "inputs/database.sqlite.gz",
+      "uncompressed_name": "ipcc_litdb.sqlite",
+      "sha256": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+      "uncompressed_bytes": 249151488,
+      "source": "github/ipcc_litdb/database/ipcc_litdb.sqlite"
+    },
+    {
+      "archive": "inputs/doi_resolution.csv.gz",
+      "uncompressed_name": "doi_resolution.csv",
+      "sha256": "80b12f88a02b742743197e9feca5e35eb9d2924d20c5c3fa822864d27f405ed1",
+      "uncompressed_bytes": 9686996,
+      "source": "github/ipcc_litdb/revision_preparation/review_round2/openalex_v1/activated_attempt_03/results_v1/doi_resolution.csv"
+    }
+  ]
+}

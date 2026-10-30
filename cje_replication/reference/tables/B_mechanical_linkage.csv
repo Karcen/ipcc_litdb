@@ -1,0 +1,7 @@
+group,cohort,earlier_identities,recurring_identities,recur_via_WoS_matched,pct_via_WoS_matched
+WG1,matched_earlier,5606,812,811,99.8768472906404
+WG1,extracted_only_earlier,1574,84,0,0.0
+WG2,matched_earlier,6418,506,506,100.0
+WG2,extracted_only_earlier,4460,214,0,0.0
+WG3,matched_earlier,2141,174,174,100.0
+WG3,extracted_only_earlier,2588,95,1,1.0526315789473684

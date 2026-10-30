@@ -1,0 +1,34 @@
+OFFLINE REPRODUCTION
+
+Run these commands from the extracted replication directory.
+Python 3.12 was used for the checked replay. The two Python dependencies are pinned in requirements.txt.
+
+1. Create and activate a virtual environment, then install dependencies:
+   python3 -m venv .venv
+   source .venv/bin/activate
+   python -m pip install -r requirements.txt
+   Windows activation: .venv\Scripts\activate
+
+2. Check frozen input and reference-output hashes without running analyses:
+   python run_reproduction.py --verify-only
+
+3. Reproduce the submitted numerical results:
+   python run_reproduction.py
+
+4. Also regenerate all four figures:
+   python run_reproduction.py --figures
+   This additionally needs R and the packages in r_packages.txt.
+
+The public repository contains code, data and numerical definitions. It excludes manuscript sources, article PDFs, author information and full bibliographies. The --compile and --all options require the separate local submission package, with its latex_source directory alongside this replication directory, and pdflatex. Those options cannot compile a paper from the public repository alone.
+
+All generated files are written under output/. The frozen inputs and reference files are never overwritten. The default numerical run checks 22 current classification/audit tables, 10 identity/standardisation tables and all 199 submitted numerical definitions. It fails if current reference results differ. It does not call an API, draw a new sample, create review labels or alter manuscript estimates.
+
+The source database is compressed for delivery. It is expanded and SHA-256 checked under output/inputs. Raw reference strings are preserved. Identity-level and occurrence-level calculations remain separate.
+
+The saved validation sheets are inputs, not fresh human validation. The existing labels are scored without replacement or inference. See the manuscript for the coverage of the earlier targeted checks.
+
+One obsolete classifier audit table is not a current reference target. The current A-series tables reproduce, and final numerical definitions use them. The scope and excluded historical registry are recorded in replay_scope.json. No analysis was tuned to obtain a match.
+
+Plot PDFs can differ at the binary level across font and R graphics installations. Table values and submitted numerical definitions are checked independently. R scripts export only PDF, PNG and SVG; F1 and F2 retain their original PDF-only export.
+
+Do not send output/, logs, bytecode caches or a virtual environment with a manuscript submission. They are generated locally after extracting the package.

@@ -1,0 +1,209 @@
+{
+  "files": [
+    {
+      "path": "inputs/core_input_manifest.json",
+      "sha256": "d9f07e8d59fc5f1170e85aa0b4f3029a19bc1ef76c02fbfac1a2220b1b77ab47",
+      "bytes": 680
+    },
+    {
+      "path": "inputs/database.sqlite.gz",
+      "sha256": "4008a6f22953633bb24fdaa6038318f07ad7f802f122f9bdf2935f9f5564b4aa",
+      "bytes": 73814220
+    },
+    {
+      "path": "inputs/doi_resolution.csv.gz",
+      "sha256": "9973200c33292f9a76ae0b63d57236d82598c61d2b8a41454d2589f7b1783fb9",
+      "bytes": 1129834
+    },
+    {
+      "path": "inputs/validation/coding_worksheet.csv",
+      "sha256": "47334dd2fb1ebe95c7091023ab3d1021bee59acaa763bdc608d394fe29127465",
+      "bytes": 268203
+    },
+    {
+      "path": "inputs/validation/resolved_journal_source_assignments.csv.gz",
+      "sha256": "c866e00537be8069fefc964551bcdd72ad83cd11840c174021052cba23ef46c7",
+      "bytes": 1085244
+    },
+    {
+      "path": "inputs/validation/review_sheet_worksheet.csv",
+      "sha256": "e9b25b93c3c35b3ddf8d0e4aaf97dd984bdaf4d59436a63ecb71c19349d7e108",
+      "bytes": 25660
+    },
+    {
+      "path": "inputs/validation/validation_adjudication.csv",
+      "sha256": "377a3df4e6808edf31e63c90983e4c3f0bf60e70c45ca6e4f7a921f4ed8e1119",
+      "bytes": 6084
+    },
+    {
+      "path": "inputs/validation/validation_sample.csv",
+      "sha256": "bbda29d75a3ac5fb8647e2d1d133b09cc2972c17ffb1444626ebd662162168ff",
+      "bytes": 83869
+    },
+    {
+      "path": "reference/manuscript/numbers_CJE_revised.tex",
+      "sha256": "2b13dc22635bba7f8483a692d6c5577e2623051e254697b324057b24d3803de8",
+      "bytes": 6392
+    },
+    {
+      "path": "reference/tables/AUDIT_availability_reuse.csv",
+      "sha256": "303c401657d401ec8e615f3fed46d954bba4136fb4b97afe1d32ec5e957826bc",
+      "bytes": 229
+    },
+    {
+      "path": "reference/tables/AUDIT_base_rates.csv",
+      "sha256": "78a63a59e8a2fb15f22ced4e9597533cb66ac125e51431e013df8642cde8abe3",
+      "bytes": 296
+    },
+    {
+      "path": "reference/tables/AUDIT_earlier_transition.csv",
+      "sha256": "2ea556cdaecfd7a78ea0920800b2d6a279aa94974e783ed25ac628be189b7ae9",
+      "bytes": 439
+    },
+    {
+      "path": "reference/tables/AUDIT_frame_alternatives.csv",
+      "sha256": "64afbecb164c9ce12d1d27015c024d2d88546cc92dbf164a5765a3f0079a61b8",
+      "bytes": 565
+    },
+    {
+      "path": "reference/tables/AUDIT_sample_flow.csv",
+      "sha256": "14e7de51002991fd9824451abb0c74d2eea49465d2c46915a7a55aed425f93f6",
+      "bytes": 351
+    },
+    {
+      "path": "reference/tables/AUDIT_selection_comparison.csv",
+      "sha256": "7112b4fc417d002984f5734ed8af59011b2b22bcdfb438765bca31e8abc36eca",
+      "bytes": 340
+    },
+    {
+      "path": "reference/tables/AUDIT_selection_ratio.csv",
+      "sha256": "e0f92fddeba6c7606ca7e65c4ab406ba525ae3fd77bba26e0bfa439e7f9c7ed0",
+      "bytes": 146
+    },
+    {
+      "path": "reference/tables/AUDIT_vintage_confound.csv",
+      "sha256": "159813a3dbfa89df024dfba71751d1b00665463d9884b28bdcd1be5b827e8a04",
+      "bytes": 509
+    },
+    {
+      "path": "reference/tables/A_classifier_validation.csv",
+      "sha256": "fe91e67787312532e3b0ad1dea133dd591c36eb51fd44aafaa808370179460db",
+      "bytes": 1323
+    },
+    {
+      "path": "reference/tables/A_classifier_validation_openalex.csv",
+      "sha256": "1824690f276c3b37bdfdaf64cc1527750d50d50cc879d0ab0d7b530219c09b76",
+      "bytes": 1015
+    },
+    {
+      "path": "reference/tables/A_classifier_validation_strata.csv",
+      "sha256": "794ac349b1ddb3c586777b35633110e397f96d9e623dcdef2d5e13f3321ca887",
+      "bytes": 406
+    },
+    {
+      "path": "reference/tables/A_document_type_distribution.csv",
+      "sha256": "7e913313c78ec7ca3879c4df8ac63959e49292bbb521f40c29ffdfb9c21ba099",
+      "bytes": 5389
+    },
+    {
+      "path": "reference/tables/A_invisible_pool_composition.csv",
+      "sha256": "a518a567e7a4c94de2959fbcfb4921e9db7434a8391940c99e71390d12c77c87",
+      "bytes": 7398
+    },
+    {
+      "path": "reference/tables/A_match_rate_by_type.csv",
+      "sha256": "882b47b7411211dc78d044f86e35a8fc3707ad365b6427a989fb60018c631701",
+      "bytes": 21215
+    },
+    {
+      "path": "reference/tables/A_recurrence_by_type.csv",
+      "sha256": "0be2698dbbcd9c076abcc81eb9ff765244459487496db46f73ab604bf251e91d",
+      "bytes": 24167
+    },
+    {
+      "path": "reference/tables/A_reference_frame_validation.csv",
+      "sha256": "6e356a1ae3e9d7779e0e6cb10106a2af9e29b893c8f148e2409f53e1e55fa33d",
+      "bytes": 1226
+    },
+    {
+      "path": "reference/tables/A_robustness_type_composition.csv",
+      "sha256": "185761213db314b1f6b21727849b2a4266fe14de6a004573a2b173a99753357b",
+      "bytes": 2111
+    },
+    {
+      "path": "reference/tables/A_type_by_vintage.csv",
+      "sha256": "afde17475436cae9b52cc714706885ca6d4463ace19908c52062f2e41e920e0e",
+      "bytes": 30668
+    },
+    {
+      "path": "reference/tables/A_type_composition_decomposition.csv",
+      "sha256": "bb1ecab7cd0daa971d87a0a9436519d5a82154b7f8863128daa4aeb0bd7b6f82",
+      "bytes": 19571
+    },
+    {
+      "path": "reference/tables/B_mechanical_linkage.csv",
+      "sha256": "6560b49b414bb3386d96e4499ab3b3241da614b2199668e5151e1cebcfad100f",
+      "bytes": 362
+    },
+    {
+      "path": "reference/tables/C_break_even.csv",
+      "sha256": "c703c3cc45918df2001b6583f372055ce4a9da51d9f6dc253d871fb93e402f51",
+      "bytes": 1368
+    },
+    {
+      "path": "reference/tables/C_error_plausibility_scale.csv",
+      "sha256": "9bf9f620ee84eb081da39a59e29b863334adba5dbcd46add5e901c3aeca894ef",
+      "bytes": 239
+    },
+    {
+      "path": "reference/tables/C_frame_verification.csv",
+      "sha256": "31c14c43db95a36ab466dd1dc6b78b1e9293987d7d09333c053d2219d08fe5c5",
+      "bytes": 997
+    },
+    {
+      "path": "reference/tables/C_fuzzy_reliance.csv",
+      "sha256": "68a2158570057ddb53e62b322a86eceb38a7c0be0cd92c82da46c614adb2f998",
+      "bytes": 160
+    },
+    {
+      "path": "reference/tables/C_identity_rule_levels.csv",
+      "sha256": "bdf6667a67fda72b0efd946d051eed9903dc32825599d56e2ccf6d17e9492b16",
+      "bytes": 2182
+    },
+    {
+      "path": "reference/tables/C_sensitivity.csv",
+      "sha256": "e0ba0b1ab1794e1516795fa6719014da666e8870ddff1b699c8beaf173e8b088",
+      "bytes": 21665
+    },
+    {
+      "path": "reference/tables/D_decomposition.csv",
+      "sha256": "8f2b766109039121198257b75f1cc5940ce1e2763ebfc0bbae443f46a8eb9b69",
+      "bytes": 25209
+    },
+    {
+      "path": "reference/tables/D_leave_one_venue_out.csv",
+      "sha256": "974c1b642700ad78d6db409dcc0f6fac554fba9ab9b10cdad04570d2ad28ba85",
+      "bytes": 2484
+    },
+    {
+      "path": "reference/tables/D_venue_strata.csv",
+      "sha256": "f1fa884e2d2dec2261af9475e1adb1f6a114e43e83f17d9d9816bafc52e5d84e",
+      "bytes": 1863
+    },
+    {
+      "path": "reference/tables/HV_error_rates.csv",
+      "sha256": "b21b238be05995977b589b418329e3dd9c547825e95bcf45848db980ae87c991",
+      "bytes": 1132
+    },
+    {
+      "path": "reference/tables/HV_frame_bound.csv",
+      "sha256": "7208b699ae245d406a1ebe34a53e8000e0e8c0ddf7c2db5c897dc120444469cf",
+      "bytes": 290
+    },
+    {
+      "path": "reference/tables/HV_frame_effect_decomposition.csv",
+      "sha256": "3165a8cfd14a02c2b56912421e15f2c48ff37af2b9d68b9223455cca40146e60",
+      "bytes": 1366
+    }
+  ]
+}
