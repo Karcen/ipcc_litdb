@@ -1,0 +1,10 @@
+level,report,extracted_identities,matched_identities,identity_coverage_pct
+report,AR4,13636,4597,33.71
+report,AR5,21770,13503,62.03
+report,AR6,47636,34869,73.2
+report_WG1,AR5,7180,5606,78.08
+report_WG1,AR6,13521,11922,88.17
+report_WG2,AR5,10878,6418,59.0
+report_WG2,AR6,23629,16896,71.51
+report_WG3,AR5,4729,2141,45.27
+report_WG3,AR6,13607,8658,63.63

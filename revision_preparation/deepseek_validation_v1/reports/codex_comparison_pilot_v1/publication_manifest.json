@@ -1,0 +1,142 @@
+{
+  "analysis_package": "1.5.0",
+  "scope": "codex_comparison_pilot_v1",
+  "publication_revision": 1,
+  "status": "complete_output_registry_raw_replay_pending",
+  "source_status": "complete_paired_model_comparison",
+  "files": [
+    {
+      "source_path": "codex_qc_exclusions.csv",
+      "original_bytes": 2,
+      "original_sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "stored_path": "codex_qc_exclusions.csv.gz",
+      "stored_bytes": 22,
+      "stored_sha256": "084db3bbd5505bf63da5ba02ad8a1080e356af2b5f32f5aacbe2549b3e277382",
+      "encoding": "gzip"
+    },
+    {
+      "source_path": "deepseek_case_qc_derived.csv",
+      "original_bytes": 18372,
+      "original_sha256": "dd8b897892d88139af995eecff1cf9584c78febdf0c667771fe209ca84dfa29c",
+      "stored_path": "deepseek_case_qc_derived.csv.gz",
+      "stored_bytes": 1073,
+      "stored_sha256": "f722624fdbf634ccc4eedfbe191558ec570b80612e5db50e80a2bf33cd6d9616",
+      "encoding": "gzip"
+    },
+    {
+      "source_path": "deepseek_post_qc_logical_consistency_counts.csv",
+      "original_bytes": 794,
+      "original_sha256": "72426bb5f12a8a8695a6229b98ec09b2fcaf69cbb59bfb0e0a81252a6ef7e8df",
+      "stored_path": "deepseek_post_qc_logical_consistency_counts.csv",
+      "stored_bytes": 794,
+      "stored_sha256": "72426bb5f12a8a8695a6229b98ec09b2fcaf69cbb59bfb0e0a81252a6ef7e8df",
+      "encoding": "identity"
+    },
+    {
+      "source_path": "deepseek_qc_configuration_exclusions.csv",
+      "original_bytes": 162,
+      "original_sha256": "5b6e0bb1bc79ad63f216654368370e813112f8a87e3d143771e51d6aa3881345",
+      "stored_path": "deepseek_qc_configuration_exclusions.csv.gz",
+      "stored_bytes": 125,
+      "stored_sha256": "1b2cef5d69628a9a05a85d224cd82cf200db3c09af3aa3086c48070cfbc84f30",
+      "encoding": "gzip"
+    },
+    {
+      "source_path": "deepseek_qc_consensus_changes.csv",
+      "original_bytes": 203,
+      "original_sha256": "1e9350c2032451ac7ba426a467bf6ebe41c50fc37ee416ec4bcfeecad422c137",
+      "stored_path": "deepseek_qc_consensus_changes.csv.gz",
+      "stored_bytes": 124,
+      "stored_sha256": "66d26f1d9d363546656d8cbbb668baf86e3ea2149b9e46263caa21ac4580d76d",
+      "encoding": "gzip"
+    },
+    {
+      "source_path": "deepseek_qc_exclusion_coverage.csv",
+      "original_bytes": 5767,
+      "original_sha256": "0e122915f9d432716121cfc00a70ed176b2b862ce029f0e679c305ba58b11084",
+      "stored_path": "deepseek_qc_exclusion_coverage.csv",
+      "stored_bytes": 5767,
+      "stored_sha256": "0e122915f9d432716121cfc00a70ed176b2b862ce029f0e679c305ba58b11084",
+      "encoding": "identity"
+    },
+    {
+      "source_path": "manifest.json",
+      "original_bytes": 8277,
+      "original_sha256": "84396b52f9119a8b959490a2d7d9c185cb6a031a7d7b72208c0fd8806933bee2",
+      "stored_path": "provenance/source_manifests/84396b52f9119a8b959490a2d7d9c185cb6a031a7d7b72208c0fd8806933bee2/manifest.json",
+      "stored_bytes": 8277,
+      "stored_sha256": "84396b52f9119a8b959490a2d7d9c185cb6a031a7d7b72208c0fd8806933bee2",
+      "encoding": "identity"
+    },
+    {
+      "source_path": "paired_agreement.csv",
+      "original_bytes": 12481,
+      "original_sha256": "bf4761e899b65a36285e7d11dc026732f9f825da6c8bea3688f80ee1ec884b72",
+      "stored_path": "paired_agreement.csv",
+      "stored_bytes": 12481,
+      "stored_sha256": "bf4761e899b65a36285e7d11dc026732f9f825da6c8bea3688f80ee1ec884b72",
+      "encoding": "identity"
+    },
+    {
+      "source_path": "paired_comparison_detail.csv",
+      "original_bytes": 781353,
+      "original_sha256": "ce7c4aae6942ca8641252ca71016780fa502b3758add926b7dc6ae72b4a6361b",
+      "stored_path": "paired_comparison_detail.csv.gz",
+      "stored_bytes": 14556,
+      "stored_sha256": "4e549c831a8aa348bb69c537031948da5d5bc5f11071d965a62b6fc6d3486d3d",
+      "encoding": "gzip"
+    },
+    {
+      "source_path": "paired_divergences.csv",
+      "original_bytes": 55201,
+      "original_sha256": "79a427636f04b011f7c644eae3c894c1e978a790050e9fa9afd475b68b4effc9",
+      "stored_path": "paired_divergences.csv.gz",
+      "stored_bytes": 2004,
+      "stored_sha256": "b9c9238f470c9beb092d1dae3cc4901711737bf0702116010ad4c3dfebee4151",
+      "encoding": "gzip"
+    },
+    {
+      "source_path": "paired_label_crosstabs.csv",
+      "original_bytes": 17454,
+      "original_sha256": "7d6e919b92df27b0f31c9747556060d196725279599c66e8e3203d2e5dde5700",
+      "stored_path": "paired_label_crosstabs.csv",
+      "stored_bytes": 17454,
+      "stored_sha256": "7d6e919b92df27b0f31c9747556060d196725279599c66e8e3203d2e5dde5700",
+      "encoding": "identity"
+    },
+    {
+      "source_path": "paired_year_difference_counts.csv",
+      "original_bytes": 1038,
+      "original_sha256": "5fea73c933004cc9415567d6756cb8ad33d2aacd641b360d8fe2f63846b3a5f3",
+      "stored_path": "paired_year_difference_counts.csv",
+      "stored_bytes": 1038,
+      "stored_sha256": "5fea73c933004cc9415567d6756cb8ad33d2aacd641b360d8fe2f63846b3a5f3",
+      "encoding": "identity"
+    },
+    {
+      "source_path": "paired_year_difference_summary.csv",
+      "original_bytes": 1133,
+      "original_sha256": "749e32cc3ad3adc08358266baaf6da4533ae50ec3aee566e095aeed6b4a9b70a",
+      "stored_path": "paired_year_difference_summary.csv",
+      "stored_bytes": 1133,
+      "stored_sha256": "749e32cc3ad3adc08358266baaf6da4533ae50ec3aee566e095aeed6b4a9b70a",
+      "encoding": "identity"
+    },
+    {
+      "source_path": "validation_summary.csv",
+      "original_bytes": 393951,
+      "original_sha256": "95d6baad3390d2ad7838a9ae3e19fa8f681604d65c3e484f449a75ae130b3ff2",
+      "stored_path": "validation_summary.csv.gz",
+      "stored_bytes": 6650,
+      "stored_sha256": "0aaf656bd23bb7dbdf3208a1bd28739df1391c6bd97f2c9a5841d1f97774a2dd",
+      "encoding": "gzip"
+    }
+  ],
+  "source_artifact_count": 14,
+  "source_manifests_preserved_exactly": true,
+  "previous_publication_manifest_sha256": null,
+  "raw_input_replay_status": "pending_separate_frozen_archive",
+  "interpretation": "Saved model outputs and model-conditioned diagnostics; no human gold labels or calibrated population accuracy.",
+  "network_requests": 0,
+  "model_calls_made": 0
+}

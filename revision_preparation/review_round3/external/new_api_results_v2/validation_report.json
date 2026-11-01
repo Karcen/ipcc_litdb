@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "byte_replay": {
+    "pool_outlet_diversity.csv": true,
+    "pool_outlet_diversity_differences.csv": true,
+    "pool_source_counts.csv.gz": true,
+    "conditional_relative_risk.csv": true,
+    "relative_risk_strata.csv": true,
+    "indirect_pool_baseline.csv": true,
+    "manifest.json": true
+  },
+  "seed": 20261011,
+  "network_used": false,
+  "missing_required_analyses": []
+}

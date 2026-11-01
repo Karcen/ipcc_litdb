@@ -1,0 +1,5 @@
+cohort,report,selected_rows,unique_resolved_IDs,duplicate_rows_collapsed,conflicting_IDs,journal_article_review_IDs,known_other_type_or_missing_source_IDs
+matched,AR5,13189,13189,0,0,13022,167
+matched,AR6,34316,34316,0,0,33948,368
+matched_plus_DOI_recovered_unmatched,AR5,13724,13723,1,0,13523,200
+matched_plus_DOI_recovered_unmatched,AR6,37648,37641,7,0,36768,873

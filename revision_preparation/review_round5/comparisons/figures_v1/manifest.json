@@ -1,0 +1,56 @@
+{
+  "analysis_version": "1.6.0",
+  "seed": 20261011,
+  "backend": "Python/matplotlib",
+  "script_sha256": "3037c9d2817b0365cb3255502fa73ef96466568fa1fbb0b5e5a0a1249a4c7b26",
+  "matplotlib_version": "3.11.2",
+  "inputs": [
+    {
+      "path": "wg_reference_recurrence.csv",
+      "sha256": "c6245e95096c7e4c55e4102110ce03c844cb7aa73dc3730ec78e68ef10afa80e"
+    },
+    {
+      "path": "hill_profiles.csv",
+      "sha256": "1bbd31cc6a4e1df976c1dad4003a6715eac75894e37274349404bd7cfc361562"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "wg_reference_recurrence.pdf",
+      "sha256": "3c936342e852ff7d6919e56c59111c3bcb8f9c9cfcfb957290ea42af9bb1a366"
+    },
+    {
+      "path": "wg_reference_recurrence.svg",
+      "sha256": "1526141b6ce1df1d5fb0c21cf32f905277bc086b80d2d01d8e77ad2ba3fc1134"
+    },
+    {
+      "path": "wg_reference_recurrence.png",
+      "sha256": "c64c5955ea75576d82be4856a17593eb8d090ed90666a37cd45b5c22f9e0d5fa"
+    },
+    {
+      "path": "hill_profiles.pdf",
+      "sha256": "fe094cda9073ebf8800057a433cc62f028087226b66ca072260da05fb747b988"
+    },
+    {
+      "path": "hill_profiles.svg",
+      "sha256": "a60aef3f77b90bc6cf30e61c5534d5d1c46d76714a2cccadff745b348eff4fcd"
+    },
+    {
+      "path": "hill_profiles.png",
+      "sha256": "02f799ecd0c9e1e875b64095379275e1e851334f22b55fc4e53645232927b11b"
+    },
+    {
+      "path": "data_construction_flow.pdf",
+      "sha256": "f48397617e3535c5b314f99f90171316eb526f63825759070e346185ac118d3d"
+    },
+    {
+      "path": "data_construction_flow.svg",
+      "sha256": "137a8aefb1722acbffe1a3d7f2d0df3aae3dc4433f0b754cb4de0486f260acc2"
+    },
+    {
+      "path": "data_construction_flow.png",
+      "sha256": "eec54ef979380f935cc55c2dc47b0aee3eb662347b19cd54a6637415e3faa86f"
+    }
+  ],
+  "hill_profile_note": "Observed full resolved-source counts, not coverage-standardized extrapolation. No intervals appear because these are deterministic cohort summaries."
+}

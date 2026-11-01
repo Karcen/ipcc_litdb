@@ -1,0 +1,64 @@
+{
+  "query_date": "2026-10-12",
+  "document": "reviewer_prep.md",
+  "comments": [
+    {
+      "id": "R1",
+      "topic": "Record identity and validation",
+      "location": "Data and methods, identity construction and correction ledger; Results, identity audit; Table `tab:recurrence`; Appendix `sec:audit`.",
+      "response_is_conditional": true,
+      "analysis_completion_claimed": false
+    },
+    {
+      "id": "R2",
+      "topic": "Entry, eligibility and matching coverage",
+      "location": "Data and methods, cohort definitions and eligibility boundary; Results, earlier-presence partition and conditional reuse; Table `tab:recurrence`.",
+      "response_is_conditional": true,
+      "analysis_completion_claimed": false
+    },
+    {
+      "id": "R3",
+      "topic": "Citation age and the recent-reference fraction",
+      "location": "Data and methods, age definition and weighting; Results, age distributions; Figure `fig:age`; Table `tab:age`.",
+      "response_is_conditional": true,
+      "analysis_completion_claimed": false
+    },
+    {
+      "id": "R4",
+      "topic": "Resampling and the unit of uncertainty",
+      "location": "Data and methods, chapter resampling; Results, mean and recent-share differences; Figure `fig:age` and its caption.",
+      "response_is_conditional": true,
+      "analysis_completion_claimed": false
+    },
+    {
+      "id": "R5",
+      "topic": "Outlet labels and concentration",
+      "location": "Data and methods, outlet normalization and Hill numbers; Results, outlet comparisons; Figure `fig:outlets`.",
+      "response_is_conditional": true,
+      "analysis_completion_claimed": false
+    },
+    {
+      "id": "R6",
+      "topic": "Working-group sharing and its null model",
+      "location": "Data and methods, group-membership null; Results, coverage and pairwise sharing; Table `tab:groups`; Figure `fig:groups`; Appendix `sec:audit`.",
+      "response_is_conditional": true,
+      "analysis_completion_claimed": false
+    },
+    {
+      "id": "R7",
+      "topic": "Contribution and historical measures",
+      "location": "Introduction, research question and closest IPCC studies; Data and methods, recent-reference and effective-number definitions; Discussion, contribution paragraph.",
+      "response_is_conditional": true,
+      "analysis_completion_claimed": false
+    },
+    {
+      "id": "R8",
+      "topic": "Reproduction, source provenance and AI assistance",
+      "location": "Data and methods, acquisition and reproduction paragraph and AI disclosure; Data and code availability; figure captions; release manifest and README.",
+      "response_is_conditional": true,
+      "analysis_completion_claimed": false
+    }
+  ],
+  "annotation_status": "pending",
+  "corrected_crosswalk_status": "not available for probability-sample findings"
+}

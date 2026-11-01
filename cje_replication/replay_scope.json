@@ -1,0 +1,19 @@
+{
+  "current_type_audit_validation_reference_tables": 22,
+  "excluded_historical_table": "AUDIT_types_by_group.csv",
+  "reason": "The saved historical audit table predates the current document-type classifier. Current A-series distribution and matching tables reproduce exactly. The independent type-audit script remains available and writes a new diagnostic to output/tables; its output is not silently substituted for the historical reference.",
+  "current_manuscript_macros": {
+    "checked": 199,
+    "matched": 199,
+    "evidence": "The independently executed macro replay compared output/numbers_CJE_revised.tex with the submitted numerical definitions; see output/macro_reproduction_check.json when replayed."
+  },
+  "algorithm_changes": "None. Only paths, frozen input locations, offline guards, and the explicit current reference-table selection were adapted.",
+  "prohibited_claim": "This package does not claim 23/23 historical type/audit tables reproduced.",
+  "legacy_reference_packaging": "The obsolete historical table is not included among current reference outputs or packaged as a baseline.",
+  "core_replay": {
+    "tables": 10,
+    "identity_frame": "Rebuilt from frozen SQLite and DOI resolution; no cached identity input required."
+  },
+  "historical_limit": "The obsolete CEJ manuscript directory and old 26-claim registry source files are absent. The current submitted analysis is checked against its own 32 saved result tables and 199 numerical definitions.",
+  "no_api_requests_or_new_labels": true
+}

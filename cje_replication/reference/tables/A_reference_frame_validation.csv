@@ -1,0 +1,23 @@
+metric,value,numerator,denominator,reference_value,status
+AR5 occurrence count,27851.0,,,27851,OK
+AR6 occurrence count,63027.0,,,63027,OK
+AR5 identities (extracted frame),21770.0,,,21770,OK
+AR6 identities (extracted frame),47636.0,,,47636,OK
+AR5 matched identities,13503.0,,,13503,OK
+AR6 matched identities,34869.0,,,34869,OK
+shared matched identities,1657.0,,,1657,OK
+overall matched retention %,12.2713,1657,13503,12.27,OK
+WG1 matched retention %,14.4666,811,5606,14.4666,OK
+WG1 extracted retention %,12.4791,896,7180,12.4791,OK
+WG1 AR5 identity coverage %,78.078,5606,7180,78.078,OK
+WG1 availability-conditional reuse %,38.4927,761,1977,38.4927,OK
+WG2 matched retention %,7.8841,506,6418,7.8841,OK
+WG2 extracted retention %,6.6189,720,10878,6.6189,OK
+WG2 AR5 identity coverage %,58.9998,6418,10878,59.0,OK
+WG2 availability-conditional reuse %,27.2572,480,1761,27.2572,OK
+WG3 matched retention %,8.127,174,2141,8.127,OK
+WG3 extracted retention %,5.6883,269,4729,5.6883,OK
+WG3 AR5 identity coverage %,45.2738,2141,4729,45.2738,OK
+WG3 availability-conditional reuse %,12.6365,162,1282,12.6365,OK
+WoS records with publication year < 1998,0.0,,,0,OK
+matched AR5 identities with raw-string year < 1998,15.0,15,13503,n/a,verified

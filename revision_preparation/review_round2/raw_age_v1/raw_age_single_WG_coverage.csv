@@ -1,0 +1,17 @@
+report,cohort,cited_year_field,age_origin,all_selected_occurrences,single_WG_selected_occurrences,other_group_selected_occurrences,all_included_occurrences,single_WG_included_occurrences,other_group_included_occurrences,all_included_assigned_IDs,single_WG_included_assigned_IDs
+AR5,all_extracted,raw_leading_year,source_publication_year,27851,27827,24,27659,27635,24,21638,21635
+AR5,all_extracted,raw_leading_year,documented_cutoff_year,27851,27827,24,27588,27588,0,21603,21603
+AR5,all_extracted,preferred_year,source_publication_year,27851,27827,24,26243,26229,14,20643,20640
+AR5,all_extracted,preferred_year,documented_cutoff_year,27851,27827,24,26120,26120,0,20550,20550
+AR5,matched_occurrences,raw_leading_year,source_publication_year,17593,17593,0,17536,17536,0,13474,13474
+AR5,matched_occurrences,raw_leading_year,documented_cutoff_year,17593,17593,0,17508,17508,0,13453,13453
+AR5,matched_occurrences,preferred_year,source_publication_year,17593,17593,0,17519,17519,0,13447,13447
+AR5,matched_occurrences,preferred_year,documented_cutoff_year,17593,17593,0,17491,17491,0,13422,13422
+AR6,all_extracted,raw_leading_year,source_publication_year,63027,63027,0,62910,62910,0,47542,47542
+AR6,all_extracted,raw_leading_year,documented_cutoff_year,63027,63027,0,62876,62876,0,47512,47512
+AR6,all_extracted,preferred_year,source_publication_year,63027,63027,0,61475,61475,0,46654,46654
+AR6,all_extracted,preferred_year,documented_cutoff_year,63027,63027,0,61181,61181,0,46533,46533
+AR6,matched_occurrences,raw_leading_year,source_publication_year,47049,47049,0,47037,47037,0,34867,34867
+AR6,matched_occurrences,raw_leading_year,documented_cutoff_year,47049,47049,0,47024,47024,0,34856,34856
+AR6,matched_occurrences,preferred_year,source_publication_year,47049,47049,0,47000,47000,0,34836,34836
+AR6,matched_occurrences,preferred_year,documented_cutoff_year,47049,47049,0,46978,46978,0,34814,34814

@@ -1,0 +1,22 @@
+{
+  "all_passed": true,
+  "baseline_bridge_checks": [
+    {
+      "check": "literal_single_raw_DOI_all_statuses AR4-AR5",
+      "passed": true
+    },
+    {
+      "check": "literal_single_raw_DOI_all_statuses AR5-AR6",
+      "passed": true
+    },
+    {
+      "check": "punctuation_repaired_single_raw_DOI_all_statuses AR4-AR5",
+      "passed": true
+    },
+    {
+      "check": "punctuation_repaired_single_raw_DOI_all_statuses AR5-AR6",
+      "passed": true
+    }
+  ],
+  "database_unchanged": true
+}

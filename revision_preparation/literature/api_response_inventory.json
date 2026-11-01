@@ -1,0 +1,856 @@
+[
+  {
+    "key": "bradford1934original",
+    "provider": "crossref_search",
+    "query_date": "2026-10-12",
+    "queried_at_utc": "2026-10-12T10:57:11.853746+00:00",
+    "request_url": "https://api.crossref.org/works?query.bibliographic=Sources+of+information+on+specific+subjects&rows=5",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "key": "bradford1934original",
+    "provider": "openalex_search",
+    "query_date": "2026-10-12",
+    "queried_at_utc": "2026-10-12T10:57:12.023521+00:00",
+    "request_url": "https://api.openalex.org/works?search=Sources+of+information+on+specific+subjects&per-page=5",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "key": "bradford1985sources",
+    "provider": "crossref",
+    "query_date": "2026-10-12",
+    "queried_at_utc": "2026-10-12T10:57:08.544095+00:00",
+    "request_url": "https://api.crossref.org/works/10.1177%2F016555158501000407",
+    "http_status": 200,
+    "content_type": "application/json",
+    "raw_response_path": "raw/bradford1985sources_crossref.json",
+    "payload_sha256": "da93f1fa3d88fca38ddf0fc8b2090774b64ae6c9b3d08a00bb2fb2e6eaa2ebba",
+    "bibliographic_fields": {
+      "DOI": "10.1177/016555158501000407",
+      "title": [
+        "Sources of information on specific subjects 1934"
+      ],
+      "author": null,
+      "container-title": [
+        "Journal of Information Science"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1985,
+            4
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            1985,
+            4
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            1985,
+            4,
+            1
+          ]
+        ]
+      },
+      "volume": "10",
+      "issue": "4",
+      "page": "176-180",
+      "type": "journal-article",
+      "URL": "https://doi.org/10.1177/016555158501000407",
+      "link": [
+        {
+          "URL": "https://journals.sagepub.com/doi/pdf/10.1177/016555158501000407",
+          "content-type": "application/pdf",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://journals.sagepub.com/doi/pdf/10.1177/016555158501000407",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "abstract": null,
+      "publisher": "SAGE Publications",
+      "license": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                1985,
+                4,
+                1
+              ]
+            ],
+            "date-time": "1985-04-01T00:00:00Z",
+            "timestamp": 481161600000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://journals.sagepub.com/page/policies/text-and-data-mining-license"
+        }
+      ]
+    }
+  },
+  {
+    "key": "bradford1985sources",
+    "provider": "openalex",
+    "query_date": "2026-10-12",
+    "queried_at_utc": "2026-10-12T10:57:08.544132+00:00",
+    "request_url": "https://api.openalex.org/works/https://doi.org/10.1177/016555158501000407",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "key": "burton1960halflife",
+    "provider": "crossref",
+    "query_date": "2026-10-12",
+    "queried_at_utc": "2026-10-12T10:57:08.544000+00:00",
+    "request_url": "https://api.crossref.org/works/10.1002%2Fasi.5090110105",
+    "http_status": 200,
+    "content_type": "application/json",
+    "raw_response_path": "raw/burton1960halflife_crossref.json",
+    "payload_sha256": "85b2b78894de51154841893f1f2e0bf0dcfdd9ad1bd39d597f8900f82c093227",
+    "bibliographic_fields": {
+      "DOI": "10.1002/asi.5090110105",
+      "title": [
+        "The \u201chalf\u2010life\u201d of some scientific and technical literatures"
+      ],
+      "author": [
+        {
+          "given": "R. E.",
+          "family": "Burton",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "R. W.",
+          "family": "Kebler",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "American Documentation"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1960,
+            1
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            1960,
+            1
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2007,
+            4,
+            19
+          ]
+        ]
+      },
+      "volume": "11",
+      "issue": "1",
+      "page": "18-22",
+      "type": "journal-article",
+      "URL": "https://doi.org/10.1002/asi.5090110105",
+      "link": [
+        {
+          "URL": "https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1002%2Fasi.5090110105",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://onlinelibrary.wiley.com/doi/pdf/10.1002/asi.5090110105",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "abstract": "<jats:title>Abstract</jats:title><jats:p>A consideration of the analogy between the <jats:italic>half\u2010life</jats:italic> of radioactive substances and the rate of obsolescence of scientific literature. The validity of this analogy suggests the possibility of more accurate prognostications concerning the period of time during which scientific literature may be used and hence might help to guide the planning of library collections and technical information services.</jats:p>",
+      "publisher": "Wiley",
+      "license": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2007,
+                4,
+                19
+              ]
+            ],
+            "date-time": "2007-04-19T00:00:00Z",
+            "timestamp": 1176940800000
+          },
+          "content-version": "vor",
+          "delay-in-days": 17275,
+          "URL": "http://onlinelibrary.wiley.com/termsAndConditions#vor"
+        }
+      ]
+    }
+  },
+  {
+    "key": "burton1960halflife",
+    "provider": "openalex",
+    "query_date": "2026-10-12",
+    "queried_at_utc": "2026-10-12T10:57:08.544049+00:00",
+    "request_url": "https://api.openalex.org/works/https://doi.org/10.1002/asi.5090110105",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "key": "hill1973diversity",
+    "provider": "crossref",
+    "query_date": "2026-10-12",
+    "queried_at_utc": "2026-10-12T10:57:09.946040+00:00",
+    "request_url": "https://api.crossref.org/works/10.2307%2F1934352",
+    "http_status": 200,
+    "content_type": "application/json",
+    "raw_response_path": "raw/hill1973diversity_crossref.json",
+    "payload_sha256": "05f9bf61d3d0e50034d30bb248129d28a032490dda4fb55b551d7b5f9bf87597",
+    "bibliographic_fields": {
+      "DOI": "10.2307/1934352",
+      "title": [
+        "Diversity and Evenness: A Unifying Notation and Its Consequences"
+      ],
+      "author": [
+        {
+          "given": "M. O.",
+          "family": "Hill",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Ecology"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1973,
+            3
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            1973,
+            3
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            1973,
+            3
+          ]
+        ]
+      },
+      "volume": "54",
+      "issue": "2",
+      "page": "427-432",
+      "type": "journal-article",
+      "URL": "https://doi.org/10.2307/1934352",
+      "link": [
+        {
+          "URL": "http://api.wiley.com/onlinelibrary/tdm/v1/articles/10.2307%2F1934352",
+          "content-type": "application/pdf",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.2307%2F1934352",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://esajournals.onlinelibrary.wiley.com/doi/pdf/10.2307/1934352",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "abstract": "<jats:p>Three commonly used measures of diversity, Simpson's index, Shannon's entropy, and the total number of species, are related to Renyi's definition of a generalized entropy. A unified concept of diversity is presented, according to which there is a continuum of possible diversity measures. In a sense which becomes apparent, these measures provide estimates of the effective number of species present, and differ only in their tendency to include or to ignore the relatively rarer species. The notion of the diversity of a community as opposed to that of a sample is examined, and is related to the asymptotic form of the species\u2014abundance curve. A new and plausible definition of evenness is derived.</jats:p>",
+      "publisher": "Wiley",
+      "license": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                1973,
+                3,
+                1
+              ]
+            ],
+            "date-time": "1973-03-01T00:00:00Z",
+            "timestamp": 99792000000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "http://onlinelibrary.wiley.com/termsAndConditions#vor"
+        }
+      ]
+    }
+  },
+  {
+    "key": "hill1973diversity",
+    "provider": "openalex",
+    "query_date": "2026-10-12",
+    "queried_at_utc": "2026-10-12T10:57:10.583284+00:00",
+    "request_url": "https://api.openalex.org/works/https://doi.org/10.2307/1934352",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "key": "jost2006entropy",
+    "provider": "crossref",
+    "query_date": "2026-10-12",
+    "queried_at_utc": "2026-10-12T10:57:10.767990+00:00",
+    "request_url": "https://api.crossref.org/works/10.1111%2Fj.2006.0030-1299.14714.x",
+    "http_status": 200,
+    "content_type": "application/json",
+    "raw_response_path": "raw/jost2006entropy_crossref.json",
+    "payload_sha256": "4f4e48ca6351eec0dbb8a0ba9c50ede5bf34f5be51c00b979849a3c1831b27ec",
+    "bibliographic_fields": {
+      "DOI": "10.1111/j.2006.0030-1299.14714.x",
+      "title": [
+        "<i>Entropy and diversity</i>"
+      ],
+      "author": [
+        {
+          "given": "Lou",
+          "family": "Jost",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Oikos"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2006,
+            5
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2006,
+            5
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2006,
+            5,
+            18
+          ]
+        ]
+      },
+      "volume": "113",
+      "issue": "2",
+      "page": "363-375",
+      "type": "journal-article",
+      "URL": "https://doi.org/10.1111/j.2006.0030-1299.14714.x",
+      "link": [
+        {
+          "URL": "https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1111%2Fj.2006.0030-1299.14714.x",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1111%2Fj.2006.0030-1299.14714.x",
+          "content-type": "application/pdf",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://nsojournals.onlinelibrary.wiley.com/doi/pdf/10.1111/j.2006.0030-1299.14714.x",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "abstract": "<jats:p>Entropies such as the Shannon\u2013Wiener and Gini\u2013Simpson indices are not themselves diversities. Conversion of these to effective number of species is the key to a unified and intuitive interpretation of diversity. Effective numbers of species derived from standard diversity indices share a common set of intuitive mathematical properties and behave as one would expect of a diversity, while raw indices do not. Contrary to Keylock, the lack of concavity of effective numbers of species is irrelevant as long as they are used as transformations of concave alpha, beta, and gamma entropies. The practical importance of this transformation is demonstrated by applying it to a popular community similarity measure based on raw diversity indices or entropies. The standard similarity measure based on untransformed indices is shown to give misleading results, but transforming the indices or entropies to effective numbers of species produces a stable, easily interpreted, sensitive general similarity measure. General overlap measures derived from this transformed similarity measure yield the Jaccard index, S\u00f8rensen index, Horn index of overlap, and the Morisita\u2013Horn index as special cases.</jats:p>",
+      "publisher": "Wiley",
+      "license": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2006,
+                2,
+                23
+              ]
+            ],
+            "date-time": "2006-02-23T00:00:00Z",
+            "timestamp": 1140652800000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "http://onlinelibrary.wiley.com/termsAndConditions#vor"
+        }
+      ]
+    }
+  },
+  {
+    "key": "jost2006entropy",
+    "provider": "openalex",
+    "query_date": "2026-10-12",
+    "queried_at_utc": "2026-10-12T10:57:11.545924+00:00",
+    "request_url": "https://api.openalex.org/works/https://doi.org/10.1111/j.2006.0030-1299.14714.x",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "key": "price1965networks",
+    "provider": "crossref",
+    "query_date": "2026-10-12",
+    "queried_at_utc": "2026-10-12T10:57:08.543654+00:00",
+    "request_url": "https://api.crossref.org/works/10.1126%2Fscience.149.3683.510",
+    "http_status": 200,
+    "content_type": "application/json",
+    "raw_response_path": "raw/price1965networks_crossref.json",
+    "payload_sha256": "0045c1464d9f4af30d7a96118323676cabee9337ddb6c2947fdf2c843c87b367",
+    "bibliographic_fields": {
+      "DOI": "10.1126/science.149.3683.510",
+      "title": [
+        "Networks of Scientific Papers"
+      ],
+      "author": [
+        {
+          "given": "Derek J. de Solla",
+          "family": "Price",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Yale University, New Haven, Connecticut"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Science"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1965,
+            7,
+            30
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            1965,
+            7,
+            30
+          ]
+        ]
+      },
+      "published-online": null,
+      "volume": "149",
+      "issue": "3683",
+      "page": "510-515",
+      "type": "journal-article",
+      "URL": "https://doi.org/10.1126/science.149.3683.510",
+      "link": [
+        {
+          "URL": "https://www.science.org/doi/pdf/10.1126/science.149.3683.510",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "abstract": null,
+      "publisher": "American Association for the Advancement of Science (AAAS)",
+      "license": null
+    }
+  },
+  {
+    "key": "price1965networks",
+    "provider": "openalex",
+    "query_date": "2026-10-12",
+    "queried_at_utc": "2026-10-12T10:57:08.543918+00:00",
+    "request_url": "https://api.openalex.org/works/https://doi.org/10.1126/science.149.3683.510",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "key": "price1970citationmeasures",
+    "provider": "crossref_search",
+    "query_date": "2026-10-12",
+    "queried_at_utc": "2026-10-12T10:57:11.590614+00:00",
+    "request_url": "https://api.crossref.org/works?query.bibliographic=Citation+measures+of+hard+science+soft+science+technology+and+nonscience&rows=5",
+    "http_status": 200,
+    "content_type": "application/json",
+    "raw_response_path": "raw/price1970citationmeasures_crossref_search.json",
+    "payload_sha256": "6d49fc1630f04c9d2db48fe6fd7163552ad9e829dc9ebba61078f4217e5199d2",
+    "bibliographic_fields": {
+      "id": null,
+      "doi": null,
+      "title": null,
+      "display_name": null,
+      "publication_year": null,
+      "publication_date": null,
+      "authorships": null,
+      "primary_location": null,
+      "biblio": null,
+      "type": null,
+      "open_access": null,
+      "abstract_inverted_index": null,
+      "locations": null
+    }
+  },
+  {
+    "key": "price1970citationmeasures",
+    "provider": "openalex_search",
+    "query_date": "2026-10-12",
+    "queried_at_utc": "2026-10-12T10:57:11.844932+00:00",
+    "request_url": "https://api.openalex.org/works?search=Citation+measures+of+hard+science+soft+science+technology+and+nonscience&per-page=5",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "key": "simpson1949diversity",
+    "provider": "crossref",
+    "query_date": "2026-10-12",
+    "queried_at_utc": "2026-10-12T10:57:10.630685+00:00",
+    "request_url": "https://api.crossref.org/works/10.1038%2F163688a0",
+    "http_status": 200,
+    "content_type": "application/json",
+    "raw_response_path": "raw/simpson1949diversity_crossref.json",
+    "payload_sha256": "a9a8f304691f3268c6989e7b59f7950c80c28c1ec2f5a71f0e91af40158f79df",
+    "bibliographic_fields": {
+      "DOI": "10.1038/163688a0",
+      "title": [
+        "Measurement of Diversity"
+      ],
+      "author": [
+        {
+          "given": "E. H.",
+          "family": "SIMPSON",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Nature"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1949,
+            4,
+            30
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            1949,
+            4,
+            30
+          ]
+        ]
+      },
+      "published-online": null,
+      "volume": "163",
+      "issue": "4148",
+      "page": "688-688",
+      "type": "journal-article",
+      "URL": "https://doi.org/10.1038/163688a0",
+      "link": [
+        {
+          "URL": "https://www.nature.com/articles/163688a0.pdf",
+          "content-type": "application/pdf",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://www.nature.com/articles/163688a0",
+          "content-type": "text/html",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://www.nature.com/articles/163688a0.pdf",
+          "content-type": "application/pdf",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "abstract": null,
+      "publisher": "Springer Science and Business Media LLC",
+      "license": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                1949,
+                4,
+                30
+              ]
+            ],
+            "date-time": "1949-04-30T00:00:00Z",
+            "timestamp": -652406400000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                1949,
+                4,
+                30
+              ]
+            ],
+            "date-time": "1949-04-30T00:00:00Z",
+            "timestamp": -652406400000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+        }
+      ]
+    }
+  },
+  {
+    "key": "simpson1949diversity",
+    "provider": "openalex",
+    "query_date": "2026-10-12",
+    "queried_at_utc": "2026-10-12T10:57:10.654740+00:00",
+    "request_url": "https://api.openalex.org/works/https://doi.org/10.1038/163688a0",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "key": "bradford1976sources",
+    "provider": "crossref",
+    "query_date": "2026-10-12",
+    "queried_at_utc": "2026-10-12T11:06:42.111057+00:00",
+    "request_url": "https://api.crossref.org/works/10.1300%2FJ105v01n03_06",
+    "http_status": 200,
+    "raw_response_path": "raw/bradford1976sources_crossref.json",
+    "payload_sha256": "2cdbc4bb8cd9d7d63c0e7a98ba870dce541d6fb2a4ffa9008c18d10cde6995ce",
+    "bibliographic_fields": {
+      "DOI": "10.1300/j105v01n03_06",
+      "title": [
+        "CLASSIC PAPER: Sources of Information on Specific Subjects"
+      ],
+      "author": [
+        {
+          "given": "S. C.",
+          "family": "Bradford",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Collection Management"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1976,
+            12
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            1976,
+            12
+          ]
+        ]
+      },
+      "published-online": null,
+      "volume": "1",
+      "issue": "3-4",
+      "page": "95-104",
+      "type": "journal-article",
+      "URL": "https://doi.org/10.1300/j105v01n03_06",
+      "link": [
+        {
+          "URL": "http://www.tandfonline.com/doi/pdf/10.1300/J105v01n03_06",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "abstract": null,
+      "publisher": "Informa UK Limited",
+      "license": null
+    }
+  },
+  {
+    "key": "brookes1985bradford",
+    "provider": "crossref",
+    "query_date": "2026-10-12",
+    "queried_at_utc": "2026-10-12T11:06:43.529966+00:00",
+    "request_url": "https://api.crossref.org/works/10.1177%2F016555158501000406",
+    "http_status": 200,
+    "raw_response_path": "raw/brookes1985bradford_crossref.json",
+    "payload_sha256": "80170a8aa060dd74ed153964fdaf686cbef86302df417bbab74f4b9c8e8b7b66",
+    "bibliographic_fields": {
+      "DOI": "10.1177/016555158501000406",
+      "title": [
+        "\"Sources of information on specific subjects\" by S.C. Bradford"
+      ],
+      "author": [
+        {
+          "given": "B.C.",
+          "family": "Brookes",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Department of Information Science The City University London, United Kingdom"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Journal of Information Science"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1985,
+            4
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            1985,
+            4
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            1985,
+            4,
+            1
+          ]
+        ]
+      },
+      "volume": "10",
+      "issue": "4",
+      "page": "173-175",
+      "type": "journal-article",
+      "URL": "https://doi.org/10.1177/016555158501000406",
+      "link": [
+        {
+          "URL": "https://journals.sagepub.com/doi/pdf/10.1177/016555158501000406",
+          "content-type": "application/pdf",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://journals.sagepub.com/doi/pdf/10.1177/016555158501000406",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "abstract": null,
+      "publisher": "SAGE Publications",
+      "license": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                1985,
+                4,
+                1
+              ]
+            ],
+            "date-time": "1985-04-01T00:00:00Z",
+            "timestamp": 481161600000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://journals.sagepub.com/page/policies/text-and-data-mining-license"
+        }
+      ]
+    }
+  }
+]

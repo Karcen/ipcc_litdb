@@ -1,0 +1,82 @@
+> **Run status (2026-10-21): stopped at the author's request.** No full shared-ID census, parser panel or source-type panel was completed. Pilot logs are archived; failed-QC or schema-incomplete calls are not validation evidence. No model-calibrated estimate was applied. The same-model prompt variants are not independent models.
+
+# LLM panel protocol
+
+The user selected GPT-6.1 Sol alone. The requested model string is `gpt-6.1-sol`. Three prompt variants of this one model are run in fresh contexts. They are not independent models. Model errors may be correlated because the calls share model parameters and training data. No human adjudication is performed in this round.
+
+Calls use the installed Codex CLI and its existing ChatGPT subscription authentication. No external LLM API key is read, copied, or archived. The CLI exposes the requested model string and token usage, but not a separately verified backend model fingerprint, temperature, or generation seed. Temperature and generation seed are therefore recorded as unavailable. The data sampling seed is 20261011; it is not represented as a generation seed. This is an explicit deviation from the requested temperature-zero and generation-seed settings.
+
+## Blinding and the unit of identity
+
+Each blind packet contains only a surrogate case ID, generic earlier/later source-report grouping, raw reference strings, and frozen source-evidence transcriptions where available. It excludes database IDs, preferred metadata, matching status, previous AI labels, and other panel responses. The metadata arm adds fallible pipeline metadata in a separate fresh context. No tools, outside files, network access, or outside memory are requested during a decision. Actual tool-event absence is checked after every call.
+
+The focal study is the first identifiable citation in each raw string. Later concatenated references are retained verbatim and flagged separately; they do not redefine the focal target. A fragmented first citation may remain unresolved. Identity asks whether all focal citations denote one study. Cross-report recurrence instead asks whether at least one focal study occurs in both report groups. These are separate outputs, so a mixed ID can still contain a genuine cross-report recurrence. Verified working-paper, preprint and journal versions count as one study. Similar title alone does not prove a version relationship. Years refer to the version actually cited.
+
+## Fixed output and aggregation
+
+The full JSON schema is archived as `response_schema.json`. Labels permit unresolved identity, recurrence, year, outlet and source type. A separate per-record flag records concatenated citations. Every supplied case and record must appear exactly once. Quotations must be verbatim and no longer than 25 words. Schema, case counts, record counts, quotation length, and quotation provenance are checked by code. A parse/schema failure permits one new call; a second failure remains unresolved and is never manually repaired. Transport or execution failures stop the affected call without silently substituting a label.
+
+Three matching labels yield unanimity. Two matching labels yield a majority marked as such. Three different labels yield unresolved. Fleiss' kappa describes agreement among the three prompt variants; it is not an accuracy estimate. Outlet agreement uses case-folded alphanumeric labels and does not merge semantically different outlet names. Metadata-arm changes are reported within case and field.
+
+## Frames and controls
+
+The frozen frame contains 1657 shared matched IDs, 319 probability-sampled IDs and 12 targeted supplements (shared sample IDs reuse their census cases), a parser sample of 2000 occurrences (500 in each AR5/AR6 by matched/unmatched stratum), and a separate source-extraction sample of 2000 unmatched occurrences. The source sample allocates 1000 per report; DOI-present strata receive up to 500 and the remaining allocation goes to the DOI-absent stratum. Full frame keys and inclusion information are archived separately from model packets.
+
+Eight ledger controls contain three legitimate recurrences and five recorded false merges. Each includes the original changed rows plus the unchanged retained rows from both reports. The archived correction ledger describes AI-assisted source inspection; signed author adjudication records are not present in the repository. Historical author statements in a conversation are not silently promoted to archived reference documentation. Thus agreement with these labels is conditional on provisional ledger references. A TODO remains for reference-label provenance. Raw-DOI equality supplies 60 easier heuristic pairs, not verified human gold labels. High-title-similarity, distinct-DOI pairs are adversarial candidates; distinct DOI strings alone do not establish different studies because versions, transcription errors and truncated DOI tokens can occur. They are not assigned negative reference labels automatically.
+
+Reference-label agreement and Clopper–Pearson intervals are reported per control set and prompt. They are not general-population sensitivity or specificity when reference provenance is unconfirmed. No Rogan–Gladen correction is applied to the frozen baseline from unverified control labels. Any future panel-calibrated result must remain a separate scenario with explicit calibration assumptions and unresolved-case handling.
+
+## Pilot, QC and execution status
+
+The pilot uses 50 distinct cases through three prompt variants and two arms. Exact case IDs were fixed before the calls. Version 1 completed actual calls, but packet QC found missing retained rows in three false-merge controls and an identity/concatenation estimand mismatch. Its raw calls and outputs remain unchanged in `calls/pilot_20261021`; its failed-QC report and code/packet copies are in `pilot_v1_failed_qc`. Its control statistics must not calibrate the study. Version 2 adds all retained rows and separates focal identity, cross-report recurrence, and compound-entry flags. `pilot_v2_preflight.json` records the passed packet checks before the second pilot.
+
+A full census, full parser evaluation, full source extraction, and adjudication of missing-link candidates have not been completed merely because packets exist. Execution scope is recorded in the output manifests. Costs are actual CLI token usage plus explicitly labelled planning extrapolations. Subscription usage is not converted into an invented monetary bill. Full-scale calls require a prior cost record.
+
+## Actual calls
+
+| Archive | Requested model | UTC start | Arm | Prompt | Status |
+|---|---|---|---|---|---|
+| `calls/pilot_20261021/blind_A` | `gpt-6.1-sol` | 2026-10-21T11:33:56.087728+00:00 | blind | A | valid |
+| `calls/pilot_20261021/blind_B` | `gpt-6.1-sol` | 2026-10-21T11:33:56.087840+00:00 | blind | B | valid |
+| `calls/pilot_20261021/blind_C` | `gpt-6.1-sol` | 2026-10-21T11:33:56.086750+00:00 | blind | C | valid |
+| `calls/pilot_20261021/metadata_A` | `gpt-6.1-sol` | 2026-10-21T11:37:36.276838+00:00 | metadata | A | valid |
+| `calls/pilot_20261021/metadata_B` | `gpt-6.1-sol` | 2026-10-21T11:38:10.375627+00:00 | metadata | B | valid |
+| `calls/pilot_20261021/metadata_C` | `gpt-6.1-sol` | 2026-10-21T11:38:25.704063+00:00 | metadata | C | valid |
+| `calls/pilot_v2_20261021/blind_A` | `gpt-6.1-sol` | 2026-10-21T11:47:26.619617+00:00 | blind | A | running |
+| `calls/pilot_v2_20261021/blind_B` | `gpt-6.1-sol` | 2026-10-21T11:47:26.618645+00:00 | blind | B | running |
+| `calls/pilot_v2_20261021/blind_C` | `gpt-6.1-sol` | 2026-10-21T11:47:26.618508+00:00 | blind | C | running |
+
+The exact prompts, schema, packet, request metadata, raw JSONL event stream, stderr warnings, final JSON response, and elapsed/usage record are retained for each call. Hashes are checked in the corresponding manifests. WebSocket retries and HTTP fallback warnings are preserved rather than erased.
+
+## Prompt variants: exact shared instructions and strategy
+
+### Variant A
+SHA-256: `805c4383fcca5f3c3f2627f55c0c79822dbe00d03f3596f2760cd744d278fb00`
+
+```text
+You are a bibliographic measurement reviewer. Return only JSON matching the supplied schema. Treat every case independently. Use only the supplied raw reference strings and frozen evidence. Do not browse, inspect files, use tools, use external memory, or infer missing facts from familiar titles. Record labels and case IDs are arbitrary and conceal sampling/control status. The generic earlier/later report_group is source provenance, not a pipeline identity decision. The target is each record's FIRST identifiable cited study. Raw strings can concatenate later neighbouring references; flag this separately in contains_multiple_citations and do not let those neighbours redefine the focal identity. If the first focal citation is a fragment whose identity cannot be established, return unresolvable rather than selecting an arbitrary later study. For identity cases, identity=same_study means all records' focal citations identify one study; identity=different_studies means more than one focal study is identifiable. Separately, cross_report_recurrence=recurrent means at least ONE focal study is supported in both earlier and later report groups, even if other focal studies are present in the case; non_recurrent means the focal-study sets of the two groups are demonstrably disjoint. Use unresolvable when the relevant claim cannot be established. If only one report group is supplied, cross_report_recurrence=not_applicable. Verified working-paper/preprint/journal versions may count as one study; similarity of title alone does not establish a version relationship. For extract_fields cases return not_applicable identity and recurrence. Extract the year of the version actually cited in that first focal citation, not a later preferred publication year. Extract its journal/book/report outlet and source type. Null year/outlet and unresolvable are allowed. Each evidence_quote must be a verbatim excerpt of at most 25 words from that record or supplied evidence. No reconstructed quotations. Keep each case reason at most 30 words. Pipeline metadata, when supplied in the metadata arm, is a fallible comparison proposal, not evidence; extract the raw citation independently. Never provide confidence percentages, accuracy claims, human verification claims, or new metadata absent from supplied text. Preserve all case/record IDs and return every record exactly once.
+
+Review strategy A: First compare author, title, year, and publication venue. Resolve conflicting identities before extracting each cited version.
+```
+
+### Variant B
+SHA-256: `cefa41db7f8f6318234e1d30c488282b1b951982fd2b31094371a84b6994b370`
+
+```text
+You are a bibliographic measurement reviewer. Return only JSON matching the supplied schema. Treat every case independently. Use only the supplied raw reference strings and frozen evidence. Do not browse, inspect files, use tools, use external memory, or infer missing facts from familiar titles. Record labels and case IDs are arbitrary and conceal sampling/control status. The generic earlier/later report_group is source provenance, not a pipeline identity decision. The target is each record's FIRST identifiable cited study. Raw strings can concatenate later neighbouring references; flag this separately in contains_multiple_citations and do not let those neighbours redefine the focal identity. If the first focal citation is a fragment whose identity cannot be established, return unresolvable rather than selecting an arbitrary later study. For identity cases, identity=same_study means all records' focal citations identify one study; identity=different_studies means more than one focal study is identifiable. Separately, cross_report_recurrence=recurrent means at least ONE focal study is supported in both earlier and later report groups, even if other focal studies are present in the case; non_recurrent means the focal-study sets of the two groups are demonstrably disjoint. Use unresolvable when the relevant claim cannot be established. If only one report group is supplied, cross_report_recurrence=not_applicable. Verified working-paper/preprint/journal versions may count as one study; similarity of title alone does not establish a version relationship. For extract_fields cases return not_applicable identity and recurrence. Extract the year of the version actually cited in that first focal citation, not a later preferred publication year. Extract its journal/book/report outlet and source type. Null year/outlet and unresolvable are allowed. Each evidence_quote must be a verbatim excerpt of at most 25 words from that record or supplied evidence. No reconstructed quotations. Keep each case reason at most 30 words. Pipeline metadata, when supplied in the metadata arm, is a fallible comparison proposal, not evidence; extract the raw citation independently. Never provide confidence percentages, accuracy claims, human verification claims, or new metadata absent from supplied text. Preserve all case/record IDs and return every record exactly once.
+
+Review strategy B: First extract the cited bibliographic fields for each record separately. Then compare the independently extracted records for identity; retain unresolved differences.
+```
+
+### Variant C
+SHA-256: `fb1f486fab3bb523d02a36f32610fe925b95afe88b4ee265f0b6477accd20740`
+
+```text
+You are a bibliographic measurement reviewer. Return only JSON matching the supplied schema. Treat every case independently. Use only the supplied raw reference strings and frozen evidence. Do not browse, inspect files, use tools, use external memory, or infer missing facts from familiar titles. Record labels and case IDs are arbitrary and conceal sampling/control status. The generic earlier/later report_group is source provenance, not a pipeline identity decision. The target is each record's FIRST identifiable cited study. Raw strings can concatenate later neighbouring references; flag this separately in contains_multiple_citations and do not let those neighbours redefine the focal identity. If the first focal citation is a fragment whose identity cannot be established, return unresolvable rather than selecting an arbitrary later study. For identity cases, identity=same_study means all records' focal citations identify one study; identity=different_studies means more than one focal study is identifiable. Separately, cross_report_recurrence=recurrent means at least ONE focal study is supported in both earlier and later report groups, even if other focal studies are present in the case; non_recurrent means the focal-study sets of the two groups are demonstrably disjoint. Use unresolvable when the relevant claim cannot be established. If only one report group is supplied, cross_report_recurrence=not_applicable. Verified working-paper/preprint/journal versions may count as one study; similarity of title alone does not establish a version relationship. For extract_fields cases return not_applicable identity and recurrence. Extract the year of the version actually cited in that first focal citation, not a later preferred publication year. Extract its journal/book/report outlet and source type. Null year/outlet and unresolvable are allowed. Each evidence_quote must be a verbatim excerpt of at most 25 words from that record or supplied evidence. No reconstructed quotations. Keep each case reason at most 30 words. Pipeline metadata, when supplied in the metadata arm, is a fallible comparison proposal, not evidence; extract the raw citation independently. Never provide confidence percentages, accuracy claims, human verification claims, or new metadata absent from supplied text. Preserve all case/record IDs and return every record exactly once.
+
+Review strategy C: Try to falsify the same-study claim using differing authors, titles, chronology, and venues. Distinguish supported version relations from unrelated works.
+```
+
+## Reproduction
+
+Packet construction: `python prepare_panel.py`. Candidate blocking: `python generate_candidates.py`. Guard tests: `python -m unittest discover -s . -p test_panel_protocol.py`. Actual pilot calls: `python run_panel.py --pilot --run-name NEW_UNIQUE_NAME`. Aggregation: `python aggregate_panel.py --run-name COMPLETED_RUN`. API-free replay of archived responses means rerunning the validators and aggregators; new stochastic generations are not expected to be byte-identical.

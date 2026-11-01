@@ -1,0 +1,53 @@
+{
+  "age": {
+    "input_age_change_rows": 12,
+    "input_component_rows": 8,
+    "panels": [
+      {
+        "n": "included occurrence counts exported in source CSV",
+        "panel": "a",
+        "role": "primary age comparison with uncertainty",
+        "uncertainty": "all six contrasts have the same 95% chapter-composition interval definition"
+      },
+      {
+        "n": "same pooled report population used for the status decomposition",
+        "panel": "b",
+        "role": "exact algebraic decomposition with component uncertainty",
+        "uncertainty": "all six terms have the same 95% pooled chapter-composition interval definition"
+      }
+    ],
+    "selected_age_change_rows": 6,
+    "selected_component_rows": 2,
+    "selection": "Occurrence-weighted mean changes for both age origins; equal-ID and recent-share analyses remain in the age archive"
+  },
+  "automatic_QA": {
+    "age_change_and_components_collision_audit": {
+      "exit_code": 0,
+      "report": "age_change_and_components_collision_audit.json"
+    },
+    "age_change_and_components_font_audit": {
+      "exit_code": 0,
+      "report": "age_change_and_components_font_audit.json"
+    },
+    "missing_source_allocation_collision_audit": {
+      "exit_code": 0,
+      "report": "missing_source_allocation_collision_audit.json"
+    },
+    "missing_source_allocation_font_audit": {
+      "exit_code": 0,
+      "report": "missing_source_allocation_font_audit.json"
+    },
+    "source_preflight": {
+      "exit_code": 0,
+      "report": "source_preflight.json"
+    }
+  },
+  "missing_sources": {
+    "input_rows": 84,
+    "scientific_scope": "Conditional allocation paths for unknown-type/source IDs treated as journal-eligible, known other types excluded",
+    "selected_rows": 42,
+    "selection": "AR5-labelled copies contain the same AR6-minus-AR5 contrasts as the AR6 rows; duplicate equality checked",
+    "uncertainty": "None; deterministic scenarios, not a confidence band, estimate or LLM source classification"
+  },
+  "visual_QA_status": "pending final rendered inspection; stored separately after review"
+}

@@ -1,0 +1,29 @@
+{
+  "analysis_package": "1.4.0",
+  "seed": 20261011,
+  "acquisition_state": "complete_raw_cache_quiescent",
+  "new_requests_permitted": false,
+  "completed_source_populations": [
+    "broad_AR5",
+    "broad_AR6",
+    "narrow_AR5",
+    "narrow_AR6"
+  ],
+  "missing_required_populations": [],
+  "missing_source_enrichment": [],
+  "unavailable_analyses": [],
+  "usable_completed_subset_registry": "completed_pool_v1/manifest.json",
+  "note": "All requested data acquisitions completed. Raw cache is quiescent; no further API or model calls. Legacy API_FAILURE_STOP.json retained as historical provenance, not an unresolved failure. Retry logs and one conservative local-worker checkpoint reservation retained.",
+  "scope_correction": "The user canceled costly model validation; continuation of the other scientific analyses remains authorized. No model calls.",
+  "verified_free_daily_remaining_usd": 0.4735,
+  "conservative_round3_cost_before_resumption_usd": 0.433,
+  "round3_cost_ceiling_usd": 0.85,
+  "retries_per_unchanged_request": 2,
+  "source_IDs_enriched": 30640,
+  "source_IDs_unresolved": 0,
+  "case_cohort_observations": 1500,
+  "indirect_pool_sample": 1000,
+  "successful_responses": 2516,
+  "conservative_round3_cost_usd": 0.8292999999999798,
+  "observed_cost_sum_usd": 0.8212999999999798
+}

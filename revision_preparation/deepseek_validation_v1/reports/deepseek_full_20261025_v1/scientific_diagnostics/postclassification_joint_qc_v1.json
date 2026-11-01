@@ -1,0 +1,15 @@
+{
+  "policy_version": "postclassification_joint_qc_v1",
+  "sampling_seed": 20261011,
+  "uses_randomization": false,
+  "registered_date": "2026-10-25",
+  "registration_stage": "After partial full-run classifications, before complete full-run aggregate statistics; mechanical consistency QC, not preregistered identity adjudication.",
+  "rule": "For exactly two focal-citation records, one earlier and one later, identity=different_studies plus cross_report_recurrence=recurrent is logically inconsistent.",
+  "exclusion_unit": "configuration by case, both identity and recurrence votes jointly",
+  "excluded_vote_handling": "No eligible vote for either case-level field; retained in all fixed denominators as unresolved; distinct from model unresolvable and transport unavailable.",
+  "consensus": "Recompute from the original three configuration slots after exclusion; require at least two matching eligible votes. No majority yields unresolved. Genuine model unresolvable remains an eligible vote.",
+  "record_extractions": "Retain all record-level year, outlet, source type and multiple-citation extractions unchanged.",
+  "multi_record_cases": "Do not flag different_studies plus recurrent when more than two records are supplied.",
+  "raw_data": "Never alter raw call archives or aggregate outputs; publish a separate derived case view with original columns preserved.",
+  "interpretation": "No claim of human accuracy, true identity, true error rate, or independent-model reliability."
+}

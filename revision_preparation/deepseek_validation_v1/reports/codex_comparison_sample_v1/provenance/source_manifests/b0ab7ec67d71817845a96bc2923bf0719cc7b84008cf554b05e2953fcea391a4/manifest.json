@@ -1,0 +1,34 @@
+{
+  "status": "complete_structural_identity_supplement",
+  "scope": "probability_319_targeted_12",
+  "input_sha256": {
+    "work/codex_comparison_v1/inputs/sample_blind_331.json": "36b32692ee68f7aa25b057f087d420d87d27cd3db6390d67d1f6ccdefeeaffba",
+    "results/codex_comparison_sample_v1/manifest.json": "a734459e0ca3c9a4116a2669d1e6eec73fd786a2cd504b464e2ef1346d07c6f8",
+    "results/codex_comparison_sample_v1/paired_comparison_detail.csv": "f0b77fdc482ad9105dee85d49ba73829d1f780375235f9dcd4efe280250d8a15"
+  },
+  "code_sha256": {
+    "paired_identity_record_counts.py": "1eabb184566b007f2e7fc179348c8ea6cfc743b6c17fe129ea0939c6c365c420",
+    "validation_statistics.py": "a652efee1d324c7d41996063aff57b3049f129f38b2636fc68ca6a9aa286c8a4",
+    "test_paired_identity_record_counts.py": "24476266afbca6b76fd1406dd17200ecb1de4d98788b7ae671106717894faa6b"
+  },
+  "output_sha256": {
+    "identity_record_count_population.csv": "95aab4574868036b04ba8ed766ae719615d31cf0308355932ec9d9b2158918e1",
+    "identity_record_count_agreement.csv": "fd3d5854beaa9f00cbf0f93dcdb1c83b9d1636a122342cd6b62504e6cded430b",
+    "identity_record_count_crosstabs.csv": "238b75eb415784bfb5e32e6f4b2e495e38fa5d9d66cf4377321b166bcbb56a18",
+    "identity_record_count_detail.csv": "c00f8bfc05b0d10c5002d1f4c74f29d8c57b0e068644ce404a918ad2e47655d5",
+    "validation_summary.csv": "6f1dd4ea1cd436bec43c45676fb4958bf77d89e02b7283dd85fb74748f1919b5",
+    "supplement_policy.json": "0af1127d3a1b4f65629a13003bbb989d053d151befc0a9dad249e8140c47b560"
+  },
+  "row_counts": {
+    "identity_record_count_population": 2,
+    "identity_record_count_agreement": 8,
+    "identity_record_count_crosstabs": 25,
+    "identity_record_count_detail": 1324,
+    "validation_summary": 210
+  },
+  "original_results_unchanged": true,
+  "no_model_calls": true,
+  "no_credential_reads": true,
+  "labels_changed": false,
+  "interpretation": "Paired model agreement on identical frozen bibliographic evidence; neither reviewer is a truth reference. No human accuracy, error-rate, causal anchoring effect, or model-winner inference."
+}

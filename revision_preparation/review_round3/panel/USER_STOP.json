@@ -1,0 +1,11 @@
+{
+  "analysis_package": "1.4.0",
+  "scope_override": "User canceled further LLM validation and requested remaining revisions",
+  "date_local": "2026-10-21",
+  "new_model_calls_allowed": false,
+  "full_shared_census_completed": false,
+  "parser_validation_completed": false,
+  "source_type_panel_completed": false,
+  "calibrated_error_correction_applied": false,
+  "retained_evidence": "Existing raw calls, failed-QC pilot, partial corrected pilot and earlier AI proposals are preserved; none is treated as human truth or full-census validation."
+}

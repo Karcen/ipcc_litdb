@@ -1,0 +1,2 @@
+inputs/** -text whitespace=cr-at-eol
+reference/** -text whitespace=cr-at-eol

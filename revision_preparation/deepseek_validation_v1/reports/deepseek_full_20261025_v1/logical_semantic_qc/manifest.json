@@ -1,0 +1,33 @@
+{
+  "status": "logical_qc_passed",
+  "run_name": "deepseek_full_20261025_v1",
+  "contradiction_rows": 0,
+  "contradiction_distinct_cases": 0,
+  "registered_policy_path": "work/statistics_policy/postclassification_joint_qc_v1.json",
+  "registered_policy_sha256": "bb4594e0579d9fafe072c69bde4e4faf061691a6420b607584f578d11231d903",
+  "input_sha256": {
+    "work/inputs/frames/case_key.json": "3c636a73f5532652a6195d6014096b2224414b0a323dc7ee21a56e3672876993",
+    "work/inputs/frames/sample_roles.json": "7620b7a4f5ceb1f0e4af8ca39ef43d40d63c7d5f10c3daaffc68ed12af02fb06",
+    "work/inputs/frames/source_roles.json": "d0185bddfac525372a0bdbb24623117afaaa5f68a09b8bac0867fb8e7708b2af",
+    "work/inputs/frames/sampling_design.json": "c2de63e7fbdc8578996a56b74b409dcd981d79f9bfab43ee1bc736134256ec16",
+    "work/inputs/frames/control_key.json": "4c5fea8bb6946b1d22105ebfe315023f96ac039f02446217cbd1dbefdc82423d",
+    "work/inputs/frames/blind_all.json": "987ad2a9315842dd5b96d15372b77c4b36e9df2651ebbbf93427e28c2b4a782f",
+    "work/analysis_inputs/revision_identity_transitions.csv": "293b6cf6574f042236795cd881722e7e4803b0cfbd4ed76de3537b7aa961264f",
+    "work/analysis_inputs/matched_id_membership.csv": "b2a045bbd23998e7ee4e3d8e2c99f55e761f3c3ab5e860c2d4f03ff7dd9207c1",
+    "work/analysis_inputs/revision_identity_audit_strata.csv": "3e571f52d68c0bde90618e33e28a8c00ef45a66d1ca5e66c7757006462645cf1",
+    "work/analysis_inputs/manifest.json": "e17856fa64664692447861f17a03d539bf2edba4f38e12fee2b81ddcb3d22c36",
+    "work/analysis_inputs/revision_identity_audit_sample_papers.csv": "2b184fe01a14d00a258392350a3a8caf5635f804841725c880b5a08be12219b5",
+    "work/inputs/candidates/candidate_pairs.csv": "540ef8e8e51a4ef229392a245e9a2fec0a898a584882351aaf9dda30498b209b",
+    "work/inputs/preparation_manifest.json": "00e737d402199627098e08ed41066cb45f3f1ca8ab8700705a775c6f615da2f6",
+    "work/input_manifest.json": "24ebf11f3db299272e8e0bff3805cca1a93f7f87248a6fe158b968eeea8a1151",
+    "results/deepseek_full_20261025_v1/manifest.json": "7a8d03d88c484108fea71852911872f91494e75993c41c2cbba462f5e22930e6",
+    "results/deepseek_full_20261025_v1/case_consensus.csv": "6fcf11c0424a983fb60125c44087f3100d0091187d13a296af447acc1daa3649"
+  },
+  "code_sha256": "a652efee1d324c7d41996063aff57b3049f129f38b2636fc68ca6a9aa286c8a4",
+  "output_sha256": {
+    "logical_consistency_counts.csv": "ab91c458bd2ee28dd5070e23d8c2c198aa2843ad843e691d853d7cd7c80ac138",
+    "logical_consistency_flags.csv": "e5e6704681d60ce236db82a90530633656c8f195e6d81337495822730940f6b4"
+  },
+  "labels_unchanged": true,
+  "substantive_inference_performed": false
+}

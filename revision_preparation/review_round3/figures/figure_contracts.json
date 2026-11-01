@@ -1,0 +1,32 @@
+{
+  "backend": "Python; established manuscript plotting workflow",
+  "style_basis": "Nature Skills 2.8.0; journal target Scientometrics",
+  "main_age": {
+    "question": "Does the mean-age change persist across matching status, and how do status changes combine?",
+    "conclusion": "The all-extracted mean-change intervals include zero, while matched entries show a positive change; opposing status and composition terms account algebraically for the pooled estimate.",
+    "archetype": "quantitative grid",
+    "dimensions_mm": [133, 128],
+    "panels": [
+      {"label": "a", "role": "primary comparison and uncertainty", "evidence": "mean-age differences and chapter-composition percentile intervals for all, matched and unmatched occurrences, with source-publication-year and cutoff-year origins"},
+      {"label": "b", "role": "algebraic decomposition", "evidence": "within-matched, within-unmatched and matching-weight-composition terms, with intervals from the same pooled chapter draws"}
+    ],
+    "weighting": "occurrence; equal-ID sensitivity remains in the age registry",
+    "uncertainty": "95% percentile intervals from 2500 independent report chapter-composition draws; not parser, linkage or selection-error intervals",
+    "no_causal_claim": true,
+    "glyph_floor_pt": 5,
+    "editable_text": true,
+    "exports": ["PNG at 600 dpi", "PDF", "SVG"]
+  },
+  "supplementary_missing_sources": {
+    "question": "How does conditional unknown-source allocation change the outlet D2 contrast?",
+    "conclusion": "The D2 difference depends on the allocation model; the plotted paths are conditional sensitivity scenarios.",
+    "archetype": "single quantitative plot",
+    "dimensions_mm": [133, 83],
+    "source": "external/offline_v1/missing_source_allocation_curve.csv",
+    "conditioning": "Unknown type/source IDs are treated as journal-eligible; known non-journal types are excluded. At zero, unknowns follow within-year-bin known-source frequencies, with global support for empty bins.",
+    "uncertainty": "None: deterministic allocation paths, not confidence intervals or LLM classifications",
+    "glyph_floor_pt": 5,
+    "editable_text": true,
+    "exports": ["PNG at 600 dpi", "PDF", "SVG"]
+  }
+}

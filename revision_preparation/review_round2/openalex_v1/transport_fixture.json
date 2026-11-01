@@ -1,0 +1,20 @@
+{
+  "all_passed": true,
+  "cases": [
+    {
+      "URL_roundtrip_exact": true,
+      "filter_value": "\"10.1002/grl,50206\"",
+      "identity_count": 1,
+      "literal_doi": "10.1002/grl,50206",
+      "split_or_repair_applied": false
+    },
+    {
+      "URL_roundtrip_exact": true,
+      "filter_value": "\"10.1175/jcli-d-18-0707.1.doi:10.1175/jcli-d-16-0515.1\"",
+      "identity_count": 1,
+      "literal_doi": "10.1175/jcli-d-18-0707.1.doi:10.1175/jcli-d-16-0515.1",
+      "split_or_repair_applied": false
+    }
+  ],
+  "scope": "Offline comma/colon serialization fixtures; neither DOI identity is repaired or split."
+}

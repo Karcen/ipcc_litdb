@@ -1,0 +1,111 @@
+Round 5 comparison displays: completed scope and remaining requests
+
+Analysis version: 1.6.0. Random seed: 20261011.
+All inputs are frozen local files. No API calls, credentials or new model
+classifications are used. Existing tables and snapshots are unchanged.
+
+Completed
+---------
+1. Working-group retention and unconditional reuse are transcribed from the
+   existing matched assigned-ID comparisons. Numerators, denominators and
+   source cells are retained. The publication-by-cutoff reuse comparison uses
+   its separately resolved-date frame and its group-specific earlier cutoff.
+   Overlapping groups are counted within each group; group totals are not a
+   mutually exclusive partition. The earlier AR4-to-AR5 comparisons are also
+   retained as a descriptive reference, without treating their lower matching
+   coverage as comparable behavior.
+2. Source availability is tabulated by report, working group and matching
+   frame. One assigned identity is counted within each frame. A unique frozen
+   DOI resolution supplies work/source types. Known journal articles/reviews,
+   known other types, unresolved/ambiguous identities and unresolved source or
+   type fields remain separate. Unknown types are not assigned to journals.
+3. Observed Hill profiles at q=0,1,2 use the existing strict journal source
+   counts. Their q=0 and q=2 values reproduce the earlier full-cohort table.
+   q=1 is calculated as exp(-sum(p log p)). Top-ten journal shares use the
+   same matched, resolved journal frame, without an added year restriction.
+4. The existing indirect-link numerators and nonempty-array denominators are
+   transcribed into a main-text-ready comparison. Conditioning on nonempty
+   arrays removes the recorded empty-array difference, but does not balance
+   reference-list length, field or publication year.
+5. The construction diagram depicts recorded data relationships. It does not
+   recover missing extraction thresholds, supply missing match precision, or
+   certify a sequence not documented by the archived pipeline.
+
+Unfulfilled requests and the actual data reason
+---------------------------------------------
+Pre-AR5 citation-count adjustment:
+  case_cohort_observations.json has publication year, source ID/type, sampling
+  weights, exposure/outcome membership and citations_2014_2021. Every citation
+  acquisition request explicitly restricts citing works to 2014-2021. It has
+  no pre-AR5 citation covariate. The earlier DOI lookup selected counts_by_year,
+  but it covers DOI-resolved assessment works rather than both complete arms;
+  it cannot silently supply comparable pre-AR5 counts for the unexposed arm.
+  New period-specific citation requests or other verified historical data are
+  needed for a symmetric pre-exposure specification.
+
+Journal, topic and author adjustment:
+  Source ID exists for the case-cohort observations. A year-by-source-ID
+  stratification is therefore an unimplemented local analysis, not absent data;
+  its common support would have to be counted before interpreting an estimate.
+  Frozen case-cohort observations and their sample responses lack topics and
+  authorships. The earlier DOI lookup SELECT also omitted authorships/topics.
+  These covariates require new metadata. Later citation counts can be a
+  mediator, proxy for topic popularity or collider; the later-citation-stratified
+  estimate must not be read as the controlled effect of AR5 citation.
+  No E-value is reported: the current comparison is descriptive and its
+  measurement asymmetry is not repaired by an unmeasured-confounding index.
+
+Symmetric DOI observation:
+  The exposed frame is defined through assessment preferred-DOI resolution.
+  The sampled pool API SELECT omits DOI and the rows do not record DOI
+  availability. The source DOI lookup may overlap some sampled pool works,
+  but that overlap is not a representative DOI-available frame. Restricting
+  controls to an observed DOI in that lookup would introduce selection.
+  Symmetric DOI metadata or title-based outcome ascertainment is required.
+
+Matched pseudo-target null for indirect links:
+  The 1000 sampled later-pool raw responses contain full referenced_works
+  arrays, publication year and primary source. The 2664 actual AR5 target IDs
+  are frozen separately. Thus the link arrays are present; they are not the
+  obstacle. The available independent pool catalogues do not provide a pool
+  of individual works sufficient to draw 2664 distinct substitute targets
+  with the actual targets' joint year, journal and citation-count distribution.
+  Existing pool source counts are aggregates; the older case-cohort controls
+  number 1000, and the later pool sample is also only 1000. Reusing IPCC-selected
+  DOI works as the substitute population would change the proposed null.
+  Additional target-pool work-level metadata and a prespecified support rule
+  are needed. No placebo test or calibrated excess indirect continuity is
+  claimed by the descriptive nonempty-array comparison.
+
+Coverage-based rarefaction and extrapolation:
+  Strict resolved-journal source counts are available, including singleton and
+  doubleton frequencies. Coverage-standardized Hill estimation is feasible
+  locally but has not been implemented here. The existing equal-size
+  subsampling is not coverage standardization, and the new observed Hill
+  profiles are not rarefaction or extrapolation. A separate estimator,
+  uncertainty method and validated implementation are required before making
+  that claim. The resolved-source profile does not identify the unknown
+  sources of the complete extracted bibliography.
+
+External query scope:
+  The broad phrase query is a defined comparison collection. It is not the
+  complete literature available to the IPCC, and it is not a matched control
+  population for its journal selection. Its concentration trend can coexist
+  with changes in index coverage and journal publishing. No source-share
+  ratio in these outputs is a selection probability.
+
+Reproduction and QA
+-------------------
+Run build_comparisons.py from a checkout, optionally with --repo and --output.
+The seven CSV outputs reproduced byte for byte in a separate temporary
+directory. Source-cell checks verify the three retention and three conditional
+reuse display values against the unchanged v4 numerical macros. Known-journal
+and unknown-source report totals match the frozen allocation inputs.
+
+The plotting script uses Python/matplotlib and exports PNG, PDF and SVG only.
+All figures were visually inspected. The three working-group plot areas pass
+the 1.5-point alignment gate. All rendered PDF text is at least 6.5 points.
+All three collision audits pass with zero failures and warnings. The source
+preflight's only accepted warning is the absence of TIFF, because the requested
+submission formats are PNG/PDF/SVG. Points and lines are deterministic recorded
+cohort summaries; no stochastic interval is omitted from them.

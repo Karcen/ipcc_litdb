@@ -1,0 +1,7 @@
+sample_group,match_status,occurrences,distinct_sampled_IDs,all_sample_occurrences
+probability_sample,matched_doi,444,212,771
+probability_sample,matched_title,320,175,771
+probability_sample,unmatched,7,6,771
+targeted_supplement,matched_doi,29,12,30
+targeted_supplement,matched_title,0,0,30
+targeted_supplement,unmatched,1,1,30

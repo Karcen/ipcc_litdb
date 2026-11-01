@@ -1,0 +1,15 @@
+sample_group,metadata_field,error_occurrences,ids_with_error,explicitly_unresolved_occurrences,ids_with_explicit_uncertainty,denominator_occurrences,denominator_ids
+probability_sample,authors,3,2,0,0,771,319
+probability_sample,doi,25,21,7,4,771,319
+probability_sample,journal,93,46,0,0,771,319
+probability_sample,other,11,11,0,0,771,319
+probability_sample,title,12,9,0,0,771,319
+probability_sample,year,1,1,33,11,771,319
+probability_sample,unspecified,0,0,71,48,771,319
+targeted_supplement,authors,1,1,0,0,30,12
+targeted_supplement,doi,0,0,5,5,30,12
+targeted_supplement,journal,2,2,1,1,30,12
+targeted_supplement,other,6,4,0,0,30,12
+targeted_supplement,title,2,2,0,0,30,12
+targeted_supplement,year,0,0,0,0,30,12
+targeted_supplement,unspecified,0,0,2,1,30,12

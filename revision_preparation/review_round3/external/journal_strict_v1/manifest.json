@@ -1,0 +1,40 @@
+{
+  "analysis_package": "1.4.0",
+  "credentials_read": false,
+  "draws": 2000,
+  "helper_script_sha256": "d75497d970af3c10b854a0d798edb07c61e62e6b615d9e3446d08e426c939381",
+  "inputs": [
+    {
+      "bytes": 13424322,
+      "path": "offline_v1/resolved_journal_source_assignments.csv",
+      "sha256": "22a6f4755891079ac7ce421192a7556e2eacb6bff8c8b157e69c3bf62bca4d1d"
+    }
+  ],
+  "network_used": false,
+  "numpy_version": "2.2.6",
+  "output_tables": [
+    {
+      "filename": "outlet_diversity.csv",
+      "rows": 4,
+      "sha256": "ad85f2f5ccddfde37f7d143cd10c0f0209732cdc1150c67687781495894ed9c0"
+    },
+    {
+      "filename": "outlet_diversity_differences.csv",
+      "rows": 4,
+      "sha256": "4a081ce980c4883e1b85f19e942fa38d07be60b99a3c9e95f8cf390caf4ed0a6"
+    },
+    {
+      "filename": "identity_mapping_audit.csv",
+      "rows": 4,
+      "sha256": "991b78b3dee16eb5629301b71fbedf833621f7bf1f9d5a69111aef8f015c359d"
+    },
+    {
+      "filename": "source_counts.csv",
+      "rows": 7606,
+      "sha256": "7cbe991a4880d81fd198dd0e70f9407df466cd720a6309e517aaae2a88db3162"
+    }
+  ],
+  "scope": "OpenAlex resolved assigned IDs; work.type in article/review AND primary source.type journal; source-ID identity. Matched+recovered cohort deduplicates same assigned ID across occurrence statuses. Any conflicting work/source mapping stops.",
+  "script_sha256": "f158c2d91b1e5fa4d00fc31556234b2a18a479c29ecafc2aa8f015f902106aaa",
+  "seed": 20261011
+}

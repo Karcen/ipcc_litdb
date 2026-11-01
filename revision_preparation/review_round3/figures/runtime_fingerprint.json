@@ -1,0 +1,12 @@
+{
+  "python": "3.12.14",
+  "matplotlib": "3.11.2",
+  "numpy": "2.5.4",
+  "PyMuPDF": "1.28.2",
+  "Pillow": "12.3.0",
+  "FreeType": "2.14.3",
+  "font_family": "DejaVu Sans",
+  "font_sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22",
+  "backend": "Agg",
+  "analysis_NumPy_is_separate": "Analysis outputs were computed in NumPy2.2.6; this runtime only renders registered values."
+}

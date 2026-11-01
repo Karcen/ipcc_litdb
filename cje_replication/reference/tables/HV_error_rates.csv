@@ -1,0 +1,13 @@
+pool,kind,n,errors,rate_pct,lo,hi,uncertain_treatment
+boundary_WG2,population,73,0,0.0,0.0,4.999375338358389,excluded
+boundary_WG3,population,71,1,1.4084507042253522,0.24905391347781955,7.556230847938291,excluded
+flagged_invalid_doi,ambiguity,2,0,0.0,0.0,65.76280471103807,excluded
+flagged_matched_doi_chronology_review,ambiguity,29,6,20.689655172413794,9.845936515585208,38.39044660825772,excluded
+flagged_missing_year,ambiguity,1,0,0.0,0.0,79.34567085261071,excluded
+same_title_multiple_identities,ambiguity,69,5,7.246376811594203,3.1347309217669053,15.867597418082852,excluded
+boundary_WG2,population,73,0,0.0,0.0,4.999375338358389,distinct
+boundary_WG3,population,71,1,1.4084507042253522,0.24905391347781955,7.556230847938291,distinct
+flagged_invalid_doi,ambiguity,3,1,33.33333333333333,6.14903152761605,79.23450448735122,distinct
+flagged_matched_doi_chronology_review,ambiguity,29,6,20.689655172413794,9.845936515585208,38.39044660825772,distinct
+flagged_missing_year,ambiguity,1,0,0.0,0.0,79.34567085261071,distinct
+same_title_multiple_identities,ambiguity,73,9,12.32876712328767,6.623676164045252,21.800510734717914,distinct

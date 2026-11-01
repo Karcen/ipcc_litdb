@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0.0",
+  "created_utc": "2026-10-21T05:58:32.197768+00:00",
+  "scope": "One candidate citation; no manuscript, bibliography, statistical input or annotation label was changed.",
+  "records": [
+    {
+      "citation_key": "lariviere2008aging",
+      "verification_status": "verified_by_actual_crossref_api_and_primary_publisher",
+      "doi": "10.1002/asi.20744",
+      "title": "Long‐term variations in the aging of scientific literature: From exponential growth to steady‐state science (1900–2004)",
+      "authors": [
+        {
+          "given": "Vincent",
+          "family": "Larivière"
+        },
+        {
+          "given": "Éric",
+          "family": "Archambault"
+        },
+        {
+          "given": "Yves",
+          "family": "Gingras"
+        }
+      ],
+      "journal": "Journal of the American Society for Information Science and Technology",
+      "volume": "59",
+      "issue": "2",
+      "pages": "288-296",
+      "citation_year": 2008,
+      "year_rule": "Use the final issue year, verified against the publisher issue page. Do not substitute Crossref issued, which is the online-first date here.",
+      "published_print": {
+        "date-parts": [
+          [
+            2008,
+            1,
+            15
+          ]
+        ]
+      },
+      "published_online": {
+        "date-parts": [
+          [
+            2007,
+            10,
+            18
+          ]
+        ]
+      },
+      "issued": {
+        "date-parts": [
+          [
+            2007,
+            10,
+            18
+          ]
+        ]
+      },
+      "accepted_field_present": false,
+      "crossref_request": {
+        "endpoint": "https://api.crossref.org/works/10.1002/asi.20744",
+        "method": "GET",
+        "parameters": {},
+        "requested_utc": "2026-10-21T05:49:27.052309+00:00",
+        "received_utc": "2026-10-21T05:49:28.594282+00:00",
+        "http_status": 200,
+        "credentials_used": false,
+        "retries": 0,
+        "fallback_api_calls": 0,
+        "request_file": "raw/lariviere2008_crossref_request.json",
+        "request_sha256": "1fd183945ec41e5001893915ef0a374cdd4c6472d240c4a4fddf985f43093aba",
+        "response_file": null,
+        "response_sha256": "19dcf87565d5cf122e51b7c9e8eac9de2b9f30ff404b209d5abf912e2d0cc9f8",
+        "response_bytes": 6060,
+        "script_file": "verify_lariviere2008.py",
+        "script_sha256": "4262e3d9a7e99a91bbc7aee0b4e33a864d252f85c186c153174c6ed41bae1e4c",
+        "full_response_storage": "Private ignored working archive; public provenance retains its original SHA-256.",
+        "bibliographic_file": "raw/lariviere2008_crossref_bibliographic.json",
+        "bibliographic_sha256": "c92d46a81137bdccadebbe9e5dce7a83225dde062c68b87578fa56481378307d",
+        "original_acquisition_script_sha256": "6f29a452a4fb9bbe5f2b8825787016ae13c19b038ccbc332aaff58651b6e2df5"
+      },
+      "primary_sources": [
+        {
+          "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/asi.20744",
+          "locator": "Article information, title/authors/volume/issue/pages and first-published date; abstract.",
+          "verified": "Title, three authors, DOI, volume 59 issue 2 pages 288-296, online first 18 October 2007."
+        },
+        {
+          "url": "https://onlinelibrary.wiley.com/toc/15322890/2008/59/2",
+          "locator": "Issue heading and the article listed on pages 288-296.",
+          "verified": "Final issue dated 15 January 2008."
+        }
+      ],
+      "raw_payload_reuse_note": {
+        "contains_abstract": true,
+        "crossref_api_policy_url": "https://www.crossref.org/documentation/retrieve-metadata/rest-api/",
+        "policy_exception": "Crossref permits bibliographic metadata reuse, but says some deposited abstracts can be copyrighted by their publishers or authors.",
+        "record_content_license_urls": [
+          "http://onlinelibrary.wiley.com/termsAndConditions#vor"
+        ],
+        "permission_status": "Full response, including abstract, was moved to private ignored storage. Only a bibliographic subset and full-payload hash are public; no abstract reuse permission is asserted."
+      }
+    }
+  ],
+  "openalex_bibliographic_api_calls": 0,
+  "failed_bibliographic_api_calls": 0,
+  "account_creation_or_credentials_read": false,
+  "source_snapshot_or_old_registry_edits": false,
+  "full_response_migration": {
+    "utc": "2026-10-21T06:07:04.925294+00:00",
+    "reason": "Publish bibliographic metadata and verifiable full-payload hash without redistributing abstract of unconfirmed rights.",
+    "raw_response_hash_unchanged": true,
+    "offline_replay_verified": true
+  }
+}

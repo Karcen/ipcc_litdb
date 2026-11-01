@@ -1,0 +1,141 @@
+{
+  "PNG_dpi": 600,
+  "analysis_package": "1.4.0",
+  "backend": "Python/Matplotlib",
+  "code_and_contract_sha256": {
+    "figure_contracts.json": "8c8f3585e4858c8c1b2c8b4eda63454e2e9c9a66fee06c21a8f180efdbb1fb75",
+    "render_figures.py": "f32fcf91f42729d5b69350b6c0d0ad0f0bc0d424520fb32a5d27e52c370ff93d",
+    "vendor/._audit_figure_collisions.py": "f654a505a533bd37db0f66b26e2620e2b5f73fd3740808f9f45392a17f4698d7",
+    "vendor/._audit_panel_alignment.py": "f654a505a533bd37db0f66b26e2620e2b5f73fd3740808f9f45392a17f4698d7",
+    "vendor/._audit_pdf_text.py": "f654a505a533bd37db0f66b26e2620e2b5f73fd3740808f9f45392a17f4698d7",
+    "vendor/._validate_figure.py": "f654a505a533bd37db0f66b26e2620e2b5f73fd3740808f9f45392a17f4698d7",
+    "vendor/LICENSE.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "vendor/audit_figure_collisions.py": "4bd020238a9f207c8a67c61d7209cef5959f2995a1d9cd95911d6fa93de7aa36",
+    "vendor/audit_panel_alignment.py": "4ed2d6afe9db45aaf6ca26aeb264cfc251ae92b49ee9fbf117d926e1956acf56",
+    "vendor/audit_pdf_text.py": "0b3d3e30ce9ec7191b8ba6dd053226487ab41594297005afcd127acda3b08281",
+    "vendor/provenance.json": "756d402ede93d06a4405d9b2324f1bf3ddb7f34e475556adc1e047d3e6f61597",
+    "vendor/validate_figure.py": "09694ac0ac4036d4b759e7c9aeb3d4f7a9b525212db50085d2ea0d88b0e49d76"
+  },
+  "dimensions_mm": {
+    "age_change_and_components": [
+      133,
+      128
+    ],
+    "missing_source_allocation": [
+      133,
+      83
+    ]
+  },
+  "editable_text": true,
+  "input_sha256": {
+    "revision_preparation/review_round3/age/output_v1/age_changes.csv": "a3ef5ab07c84628da1930cc930a8642bebc60c5a52001da6d2301c7521a42ef4",
+    "revision_preparation/review_round3/age/output_v1/age_summary.csv": "f37f6c68b65eff6262ce62b4a78c278d9cbed3b096566776cfd185ac5886edc7",
+    "revision_preparation/review_round3/age/output_v1/manifest.json": "ad21eb630f85789e4cf2abcfccd7e37b86f3cde594e771671dee8ddb39af0631",
+    "revision_preparation/review_round3/age/output_v1/matching_status_decomposition.csv": "179923479400c425b7dfea02882fc4bffc34c5c329355320bb505868bcc36b4b",
+    "revision_preparation/review_round3/external/offline_v1/manifest.json": "b98ce3672454c6cc2407e0893de6b24ff3b3074deb5f2b0d435bbddb621839d7",
+    "revision_preparation/review_round3/external/offline_v1/missing_source_allocation_curve.csv": "67adeeebf02da479b5711bc7bf6dccdaccf5c3cb3d49a659f826e0e6d8ae1abc"
+  },
+  "matplotlib_version": "3.11.2",
+  "new_random_draws": false,
+  "numpy_version": "2.5.4",
+  "outputs": [
+    {
+      "bytes": 2096,
+      "filename": "QA_notes.json",
+      "sha256": "55a9f33886298ac6e8e6d2467770f4e638e044d1c7f89aa8c6893a34da0b5687"
+    },
+    {
+      "bytes": 1612,
+      "filename": "age_change_and_components.alignment.json",
+      "sha256": "292a9a7e920a775c37f9800c4f7b0071818fcb1bfa4db9d2f454b38fd4e1b57e"
+    },
+    {
+      "bytes": 737,
+      "filename": "age_change_and_components.alignment.svg",
+      "sha256": "ab7eb9deb1e93b4697add0cdf39f334bd98b1211c9c8544d92984b5d1f648e03"
+    },
+    {
+      "bytes": 24104,
+      "filename": "age_change_and_components.pdf",
+      "sha256": "2bcdc94fe7cbb9abd62480fe8734cf0d546e6c5403614105ca6a19a67810dd31"
+    },
+    {
+      "bytes": 178720,
+      "filename": "age_change_and_components.png",
+      "sha256": "7dd78501cacd53975dc08ee97ccbd4c5a570283bfc82cf14ad17bca8ad6d1b45"
+    },
+    {
+      "bytes": 22057,
+      "filename": "age_change_and_components.svg",
+      "sha256": "050c13d1f294dd8a93ccb92239b14cf5ca49471b2f4d06e8b4f0f9d4f85acc0a"
+    },
+    {
+      "bytes": 512,
+      "filename": "age_change_and_components_collision_audit.json",
+      "sha256": "0642633b19b52ac70335e1eb138dea1f6bacb382acd70e4f142ac179fc3ac686"
+    },
+    {
+      "bytes": 232,
+      "filename": "age_change_and_components_font_audit.json",
+      "sha256": "d564d460edd6b0c21d2c175c5c274681d79e6e79334f78c82c409cd96b0aacc1"
+    },
+    {
+      "bytes": 2808,
+      "filename": "age_figure_source.csv",
+      "sha256": "3de6d49ef37629e22beb3d4fd19313bca40121f4b81adbefbe764eaf0d9aa065"
+    },
+    {
+      "bytes": 943,
+      "filename": "missing_source_allocation.alignment.json",
+      "sha256": "ae5126a4f7f1a67182a54efbb9c1cb6f003bd05c49fc8246dcb476bc2a8f9ab3"
+    },
+    {
+      "bytes": 532,
+      "filename": "missing_source_allocation.alignment.svg",
+      "sha256": "2fa5097c6ceea1d45c69e216b09071f82abbb7a9f08437fb7f008135bb44940a"
+    },
+    {
+      "bytes": 18027,
+      "filename": "missing_source_allocation.pdf",
+      "sha256": "452dcdfabc6e922e5075926a8529515280eced19ffcb2a24123e770caf616aaf"
+    },
+    {
+      "bytes": 166083,
+      "filename": "missing_source_allocation.png",
+      "sha256": "9c71c0a62f665c8c819cde1b804745584bebfa8aee333a31f62583ace38aad3e"
+    },
+    {
+      "bytes": 8587,
+      "filename": "missing_source_allocation.svg",
+      "sha256": "c6f00b9d216fdfa26bfac3e83b693c70d72789eb65899d64aea9398d70aa7e00"
+    },
+    {
+      "bytes": 511,
+      "filename": "missing_source_allocation_collision_audit.json",
+      "sha256": "4a6d3a8b4dca1b5723009d1db3557ddfd9f0a37021bf6741b8b8ff498a34c1bf"
+    },
+    {
+      "bytes": 231,
+      "filename": "missing_source_allocation_font_audit.json",
+      "sha256": "93ec3cedae232037daf40561a41a7c7cb8203254a2c64effa2a1ec83bc93efcc"
+    },
+    {
+      "bytes": 15509,
+      "filename": "source_allocation_figure_source.csv",
+      "sha256": "2559d7ce791fc480c08db741997d223a4a6996495e3f3557f7308dfe50e925f7"
+    },
+    {
+      "bytes": 3948,
+      "filename": "source_preflight.json",
+      "sha256": "5137389b4c8021d7fc6f1d72edc82da4eea007bd84a8d9dd1ca24b847935e71f"
+    }
+  ],
+  "pymupdf_version": "1.28.2",
+  "python_version": "3.12.14",
+  "scientific_export_formats": [
+    "PDF",
+    "SVG",
+    "PNG"
+  ],
+  "seed": 20261011
+}

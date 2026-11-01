@@ -1,0 +1,36 @@
+Targeted AI counterpart endpoint review
+
+All unique endpoints of the 49 positive counterpart edges are reviewed across
+all of their saved occurrences and reports. This is a targeted extension, not
+a probability sample, and it is not added to the 319-ID probability audit.
+Every raw string and original page coordinate is copied unchanged from the
+read-only snapshot. The source index supplies literal UTF-8 string hashes and
+recorded PDF hashes. A recorded PDF hash is provenance, not evidence that every
+page was newly inspected. The separate local-page evidence identifies the five
+truncated entries whose contexts were actually inspected in hash-verified local
+IPCC PDFs. Its bibliography excerpts are whitespace-normalized pdftotext output.
+No new network or bibliographic API requests are made.
+
+Codex groups the printed works in each endpoint, with labels correct_merge,
+compound or unresolved. Group descriptions and per-occurrence assignments are
+AI judgments. Compound includes both concatenated bibliography blocks and IDs
+that join separate unrelated entries. Incomplete surrounding fragments remain
+explicitly unresolved even when the presence of multiple works is clear.
+Metadata uncertainty, printed-date conflicts and existing verified version
+relationships remain separate from within-ID study grouping. Existing version
+decisions are attributed to their source ledger; no new dates are invented.
+Human confirmation is absent. Review completion remains no. No accuracy,
+recall, sampling interval or population inference is estimated for endpoints.
+
+The existing canonical-only zero-union scenario is preserved. An additional
+proposal-acceptance scenario may union an edge only if the canonical source ID
+and targeted endpoint both have single-study AI classifications and the edge
+comparison identifies that study. Compound/unresolved nodes are blocked. No
+occurrence status, citation year, outlet or preferred field is substituted.
+Connected components of eligible edges contribute at most one matched ID per
+report and one shared ID if matched appearances exist in both reports. These
+are explicit unvalidated AI scenarios, not true recurrence bounds, corrected
+estimates or an enumeration of all possible partitions. Seed 20261011 is inherited;
+no random draws are made. Prior registries, canonical proposals and human-label
+files remain unchanged. Reproduction needs the saved snapshot; replaying the
+archived AI decisions does not create independent validation.

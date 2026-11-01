@@ -1,0 +1,80 @@
+[
+  {
+    "repository": "blader/humanizer",
+    "URL": "https://github.com/blader/humanizer",
+    "license": "MIT",
+    "archived": false,
+    "pushed_at": "2026-10-16T19:12:03Z",
+    "updated_at": "2026-10-21T11:19:26Z",
+    "stars": 59093,
+    "default_branch": "main",
+    "commit": "8c307f367c91bd974002f10f2be2965d642c13df",
+    "commit_date": "2026-10-16T19:12:03Z",
+    "skill_paths": []
+  },
+  {
+    "repository": "Yuan1z0825/nature-skills",
+    "URL": "https://github.com/Yuan1z0825/nature-skills",
+    "license": "Apache-2.0",
+    "archived": false,
+    "pushed_at": "2026-10-21T05:46:24Z",
+    "updated_at": "2026-10-21T11:18:34Z",
+    "stars": 49832,
+    "default_branch": "main",
+    "commit": "df6db0b19530e26ac8f7c2a23254541c228fda43",
+    "commit_date": "2026-10-21T05:46:23Z",
+    "skill_paths": [
+      "skills/nature-figure/SKILL.md",
+      "skills/nature-polishing/SKILL.md",
+      "skills/nature-statistics/SKILL.md"
+    ]
+  },
+  {
+    "repository": "xu0106/latex-paper-writer-skill",
+    "URL": "https://github.com/xu0106/latex-paper-writer-skill",
+    "license": "MIT",
+    "archived": false,
+    "pushed_at": "2026-06-26T15:12:22Z",
+    "updated_at": "2026-09-10T07:30:37Z",
+    "stars": 11,
+    "default_branch": "main",
+    "commit": "0e9bff38b475191956769f0675adbf57a82246a3",
+    "commit_date": "2026-06-26T15:11:05Z",
+    "skill_paths": [
+      "latex-paper-writer/SKILL.md"
+    ]
+  },
+  {
+    "repository": "K-Dense-AI/scientific-agent-skills",
+    "URL": "https://github.com/K-Dense-AI/scientific-agent-skills",
+    "license": "MIT",
+    "archived": false,
+    "pushed_at": "2026-10-19T09:33:57Z",
+    "updated_at": "2026-10-21T11:14:40Z",
+    "stars": 53444,
+    "default_branch": "main",
+    "commit": "593377bb048752abb0152deab9fbb1083a6087df",
+    "commit_date": "2026-10-19T09:33:56Z",
+    "skill_paths": [
+      "skills/latex-posters/SKILL.md",
+      "skills/scientific-writing/SKILL.md"
+    ]
+  },
+  {
+    "repository": "google-deepmind/science-skills",
+    "URL": "https://github.com/google-deepmind/science-skills",
+    "license": "Apache-2.0",
+    "archived": false,
+    "pushed_at": "2026-10-15T14:23:06Z",
+    "updated_at": "2026-10-21T05:33:15Z",
+    "stars": 3301,
+    "default_branch": "main",
+    "commit": "99f3085bcb40514cdba7833205b3dedbf473b26d",
+    "commit_date": "2026-10-15T14:22:52Z",
+    "skill_paths": [
+      "skills/credentials/SKILL.md",
+      "skills/literature_search_openalex/SKILL.md",
+      "skills/uv/SKILL.md"
+    ]
+  }
+]

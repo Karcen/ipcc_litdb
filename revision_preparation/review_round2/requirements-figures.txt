@@ -1,0 +1,6 @@
+# Optional renderer for review_round2_figures.py; separate from analysis dependencies.
+# Recorded interpreter: Python 3.12.14. No scientific estimates are recalculated.
+matplotlib==3.11.2
+numpy==2.5.4
+# PyMuPDF is used only for PDF/SVG QA, text inspection and preview rendering.
+PyMuPDF==1.28.2

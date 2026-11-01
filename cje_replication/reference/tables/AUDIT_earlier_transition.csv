@@ -1,0 +1,7 @@
+transition,tag,group,w_earlier_n,w_shared,w_rate_pct,a_earlier_n,a_shared,a_rate_pct,gap_pp,interpretable
+AR4->AR5,earlier,WG1,2030,403,19.85,4092,547,13.37,6.48,0
+AR4->AR5,earlier,WG2,2087,189,9.06,6734,382,5.67,3.38,1
+AR4->AR5,earlier,WG3,754,56,7.43,3307,169,5.11,2.32,1
+AR5->AR6,later,WG1,5606,811,14.47,7180,896,12.48,1.99,1
+AR5->AR6,later,WG2,6418,506,7.88,10878,720,6.62,1.27,1
+AR5->AR6,later,WG3,2141,174,8.13,4729,269,5.69,2.44,1

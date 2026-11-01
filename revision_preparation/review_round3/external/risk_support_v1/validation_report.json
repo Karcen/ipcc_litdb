@@ -1,0 +1,13 @@
+{
+  "exact_2014_2021_count_responses_verified": 1500,
+  "missing_counts": 0,
+  "observed_positive_counts": 1207,
+  "observed_zero_counts": 293,
+  "passed": true,
+  "probability_sample_observations": 1500,
+  "sample_IDs_unique_and_protocol_unchanged": true,
+  "source_types": [
+    "journal"
+  ],
+  "zero_imputation_used": false
+}

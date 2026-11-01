@@ -1,0 +1,25 @@
+{
+  "citing_population": "OpenAlex article/review works published 2014-2021, no climate text-query restriction.",
+  "earlier_lookup_note": "Bulk bibliographic responses may contain counts_by_year; those fields are not examined or used to select this sample.",
+  "frame_sha256": "9c89803db46eebed8b59d1d68541381365ce71c99d043c09e66781c15db18d77",
+  "frozen_before_survival_query": true,
+  "frozen_utc": "2026-10-21T06:56:39.964401+00:00",
+  "inclusion_probability": 0.10478519035976248,
+  "input": {
+    "database_sha256_after": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+    "database_sha256_before": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+    "database_unchanged": true,
+    "raw_parser": "reproducibility/revision_identity.py:punctuation_repaired_raw_dois",
+    "raw_parser_script_sha256": "6e23acc973f0f21d19a55d9d3523ec444108641e41294001d6dcaac3ce9294ae",
+    "unit": "One immutable occurrence_id; joins to chapter, working group, source and paper are many-to-one. Derived units are report/assigned-ID or report/raw-DOI key."
+  },
+  "numpy_version": "2.2.6",
+  "population_raw_DOI_keys": 2863,
+  "sample_file_sha256": "798bc9e2bb0e50ce87e3998a2adf4217080b485ec0932b7eb563598bb4d0e0fd",
+  "sample_raw_DOI_keys": 300,
+  "sampling": "Simple random sample without replacement, NumPy default_rng choice from the sorted full raw DOI frame.",
+  "seed": 20261011,
+  "selection_inputs": "Raw DOI identity strings only; no metadata or citation counts used for selection.",
+  "survival_count_requests_before_freeze": 0,
+  "unit": "One raw DOI key. Aliases sharing one OpenAlex work receive the same outcome but remain distinct sampled keys."
+}

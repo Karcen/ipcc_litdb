@@ -1,0 +1,2613 @@
+{
+  "authorized_limit_cny": "100",
+  "currency": "CNY",
+  "entries": {
+    "deepseek_pilot_20261025_v1/pilot_batch_0001_blind_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.282024",
+      "charged_upper_cny": "0.094176",
+      "utc": "2026-10-25T10:31:02.939900+00:00",
+      "usage": {
+        "prompt_tokens": 2709,
+        "completion_tokens": 2585,
+        "total_tokens": 5294,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2709
+      },
+      "finished_utc": "2026-10-25T10:31:17.883795+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0001_blind_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.075446",
+      "charged_upper_cny": "0.019562",
+      "utc": "2026-10-25T10:31:02.940200+00:00",
+      "usage": {
+        "prompt_tokens": 2709,
+        "completion_tokens": 1768,
+        "total_tokens": 4477,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2709
+      },
+      "finished_utc": "2026-10-25T10:31:09.365734+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0001_blind_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.075366",
+      "charged_upper_cny": "0.019868",
+      "utc": "2026-10-25T10:31:02.940481+00:00",
+      "usage": {
+        "prompt_tokens": 2706,
+        "completion_tokens": 1807,
+        "total_tokens": 4513,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2706
+      },
+      "finished_utc": "2026-10-25T10:31:09.987584+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0001_metadata_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.085382",
+      "charged_upper_cny": "0.02076984",
+      "utc": "2026-10-25T10:31:09.380679+00:00",
+      "usage": {
+        "prompt_tokens": 4039,
+        "completion_tokens": 1806,
+        "total_tokens": 5845,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3143
+      },
+      "finished_utc": "2026-10-25T10:31:16.039675+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0001_metadata_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.085462",
+      "charged_upper_cny": "0.02079984",
+      "utc": "2026-10-25T10:31:10.000075+00:00",
+      "usage": {
+        "prompt_tokens": 4042,
+        "completion_tokens": 1809,
+        "total_tokens": 5851,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3146
+      },
+      "finished_utc": "2026-10-25T10:31:16.752713+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0001_metadata_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.327096",
+      "charged_upper_cny": "0.111978",
+      "utc": "2026-10-25T10:31:16.052491+00:00",
+      "usage": {
+        "prompt_tokens": 4042,
+        "completion_tokens": 2800,
+        "total_tokens": 6842,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 4042
+      },
+      "finished_utc": "2026-10-25T10:31:33.242827+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0002_blind_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.094212",
+      "charged_upper_cny": "0.0231176",
+      "utc": "2026-10-25T10:31:16.767055+00:00",
+      "usage": {
+        "prompt_tokens": 5054,
+        "completion_tokens": 1783,
+        "total_tokens": 6837,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 4414
+      },
+      "finished_utc": "2026-10-25T10:31:23.698732+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0001_blind_pro_C/2": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.283365",
+      "charged_upper_cny": "0.095994",
+      "utc": "2026-10-25T10:31:17.891360+00:00",
+      "usage": {
+        "prompt_tokens": 2734,
+        "completion_tokens": 2644,
+        "total_tokens": 5378,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2734
+      },
+      "finished_utc": "2026-10-25T10:31:33.755311+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0002_blind_flash_A/2": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.09451",
+      "charged_upper_cny": "0.0243116",
+      "utc": "2026-10-25T10:31:23.707437+00:00",
+      "usage": {
+        "prompt_tokens": 5079,
+        "completion_tokens": 1926,
+        "total_tokens": 7005,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 4439
+      },
+      "finished_utc": "2026-10-25T10:31:30.660945+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0002_blind_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.094292",
+      "charged_upper_cny": "0.02295272",
+      "utc": "2026-10-25T10:31:30.675146+00:00",
+      "usage": {
+        "prompt_tokens": 5057,
+        "completion_tokens": 1793,
+        "total_tokens": 6850,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 4289
+      },
+      "finished_utc": "2026-10-25T10:31:36.928426+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0001_metadata_pro_C/2": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.328437",
+      "charged_upper_cny": "0.1051974",
+      "utc": "2026-10-25T10:31:33.251245+00:00",
+      "usage": {
+        "prompt_tokens": 4067,
+        "completion_tokens": 2788,
+        "total_tokens": 6855,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 3299
+      },
+      "finished_utc": "2026-10-25T10:31:50.004479+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0002_blind_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.362619",
+      "charged_upper_cny": "0.1206954",
+      "utc": "2026-10-25T10:31:33.767145+00:00",
+      "usage": {
+        "prompt_tokens": 5057,
+        "completion_tokens": 3032,
+        "total_tokens": 8089,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 4289
+      },
+      "finished_utc": "2026-10-25T10:31:52.900098+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0002_metadata_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.106662",
+      "charged_upper_cny": "0.02661184",
+      "utc": "2026-10-25T10:31:36.941310+00:00",
+      "usage": {
+        "prompt_tokens": 6668,
+        "completion_tokens": 1879,
+        "total_tokens": 8547,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 5772
+      },
+      "finished_utc": "2026-10-25T10:31:43.479346+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0002_metadata_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.106742",
+      "charged_upper_cny": "0.02667384",
+      "utc": "2026-10-25T10:31:43.492698+00:00",
+      "usage": {
+        "prompt_tokens": 6671,
+        "completion_tokens": 1886,
+        "total_tokens": 8557,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 5775
+      },
+      "finished_utc": "2026-10-25T10:31:50.053701+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0002_metadata_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.418644",
+      "charged_upper_cny": "0.1135608",
+      "utc": "2026-10-25T10:31:50.017667+00:00",
+      "usage": {
+        "prompt_tokens": 6671,
+        "completion_tokens": 2271,
+        "total_tokens": 8942,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 5775
+      },
+      "finished_utc": "2026-10-25T10:32:04.120288+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0002_metadata_flash_B/2": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.10704",
+      "charged_upper_cny": "0.0263376",
+      "utc": "2026-10-25T10:31:50.061377+00:00",
+      "usage": {
+        "prompt_tokens": 6696,
+        "completion_tokens": 1775,
+        "total_tokens": 8471,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 6056
+      },
+      "finished_utc": "2026-10-25T10:31:57.201697+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0002_blind_pro_C/2": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.36396",
+      "charged_upper_cny": "0.1212984",
+      "utc": "2026-10-25T10:31:52.907491+00:00",
+      "usage": {
+        "prompt_tokens": 5082,
+        "completion_tokens": 3046,
+        "total_tokens": 8128,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 4314
+      },
+      "finished_utc": "2026-10-25T10:32:11.137528+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0003_blind_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.067908",
+      "charged_upper_cny": "0.0152936",
+      "utc": "2026-10-25T10:31:57.214681+00:00",
+      "usage": {
+        "prompt_tokens": 2466,
+        "completion_tokens": 1452,
+        "total_tokens": 3918,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 1826
+      },
+      "finished_utc": "2026-10-25T10:32:03.114645+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0003_blind_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.067988",
+      "charged_upper_cny": "0.01558472",
+      "utc": "2026-10-25T10:32:03.127826+00:00",
+      "usage": {
+        "prompt_tokens": 2469,
+        "completion_tokens": 1519,
+        "total_tokens": 3988,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 1701
+      },
+      "finished_utc": "2026-10-25T10:32:08.875558+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0002_metadata_pro_C/2": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.419985",
+      "charged_upper_cny": "0.1133538",
+      "utc": "2026-10-25T10:32:04.129217+00:00",
+      "usage": {
+        "prompt_tokens": 6696,
+        "completion_tokens": 2255,
+        "total_tokens": 8951,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 5800
+      },
+      "finished_utc": "2026-10-25T10:32:17.356329+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0003_blind_flash_B/2": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.068286",
+      "charged_upper_cny": "0.01727472",
+      "utc": "2026-10-25T10:32:08.883544+00:00",
+      "usage": {
+        "prompt_tokens": 2494,
+        "completion_tokens": 1724,
+        "total_tokens": 4218,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 1726
+      },
+      "finished_utc": "2026-10-25T10:32:15.036742+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0003_blind_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.255375",
+      "charged_upper_cny": "0.0771738",
+      "utc": "2026-10-25T10:32:11.150109+00:00",
+      "usage": {
+        "prompt_tokens": 2469,
+        "completion_tokens": 2324,
+        "total_tokens": 4793,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 1573
+      },
+      "finished_utc": "2026-10-25T10:32:25.057564+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0003_metadata_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.076256",
+      "charged_upper_cny": "0.01836184",
+      "utc": "2026-10-25T10:32:15.050334+00:00",
+      "usage": {
+        "prompt_tokens": 3563,
+        "completion_tokens": 1624,
+        "total_tokens": 5187,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2667
+      },
+      "finished_utc": "2026-10-25T10:32:20.855961+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0003_metadata_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.076336",
+      "charged_upper_cny": "0.01687184",
+      "utc": "2026-10-25T10:32:17.369540+00:00",
+      "usage": {
+        "prompt_tokens": 3566,
+        "completion_tokens": 1437,
+        "total_tokens": 5003,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2670
+      },
+      "finished_utc": "2026-10-25T10:32:22.289250+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0003_metadata_flash_A/2": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.076554",
+      "charged_upper_cny": "0.01693472",
+      "utc": "2026-10-25T10:32:20.864071+00:00",
+      "usage": {
+        "prompt_tokens": 3588,
+        "completion_tokens": 1408,
+        "total_tokens": 4996,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 2820
+      },
+      "finished_utc": "2026-10-25T10:32:25.934015+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0003_metadata_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.292941",
+      "charged_upper_cny": "0.0847248",
+      "utc": "2026-10-25T10:32:22.301996+00:00",
+      "usage": {
+        "prompt_tokens": 3566,
+        "completion_tokens": 2238,
+        "total_tokens": 5804,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2670
+      },
+      "finished_utc": "2026-10-25T10:32:35.604132+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0003_blind_pro_C/2": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.256716",
+      "charged_upper_cny": "0.0772098",
+      "utc": "2026-10-25T10:32:25.065770+00:00",
+      "usage": {
+        "prompt_tokens": 2494,
+        "completion_tokens": 2317,
+        "total_tokens": 4811,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 1598
+      },
+      "finished_utc": "2026-10-25T10:32:38.886639+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0004_blind_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.080164",
+      "charged_upper_cny": "0.0176216",
+      "utc": "2026-10-25T10:32:25.946016+00:00",
+      "usage": {
+        "prompt_tokens": 2830,
+        "completion_tokens": 1652,
+        "total_tokens": 4482,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 2190
+      },
+      "finished_utc": "2026-10-25T10:32:31.913271+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0004_blind_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.080244",
+      "charged_upper_cny": "0.02039272",
+      "utc": "2026-10-25T10:32:31.926982+00:00",
+      "usage": {
+        "prompt_tokens": 2833,
+        "completion_tokens": 2029,
+        "total_tokens": 4862,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 2065
+      },
+      "finished_utc": "2026-10-25T10:32:39.370320+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0003_metadata_pro_C/2": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.294282",
+      "charged_upper_cny": "0.0868938",
+      "utc": "2026-10-25T10:32:35.611425+00:00",
+      "usage": {
+        "prompt_tokens": 3591,
+        "completion_tokens": 2310,
+        "total_tokens": 5901,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2695
+      },
+      "finished_utc": "2026-10-25T10:32:48.945360+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0004_blind_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.299007",
+      "charged_upper_cny": "0.0897648",
+      "utc": "2026-10-25T10:32:38.901076+00:00",
+      "usage": {
+        "prompt_tokens": 2833,
+        "completion_tokens": 2669,
+        "total_tokens": 5502,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 1937
+      },
+      "finished_utc": "2026-10-25T10:32:53.940135+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0004_blind_flash_B/2": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.080542",
+      "charged_upper_cny": "0.02053072",
+      "utc": "2026-10-25T10:32:39.379489+00:00",
+      "usage": {
+        "prompt_tokens": 2858,
+        "completion_tokens": 2040,
+        "total_tokens": 4898,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 2090
+      },
+      "finished_utc": "2026-10-25T10:32:46.557852+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0004_metadata_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.090658",
+      "charged_upper_cny": "0.02330672",
+      "utc": "2026-10-25T10:32:46.572591+00:00",
+      "usage": {
+        "prompt_tokens": 4266,
+        "completion_tokens": 2035,
+        "total_tokens": 6301,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 3498
+      },
+      "finished_utc": "2026-10-25T10:32:53.524158+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0004_metadata_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.090738",
+      "charged_upper_cny": "0.02352072",
+      "utc": "2026-10-25T10:32:48.959320+00:00",
+      "usage": {
+        "prompt_tokens": 4269,
+        "completion_tokens": 2061,
+        "total_tokens": 6330,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 3501
+      },
+      "finished_utc": "2026-10-25T10:32:56.190547+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0004_metadata_flash_A/2": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.090956",
+      "charged_upper_cny": "0.02351672",
+      "utc": "2026-10-25T10:32:53.533233+00:00",
+      "usage": {
+        "prompt_tokens": 4291,
+        "completion_tokens": 2055,
+        "total_tokens": 6346,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 3523
+      },
+      "finished_utc": "2026-10-25T10:33:00.185735+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0004_blind_pro_C/2": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.300348",
+      "charged_upper_cny": "0.0897738",
+      "utc": "2026-10-25T10:32:53.949795+00:00",
+      "usage": {
+        "prompt_tokens": 2858,
+        "completion_tokens": 2661,
+        "total_tokens": 5519,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 1962
+      },
+      "finished_utc": "2026-10-25T10:33:09.534074+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0004_metadata_flash_B/2": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.091036",
+      "charged_upper_cny": "0.02321584",
+      "utc": "2026-10-25T10:32:56.199994+00:00",
+      "usage": {
+        "prompt_tokens": 4294,
+        "completion_tokens": 2048,
+        "total_tokens": 6342,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3398
+      },
+      "finished_utc": "2026-10-25T10:33:03.483947+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0004_metadata_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.34623",
+      "charged_upper_cny": "0.1021758",
+      "utc": "2026-10-25T10:33:00.200937+00:00",
+      "usage": {
+        "prompt_tokens": 4269,
+        "completion_tokens": 2650,
+        "total_tokens": 6919,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3373
+      },
+      "finished_utc": "2026-10-25T10:33:15.648055+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0005_blind_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.061484",
+      "charged_upper_cny": "0.0137136",
+      "utc": "2026-10-25T10:33:03.498582+00:00",
+      "usage": {
+        "prompt_tokens": 2460,
+        "completion_tokens": 1256,
+        "total_tokens": 3716,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 1820
+      },
+      "finished_utc": "2026-10-25T10:33:08.475260+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0005_blind_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.061564",
+      "charged_upper_cny": "0.01348472",
+      "utc": "2026-10-25T10:33:08.488800+00:00",
+      "usage": {
+        "prompt_tokens": 2463,
+        "completion_tokens": 1258,
+        "total_tokens": 3721,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 1695
+      },
+      "finished_utc": "2026-10-25T10:33:13.147938+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0005_blind_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.233775",
+      "charged_upper_cny": "0.0699918",
+      "utc": "2026-10-25T10:33:09.547520+00:00",
+      "usage": {
+        "prompt_tokens": 2463,
+        "completion_tokens": 2060,
+        "total_tokens": 4523,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 1567
+      },
+      "finished_utc": "2026-10-25T10:33:21.991906+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0005_metadata_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.068566",
+      "charged_upper_cny": "0.01550984",
+      "utc": "2026-10-25T10:33:13.160042+00:00",
+      "usage": {
+        "prompt_tokens": 3389,
+        "completion_tokens": 1311,
+        "total_tokens": 4700,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2493
+      },
+      "finished_utc": "2026-10-25T10:33:18.203261+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0004_metadata_pro_C/2": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.347571",
+      "charged_upper_cny": "0.1027518",
+      "utc": "2026-10-25T10:33:15.657341+00:00",
+      "usage": {
+        "prompt_tokens": 4294,
+        "completion_tokens": 2663,
+        "total_tokens": 6957,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3398
+      },
+      "finished_utc": "2026-10-25T10:33:31.388084+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0005_metadata_flash_A/2": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.068864",
+      "charged_upper_cny": "0.01925072",
+      "utc": "2026-10-25T10:33:18.211981+00:00",
+      "usage": {
+        "prompt_tokens": 3414,
+        "completion_tokens": 1741,
+        "total_tokens": 5155,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 2646
+      },
+      "finished_utc": "2026-10-25T10:33:25.166185+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0005_blind_pro_C/2": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.235116",
+      "charged_upper_cny": "0.0704868",
+      "utc": "2026-10-25T10:33:22.000193+00:00",
+      "usage": {
+        "prompt_tokens": 2488,
+        "completion_tokens": 2070,
+        "total_tokens": 4558,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 1592
+      },
+      "finished_utc": "2026-10-25T10:33:35.126566+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0005_metadata_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.068646",
+      "charged_upper_cny": "0.01696384",
+      "utc": "2026-10-25T10:33:25.179292+00:00",
+      "usage": {
+        "prompt_tokens": 3392,
+        "completion_tokens": 1492,
+        "total_tokens": 4884,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2496
+      },
+      "finished_utc": "2026-10-25T10:33:30.943059+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0005_metadata_flash_B/2": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.068944",
+      "charged_upper_cny": "0.01924872",
+      "utc": "2026-10-25T10:33:30.951544+00:00",
+      "usage": {
+        "prompt_tokens": 3417,
+        "completion_tokens": 1740,
+        "total_tokens": 5157,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 2649
+      },
+      "finished_utc": "2026-10-25T10:33:37.454417+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0005_metadata_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.265644",
+      "charged_upper_cny": "0.0789468",
+      "utc": "2026-10-25T10:33:31.403055+00:00",
+      "usage": {
+        "prompt_tokens": 3392,
+        "completion_tokens": 2082,
+        "total_tokens": 5474,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2496
+      },
+      "finished_utc": "2026-10-25T10:33:44.523662+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0006_blind_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.079606",
+      "charged_upper_cny": "0.0202016",
+      "utc": "2026-10-25T10:33:35.145577+00:00",
+      "usage": {
+        "prompt_tokens": 3472,
+        "completion_tokens": 1814,
+        "total_tokens": 5286,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 2832
+      },
+      "finished_utc": "2026-10-25T10:33:41.729395+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0006_blind_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.079686",
+      "charged_upper_cny": "0.02064472",
+      "utc": "2026-10-25T10:33:37.468395+00:00",
+      "usage": {
+        "prompt_tokens": 3475,
+        "completion_tokens": 1900,
+        "total_tokens": 5375,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 2707
+      },
+      "finished_utc": "2026-10-25T10:33:44.212544+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0006_blind_flash_A/2": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.079904",
+      "charged_upper_cny": "0.02003272",
+      "utc": "2026-10-25T10:33:41.739362+00:00",
+      "usage": {
+        "prompt_tokens": 3497,
+        "completion_tokens": 1818,
+        "total_tokens": 5315,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 2729
+      },
+      "finished_utc": "2026-10-25T10:33:47.796382+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0006_blind_flash_B/2": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.079984",
+      "charged_upper_cny": "0.02061472",
+      "utc": "2026-10-25T10:33:44.222351+00:00",
+      "usage": {
+        "prompt_tokens": 3500,
+        "completion_tokens": 1890,
+        "total_tokens": 5390,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 2732
+      },
+      "finished_utc": "2026-10-25T10:33:50.660796+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0005_metadata_pro_C/2": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.266985",
+      "charged_upper_cny": "0.0793608",
+      "utc": "2026-10-25T10:33:44.532554+00:00",
+      "usage": {
+        "prompt_tokens": 3417,
+        "completion_tokens": 2089,
+        "total_tokens": 5506,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2521
+      },
+      "finished_utc": "2026-10-25T10:33:57.783721+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0006_blind_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.3024",
+      "charged_upper_cny": "0.0832848",
+      "utc": "2026-10-25T10:33:47.810630+00:00",
+      "usage": {
+        "prompt_tokens": 3475,
+        "completion_tokens": 2215,
+        "total_tokens": 5690,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2579
+      },
+      "finished_utc": "2026-10-25T10:34:01.011563+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0006_metadata_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.089168",
+      "charged_upper_cny": "0.0206408",
+      "utc": "2026-10-25T10:33:50.676291+00:00",
+      "usage": {
+        "prompt_tokens": 4782,
+        "completion_tokens": 1855,
+        "total_tokens": 6637,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 2862
+      },
+      "finished_utc": "2026-10-25T10:33:56.909760+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0006_metadata_flash_A/2": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.089466",
+      "charged_upper_cny": "0.0207788",
+      "utc": "2026-10-25T10:33:56.918004+00:00",
+      "usage": {
+        "prompt_tokens": 4807,
+        "completion_tokens": 1866,
+        "total_tokens": 6673,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 2887
+      },
+      "finished_utc": "2026-10-25T10:34:03.179382+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0006_metadata_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.089248",
+      "charged_upper_cny": "0.0201428",
+      "utc": "2026-10-25T10:33:57.799039+00:00",
+      "usage": {
+        "prompt_tokens": 4785,
+        "completion_tokens": 1792,
+        "total_tokens": 6577,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 2865
+      },
+      "finished_utc": "2026-10-25T10:34:03.874251+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0006_blind_pro_C/2": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.303741",
+      "charged_upper_cny": "0.0842388",
+      "utc": "2026-10-25T10:34:01.021213+00:00",
+      "usage": {
+        "prompt_tokens": 3500,
+        "completion_tokens": 2242,
+        "total_tokens": 5742,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2604
+      },
+      "finished_utc": "2026-10-25T10:34:14.394873+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0006_metadata_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.345429",
+      "charged_upper_cny": "0.0955608",
+      "utc": "2026-10-25T10:34:03.195085+00:00",
+      "usage": {
+        "prompt_tokens": 4785,
+        "completion_tokens": 2233,
+        "total_tokens": 7018,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3889
+      },
+      "finished_utc": "2026-10-25T10:34:16.977727+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0006_metadata_flash_B/2": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.089546",
+      "charged_upper_cny": "0.0214248",
+      "utc": "2026-10-25T10:34:03.884247+00:00",
+      "usage": {
+        "prompt_tokens": 4810,
+        "completion_tokens": 1946,
+        "total_tokens": 6756,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 2890
+      },
+      "finished_utc": "2026-10-25T10:34:10.734779+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v1/pilot_batch_0006_metadata_pro_C/2": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.34677",
+      "charged_upper_cny": "0.0957858",
+      "utc": "2026-10-25T10:34:16.987517+00:00",
+      "usage": {
+        "prompt_tokens": 4810,
+        "completion_tokens": 2233,
+        "total_tokens": 7043,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3914
+      },
+      "finished_utc": "2026-10-25T10:34:31.317011+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0001_blind_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.076182",
+      "charged_upper_cny": "0.01615824",
+      "utc": "2026-10-25T10:38:21.345373+00:00",
+      "usage": {
+        "prompt_tokens": 2794,
+        "completion_tokens": 1384,
+        "total_tokens": 4178,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 2538
+      },
+      "finished_utc": "2026-10-25T10:38:26.280561+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0001_blind_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.285336",
+      "charged_upper_cny": "0.076932",
+      "utc": "2026-10-25T10:38:21.346233+00:00",
+      "usage": {
+        "prompt_tokens": 2794,
+        "completion_tokens": 1918,
+        "total_tokens": 4712,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2794
+      },
+      "finished_utc": "2026-10-25T10:38:34.312871+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0001_blind_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.076102",
+      "charged_upper_cny": "0.01628824",
+      "utc": "2026-10-25T10:38:21.347071+00:00",
+      "usage": {
+        "prompt_tokens": 2791,
+        "completion_tokens": 1401,
+        "total_tokens": 4192,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 2535
+      },
+      "finished_utc": "2026-10-25T10:38:26.378539+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0001_metadata_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.086118",
+      "charged_upper_cny": "0.01772384",
+      "utc": "2026-10-25T10:38:26.296121+00:00",
+      "usage": {
+        "prompt_tokens": 4124,
+        "completion_tokens": 1404,
+        "total_tokens": 5528,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3228
+      },
+      "finished_utc": "2026-10-25T10:38:31.475206+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0001_metadata_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.086198",
+      "charged_upper_cny": "0.01774584",
+      "utc": "2026-10-25T10:38:26.392583+00:00",
+      "usage": {
+        "prompt_tokens": 4127,
+        "completion_tokens": 1406,
+        "total_tokens": 5533,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3231
+      },
+      "finished_utc": "2026-10-25T10:38:31.387989+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0001_metadata_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.330408",
+      "charged_upper_cny": "0.0856152",
+      "utc": "2026-10-25T10:38:31.402640+00:00",
+      "usage": {
+        "prompt_tokens": 4127,
+        "completion_tokens": 1919,
+        "total_tokens": 6046,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 3743
+      },
+      "finished_utc": "2026-10-25T10:38:43.526763+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0002_blind_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.094948",
+      "charged_upper_cny": "0.02038072",
+      "utc": "2026-10-25T10:38:31.490548+00:00",
+      "usage": {
+        "prompt_tokens": 5139,
+        "completion_tokens": 1451,
+        "total_tokens": 6590,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 4371
+      },
+      "finished_utc": "2026-10-25T10:38:36.870156+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0002_blind_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.095028",
+      "charged_upper_cny": "0.02051472",
+      "utc": "2026-10-25T10:38:34.327163+00:00",
+      "usage": {
+        "prompt_tokens": 5142,
+        "completion_tokens": 1467,
+        "total_tokens": 6609,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 4374
+      },
+      "finished_utc": "2026-10-25T10:38:39.328861+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0002_blind_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.365931",
+      "charged_upper_cny": "0.0957222",
+      "utc": "2026-10-25T10:38:36.885053+00:00",
+      "usage": {
+        "prompt_tokens": 5142,
+        "completion_tokens": 1955,
+        "total_tokens": 7097,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 4758
+      },
+      "finished_utc": "2026-10-25T10:38:49.286978+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0002_metadata_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.107398",
+      "charged_upper_cny": "0.02414184",
+      "utc": "2026-10-25T10:38:39.343469+00:00",
+      "usage": {
+        "prompt_tokens": 6753,
+        "completion_tokens": 1549,
+        "total_tokens": 8302,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 5857
+      },
+      "finished_utc": "2026-10-25T10:38:44.858334+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0002_metadata_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.107478",
+      "charged_upper_cny": "0.02401984",
+      "utc": "2026-10-25T10:38:43.541236+00:00",
+      "usage": {
+        "prompt_tokens": 6756,
+        "completion_tokens": 1533,
+        "total_tokens": 8289,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 5860
+      },
+      "finished_utc": "2026-10-25T10:38:49.056944+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0002_metadata_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.421956",
+      "charged_upper_cny": "0.1063608",
+      "utc": "2026-10-25T10:38:44.872938+00:00",
+      "usage": {
+        "prompt_tokens": 6756,
+        "completion_tokens": 1976,
+        "total_tokens": 8732,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 5860
+      },
+      "finished_utc": "2026-10-25T10:38:56.946381+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0003_blind_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.068644",
+      "charged_upper_cny": "0.01334872",
+      "utc": "2026-10-25T10:38:49.071218+00:00",
+      "usage": {
+        "prompt_tokens": 2551,
+        "completion_tokens": 1219,
+        "total_tokens": 3770,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 1783
+      },
+      "finished_utc": "2026-10-25T10:38:53.515065+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0003_blind_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.068724",
+      "charged_upper_cny": "0.01338672",
+      "utc": "2026-10-25T10:38:49.301041+00:00",
+      "usage": {
+        "prompt_tokens": 2554,
+        "completion_tokens": 1223,
+        "total_tokens": 3777,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 1786
+      },
+      "finished_utc": "2026-10-25T10:38:53.709997+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0003_blind_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.258687",
+      "charged_upper_cny": "0.0595248",
+      "utc": "2026-10-25T10:38:53.529967+00:00",
+      "usage": {
+        "prompt_tokens": 2554,
+        "completion_tokens": 1642,
+        "total_tokens": 4196,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 1658
+      },
+      "finished_utc": "2026-10-25T10:39:03.463051+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0003_metadata_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.076992",
+      "charged_upper_cny": "0.01529184",
+      "utc": "2026-10-25T10:38:53.724471+00:00",
+      "usage": {
+        "prompt_tokens": 3648,
+        "completion_tokens": 1219,
+        "total_tokens": 4867,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2752
+      },
+      "finished_utc": "2026-10-25T10:38:58.154573+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0002_metadata_pro_C/2": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.423297",
+      "charged_upper_cny": "0.1065588",
+      "utc": "2026-10-25T10:38:56.957314+00:00",
+      "usage": {
+        "prompt_tokens": 6781,
+        "completion_tokens": 1975,
+        "total_tokens": 8756,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 5885
+      },
+      "finished_utc": "2026-10-25T10:39:08.836660+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0003_metadata_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.077072",
+      "charged_upper_cny": "0.01528184",
+      "utc": "2026-10-25T10:38:58.168000+00:00",
+      "usage": {
+        "prompt_tokens": 3651,
+        "completion_tokens": 1217,
+        "total_tokens": 4868,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2755
+      },
+      "finished_utc": "2026-10-25T10:39:02.442530+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0003_metadata_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.296253",
+      "charged_upper_cny": "0.0688038",
+      "utc": "2026-10-25T10:39:02.456617+00:00",
+      "usage": {
+        "prompt_tokens": 3651,
+        "completion_tokens": 1620,
+        "total_tokens": 5271,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2755
+      },
+      "finished_utc": "2026-10-25T10:39:12.278759+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0004_blind_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.0809",
+      "charged_upper_cny": "0.01603672",
+      "utc": "2026-10-25T10:39:03.477585+00:00",
+      "usage": {
+        "prompt_tokens": 2915,
+        "completion_tokens": 1464,
+        "total_tokens": 4379,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 2147
+      },
+      "finished_utc": "2026-10-25T10:39:08.560595+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0004_blind_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.08098",
+      "charged_upper_cny": "0.01601072",
+      "utc": "2026-10-25T10:39:08.574037+00:00",
+      "usage": {
+        "prompt_tokens": 2918,
+        "completion_tokens": 1460,
+        "total_tokens": 4378,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 2150
+      },
+      "finished_utc": "2026-10-25T10:39:13.839020+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0004_blind_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.302319",
+      "charged_upper_cny": "0.0733578",
+      "utc": "2026-10-25T10:39:08.851257+00:00",
+      "usage": {
+        "prompt_tokens": 2918,
+        "completion_tokens": 2033,
+        "total_tokens": 4951,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2022
+      },
+      "finished_utc": "2026-10-25T10:39:20.596551+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0004_metadata_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.091394",
+      "charged_upper_cny": "0.01881784",
+      "utc": "2026-10-25T10:39:12.294130+00:00",
+      "usage": {
+        "prompt_tokens": 4351,
+        "completion_tokens": 1484,
+        "total_tokens": 5835,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3455
+      },
+      "finished_utc": "2026-10-25T10:39:17.404197+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0004_metadata_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.091474",
+      "charged_upper_cny": "0.01870384",
+      "utc": "2026-10-25T10:39:13.852949+00:00",
+      "usage": {
+        "prompt_tokens": 4354,
+        "completion_tokens": 1469,
+        "total_tokens": 5823,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3458
+      },
+      "finished_utc": "2026-10-25T10:39:19.060146+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0004_metadata_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.349542",
+      "charged_upper_cny": "0.0858498",
+      "utc": "2026-10-25T10:39:17.418766+00:00",
+      "usage": {
+        "prompt_tokens": 4354,
+        "completion_tokens": 2017,
+        "total_tokens": 6371,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3458
+      },
+      "finished_utc": "2026-10-25T10:39:29.225824+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0005_blind_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.06222",
+      "charged_upper_cny": "0.01124872",
+      "utc": "2026-10-25T10:39:19.074503+00:00",
+      "usage": {
+        "prompt_tokens": 2545,
+        "completion_tokens": 958,
+        "total_tokens": 3503,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 1777
+      },
+      "finished_utc": "2026-10-25T10:39:22.923687+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0005_blind_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.0623",
+      "charged_upper_cny": "0.01137472",
+      "utc": "2026-10-25T10:39:20.611989+00:00",
+      "usage": {
+        "prompt_tokens": 2548,
+        "completion_tokens": 973,
+        "total_tokens": 3521,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 1780
+      },
+      "finished_utc": "2026-10-25T10:39:24.484362+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0005_blind_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.237087",
+      "charged_upper_cny": "0.0521808",
+      "utc": "2026-10-25T10:39:22.936810+00:00",
+      "usage": {
+        "prompt_tokens": 2548,
+        "completion_tokens": 1372,
+        "total_tokens": 3920,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 1652
+      },
+      "finished_utc": "2026-10-25T10:39:31.962935+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0005_metadata_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.069302",
+      "charged_upper_cny": "0.01300496",
+      "utc": "2026-10-25T10:39:24.499234+00:00",
+      "usage": {
+        "prompt_tokens": 3474,
+        "completion_tokens": 1008,
+        "total_tokens": 4482,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 2450
+      },
+      "finished_utc": "2026-10-25T10:39:28.122173+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0005_metadata_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.069382",
+      "charged_upper_cny": "0.01473896",
+      "utc": "2026-10-25T10:39:28.135488+00:00",
+      "usage": {
+        "prompt_tokens": 3477,
+        "completion_tokens": 1224,
+        "total_tokens": 4701,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 2453
+      },
+      "finished_utc": "2026-10-25T10:39:32.983889+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0005_metadata_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.268956",
+      "charged_upper_cny": "0.0574908",
+      "utc": "2026-10-25T10:39:29.239716+00:00",
+      "usage": {
+        "prompt_tokens": 3477,
+        "completion_tokens": 1259,
+        "total_tokens": 4736,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2581
+      },
+      "finished_utc": "2026-10-25T10:39:37.796389+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0006_blind_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.080342",
+      "charged_upper_cny": "0.01533672",
+      "utc": "2026-10-25T10:39:31.977981+00:00",
+      "usage": {
+        "prompt_tokens": 3557,
+        "completion_tokens": 1216,
+        "total_tokens": 4773,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 2789
+      },
+      "finished_utc": "2026-10-25T10:39:36.238799+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0006_blind_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.080422",
+      "charged_upper_cny": "0.01521472",
+      "utc": "2026-10-25T10:39:32.999096+00:00",
+      "usage": {
+        "prompt_tokens": 3560,
+        "completion_tokens": 1200,
+        "total_tokens": 4760,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 2792
+      },
+      "finished_utc": "2026-10-25T10:39:37.094042+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0006_blind_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.305712",
+      "charged_upper_cny": "0.0837528",
+      "utc": "2026-10-25T10:39:36.253236+00:00",
+      "usage": {
+        "prompt_tokens": 3560,
+        "completion_tokens": 2204,
+        "total_tokens": 5764,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2664
+      },
+      "finished_utc": "2026-10-25T10:39:49.162994+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0006_metadata_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.089904",
+      "charged_upper_cny": "0.0156988",
+      "utc": "2026-10-25T10:39:37.106953+00:00",
+      "usage": {
+        "prompt_tokens": 4867,
+        "completion_tokens": 1216,
+        "total_tokens": 6083,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 2947
+      },
+      "finished_utc": "2026-10-25T10:39:41.379705+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0006_metadata_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.089984",
+      "charged_upper_cny": "0.0176648",
+      "utc": "2026-10-25T10:39:37.811511+00:00",
+      "usage": {
+        "prompt_tokens": 4870,
+        "completion_tokens": 1461,
+        "total_tokens": 6331,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 2950
+      },
+      "finished_utc": "2026-10-25T10:39:42.663619+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0006_metadata_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.348741",
+      "charged_upper_cny": "0.0954888",
+      "utc": "2026-10-25T10:39:41.394981+00:00",
+      "usage": {
+        "prompt_tokens": 4870,
+        "completion_tokens": 2202,
+        "total_tokens": 7072,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3974
+      },
+      "finished_utc": "2026-10-25T10:39:54.826900+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0006_blind_pro_C/2": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.307053",
+      "charged_upper_cny": "0.0720438",
+      "utc": "2026-10-25T10:39:49.173382+00:00",
+      "usage": {
+        "prompt_tokens": 3585,
+        "completion_tokens": 1762,
+        "total_tokens": 5347,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2689
+      },
+      "finished_utc": "2026-10-25T10:40:01.083891+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v2/pilot_batch_0006_metadata_pro_C/2": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.350082",
+      "charged_upper_cny": "0.0832668",
+      "utc": "2026-10-25T10:39:54.836480+00:00",
+      "usage": {
+        "prompt_tokens": 4895,
+        "completion_tokens": 1741,
+        "total_tokens": 6636,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3999
+      },
+      "finished_utc": "2026-10-25T10:40:06.266872+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0001_blind_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.286272",
+      "charged_upper_cny": "0.0736362",
+      "utc": "2026-10-25T10:49:48.182684+00:00",
+      "usage": {
+        "prompt_tokens": 2814,
+        "completion_tokens": 1913,
+        "total_tokens": 4727,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 2430
+      },
+      "finished_utc": "2026-10-25T10:50:00.394254+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0001_blind_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.07639",
+      "charged_upper_cny": "0.01588336",
+      "utc": "2026-10-25T10:49:48.183782+00:00",
+      "usage": {
+        "prompt_tokens": 2814,
+        "completion_tokens": 1376,
+        "total_tokens": 4190,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 2430
+      },
+      "finished_utc": "2026-10-25T10:49:52.924962+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0001_blind_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.07631",
+      "charged_upper_cny": "0.01611224",
+      "utc": "2026-10-25T10:49:48.184947+00:00",
+      "usage": {
+        "prompt_tokens": 2811,
+        "completion_tokens": 1374,
+        "total_tokens": 4185,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 2555
+      },
+      "finished_utc": "2026-10-25T10:49:53.190108+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0001_metadata_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.086326",
+      "charged_upper_cny": "0.01751584",
+      "utc": "2026-10-25T10:49:52.942454+00:00",
+      "usage": {
+        "prompt_tokens": 4144,
+        "completion_tokens": 1373,
+        "total_tokens": 5517,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3248
+      },
+      "finished_utc": "2026-10-25T10:49:57.991057+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0001_metadata_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.086406",
+      "charged_upper_cny": "0.01740184",
+      "utc": "2026-10-25T10:49:53.204649+00:00",
+      "usage": {
+        "prompt_tokens": 4147,
+        "completion_tokens": 1358,
+        "total_tokens": 5505,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3251
+      },
+      "finished_utc": "2026-10-25T10:49:58.046111+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0001_metadata_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.331344",
+      "charged_upper_cny": "0.0840066",
+      "utc": "2026-10-25T10:49:58.005509+00:00",
+      "usage": {
+        "prompt_tokens": 4147,
+        "completion_tokens": 1894,
+        "total_tokens": 6041,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 3635
+      },
+      "finished_utc": "2026-10-25T10:50:09.016169+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0002_blind_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.095156",
+      "charged_upper_cny": "0.02027672",
+      "utc": "2026-10-25T10:49:58.058936+00:00",
+      "usage": {
+        "prompt_tokens": 5159,
+        "completion_tokens": 1433,
+        "total_tokens": 6592,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 4391
+      },
+      "finished_utc": "2026-10-25T10:50:03.156490+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0002_blind_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.095236",
+      "charged_upper_cny": "0.02030672",
+      "utc": "2026-10-25T10:50:00.409171+00:00",
+      "usage": {
+        "prompt_tokens": 5162,
+        "completion_tokens": 1436,
+        "total_tokens": 6598,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 4394
+      },
+      "finished_utc": "2026-10-25T10:50:05.408832+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0002_blind_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.366867",
+      "charged_upper_cny": "0.0928716",
+      "utc": "2026-10-25T10:50:03.172330+00:00",
+      "usage": {
+        "prompt_tokens": 5162,
+        "completion_tokens": 1884,
+        "total_tokens": 7046,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 4650
+      },
+      "finished_utc": "2026-10-25T10:50:14.713750+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0002_metadata_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.107606",
+      "charged_upper_cny": "0.02275784",
+      "utc": "2026-10-25T10:50:05.424766+00:00",
+      "usage": {
+        "prompt_tokens": 6773,
+        "completion_tokens": 1371,
+        "total_tokens": 8144,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 5877
+      },
+      "finished_utc": "2026-10-25T10:50:10.456770+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0002_metadata_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.107686",
+      "charged_upper_cny": "0.02325984",
+      "utc": "2026-10-25T10:50:09.030755+00:00",
+      "usage": {
+        "prompt_tokens": 6776,
+        "completion_tokens": 1433,
+        "total_tokens": 8209,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 5880
+      },
+      "finished_utc": "2026-10-25T10:50:13.978133+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0002_metadata_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.422892",
+      "charged_upper_cny": "0.1060278",
+      "utc": "2026-10-25T10:50:10.473047+00:00",
+      "usage": {
+        "prompt_tokens": 6776,
+        "completion_tokens": 1957,
+        "total_tokens": 8733,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 5880
+      },
+      "finished_utc": "2026-10-25T10:50:22.512987+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0003_blind_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.068852",
+      "charged_upper_cny": "0.01335672",
+      "utc": "2026-10-25T10:50:13.993882+00:00",
+      "usage": {
+        "prompt_tokens": 2571,
+        "completion_tokens": 1215,
+        "total_tokens": 3786,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 1803
+      },
+      "finished_utc": "2026-10-25T10:50:18.312360+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0003_blind_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.068932",
+      "charged_upper_cny": "0.01309072",
+      "utc": "2026-10-25T10:50:14.728556+00:00",
+      "usage": {
+        "prompt_tokens": 2574,
+        "completion_tokens": 1181,
+        "total_tokens": 3755,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 1806
+      },
+      "finished_utc": "2026-10-25T10:50:18.943288+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0003_blind_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.259623",
+      "charged_upper_cny": "0.0581118",
+      "utc": "2026-10-25T10:50:18.326615+00:00",
+      "usage": {
+        "prompt_tokens": 2574,
+        "completion_tokens": 1583,
+        "total_tokens": 4157,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 1678
+      },
+      "finished_utc": "2026-10-25T10:50:27.775688+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0003_metadata_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.0772",
+      "charged_upper_cny": "0.01527584",
+      "utc": "2026-10-25T10:50:18.958238+00:00",
+      "usage": {
+        "prompt_tokens": 3668,
+        "completion_tokens": 1212,
+        "total_tokens": 4880,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2772
+      },
+      "finished_utc": "2026-10-25T10:50:23.328617+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0002_metadata_pro_C/2": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.424233",
+      "charged_upper_cny": "0.1060098",
+      "utc": "2026-10-25T10:50:22.527854+00:00",
+      "usage": {
+        "prompt_tokens": 6801,
+        "completion_tokens": 1948,
+        "total_tokens": 8749,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 5905
+      },
+      "finished_utc": "2026-10-25T10:50:34.388256+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0003_metadata_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.07728",
+      "charged_upper_cny": "0.01523384",
+      "utc": "2026-10-25T10:50:23.343529+00:00",
+      "usage": {
+        "prompt_tokens": 3671,
+        "completion_tokens": 1206,
+        "total_tokens": 4877,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2775
+      },
+      "finished_utc": "2026-10-25T10:50:27.682759+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0003_metadata_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.297189",
+      "charged_upper_cny": "0.0693888",
+      "utc": "2026-10-25T10:50:27.697816+00:00",
+      "usage": {
+        "prompt_tokens": 3671,
+        "completion_tokens": 1635,
+        "total_tokens": 5306,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2775
+      },
+      "finished_utc": "2026-10-25T10:50:37.768841+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0004_blind_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.081108",
+      "charged_upper_cny": "0.01586872",
+      "utc": "2026-10-25T10:50:27.790861+00:00",
+      "usage": {
+        "prompt_tokens": 2935,
+        "completion_tokens": 1438,
+        "total_tokens": 4373,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 2167
+      },
+      "finished_utc": "2026-10-25T10:50:33.059928+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0004_blind_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.081188",
+      "charged_upper_cny": "0.01576272",
+      "utc": "2026-10-25T10:50:33.074979+00:00",
+      "usage": {
+        "prompt_tokens": 2938,
+        "completion_tokens": 1424,
+        "total_tokens": 4362,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 2170
+      },
+      "finished_utc": "2026-10-25T10:50:37.861946+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0004_blind_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.303255",
+      "charged_upper_cny": "0.0685968",
+      "utc": "2026-10-25T10:50:34.403671+00:00",
+      "usage": {
+        "prompt_tokens": 2938,
+        "completion_tokens": 1850,
+        "total_tokens": 4788,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2042
+      },
+      "finished_utc": "2026-10-25T10:50:45.225320+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0004_metadata_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.091602",
+      "charged_upper_cny": "0.01858584",
+      "utc": "2026-10-25T10:50:37.784672+00:00",
+      "usage": {
+        "prompt_tokens": 4371,
+        "completion_tokens": 1450,
+        "total_tokens": 5821,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3475
+      },
+      "finished_utc": "2026-10-25T10:50:42.888257+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0004_metadata_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.091682",
+      "charged_upper_cny": "0.01855984",
+      "utc": "2026-10-25T10:50:37.876916+00:00",
+      "usage": {
+        "prompt_tokens": 4374,
+        "completion_tokens": 1446,
+        "total_tokens": 5820,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3478
+      },
+      "finished_utc": "2026-10-25T10:50:43.469946+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0004_metadata_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.350478",
+      "charged_upper_cny": "0.0834108",
+      "utc": "2026-10-25T10:50:42.904388+00:00",
+      "usage": {
+        "prompt_tokens": 4374,
+        "completion_tokens": 1920,
+        "total_tokens": 6294,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3478
+      },
+      "finished_utc": "2026-10-25T10:50:54.360250+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0005_blind_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.062428",
+      "charged_upper_cny": "0.01139272",
+      "utc": "2026-10-25T10:50:43.486300+00:00",
+      "usage": {
+        "prompt_tokens": 2565,
+        "completion_tokens": 971,
+        "total_tokens": 3536,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 1797
+      },
+      "finished_utc": "2026-10-25T10:50:47.497878+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0005_blind_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.062508",
+      "charged_upper_cny": "0.01130272",
+      "utc": "2026-10-25T10:50:45.240742+00:00",
+      "usage": {
+        "prompt_tokens": 2568,
+        "completion_tokens": 959,
+        "total_tokens": 3527,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 1800
+      },
+      "finished_utc": "2026-10-25T10:50:49.079644+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0005_blind_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.238023",
+      "charged_upper_cny": "0.0522798",
+      "utc": "2026-10-25T10:50:47.513705+00:00",
+      "usage": {
+        "prompt_tokens": 2568,
+        "completion_tokens": 1369,
+        "total_tokens": 3937,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 1672
+      },
+      "finished_utc": "2026-10-25T10:50:55.998473+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0005_metadata_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.06951",
+      "charged_upper_cny": "0.01270096",
+      "utc": "2026-10-25T10:50:49.094372+00:00",
+      "usage": {
+        "prompt_tokens": 3494,
+        "completion_tokens": 965,
+        "total_tokens": 4459,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 2470
+      },
+      "finished_utc": "2026-10-25T10:50:52.530261+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0005_metadata_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.06959",
+      "charged_upper_cny": "0.01276296",
+      "utc": "2026-10-25T10:50:52.544683+00:00",
+      "usage": {
+        "prompt_tokens": 3497,
+        "completion_tokens": 972,
+        "total_tokens": 4469,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 2473
+      },
+      "finished_utc": "2026-10-25T10:50:56.249634+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0005_metadata_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.269892",
+      "charged_upper_cny": "0.0576168",
+      "utc": "2026-10-25T10:50:54.375547+00:00",
+      "usage": {
+        "prompt_tokens": 3497,
+        "completion_tokens": 1257,
+        "total_tokens": 4754,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2601
+      },
+      "finished_utc": "2026-10-25T10:51:02.436056+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0006_blind_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.08055",
+      "charged_upper_cny": "0.01522472",
+      "utc": "2026-10-25T10:50:56.013462+00:00",
+      "usage": {
+        "prompt_tokens": 3577,
+        "completion_tokens": 1197,
+        "total_tokens": 4774,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 2809
+      },
+      "finished_utc": "2026-10-25T10:51:00.192834+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0006_blind_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.08063",
+      "charged_upper_cny": "0.01524672",
+      "utc": "2026-10-25T10:50:56.264984+00:00",
+      "usage": {
+        "prompt_tokens": 3580,
+        "completion_tokens": 1199,
+        "total_tokens": 4779,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 2812
+      },
+      "finished_utc": "2026-10-25T10:51:00.411283+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0006_blind_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.306648",
+      "charged_upper_cny": "0.0711078",
+      "utc": "2026-10-25T10:51:00.207931+00:00",
+      "usage": {
+        "prompt_tokens": 3580,
+        "completion_tokens": 1729,
+        "total_tokens": 5309,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 2684
+      },
+      "finished_utc": "2026-10-25T10:51:10.945412+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0006_metadata_flash_A/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.090112",
+      "charged_upper_cny": "0.0154588",
+      "utc": "2026-10-25T10:51:00.425633+00:00",
+      "usage": {
+        "prompt_tokens": 4887,
+        "completion_tokens": 1181,
+        "total_tokens": 6068,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 2967
+      },
+      "finished_utc": "2026-10-25T10:51:04.492780+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0006_metadata_flash_B/1": {
+      "model": "deepseek-flash",
+      "state": "settled",
+      "reservation_upper_cny": "0.090192",
+      "charged_upper_cny": "0.0153128",
+      "utc": "2026-10-25T10:51:02.451229+00:00",
+      "usage": {
+        "prompt_tokens": 4890,
+        "completion_tokens": 1162,
+        "total_tokens": 6052,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 2970
+      },
+      "finished_utc": "2026-10-25T10:51:06.459907+00:00",
+      "reservation_exceeded": false
+    },
+    "deepseek_pilot_20261025_v3/pilot_batch_0006_metadata_pro_C/1": {
+      "model": "deepseek-v4-pro",
+      "state": "settled",
+      "reservation_upper_cny": "0.349677",
+      "charged_upper_cny": "0.0836538",
+      "utc": "2026-10-25T10:51:04.509170+00:00",
+      "usage": {
+        "prompt_tokens": 4890,
+        "completion_tokens": 1757,
+        "total_tokens": 6647,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 3994
+      },
+      "finished_utc": "2026-10-25T10:51:15.257642+00:00",
+      "reservation_exceeded": false
+    }
+  },
+  "pricing_url": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+  "pricing_observed_date": "2026-10-25",
+  "accounting": "Peak-rate upper estimate from actual usage; not a provider invoice.",
+  "created_utc": "2026-10-25T10:31:02.912605+00:00"
+}

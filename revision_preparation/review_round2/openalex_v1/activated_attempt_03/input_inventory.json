@@ -1,0 +1,13 @@
+{
+  "batch_count": 524,
+  "database_sha256_after": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+  "database_sha256_before": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+  "database_unchanged": true,
+  "raw_parser": "reproducibility/revision_identity.py:punctuation_repaired_raw_dois",
+  "raw_parser_script_sha256": "6e23acc973f0f21d19a55d9d3523ec444108641e41294001d6dcaac3ce9294ae",
+  "requested_doi_count": 51941,
+  "requested_dois_sha256": "e889056bcabcae3e0c4696222d61c89ed724411f6e9514e34b4ef1ff7e11a7c7",
+  "seed": 20261011,
+  "unit": "One immutable occurrence_id; joins to chapter, working group, source and paper are many-to-one. Derived units are report/assigned-ID or report/raw-DOI key.",
+  "version": "review-round2-openalex-1.0.0"
+}

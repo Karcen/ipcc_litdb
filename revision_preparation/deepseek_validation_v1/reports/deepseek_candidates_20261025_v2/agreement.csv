@@ -1,0 +1,7 @@
+arm,field,scheduled_items,complete_configuration_items,incomplete_configuration_items,unanimous_items,two_of_three_items,no_majority_items,fleiss_kappa,interpretation
+blind,identity,3944,3684,260,3653,31,0,0.9769790549661918,agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability
+blind,cross_report_recurrence,3944,3684,260,3650,32,2,0.9740883166254711,agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability
+blind,cited_year,7888,7368,520,7360,8,0,0.9992280006814194,agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability
+blind,outlet,7888,7368,520,6817,507,44,0.9478319336902006,agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability
+blind,source_type,7888,7368,520,7210,158,0,0.9624747473233444,agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability
+blind,contains_multiple_citations,7888,7368,520,7321,47,0,0.7117482866735104,agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability

@@ -1,0 +1,45 @@
+Conditional overlap distribution: enumeration and convolution
+
+Population, strata, identity, outlet normalization and year bins are unchanged
+from the baseline: report-specific matched assigned IDs in AR4, AR5 and AR6;
+casefolded, whitespace-normalized preferred journal labels crossed with preferred
+five- or ten-year publication bins. Missing labels and years remain explicit.
+Synthesis-only zero memberships remain fixed. Every ID's row sum and every
+stratum's three group column totals are held fixed. Topics are not conditioned on.
+
+Feasible states reuse conditional_states in the frozen helper. For a stratum
+with a degree-one rows, b degree-two rows and c degree-three rows, x_i is the
+number of degree-two rows missing group i; g_i=m_i-c-b+x_i counts degree-one
+rows in group i. State mass is the exact integer product of multinomial counts
+b!/(x0!x1!x2!) * a!/(g0!g1!g2!). This counts labelled binary matrices uniformly.
+The three pairwise overlap values are (c+x2,c+x1,c+x0). Each marginal is formed
+by summing these exact integer weights and dividing by their common integer
+total. Exact rational marginal means determine the tail event without tolerance.
+
+For each report and pair, direct positive-coefficient numpy.convolve combines
+independent stratum marginals. There is no FFT, MCMC or Monte Carlo sampling.
+NumPy longdouble precision is reported from this runtime; on this Apple ARM
+environment it has a 53-bit significand, equal to float64. Very small positive
+tails are summed directly, not computed as one minus a CDF. Tails below 1e-8
+are recomputed by a separate direct convolution using Python Decimal at eighty
+significant digits; their relative agreement is checked. Decimal arithmetic
+avoids float underflow in these reported tails. A zero Decimal tail is rejected,
+rather than reported as an exact zero. Full-distribution float edge cells can
+underflow; the number of zero support cells is exported. Probability values are
+numerical approximations to the enumerated conditional distribution, not a
+claim of symbolically exact rational convolution. Input stratum weights and
+the tail thresholds/mean are combinatorially/rationally exact.
+
+The two-sided tail is P(|X-E[X]| >= |observed-E[X]|). Integer tail cutpoints
+are derived from the exact rational expectation. Equal-tail central 95% ranges
+use the left inverse CDF at .025 and .975 and integer support, without linear
+interpolation. Holm correction covers all nine report/pair comparisons within
+each bin-width specification, using Decimal for tiny p values. The three
+observed deviations sum to zero exactly because total pairwise sharing is
+fixed by row degrees. The benchmark concerns its allocation among pairs and
+cannot test the overall extent of integration. It does not control topic.
+
+No random draws are used. Global protocol seed 20261011 is recorded unchanged.
+All eighteen observed values and conditional means are checked against the
+frozen baseline. Old forty-five tables, manifests and the read-only database
+are hash protected before and after. --check repeats and compares all bytes.

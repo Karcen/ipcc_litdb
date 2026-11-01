@@ -1,0 +1,57 @@
+Source unit and scope
+One immutable occurrence_id; many-to-one attachments to chapter, assigned paper
+and chapter source are checked. All AR5/AR6 entries are eligible irrespective of
+DOI presence. The matched comparator selects occurrences with matched_doi or
+matched_title; it does not pull in unmatched occurrences merely because their
+ID has another matched occurrence. No external literature population is used.
+
+Age
+The raw year is the existing first-year regular expression in the first 300
+characters. It is not a manually validated date. The source origin requires
+exactly one four-digit year in source metadata. Cutoff origins use the existing
+group-specific CUTOFFS map without a fallback for synthesis/combined units.
+Missing origins, missing cited years, future years and ages above sixty are
+logged by a mutually exclusive priority rule in that order; the source audit
+also retains both year fields so simultaneous missingness is observable.
+Only integer ages zero through sixty are included. Recent means zero through
+five; strict under-five is separately exported. Mean, inverse-ECDF quartiles
+and the complete age histogram/CDF are exported. Each occurrence weighs one.
+Equal-assigned-ID weighting gives one total weight per included ID within each
+report/cohort/group population. Standalone group summaries may share IDs.
+The preferred-year comparator is the modal enriched year plus existing source
+overrides. Both fields are compared on their own included sets and on a common
+paired-occurrence set. Raw parsing avoids WoS selection, not extraction error.
+
+Working-group composition
+Only single-WG1/WG2/WG3 occurrences enter the decomposition. Other groups and
+their included/excluded contributions are logged separately. For pooled equal
+ID weighting, each ID receives total one over ALL included single-group
+occurrences before grouping: an ID spanning groups contributes fractional
+weight according to its included occurrences. Group weights are fractions of
+that pooled denominator, and group means use the same occurrence weights.
+They are not obtained by pooling independently normalized group-ID means.
+For w_g and m_g, delta=sum((w5+w6)/2*(m6-m5)) +
+sum((m5+m6)/2*(w6-w5)). Exact reconstruction is checked for mean age and recent
+share. AR6 at AR5 composition and AR5 at AR6 composition are both exported.
+These are descriptive standardizations; they do not identify topic mechanisms.
+
+Missing-outlet envelopes
+The fixed population is every extracted assigned ID per report/group. Only
+matched IDs with a nonempty preferred source label are retained as known;
+other IDs, including unmatched named IDs, are treated as unknown. Basic and
+conservative alias normalization reuse the archived public helper. Conditional
+on retained labels/IDs being correct and an unrestricted set of possible
+source categories, HHI_min=(sum(k_j^2)+U)/N^2; HHI_max=
+((max(k_j)+U)^2+sum(other k_j^2))/N^2. Unknown IDs each occupying a distinct
+new source attain the minimum; all joining the largest source attain the
+maximum. D2 endpoints invert HHI endpoints. Difference envelopes combine the
+reports' extrema independently. These are missing-label assignment bounds,
+not confidence intervals, a coverage correction or an external supply baseline.
+
+Reproduction
+No API, human labels or database correction is used. No random draws or new
+uncertainty intervals are generated; seed 20261011 is retained as protocol
+metadata. Prior 29+10+6 CSV tables, their manifests and associated JSON outputs,
+helper code and the immutable database are hash-checked before and after.
+--check rebuilds the new tables in memory and compares their hashes with this
+independent output archive. No older table is written or overwritten.

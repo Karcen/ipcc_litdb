@@ -1,0 +1,39 @@
+{
+  "source_url": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+  "observed_date": "2026-10-25",
+  "currency": "CNY",
+  "unit": "per 1000000 tokens",
+  "upper_bound_uses": "Every request reserves published peak rates. Original pilot settlements retain their recorded peak-rate upper costs. Later successful requests may settle at the documented half-rate only with verified buffered off-peak timing evidence; ambiguous timing and unknown charges retain peak upper costs. These are accounting upper estimates, not provider invoices.",
+  "models": {
+    "deepseek-flash": {
+      "official_version_on_observed_date": "DeepSeek-V4.1-Flash-1017",
+      "input_cache_hit": "0.04",
+      "input_cache_miss": "2",
+      "output": "8",
+      "off_peak": {
+        "input_cache_hit": "0.02",
+        "input_cache_miss": "1",
+        "output": "4"
+      }
+    },
+    "deepseek-v4-pro": {
+      "official_version_on_observed_date": "DeepSeek-V4-Pro-0813",
+      "input_cache_hit": "0.30",
+      "input_cache_miss": "9",
+      "output": "27",
+      "off_peak": {
+        "input_cache_hit": "0.15",
+        "input_cache_miss": "4.5",
+        "output": "13.5"
+      }
+    }
+  },
+  "api_docs": [
+    "https://api-docs.deepseek.com/api/list-models/",
+    "https://api-docs.deepseek.com/api/create-chat-completion/",
+    "https://api-docs.deepseek.com/guides/json_mode/",
+    "https://api-docs.deepseek.com/guides/thinking_mode/"
+  ],
+  "settlement_policy": "Always reserve peak rates. Future successful calls settle at half those rates only when authenticated service Date and buffered request/response UTC times prove a wholly off-peak interval; ambiguous timing retains peak. Existing pilot entries are not recalculated.",
+  "peak_windows_utc": "Monday-Friday 01:00-04:00 and 06:00-10:00; holiday discounts are ignored conservatively."
+}

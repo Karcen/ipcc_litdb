@@ -1,0 +1,128 @@
+{
+  "query_date": "2026-10-12",
+  "accepted_citations": 6,
+  "supporting_API_records": 2,
+  "rejected_bibliography_candidates": 2,
+  "API_response_hash_checks": 8,
+  "search_response_hash_checks": 3,
+  "citation_validation_errors": 0,
+  "citation_validation_warnings": 0,
+  "citation_duplicates": 0,
+  "reviewer_comments": 8,
+  "conditional_responses": 8,
+  "structured_human_labels_pending": true,
+  "private_paper_or_original_bibliography_modified_by_this_task": false,
+  "public_queries_contained_private_manuscript_text": false,
+  "temporary_dependency_removed": true,
+  "files": {
+    "references_additions.bib": {
+      "sha256": "7779d4708a4bef10e47f05f58d97849d7e85d39c3d656f77835621396bfe2563",
+      "bytes": 2010
+    },
+    "reference_verification.json": {
+      "sha256": "1e2e50cc5448ab2063216af77441100182339fcf0d4efad12dc24bb5ff06a66e",
+      "bytes": 47930
+    },
+    "reference_verification.csv": {
+      "sha256": "f63fd05fc01095d8714671d72bc55cf63794af98f8502df08dd082e1cc51ef93",
+      "bytes": 4535
+    },
+    "verification_report.txt": {
+      "sha256": "a57298efbc5982345f72389c5d2154d7ca6b78ffa52e7427bb7f1b94441f0b86",
+      "bytes": 3948
+    },
+    "official_policy_sources.json": {
+      "sha256": "c2ca36935f6f655cf7d9ccf9c077fecb1c79b1726b9c72a72aa2f90418114f69",
+      "bytes": 1503
+    },
+    "citation_validation.json": {
+      "sha256": "07e97fb7bec336683078390acb3bcdebd99509e63e2b5c090ba4d1da547da743",
+      "bytes": 391
+    },
+    "literature_paragraph.txt": {
+      "sha256": "0fabe5b2b5bb8e36dfec401e816ccdfc336958085e206ef3b9c570fc20f2572e",
+      "bytes": 956
+    },
+    "price_integration_proposal.txt": {
+      "sha256": "e670e8907d2eecc04ef38ac70d9c0a077383eebf7ffc77e8b962d11bfc3d5a8f",
+      "bytes": 1403
+    },
+    "reviewer_prep_lint.json": {
+      "sha256": "1ab7250088666ef297d5886ba18f46ec2f609f7321f43d791b2a5967e3bdc32d",
+      "bytes": 1708
+    },
+    "reviewer_prep_comment_map.json": {
+      "sha256": "41a565bc3ee60e9c497c2e67a7434cb40774d5f267564daa7810cb6d680ccf65",
+      "bytes": 2808
+    },
+    "reviewer_prep_lint_input.txt": {
+      "sha256": "8275c4b8daf6e096aa25d18aea3150997a520d831f52863e65a66b94eb01ef48",
+      "bytes": 12004
+    },
+    "manuscript_read_only_checks.json": {
+      "sha256": "dbbecd8321e2c8a3a1821ecb6223b89d27026aee9db46c4b9baa3d82cd8429c1",
+      "bytes": 2810
+    },
+    "api_response_inventory.json": {
+      "sha256": "4505e31bf89205c6f8b32262db44b719cfeddc200936842e15c2a77ce8030d36",
+      "bytes": 26235
+    },
+    "bibtex_helpers.py": {
+      "sha256": "51cee4467a2cd4a3dd9d63e2e28d51932ab37fd3d02c6cb7ce782f1c2b1b4059",
+      "bytes": 1190
+    },
+    "check_archived_verification.py": {
+      "sha256": "8ec83df9d6a28972c6e7eee610c63f22959db2764bd6c34df600d0d6722df9ff",
+      "bytes": 10752
+    },
+    "generate_verification_records.py": {
+      "sha256": "b683b4e1e4332c594c5cd73d493d422af3ba62dd0b6828e9f244c451e6cedcc3",
+      "bytes": 12986
+    },
+    "verify_reference_metadata.py": {
+      "sha256": "4cab45fad207a1d9986eff684f0facf96e3390697736d93129f7a5557f77091a",
+      "bytes": 5879
+    },
+    "test_verification_tools.py": {
+      "sha256": "8836fe85ab99516c0dec4dfee58fa94a52d541295bd9185ab177fe15701d38b6",
+      "bytes": 6962
+    },
+    "portability_checks.json": {
+      "sha256": "e3fa4c4f721266454a033b1308b8a387a39435cc4904ae671adde70de38960c4",
+      "bytes": 3381
+    },
+    "portability_notes.txt": {
+      "sha256": "2f54290620d3dc51e4ec1596621d1c93991d0a00cbe569d6cde563ede95f4b09",
+      "bytes": 1226
+    }
+  },
+  "reviewer_prep": {
+    "path": "../../reviewer_prep.md",
+    "sha256": "5d94559acd73862f6563798cc9566efc5fa9f4404decd3fd56b80b285455cbdf"
+  },
+  "private_integration_drafts_excluded_from_public_release": [
+    "literature_paragraph.txt",
+    "price_integration_proposal.txt"
+  ],
+  "lint_note": "The peer-review CLI was run on a parser-compatible local adapter with a separate empty editor channel. Parser priority tags do not classify this author-planning draft as a formal review.",
+  "new_result_checks_included": [
+    "Common 2000\u20132013 raw-DOI retention 13.05%",
+    "Eligible-through-2013 raw-DOI reuse 6.50% versus matched 28.40%; different populations",
+    "Usable single-DOI occurrence availability 11.22% AR5 / 72.36% AR6",
+    "Pooled raw-DOI mean-age composition interval -0.26 to 1.49 years includes zero",
+    "Pooled raw-DOI recent-share composition interval -16.01 to -2.96 percentage points remains negative"
+  ],
+  "probability_sample_corrected_crosswalk_available": false,
+  "recurrence_proposals": "Weighted validation rates and fixed-denominator scenarios; no claimed new adjudicated recurrence table.",
+  "archive_path_portability": "Historical inventory paths were normalized to archive-relative paths. API response payloads and their hashes remain unchanged.",
+  "offline_portability_checks": {
+    "unit_tests": 9,
+    "passed": 9,
+    "generator_derived_files_byte_identical": 3,
+    "archived_work_hashes": 8,
+    "archived_search_hashes": 3,
+    "inventory_payload_hashes": 9,
+    "host_specific_paths": 0,
+    "network_queries_performed": false
+  }
+}

@@ -1,0 +1,13 @@
+arm,field,scheduled_items,complete_configuration_items,incomplete_configuration_items,unanimous_items,two_of_three_items,no_majority_items,fleiss_kappa,interpretation
+blind,identity,30,30,0,30,0,0,1.0,agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability
+blind,cross_report_recurrence,30,30,0,29,1,0,0.904963041182682,agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability
+blind,cited_year,100,100,0,100,0,0,1.0,agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability
+blind,outlet,100,100,0,85,15,0,0.8966158935832931,agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability
+blind,source_type,100,100,0,99,1,0,0.9735286331950939,agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability
+blind,contains_multiple_citations,100,100,0,100,0,0,1.0,agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability
+metadata,identity,30,25,5,25,0,0,1.0,agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability
+metadata,cross_report_recurrence,30,25,5,23,2,0,0.7899159663865549,agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability
+metadata,cited_year,100,80,20,79,1,0,0.9904724096863835,agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability
+metadata,outlet,100,80,20,62,18,0,0.8448387328496516,agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability
+metadata,source_type,100,80,20,73,7,0,0.8049912942542077,agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability
+metadata,contains_multiple_citations,100,80,20,80,0,0,1.0,agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability

@@ -1,0 +1,3 @@
+query,source_scope,identity,metric,equal_size,draws,AR6_minus_AR5_mean,q025,q975,interpretation
+broad,all_known_sources,source_id,D0,132609,1000,5223.879,5097.975,5356.025,"Equal-size independent subsampling from complete archived known-source buckets; broader-source sensitivity, not a journal-only result."
+broad,all_known_sources,source_id,D2,132609,1000,216.45848754514725,205.75974467283163,227.05402449530635,"Equal-size independent subsampling from complete archived known-source buckets; broader-source sensitivity, not a journal-only result."

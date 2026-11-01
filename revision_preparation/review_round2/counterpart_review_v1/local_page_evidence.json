@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "inspection_date": "2026-10-21",
+  "network_requests": 0,
+  "human_validated": false,
+  "scope": "Five local IPCC bibliography contexts, not newly inspected cited-paper full texts",
+  "items": [
+    {
+      "evidence_id": "local-IPCC-context-59659",
+      "paper_id": "59659",
+      "occurrence_id": "AR6-WG2-Ch3-00881",
+      "source_id": "AR6_WG2_full_IPCC_AR6_WGII_FullReport",
+      "source_pdf_sha256": "4ae90a7d603892d7a7ed303e20ebd5e7fb991dc31d78cce81f0d046b9dde81ac",
+      "source_url": "https://www.ipcc.ch/report/ar6/wg2/downloads/report/IPCC_AR6_WGII_FullReport.pdf",
+      "viewer_pages_one_based": [
+        528,
+        529
+      ],
+      "source_page_zero_based": 527,
+      "extractor": "pdftotext",
+      "extraction_parameters": [
+        "-f",
+        "528",
+        "-l",
+        "529"
+      ],
+      "full_extracted_pages_sha256_utf8": "bb29a83f72c24304076d2edcc9535214b8c6bb637d62504d2e41098b894b5d20",
+      "bibliographic_excerpt": "Holbrook, N.J., et al., 2019: A global assessment of marine heatwaves and their drivers. Nat. Commun., 10(1), 2624, doi:10.1038/s41467-019-10206-z.",
+      "excerpt_whitespace_normalized": true,
+      "observation": "The local bibliography completes drivers and gives NatureCommunications10:2624. Preferred Hu2021metadata identify another article.",
+      "review_origin": "AI-assisted local IPCC bibliography inspection",
+      "human_confirmed": false
+    },
+    {
+      "evidence_id": "local-IPCC-context-99875",
+      "paper_id": "99875",
+      "occurrence_id": "AR4-WG2-Chapter 2-00105",
+      "source_id": "AR4_WG2_chapter_Ch02",
+      "source_pdf_sha256": "31beb3e7ba9d41ecfde65ce1bb3e7e4b2003d12ab050b36e8e1a3eab43fc6472",
+      "source_url": "https://www.ipcc.ch/site/assets/uploads/2026/06/Ch02.pdf",
+      "viewer_pages_one_based": [
+        52,
+        53
+      ],
+      "source_page_zero_based": 51,
+      "extractor": "pdftotext",
+      "extraction_parameters": [
+        "-f",
+        "52",
+        "-l",
+        "53"
+      ],
+      "full_extracted_pages_sha256_utf8": "2558e6e93fc9c0a65be704fb9440b8b2b4b7a1eb8bcdda6aeb04434c1a1b165f",
+      "bibliographic_excerpt": "Grübler, A., N. Nakićenović and D.G. Victor, 1999: Modeling technological change: implications for the global environment. Annual Review of Energy and the Environment, 24, 545-569.",
+      "excerpt_whitespace_normalized": true,
+      "observation": "The local bibliography completes for the global environment and gives AnnualReview24:545–569.",
+      "review_origin": "AI-assisted local IPCC bibliography inspection",
+      "human_confirmed": false
+    },
+    {
+      "evidence_id": "local-IPCC-context-100389",
+      "paper_id": "100389",
+      "occurrence_id": "AR4-WG2-Chapter 5-00260",
+      "source_id": "AR4_WG2_chapter_Ch05",
+      "source_pdf_sha256": "69607cfef4a41e484dc2cc3ae8a6b7e5e56aaa89259b1f60179b8eefd10cf8e1",
+      "source_url": "https://www.ipcc.ch/site/assets/uploads/2026/06/Ch05.pdf",
+      "viewer_pages_one_based": [
+        57,
+        58
+      ],
+      "source_page_zero_based": 56,
+      "extractor": "pdftotext",
+      "extraction_parameters": [
+        "-f",
+        "57",
+        "-l",
+        "58"
+      ],
+      "full_extracted_pages_sha256_utf8": "19b08855e7c5fabfac82bb12f958c2fa0c0647d42d708e24b7ab8b08ddcba206",
+      "bibliographic_excerpt": "Sohngen, B., R. Mendelsohn, and R. Sedjo, 2001: A global model of climate change impacts on timber markets. Journal of Agricultural and Resource Economics, 26(2), 326-343.",
+      "excerpt_whitespace_normalized": true,
+      "observation": "The local bibliography completes markets and gives JARE26(2):326–343.",
+      "review_origin": "AI-assisted local IPCC bibliography inspection",
+      "human_confirmed": false
+    },
+    {
+      "evidence_id": "local-IPCC-context-102187",
+      "paper_id": "102187",
+      "occurrence_id": "AR5-WG1-Chapter 1-00090",
+      "source_id": "AR5_WG1_chapter_WG1AR5_Chapter01_FINAL",
+      "source_pdf_sha256": "9c1e81fde5161f6104ee9dbcfadfd00b69b66b4733dd89afafdb61f427787df2",
+      "source_url": "https://www.ipcc.ch/site/assets/uploads/2017/09/WG1AR5_Chapter01_FINAL.pdf",
+      "viewer_pages_one_based": [
+        36,
+        37
+      ],
+      "source_page_zero_based": 35,
+      "extractor": "pdftotext",
+      "extraction_parameters": [
+        "-f",
+        "36",
+        "-l",
+        "37"
+      ],
+      "full_extracted_pages_sha256_utf8": "b1199bbe98ef02856eaaf2b27f337885404c9afcac969828189294eeebf074f7",
+      "bibliographic_excerpt": "Moss, R., et al., 2010: The next generation of scenarios for climate change research and assessment. Nature, 463, 747–756.",
+      "excerpt_whitespace_normalized": true,
+      "observation": "The local bibliography completes and assessment and gives Nature463:747–756.",
+      "review_origin": "AI-assisted local IPCC bibliography inspection",
+      "human_confirmed": false
+    },
+    {
+      "evidence_id": "local-IPCC-context-105644",
+      "paper_id": "105644",
+      "occurrence_id": "AR6-WG2-CCP4-00122",
+      "source_id": "AR6_WG2_full_IPCC_AR6_WGII_FullReport",
+      "source_pdf_sha256": "4ae90a7d603892d7a7ed303e20ebd5e7fb991dc31d78cce81f0d046b9dde81ac",
+      "source_url": "https://www.ipcc.ch/report/ar6/wg2/downloads/report/IPCC_AR6_WGII_FullReport.pdf",
+      "viewer_pages_one_based": [
+        2272,
+        2273
+      ],
+      "source_page_zero_based": 2271,
+      "extractor": "pdftotext",
+      "extraction_parameters": [
+        "-f",
+        "2272",
+        "-l",
+        "2273"
+      ],
+      "full_extracted_pages_sha256_utf8": "c7be68d012599b4d9aa33db9f5e93b34cd38855c73fd43a65c14431fb34b3bfa",
+      "bibliographic_excerpt": "Darmaraki, S., et al., 2019b: Future evolution of marine heatwaves in the Mediterranean Sea. Clim. Dyn., 53(3), 1371–1392, doi:10.1007/s00382019-04661-z.",
+      "excerpt_whitespace_normalized": true,
+      "observation": "The local bibliography completes MediterraneanSea and gives ClimateDynamics53:1371–1392. Its extracted DOI typography is retained without silent repair.",
+      "review_origin": "AI-assisted local IPCC bibliography inspection",
+      "human_confirmed": false
+    }
+  ]
+}

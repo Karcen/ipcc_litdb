@@ -1,0 +1,41 @@
+{
+  "method": "GET",
+  "endpoint": "https://api.crossref.org/works/10.1002/asi.20744",
+  "parameters": {},
+  "request_headers": {
+    "Accept": "application/json",
+    "User-Agent": "ipcc_litdb-revision-check/1.0 (public metadata verification)"
+  },
+  "credentials_used": false,
+  "requested_utc": "2026-10-21T05:49:27.052309+00:00",
+  "retry_count": 0,
+  "fallback_api_calls": 0,
+  "purpose": "DOI/title verification of one candidate citation, not corpus acquisition.",
+  "http_status": 200,
+  "response_headers": {
+    "Date": "Wed, 21 Oct 2026 05:49:28 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "close",
+    "access-control-expose-headers": "Link",
+    "access-control-allow-headers": "X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language, Accept-Ranges, Cache-Control",
+    "access-control-allow-origin": "*",
+    "server": "Jetty(9.4.40.v20210413)",
+    "x-rate-limit-limit": "5",
+    "x-rate-limit-interval": "1s",
+    "x-concurrency-limit": "1",
+    "x-api-pool": "public-single",
+    "permissions-policy": "interest-cohort=()",
+    "strict-transport-security": "max-age=31536000;"
+  },
+  "final_endpoint": "https://api.crossref.org/works/10.1002/asi.20744",
+  "received_utc": "2026-10-21T05:49:28.594282+00:00",
+  "response_file": "lariviere2008_crossref_response.json",
+  "response_sha256": "19dcf87565d5cf122e51b7c9e8eac9de2b9f30ff404b209d5abf912e2d0cc9f8",
+  "response_bytes": 6060,
+  "returned_doi": "10.1002/asi.20744",
+  "returned_titles": [
+    "Long‐term variations in the aging of scientific literature: From exponential growth to steady‐state science (1900–2004)"
+  ],
+  "doi_and_title_verified": true
+}

@@ -1,0 +1,25 @@
+{
+  "checks": [
+    "census intervals",
+    "noncensus zero-event upper bound",
+    "exhaustive finite-population coverage for N=2..10 and every n,K",
+    "opposite-report and within-report component fixtures",
+    "compound-ID union exclusion",
+    "synthetic human-validation, weighted-source, completion and exhaustive-search claim rejection"
+  ],
+  "status": "passed",
+  "zero_event_profile_checks": {
+    "exhaustively_checked_allocations": 127,
+    "fixtures": 5,
+    "status": "passed",
+    "tests": [
+      "exact rational marginal ordering",
+      "all-total optimal profile versus exhaustive allocations",
+      "three alpha thresholds",
+      "eligible-capacity constraints",
+      "census stratum",
+      "one-sided worst-allocation rejection probability",
+      "nonzero full-capacity fallback"
+    ]
+  }
+}

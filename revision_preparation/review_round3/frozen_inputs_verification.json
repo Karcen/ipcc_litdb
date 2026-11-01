@@ -1,0 +1,32 @@
+{
+  "deterministic_archive_chunk_and_manifest_replay": true,
+  "existing_22_tar_archive_hashes_unchanged": true,
+  "archives": 22,
+  "tar_member_paths": 5186,
+  "compressed_tar_bytes": 13238275,
+  "split_file_contents": 1,
+  "split_restored_paths": 2,
+  "split_chunks": 9,
+  "split_payload_bytes": 9328956,
+  "total_restored_paths": 5188,
+  "manifest_sha256": "d733d00ddfc7d7b0e0dc41ae835e7b920cde179612140303ffd7329cb09ad218",
+  "cold_restore": {
+    "verified_members": 5188,
+    "restored": 5188,
+    "verified_archives": 22,
+    "verified_split_files": 1,
+    "verified_split_chunks": 9
+  },
+  "cold_restore_every_member_verified": true,
+  "second_restore": {
+    "verified_members": 5188,
+    "restored": 0,
+    "verified_archives": 22,
+    "verified_split_files": 1,
+    "verified_split_chunks": 9
+  },
+  "restore_tests_passed": 14,
+  "new_split_paths_removed_from_git_index": 2,
+  "new_split_local_original_files_preserved_hash_verified": 2,
+  "gitignore_selection_roots": 10
+}

@@ -1,0 +1,5 @@
+cohort,source_identity,work_scope,source_scope,metric,equal_size,draws,AR6_minus_AR5_mean,q025,q975,interpretation
+matched,source_id,article or review,journal,D0,13022,2000,243.1975,208.0,279.0,"Independent equal-size subsampling; conditionally resolved journal article/review cohort, not full extracted bibliography."
+matched,source_id,article or review,journal,D2,13022,2000,60.08383994880973,56.62103031338979,63.570631102279776,"Independent equal-size subsampling; conditionally resolved journal article/review cohort, not full extracted bibliography."
+matched_plus_DOI_recovered_unmatched,source_id,article or review,journal,D0,13523,2000,518.5485,476.975,562.0,"Independent equal-size subsampling; conditionally resolved journal article/review cohort, not full extracted bibliography."
+matched_plus_DOI_recovered_unmatched,source_id,article or review,journal,D2,13523,2000,69.88580652090205,65.94131040018235,73.83789963027353,"Independent equal-size subsampling; conditionally resolved journal article/review cohort, not full extracted bibliography."

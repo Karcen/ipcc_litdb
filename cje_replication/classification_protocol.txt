@@ -1,0 +1,304 @@
+# Document-type coding protocol (Task A)
+
+**File:** `classification_protocol.txt`
+**Code:** `analysis/A_type_classifier.py` (deterministic, no network, no model calls)
+**Version:** 1.0 (2026-10-27)
+**Author of the coding rules:** AI (DeepSeek agent), assistant to the revision team.
+**Status of validation:** AI-assisted adjudication only. No human coder has
+reviewed the labels. See §9.
+
+---
+
+## 1. Purpose and why the raw string is the object
+
+The analysis database records whether a cited work matched a bibliographic
+database (`match_status`) but its document-type fields are empty: the Web of
+Science (`wos_records."Document Type"`) and the collection database
+(`record."Document Type"`, `record."Publication Type"`) columns contain zero
+filled values. Matching status therefore cannot be used to learn document type,
+and it is exactly the outcome of interest.
+
+The raw reference string is available for **all 160,029 occurrences**, matched
+and unmatched. This protocol codes the *raw string*, including strings for works
+that were never matched. Matched metadata (`journal_best`, `metadata_source`) and
+OpenAlex source types are used **only** as corroboration in §9 and never enter
+the classification decision.
+
+The six reported categories are:
+
+| category | meaning in this corpus |
+|---|---|
+| `journal_article` | a work published in a journal/serial venue: journal name + volume/issue/pages/article-code, or a journal lead-in phrase |
+| `book_or_chapter` | a monograph or a chapter in an edited book (publisher/city/pages or ISBN; `In:` + editors) |
+| `institutional_report` | a report or other publication issued by a government, intergovernmental body, agency, research institute or other organisation |
+| `working_paper` | a working paper, discussion paper, preprint or SSRN/NBER series paper |
+| `other` | thesis, conference paper, dataset/model output, software, web page, press release, exhibition, etc. |
+| `uncertain` | no usable cue, or only a cue too weak to support one category |
+
+`journal_article` codes the **venue form**, not peer-review status; an editorial,
+letter or book review printed in a journal is coded `journal_article`. This is
+stated because the theory uses "peer-reviewed article" as a short label; the
+measured object is the journal-form publication.
+
+---
+
+## 2. Inputs and extraction
+
+`analysis/A_00_extract.py` reads, read-only:
+
+- `output/inputs/ipcc_litdb.sqlite` →
+  `references_occurrence` joined to `chapters`/`working_groups`/`papers`.
+- Output: `output/analysis/data/occurrences_all.csv` (160,029 rows; one row per
+  occurrence, all reports) and `output/analysis/data/identity_report_wg.csv`
+  (one row per assigned identity × report × working group).
+
+The unit of analysis is stated explicitly because Task A uses two:
+
+- **U1 occurrence** = one saved bibliography entry (`occurrence_id`).
+- **U2 identity** = one assigned cited document (`papers.paper_id`). An identity
+  can be cited several times and in several reports; it is the unit of the
+  frame comparisons.
+
+`analysis/A_01_build_identity_panel.py` builds U2 and the vintage variable.
+
+---
+
+## 3. Normalisation (deterministic)
+
+`normalize()` in `A_type_classifier.py`, applied before any matching:
+
+1. remove zero-width characters, soft hyphens and byte-order marks;
+2. replace non-breaking and thin spaces with a plain space;
+3. unify en/em dashes, minus signs and curly quotes;
+4. collapse whitespace runs;
+5. **de-hyphenate PDF line-break artefacts**: a hyphen followed by whitespace
+   and a lower-case letter is removed (`Pro- ceedings` → `Proceedings`).
+
+`strip_urls()` removes URL material before lexical cue matching so that domains
+(`ssrn.com`, `nber.org`, `worldbank.org`) cannot fire a document-type rule out of
+context. The URL text is retained separately for the institutional-domain rule
+and for the grey-structure rule.
+
+Case is preserved: some article codes (`D10208`, `L08706`) rely on capitalisation.
+
+---
+
+## 4. Lexical resources
+
+All lists are literal entries in the code; a reader can add, remove or inspect
+any entry and re-run.
+
+| resource | content | count |
+|---|---|---|
+| `BOOK_PUBLISHERS` | named book imprints: university presses, commercial academic publishers (Springer, Elsevier, Routledge, Edward Elgar, Palgrave, Taylor & Francis, CRC Press, ...), trade publishers, series imprints | 124 entries |
+| `PUB_GENERIC_RE` | structural publisher marker: `X University Press` or a capitalised name ending `Press/Publishers/Publishing` | regex |
+| `INSTITUTIONS` | named IGOs and government bodies (IPCC, WMO, UNEP, World Bank, OECD, IEA, FAO, WHO, UNFCCC, European Commission, national ministries/departments/agencies, ...) plus generic organisation nouns (agency, authority, council, committee, commission, institute, laboratory, foundation, ...) | 126 entries |
+| `STRICT_INSTITUTIONS` | subset of named bodies only (no generic nouns), used where a generic noun could be part of a journal title | 81 entries |
+| `JOURNAL_VENUE_LIKE` | journal-title lead-ins: `Journal of`, `Proceedings of`, `Review of`, `Transactions of`, `Annals of`, `Advances in`, `Nature`, `Science`, `PLoS`, `PNAS`, ... | regex |
+| `JOURNAL_TOKENS` | journal-name vocabulary: journal, review, letters, climate, ecology, economics, energy, geophysical, atmospheric, ocean, ... | regex |
+| `WP_RE` | working paper / discussion paper / research paper no. / policy research working paper / preprint / arXiv / SSRN Electronic Journal / National Bureau of Economic Research / mimeo | regex |
+| `REPORT_RE` | report no./number/series, technical report/paper, special report, assessment report, annual/synthesis/progress/country report, white paper, policy brief, briefing/issue/occasional paper, guidance document/note, prepared for/by, submitted to, ... | regex |
+| `THESIS_RE` | PhD/doctoral/master's/MSc thesis, dissertation, habilitation | regex |
+| `CONFERENCE_RE` | proceedings of (except National Academy / Royal Society), conference proceedings, proceeding(s) of X conference/summer study/symposium/workshop, paper presented, presented at, annual meeting, workshop proceedings, conference paper | regex |
+| `DATASET_RE` | model output, CMIP model output, prepared for CMIP, emission-inventory dataset, database version | regex |
+| `OTHER_RE` | press release, presentation, webinar, personal communication, news/media release, fact sheet, leaflet, podcast, workshop report, conference report | regex |
+| `IGO_URL_RE` | institutional URL domains: ipcc.ch, wmo.int, unep.org, worldbank.org, imf.org, oecd.org, iea.org, fao.org, who.int, unfccc.int, un.org, europa.eu, nasa.gov, noaa.gov, epa.gov, .gov, .int, .ac.uk, ... | regex |
+
+Geographic structure markers (`CITY_RE`, `COUNTRY_RE`) identify a place name in
+publisher/report position (`Publisher, City, 123 pp.`); `PP_RE` identifies page
+counts (`pp. 1-13`, `123 pp.`); `ISBN_RE` identifies an ISBN.
+
+---
+
+## 5. Rule catalogue and precedence
+
+Rules are applied **in the order below; the first rule that fires assigns the
+label.** The order is not arbitrary: it follows the principle that *explicit
+document-type phrases outrank structural fingerprints, and a structural
+fingerprint is adjudicated by its venue segment* (the text immediately before the
+volume number). This is what stops "Proceedings of the National Academy of
+Sciences" being read as a conference, "Assessment Report" in a journal article
+title being read as an institutional report, and "OECD Publishing" being read as
+a book publisher.
+
+`A_type_classifier.RULE_CATALOG` carries the same list in code (24 rules).
+
+| # | rule id | label | cue | rationale / failure mode |
+|---|---|---|---|---|
+| 1 | R01_thesis | other | explicit thesis/dissertation phrase | unambiguous when present; rare (0.03%) |
+| 2 | R02_conference | other | `Proceedings of ...` (except National Academy/Royal Society), conference proceedings, paper presented, `In:`/`Proceedings` + symposium/conference/workshop | explicit proceedings phrase; journals named "Proceedings of the ..." are protected by the exception |
+| 3 | R03_working_paper | working_paper | working/discussion paper, research paper no., policy research working paper, staff working paper, preprint, arXiv, SSRN Electronic Journal, National Bureau of Economic Research, mimeo | explicit series label; an SSRN "journal" is a preprint archive venue, coded working_paper |
+| 4 | R04–R09 (fingerprint) | variable | a volume/pages fingerprint (volume(issue)+pages/article-number, volume+page-range, volume+article-code) is detected; the venue segment immediately before it decides the label | the single most important design decision — see §6 |
+| 4a | R04_fp_venue_working_paper | working_paper | fingerprint whose venue segment is a working-paper series | e.g. `CAWCR Technical Report, 21, 1-74` would otherwise look like a journal volume |
+| 4b | R05_fp_venue_report | institutional_report | fingerprint whose venue segment is a report series | |
+| 4c | R09_journal_fingerprint | journal_article | fingerprint whose venue segment has a journal lead-in/token, or no competing cue | default of the block |
+| 4d | R06_fp_venue_institution | institutional_report | fingerprint whose venue segment names a **strict** institution | generic nouns excluded to protect journal titles |
+| 4e | R07_fp_venue_chapter | book_or_chapter | fingerprint whose venue segment contains `In:` or editor markers | |
+| 4f | R08_fp_venue_publisher | book_or_chapter | fingerprint whose venue segment is a book publisher | |
+| 5 | R09b_dataset | other | model output / CMIP dataset / database version | distinguishes data products from reports |
+| 6 | R10_report_phrase | institutional_report | explicit report-series phrase anywhere in the string | journal titles can contain "Assessment Report"; those are already caught by rule 4 because the journal fingerprint fires first |
+| 7 | R11_ipcc_structural | institutional_report | IPCC as author, `In: Climate Change 20XX`, `Contribution of Working Group`, `Report of the Intergovernmental Panel`, or IPCC + Special/Assessment/Synthesis/Technical Report but no DOI | IPCC report structure; the no-DOI guard protects journal articles that mention the IPCC in the title |
+| 8 | R12_org_author | institutional_report | reference headed by an institutional author followed by a year | e.g. `World Bank, 2017: ...` |
+| 9 | R12b_org_acronym | institutional_report | all-caps acronym or short organisational name, followed by year, in author position and not a publisher | catches `IEA (2012)`, `NASEM, 2016`, `C40 Cities, 2020`, `E3G, ...` |
+| 10 | R13_book_chapter | book_or_chapter | `In:` plus editors (`(eds.)`, `editors`, `ed.`) | edited-book chapter |
+| 11 | R15b_strict_institution | institutional_report | named institution + city/pages/URL | before book publishers so that `OECD Publishing, Paris` is a report |
+| 12 | R14_book_publisher | book_or_chapter | book publisher (lexicon, or generic `... Press`) + city/pages/ISBN | generic publishers are skipped when an institution is also named, so `OECD Publishing` is not a book |
+| 13 | R15_isbn | book_or_chapter | ISBN with no other cue | |
+| 14 | R16_institution | institutional_report | institution in document position + city/pages/URL, or an institutional URL domain | |
+| 15 | R16c_grey_structure | institutional_report | page count + city + URL, no publisher signal | last-resort grey literature |
+| 16 | R17_journal_volume_issue | journal_article | bare volume(issue) pattern, no competing cue | |
+| 17 | R18_journal_venue_doi | journal_article | journal-like venue immediately followed by a DOI, no publisher/institution cue | |
+| 18 | R19_book_publisher_weak | book_or_chapter | book publisher named anywhere, no further structure | |
+| 19 | R20_institution_weak | institutional_report | institution named anywhere with pages/URL | |
+| 20 | R22_journal_doi_weak | journal_article | DOI plus a journal-like token, no publisher/institution cue | low confidence |
+| 21 | R21_other_misc | other | press release / presentation / webinar / blog-type marker | |
+| 22 | R99_uncertain | uncertain | no rule fired | honest residual; never force-filled |
+
+`confidence` is recorded as `high` (explicit phrase or adjudicated fingerprint),
+`medium` (secondary structure) or `low`/`uncertain` (weak last-resort). It is a
+documented property of the rule, not a probabilistic score.
+
+---
+
+## 6. The venue-segment rule in detail
+
+The journal/book/report decision for a string that contains a numeric venue
+fingerprint is made on the **venue segment**: the up-to-120 characters
+immediately before the matched volume number, cut back to the last sentence,
+`;` or `]` boundary. For example:
+
+- `... Global Change Biology, 14(10), 2420-2431` → segment
+  `Global Change Biology,` → journal vocabulary → `journal_article`.
+- `... CAWCR Technical Report, 21, 1-74` → segment `CAWCR Technical Report,`
+  → report phrase → `institutional_report`.
+- `... Proceedings of the National Academy of Sciences 104, 20666-20671` →
+  segment contains a journal lead-in → `journal_article` (not a conference).
+- `... OECD Publishing, Paris, France` → named institution → report; the generic
+  `... Publishing` book-publisher pattern is suppressed when an institution is
+  named in the same string.
+
+A fingerprint firing does **not** by itself imply "journal"; the venue segment
+decides. This is why the rule order can be fixed and documented.
+
+---
+
+## 7. Vintage (publication year) extraction
+
+`analysis/A_01_build_identity_panel.py`: `ref_year` is the first year in
+1,400–2,029 that appears followed by `)` or `:` and preceded by start-of-string,
+space, comma, semicolon or `(`. This is the citation year of the IPCC reference
+format `Authors, YEAR: Title ...`. Identity year = modal `ref_year` across the
+identity's occurrences, ties broken towards the earliest year.
+
+Validation: for the 111,122 identities with both a raw-string year and the
+database `year_best`, exact agreement is 80.1%, agreement within ±1 year 91.1%,
+within ±2 years 92.1%. Vintage bands: ≤1997, 1998–2005, 2006–2013, 2014+,
+unknown. The 1998 cut is the Web of Science export window (all 61,264
+`wos_records` have publication year ≥1998).
+
+The year is used **only** for the vintage stratification; it never enters the
+type rules.
+
+---
+
+## 8. Identity-level type
+
+`analysis/A_02_tables.py` builds the identity-level type used in the frame
+analyses: for an identity observed in a cycle, the modal category among its
+occurrences **in that cycle** (`type_AR5`, `type_AR6`). Ties break by the fixed
+precedence journal_article > book_or_chapter > institutional_report >
+working_paper > other > uncertain. Identities with no occurrence in the cycle
+are `uncertain` for that cycle and are excluded from that cycle's panels.
+
+Robustness variants (reported in `output/tables/A_robustness_type_composition.csv`):
+
+1. base: modal over all occurrences of the identity;
+2. cycle-specific: modal over occurrences **in the report being analysed**;
+3. exclude `uncertain` identities from the cohort;
+4. allocate `uncertain` to `journal_article`;
+5. allocate `uncertain` to `institutional_report`;
+6. allocate `uncertain` to `book_or_chapter`;
+7. high-confidence-only: modal over occurrences assigned by a `high`/`medium`
+   rule, else `uncertain`;
+8. occurrence-level frame (no identity aggregation).
+
+---
+
+## 9. Validation
+
+**This is AI-assisted adjudication, not human validation.** The same language
+model that wrote the rules read the raw strings and assigned labels against this
+protocol, blind to the classifier's own label. No human coder has checked the
+sample. Rule-level precision is therefore an upper bound on what an independent
+human coder would obtain, and it is not an accuracy rate for a general-purpose
+document-type classifier.
+
+Design (`analysis/A_03_validation.py --draw`, seed 20261027):
+
+- Component 1: 12 strata (2 cycles × 3 working groups × 2 match statuses) × 16
+  occurrences = 192.
+- Component 2: 8 classifier rules (R10, R11, R12, R13, R14, R16, R17, R22) × 6
+  occurrences = 48, excluding component-1 rows.
+- Total 240 occurrences. The original blind sheets were generated during the
+  earlier classification exercise. Saved samples and adjudications are frozen
+  under `inputs/validation/` for replay; the workflow does not create new labels.
+
+External corroboration: matched identities are compared with the OpenAlex
+`work_type` in the frozen
+`inputs/validation/resolved_journal_source_assignments.csv.gz`. OpenAlex type is an independent
+external label but is *not* a gold standard: it is assigned to the DOI resolution
+of the identity and inherits identity-resolution errors. Agreement for the
+journal label is the only corroboration that is informative (see §10).
+
+### Known limitations stated up front
+
+- The rules were developed by inspecting the same corpus and were revised once
+  after the validation sample exposed cue omissions (de-hyphenation, NBER,
+  dataset, CABI, Elgar). The reported validation is therefore **not
+  out-of-sample**; a fresh held-out sample drawn from an unseen corpus would be
+  the correct next test.
+- Agreement is higher for matched occurrences (106/106 in the sample) than for
+  unmatched (124/132): misclassification is correlated with the match status
+  that the analysis uses as an outcome. This direction must be kept in mind when
+  reading the coverage decomposition.
+- Multi-citation blobs (two or more bibliography entries running together, a PDF
+  extraction artefact) are common in a small share of strings. The classifier
+  codes the whole string; the leading entry usually dominates. Blob rows are not
+  flagged as a separate category.
+- Truncated references (title only, no venue) are `uncertain`; they are
+  concentrated in unmatched rows.
+- The book/report/working-paper boundaries are institutional, not semantic: an
+  OECD "book" is coded report if an OECD body issues it; a World Bank edited
+  volume is coded report. This is a coding decision, documented here, and it
+  favours the "institutional report" category over "book".
+- Peer-review status is not observed; `journal_article` is a venue-form label.
+- `other` mixes heterogeneous material (theses, conference papers, datasets,
+  web pages); it is reported but not decomposed further in the main tables.
+
+---
+
+## 10. Reproducing every label
+
+```bash
+cd cje_replication
+python3.12 run_types.py
+```
+
+`output/analysis/data/occurrence_types.csv` contains, for **every** occurrence:
+`category`, `subcategory`, `rule_id`, `confidence`, `matched_rules` and
+`conflict`. `rule_id` is the precedence-winning rule. `matched_rules` is an
+**independent cue audit**: it lists the surface-cue families actually present in
+the normalised, URL-stripped string — journal fingerprint, book chapter, book
+publisher, institutional report, IPCC report, working paper, thesis, conference,
+dataset, other — regardless of which rule won, so a sceptical reader can locate
+every string where two kinds of evidence co-occur. `conflict = 1` when the cues
+present imply more than one category (7.0 % of all occurrences, but 70 % of
+working papers and 57 % of `other`, where series labels and publisher names
+genuinely co-occur). Labels are never changed by the audit; the fixed precedence
+in §5 resolves the conflict, and the audit makes that resolution inspectable row
+by row. The classifier's decision is a pure function of the raw string: no
+sampling, no random seed, no external data.
+
+Output directory: every write is under `output/`; frozen source inputs and
+reference outputs are opened read-only. The runner expands and checks the saved
+input archives before running the classifier and table scripts.

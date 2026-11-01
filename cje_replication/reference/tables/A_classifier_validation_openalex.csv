@@ -1,0 +1,15 @@
+level,group,n,n_covered,share_pct,n_agree,agreement_pct
+openalex_coverage,AR5:all_identities,21770,13189,60.58,,
+category_openalex_corroboration,AR5:journal_article,12590,12590,75.12,12546,99.65
+category_openalex_corroboration,AR5:book_or_chapter,82,82,6.13,23,28.05
+category_openalex_corroboration,AR5:institutional_report,74,74,3.26,0,0.0
+category_openalex_corroboration,AR5:working_paper,10,10,4.39,0,0.0
+category_openalex_corroboration,AR5:other,30,30,15.62,1,3.33
+category_openalex_corroboration,AR5:uncertain,403,403,40.96,0,0.0
+openalex_coverage,AR6:all_identities,47636,34316,72.04,,
+category_openalex_corroboration,AR6:journal_article,33610,33610,85.63,33447,99.52
+category_openalex_corroboration,AR6:book_or_chapter,98,98,4.95,23,23.47
+category_openalex_corroboration,AR6:institutional_report,114,114,2.68,0,0.0
+category_openalex_corroboration,AR6:working_paper,7,7,3.14,0,0.0
+category_openalex_corroboration,AR6:other,18,18,15.65,6,33.33
+category_openalex_corroboration,AR6:uncertain,469,469,25.81,0,0.0

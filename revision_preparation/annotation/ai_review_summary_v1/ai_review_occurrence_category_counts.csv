@@ -1,0 +1,7 @@
+sample_group,metadata_judgment,n_occurrences,denominator_occurrences
+probability_sample,correct,540,771
+probability_sample,metadata_error,120,771
+probability_sample,unresolved,111,771
+targeted_supplement,correct,17,30
+targeted_supplement,metadata_error,8,30
+targeted_supplement,unresolved,5,30

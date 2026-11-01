@@ -1,0 +1,11 @@
+{
+  "comma_transport_preserves_identity": true,
+  "finite_population_models_exhaustively_checked": 438,
+  "invalid_parameter_guards_passed": true,
+  "math_source_sha256": "f77449e005ddb6a17e10e04f7a740d8fd5cc2546a097d70f14dc00ccb937deaf",
+  "minimum_toy_coverage": 0.9523809523809523,
+  "scope": "Mathematical and serialization fixtures only; no scientific outcomes fabricated.",
+  "script_sha256": "85b57ec821a3f3ffc866c30796bb808a9ceccf513703792c426ec6af99bf41f4",
+  "status": "passed",
+  "unknown_outcome_envelope_checked": true
+}

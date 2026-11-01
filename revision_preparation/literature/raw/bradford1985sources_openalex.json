@@ -1,0 +1,8 @@
+{
+  "key": "bradford1985sources",
+  "provider": "openalex",
+  "query_date": "2026-10-12",
+  "queried_at_utc": "2026-10-12T10:57:08.544132+00:00",
+  "request_url": "https://api.openalex.org/works/https://doi.org/10.1177/016555158501000407",
+  "error": "HTTP Error 429: Too Many Requests"
+}

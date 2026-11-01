@@ -1,0 +1,8 @@
+{
+  "key": "jost2006entropy",
+  "provider": "openalex",
+  "query_date": "2026-10-12",
+  "queried_at_utc": "2026-10-12T10:57:11.545924+00:00",
+  "request_url": "https://api.openalex.org/works/https://doi.org/10.1111/j.2006.0030-1299.14714.x",
+  "error": "HTTP Error 429: Too Many Requests"
+}

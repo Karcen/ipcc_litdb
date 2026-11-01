@@ -1,0 +1,25 @@
+arm,control_set,reviewer,reference_label,scheduled_items,available_items,unavailable_items,matching_reference_labels,agreement_available,human_reference_labels_archived,interpretation
+blind,ledger,consensus,different_studies,5,5,0,5,1.0,False,agreement conditional on provisional ledger labels
+blind,ledger,consensus,same_study,3,3,0,3,1.0,False,agreement conditional on provisional ledger labels
+blind,ledger,flash_A,different_studies,5,5,0,5,1.0,False,agreement conditional on provisional ledger labels
+blind,ledger,flash_A,same_study,3,3,0,3,1.0,False,agreement conditional on provisional ledger labels
+blind,ledger,flash_B,different_studies,5,5,0,5,1.0,False,agreement conditional on provisional ledger labels
+blind,ledger,flash_B,same_study,3,3,0,3,1.0,False,agreement conditional on provisional ledger labels
+blind,ledger,pro_C,different_studies,5,5,0,5,1.0,False,agreement conditional on provisional ledger labels
+blind,ledger,pro_C,same_study,3,3,0,3,1.0,False,agreement conditional on provisional ledger labels
+blind,raw_doi_equal,consensus,same_study,12,12,0,12,1.0,False,agreement with raw-DOI-equality heuristic; not sensitivity or specificity
+blind,raw_doi_equal,flash_A,same_study,12,12,0,12,1.0,False,agreement with raw-DOI-equality heuristic; not sensitivity or specificity
+blind,raw_doi_equal,flash_B,same_study,12,12,0,12,1.0,False,agreement with raw-DOI-equality heuristic; not sensitivity or specificity
+blind,raw_doi_equal,pro_C,same_study,12,12,0,12,1.0,False,agreement with raw-DOI-equality heuristic; not sensitivity or specificity
+metadata,ledger,consensus,different_studies,5,5,0,5,1.0,False,agreement conditional on provisional ledger labels
+metadata,ledger,consensus,same_study,3,3,0,3,1.0,False,agreement conditional on provisional ledger labels
+metadata,ledger,flash_A,different_studies,5,5,0,5,1.0,False,agreement conditional on provisional ledger labels
+metadata,ledger,flash_A,same_study,3,3,0,3,1.0,False,agreement conditional on provisional ledger labels
+metadata,ledger,flash_B,different_studies,5,5,0,5,1.0,False,agreement conditional on provisional ledger labels
+metadata,ledger,flash_B,same_study,3,3,0,3,1.0,False,agreement conditional on provisional ledger labels
+metadata,ledger,pro_C,different_studies,5,4,1,4,1.0,False,agreement conditional on provisional ledger labels
+metadata,ledger,pro_C,same_study,3,1,2,1,1.0,False,agreement conditional on provisional ledger labels
+metadata,raw_doi_equal,consensus,same_study,12,12,0,12,1.0,False,agreement with raw-DOI-equality heuristic; not sensitivity or specificity
+metadata,raw_doi_equal,flash_A,same_study,12,12,0,12,1.0,False,agreement with raw-DOI-equality heuristic; not sensitivity or specificity
+metadata,raw_doi_equal,flash_B,same_study,12,12,0,12,1.0,False,agreement with raw-DOI-equality heuristic; not sensitivity or specificity
+metadata,raw_doi_equal,pro_C,same_study,12,11,1,11,1.0,False,agreement with raw-DOI-equality heuristic; not sensitivity or specificity

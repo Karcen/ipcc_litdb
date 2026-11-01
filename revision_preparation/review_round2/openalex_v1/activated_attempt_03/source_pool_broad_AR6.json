@@ -1,0 +1,241 @@
+{
+  "parameters": {
+    "filter": "publication_year:1980-2021,type:article|review,primary_location.source.id:S125754415|S130750583|S137773608|S139338987|S175056054|S183584863|S196734849|S204799461|S207178839|S32061424|S36624081|S3880285|S48977010|S64187185|S74970393|S80591372|S86852077|S93478396",
+    "group_by": "primary_location.source.id",
+    "per_page": 100,
+    "search.title_and_abstract": "\"climate change\" OR \"global warming\""
+  },
+  "raw_request_id": "0deab63ac70d1fde74c0057fdc1e3b5ca1c5670a587b78d8b76c0131dd0c12f5",
+  "response": {
+    "group_by": [
+      {
+        "count": 3455,
+        "key": "https://openalex.org/S204799461",
+        "key_display_name": "Climatic Change"
+      },
+      {
+        "count": 3268,
+        "key": "https://openalex.org/S86852077",
+        "key_display_name": "The Science of The Total Environment"
+      },
+      {
+        "count": 2820,
+        "key": "https://openalex.org/S74970393",
+        "key_display_name": "Global Change Biology"
+      },
+      {
+        "count": 2121,
+        "key": "https://openalex.org/S137773608",
+        "key_display_name": "Nature"
+      },
+      {
+        "count": 2021,
+        "key": "https://openalex.org/S36624081",
+        "key_display_name": "Geophysical Research Letters"
+      },
+      {
+        "count": 1970,
+        "key": "https://openalex.org/S3880285",
+        "key_display_name": "Science"
+      },
+      {
+        "count": 1853,
+        "key": "https://openalex.org/S183584863",
+        "key_display_name": "Nature Climate Change"
+      },
+      {
+        "count": 1792,
+        "key": "https://openalex.org/S196734849",
+        "key_display_name": "Scientific Reports"
+      },
+      {
+        "count": 1787,
+        "key": "https://openalex.org/S139338987",
+        "key_display_name": "Environmental Research Letters"
+      },
+      {
+        "count": 1682,
+        "key": "https://openalex.org/S80591372",
+        "key_display_name": "Journal of Climate"
+      },
+      {
+        "count": 1662,
+        "key": "https://openalex.org/S207178839",
+        "key_display_name": "Journal of Geophysical Research Atmospheres"
+      },
+      {
+        "count": 1386,
+        "key": "https://openalex.org/S93478396",
+        "key_display_name": "Climate Dynamics"
+      },
+      {
+        "count": 1293,
+        "key": "https://openalex.org/S175056054",
+        "key_display_name": "Energy Policy"
+      },
+      {
+        "count": 1252,
+        "key": "https://openalex.org/S125754415",
+        "key_display_name": "Proceedings of the National Academy of Sciences"
+      },
+      {
+        "count": 1219,
+        "key": "https://openalex.org/S32061424",
+        "key_display_name": "International Journal of Climatology"
+      },
+      {
+        "count": 968,
+        "key": "https://openalex.org/S130750583",
+        "key_display_name": "Global Environmental Change"
+      },
+      {
+        "count": 628,
+        "key": "https://openalex.org/S64187185",
+        "key_display_name": "Nature Communications"
+      },
+      {
+        "count": 378,
+        "key": "https://openalex.org/S48977010",
+        "key_display_name": "Nature Geoscience"
+      }
+    ],
+    "meta": {
+      "cost_usd": 0.001,
+      "count": 31555,
+      "db_response_time_ms": 45,
+      "groups_count": 18,
+      "page": 1,
+      "per_page": 100,
+      "x_query": {
+        "oql": "get sources that published works where published from 1980 through 2021\n  and source is (S125754415 or S130750583 or S137773608 or S139338987 or S175056054 or S183584863 or S196734849 or S204799461 or S207178839 or S32061424 or S36624081 or S3880285 or S48977010 or S64187185 or S74970393 or S80591372 or S86852077 or S93478396)\n  and title-abstract has (stemmed \"climate change\" OR stemmed \"global warming\")\n  and type is ([article](article) or [review](review))",
+        "oqo": {
+          "filter_rows": [
+            {
+              "column_id": "publication_year",
+              "operator": ">=",
+              "value": 1980
+            },
+            {
+              "column_id": "publication_year",
+              "operator": "<=",
+              "value": 2021
+            },
+            {
+              "filters": [
+                {
+                  "column_id": "primary_location.source.id",
+                  "value": "S125754415"
+                },
+                {
+                  "column_id": "primary_location.source.id",
+                  "value": "S130750583"
+                },
+                {
+                  "column_id": "primary_location.source.id",
+                  "value": "S137773608"
+                },
+                {
+                  "column_id": "primary_location.source.id",
+                  "value": "S139338987"
+                },
+                {
+                  "column_id": "primary_location.source.id",
+                  "value": "S175056054"
+                },
+                {
+                  "column_id": "primary_location.source.id",
+                  "value": "S183584863"
+                },
+                {
+                  "column_id": "primary_location.source.id",
+                  "value": "S196734849"
+                },
+                {
+                  "column_id": "primary_location.source.id",
+                  "value": "S204799461"
+                },
+                {
+                  "column_id": "primary_location.source.id",
+                  "value": "S207178839"
+                },
+                {
+                  "column_id": "primary_location.source.id",
+                  "value": "S32061424"
+                },
+                {
+                  "column_id": "primary_location.source.id",
+                  "value": "S36624081"
+                },
+                {
+                  "column_id": "primary_location.source.id",
+                  "value": "S3880285"
+                },
+                {
+                  "column_id": "primary_location.source.id",
+                  "value": "S48977010"
+                },
+                {
+                  "column_id": "primary_location.source.id",
+                  "value": "S64187185"
+                },
+                {
+                  "column_id": "primary_location.source.id",
+                  "value": "S74970393"
+                },
+                {
+                  "column_id": "primary_location.source.id",
+                  "value": "S80591372"
+                },
+                {
+                  "column_id": "primary_location.source.id",
+                  "value": "S86852077"
+                },
+                {
+                  "column_id": "primary_location.source.id",
+                  "value": "S93478396"
+                }
+              ],
+              "join": "or"
+            },
+            {
+              "filters": [
+                {
+                  "column_id": "title_and_abstract.search",
+                  "operator": "has",
+                  "value": "\"climate change\""
+                },
+                {
+                  "column_id": "title_and_abstract.search",
+                  "operator": "has",
+                  "value": "\"global warming\""
+                }
+              ],
+              "join": "or"
+            },
+            {
+              "filters": [
+                {
+                  "column_id": "type",
+                  "value": "article"
+                },
+                {
+                  "column_id": "type",
+                  "value": "review"
+                }
+              ],
+              "join": "or"
+            }
+          ],
+          "get_rows": "works",
+          "group_by": [
+            {
+              "column_id": "primary_location.source.id"
+            }
+          ]
+        },
+        "url": "/works?filter=publication_year:1980-2021,primary_location.source.id:S125754415|S130750583|S137773608|S139338987|S175056054|S183584863|S196734849|S204799461|S207178839|S32061424|S36624081|S3880285|S48977010|S64187185|S74970393|S80591372|S86852077|S93478396,title_and_abstract.search:%22climate change%22|%22global warming%22,type:article|review&group_by=primary_location.source.id&per_page=100",
+        "x_new_oql": "get the count of works from 1980–2021 with (stemmed \"climate change\" OR stemmed \"global warming\") in the title or abstract in (S125754415) or (S130750583) or (S137773608) or (S139338987) or (S175056054) or (S183584863) or (S196734849) or (S204799461) or (S207178839) or (S32061424) or (S36624081) or (S3880285) or (S48977010) or (S64187185) or (S74970393) or (S80591372) or (S86852077) or (S93478396) where type is ([article](article) or [review](review)) by source"
+      }
+    }
+  }
+}

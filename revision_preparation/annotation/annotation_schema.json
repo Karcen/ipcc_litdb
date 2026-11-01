@@ -1,0 +1,64 @@
+{
+  "id_fields": {
+    "annotator": null,
+    "review_complete": [
+      "yes",
+      "no"
+    ],
+    "identity_label": [
+      "correct_merge",
+      "false_merge",
+      "unresolved"
+    ],
+    "shared_link_label": [
+      "same_work",
+      "false_shared",
+      "not_shared",
+      "unresolved"
+    ],
+    "missed_merge_search_status": [
+      "not_started",
+      "incomplete",
+      "complete"
+    ],
+    "missed_merge_result": [
+      "none_found",
+      "missed_merge_found",
+      "unresolved"
+    ],
+    "missed_merge_search_methods": null,
+    "missed_merge_candidate_ids": null,
+    "missed_merge_search_notes": null,
+    "evidence_urls": null,
+    "review_notes": null
+  },
+  "occurrence_fields": {
+    "annotator": null,
+    "work_groups": null,
+    "metadata_judgment": [
+      "correct",
+      "metadata_error",
+      "unresolved"
+    ],
+    "metadata_error_fields": null,
+    "evidence_urls": null,
+    "review_notes": null
+  },
+  "search_methods": [
+    "author_year",
+    "candidate_raw_entries",
+    "raw_doi",
+    "raw_reference",
+    "title"
+  ],
+  "metadata_fields": [
+    "authors",
+    "doi",
+    "journal",
+    "other",
+    "title",
+    "year"
+  ],
+  "blank_is_allowed_for_work_in_progress": true,
+  "immutable_fields": "Every source and sampling-weight field"
+}

@@ -1,0 +1,11 @@
+{
+  "papers_with_multiple_occurrences": 24570,
+  "papers_with_title_variants": 1054,
+  "papers_with_year_conflicts": 756,
+  "papers_with_journal_conflicts": 2267,
+  "papers_with_author_format_conflicts": 6358,
+  "possible_duplicate_title_groups": 974,
+  "invalid_doi_occurrences": 103,
+  "suspicious_year_occurrences": 24,
+  "doi_less_occurrences_attached_by_title": 566
+}

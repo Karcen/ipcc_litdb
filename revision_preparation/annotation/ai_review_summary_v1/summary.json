@@ -1,0 +1,109 @@
+{
+  "analysis_version": "ai-review-descriptive-1.0.0",
+  "completed_exhaustive_duplicate_searches": 0,
+  "completed_human_reviews": 0,
+  "confidence_intervals_generated": false,
+  "definitions": {
+    "any_metadata_error": "At least one occurrence has metadata_judgment=metadata_error; different erroneous fields can coexist in one occurrence.",
+    "any_metadata_unresolved": "At least one occurrence has metadata_judgment=unresolved. This flag does not count every open question or an explicitly uncertain field attached to an otherwise definite error.",
+    "counterpart_proposed": "At least one candidate ID is listed in missed_merge_candidate_ids; this is a positive AI proposal within an incomplete duplicate search.",
+    "denominator_ids": "Number of frozen sampled IDs in the specified sampling selection, with no design weights.",
+    "denominator_occurrences": "All frozen original entries attached to those sampled IDs; repeated appearances remain separate occurrences.",
+    "explicitly_unresolved_occurrences": "Occurrence has the named metadata_unresolved_fields value, regardless of its overall metadata judgment. Unresolved judgments without typed fields appear as unspecified. Field rows overlap.",
+    "flagged": "Union of non-correct identity proposals, false/unresolved shared links, metadata_error or unresolved occurrence judgments, and positive or explicitly unresolved counterpart IDs.",
+    "identity_label": "AI proposal about whether the original entries assigned to one sampled ID represent one study under the recorded version policy.",
+    "shared_link_label": "AI proposal about the AR5/AR6 matched occurrences already assigned to the sampled ID; this does not adjudicate every counterpart or unsampled ID."
+  },
+  "groups": {
+    "probability_sample": {
+      "any_metadata_error": {
+        "no": 248,
+        "yes": 71
+      },
+      "any_metadata_unresolved": {
+        "no": 256,
+        "yes": 63
+      },
+      "counterpart_proposed": {
+        "no": 279,
+        "yes": 40
+      },
+      "flagged": {
+        "no": 167,
+        "yes": 152
+      },
+      "identity_label": {
+        "correct_merge": 308,
+        "false_merge": 11,
+        "unresolved": 0
+      },
+      "occurrence_metadata": {
+        "correct": 540,
+        "metadata_error": 120,
+        "unresolved": 111
+      },
+      "occurrences": 771,
+      "sampled_ids": 319,
+      "shared_link_label": {
+        "false_shared": 0,
+        "not_shared": 225,
+        "same_work": 94,
+        "unresolved": 0
+      }
+    },
+    "targeted_supplement": {
+      "any_metadata_error": {
+        "no": 6,
+        "yes": 6
+      },
+      "any_metadata_unresolved": {
+        "no": 8,
+        "yes": 4
+      },
+      "counterpart_proposed": {
+        "no": 11,
+        "yes": 1
+      },
+      "flagged": {
+        "no": 2,
+        "yes": 10
+      },
+      "identity_label": {
+        "correct_merge": 8,
+        "false_merge": 4,
+        "unresolved": 0
+      },
+      "occurrence_metadata": {
+        "correct": 17,
+        "metadata_error": 8,
+        "unresolved": 5
+      },
+      "occurrences": 30,
+      "sampled_ids": 12,
+      "shared_link_label": {
+        "false_shared": 0,
+        "not_shared": 6,
+        "same_work": 6,
+        "unresolved": 0
+      }
+    }
+  },
+  "headline_estimates_corrected": false,
+  "human_validated": false,
+  "interpretation": [
+    "These are unweighted descriptions of AI-coded proposals, not human-validated labels or population accuracy estimates.",
+    "The probability sample has unequal inclusion probabilities; no sampling weights or population extrapolation are used here.",
+    "Targeted supplements were selected for anomalies and are never pooled with the probability sample in a reported count.",
+    "Every duplicate search remains incomplete. Counterpart proposals do not estimate missed-merge rates, recall or their uncertainty.",
+    "A compound extracted entry can contain several works while preserving a real work shared by AR5 and AR6. Identity and shared-link labels answer different questions.",
+    "Metadata errors, metadata uncertainty, false merges and counterpart proposals can occur in the same ID. Their counts must not be added as disjoint errors.",
+    "An unresolved metadata field is not coded as a confirmed metadata error. Missing enriched fields alone do not establish an error.",
+    "No confidence intervals, weighted error estimates, corrected headline estimates or new bibliographic API responses are produced."
+  ],
+  "population_accuracy_estimated": false,
+  "random_draws_used": false,
+  "review_origin": "AI-assisted initial textual/source review by Codex and delegated Codex agents",
+  "seed": 20261011,
+  "source_artifact_version": "ai-initial-review-1.1.1",
+  "weighted_estimates_generated": false
+}

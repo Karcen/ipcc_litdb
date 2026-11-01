@@ -1,0 +1,24 @@
+venue_category,n_WG1,n_WG3,y_WG1,y_WG3,in_common_support,gap_pct,pooled_weight_pct
+OTHER,636.0,920.0,127.0,93.0,True,9.859857806945586,48.26302729528536
+Journal of Climate,247.0,1.0,123.0,0.0,True,49.797570850202426,7.6923076923076925
+Geophysical Research Letters,220.0,6.0,142.0,0.0,True,64.54545454545455,7.009925558312655
+Journal of Geophysical Research Atmospheres,147.0,6.0,71.0,0.0,True,48.29931972789115,4.745657568238213
+Climate Dynamics,132.0,1.0,66.0,0.0,True,50.0,4.125310173697271
+Science,102.0,25.0,38.0,7.0,True,9.254901960784313,3.9392059553349874
+Nature,96.0,17.0,46.0,1.0,True,42.0343137254902,3.5049627791563274
+Climatic Change,57.0,48.0,21.0,13.0,True,9.758771929824558,3.2568238213399505
+Nature Geoscience,54.0,4.0,33.0,1.0,True,36.111111111111114,1.7990074441687345
+Atmospheric chemistry and physics,50.0,3.0,15.0,0.0,True,30.0,1.6439205955334988
+Nature Climate Change,48.0,23.0,18.0,8.0,True,2.717391304347828,2.2022332506203472
+Proceedings of the National Academy of Sciences,47.0,34.0,19.0,10.0,True,11.013767209011256,2.5124069478908186
+International Journal of Climatology,47.0,1.0,11.0,0.0,True,23.404255319148938,1.488833746898263
+Environmental Research Letters,24.0,20.0,11.0,5.0,True,20.83333333333333,1.3647642679900744
+Global Change Biology,21.0,8.0,2.0,1.0,True,-2.9761904761904763,0.8995037220843672
+Global Environmental Change,8.0,29.0,0.0,4.0,True,-13.793103448275861,1.1476426799007444
+Nature Communications,3.0,1.0,1.0,1.0,True,-66.66666666666667,0.12406947890818859
+Energy Policy,2.0,128.0,0.0,17.0,True,-13.28125,4.032258064516129
+The Science of The Total Environment,2.0,1.0,0.0,0.0,True,0.0,0.09305210918114144
+PLoS ONE,1.0,4.0,0.0,0.0,True,0.0,0.15508684863523572
+Bulletin of the American Meteorological Society,31.0,0.0,16.0,0.0,False,,
+Scientific Reports,2.0,0.0,1.0,0.0,False,,
+Sustainability,0.0,2.0,0.0,1.0,False,,

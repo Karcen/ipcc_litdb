@@ -1,0 +1,14 @@
+stratum,n,n_agree,agreement_pct
+AR5:WG1:matched,16,16,100.0
+AR5:WG1:unmatched,16,16,100.0
+AR5:WG2:matched,16,16,100.0
+AR5:WG2:unmatched,16,16,100.0
+AR5:WG3:matched,16,16,100.0
+AR5:WG3:unmatched,16,14,87.5
+AR6:WG1:matched,16,16,100.0
+AR6:WG1:unmatched,16,15,93.75
+AR6:WG2:matched,16,16,100.0
+AR6:WG2:unmatched,16,14,87.5
+AR6:WG3:matched,16,16,100.0
+AR6:WG3:unmatched,16,14,87.5
+CORPUS_WEIGHTED,90854,,97.55

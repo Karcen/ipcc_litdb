@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "review_basis": "Final PNGs visually inspected panel by panel and as complete figures; equivalent PDF geometry independently audited. Re-rendered scientific artifacts are byte-identical.",
+  "panels": [
+    {
+      "figure": "age_change_and_components",
+      "panel": "a",
+      "unique_inference": "All-extracted and unmatched mean-change intervals cross zero; matched intervals are positive under both age origins.",
+      "interval": "All six contrasts show the registered 95% percentile chapter-composition ranges.",
+      "geometry": "Both source-origin and cutoff-origin marks and their full intervals are visible; no clipping, no redundant significance stars.",
+      "labels": "Three matching-status rows, separate axis units and one shared two-origin legend; circle/square fill encodings survive grayscale.",
+      "pass": true
+    },
+    {
+      "figure": "age_change_and_components",
+      "panel": "b",
+      "unique_inference": "Positive within-matched contributions combine with negative within-unmatched and matching-composition terms; the decomposition is algebraic.",
+      "interval": "All six component estimates show the corresponding pooled chapter-composition ranges.",
+      "geometry": "Source and cutoff origins have a common within-panel axis; panel b uses a separately labelled contribution scale.",
+      "labels": "Every component has a direct row label; color/shape encodings match panel a.",
+      "pass": true
+    },
+    {
+      "figure": "missing_source_allocation",
+      "panel": "single",
+      "unique_inference": "The D2 contrast follows different conditional paths when unknowns tilt to the largest source or to distinct sources.",
+      "interval": "None; deterministic allocation model, not uncertainty or LLM source classification.",
+      "geometry": "Both full parameter paths and the zero line are visible. No smoothing or unreported interpolation was applied.",
+      "labels": "Two direct legend labels, solid/dashed encoding and explicit allocation parameter.",
+      "conditioning": "Unknown source/type IDs are assumed journal-eligible. Known other types are excluded; this is not an identified journal-only population estimate.",
+      "pass": true
+    }
+  ],
+  "warning_reviews": [
+    {
+      "check": "EXPORT-RASTER",
+      "resolution": "PNG/PDF/SVG only are expressly required by the user; TIFF is intentionally not generated."
+    },
+    {
+      "check": "FINAL-WIDTH",
+      "resolution": "133 mm is the fixed manuscript figure contract; 89/183 mm are generic Nature defaults, not the target journal specification. Root must place at natural size or verify any scaling."
+    }
+  ],
+  "font_floor_pt": 6.0,
+  "collision_failures": 0,
+  "collision_warnings": 0,
+  "main_alignment": "PASS, shared rendered left/right edges and widths; no exemptions",
+  "SI_alignment": "NOT APPLICABLE: one plot area",
+  "source_data_changed": false
+}

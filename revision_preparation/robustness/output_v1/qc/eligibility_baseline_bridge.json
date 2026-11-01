@@ -1,0 +1,209 @@
+{
+  "all_passed": true,
+  "checks": [
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "DOI_parser": "literal",
+      "cutoff": 2006,
+      "observed": [
+        870,
+        56,
+        1
+      ],
+      "baseline": [
+        870,
+        56,
+        1
+      ],
+      "passed": true
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "DOI_parser": "literal",
+      "cutoff": 2007,
+      "observed": [
+        870,
+        108,
+        1
+      ],
+      "baseline": [
+        870,
+        108,
+        1
+      ],
+      "passed": true
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "DOI_parser": "literal",
+      "cutoff": 2008,
+      "observed": [
+        870,
+        170,
+        1
+      ],
+      "baseline": [
+        870,
+        170,
+        1
+      ],
+      "passed": true
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "DOI_parser": "literal",
+      "cutoff": 2012,
+      "observed": [
+        29194,
+        3373,
+        75
+      ],
+      "baseline": [
+        29194,
+        3373,
+        75
+      ],
+      "passed": true
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "DOI_parser": "literal",
+      "cutoff": 2013,
+      "observed": [
+        29194,
+        4709,
+        132
+      ],
+      "baseline": [
+        29194,
+        4709,
+        132
+      ],
+      "passed": true
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "DOI_parser": "literal",
+      "cutoff": 2014,
+      "observed": [
+        29194,
+        6580,
+        146
+      ],
+      "baseline": [
+        29194,
+        6580,
+        146
+      ],
+      "passed": true
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "DOI_parser": "punctuation_repaired",
+      "cutoff": 2006,
+      "observed": [
+        2863,
+        368,
+        1
+      ],
+      "baseline": [
+        2863,
+        368,
+        1
+      ],
+      "passed": true
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "DOI_parser": "punctuation_repaired",
+      "cutoff": 2007,
+      "observed": [
+        2863,
+        528,
+        1
+      ],
+      "baseline": [
+        2863,
+        528,
+        1
+      ],
+      "passed": true
+    },
+    {
+      "earlier": "AR4",
+      "later": "AR5",
+      "DOI_parser": "punctuation_repaired",
+      "cutoff": 2008,
+      "observed": [
+        2863,
+        756,
+        2
+      ],
+      "baseline": [
+        2863,
+        756,
+        2
+      ],
+      "passed": true
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "DOI_parser": "punctuation_repaired",
+      "cutoff": 2012,
+      "observed": [
+        35207,
+        3957,
+        247
+      ],
+      "baseline": [
+        35207,
+        3957,
+        247
+      ],
+      "passed": true
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "DOI_parser": "punctuation_repaired",
+      "cutoff": 2013,
+      "observed": [
+        35207,
+        5597,
+        364
+      ],
+      "baseline": [
+        35207,
+        5597,
+        364
+      ],
+      "passed": true
+    },
+    {
+      "earlier": "AR5",
+      "later": "AR6",
+      "DOI_parser": "punctuation_repaired",
+      "cutoff": 2014,
+      "observed": [
+        35207,
+        7828,
+        389
+      ],
+      "baseline": [
+        35207,
+        7828,
+        389
+      ],
+      "passed": true
+    }
+  ]
+}

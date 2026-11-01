@@ -1,0 +1,18 @@
+{
+  "human_validation_tested_or_implied": false,
+  "status": "passed",
+  "tests": {
+    "compound_canonical_source_union_blocked": true,
+    "compound_evidence_accepted_but_union_blocked": true,
+    "duplicate_occurrence_rejected": true,
+    "human_confirmation_claim_rejected": true,
+    "missing_occurrence_rejected": true,
+    "multistudy_correct_merge_rejected": true,
+    "two_single_study_nodes_same_study_edge_eligible": true,
+    "unknown_version_evidence_rejected": true,
+    "unresolved_edge_union_blocked": true,
+    "unsupported_title_anchor_rejected": true,
+    "valid_single_study_accepted": true,
+    "wrong_candidate_evidence_rejected": true
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "protocol_version": 2,
+  "pilot_cases": 50,
+  "ledger_controls": [
+    {
+      "case_id": "C1AD2C554044C",
+      "source": "ledger:source_audit_b.json:32928",
+      "records": 3,
+      "report_groups": [
+        "earlier",
+        "later"
+      ],
+      "passed": true
+    },
+    {
+      "case_id": "C75AF9DCBDF97",
+      "source": "ledger:source_audit_b.json:33835",
+      "records": 6,
+      "report_groups": [
+        "earlier",
+        "later"
+      ],
+      "passed": true
+    },
+    {
+      "case_id": "C5DAEB980524E",
+      "source": "ledger:source_audit_b.json:35438",
+      "records": 4,
+      "report_groups": [
+        "earlier",
+        "later"
+      ],
+      "passed": true
+    },
+    {
+      "case_id": "CEAE8D761E30A",
+      "source": "ledger:source_audit_a.json:26271",
+      "records": 9,
+      "report_groups": [
+        "earlier",
+        "later"
+      ],
+      "passed": true
+    },
+    {
+      "case_id": "CA9DC891687D3",
+      "source": "ledger:source_audit_a.json:26560",
+      "records": 3,
+      "report_groups": [
+        "earlier",
+        "later"
+      ],
+      "passed": true
+    },
+    {
+      "case_id": "C9E9FCE5259C3",
+      "source": "ledger:source_audit_a.json:28296",
+      "records": 2,
+      "report_groups": [
+        "earlier",
+        "later"
+      ],
+      "passed": true
+    },
+    {
+      "case_id": "CC8EECA03BA57",
+      "source": "ledger:source_audit_b.json:31985",
+      "records": 2,
+      "report_groups": [
+        "earlier",
+        "later"
+      ],
+      "passed": true
+    },
+    {
+      "case_id": "C94219D03235E",
+      "source": "ledger:source_audit_b.json:35229",
+      "records": 2,
+      "report_groups": [
+        "earlier",
+        "later"
+      ],
+      "passed": true
+    }
+  ],
+  "all_controls_include_both_reports": true,
+  "all_original_changed_rows_and_current_retained_rows_included": true,
+  "focal_identity_and_cross_report_recurrence_separated": true,
+  "compound_entry_flag_separate": true,
+  "data_seed": 20261011,
+  "blind_packet_sha256": "63ad069fd9f23d6618ceb689514be0da3dee1bd73c953193e4343975455cfaea",
+  "metadata_packet_sha256": "ace53d8712622b7bec89465ec2048d4e14ef9441c1a9016378f811fdaa10a892"
+}

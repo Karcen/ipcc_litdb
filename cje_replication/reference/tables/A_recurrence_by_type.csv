@@ -1,0 +1,211 @@
+frame,outcome_definition,wg,vintage_stratum,category,denominator,n_recurrent,rate_pct,ci_lo_pct,ci_hi_pct
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,ALL,journal_article,12883,1585,12.303,11.747,12.882
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,ALL,book_or_chapter,86,15,17.442,10.865,26.803
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,ALL,institutional_report,77,12,15.584,9.146,25.294
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,ALL,working_paper,11,1,9.091,1.623,37.736
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,ALL,other,31,5,16.129,7.093,32.635
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,ALL,uncertain,415,39,9.398,6.951,12.589
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,ALL,ALL,13503,1657,12.271,11.729,12.836
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,<=1997,journal_article,10,0,0.0,0.0,27.754
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,<=1997,book_or_chapter,2,0,0.0,0.0,65.763
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,<=1997,institutional_report,1,0,0.0,0.0,79.346
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,<=1997,working_paper,0,0,,,
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,<=1997,other,1,1,100.0,20.654,100.0
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,<=1997,uncertain,1,0,0.0,0.0,79.346
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,<=1997,ALL,15,1,6.667,1.187,29.817
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,1998+,journal_article,12868,1585,12.317,11.761,12.896
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,1998+,book_or_chapter,84,15,17.857,11.131,27.395
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,1998+,institutional_report,76,12,15.789,9.269,25.602
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,1998+,working_paper,11,1,9.091,1.623,37.736
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,1998+,other,30,4,13.333,5.31,29.682
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,1998+,uncertain,414,39,9.42,6.968,12.619
+matched,AR5 matched identity -> matched again in AR6 same WG,ALL,1998+,ALL,13483,1656,12.282,11.739,12.847
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,ALL,journal_article,5254,779,14.827,13.892,15.813
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,ALL,book_or_chapter,7,0,0.0,0.0,35.434
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,ALL,institutional_report,14,1,7.143,1.272,31.469
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,ALL,working_paper,0,0,,,
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,ALL,other,0,0,,,
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,ALL,uncertain,331,31,9.366,6.676,12.987
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,ALL,ALL,5606,811,14.467,13.57,15.412
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,<=1997,journal_article,2,0,0.0,0.0,65.763
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,<=1997,book_or_chapter,0,0,,,
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,<=1997,institutional_report,1,0,0.0,0.0,79.346
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,<=1997,working_paper,0,0,,,
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,<=1997,other,0,0,,,
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,<=1997,uncertain,0,0,,,
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,<=1997,ALL,3,0,0.0,0.0,56.151
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,1998+,journal_article,5249,779,14.841,13.905,15.828
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,1998+,book_or_chapter,7,0,0.0,0.0,35.434
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,1998+,institutional_report,13,1,7.692,1.371,33.315
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,1998+,working_paper,0,0,,,
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,1998+,other,0,0,,,
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,1998+,uncertain,331,31,9.366,6.676,12.987
+matched,AR5 matched identity -> matched again in AR6 same WG,WG1,1998+,ALL,5600,811,14.482,13.585,15.428
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,ALL,journal_article,6259,488,7.797,7.158,8.487
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,ALL,book_or_chapter,57,6,10.526,4.914,21.123
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,ALL,institutional_report,32,7,21.875,11.024,38.755
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,ALL,working_paper,7,0,0.0,0.0,35.434
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,ALL,other,17,2,11.765,3.288,34.337
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,ALL,uncertain,46,3,6.522,2.243,17.503
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,ALL,ALL,6418,506,7.884,7.25,8.569
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,<=1997,journal_article,4,0,0.0,0.0,48.99
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,<=1997,book_or_chapter,1,0,0.0,0.0,79.346
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,<=1997,institutional_report,0,0,,,
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,<=1997,working_paper,0,0,,,
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,<=1997,other,0,0,,,
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,<=1997,uncertain,0,0,,,
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,<=1997,ALL,5,0,0.0,0.0,43.449
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,1998+,journal_article,6253,488,7.804,7.165,8.495
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,1998+,book_or_chapter,56,6,10.714,5.004,21.469
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,1998+,institutional_report,32,7,21.875,11.024,38.755
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,1998+,working_paper,7,0,0.0,0.0,35.434
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,1998+,other,17,2,11.765,3.288,34.337
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,1998+,uncertain,46,3,6.522,2.243,17.503
+matched,AR5 matched identity -> matched again in AR6 same WG,WG2,1998+,ALL,6411,506,7.893,7.258,8.578
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,ALL,journal_article,2026,159,7.848,6.755,9.1
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,ALL,book_or_chapter,24,6,25.0,11.999,44.9
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,ALL,institutional_report,34,2,5.882,1.628,19.094
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,ALL,working_paper,4,0,0.0,0.0,48.99
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,ALL,other,14,3,21.429,7.571,47.59
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,ALL,uncertain,39,4,10.256,4.061,23.579
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,ALL,ALL,2141,174,8.127,7.043,9.361
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,<=1997,journal_article,4,0,0.0,0.0,48.99
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,<=1997,book_or_chapter,1,0,0.0,0.0,79.346
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,<=1997,institutional_report,0,0,,,
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,<=1997,working_paper,0,0,,,
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,<=1997,other,1,1,100.0,20.654,100.0
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,<=1997,uncertain,1,0,0.0,0.0,79.346
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,<=1997,ALL,7,1,14.286,2.568,51.313
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,1998+,journal_article,2022,159,7.864,6.769,9.118
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,1998+,book_or_chapter,23,6,26.087,12.548,46.47
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,1998+,institutional_report,34,2,5.882,1.628,19.094
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,1998+,working_paper,4,0,0.0,0.0,48.99
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,1998+,other,13,2,15.385,4.326,42.235
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,1998+,uncertain,38,4,10.526,4.17,24.131
+matched,AR5 matched identity -> matched again in AR6 same WG,WG3,1998+,ALL,2134,173,8.107,7.023,9.342
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG1,ALL,journal_article,1961,756,38.552,36.422,40.726
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG1,ALL,book_or_chapter,2,0,0.0,0.0,65.763
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG1,ALL,institutional_report,3,2,66.667,20.765,93.851
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG1,ALL,working_paper,0,0,,,
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG1,ALL,other,1,0,0.0,0.0,79.346
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG1,ALL,uncertain,10,3,30.0,10.779,60.323
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG1,ALL,ALL,1977,761,38.493,36.372,40.658
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG2,ALL,journal_article,1714,472,27.538,25.475,29.701
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG2,ALL,book_or_chapter,10,1,10.0,1.788,40.416
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG2,ALL,institutional_report,7,1,14.286,2.568,51.313
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG2,ALL,working_paper,1,0,0.0,0.0,79.346
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG2,ALL,other,0,0,,,
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG2,ALL,uncertain,29,6,20.69,9.846,38.39
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG2,ALL,ALL,1761,480,27.257,25.229,29.385
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG3,ALL,journal_article,1261,160,12.688,10.964,14.639
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG3,ALL,book_or_chapter,9,1,11.111,1.989,43.501
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG3,ALL,institutional_report,5,1,20.0,3.622,62.447
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG3,ALL,working_paper,0,0,,,
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG3,ALL,other,1,0,0.0,0.0,79.346
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG3,ALL,uncertain,6,0,0.0,0.0,39.034
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG3,ALL,ALL,1282,162,12.637,10.929,14.568
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,ALL,journal_article,16760,1774,10.585,10.128,11.06
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,ALL,book_or_chapter,1337,76,5.684,4.565,7.057
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,ALL,institutional_report,2269,179,7.889,6.85,9.071
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,ALL,working_paper,228,14,6.14,3.693,10.042
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,ALL,other,192,7,3.646,1.777,7.333
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,ALL,uncertain,981,49,4.995,3.799,6.542
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,ALL,ALL,21767,2099,9.643,9.258,10.042
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,<=1997,journal_article,669,32,4.783,3.408,6.675
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,<=1997,book_or_chapter,177,4,2.26,0.882,5.666
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,<=1997,institutional_report,87,15,17.241,10.736,26.517
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,<=1997,working_paper,2,0,0.0,0.0,65.763
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,<=1997,other,12,1,8.333,1.486,35.389
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,<=1997,uncertain,58,1,1.724,0.305,9.141
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,<=1997,ALL,1005,53,5.274,4.054,6.834
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,1998+,journal_article,16064,1742,10.844,10.373,11.334
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,1998+,book_or_chapter,1156,72,6.228,4.975,7.772
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,1998+,institutional_report,2166,164,7.572,6.531,8.762
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,1998+,working_paper,226,14,6.195,3.726,10.128
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,1998+,other,179,6,3.352,1.545,7.119
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,1998+,uncertain,890,48,5.393,4.092,7.078
+extracted,AR5 extracted identity -> appears again in AR6 same WG,ALL,1998+,ALL,20681,2046,9.893,9.494,10.308
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,ALL,journal_article,6427,823,12.805,12.011,13.645
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,ALL,book_or_chapter,92,4,4.348,1.704,10.652
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,ALL,institutional_report,187,37,19.786,14.709,26.079
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,ALL,working_paper,0,0,,,
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,ALL,other,26,0,0.0,0.0,12.873
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,ALL,uncertain,448,32,7.143,5.105,9.91
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,ALL,ALL,7180,896,12.479,11.735,13.264
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,<=1997,journal_article,290,19,6.552,4.234,10.005
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,<=1997,book_or_chapter,9,1,11.111,1.989,43.501
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,<=1997,institutional_report,21,5,23.81,10.628,45.092
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,<=1997,working_paper,0,0,,,
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,<=1997,other,3,0,0.0,0.0,56.151
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,<=1997,uncertain,12,0,0.0,0.0,24.25
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,<=1997,ALL,335,25,7.463,5.106,10.784
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,1998+,journal_article,6130,804,13.116,12.294,13.984
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,1998+,book_or_chapter,83,3,3.614,1.237,10.096
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,1998+,institutional_report,166,32,19.277,13.999,25.945
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,1998+,working_paper,0,0,,,
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,1998+,other,23,0,0.0,0.0,14.312
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,1998+,uncertain,408,32,7.843,5.61,10.863
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG1,1998+,ALL,6810,871,12.79,12.018,13.604
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,ALL,journal_article,8109,580,7.153,6.612,7.734
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,ALL,book_or_chapter,790,30,3.797,2.673,5.369
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,ALL,institutional_report,1351,91,6.736,5.518,8.199
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,ALL,working_paper,183,7,3.825,1.865,7.684
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,ALL,other,134,4,2.985,1.167,7.424
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,ALL,uncertain,311,8,2.572,1.309,4.993
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,ALL,ALL,10878,720,6.619,6.167,7.102
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,<=1997,journal_article,179,5,2.793,1.199,6.371
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,<=1997,book_or_chapter,61,2,3.279,0.904,11.19
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,<=1997,institutional_report,41,7,17.073,8.525,31.263
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,<=1997,working_paper,0,0,,,
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,<=1997,other,6,0,0.0,0.0,39.034
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,<=1997,uncertain,19,0,0.0,0.0,16.818
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,<=1997,ALL,306,14,4.575,2.745,7.532
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,1998+,journal_article,7925,575,7.256,6.705,7.848
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,1998+,book_or_chapter,727,28,3.851,2.678,5.51
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,1998+,institutional_report,1302,84,6.452,5.241,7.918
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,1998+,working_paper,183,7,3.825,1.865,7.684
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,1998+,other,127,4,3.15,1.231,7.819
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,1998+,uncertain,289,8,2.768,1.409,5.366
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG2,1998+,ALL,10553,706,6.69,6.229,7.183
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,ALL,journal_article,3096,188,6.072,5.284,6.969
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,ALL,book_or_chapter,483,26,5.383,3.7,7.771
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,ALL,institutional_report,844,42,4.976,3.702,6.658
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,ALL,working_paper,46,2,4.348,1.201,14.533
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,ALL,other,32,3,9.375,3.24,24.218
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,ALL,uncertain,228,8,3.509,1.788,6.77
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,ALL,ALL,4729,269,5.688,5.063,6.385
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,<=1997,journal_article,223,6,2.691,1.239,5.745
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,<=1997,book_or_chapter,115,0,0.0,0.0,3.233
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,<=1997,institutional_report,37,4,10.811,4.285,24.709
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,<=1997,working_paper,2,0,0.0,0.0,65.763
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,<=1997,other,3,1,33.333,6.149,79.235
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,<=1997,uncertain,27,1,3.704,0.657,18.284
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,<=1997,ALL,407,12,2.948,1.694,5.082
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,1998+,journal_article,2858,182,6.368,5.53,7.323
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,1998+,book_or_chapter,366,26,7.104,4.894,10.205
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,1998+,institutional_report,799,38,4.756,3.484,6.461
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,1998+,working_paper,44,2,4.545,1.255,15.135
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,1998+,other,29,2,6.897,1.912,21.965
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,1998+,uncertain,199,7,3.518,1.714,7.082
+extracted,AR5 extracted identity -> appears again in AR6 same WG,WG3,1998+,ALL,4295,257,5.984,5.313,6.733
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG1,ALL,journal_article,1961,756,38.552,36.422,40.726
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG1,ALL,book_or_chapter,2,0,0.0,0.0,65.763
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG1,ALL,institutional_report,3,2,66.667,20.765,93.851
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG1,ALL,working_paper,0,0,,,
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG1,ALL,other,1,0,0.0,0.0,79.346
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG1,ALL,uncertain,10,3,30.0,10.779,60.323
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG1,ALL,ALL,1977,761,38.493,36.372,40.658
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG2,ALL,journal_article,1714,472,27.538,25.475,29.701
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG2,ALL,book_or_chapter,10,1,10.0,1.788,40.416
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG2,ALL,institutional_report,7,1,14.286,2.568,51.313
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG2,ALL,working_paper,1,0,0.0,0.0,79.346
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG2,ALL,other,0,0,,,
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG2,ALL,uncertain,29,6,20.69,9.846,38.39
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG2,ALL,ALL,1761,480,27.257,25.229,29.385
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG3,ALL,journal_article,1261,160,12.688,10.964,14.639
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG3,ALL,book_or_chapter,9,1,11.111,1.989,43.501
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG3,ALL,institutional_report,5,1,20.0,3.622,62.447
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG3,ALL,working_paper,0,0,,,
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG3,ALL,other,1,0,0.0,0.0,79.346
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG3,ALL,uncertain,6,0,0.0,0.0,39.034
+availability_conditional,AR6 matched identity available before AR5 cutoff -> matched in AR5 same WG,WG3,ALL,ALL,1282,162,12.637,10.929,14.568

@@ -1,0 +1,15 @@
+{
+  "archive_version": "round2-large-tables-1.0.0",
+  "database_modified": false,
+  "registered_table_bytes_unchanged": true,
+  "files": [
+    {
+      "path": "revision_preparation/review_round2/raw_age_v1/raw_age_occurrence_audit.csv",
+      "bytes": 23905746,
+      "sha256": "e058b9c84e92519dc18e3850850f3a01b56c1adbc2f3fa6eedbe43b29b902ef5",
+      "archive": "revision_preparation/review_round2/raw_age_v1/raw_age_occurrence_audit.csv.gz",
+      "archive_bytes": 4480696,
+      "archive_sha256": "31d2a9ee47a79d1614d406dd9b69f929c99cd7df47515985e15199d39dffb0a3"
+    }
+  ]
+}

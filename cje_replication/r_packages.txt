@@ -1,0 +1,6 @@
+R 4.5.1 used for the checked replay
+ggplot2 4.0.2
+data.table 1.18.2.1
+svglite 2.2.2
+ragg 1.5.2
+jsonlite 2.0.0

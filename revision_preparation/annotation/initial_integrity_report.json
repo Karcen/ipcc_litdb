@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "status": "pending_annotation",
+  "source_unchanged": true,
+  "expected": {
+    "sampled_ids": 331,
+    "probability_ids": 319,
+    "targeted_ids": 12,
+    "occurrences": 801,
+    "strata": 33,
+    "frame_ids": 46715
+  },
+  "observed": {
+    "paper_id": {
+      "rows": 331,
+      "unique_keys": 331,
+      "duplicate_rows": 0,
+      "consistent_duplicate_rows": 0,
+      "blank_fields": {
+        "annotator": 331,
+        "review_complete": 331,
+        "identity_label": 331,
+        "shared_link_label": 331,
+        "missed_merge_search_status": 331,
+        "missed_merge_result": 331,
+        "missed_merge_search_methods": 331,
+        "missed_merge_candidate_ids": 331,
+        "missed_merge_search_notes": 331,
+        "evidence_urls": 331,
+        "review_notes": 331
+      }
+    },
+    "occurrence_id": {
+      "rows": 801,
+      "unique_keys": 801,
+      "duplicate_rows": 0,
+      "consistent_duplicate_rows": 0,
+      "blank_fields": {
+        "annotator": 801,
+        "work_groups": 801,
+        "metadata_judgment": 801,
+        "metadata_error_fields": 801,
+        "evidence_urls": 801,
+        "review_notes": 801
+      }
+    }
+  },
+  "missing_files": [],
+  "errors": [],
+  "readiness": {
+    "probability_identity": false,
+    "probability_shared_link": false,
+    "probability_metadata": false,
+    "probability_missed_merge_search": false,
+    "targeted_descriptive": false,
+    "targeted_missed_merge_search": false
+  },
+  "labels_repaired": false,
+  "completed_ids": 0,
+  "completed_probability_ids": 0,
+  "completed_searches": 0
+}

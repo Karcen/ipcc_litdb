@@ -1,0 +1,16 @@
+{
+  "analysis_version": "1.6.0",
+  "seed": 20261011,
+  "bootstrap_draws": 200,
+  "R_version": "R version 4.5.1 (2025-06-13)",
+  "RNG": ["Mersenne-Twister", "Inversion", "Rejection"],
+  "packages": {
+    "iNEXT": "3.0.2",
+    "Rcpp": "1.1.2",
+    "reshape2": "1.4.5",
+    "plyr": "1.8.9",
+    "ggplot2": "4.0.2",
+    "jsonlite": "2.0.0"
+  },
+  "methodology": "Minimum observed sample coverage and minimum coverage attained at twice each reference sample size, per estimateD documentation; no extrapolation of unresolved source labels"
+}

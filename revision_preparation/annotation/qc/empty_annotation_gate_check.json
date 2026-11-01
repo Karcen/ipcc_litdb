@@ -1,0 +1,22 @@
+{
+  "CLI_exit_code": 2,
+  "status": "pending_annotation",
+  "structural_errors": 0,
+  "counts": {
+    "sampled_ids": 331,
+    "probability_ids": 319,
+    "targeted_ids": 12,
+    "occurrences": 801,
+    "strata": 33,
+    "frame_ids": 46715
+  },
+  "manual_labels_present": false,
+  "accuracy_estimates_generated": false,
+  "only_output_payload": "annotation_integrity.json",
+  "source_sha256_unchanged": {
+    "papers": true,
+    "occurrences": true,
+    "strata": true,
+    "summary": true
+  }
+}

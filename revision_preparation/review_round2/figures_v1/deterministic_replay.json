@@ -1,0 +1,13 @@
+{
+  "SVG_dash_style_count": 10,
+  "SVG_raster_nodes": 0,
+  "SVG_text_nodes": 49,
+  "all_three_exports_byte_identical_on_second_run": true,
+  "hashes": {
+    "review_round2_age_comparison.pdf": "6c4b1b561bb9db255d1bf6a85af47c6286095841e38ca20e285121a7f883b8f2",
+    "review_round2_age_comparison.png": "0f1f10ce1077b91b9b435e27083e8d36e72b7debf69a104d2c74412549d43a40",
+    "review_round2_age_comparison.svg": "2f6b5e08282c130c8ce77f44eddbf1730edf0a6888a40e5e02917a38bd3da03b"
+  },
+  "old_figures_unchanged": true,
+  "private_copies_match": true
+}

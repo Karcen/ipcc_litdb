@@ -1,0 +1,88 @@
+{
+  "analysis_version": "1.6.0",
+  "seed": 20261011,
+  "script_sha256": "dbb28894061ea130e46710a148dea27fbf4a5eb9b04668aadb7ae15791455268",
+  "inputs": [
+    {
+      "role": "network",
+      "path": "reproducibility/reference/revision_network_retention_sensitivity.csv",
+      "sha256": "8488f40f314cee5985de98ad54af0fcaaff8b5c438c5d5cd3501806fa1aa71ed"
+    },
+    {
+      "role": "cutoff",
+      "path": "revision_preparation/review_round3/external/offline_v1/cutoff_reuse_sensitivity.csv",
+      "sha256": "cd13a722ec9ab8c320f7d2489c06eea1446c306d16bd868e38ab496ed1981506"
+    },
+    {
+      "role": "counts",
+      "path": "revision_preparation/review_round3/external/journal_strict_v1/source_counts.csv",
+      "sha256": "7cbe991a4880d81fd198dd0e70f9407df466cd720a6309e517aaae2a88db3162"
+    },
+    {
+      "role": "diversity",
+      "path": "revision_preparation/review_round3/external/journal_strict_v1/outlet_diversity.csv",
+      "sha256": "ad85f2f5ccddfde37f7d143cd10c0f0209732cdc1150c67687781495894ed9c0"
+    },
+    {
+      "role": "assignments",
+      "path": "revision_preparation/review_round3/external/offline_v1/resolved_journal_source_assignments.csv",
+      "sha256": "22a6f4755891079ac7ce421192a7556e2eacb6bff8c8b157e69c3bf62bca4d1d"
+    },
+    {
+      "role": "occurrences",
+      "path": "revision_preparation/review_round2/raw_age_v1/raw_age_occurrence_audit.csv.gz",
+      "sha256": "31d2a9ee47a79d1614d406dd9b69f929c99cd7df47515985e15199d39dffb0a3"
+    },
+    {
+      "role": "indirect",
+      "path": "revision_preparation/review_round3/external/indirect_pool_v1/indirect_pool_baseline.csv",
+      "sha256": "f36b358c284e4cb83829efee30791ddacbf926aa671d6037ea09c95ec4340a7e"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "wg_reference_recurrence.csv",
+      "rows": 9,
+      "sha256": "c6245e95096c7e4c55e4102110ce03c844cb7aa73dc3730ec78e68ef10afa80e"
+    },
+    {
+      "path": "wg_previous_transition.csv",
+      "rows": 12,
+      "sha256": "ca19f4cefb32c200817b727d749b6b8e27c8d5730d8b3f75a22b4c9c3b905fde"
+    },
+    {
+      "path": "source_availability_by_working_group.csv",
+      "rows": 16,
+      "sha256": "6186fe2f61fe8ff5c91ef7d62567e1720e7537db800cd3f03e037bfd8b7b515e"
+    },
+    {
+      "path": "hill_profiles.csv",
+      "rows": 12,
+      "sha256": "1bbd31cc6a4e1df976c1dad4003a6715eac75894e37274349404bd7cfc361562"
+    },
+    {
+      "path": "top10_journal_shares.csv",
+      "rows": 20,
+      "sha256": "d48e22255d323336d02e3781a21936bae2c0956766c251c4a96461f960f4a2e2"
+    },
+    {
+      "path": "indirect_nonempty_comparison.csv",
+      "rows": 2,
+      "sha256": "ab7f7e307b8152fa0ad48f3d9cd1c98d1de29f885c3c16a98a4b57f7a22fa211"
+    },
+    {
+      "path": "registry.csv",
+      "rows": 349,
+      "sha256": "c589c6e334c8bf612a2d02edacd20481b32f19dedaac102e021d1af058849835"
+    }
+  ],
+  "network_used": false,
+  "credentials_read": false,
+  "notes": [
+    "No human validation, causal adjustment or error correction is produced.",
+    "Hill q=0,1,2 uses full observed resolved-source counts; sample coverage extrapolation was not performed.",
+    "The 2014\u20132021 citation count is post-AR5 and can be a mediator or collider; the year-only RR is the primary descriptive specification.",
+    "Frozen case-cohort observations lack pre-AR5 citation counts, author overlaps and topics. These adjustments require additional data.",
+    "The indirect aggregate does not supply matched pseudo-target sets. Its nonempty-array comparison is descriptive, not a placebo test."
+  ]
+}

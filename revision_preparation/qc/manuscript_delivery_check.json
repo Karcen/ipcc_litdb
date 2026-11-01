@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-12",
+  "original_files_unchanged": {
+    "paper.tex": true,
+    "paper.pdf": true,
+    "references.bib": true,
+    "sn-jnl.cls": true,
+    "sn-apacite.bst": true
+  },
+  "all_original_numeric_tokens_preserved": true,
+  "four_original_tabular_blocks_identical": true,
+  "declarations_unchanged": true,
+  "main_text_words_including_tex_tokens": {
+    "submitted": 7432,
+    "revision": 6845
+  },
+  "abstract_words_including_tex_tokens": 180,
+  "author_placeholder_count": 9,
+  "revision_sha256": "9e6dd1ef92e22e0f101442d2d1c20b3f172d87907ed47628dccfd0a836126202",
+  "revision_pdf_sha256": "fbccaaef10e5e64dbfd4ba1b81e18b62ca95672e3c8f0a0080a82465451cbf68",
+  "original_paper_sha256": "b886eef50bc2c9f4852e11e81d5ff9b1174508f12c375eac66c0de56d7a6dbae",
+  "compilation": "pdflatex, BibTeX, pdflatex, pdflatex: all exit 0; no undefined citations/references or overfull boxes",
+  "visual_review": "All 30 rendered pages inspected in three contact sheets; title, placeholders and new table checked at page scale",
+  "private_paper_published": false
+}

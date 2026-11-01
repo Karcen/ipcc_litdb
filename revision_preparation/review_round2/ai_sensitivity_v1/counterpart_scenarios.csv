@@ -1,0 +1,3 @@
+scenario,AR5_IDs,AR6_IDs,shared_IDs,retention,reuse,accepted_distinct_edges,accepted_components,estimated_correction,true_recurrence_bound
+unchanged_snapshot,13503,34869,1657,0.12271347108050062,0.04752072041067997,0,0,no,no
+accept_eligible_single_study_AI_edges,13503,34869,1657,0.12271347108050062,0.04752072041067997,0,0,no,no

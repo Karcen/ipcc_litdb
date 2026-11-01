@@ -1,0 +1,44 @@
+{
+  "analysis_package": "1.4.0",
+  "seed": 20261011,
+  "scientific_figure_manifest": "output_v1/manifest.json",
+  "files": [
+    {
+      "filename": "render_figures.py",
+      "sha256": "f32fcf91f42729d5b69350b6c0d0ad0f0bc0d424520fb32a5d27e52c370ff93d",
+      "bytes": 15230
+    },
+    {
+      "filename": "figure_contracts.json",
+      "sha256": "8c8f3585e4858c8c1b2c8b4eda63454e2e9c9a66fee06c21a8f180efdbb1fb75",
+      "bytes": 2219
+    },
+    {
+      "filename": "requirements.txt",
+      "sha256": "13fae12e5c267e1bdd1c03de15cc1dcd3e86e3edd1cf52cd05a27f23e531031b",
+      "bytes": 63
+    },
+    {
+      "filename": "runtime_fingerprint.json",
+      "sha256": "c7adaf1e6fa5f037ede9614d954c69464a390b7f328d59db7cbcac971c069714",
+      "bytes": 404
+    },
+    {
+      "filename": "deterministic_replay.json",
+      "sha256": "4679f718e0b90fb2b316757824150719f4e15218e47bc44c75ce0a2302318576",
+      "bytes": 3407
+    },
+    {
+      "filename": "rendered_review.json",
+      "sha256": "6eeecf466368ce81ef7e54c8d30e25a2f3d876b129e1dbeb1022c2badb47e3c3",
+      "bytes": 2913
+    },
+    {
+      "filename": "output_v1/manifest.json",
+      "sha256": "592f13a3ec557441812c6e6b21cba610964717169ef5c602d6b3de5707ef6a7f",
+      "bytes": 5792
+    }
+  ],
+  "visual_and_automatic_QA_completed": true,
+  "deterministic_replay_all_19_files": true
+}

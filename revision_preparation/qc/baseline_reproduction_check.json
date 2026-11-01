@@ -1,0 +1,166 @@
+{
+  "database_sha256_before": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+  "database_sha256_after": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+  "database_unchanged": true,
+  "python_version": "3.12.14",
+  "numpy_version": "2.2.6",
+  "seed": 20261011,
+  "age_network_replicates": 2500,
+  "outlet_replicates": 2000,
+  "checked_reference": true,
+  "table_comparisons": [
+    {
+      "filename": "coverage.csv",
+      "passed": true,
+      "generated_sha256": "ddd0fd188e210219f451a022fe30bca0de24075e07d9cdb9686ef9306e52029b"
+    },
+    {
+      "filename": "citation_age_matched.csv",
+      "passed": true,
+      "generated_sha256": "20d86b74137b1e8bed4225778e96d5cdaa0bf835fd840d08524f943042bdc587"
+    },
+    {
+      "filename": "transitions.csv",
+      "passed": true,
+      "generated_sha256": "abcb946f54988cfd1b4c470b8e602a0b1e81c263cb8d1796b0a0a4e08878f071"
+    },
+    {
+      "filename": "revision_identity_transitions.csv",
+      "passed": true,
+      "generated_sha256": "b743ab8463628d945d6cec4bb4aa0586e3c6afe57d1d183fc24b73576510720f"
+    },
+    {
+      "filename": "revision_identity_status_coverage.csv",
+      "passed": true,
+      "generated_sha256": "8b7500c0eca10a2b6167c37a254ddc4962fcca8ce80c193a0f5463f11a1819ae"
+    },
+    {
+      "filename": "revision_identity_status_combinations.csv",
+      "passed": true,
+      "generated_sha256": "58a6144c5e766ad8c53a4dd077b32456f9bb4324133605208adfee28a58a7701"
+    },
+    {
+      "filename": "revision_identity_eligible_reuse.csv",
+      "passed": true,
+      "generated_sha256": "1a250b914f76ca9867a5666f89054dbcab45f71426fcc8349723cef1ec536e34"
+    },
+    {
+      "filename": "revision_identity_earlier_incoming_partition_summary.csv",
+      "passed": true,
+      "generated_sha256": "3305e8bf76604f130984ede6a75ef75a988d9debe225c1a2a03881d680a3344a"
+    },
+    {
+      "filename": "revision_identity_same_vintage_profiles.csv",
+      "passed": true,
+      "generated_sha256": "8c70e3ec55d229f6abdd42bfd83cbbc898e852d179712cc98e56a52cbfb802b9"
+    },
+    {
+      "filename": "revision_identity_same_vintage_groups.csv",
+      "passed": true,
+      "generated_sha256": "43cff78fe9c67aeda8ff690233b61fa3f55b26433c205be38633c406589da41c"
+    },
+    {
+      "filename": "revision_identity_independent_raw_baselines.csv",
+      "passed": true,
+      "generated_sha256": "5be3e6fc955f0018f2e4b4f5092729dfc7270017f218814fe400ace57ea78c31"
+    },
+    {
+      "filename": "revision_identity_raw_consistency_census.csv",
+      "passed": true,
+      "generated_sha256": "e44a3c7e41f2871ff8f0d84a95c1cd5b40328e9475d7c744b94087d02fc88ab8"
+    },
+    {
+      "filename": "revision_identity_raw_year_age_summaries.csv",
+      "passed": true,
+      "generated_sha256": "8b813613d86fecc5758f5710967099ee5a70e66d5eaec141bf8bb4ac9e9e8736"
+    },
+    {
+      "filename": "revision_identity_raw_year_eligible_reuse.csv",
+      "passed": true,
+      "generated_sha256": "fd0f430a50b651c11699ede65bbbfc020af6d5bb78940f68a5a7580db6cb3293"
+    },
+    {
+      "filename": "revision_identity_flagged_sensitivity.csv",
+      "passed": true,
+      "generated_sha256": "eab01f3c7891392bafa3e37547617ac86e09c53d45bdf667196d08e58159a9c3"
+    },
+    {
+      "filename": "revision_age_summary.csv",
+      "passed": true,
+      "generated_sha256": "ce1aa79d94ccb1444e93ca13600d9b026022e5bce004b59467cf4b5711a595d5"
+    },
+    {
+      "filename": "revision_age_differences.csv",
+      "passed": true,
+      "generated_sha256": "8a7177286f06c92fdbe2b62ac6ec902b81c07ac88d9a1f39c4086a4e691c8ff8"
+    },
+    {
+      "filename": "revision_age_bootstrap_intervals.csv",
+      "passed": true,
+      "generated_sha256": "01b5f8b163e91005cb3a961baa96df8eee1fab14942b84ade497d68b47bbeeb9"
+    },
+    {
+      "filename": "revision_network_coverage.csv",
+      "passed": true,
+      "generated_sha256": "001141f89e2606fa9842b73d73c3b0f6c0fb6263ec9f3b8820b9ffa90bd257c6"
+    },
+    {
+      "filename": "revision_network_overlap_trends.csv",
+      "passed": true,
+      "generated_sha256": "5c905ee0f42c5dfd00f9bb2fad0bff44fd83dee3d3cb490cc3599018d3389e61"
+    },
+    {
+      "filename": "revision_network_retention_sensitivity.csv",
+      "passed": true,
+      "generated_sha256": "e790bb13517373b1d5dc35f862f282f64fefecd9ab69893f639a0a73db7d882c"
+    },
+    {
+      "filename": "revision_network_conditional_null.csv",
+      "passed": true,
+      "generated_sha256": "be7c16080446db45562244f1ffea701d297f87b925bd79bb86e0461891c1c73d"
+    },
+    {
+      "filename": "revision_age_ecdf.csv",
+      "passed": true,
+      "generated_sha256": "2c2ef580733d8480bf000ff59f84006b49cbb9c082b93954afbb82e016d73843"
+    },
+    {
+      "filename": "revision_identity_audit_sample_summary.csv",
+      "passed": true,
+      "generated_sha256": "001398bb1b1711262e3299bbdc81dd166fcbf5c6a189dd872718211a722d0d90"
+    },
+    {
+      "filename": "revision_outlet_hill_numbers.csv",
+      "passed": true,
+      "generated_sha256": "58bdb210a83c3ef66dcc6ed64e7e8af0ea6818530b9c6937b23f6eb7f5513493"
+    },
+    {
+      "filename": "revision_outlet_rarefaction_summary.csv",
+      "passed": true,
+      "generated_sha256": "9703f8147c466cb4588dad11bd550cab883c9ac1a83ec26f82f6a3ab25b5bc9b"
+    },
+    {
+      "filename": "revision_outlet_rarefaction_differences.csv",
+      "passed": true,
+      "generated_sha256": "7889b2ecf4b8665082d456eb4419f19e998c3f635a8d50e6b77b386c467eefa8"
+    },
+    {
+      "filename": "revision_outlet_coverage_summary.csv",
+      "passed": true,
+      "generated_sha256": "c82508a372c0e0bf79c1a52f330f266df72594704625e2101e8b0b865f6e422e"
+    },
+    {
+      "filename": "revision_outlet_title_variants.csv",
+      "passed": true,
+      "generated_sha256": "1c4d689f1f965a333e3d7e637b272af8902b45c0c2a7de2a229d69e61b6eb139"
+    }
+  ],
+  "all_requested_checks_passed": true,
+  "code_sha256": {
+    "analyse_corpus.py": "eb6008eeb2c57a3b899bd9f8129126e392df57090f9368096f779d90a3a368cc",
+    "deepen_analysis.py": "b7300ef0fbecf879dde5c6497626bbb4fdedd52a4a4bfd8eab2838d4909ec2a4",
+    "revision_identity.py": "6e23acc973f0f21d19a55d9d3523ec444108641e41294001d6dcaac3ce9294ae",
+    "revision_age_networks.py": "e7032096db447a747176d2fcaec2748fdf2186ed40d9964b9f28879e795ee141",
+    "revision_outlets.py": "18ab41e99e113ee173a14b16726f72ca411d08ee639e6e834167ef799347d518"
+  }
+}

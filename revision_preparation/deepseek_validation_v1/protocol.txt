@@ -1,0 +1,38 @@
+DeepSeek bibliography review, protocol 1.5.0, 25 October 2026
+
+Scope and authorization
+The author authorized DeepSeek API review without human adjudication, within CNY100 for all calls in this round. The prior Codex stop record remains unchanged. This new authorization covers only this DeepSeek workflow. Original snapshot1.2.0, baseline workflow1.2.1 and previous numerical registries remain unchanged.
+
+Review configurations
+Three configurations are fixed before generation: deepseek-flash with strategyA; deepseek-flash with strategyB; deepseek-v4-pro with strategyC. These are two model identifiers from one provider family. They are not three independent models. Each HTTP request starts a fresh context. The request sets temperature0 and disables thinking; generation seeds are unavailable. Data sampling retains seed20261011. Exact requested and returned model identifiers, fingerprints when provided, UTC times and raw responses are archived.
+
+Packets and stages
+The corrected fixed pilot contains50cases and100original entries. Both blind and metadata-visible arms use identical case and record membership, divided into six batches per arm. Each configuration processes each batch:36initial calls. Whole cases stay together; batches contain at most10cases,20records and40000UTF8bytes unless one case alone exceeds the limit. Blind packets omit pipeline identifiers, preferred metadata, match status and prior model labels. Only raw strings and frozen evidence are supplied. The metadata arm is a separate context with fallible pipeline metadata. Its comparison concerns anchoring in this pilot, not a population-wide bias estimate.
+
+The prepared full blind frame contains5956cases and9701records:1657shared-ID cases,231additional sampled-ID cases,2000parser cases,2000source cases,8ledger controls and60raw-DOI controls. The probability sample has319IDs and the targeted supplement12;100sampled IDs already occur in the shared census. The separate candidate frame contains3944pairs. Full calls require a completed-pilot cost record and enough remaining reserved budget. No missing frames or labels are invented.
+
+Decision rules
+The focal target is the first identifiable study in each original string. Concatenated neighbours are flagged separately. Identity asks whether all focal citations represent one study; cross-report recurrence asks whether at least one supported focal study occurs in both reports. A mixed identity can still contain genuine recurrence. Verified study versions may share identity; age uses the actually cited version. Unresolved outputs are allowed.
+
+Every case and record must occur exactly once in the fixed JSON schema. Quotes must be verbatim from that record or supplied frozen evidence, contain at most25words, and be nonempty for resolved cited-year, outlet or source-type fields. Reasons contain at most30words. No tools or external model browsing are provided. A schema failure permits one fresh-context retry. Two invalid outputs produce explicitly coded unavailable decisions. Original invalid outputs remain archived; code abstention is not a model judgment. Connection-failure resends require the separate bounded authorization described below. HTTP, credential, provenance and accounting failures stop new requests.
+
+Aggregation and interpretation
+Two matching genuine votes produce majority; three produce unanimity. Code abstentions do not count as model votes. Availability is reported separately, and complete output requires all scheduled calls. Agreement and Fleisskappa concern the three configurations; they are not accuracy estimates. Provisional ledger references and DOI-equality pairs support conditional reference agreement, not independently established sensitivity or specificity. Distinct DOI strings and false merges are not automatically false-sharing gold controls. No RoganGladen correction is generated from unvalidated reference labels.
+
+Cost and execution
+Before each request, reserve a peak-rate upper cost using a UTF8byte-based input bound and the output limit. Actual returned token usage settles the reservation; an unknown charge retains its full reserve. Cache tokens are accounted once. Total settled upper costs plus outstanding reserves cannot exceedCNY100. Raw request bodies exclude authorization headers; secrets and account balance responses remain outside the repository. Hashes, raw API bytes, prompts, packets, failures and usage permit offline replay; fresh stochastic generations need not reproduce labels byte for byte.
+
+Pilot gate
+At least95percent of the36scheduled jobs must yield schema-valid model decisions after at most one schema retry, and there must be no transport or provenance failure. Otherwise full execution is paused. Before full execution, write the actual pilot usage and scope-based full-cost forecast. No full generation runs merely because a schedule exists. Full-sample results and weighted diagnostics retain their actual availability, sampling units and denominators.
+
+Prompt-wrapper revision before pilot v2
+The first pilot produced13valid jobs out of36, below the prespecified95percent gate. Most failures were overlong verbatim excerpts. Those responses remain archived and are excluded from inference. The v2 wrapper asks for at most10words per excerpt and under20words per reason; the original25/30-word validation ceilings remain unchanged. Case membership, source strings, reviewer configurations and output schema are unchanged. All spending across pilots remains in one CNY100 ledger.
+
+Output-format and throughput revision before pilot v3
+The v2 pilot passes the validity gate at35of36jobs. Its empirical upper-cost extrapolation for the primary frame isCNY67.7919, orCNY101.6879with a1.5planning multiplier, exceeding theCNY95.4085remaining at that time. Before full execution, the v3 wrapper requests minified single-line JSON, excerpts of at most8words and reasons under12words. The fixed JSON schema,25/30-word validation limits, cases and configurations remain unchanged. Pilot v3 reruns the fixed50cases in both arms to measure this formatting change. The thread-safe scheduler permits up to8concurrent requests for later stages; all budget reservations remain serialized. Pilot concurrency stays3.
+
+Settlement timing before full execution
+Every request still reserves the published peak-rate maximum. For future successful requests only, settlement applies the published half-rate when provider HTTPDate matches local receivedUTC within120seconds and the entire request-to-response interval, extended by five minutes on each side, is demonstrably outside weekday UTC01-04and06-10. Missing or ambiguous timing retains peak. Intervals over30minutes also retain peak. Holiday discounts are not assumed. Each entry preserves its peak-usage upper cost, applied factor and timing evidence. Existing pilot costs are unchanged. TheCNY100limit still covers settled upper costs plus all outstanding peak reservations.
+
+Connection resumption during full collection
+After a connection interruption, the author authorized resuming the prepared requests with at most two connection resends per schema request across process resumes. Successful calls are never repeated. Original interrupted attempts and their raw evidence remain archived; unknown charges keep their full peak reservations. The separate transport_retry_authorization_20261025.json records this additional permission. HTTP, credential, provenance and accounting failures remain outside this retry authorization.

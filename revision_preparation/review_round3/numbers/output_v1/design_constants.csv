@@ -1,0 +1,20 @@
+claim_id,value,format,formatted_value,explanation,protocol_reference
+age_max,60,integer,60,Fixed analysis design constant,Review-round-3 analysis protocol; author task and fixed scripts
+age_recent,5,integer,5,Fixed analysis design constant,Review-round-3 analysis protocol; author task and fixed scripts
+boot_reps,2500,integer,2500,Fixed analysis design constant,Review-round-3 analysis protocol; author task and fixed scripts
+window_years,30,integer,30,Fixed analysis design constant,Review-round-3 analysis protocol; author task and fixed scripts
+interval_percent,95,integer,95,Fixed analysis design constant,Review-round-3 analysis protocol; author task and fixed scripts
+year_central,2013,integer,2013,Fixed analysis design constant,Review-round-3 analysis protocol; author task and fixed scripts
+null_bin_width,5,integer,5,Fixed analysis design constant,Review-round-3 analysis protocol; author task and fixed scripts
+annual_early,2012,integer,2012,Fixed analysis design constant,Review-round-3 analysis protocol; author task and fixed scripts
+annual_late,2014,integer,2014,Fixed analysis design constant,Review-round-3 analysis protocol; author task and fixed scripts
+seed_value,20261011,integer,20261011,Fixed analysis design constant,Review-round-3 analysis protocol; author task and fixed scripts
+citation_bin_zero,0,integer,0,Citation-count categories fixed in external/analyze_acquisition.py:citation_bin,Review-round-3 analysis protocol; author task and fixed scripts
+citation_bin_one,1,integer,1,Citation-count categories fixed in external/analyze_acquisition.py:citation_bin,Review-round-3 analysis protocol; author task and fixed scripts
+citation_bin_nine,9,integer,9,Citation-count categories fixed in external/analyze_acquisition.py:citation_bin,Review-round-3 analysis protocol; author task and fixed scripts
+citation_bin_ten,10,integer,10,Citation-count categories fixed in external/analyze_acquisition.py:citation_bin,Review-round-3 analysis protocol; author task and fixed scripts
+citation_bin_ninety_nine,99,integer,99,Citation-count categories fixed in external/analyze_acquisition.py:citation_bin,Review-round-3 analysis protocol; author task and fixed scripts
+citation_bin_hundred,100,integer,100,Citation-count categories fixed in external/analyze_acquisition.py:citation_bin,Review-round-3 analysis protocol; author task and fixed scripts
+pool_first_year,1980,integer,1980,Fixed publication/citation window in the external acquisition protocol,Review-round-3 analysis protocol; author task and fixed scripts
+citation_from,2014,integer,2014,Fixed publication/citation window in the external acquisition protocol,Review-round-3 analysis protocol; author task and fixed scripts
+citation_to,2021,integer,2021,Fixed publication/citation window in the external acquisition protocol,Review-round-3 analysis protocol; author task and fixed scripts

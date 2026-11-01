@@ -1,0 +1,83 @@
+{
+  "additional_documented_upper_cost_usd": 0.0284,
+  "citing_population": "OpenAlex article/review works published 2014-2021, without a climate text filter.",
+  "input": {
+    "database_sha256_after": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+    "database_sha256_before": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+    "database_unchanged": true,
+    "raw_parser": "reproducibility/revision_identity.py:punctuation_repaired_raw_dois",
+    "raw_parser_script_sha256": "6e23acc973f0f21d19a55d9d3523ec444108641e41294001d6dcaac3ce9294ae",
+    "unit": "One immutable occurrence_id; joins to chapter, working group, source and paper are many-to-one. Derived units are report/assigned-ID or report/raw-DOI key."
+  },
+  "maximum_concurrent_requests": 4,
+  "population": "2863 AR5 all-status repaired single raw DOI keys; 300-key frozen SRS.",
+  "population_raw_keys": 2863,
+  "sample_raw_keys": 300,
+  "unique_resolved_sample_work_ids": 284,
+  "unresolved_sample_keys": [
+    {
+      "raw_doi": "10.1371/currents.dis.7a2cee9e980f91ad7697b570bcc4b0041",
+      "status": "missing"
+    },
+    {
+      "raw_doi": "10.1177/1070496509347089.1073",
+      "status": "missing"
+    },
+    {
+      "raw_doi": "10.1126/sci-ence.1178797",
+      "status": "missing"
+    },
+    {
+      "raw_doi": "10.1111/j.1470-6431.20",
+      "status": "missing"
+    },
+    {
+      "raw_doi": "10.1016/j.anifeed-sci.2011.04.055",
+      "status": "missing"
+    },
+    {
+      "raw_doi": "10.1016/j.tran-pol.2005.04.003",
+      "status": "missing"
+    },
+    {
+      "raw_doi": "10.1371/journal.pone.0014160.1421",
+      "status": "missing"
+    },
+    {
+      "raw_doi": "10.1016/j.landuse-pol.2010.04.009",
+      "status": "missing"
+    },
+    {
+      "raw_doi": "10.1111/j.1530-9290.20",
+      "status": "missing"
+    },
+    {
+      "raw_doi": "10.1016/j.ecol-model.2005.01.037",
+      "status": "missing"
+    },
+    {
+      "raw_doi": "10.1175/jcli-d-12-00584.1.on",
+      "status": "missing"
+    },
+    {
+      "raw_doi": "10.1016/j.tech-fore.2013.10.002",
+      "status": "missing"
+    },
+    {
+      "raw_doi": "10.1186/1475-2875-8-2681-8",
+      "status": "missing"
+    },
+    {
+      "raw_doi": "10.1029/2008wr00694",
+      "status": "missing"
+    },
+    {
+      "raw_doi": "10.2307/2006714",
+      "status": "missing"
+    },
+    {
+      "raw_doi": "10.1093/wber/13.2.333.335",
+      "status": "missing"
+    }
+  ]
+}

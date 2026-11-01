@@ -1,0 +1,7 @@
+{
+  "status": "not_valid_for_inference",
+  "reason": "The first pilot completed model calls but failed source/control packet quality checks. Its agreement tables cannot support accuracy or recurrence calibration.",
+  "failure_report": "../../pilot_v1_failed_qc/failure_report.json",
+  "full_census_completed": false,
+  "new_validation_stopped_by_user": true
+}

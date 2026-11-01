@@ -1,0 +1,69 @@
+{
+  "DOI": "10.1002/asi.20744",
+  "title": [
+    "Long‐term variations in the aging of scientific literature: From exponential growth to steady‐state science (1900–2004)"
+  ],
+  "author": [
+    {
+      "given": "Vincent",
+      "family": "Larivière",
+      "sequence": "first"
+    },
+    {
+      "given": "Éric",
+      "family": "Archambault",
+      "sequence": "additional"
+    },
+    {
+      "given": "Yves",
+      "family": "Gingras",
+      "sequence": "additional"
+    }
+  ],
+  "container-title": [
+    "Journal of the American Society for Information Science and Technology"
+  ],
+  "volume": "59",
+  "issue": "2",
+  "page": "288-296",
+  "published-print": {
+    "date-parts": [
+      [
+        2008,
+        1,
+        15
+      ]
+    ]
+  },
+  "published-online": {
+    "date-parts": [
+      [
+        2007,
+        10,
+        18
+      ]
+    ]
+  },
+  "issued": {
+    "date-parts": [
+      [
+        2007,
+        10,
+        18
+      ]
+    ]
+  },
+  "type": "journal-article",
+  "publisher": "Wiley",
+  "URL": "https://doi.org/10.1002/asi.20744",
+  "ISSN": [
+    "1532-2882",
+    "1532-2890"
+  ],
+  "provenance": {
+    "full_response_sha256": "19dcf87565d5cf122e51b7c9e8eac9de2b9f30ff404b209d5abf912e2d0cc9f8",
+    "endpoint": "https://api.crossref.org/works/10.1002/asi.20744",
+    "doi_and_title_verified": true,
+    "abstract_excluded": true
+  }
+}

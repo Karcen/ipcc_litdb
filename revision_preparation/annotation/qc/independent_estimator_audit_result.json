@@ -1,0 +1,115 @@
+{
+  "all_checks_passed": true,
+  "annotation_tools_sha256": "a082f3d4b211136261269bc9be76beec62a592e542bffb69ea2273bde98e2599",
+  "audit": "Independent finite-population annotation estimator checks",
+  "audit_script_sha256": "0b98903dba825a0f9fb31124610efd2d856837c4bdefbde99c43842a30e7f645",
+  "command": "python qc/independent_estimator_audit.py --output qc/independent_estimator_audit_result.json",
+  "interpretation": "Software and mathematical validation only. No actual human annotations or empirical accuracy estimates were created.",
+  "material_issue_resolutions": [
+    {
+      "issue": "LF-only minimal CSV quoting split standalone CR inside source fields",
+      "resolution": "QUOTE_ALL writer and regenerated empty templates; field round-trip and actual331/801 key integrity pass"
+    },
+    {
+      "issue": "Within-ID accuracy wording could imply all-report correctness",
+      "resolution": "The annotation estimand concerns reviewed AR5/AR6 entries. Missed-merger search separately examines the full saved snapshot."
+    },
+    {
+      "issue": "Partial reviews/searches could previously produce identity estimates",
+      "resolution": "Strict bundle completion now blocks all numerical rates until probability and targeted reviews/searches are complete."
+    }
+  ],
+  "statistical_checks": {
+    "aggregate_coverage_cases": 90,
+    "boundary_examples": [
+      {
+        "N": 100,
+        "k": 0,
+        "lower": 0,
+        "n": 1,
+        "upper": 97
+      },
+      {
+        "N": 100,
+        "k": 1,
+        "lower": 3,
+        "n": 1,
+        "upper": 100
+      },
+      {
+        "N": 1000,
+        "k": 0,
+        "lower": 0,
+        "n": 12,
+        "upper": 263
+      },
+      {
+        "N": 1000,
+        "k": 12,
+        "lower": 737,
+        "n": 12,
+        "upper": 1000
+      },
+      {
+        "N": 12,
+        "k": 0,
+        "lower": 0,
+        "n": 12,
+        "upper": 0
+      },
+      {
+        "N": 12,
+        "k": 12,
+        "lower": 12,
+        "n": 12,
+        "upper": 12
+      }
+    ],
+    "design_interpretation": "Coverage is conditional on independent SRS without replacement within fixed strata, the stated pseudo-random-hash design assumption.",
+    "finite_population_N_max": 30,
+    "finite_population_coverage_cases": 9920,
+    "interval_inversion_cases": 5425,
+    "minimum_aggregate_coverage": 0.9880952380952381,
+    "minimum_aggregate_coverage_case": {
+      "K1": 0,
+      "K2": 3
+    },
+    "minimum_aggregate_coverage_fraction": "83/84",
+    "minimum_coverage": 0.9502262443438914,
+    "minimum_coverage_case": {
+      "K": 9,
+      "N": 18,
+      "n": 7
+    },
+    "minimum_exact_coverage_fraction": "210/221",
+    "nominal_confidence_level": 0.95,
+    "weighted_full_and_domain_cases": 24
+  },
+  "workflow_checks": {
+    "all_trial_labels_synthetic": true,
+    "human_accuracy_estimates_generated": false,
+    "observed_occurrence_reports": {
+      "AR5": 369,
+      "AR6": 432
+    },
+    "probability_ID_count": 319,
+    "sampling_frame_IDs": 46715,
+    "sampling_strata": 33,
+    "shared_domain_IDs": 1657,
+    "source_hashes_unchanged": true,
+    "targeted_ID_count": 12,
+    "template_ID_count": 331,
+    "template_hashes_unchanged": true,
+    "template_occurrence_count": 801,
+    "template_status": "pending_annotation",
+    "workflow_checks": [
+      "Standalone CR, LF and CRLF round trip preserves field values and record count",
+      "Synthetic all-zero error outcomes retain positive finite-population upper bounds",
+      "Incomplete probability or targeted review/search blocks every numerical estimate and emits integrity only",
+      "Synthetic all-one false sharing propagates count bounds in reverse order at fixed denominators",
+      "A false merger with real common work remains distinct from a false-shared identity",
+      "Several synthetic counterpart IDs count one positive audited-ID event, not duplicate pairs or linkage recall",
+      "Altered sampling weights fail validation without changing the frozen source weights"
+    ]
+  }
+}

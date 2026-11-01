@@ -1,0 +1,103 @@
+{
+  "type": "object",
+  "properties": {
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string"
+          },
+          "identity": {
+            "type": "string",
+            "enum": [
+              "same_study",
+              "different_studies",
+              "unresolvable",
+              "not_applicable"
+            ]
+          },
+          "cross_report_recurrence": {
+            "type": "string",
+            "enum": [
+              "recurrent",
+              "non_recurrent",
+              "unresolvable",
+              "not_applicable"
+            ]
+          },
+          "records": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "record_id": {
+                  "type": "string"
+                },
+                "cited_year": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "outlet": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "source_type": {
+                  "type": "string",
+                  "enum": [
+                    "journal",
+                    "book",
+                    "report",
+                    "conference",
+                    "other",
+                    "unresolvable"
+                  ]
+                },
+                "contains_multiple_citations": {
+                  "type": "string",
+                  "enum": [
+                    "yes",
+                    "no",
+                    "unresolvable"
+                  ]
+                },
+                "evidence_quote": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "record_id",
+                "cited_year",
+                "outlet",
+                "source_type",
+                "contains_multiple_citations",
+                "evidence_quote"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "case_id",
+          "identity",
+          "cross_report_recurrence",
+          "records",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "cases"
+  ],
+  "additionalProperties": false
+}

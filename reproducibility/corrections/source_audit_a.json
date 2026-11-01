@@ -1,0 +1,537 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-11",
+  "audit_method": "AI-assisted targeted comparison of immutable raw entries with publisher, IPCC, CSIRO and author-institute sources. This is not a probability-sample accuracy estimate or a completed human validation exercise.",
+  "input_database_sha256": "faa7fc711ae4607acfa9833739ec8f202f8aefd6d929b474a12fceb589c5b85d",
+  "main_target_ids": [
+    26271,
+    26560,
+    28296,
+    28347,
+    29105
+  ],
+  "main_target_occurrence_count": 22,
+  "raw_original_papers": {
+    "26271": {
+      "paper_id": 26271,
+      "doi_norm": "10.1007/s10584-015-1395-1",
+      "title_norm": "inter relationships between adaptation and mitigation a systematic literature review",
+      "title_best": "Inter-relationships between adaptation and mitigation: a systematic literature review",
+      "year_best": "2015",
+      "journal_best": "Climatic Change",
+      "authors_best": "Landauer, Mia; Juhola, Sirkku; Söderholm, Maria",
+      "first_author_surname": "landauer",
+      "identity_method": "doi",
+      "n_occurrences": 11,
+      "n_chapters": 11,
+      "n_reports": 4,
+      "wos_record_id": "WOS:WOS:000358179400004",
+      "metadata_source": "wos",
+      "verification_status": "wos_matched"
+    },
+    "26560": {
+      "paper_id": 26560,
+      "doi_norm": "10.1002/wcc.335",
+      "title_norm": "why is socially just climate change adaptation in sub saharan africa so challenging a review of barriers identified from empirical cases",
+      "title_best": "Why is socially‐just climate change adaptation in sub‐Saharan Africa so challenging? A review of barriers identified from empirical cases",
+      "year_best": "2015",
+      "journal_best": "Wiley Interdisciplinary Reviews Climate Change",
+      "authors_best": "Shackleton, Sheona E; Ziervogel, Gina; Sallu, Susannah M.; Gill, Tom; Tschakert, Petra",
+      "first_author_surname": "shackleton",
+      "identity_method": "doi",
+      "n_occurrences": 4,
+      "n_chapters": 4,
+      "n_reports": 3,
+      "wos_record_id": "WOS:WOS:000352721300005",
+      "metadata_source": "wos",
+      "verification_status": "wos_matched"
+    },
+    "28296": {
+      "paper_id": 28296,
+      "doi_norm": "10.1016/j.uclim.2016.12.004",
+      "title_norm": "a multi scale and multi dimensional framework for enhancing the resilience of urban form to climate change",
+      "title_best": "A multi-scale and multi-dimensional framework for enhancing the resilience of urban form to climate change",
+      "year_best": "2017",
+      "journal_best": "Urban Climate",
+      "authors_best": "Dhar, Tapan K.; Khirfan, Luna",
+      "first_author_surname": "dhar",
+      "identity_method": "doi",
+      "n_occurrences": 2,
+      "n_chapters": 2,
+      "n_reports": 2,
+      "wos_record_id": "WOS:WOS:000409188200005",
+      "metadata_source": "wos",
+      "verification_status": "wos_matched"
+    },
+    "28347": {
+      "paper_id": 28347,
+      "doi_norm": "10.1016/j.ancene.2024.100455",
+      "title_norm": "adapt research to the anthropocene",
+      "title_best": "Adapt research to the Anthropocene",
+      "year_best": "2024",
+      "journal_best": "Anthropocene",
+      "authors_best": "Christmann, Stefanie",
+      "first_author_surname": "christmann",
+      "identity_method": "doi",
+      "n_occurrences": 3,
+      "n_chapters": 3,
+      "n_reports": 3,
+      "wos_record_id": "WOS:WOS:001350844200001",
+      "metadata_source": "wos",
+      "verification_status": "wos_matched"
+    },
+    "29105": {
+      "paper_id": 29105,
+      "doi_norm": "10.3390/w13060849",
+      "title_norm": "rethinking climate climate change and their relationship with water",
+      "title_best": "Rethinking Climate, Climate Change, and Their Relationship with Water",
+      "year_best": "2021",
+      "journal_best": "Water",
+      "authors_best": "Koutsoyiannis, Demetris",
+      "first_author_surname": "koutsoyiannis",
+      "identity_method": "doi",
+      "n_occurrences": 2,
+      "n_chapters": 2,
+      "n_reports": 2,
+      "wos_record_id": "WOS:WOS:000651947400001",
+      "metadata_source": "wos",
+      "verification_status": "wos_matched"
+    },
+    "17259": {
+      "paper_id": 17259,
+      "doi_norm": "10.1007/978-3-319-95885-9_300003",
+      "title_norm": "adaptation and mitigation inter relationships",
+      "title_best": "Adaptation and Mitigation Inter-relationships",
+      "year_best": "2019",
+      "journal_best": "Encyclopedia of the UN Sustainable Development Goals",
+      "authors_best": "Huq, S. and M. Grubb",
+      "first_author_surname": "huq",
+      "identity_method": "doi",
+      "n_occurrences": 2,
+      "n_chapters": 2,
+      "n_reports": 1,
+      "wos_record_id": "",
+      "metadata_source": "crossref_or_openalex",
+      "verification_status": "doi_verified"
+    },
+    "7174": {
+      "paper_id": 7174,
+      "doi_norm": "10.1007/bf00192587",
+      "title_norm": "the international geosphere biosphere programme igbp",
+      "title_best": "The International Geosphere-Biosphere Programme IGBP",
+      "year_best": "1996",
+      "journal_best": "GeoJournal",
+      "authors_best": "Rapley, Chris; Morais, Jo�o",
+      "first_author_surname": "rapley",
+      "identity_method": "doi",
+      "n_occurrences": 1,
+      "n_chapters": 1,
+      "n_reports": 1,
+      "wos_record_id": "",
+      "metadata_source": "crossref_or_openalex",
+      "verification_status": "doi_verified"
+    }
+  },
+  "cases": [
+    {
+      "original_paper_id": 26271,
+      "finding": "false_identity_merge",
+      "retained_work": {
+        "paper_id": 26271,
+        "doi_norm": "10.1007/s10584-015-1395-1",
+        "title_norm": "inter relationships between adaptation and mitigation a systematic literature review",
+        "title_best": "Inter-relationships between adaptation and mitigation: a systematic literature review",
+        "year_best": "2015",
+        "journal_best": "Climatic Change",
+        "authors_best": "Landauer, Mia; Juhola, Sirkku; Söderholm, Maria",
+        "first_author_surname": "landauer",
+        "identity_method": "doi",
+        "n_occurrences": 11,
+        "n_chapters": 11,
+        "n_reports": 4,
+        "wos_record_id": "WOS:WOS:000358179400004",
+        "metadata_source": "wos",
+        "verification_status": "wos_matched"
+      },
+      "retained_occurrence_ids": [
+        "AR6-WG2-Ch8-00522",
+        "AR6-WG3-Chapter 13-00749",
+        "AR6-WG3-Chapter 17-00340"
+      ],
+      "correction_groups": [
+        {
+          "target_key": "klein_2007_ipcc_chapter",
+          "target_paper_id": null,
+          "occurrence_ids": [
+            "AR5-WG2-Chapter 14-00193",
+            "AR5-WG2-Chapter 16-00326",
+            "AR5-WG2-Chapter 2-00229",
+            "AR5-WG2-Chapter 5-00270",
+            "AR5-WG2-Chapter 9-00236",
+            "AR6-WG2-Ch17-00647",
+            "SRCCL-WG1+WG2+WG3-Chapter 1-00589",
+            "SRREN-WG3-Chapter 1-00109",
+            "AR4-WG3-Chapter 9-00101"
+          ],
+          "metadata": {
+            "title_best": "Inter-relationships between adaptation and mitigation",
+            "year_best": "2007",
+            "journal_best": "Climate Change 2007: Impacts, Adaptation and Vulnerability",
+            "doi_norm": null,
+            "authors": [
+              {
+                "surname": "Klein",
+                "given": "Richard J. T.",
+                "full_name": "Richard J. T. Klein"
+              },
+              {
+                "surname": "Huq",
+                "given": "Saleemul",
+                "full_name": "Saleemul Huq"
+              },
+              {
+                "surname": "Denton",
+                "given": "Fatima",
+                "full_name": "Fatima Denton"
+              },
+              {
+                "surname": "Downing",
+                "given": "Thomas E.",
+                "full_name": "Thomas E. Downing"
+              },
+              {
+                "surname": "Richels",
+                "given": "Richard G.",
+                "full_name": "Richard G. Richels"
+              },
+              {
+                "surname": "Robinson",
+                "given": "John B.",
+                "full_name": "John B. Robinson"
+              },
+              {
+                "surname": "Toth",
+                "given": "Ferenc L.",
+                "full_name": "Ferenc L. Toth"
+              }
+            ],
+            "authors_best": "Klein, Richard J. T.; Huq, Saleemul; Denton, Fatima; Downing, Thomas E.; Richels, Richard G.; Robinson, John B.; Toth, Ferenc L.",
+            "first_author_surname": "klein",
+            "wos_record_id": null
+          },
+          "match_status": "unmatched",
+          "clear_wos_bridge": true,
+          "doi_source": null,
+          "evidence_urls": [
+            "https://www.ipcc.ch/site/assets/uploads/2018/02/ar4-wg2-chapter18-1.pdf",
+            "https://archive.ipcc.ch/publications_and_data/ar4/wg2/en/ch18.html"
+          ],
+          "reason": "Eight occurrences in ID 26271 cite the 2007 IPCC chapter. One additional AR4 occurrence under ID 17259 cites the same chapter. They are distinct from the three Landauer et al. 2015 article occurrences, which retain ID 26271 and DOI 10.1007/s10584-015-1395-1.",
+          "source_attribution_note": "SRCCL-WG1+WG2+WG3-Chapter 1-00589 prints a different author list (Taylor et al.), but its exact chapter title, year, report, editors and pp.745–777 identify the Klein et al. chapter. Preserve that raw attribution and record the correction source."
+        }
+      ],
+      "distinct_article_evidence_url": "https://link.springer.com/article/10.1007/s10584-015-1395-1"
+    },
+    {
+      "original_paper_id": 26560,
+      "finding": "false_identity_merge",
+      "retained_work": {
+        "paper_id": 26560,
+        "doi_norm": "10.1002/wcc.335",
+        "title_norm": "why is socially just climate change adaptation in sub saharan africa so challenging a review of barriers identified from empirical cases",
+        "title_best": "Why is socially‐just climate change adaptation in sub‐Saharan Africa so challenging? A review of barriers identified from empirical cases",
+        "year_best": "2015",
+        "journal_best": "Wiley Interdisciplinary Reviews Climate Change",
+        "authors_best": "Shackleton, Sheona E; Ziervogel, Gina; Sallu, Susannah M.; Gill, Tom; Tschakert, Petra",
+        "first_author_surname": "shackleton",
+        "identity_method": "doi",
+        "n_occurrences": 4,
+        "n_chapters": 4,
+        "n_reports": 3,
+        "wos_record_id": "WOS:WOS:000352721300005",
+        "metadata_source": "wos",
+        "verification_status": "wos_matched"
+      },
+      "retained_occurrence_ids": [
+        "AR6-WG2-Ch17-01053",
+        "AR6-WG2-Ch9-01546",
+        "SR15-WG1+WG2+WG3-Chapter 5-00573"
+      ],
+      "correction_groups": [
+        {
+          "target_key": "brisley_2012_report",
+          "target_paper_id": null,
+          "occurrence_ids": [
+            "AR5-WG2-Chapter 16-00085"
+          ],
+          "metadata": {
+            "title_best": "Socially just adaptation to climate change",
+            "year_best": "2012",
+            "journal_best": "Joseph Rowntree Foundation",
+            "doi_norm": null,
+            "authors": [
+              {
+                "surname": "Brisley",
+                "given": "Rachel",
+                "full_name": "Rachel Brisley"
+              },
+              {
+                "surname": "Welstead",
+                "given": "Jean",
+                "full_name": "Jean Welstead"
+              },
+              {
+                "surname": "Hindle",
+                "given": "Richard",
+                "full_name": "Richard Hindle"
+              },
+              {
+                "surname": "Paavola",
+                "given": "Jouni",
+                "full_name": "Jouni Paavola"
+              }
+            ],
+            "authors_best": "Brisley, Rachel; Welstead, Jean; Hindle, Richard; Paavola, Jouni",
+            "first_author_surname": "brisley",
+            "wos_record_id": null
+          },
+          "match_status": "unmatched",
+          "clear_wos_bridge": true,
+          "doi_source": null,
+          "evidence_urls": [
+            "https://www.jrf.org.uk/sites/default/files/migrated/migrated/files/climate-change-adaptation-full_0.pdf",
+            "https://www.jrf.org.uk/climate-change/socially-just-adaptation-to-climate-change"
+          ],
+          "reason": "The AR5 entry cites Brisley, Welstead, Hindle and Paavola (2012), a 118-page JRF report. The other three occurrences cite Shackleton et al. (2015), a Wiley article with a different author list, title and DOI."
+        }
+      ],
+      "distinct_article_evidence_url": "https://wires.onlinelibrary.wiley.com/doi/10.1002/wcc.335"
+    },
+    {
+      "original_paper_id": 28296,
+      "finding": "false_identity_merge",
+      "retained_work": {
+        "paper_id": 28296,
+        "doi_norm": "10.1016/j.uclim.2016.12.004",
+        "title_norm": "a multi scale and multi dimensional framework for enhancing the resilience of urban form to climate change",
+        "title_best": "A multi-scale and multi-dimensional framework for enhancing the resilience of urban form to climate change",
+        "year_best": "2017",
+        "journal_best": "Urban Climate",
+        "authors_best": "Dhar, Tapan K.; Khirfan, Luna",
+        "first_author_surname": "dhar",
+        "identity_method": "doi",
+        "n_occurrences": 2,
+        "n_chapters": 2,
+        "n_reports": 2,
+        "wos_record_id": "WOS:WOS:000409188200005",
+        "metadata_source": "wos",
+        "verification_status": "wos_matched"
+      },
+      "retained_occurrence_ids": [
+        "AR6-WG2-Ch6-00417"
+      ],
+      "correction_groups": [
+        {
+          "target_key": "tyler_moench_2012",
+          "target_paper_id": null,
+          "occurrence_ids": [
+            "AR5-WG2-Chapter 2-00443"
+          ],
+          "metadata": {
+            "title_best": "A framework for urban climate resilience",
+            "year_best": "2012",
+            "journal_best": "Climate and Development",
+            "doi_norm": "10.1080/17565529.2012.745389",
+            "authors": [
+              {
+                "surname": "Tyler",
+                "given": "Stephen",
+                "full_name": "Stephen Tyler"
+              },
+              {
+                "surname": "Moench",
+                "given": "Marcus",
+                "full_name": "Marcus Moench"
+              }
+            ],
+            "authors_best": "Tyler, Stephen; Moench, Marcus",
+            "first_author_surname": "tyler",
+            "wos_record_id": null
+          },
+          "match_status": "unmatched",
+          "clear_wos_bridge": true,
+          "doi_source": "publisher_verified",
+          "evidence_urls": [
+            "https://www.tandfonline.com/doi/full/10.1080/17565529.2012.745389",
+            "https://www.tandfonline.com/doi/pdf/10.1080/17565529.2012.745389"
+          ],
+          "reason": "The AR5 entry cites Tyler and Moench (2012), Climate and Development 4:311–326. The publisher confirms DOI 10.1080/17565529.2012.745389. The AR6 entry is Dhar and Khirfan (2017), Urban Climate 19:72–91. The original AR6 raw entry prints volume 17; preserve raw text. No exact Tyler DOI row exists in the local WoS table, so publisher DOI verification does not create a WoS match."
+        }
+      ],
+      "distinct_article_evidence_url": "https://uwaterloo.ca/planning/profiles/luna-khirfan"
+    },
+    {
+      "original_paper_id": 28347,
+      "finding": "correct_shared_identity_wrong_metadata",
+      "correction_groups": [
+        {
+          "target_key": "crutzen_stoermer_2000",
+          "target_paper_id": 28347,
+          "occurrence_ids": [
+            "AR5-WG2-Chapter 20-00053",
+            "AR6-WG1-Ch1-00188",
+            "SR15-WG1+WG2+WG3-Chapter 1-00050",
+            "AR3-WG1-Annex12-00002"
+          ],
+          "metadata": {
+            "title_best": "The “Anthropocene”",
+            "year_best": "2000",
+            "journal_best": "IGBP Newsletter",
+            "doi_norm": null,
+            "authors": [
+              {
+                "surname": "Crutzen",
+                "given": "Paul J.",
+                "full_name": "Paul J. Crutzen"
+              },
+              {
+                "surname": "Stoermer",
+                "given": "Eugene F.",
+                "full_name": "Eugene F. Stoermer"
+              }
+            ],
+            "authors_best": "Crutzen, Paul J.; Stoermer, Eugene F.",
+            "first_author_surname": "crutzen",
+            "wos_record_id": null
+          },
+          "match_status": "unmatched",
+          "clear_wos_bridge": true,
+          "doi_source": null,
+          "evidence_urls": [
+            "https://www.mpic.de/publication-search/5280871?person=%2Fpersons%2Fresource%2Fpersons100899&seite=7",
+            "https://hdl.handle.net/11858/00-001M-0000-0014-95AC-D",
+            "https://files.commons.gc.cuny.edu/wp-content/blogs.dir/3585/files/2018/01/anthroCrutzen.pdf"
+          ],
+          "reason": "All three occurrences under ID 28347 cite Crutzen and Stoermer (2000), newsletter 41:17–18. The additional AR3 entry under ID 7174 gives those authors, year and newsletter number. Their identity recurrence is valid. Preferred metadata and the DOI/WoS bridge incorrectly describe Christmann (2024). Remove that bridge and restore the newsletter metadata. Retire empty ID 7174 only after its one occurrence is reassigned with an explicit crosswalk.",
+          "evidence_availability_note": "The originally printed igbp.net URL now leads to a parked domain. The author institute records the original article; the CUNY-hosted original-text reprint gives the original 2000 citation. Do not assign a later reprint DOI to the original newsletter item."
+        }
+      ],
+      "distinct_article_evidence_url": "https://www.sciencedirect.com/science/article/pii/S2213305424000328"
+    },
+    {
+      "original_paper_id": 29105,
+      "finding": "correct_shared_identity_wrong_metadata",
+      "correction_groups": [
+        {
+          "target_key": "chiew_prosser_2011",
+          "target_paper_id": 29105,
+          "occurrence_ids": [
+            "AR5-WG2-Chapter 25-00150",
+            "AR6-WG2-Ch11-00205"
+          ],
+          "metadata": {
+            "title_best": "Water and climate",
+            "year_best": "2011",
+            "journal_best": "Water: Science and Solutions for Australia",
+            "doi_norm": null,
+            "authors": [
+              {
+                "surname": "Chiew",
+                "given": "Francis",
+                "full_name": "Francis Chiew"
+              },
+              {
+                "surname": "Prosser",
+                "given": "Ian",
+                "full_name": "Ian Prosser"
+              }
+            ],
+            "authors_best": "Chiew, Francis; Prosser, Ian",
+            "first_author_surname": "chiew",
+            "wos_record_id": null
+          },
+          "match_status": "unmatched",
+          "clear_wos_bridge": true,
+          "doi_source": null,
+          "evidence_urls": [
+            "https://www.publishing.csiro.au/book/6557",
+            "https://www.publishing.csiro.au/ebook/6505"
+          ],
+          "reason": "Both AR5 and AR6 entries cite Chiew and Prosser (2011), chapter Water and climate in Water: Science and Solutions for Australia, pp.29–46. The CSIRO publisher confirms chapter authors and book publication in November 2011. Their identity recurrence is valid. DOI 10.3390/w13060849 and the WoS record identify Koutsoyiannis (2021), a distinct single-author article."
+        }
+      ],
+      "distinct_article_evidence_url": "https://www.mdpi.com/2073-4441/13/6/849"
+    }
+  ],
+  "auxiliary_cases": [
+    {
+      "paper_id": 17259,
+      "finding": "auxiliary_false_merge_and_wrong_metadata",
+      "action": "Move AR4-WG3-Chapter 9-00101 to the new Klein 2007 identity, as registered in case 26271. Correct the remaining occurrence and paper to Huq and Grubb 2004.",
+      "correction_groups": [
+        {
+          "target_key": "huq_grubb_2004",
+          "target_paper_id": 17259,
+          "occurrence_ids": [
+            "AR4-WG3-Chapter 11-00141"
+          ],
+          "metadata": {
+            "title_best": "Scientific assessment of the inter-relationships of mitigation and adaptation",
+            "year_best": "2004",
+            "journal_best": "IPCC Expert Meeting, Geneva",
+            "doi_norm": null,
+            "authors": [
+              {
+                "surname": "Huq",
+                "given": "S.",
+                "full_name": "S. Huq"
+              },
+              {
+                "surname": "Grubb",
+                "given": "M.",
+                "full_name": "M. Grubb"
+              }
+            ],
+            "authors_best": "Huq, S.; Grubb, M.",
+            "first_author_surname": "huq",
+            "wos_record_id": null
+          },
+          "match_status": "unmatched",
+          "clear_wos_bridge": true,
+          "doi_source": null,
+          "evidence_urls": [
+            "https://archive.ipcc.ch/publications_and_data/ar4/wg3/en/ch11s11-references.html",
+            "https://www.ipcc.ch/site/assets/uploads/2018/02/ar4-wg3-chapter11-1.pdf"
+          ],
+          "reason": "The remaining raw entry is printed verbatim in the official AR4 WGIII chapter 11 references. The preferred 2019 encyclopedia DOI belongs to a different work. Preserve printed author initials; expansion of given names is not required for this repair."
+        }
+      ]
+    },
+    {
+      "paper_id": 7174,
+      "finding": "auxiliary_false_split_and_wrong_metadata",
+      "action": "Move its sole AR3 occurrence to corrected ID 28347, record crosswalk 7174→28347, then retire empty paper 7174 without deleting the occurrence.",
+      "evidence_urls": [
+        "https://www.mpic.de/publication-search/5280871?person=%2Fpersons%2Fresource%2Fpersons100899&seite=7"
+      ],
+      "original_occurrence_ids": [
+        "AR3-WG1-Annex12-00002"
+      ]
+    },
+    {
+      "paper_id": 104503,
+      "finding": "compound_raw_extraction_block",
+      "action": "Create an unresolved high-severity occurrence quality flag. Do not reassign the entire concatenated block to Klein 2007.",
+      "original_occurrence_ids": [
+        "AR5-WG3-Chapter 14-00048"
+      ],
+      "reason": "The raw entry contains multiple distinct works, including Klein 2007. A one-to-one occurrence identity cannot be inferred for the complete block. This lies outside the 11-ID targeted chronology audit."
+    }
+  ],
+  "target_lookup": {
+    "existing_valid_target_ids": [],
+    "tyler_doi_exact_wos_rows": 0,
+    "warning": "Potential target 17259 is itself a mixed identity; potential newsletter 7174 has wrong metadata. Both are explicitly repaired through auxiliary crosswalks."
+  },
+  "raw_export_preserves_all_original_fields": true
+}

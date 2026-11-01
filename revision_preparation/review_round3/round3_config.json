@@ -1,0 +1,17 @@
+{
+  "package_version": "1.4.0",
+  "seed": 20261011,
+  "chapter_bootstrap_replicates": 2500,
+  "baseline_workflow": "v1.2.1",
+  "prior_analysis_package": "v1.3.0",
+  "prior_analysis_commit": "c858167e68c30b1f2d6ab8857f1445e6504f13bb",
+  "user_model_override": "Use only GPT-6.1 Sol; no external LLM API configuration requested after author clarification.",
+  "model_family": "OpenAI GPT",
+  "requested_model_string": "gpt-6.1-sol",
+  "generation_temperature_control": "not exposed by Codex agent/exec interface",
+  "generation_seed_control": "not exposed; data-sampling seed is separately fixed",
+  "no_human_adjudication": true,
+  "validation_stopped_by_user": true,
+  "full_panel_completed": false,
+  "new_model_calls_allowed": false
+}

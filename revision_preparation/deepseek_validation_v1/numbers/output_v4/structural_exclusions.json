@@ -1,0 +1,10 @@
+[
+  {
+    "explanation": "Definition of inverse Simpson concentration; subscripts, power and numerator are algebraic constants.",
+    "text": "\\(D_2=1/\\sum_jp_j^2\\)"
+  },
+  {
+    "explanation": "Requested provider model identifier; its digit is model nomenclature, not an empirical quantity.",
+    "text": "\\texttt{deepseek-v4-pro}"
+  }
+]

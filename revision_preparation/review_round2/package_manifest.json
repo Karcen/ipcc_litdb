@@ -1,0 +1,24 @@
+{
+  "analysis_package_version": "1.3.0",
+  "baseline_workflow_version": "1.2.1",
+  "database_snapshot_version": "1.2.0",
+  "seed": 20261011,
+  "date": "2026-10-21",
+  "database_sha256": "a887a535947ae3b9bab7656070cc038eb3a7a5161494afcb2c3df2245f5ff0ec",
+  "old_29_plus_10_plus_6_CSVs_unchanged": true,
+  "independent_manifest_hashes": {
+    "reproducibility/reference/manifest.json": "ddd60b576a71ddaa389ca95a40e044febd6426161628eb907762ebafaceca9c1",
+    "revision_preparation/robustness/output_v1/manifest.json": "19729e6a70b5ec7b2c69bc3a551468317e76858307033b19b17d64546ca603f3",
+    "revision_preparation/annotation/ai_review_summary_v1/manifest.json": "c0fe4a086d5fccc1049570fa54d7a5a5aeb6adad7304dda8d4bfbd1c7f22a722",
+    "revision_preparation/review_round2/raw_age_v1/manifest.json": "4f95fc59c5bc6bc36bf8900f52a289c67881099dbec4348c1201fb7dbc53396c",
+    "revision_preparation/review_round2/ai_sensitivity_v1/manifest.json": "de3de66980b41c913755b555db180bb770eac916e9a7302f83c2ce1b7c0699c8",
+    "revision_preparation/review_round2/counterpart_review_v1/manifest.json": "ee8f8fd983a648c0202639e12f1f58754d332b3a4f7ae70b684dc812ffb4818d",
+    "revision_preparation/review_round2/figures_v1/manifest.json": "fed01c3bb43f943a22a3ad3311d0b1209a57f1d6ede2dd885782221ee80ae7a4",
+    "revision_preparation/review_round2/openalex_v1/activated_attempt_03/results_v1/manifest.json": "1d3f34d7a054a52c11e3ee2e6b99d8b21cc057791d4489233bc21125a317be18",
+    "revision_preparation/review_round2/large_table_archives.json": "18c8b7b0bbc491f7d688efcbf7faeea5675f90de73312e365aa4f348691e2a73"
+  },
+  "human_sample_validation": false,
+  "new_AI_accuracy_estimate": false,
+  "manuscript_included": false,
+  "code_commit": "The fixed publication commit containing this package; see Git history. A self-referential commit hash is not embedded in its own tree."
+}

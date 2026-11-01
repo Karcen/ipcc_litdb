@@ -1,0 +1,32 @@
+{
+  "provider": "DeepSeek",
+  "paid_calls_authorized": true,
+  "budget_limit_cny": "100",
+  "currency": "CNY",
+  "human_authorization_date": "2026-10-25",
+  "scope": [
+    "50-case pilot with two arms",
+    "budgeted full blinded frame after pilot QC and recorded cost estimate",
+    "candidate pairs after pilot cost estimate"
+  ],
+  "no_human_adjudication": true,
+  "data_seed": 20261011,
+  "old_codex_calls_remain_stopped": true,
+  "model_configurations": [
+    {
+      "configuration_id": "flash_A",
+      "model_id": "deepseek-flash",
+      "prompt_variant": "A"
+    },
+    {
+      "configuration_id": "flash_B",
+      "model_id": "deepseek-flash",
+      "prompt_variant": "B"
+    },
+    {
+      "configuration_id": "pro_C",
+      "model_id": "deepseek-v4-pro",
+      "prompt_variant": "C"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "analysis_package": "1.5.0",
+  "sampling_seed": 20261011,
+  "run_name": "deepseek_full_20261025_v1",
+  "status": "complete",
+  "scheduled_calls": 1866,
+  "completed_calls": 1866,
+  "model_decision_calls": 1670,
+  "code_abstention_calls": 196,
+  "call_status_counts": {
+    "valid": 1670,
+    "unresolvable_after_two_invalid_outputs": 196
+  },
+  "distinct_cases": 5956,
+  "case_count_by_arm": {
+    "blind": 5956
+  },
+  "record_count_by_arm": {
+    "blind": 9701
+  },
+  "reviewer_configurations": [
+    "flash_A",
+    "flash_B",
+    "pro_C"
+  ],
+  "configured_model_ids": [
+    "deepseek-flash",
+    "deepseek-v4-pro"
+  ],
+  "configuration_count": 3,
+  "configured_model_count": 2,
+  "independent_models": false,
+  "tokens": {
+    "prompt_tokens": 5954014,
+    "completion_tokens": 3019938,
+    "prompt_cache_hit_tokens": 1752448,
+    "prompt_cache_miss_tokens": 4201566
+  },
+  "cost_upper_cny_recorded": "33.299878420",
+  "attempts_missing_cost": 0,
+  "metadata_arm_shifts": {
+    "identity": {
+      "comparable": 0,
+      "changed": 0
+    },
+    "cross_report_recurrence": {
+      "comparable": 0,
+      "changed": 0
+    },
+    "cited_year": {
+      "comparable": 0,
+      "changed": 0
+    },
+    "outlet": {
+      "comparable": 0,
+      "changed": 0
+    },
+    "source_type": {
+      "comparable": 0,
+      "changed": 0
+    },
+    "contains_multiple_citations": {
+      "comparable": 0,
+      "changed": 0
+    }
+  },
+  "weighted_ai_label_projection_status": [
+    "not_estimated_incomplete_probability_sample"
+  ],
+  "interpretation": "agreement between three configurations of two DeepSeek models; not accuracy or independent-model reliability",
+  "no_human_adjudication": true,
+  "control_interpretation": "agreement conditional on provisional reference labels; no sensitivity, specificity, or accuracy estimate",
+  "incomplete_call_ids": []
+}
