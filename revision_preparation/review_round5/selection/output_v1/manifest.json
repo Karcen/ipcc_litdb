@@ -1,0 +1,22 @@
+{
+  "analysis_version": "1.6.0",
+  "seed": 20261011,
+  "numpy_version": "2.2.6",
+  "producer_sha256": "687c9a482bea39a871910efc37681bfd91e56cf7f913c1ca93f2b75fc480b899",
+  "inputs": {
+    "revision_preparation/review_round3/frozen_inputs/manifest.json": "d733d00ddfc7d7b0e0dc41ae835e7b920cde179612140303ffd7329cb09ad218",
+    "revision_preparation/review_round3/frozen_inputs/inputs_001.tar.gz": "84c27509722b80bb14fbe512c287946e45e0a2b126d8e165edc00d5c6d4b505f",
+    "external/acquisition_v1/case_cohort_observations.json": "290f2dba27a68fd730a0a1ea5449a7d5e2b144789eb194275d2bb68b8c61918e"
+  },
+  "outputs": {
+    "._source_stratified_RR.csv": "f654a505a533bd37db0f66b26e2620e2b5f73fd3740808f9f45392a17f4698d7",
+    "._source_stratified_support.csv": "f654a505a533bd37db0f66b26e2620e2b5f73fd3740808f9f45392a17f4698d7",
+    "source_stratified_RR.csv": "004ed6f9163a70f1b6c0eb1fbf53d2569b3f4f7588c91ee7b6d48df0b692a7dd",
+    "source_stratified_support.csv": "5d0ccbde04a52f92e847690a844d87dc1d8a2650197101dc2aa4b96e44da62ca"
+  },
+  "limitations": [
+    "Later citations are post-exposure variables.",
+    "Topic, author overlap and symmetric DOI observation are not supplied.",
+    "Stratification changes the observed common-support population."
+  ]
+}

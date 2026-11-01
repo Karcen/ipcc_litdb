@@ -1,0 +1,13 @@
+rule,screening,group,report_a,report_b,n_a,n_b,shared,retention,reuse,jaccard,source_table
+extracted,none,WG1,AR4,AR5,4092,7180,547,0.1336754643206256,0.07618384401114206,0.051002331002331,reproducibility/reference/revision_network_retention_sensitivity.csv
+extracted,none,WG1,AR5,AR6,7180,13521,896,0.12479108635097493,0.06626728792249094,0.04524110073213835,reproducibility/reference/revision_network_retention_sensitivity.csv
+extracted,none,WG2,AR4,AR5,6734,10878,382,0.056727056727056725,0.03511674940246369,0.02217063261752757,reproducibility/reference/revision_network_retention_sensitivity.csv
+extracted,none,WG2,AR5,AR6,10878,23629,720,0.06618863761720904,0.030471031359769776,0.021309971290733122,reproducibility/reference/revision_network_retention_sensitivity.csv
+extracted,none,WG3,AR4,AR5,3307,4729,169,0.0511037193831267,0.03573694227109325,0.021482140587263252,reproducibility/reference/revision_network_retention_sensitivity.csv
+extracted,none,WG3,AR5,AR6,4729,13607,269,0.056883061958130685,0.019769236422429632,0.014889024187745613,reproducibility/reference/revision_network_retention_sensitivity.csv
+matched,none,WG1,AR4,AR5,2030,5606,403,0.19852216748768473,0.07188726364609348,0.0557168533112125,reproducibility/reference/revision_network_retention_sensitivity.csv
+matched,none,WG1,AR5,AR6,5606,11922,811,0.14466642882625758,0.06802549907733602,0.04851348926242747,reproducibility/reference/revision_network_retention_sensitivity.csv
+matched,none,WG2,AR4,AR5,2087,6418,189,0.09056061332055582,0.029448426301028358,0.022727272727272728,reproducibility/reference/revision_network_retention_sensitivity.csv
+matched,none,WG2,AR5,AR6,6418,16896,506,0.07884076036148333,0.029947916666666668,0.022185198176078568,reproducibility/reference/revision_network_retention_sensitivity.csv
+matched,none,WG3,AR4,AR5,754,2141,56,0.07427055702917772,0.026156001868285848,0.019725255371609723,reproducibility/reference/revision_network_retention_sensitivity.csv
+matched,none,WG3,AR5,AR6,2141,8658,174,0.0812704343764596,0.020097020097020097,0.016376470588235294,reproducibility/reference/revision_network_retention_sensitivity.csv

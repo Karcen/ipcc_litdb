@@ -1,0 +1,21 @@
+{
+  "question": "How does the direction and denominator of reference recurrence differ across working groups?",
+  "claim": "Earlier-cohort retention and later-cohort reuse summarize different recorded opportunities; group-specific publication-date screens change the reuse denominator.",
+  "archetype": "quantitative grid",
+  "backend": "python",
+  "seed": 20261011,
+  "panels": {
+    "a": "WGI",
+    "b": "WGII",
+    "c": "WGIII"
+  },
+  "uncertainty": "None: fixed-frame descriptive proportions; no model-accuracy or population interval is claimed.",
+  "membership": "One assigned identity within each group; identities spanning groups remain in each group.",
+  "cutoff_scope": "Older reuse uses uniquely resolved publication dates and each group cutoff, not the full unmatched denominator.",
+  "formats": [
+    "png",
+    "pdf",
+    "svg"
+  ],
+  "width_mm": 180
+}

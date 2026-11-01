@@ -1,0 +1,88 @@
+{
+  "provenance": "Frozen inspection record from output_v1; this records source inspection, not proof of historical execution.",
+  "rules": [
+    {
+      "execution_status": "inspected_current_or_archived_source_not_proven_historical_execution",
+      "rule": "TITLE_SIMILARITY",
+      "source_file": "run_all.py",
+      "source_sha256": "2428163932930b9b3d24bd95f4ea7901c212fc79c8b2c14dea59dfbf63af3622",
+      "value": "0.92"
+    },
+    {
+      "execution_status": "inspected_current_or_archived_source_not_proven_historical_execution",
+      "rule": "CROSSREF_DOI_TITLE_SIMILARITY",
+      "source_file": "run_all.py",
+      "source_sha256": "2428163932930b9b3d24bd95f4ea7901c212fc79c8b2c14dea59dfbf63af3622",
+      "value": "0.85"
+    },
+    {
+      "execution_status": "inspected_current_or_archived_source_not_proven_historical_execution",
+      "rule": "YEAR_TOLERANCE",
+      "source_file": "run_all.py",
+      "source_sha256": "2428163932930b9b3d24bd95f4ea7901c212fc79c8b2c14dea59dfbf63af3622",
+      "value": "1"
+    },
+    {
+      "execution_status": "inspected_current_or_archived_source_not_proven_historical_execution",
+      "rule": "year_parser_prefix_characters",
+      "source_file": "revision_preparation/robustness/coverage_robustness.py",
+      "source_sha256": "87f384e5c990123f64330f3da2be619cdc4ed7e239ecf3f57b2cfc5425268e72",
+      "value": "300"
+    },
+    {
+      "execution_status": "inspected_current_or_archived_source_not_proven_historical_execution",
+      "rule": "raw_year_regex",
+      "source_file": "revision_preparation/robustness/coverage_robustness.py",
+      "source_sha256": "87f384e5c990123f64330f3da2be619cdc4ed7e239ecf3f57b2cfc5425268e72",
+      "value": "\\b(1[6-9]\\d{2}|20\\d{2})[a-z]?\\b"
+    },
+    {
+      "execution_status": "inspected_current_or_archived_source_not_proven_historical_execution",
+      "rule": "extraction_splitters",
+      "source_file": "ipccdb/refextract.py",
+      "source_sha256": "4392cf44781a85241e72b437079c17e696de26ac498bf7509e243390bbc5e082",
+      "value": "PDF blocks; hanging indent; year/author regex"
+    },
+    {
+      "execution_status": "inspected_current_or_archived_source_not_proven_historical_execution",
+      "rule": "hanging_indent_override",
+      "source_file": "ipccdb/refextract.py",
+      "source_sha256": "4392cf44781a85241e72b437079c17e696de26ac498bf7509e243390bbc5e082",
+      "value": "confidence >= 0.5 and median_gap >= 3.0"
+    },
+    {
+      "execution_status": "inspected_current_or_archived_source_not_proven_historical_execution",
+      "rule": "title_similarity_definition",
+      "source_file": "ipccdb/cite.py",
+      "source_sha256": "a591fab5de246494715b15282f2eb09aec26d9282c180b31e4328a320d40e920",
+      "value": "max(token-set Jaccard, RapidFuzz token_set_ratio/100); Jaccard fallback"
+    },
+    {
+      "execution_status": "inspected_current_or_archived_source_not_proven_historical_execution",
+      "rule": "DOI_acceptance",
+      "source_file": "ipccdb/wos.py",
+      "source_sha256": "e94390e69f92dbc4f500ebfaa676f21d48a68625f62bc099b5b3fb933b75a648",
+      "value": "normalized exact DOI; Crossref-backfilled DOI additionally needs configured title similarity"
+    },
+    {
+      "execution_status": "inspected_current_or_archived_source_not_proven_historical_execution",
+      "rule": "title_year_author_acceptance",
+      "source_file": "ipccdb/wos.py",
+      "source_sha256": "e94390e69f92dbc4f500ebfaa676f21d48a68625f62bc099b5b3fb933b75a648",
+      "value": "configured similarity plus year tolerance when both years usable; first-surname equality when both available"
+    },
+    {
+      "execution_status": "inspected_current_or_archived_source_not_proven_historical_execution",
+      "rule": "IPCC_self_reference_policy",
+      "source_file": "scripts/review_round2_raw_age.py",
+      "source_sha256": "8ab6fb6e8afb5661860a6d9afceb71d9e50f4cae90419e7fa1b625e62df9be4b",
+      "value": "No additional exclusion: retain under same matching, identity and age rules as other entries"
+    }
+  ],
+  "source_files": {
+    "cite.py": "a591fab5de246494715b15282f2eb09aec26d9282c180b31e4328a320d40e920",
+    "refextract.py": "4392cf44781a85241e72b437079c17e696de26ac498bf7509e243390bbc5e082",
+    "run_all.py": "2428163932930b9b3d24bd95f4ea7901c212fc79c8b2c14dea59dfbf63af3622",
+    "wos.py": "e94390e69f92dbc4f500ebfaa676f21d48a68625f62bc099b5b3fb933b75a648"
+  }
+}
