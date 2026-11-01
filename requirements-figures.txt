@@ -1,3 +1,0 @@
--r requirements-analysis.txt
-matplotlib==3.10.8
-PyMuPDF==1.28.2

@@ -1,3 +1,0 @@
-specification,RR,lower_95,upper_95,strata,common_support_strata,AR5_cited_sample_in_common_support,AR5_not_cited_sample_in_common_support,AR5_cited_positive_in_support,AR5_not_cited_positive_in_support,bootstrap_draws,undefined_draws,interpretation
-publication_year_source_ID,2.551506440471071,1.252369119497885,12.62493557176679,1231,69,114,88,25,7,2500,0,Descriptive common-support association; source-ID and later citation strata do not identify a causal effect or repair asymmetric DOI observation
-publication_year_source_ID_later_citation_bin,1.6534410573498077,0.6744740038843381,12.405610326891026,1325,43,64,52,12,6,2500,0,Descriptive common-support association; source-ID and later citation strata do not identify a causal effect or repair asymmetric DOI observation
